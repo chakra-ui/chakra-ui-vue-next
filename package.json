@@ -9,7 +9,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build --no-private --stream"
+    "build": "lerna run build",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "license": "MIT",
   "private": true,
@@ -21,11 +22,17 @@
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.2",
     "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "prettier": "^2.1.2",
+    "vite": "^1.0.0-rc.4",
+    "vue": "^3.0.0",
+    "vue-router": "4.0.0-beta.10"
   }
 }
