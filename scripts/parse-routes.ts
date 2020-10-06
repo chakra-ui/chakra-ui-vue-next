@@ -105,6 +105,7 @@ interface RoutesMap {
 
 let i = 0
 const routesMap: RoutesMap = {}
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const componentLookup = flatten(routes, (route) => route.component!)
   .map((path) => {
     const name = `Component_${++i}`
