@@ -1,2 +1,0 @@
-- [ ] read all `component-name.story.vue` files inside the `./packages` directory
-- [ ] For each Vue file found, parse the component javascript
