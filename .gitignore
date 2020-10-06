@@ -1,2 +1,4 @@
 node_modules
 dist
+playground/src/.generated/imports.js
+playground/src/.generated/routes.json
