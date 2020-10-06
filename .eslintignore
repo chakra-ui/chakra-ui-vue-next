@@ -1,2 +1,7 @@
 node_modules
 dist
+
+# At the time of writing this, I could not find any helpful
+# documentation for adding ESLint for Vue 3 projects running on Vite.
+# For this reason, we ignore the playground directory.
+playground

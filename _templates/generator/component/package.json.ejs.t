@@ -1,7 +1,10 @@
+---
+to: packages/<%=h.changeCase.paramCase(name)%>/package.json
+---
+
 {
-  "name": "@chakra-ui/nuxt-next",
+  "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
   "version": "1.0.0",
-  "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -9,6 +12,7 @@
   "files": [
     "dist"
   ],
+  "description": "<%= 'Chakra UI Vue | ' + h.changeCase.pascalCase(name) + ' component'%>",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "codebender828 excellence@jbakebwa.dev",
   "license": "MIT",

@@ -2,13 +2,20 @@
   "name": "@chakra-ui/vue-next",
   "version": "1.0.0",
   "description": "Vue 3 compatible version of Chakra UI Vue",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "codebender828 excellence@jbakebwa.dev",
   "license": "MIT",
   "scripts": {
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env swc src --out-dir dist/esm/",
-    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/"
+    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   }
 }

@@ -1,6 +1,6 @@
 import { h, defineComponent, PropType } from 'vue'
 
-const ChakraNuxtModule = defineComponent({
+const CBox = defineComponent({
   props: {
     as: {
       type: String as PropType<string>,
@@ -8,8 +8,8 @@ const ChakraNuxtModule = defineComponent({
     },
   },
   render() {
-    return h(this?.as, { ...this.$props, ...this.$attrs }, this.$slots.default)
+    return h(this?.as, { ...this.$props, ...this.$attrs }, this.$slots)
   },
 })
 
-export default ChakraNuxtModule
+export default CBox

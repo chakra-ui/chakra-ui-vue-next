@@ -9,23 +9,51 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build --no-private --stream"
+    "build": "lerna run build",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+
+    "scaffold": "hygen",
+
+    "playground": "ts-node ./scripts/parse-routes.ts && vite serve playground",
+    "playground:build": "vite build",
+
+    "c-alert": "yarn workspace @chakra-ui/c-alert",
+    "c-box": "yarn workspace @chakra-ui/c-box",
+    "c-button": "yarn workspace @chakra-ui/c-button",
+    "nuxt": "yarn workspace @chakra-ui/nuxt-next"
   },
   "license": "MIT",
   "private": true,
   "devDependencies": {
     "@swc/cli": "^0.1.26",
     "@swc/core": "^1.2.28",
-    "@typescript-eslint/eslint-plugin": "^4.1.1",
-    "@typescript-eslint/parser": "^4.1.1",
+    "@types/recursive-readdir": "^2.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "@vue/eslint-config-typescript": "^5.1.0",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.2",
-    "eslint": "^7.9.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "lerna": "^3.22.1"
+    "eslint-plugin-vue": "^7.0.0",
+    "fs-extra": "^9.0.1",
+    "hygen": "^6.0.4",
+    "lerna": "^3.22.1",
+    "prettier": "^2.1.2",
+    "recursive-readdir": "^2.2.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
+    "vite": "^1.0.0-rc.4",
+    "vue": "^3.0.0",
+    "vue-router": "4.0.0-beta.10"
+  },
+  "dependencies": {
+    "change-case": "^4.1.1"
   }
 }
