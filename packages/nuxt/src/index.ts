@@ -1,3 +1,15 @@
-const myName: string = 'Hello Jonas from `@chakra-ui/nuxt-next`'
+import { h, defineComponent, PropType } from 'vue'
 
-export default myName
+const ChakraNuxtModule = defineComponent({
+  props: {
+    as: {
+      type: String as PropType<string>,
+      default: 'div',
+    },
+  },
+  render() {
+    return h(this?.as, { ...this.$props, ...this.$attrs }, this.$slots.default)
+  },
+})
+
+export default ChakraNuxtModule

@@ -1,5 +1,5 @@
 {
-  "name": "@chakra-ui/c-button",
+  "name": "@chakra-ui/c-alert",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "description": "Chakra UI Vue | CButton component",
+  "description": "Chakra UI Vue | CAlert component",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "codebender828 excellence@jbakebwa.dev",
   "license": "MIT",

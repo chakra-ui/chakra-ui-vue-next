@@ -5,7 +5,13 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.pascalCase(name) + ' component'%>",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "codebender828 excellence@jbakebwa.dev",
@@ -13,6 +19,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   "scripts": {
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env swc src --out-dir dist/esm/",
-    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/"
+    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   }
 }

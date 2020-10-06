@@ -1,6 +1,6 @@
 import { h, defineComponent, PropType } from 'vue'
 
-const CButton = defineComponent({
+const CAlert = defineComponent({
   props: {
     as: {
       type: String as PropType<string>,
@@ -12,4 +12,4 @@ const CButton = defineComponent({
   },
 })
 
-export default CButton
+export default CAlert

@@ -1,6 +1,6 @@
 import { h, defineComponent, PropType } from 'vue'
 
-const CButton = defineComponent({
+const CBox = defineComponent({
   props: {
     as: {
       type: String as PropType<string>,
@@ -8,8 +8,8 @@ const CButton = defineComponent({
     },
   },
   render() {
-    return h(this?.as, { ...this.$props, ...this.$attrs }, this.$slots.default)
+    return h(this?.as, { ...this.$props, ...this.$attrs }, this.$slots)
   },
 })
 
-export default CButton
+export default CBox

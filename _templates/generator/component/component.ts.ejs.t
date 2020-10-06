@@ -2,7 +2,7 @@
 to: packages/<%=h.changeCase.paramCase(name)%>/src/index.ts
 ---
 
-import { h, defineComponent } from 'vue'
+import { h, defineComponent, PropType } from 'vue'
 
 const <%= h.changeCase.pascalCase(name) %> = defineComponent({
   props: {

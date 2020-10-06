@@ -1,8 +1,8 @@
 import { render } from '@chakra-ui/vue-test-utils'
-import CButton from '../src'
+import CBox from '../'
 
 
 it('should render properly', () => {
-  const { html } = render(CButton)
+  const { html } = render(CBox)
   expect(html()).toMatchSnapshot()
 })
