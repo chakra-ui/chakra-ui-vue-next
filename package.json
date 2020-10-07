@@ -15,7 +15,7 @@
     "scaffold": "hygen",
     "playground:routes": "ts-node ./scripts/parse-routes.ts",
     "playground": "yarn playground:routes && vite serve playground",
-    "playground:build": "yarn playground:routes && vite build playground",
+    "playground:build": "yarn build && yarn playground:routes && vite build playground",
 
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-box": "yarn workspace @chakra-ui/c-box",
