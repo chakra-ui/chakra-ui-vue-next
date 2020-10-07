@@ -73,7 +73,7 @@ const baseRoutes = getBaseRoutes()
 
 const NotFoundRoute: Route = {
   name: 'NotFound',
-  path: '*',
+  path: '/*',
   component: '../components/Home.vue',
 }
 
