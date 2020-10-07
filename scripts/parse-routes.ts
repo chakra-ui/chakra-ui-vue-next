@@ -71,6 +71,12 @@ const flatten = (routes: Route[], resolver: Resolver): Array<string> => {
 
 const baseRoutes = getBaseRoutes()
 
+const NotFoundRoute: Route = {
+  name: 'NotFound',
+  path: '*',
+  component: '../components/Home.vue',
+}
+
 const routes: Route[] = [
   {
     name: 'Home',
@@ -92,6 +98,9 @@ baseRoutes.map((basePath) => {
 
   routes.push(componentRoute)
 })
+
+// 404 Route
+routes.push(NotFoundRoute)
 
 fs.writeFileSync(
   path.join(playgroundRoot, './.generated/routes.json'),
@@ -129,7 +138,7 @@ fs.writeFileSync(
   `/* Package components resolver only used in development mode */
     module.exports = {\n${baseRoutes
       .map(
-        (pkg) => `  '@chakra-iu/${pkg}': '${packagesRoot}/${pkg}/src/index.ts'`
+        (pkg) => `  '@chakra-ui/${pkg}': '${packagesRoot}/${pkg}/src/index.ts'`
       )
       .join(',\n')}\n}`,
   'utf8'

@@ -19,6 +19,8 @@ function buildRoutes(routes) {
 
 const routes = buildRoutes(generatedRoutes)
 
+console.log(routes)
+
 export default createRouter({
   history: createWebHistory(),
   routes,

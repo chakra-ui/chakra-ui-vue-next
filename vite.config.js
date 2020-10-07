@@ -25,6 +25,8 @@ const ChakraPlaygroundPlugin = ({ app }) => {
 
 const __DEV__ = process.env.NODE_ENV !== 'production'
 
+console.log({ __DEV__ }, process.env.NODE_ENV)
+
 createServer({
   alias: {
     ...(!__DEV__ && { ['@chakra-ui']: path.resolve(__dirname, './packages') }),
