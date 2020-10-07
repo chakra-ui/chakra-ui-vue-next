@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
+const resolver = require('./playground/src/.generated/resolver')
 const routes = require('./playground/src/.generated/routes.json')
 const { createServer } = require('vite')
 
@@ -22,9 +23,12 @@ const ChakraPlaygroundPlugin = ({ app }) => {
   })
 }
 
+const __DEV__ = process.env.NODE_ENV !== 'production'
+
 createServer({
   alias: {
-    '@chakra-ui': path.resolve(__dirname, './packages'),
+    ...(!__DEV__ && { ['@chakra-ui']: path.resolve(__dirname, './packages') }),
+    ...(__DEV__ && resolver),
   },
   configureServer: [ChakraPlaygroundPlugin],
 }).listen(9000)
