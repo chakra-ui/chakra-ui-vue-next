@@ -14,7 +14,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   ],
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.pascalCase(name) + ' component'%>",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
-  "author": "codebender828 excellence@jbakebwa.dev",
+  "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
     "build": "concurrently yarn:build:*",

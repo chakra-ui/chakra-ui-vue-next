@@ -1,6 +1,6 @@
 <template>
   <div>
-    <c-button> Base button ◻️ </c-button>
+    <c-button class="my-other-class"> Base button ◻️ </c-button>
   </div>
 </template>
 

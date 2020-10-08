@@ -4,7 +4,7 @@
   "description": "Vue 3 compatible Chakra UI",
   "main": "index.js",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
-  "author": "codebender828 excellence@jbakebwa.dev",
+  "author": "Jonathan Bakebwa codebender828@gmail.com",
   "workspaces": [
     "packages/*"
   ],
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@swc/cli": "^0.1.26",
     "@swc/core": "^1.2.28",
+    "@types/jest": "^26.0.14",
     "@types/recursive-readdir": "^2.2.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
