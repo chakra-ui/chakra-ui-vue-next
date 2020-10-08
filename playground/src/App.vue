@@ -1,7 +1,9 @@
 <template>
   <section class="root">
     <sidebar class="sidebar" :stories="stories" />
-    <router-view class="main" />
+    <main class="main">
+      <router-view />
+    </main>
   </section>
 </template>
 

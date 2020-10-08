@@ -136,10 +136,10 @@ fs.writeFileSync(
 fs.writeFileSync(
   path.join(playgroundRoot, './.generated/resolver.js'),
   `/* Package components resolver only used in development mode */
-    module.exports = {\n${baseRoutes
-      .map(
-        (pkg) => `  '@chakra-ui/${pkg}': '${packagesRoot}/${pkg}/src/index.ts'`
-      )
-      .join(',\n')}\n}`,
+  export default {\n${baseRoutes
+    .map(
+      (pkg) => `  '@chakra-ui/${pkg}': '${packagesRoot}/${pkg}/src/index.ts'`
+    )
+    .join(',\n')}\n}`,
   'utf8'
 )

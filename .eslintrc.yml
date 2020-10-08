@@ -7,8 +7,9 @@ extends:
   - plugin:prettier/recommended
   - plugin:vue/essential
   - '@vue/typescript'
-parser: '@typescript-eslint/parser'
+parser: vue-eslint-parser
 parserOptions:
+  parser: '@typescript-eslint/parser'
   ecmaVersion: 12
   sourceType: module
 plugins:
@@ -22,3 +23,4 @@ rules:
       singleline:
         delimiter: comma
         requireLast: false
+  vue/no-multiple-template-root: 'off'

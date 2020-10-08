@@ -1,17 +1,14 @@
 <template>
   <div>
-    Base button ◻️
+    <c-button> Base button ◻️ </c-button>
   </div>
 </template>
 
 <script lang="ts">
-import CButton from '@chakra-ui/c-button'
+import CButton from '@chakra-ui/c-button/src'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  setup () {
-    
-    return {}
-  }
+  components: { CButton },
 })
 </script>

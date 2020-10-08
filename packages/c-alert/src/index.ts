@@ -1,14 +1,21 @@
-import { h, defineComponent, PropType } from 'vue'
+import { h, defineComponent, Component } from 'vue'
 
 const CAlert = defineComponent({
   props: {
     as: {
-      type: String as PropType<string>,
+      type: [String, Object],
       default: 'div',
     },
   },
   render() {
-    return h(this?.as, { ...this.$props, ...this.$attrs }, this.$slots.default)
+    return h(
+      this.as,
+      {
+        ...this.$attrs,
+        role: 'alert',
+      },
+      this.$slots.default && this.$slots.default()
+    )
   },
 })
 

@@ -6,16 +6,16 @@
 </template>
 
 <script lang="ts">
-import CBox from '@chakra-ui/c-box'
 import { defineComponent, ref } from 'vue'
+import CBox from '@chakra-ui/c-box/src'
 
 export default defineComponent({
   setup() {
     const val = ref('Hello box')
     console.log('Base box setup ')
     return {
-      val
+      val,
     }
-  }
+  },
 })
 </script>
