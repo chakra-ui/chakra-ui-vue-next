@@ -7,6 +7,7 @@ function buildRoutes(routes: Array<RouteRecordRaw>) : Array<RouteRecordRaw> {
     const definition: RouteRecordRaw = {
       path: route.path,
       component: route.component ? lookup[route.component] : RouterView,
+      name: route.name
     }
 
     if (route.children) {
@@ -17,7 +18,7 @@ function buildRoutes(routes: Array<RouteRecordRaw>) : Array<RouteRecordRaw> {
   })
 }
 
-const routes = buildRoutes(generatedRoutes as Array<RouteRecordRaw>)
+export const routes = buildRoutes(generatedRoutes as Array<RouteRecordRaw>)
 
 export default createRouter({
   history: createWebHistory(),

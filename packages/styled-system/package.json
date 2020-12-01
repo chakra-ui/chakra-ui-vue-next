@@ -1,0 +1,24 @@
+{
+  "name": "@chakra-ui/vue-styled-system",
+  "version": "1.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "description": "Chakra UI Vue | StyledSystem module",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "author": "Jonathan Bakebwa codebender828@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "build": "concurrently yarn:build:*",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-utils": "1.0.0",
+    "@styled-system/core": "5.1.2",
+    "css-get-unit": "1.0.1",
+    "csstype": "3.0.3"
+  }
+}

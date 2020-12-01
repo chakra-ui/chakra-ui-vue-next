@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import consola from 'consola'
 import recursiveRead from './recursive-readdir-sync'
 import { sentenceCase } from 'change-case'
 
@@ -47,8 +48,8 @@ export interface Route {
 /** To import statement */
 const toImport = (component: string, importPath: string) =>
   // Note: for now dynamic imports dont work with vite. use static imports
-  `const ${component} = () => import('${importPath}')`
-// `import ${component} from '${importPath}'`
+  // `const ${component} = () => import('${importPath}')`
+  `import ${component} from '${importPath}'`
 
 interface Resolver {
   (resolver: Route): string
@@ -86,17 +87,22 @@ const routes: Route[] = [
 ]
 
 baseRoutes.map((basePath) => {
-  const files = recursiveRead(path.join(packagesRoot, basePath, 'examples'))
-  const examples = files.filter((file) => file.endsWith('.vue'))
+  try {
+    const files = recursiveRead(path.join(packagesRoot, basePath, 'examples'))
+    const examples = files.filter((file) => file.endsWith('.vue'))
 
-  const componentRoute: Route = {
-    ...parseBaseRoute(basePath),
-    ...(examples.length && {
-      children: parseChildrenRoutes(basePath, examples),
-    }),
+    const componentRoute: Route = {
+      ...parseBaseRoute(basePath),
+      ...(examples.length && {
+        children: parseChildrenRoutes(basePath, examples),
+      }),
+    }
+
+    routes.push(componentRoute)
+    consola.success(`Loaded examples in ${basePath} package`)
+  } catch (error) {
+    consola.info(`No examples found in ${basePath} package`)
   }
-
-  routes.push(componentRoute)
 })
 
 // 404 Route

@@ -13,8 +13,8 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "scaffold": "hygen",
     "playground:routes": "ts-node ./scripts/parse-routes.ts",
-    "playground": "yarn playground:routes && NODE_ENV=development vite serve playground",
-    "playground:build": "yarn playground:routes && NODE_ENV=production vite build playground",
+    "dev": "yarn playground:routes && NODE_ENV=development vite serve playground",
+    "playground:build": "yarn build && yarn playground:routes && NODE_ENV=production vite build playground",
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-box": "yarn workspace @chakra-ui/c-box",
     "c-button": "yarn workspace @chakra-ui/c-button",
@@ -23,12 +23,14 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@swc/cli": "^0.1.26",
-    "@swc/core": "^1.2.28",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/jest": "^26.0.14",
     "@types/recursive-readdir": "^2.2.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
-    "@typescript-eslint/parser": "^2.34.0",
+    "@typescript-eslint/parser": "4.0.1",
     "@vue/eslint-config-typescript": "^5.1.0",
     "concurrently": "^5.3.0",
     "consola": "^2.15.0",
@@ -48,12 +50,20 @@
     "prettier": "^2.1.2",
     "recursive-readdir": "^2.2.2",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.3",
-    "vite": "^1.0.0-rc.4",
-    "vue": "^3.0.0",
+    "typescript": "^4.1.2",
+    "vite": "^1.0.0-rc.13",
+    "vue": "^3",
     "vue-router": "4.0.0-beta.10"
   },
   "dependencies": {
-    "change-case": "^4.1.1"
+    "@chakra-ui/theme-vue": "^0.2.6",
+    "@types/lodash.mergewith": "^4.6.6",
+    "@types/tinycolor2": "^1.4.2",
+    "change-case": "^4.1.1",
+    "css-get-unit": "^1.0.1",
+    "csstype": "^3.0.5",
+    "lodash.mergewith": "^4.6.2",
+    "object-assign": "^4.1.1",
+    "tinycolor2": "^1.4.2"
   }
 }
