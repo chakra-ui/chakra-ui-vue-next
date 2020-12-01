@@ -1,7 +1,9 @@
-import type { Dict, Omit } from "./types"
+import mergeWith from 'lodash.mergewith'
+import type { Dict, Omit } from './types'
 
-export { default as mergeWith } from "lodash.mergewith"
-export { default as objectAssign } from "object-assign"
+export { default as objectAssign } from 'object-assign'
+
+console.log(mergeWith)
 
 export function omit<T extends Dict, K extends keyof T>(object: T, keys: K[]) {
   const result: Dict = {}
@@ -52,9 +54,9 @@ export function get(
   obj: object,
   path: string | number,
   fallback?: any,
-  index?: number,
+  index?: number
 ) {
-  const key = typeof path === "string" ? path.split(".") : [path]
+  const key = typeof path === 'string' ? path.split('.') : [path]
 
   for (index = 0; index < key.length; index += 1) {
     if (!obj) {
@@ -71,7 +73,7 @@ type Handler = (
   obj: Readonly<object>,
   path: string | number,
   fallback?: any,
-  index?: number,
+  index?: number
 ) => any
 
 const memoize = (fn: Handler) => {
@@ -81,14 +83,14 @@ const memoize = (fn: Handler) => {
     obj: object,
     path: string | number,
     fallback?: any,
-    index?: number,
+    index?: number
   ) => {
     if (!cache.has(obj)) {
       cache.set(obj, new Map())
     }
 
     const map = cache.get(obj)
-    const key = typeof path === "string" ? path.split(".") : [path]
+    const key = typeof path === 'string' ? path.split('.') : [path]
 
     if (map.has(key)) {
       return map.get(key)
@@ -154,3 +156,5 @@ export const fromEntries = <T extends unknown>(entries: [string, any][]) =>
     carry[key] = value
     return carry
   }, {}) as T
+
+export { mergeWith }

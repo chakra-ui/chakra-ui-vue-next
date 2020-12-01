@@ -18,7 +18,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   "license": "MIT",
   "scripts": {
     "build": "concurrently yarn:build:*",
-    "build:esm": "cross-env swc src --out-dir dist/esm/",
-    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/"
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps"
   }
 }
