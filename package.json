@@ -13,7 +13,7 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "scaffold": "hygen",
     "playground:routes": "ts-node ./scripts/parse-routes.ts",
-    "playground": "yarn playground:routes && NODE_ENV=development vite serve playground",
+    "dev": "yarn playground:routes && NODE_ENV=development vite serve playground",
     "playground:build": "yarn playground:routes && NODE_ENV=production vite build playground",
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-box": "yarn workspace @chakra-ui/c-box",
@@ -49,11 +49,18 @@
     "recursive-readdir": "^2.2.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3",
-    "vite": "^1.0.0-rc.4",
-    "vue": "^3.0.0",
+    "vite": "^1.0.0-rc.13",
+    "vue": "^3",
     "vue-router": "4.0.0-beta.10"
   },
   "dependencies": {
-    "change-case": "^4.1.1"
+    "@chakra-ui/theme-vue": "^0.2.6",
+    "@types/lodash.mergewith": "^4.6.6",
+    "@types/tinycolor2": "^1.4.2",
+    "change-case": "^4.1.1",
+    "csstype": "^3.0.5",
+    "lodash.mergewith": "^4.6.2",
+    "object-assign": "^4.1.1",
+    "tinycolor2": "^1.4.2"
   }
 }

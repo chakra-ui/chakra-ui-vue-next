@@ -1,7 +1,10 @@
 {
   "name": "@chakra-ui/system-vue",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "description": "Chakra UI Vue | System module",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
@@ -9,6 +12,10 @@
   "scripts": {
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env swc src --out-dir dist/esm/",
-    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/"
+    "build:cjs": "cross-env swc -C module.type=commonjs src --out-dir dist/cjs/",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-styled-system": "^1.0.0"
   }
 }

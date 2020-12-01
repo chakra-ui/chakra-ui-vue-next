@@ -1,7 +1,8 @@
 <script>
 import { defineComponent, h } from 'vue'
 import { RouterLink } from 'vue-router'
-import routes from '../.generated/routes.json'
+import { routes } from '../router'
+
 
 const Stories = defineComponent({
   props: ['stories'],
