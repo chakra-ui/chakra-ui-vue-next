@@ -9,6 +9,7 @@
     "packages/*"
   ],
   "scripts": {
+    "postinstall": "yarn run lerna bootstrap",
     "build": "lerna run build",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "scaffold": "hygen",
