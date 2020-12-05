@@ -19,6 +19,6 @@
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "dependencies": {
-    "@chakra-ui/vue-theme-tools": "1.0.0"
+    "@chakra-ui/vue-theme-tools": "^1.0.0"
   }
 }
