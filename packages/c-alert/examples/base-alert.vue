@@ -1,5 +1,5 @@
 <template>
-  <c-alert class="chakra-alert"> HELLO ALERT </c-alert>
+  <c-alert> HELLO ALERT </c-alert>
   <p>Alert paragraph</p>
 </template>
 

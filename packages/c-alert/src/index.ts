@@ -1,25 +1,8 @@
-import {
-  h,
-  defineComponent,
-  VNodeProps,
-  VNode,
-  Component,
-  Fragment,
-  Teleport,
-  Suspense,
-  DefineComponent,
-  onMounted,
-} from 'vue'
+import { h, defineComponent } from 'vue'
 
-import { css } from '@chakra-ui/vue-styled-system'
+import { css } from '@chakra-ui/styled-system'
+import { css as emotionCss, cx } from '@emotion/css'
 import theme from '@chakra-ui/vue-theme'
-
-type Tag =
-  | string
-  | typeof Fragment
-  | typeof Teleport
-  | typeof Suspense
-  | Component
 
 const CAlert = defineComponent({
   props: {
@@ -28,22 +11,23 @@ const CAlert = defineComponent({
       default: 'div',
     },
   },
-  setup() {
-    onMounted(() => {
-      console.log(
-        css({
-          bg: 'blue.400',
-          p: 4,
-          color: 'white',
-        })({ theme })
-      )
-    })
-  },
   render() {
+    const alertStyles = css({
+      bg: 'blue.400',
+      p: 4,
+      color: 'white',
+      _hover: {
+        bg: 'green.400',
+      },
+    })({ theme })
+
+    const className = emotionCss(alertStyles)
+
     return h(
       this.as,
       {
         ...this.$attrs,
+        class: cx('chakra-alert', className),
         role: 'alert',
       },
       this.$slots.default && this.$slots.default()
