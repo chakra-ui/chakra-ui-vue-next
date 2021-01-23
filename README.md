@@ -30,4 +30,4 @@ I'm excited to finally get this project out in the open. I love working on Chakr
 
 I have the entire Chakra UI core team members and Vue community to thank for their support, and for every contributor who does so by opening issues, writing tests and fixing bugs. I'm generally reachable by email at `excellence@jbakebwa.dev` or on `@codebender828` on Twitter and on the Chakra UI Discord.
 
-For now I'll be hacking away at these projects! Blessings!
+For now I'll be hacking away at this! Blessings!
