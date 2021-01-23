@@ -10,7 +10,7 @@ import {
 import { ThemeProviderProps } from '@chakra-ui/vue-next'
 
 const CThemeProvider = defineComponent({
-  name: 'CAlert',
+  name: 'CThemeProvider',
   props: {
     value: {
       type: [Object] as PropType<ThemeProviderProps>,
