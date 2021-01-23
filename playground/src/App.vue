@@ -8,15 +8,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
 
 export default defineComponent({
   components: { Sidebar },
   setup() {
+    const chakraTheme = inject('$chakraTheme')
     return {
-      routes
+      routes,
+      chakraTheme
     }
   },
 })

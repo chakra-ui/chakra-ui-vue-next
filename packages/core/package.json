@@ -16,6 +16,10 @@
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps",
-    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "watch": "concurrently yarn:watch:*",
+    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps --watch",
+    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps --watch",
+    "watch:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
   }
 }

@@ -1,5 +1,6 @@
 import { Plugin } from 'vue'
-import { ThemeOverride, extendTheme } from './extend-theme'
+import defaultTheme from '@chakra-ui/vue-theme'
+import { extendTheme, ThemeOverride } from './extend-theme'
 
 interface ExtendIconsPath {
   path: string
@@ -17,9 +18,12 @@ interface ChakraUIVuePluginOptions {
 
 const ChakraUIVuePlugin: Plugin = {
   install(app, options: ChakraUIVuePluginOptions = {}) {
-    app.config.globalProperties.$chakraTheme = options.extendTheme
+    const theme = options.extendTheme || defaultTheme
+    app.config.globalProperties.$chakraTheme = theme
+    app.provide('$chakraTheme', theme)
   },
 }
 
+export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
 export { extendTheme }

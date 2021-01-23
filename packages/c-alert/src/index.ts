@@ -13,10 +13,9 @@ const CAlert = defineComponent({
   setup(props, { slots, attrs }) {
     return () =>
       h(
-        chakra[props.as],
+        chakra(props.as, 'alert'),
         {
           ...attrs,
-          class: 'chakra-alert',
           role: 'alert',
         },
         slots

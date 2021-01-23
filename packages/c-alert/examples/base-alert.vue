@@ -3,7 +3,7 @@
     font-weight="bold"
     px="4"
     py="3"
-    bg="yellow.300"
+    :bg="['yellow.300', 'blue.200']"
     aria-role="alert"
     rounded="md"
   >
