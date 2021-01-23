@@ -13,7 +13,6 @@ export default defineComponent({
   components: { CBox },
   setup() {
     const val = ref('Hello box')
-    console.log('Base box setup ')
 
     return { val }
   },

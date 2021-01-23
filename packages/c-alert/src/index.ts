@@ -1,53 +1,25 @@
-import {
-  h,
-  defineComponent,
-  VNodeProps,
-  VNode,
-  Component,
-  Fragment,
-  Teleport,
-  Suspense,
-  DefineComponent,
-  onMounted,
-} from 'vue'
-
-import { css } from '@chakra-ui/vue-styled-system'
-import theme from '@chakra-ui/vue-theme'
-
-type Tag =
-  | string
-  | typeof Fragment
-  | typeof Teleport
-  | typeof Suspense
-  | Component
+import { h, defineComponent, PropType } from 'vue'
+import { chakra } from '@chakra-ui/system-vue'
+import { DOMElements } from '@chakra-ui/system-vue/dist/types/system.utils'
 
 const CAlert = defineComponent({
+  name: 'CAlert',
   props: {
     as: {
-      type: [String, Object],
+      type: [String, Object] as PropType<DOMElements>,
       default: 'div',
     },
   },
-  setup() {
-    onMounted(() => {
-      console.log(
-        css({
-          bg: 'blue.400',
-          p: 4,
-          color: 'white',
-        })({ theme })
+  setup(props, { slots, attrs }) {
+    return () =>
+      h(
+        chakra(props.as, 'alert'),
+        {
+          ...attrs,
+          role: 'alert',
+        },
+        slots
       )
-    })
-  },
-  render() {
-    return h(
-      this.as,
-      {
-        ...this.$attrs,
-        role: 'alert',
-      },
-      this.$slots.default && this.$slots.default()
-    )
   },
 })
 

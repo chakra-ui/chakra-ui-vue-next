@@ -13,7 +13,6 @@ export default defineComponent({
     this.$nextTick(() => {
       this.$router.push('/c-alert/base-alert')
     })
-    console.log(routes)
   }
 })
 </script>
