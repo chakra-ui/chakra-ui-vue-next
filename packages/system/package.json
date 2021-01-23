@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@chakra-ui/vue-styled-system": "^1.0.0",
+    "@chakra-ui/vue-theme": "^1.0.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1"
   }
