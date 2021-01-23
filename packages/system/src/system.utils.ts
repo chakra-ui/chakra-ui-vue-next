@@ -40,6 +40,7 @@ export const domElements = [
   'label',
   'li',
   'mark',
+  'main',
   'nav',
   'ol',
   'p',

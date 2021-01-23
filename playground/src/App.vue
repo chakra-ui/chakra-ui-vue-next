@@ -1,10 +1,15 @@
 <template>
-  <section class="root">
-    <sidebar class="sidebar" :stories="routes" />
-    <main class="main">
+  <chakra.section d="flex" height="inherit" w="inherit">
+    <sidebar :stories="routes" />
+    <chakra.main w="full" border-left="1px solid" border-color="gray.400" padding="4">
       <router-view />
-    </main>
-  </section>
+
+      <chakra.button :bg="['teal.500']" color="white" px="4" py="3">
+        Button
+      </chakra.button>
+
+    </chakra.main>
+  </chakra.section>
 </template>
 
 <script lang="ts">
@@ -40,31 +45,5 @@ html {
 #app {
   height: inherit;
   width: inherit;
-}
-</style>
-
-<style scoped>
-.root {
-  display: flex;
-  height: inherit;
-  width: inherit;
-}
-
-.sidebar {
-  height: 100%;
-  widows: 200px;
-  margin: 0;
-  list-style-type: none;
-  padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-}
-
-a {
-  color: black !important;
-}
-
-.main {
-  width: 100%;
-  padding: 1rem;
 }
 </style>

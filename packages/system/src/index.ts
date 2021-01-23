@@ -18,7 +18,7 @@ export const chakra: IChakraFactory = (
   componentName?: string
 ): any => {
   // Increment ids
-  id++
+  ++id
 
   return defineComponent({
     inheritAttrs: false,
@@ -28,8 +28,9 @@ export const chakra: IChakraFactory = (
       const { styles, attrs: _attrs } = extractStyleAttrs(rest)
       const className = _css(css(styles)({ theme }))
 
-      const _componentName =
-        `chakra-${componentName}` || `chakra-component-${id}`
+      const _componentName = componentName
+        ? `chakra-${componentName}`
+        : `chakra-component-${id}`
 
       return () =>
         h(
@@ -54,3 +55,5 @@ type IChakraFactory = {
 domElements.forEach((tag) => {
   chakra[tag] = chakra(tag)
 })
+
+export { domElements }
