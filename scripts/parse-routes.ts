@@ -7,6 +7,21 @@ import { sentenceCase } from 'change-case'
 const packagesRoot = path.resolve(__dirname, '../packages')
 const playgroundRoot = path.resolve(__dirname, '../playground/src')
 
+function writeFileSyncRecursive(filename, content, charset) {
+  const folders = filename.split(path.sep).slice(0, -1)
+  if (folders.length) {
+    // create folder path if it doesn't exist
+    folders.reduce((last, folder) => {
+      const folderPath = last ? last + path.sep + folder : folder
+      if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath)
+      }
+      return folderPath
+    })
+  }
+  fs.writeFileSync(filename, content, charset)
+}
+
 const ignorePaths = ['core', 'nuxt']
 
 /** Read all base directories and return array paths */
@@ -108,7 +123,7 @@ baseRoutes.map((basePath) => {
 // 404 Route
 routes.push(NotFoundRoute)
 
-fs.writeFileSync(
+writeFileSyncRecursive(
   path.join(playgroundRoot, './.generated/routes.json'),
   JSON.stringify(routes, null, 2),
   'utf8'
@@ -131,7 +146,7 @@ const componentLookup = flatten(routes, (route) => route.component!)
   })
   .join('\n')
 
-fs.writeFileSync(
+writeFileSyncRecursive(
   path.join(playgroundRoot, './.generated/imports.js'),
   `${componentLookup}\n\nexport default {\n${Object.entries(routesMap)
     .map(([path, name]) => `  "${path}": ${name}`)
@@ -139,7 +154,7 @@ fs.writeFileSync(
   'utf8'
 )
 
-fs.writeFileSync(
+writeFileSyncRecursive(
   path.join(playgroundRoot, './.generated/resolver.js'),
   `/* Package components resolver only used in development mode */
   export default {\n${baseRoutes
