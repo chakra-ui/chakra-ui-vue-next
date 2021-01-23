@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@chakra-ui/vue-styled-system": "1.0.0",
+    "@chakra-ui/system-vue": "1.0.0",
     "@chakra-ui/vue-theme": "^1.0.0"
   }
 }
