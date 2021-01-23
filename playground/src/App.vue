@@ -3,27 +3,23 @@
     <sidebar :stories="routes" />
     <chakra.main w="full" border-left="1px solid" border-color="gray.400" padding="4">
       <router-view />
-
-      <chakra.button :bg="['teal.500']" color="white" px="4" py="3">
-        Button
-      </chakra.button>
-
     </chakra.main>
   </chakra.section>
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
+import { defineComponent } from 'vue'
+import { useTheme } from '@chakra-ui/c-theme-provider'
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
 
 export default defineComponent({
   components: { Sidebar },
   setup() {
-    const chakraTheme = inject('$chakraTheme')
+    const theme = useTheme()
     return {
       routes,
-      chakraTheme
+      theme
     }
   },
 })

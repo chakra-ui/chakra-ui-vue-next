@@ -26,3 +26,4 @@ const CThemeProvider = defineComponent({
 })
 
 export default CThemeProvider
+export * from './theme.hooks'
