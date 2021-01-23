@@ -2,3 +2,4 @@ node_modules
 dist
 playground/src/.generated/*
 .vercel
+yarn-error.log
