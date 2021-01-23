@@ -1,26 +1,39 @@
-import {
-  Component,
-  defineComponent,
-  Fragment,
-  Suspense,
-  Teleport,
-  h,
-} from 'vue'
-import { DOMElements } from './system.utils'
+import { defineComponent, h } from 'vue'
+import { domElements, DOMElements } from './system.utils'
 
-type Tag =
-  | string
-  | typeof Fragment
-  | typeof Teleport
-  | typeof Suspense
-  | Component
-
-export const chakra = (tag: DOMElements, componentProps = {}) => {
+/**
+ * Creates a Chakra UI Vue component
+ * @param tag Tag
+ * @param componentProps Component Props
+ */
+// @ts-ignore
+export const chakra: IChakraFactory = (
+  tag: DOMElements,
+  componentProps = {}
+): any => {
   return defineComponent({
     inheritAttrs: false,
     props: componentProps,
     setup(props, { slots, attrs }) {
-      return () => h(tag, {}, slots)
+      return () =>
+        h(
+          tag,
+          {
+            ...props,
+            ...attrs,
+          },
+          slots
+        )
     },
   })
 }
+
+type IChakraFactory = {
+  [key in DOMElements]: any
+} & {
+  (tag: DOMElements): any
+}
+
+domElements.forEach((tag) => {
+  chakra[tag] = chakra(tag)
+})
