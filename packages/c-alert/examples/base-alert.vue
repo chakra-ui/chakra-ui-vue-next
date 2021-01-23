@@ -1,5 +1,14 @@
 <template>
-  <c-alert> HELLO ALERT </c-alert>
+  <c-alert
+    font-weight="bold"
+    px="4"
+    py="3"
+    bg="yellow.300"
+    aria-role="alert"
+    rounded="md"
+  >
+    HELLO ALERT
+  </c-alert>
   <p>Alert paragraph</p>
 </template>
 

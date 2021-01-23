@@ -1,4 +1,8 @@
 import { defineComponent, h } from 'vue'
+import { css } from '@chakra-ui/styled-system'
+import theme from '@chakra-ui/vue-theme'
+import { css as _css, cx } from '@emotion/css'
+import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 
 /**
@@ -15,12 +19,18 @@ export const chakra: IChakraFactory = (
     inheritAttrs: false,
     props: componentProps,
     setup(props, { slots, attrs }) {
+      const { class: inheritedClass, ...rest } = attrs
+      const { styles, attrs: _attrs } = extractStyleAttrs(rest)
+
+      console.log(styles, attrs)
+      const className = _css(css(styles)({ theme }))
       return () =>
         h(
           tag,
           {
+            class: cx(inheritedClass as string, className),
             ...props,
-            ...attrs,
+            ..._attrs,
           },
           slots
         )
