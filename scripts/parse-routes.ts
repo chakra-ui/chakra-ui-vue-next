@@ -63,8 +63,8 @@ export interface Route {
 /** To import statement */
 const toImport = (component: string, importPath: string) =>
   // Note: for now dynamic imports dont work with vite. use static imports
-  // `const ${component} = () => import('${importPath}')`
-  `import ${component} from '${importPath}'`
+  `const ${component} = () => import('${importPath}')`
+// `import ${component} from '${importPath}'`
 
 interface Resolver {
   (resolver: Route): string

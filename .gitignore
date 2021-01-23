@@ -3,3 +3,4 @@ dist
 # playground/src/.generated/*
 .vercel
 yarn-error.log
+test-vite-project

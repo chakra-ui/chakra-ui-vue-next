@@ -1,8 +1,8 @@
 import Component_1 from "../components/Home.vue";
-import Component_2 from '@chakra-ui/c-alert/examples/base-alert.vue'
-import Component_3 from '@chakra-ui/c-box/examples/base-box.vue'
-import Component_4 from '@chakra-ui/c-box/examples/box-with-chakra-directive.vue'
-import Component_5 from '@chakra-ui/c-button/examples/base-button.vue'
+const Component_2 = () => import('@chakra-ui/c-alert/examples/base-alert.vue')
+const Component_3 = () => import('@chakra-ui/c-box/examples/base-box.vue')
+const Component_4 = () => import('@chakra-ui/c-box/examples/box-with-chakra-directive.vue')
+const Component_5 = () => import('@chakra-ui/c-button/examples/base-button.vue')
 import Component_6 from "../components/Home.vue";
 
 export default {

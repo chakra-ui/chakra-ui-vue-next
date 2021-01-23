@@ -15,7 +15,7 @@
     "scaffold": "hygen",
     "playground:routes": "ts-node ./scripts/parse-routes.ts",
     "dev": "yarn playground:routes && NODE_ENV=development vite serve playground --config ./vite.config.ts",
-    "playground:build": "yarn install && yarn build && yarn playground:routes && NODE_ENV=production vite build playground",
+    "playground:build": "yarn install && yarn build && yarn playground:routes && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "core": "yarn workspace @chakra-ui/vue-next",
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-theme-provider": "yarn workspace @chakra-ui/c-theme-provider",
@@ -59,7 +59,7 @@
     "recursive-readdir": "^2.2.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.1.2",
-    "vite": "^2.0.0-beta.12",
+    "vite": "^2.0.0-beta.44",
     "vue": "^3.0.5",
     "vue-router": "4.0.0-beta.10"
   },
