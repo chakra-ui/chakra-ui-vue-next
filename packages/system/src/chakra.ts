@@ -1,7 +1,8 @@
-import { defineComponent, h } from 'vue'
+import { DefineComponent, defineComponent, h } from 'vue'
 import { css } from '@chakra-ui/styled-system'
 import theme from '@chakra-ui/vue-theme'
-import { css as _css, cx } from '@emotion/css'
+import { cx } from '@chakra-ui/vue-utils'
+import { css as _css } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 
@@ -14,7 +15,7 @@ import { domElements, DOMElements } from './system.utils'
 export const chakra: IChakraFactory = (
   tag: DOMElements,
   componentName?: string
-): any => {
+): DefineComponent => {
   return defineComponent({
     inheritAttrs: false,
     setup(props, { slots, attrs }) {
@@ -23,15 +24,13 @@ export const chakra: IChakraFactory = (
       const { styles, attrs: _attrs } = extractStyleAttrs(rest)
       const className = _css(css(styles)({ theme }))
 
-      const _componentName = componentName
-        ? `chakra-${componentName}`
-        : `chakra-component-${tag}`
+      const _componentName = componentName ? `chakra-${componentName}` : ''
 
       return () =>
         h(
           tag,
           {
-            class: cx(inheritedClass as string, _componentName, className),
+            class: cx(inheritedClass, _componentName, className),
             ...props,
             ..._attrs,
           },
@@ -42,9 +41,9 @@ export const chakra: IChakraFactory = (
 }
 
 type IChakraFactory = {
-  [key in DOMElements]: any
+  [key in DOMElements]: DefineComponent
 } & {
-  (tag: DOMElements, componentName?: string): any
+  (tag: DOMElements, componentName?: string): DefineComponent
 }
 
 domElements.forEach((tag) => {
