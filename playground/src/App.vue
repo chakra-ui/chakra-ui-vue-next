@@ -9,17 +9,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useTheme } from '@chakra-ui/c-theme-provider'
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
 
 export default defineComponent({
   components: { Sidebar },
   setup() {
-    const theme = useTheme()
     return {
       routes,
-      theme
+      
     }
   },
 })
