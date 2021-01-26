@@ -20,7 +20,7 @@ interface ChakraUIVuePluginOptions {
 const ChakraUIVuePlugin: Plugin = {
   install(app, options: ChakraUIVuePluginOptions = {}) {
     const theme = options.extendTheme || defaultTheme
-    const colorMode = options.defaultColorMode || 'light'
+    const colorMode = theme.config?.initialColorMode || 'light'
     app.config.globalProperties.$chakraTheme = theme
     app.provide('$chakraTheme', theme as ThemeOverride)
     app.provide('$chakraColorMode', colorMode as ColorMode)
