@@ -22,6 +22,7 @@
     "c-box": "yarn workspace @chakra-ui/c-box",
     "c-button": "yarn workspace @chakra-ui/c-button",
     "system": "yarn workspace @chakra-ui/system-vue",
+    "theme": "yarn workspace @chakra-ui/vue-theme",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next"
   },
   "license": "MIT",

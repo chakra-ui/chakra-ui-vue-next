@@ -1,15 +1,5 @@
 <template>
-  <c-alert
-    font-weight="bold"
-    px="4"
-    py="3"
-    :bg="['yellow.300', 'blue.200']"
-    aria-role="alert"
-    rounded="md"
-  >
-    HELLO ALERT
-  </c-alert>
-  <p>Alert paragraph</p>
+  <c-alert> HELLO ALERT </c-alert>
 </template>
 
 <script lang="ts">

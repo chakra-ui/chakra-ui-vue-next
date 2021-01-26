@@ -1,4 +1,4 @@
-import { UnionStringArray } from '@chakra-ui/utils'
+import { Dict, UnionStringArray } from '@chakra-ui/vue-utils'
 
 /**
  * Carefully selected html elements for chakra components.
@@ -69,3 +69,7 @@ export const domElements = [
 ] as const
 
 export type DOMElements = UnionStringArray<typeof domElements>
+
+export type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>
+}

@@ -3,6 +3,7 @@ import foundations from './foundations'
 import styles from './styles'
 
 export type ColorMode = 'light' | 'dark'
+import { Colors } from './foundations/colors'
 
 export interface ColorModeOptions {
   initialColorMode?: ColorMode
@@ -25,5 +26,9 @@ export const theme = {
 }
 
 export type Theme = typeof theme
+export type ComponentThemeConfig = Partial<typeof theme.components>
+export type ChakraComponentName = keyof ComponentThemeConfig
 
 export default theme
+
+export type ChakraColors = Colors

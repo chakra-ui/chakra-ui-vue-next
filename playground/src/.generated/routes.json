@@ -12,6 +12,11 @@
         "name": "Base alert",
         "path": "/c-alert/base-alert",
         "component": "@chakra-ui/c-alert/examples/base-alert.vue"
+      },
+      {
+        "name": "With status",
+        "path": "/c-alert/with-status",
+        "component": "@chakra-ui/c-alert/examples/with-status.vue"
       }
     ]
   },
