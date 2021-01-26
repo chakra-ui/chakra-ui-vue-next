@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import CAlert from '@chakra-ui/c-alert/src'
+import { CAlert } from '@chakra-ui/c-alert/src'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'BaseAlertExample',
+  name: 'WithStatusAlertExample',
   components: { CAlert },
 })
 </script>

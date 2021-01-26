@@ -6,6 +6,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   provideComponentStyles,
+  useComponentStyles,
 } from '@chakra-ui/system-vue'
 import { DOMElements } from '@chakra-ui/system-vue'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
@@ -32,7 +33,13 @@ interface AlertState {
   status: AlertStatus
 }
 
-const CAlert = defineComponent({
+/**
+ * CAlert component
+ *
+ * This is the container component for all Alert components.
+ * It also provides state and context to it's compound components
+ */
+export const CAlert = defineComponent({
   name: 'CAlert',
   props: {
     as: {
@@ -72,7 +79,7 @@ const CAlert = defineComponent({
       ...styles.value.container,
     }
 
-    provideComponentStyles('Alert', alertStyles)
+    provideComponentStyles('Alert', styles.value)
     provide('$AlertState', { status: props.status } as AlertState)
 
     return () =>
@@ -88,4 +95,49 @@ const CAlert = defineComponent({
   },
 })
 
-export default CAlert
+/**
+ * CAlertTitle component
+ *
+ * The title component for alerts
+ */
+export const CAlertTitle = defineComponent({
+  name: 'CAlertTitle',
+  setup(_, { attrs, slots }) {
+    const styles = useComponentStyles('Alert')
+
+    return () =>
+      h(
+        chakra('div', 'alert__title'),
+        {
+          ...styles.title,
+          ...attrs,
+        },
+        slots
+      )
+  },
+})
+
+/**
+ * CAlertDescription component
+ *
+ * The description component for alerts
+ */
+export const CAlertDescription = defineComponent({
+  name: 'CAlertDescription',
+  setup(_, { attrs, slots }) {
+    const styles = useComponentStyles('Alert')
+
+    return () =>
+      h(
+        chakra('div', 'alert__description'),
+        {
+          ...styles.description,
+          ...attrs,
+        },
+        slots
+      )
+  },
+})
+
+// TODO: Add CAlertIcon component.
+// This should ne done after the icon component is created.

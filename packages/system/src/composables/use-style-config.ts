@@ -94,5 +94,7 @@ export const provideComponentStyles = (
 
 /** Injects Chakra Multi-parted component styles from ancestor */
 export const useComponentStyles = (component: AllThemedComponents) => {
-  return inject<SystemStyleObject>(`$chakra${component}Styles`)
+  return inject<Record<string, SystemStyleObject> & SystemStyleObject & any>(
+    `$chakra${component}Styles`
+  )
 }
