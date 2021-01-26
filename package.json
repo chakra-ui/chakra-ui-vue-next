@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "postinstall": "yarn run lerna bootstrap",
-    "build": "lerna run build",
+    "build": "lerna run build --no-private --stream",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "scaffold": "hygen",
     "playground:routes": "ts-node ./scripts/parse-routes.ts",
