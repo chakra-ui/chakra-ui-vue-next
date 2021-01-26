@@ -1,8 +1,0 @@
-export * from './config'
-export { createParser, compose } from '@styled-system/core'
-export * from './pseudo'
-export * from './css'
-export * from './css.types'
-export * from './parser.types'
-export * from './system'
-export type { ResponsiveValue } from './utils'

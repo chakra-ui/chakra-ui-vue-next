@@ -12,6 +12,21 @@
         "name": "Base alert",
         "path": "/c-alert/base-alert",
         "component": "@chakra-ui/c-alert/examples/base-alert.vue"
+      },
+      {
+        "name": "With accent",
+        "path": "/c-alert/with-accent",
+        "component": "@chakra-ui/c-alert/examples/with-accent.vue"
+      },
+      {
+        "name": "With status",
+        "path": "/c-alert/with-status",
+        "component": "@chakra-ui/c-alert/examples/with-status.vue"
+      },
+      {
+        "name": "With title",
+        "path": "/c-alert/with-title",
+        "component": "@chakra-ui/c-alert/examples/with-title.vue"
       }
     ]
   },
