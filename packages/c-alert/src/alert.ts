@@ -7,8 +7,8 @@ import {
   useMultiStyleConfig,
   provideComponentStyles,
   useComponentStyles,
+  DOMElements,
 } from '@chakra-ui/system-vue'
-import { DOMElements } from '@chakra-ui/system-vue'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
 
 const STATUSES = {
