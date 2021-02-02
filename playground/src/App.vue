@@ -40,4 +40,8 @@ html {
   height: inherit;
   width: inherit;
 }
+
+a {
+    text-decoration: none;
+}
 </style>
