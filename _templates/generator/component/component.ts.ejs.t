@@ -5,7 +5,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/src/index.ts
 import { h, defineComponent, PropType } from 'vue'
 import { chakra, DOMElements } from '@chakra-ui/vue-system'
 
-export const CIcon = defineComponent({
+export const <%= h.changeCase.pascalCase(name) %> = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,

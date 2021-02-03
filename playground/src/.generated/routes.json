@@ -42,6 +42,17 @@
     ]
   },
   {
+    "name": "Icon",
+    "path": "/c-icon",
+    "children": [
+      {
+        "name": "Base icon",
+        "path": "/c-icon/base-icon",
+        "component": "@chakra-ui/c-icon/examples/base-icon.vue"
+      }
+    ]
+  },
+  {
     "name": "NotFound",
     "path": "/*",
     "component": "../components/Home.vue"
