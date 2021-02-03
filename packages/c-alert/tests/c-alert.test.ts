@@ -1,4 +1,4 @@
-import { render } from '@chakra-ui/vue-test-utils'
+import { render } from '../../test-utils/src'
 import { CAlert } from '../src'
 
 describe('Alert tests', () => {

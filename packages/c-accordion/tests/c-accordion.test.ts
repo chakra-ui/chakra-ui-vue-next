@@ -1,4 +1,4 @@
-import { render } from '@chakra-ui/vue-test-utils'
+import { render } from '../../test-utils/src'
 import CAccordion from '../src'
 
 it('should render properly', () => {
