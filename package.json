@@ -23,7 +23,8 @@
     "c-theme-provider": "yarn workspace @chakra-ui/c-theme-provider",
     "c-box": "yarn workspace @chakra-ui/c-box",
     "c-button": "yarn workspace @chakra-ui/c-button",
-    "system": "yarn workspace @chakra-ui/system-vue",
+    "c-icon": "yarn workspace @chakra-ui/c-icon",
+    "system": "yarn workspace @chakra-ui/vue-system",
     "theme": "yarn workspace @chakra-ui/vue-theme",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next",
     "test-utils": "yarn workspace @chakra-ui/vue-test-utils"
@@ -62,6 +63,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^7.0.0",
+    "feather-icons-paths": "^1.0.8",
     "fs-extra": "^9.0.1",
     "husky": "^4.3.8",
     "hygen": "^6.0.4",

@@ -5438,6 +5438,11 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
+feather-icons-paths@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/feather-icons-paths/-/feather-icons-paths-1.0.8.tgz#5cd68b6a1eb22b1ec08a8b2eaaf05a345cb216e4"
+  integrity sha512-B07o6Vtx3ATZDbsdx6jyYEXEmsn7Rwl0tT80657DL3kHf9Fo4Jncun3nxjZjNHbhKmd44wFXH269kU893E1DhQ==
+
 figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"

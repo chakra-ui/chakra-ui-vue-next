@@ -1,5 +1,5 @@
 import { h, defineComponent, PropType } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/system-vue'
+import { chakra, DOMElements } from '@chakra-ui/vue-system'
 
 const CButton = defineComponent({
   name: 'CButton',

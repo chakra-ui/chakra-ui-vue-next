@@ -1,5 +1,5 @@
 {
-  "name": "@chakra-ui/system-vue",
+  "name": "@chakra-ui/vue-system",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -26,5 +26,8 @@
     "@chakra-ui/vue-utils": "^1.0.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.5"
   }
 }

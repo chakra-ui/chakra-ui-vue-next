@@ -1,5 +1,5 @@
 <script>
-import { chakra } from '@chakra-ui/system-vue'
+import { chakra } from '@chakra-ui/vue-system'
 import { defineComponent, h } from 'vue'
 import { RouterLink } from 'vue-router'
 
