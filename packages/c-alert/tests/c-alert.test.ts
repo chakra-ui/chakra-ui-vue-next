@@ -1,7 +1,9 @@
 import { render } from '@chakra-ui/vue-test-utils'
-import CAlert from '../'
+import { CAlert } from '../src'
 
-it('should render properly', () => {
-  const { html } = render(CAlert)
-  expect(html()).toMatchSnapshot()
+describe('Alert tests', () => {
+  it('should render properly', () => {
+    const { asFragment } = render(CAlert)
+    expect(asFragment()).toMatchSnapshot()
+  })
 })

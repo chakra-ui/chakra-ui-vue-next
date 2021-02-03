@@ -1,5 +1,5 @@
 {
-  "name": "@chakra-ui/c-box",
+  "name": "@chakra-ui/vue-test-utils",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "description": "Chakra UI Vue | CBox component",
+  "description": "Chakra UI Vue | TestUtils module",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
@@ -16,9 +16,9 @@
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps",
-    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
-  },
-  "dependencies": {
-    "@chakra-ui/vue-theme": "^1.0.0"
+    "watch": "concurrently yarn:watch:*",
+    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps --watch",
+    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps --watch",
+    "watch:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
   }
 }

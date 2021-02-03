@@ -17,5 +17,8 @@
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts -d dist/cjs --source-maps",
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
+  },
+  "dependencies": {
+    "@chakra-ui/system-vue": "1.0.0"
   }
 }
