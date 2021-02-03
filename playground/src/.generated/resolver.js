@@ -3,6 +3,7 @@
   '@chakra-ui/c-accordion': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-accordion/src/index.ts',
   '@chakra-ui/c-alert': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-alert/src/index.ts',
   '@chakra-ui/c-button': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-button/src/index.ts',
+  '@chakra-ui/c-icon': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-icon/src/index.ts',
   '@chakra-ui/c-theme-provider': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-theme-provider/src/index.ts',
   '@chakra-ui/system': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/system/src/index.ts',
   '@chakra-ui/test-utils': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/test-utils/src/index.ts',
