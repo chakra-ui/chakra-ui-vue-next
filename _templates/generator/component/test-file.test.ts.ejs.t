@@ -1,7 +1,7 @@
 ---
 to: packages/<%=h.changeCase.paramCase(name)%>/tests/<%=h.changeCase.paramCase(name)%>.test.ts
 ---
-import { render } from '@chakra-ui/vue-test-utils'
+import { render } from '../../test-utils/src'
 import <%= h.changeCase.pascalCase(name) %> from '../'
 
 

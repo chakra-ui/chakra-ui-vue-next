@@ -1,4 +1,4 @@
-import { render, screen } from '@chakra-ui/vue-test-utils'
+import { render, screen } from '../../test-utils/src'
 import { defineComponent, h } from 'vue'
 import { chakra } from '../src'
 

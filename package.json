@@ -9,7 +9,8 @@
     "packages/*"
   ],
   "scripts": {
-    "postinstall": "yarn run lerna bootstrap",
+    "postinstall": "yarn bootstrap",
+    "bootstrap": "yarn run lerna bootstrap",
     "scaffold": "hygen",
     "build": "lerna run build --no-private --stream",
     "dev": "yarn playground:routes && NODE_ENV=development vite serve playground --config ./vite.config.ts",

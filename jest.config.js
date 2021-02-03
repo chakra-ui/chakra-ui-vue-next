@@ -10,6 +10,7 @@ module.exports = {
   transformIgnorePatterns: ['/node_modules/(?!lodash.)'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '@chakra-ui/vue-test-utils': '<rootDir>/packages/test-utils/src/index.ts',
   },
   snapshotSerializers: [
     '@chakra-ui/vue-test-utils/dist/cjs/snapshot-serializer.js',

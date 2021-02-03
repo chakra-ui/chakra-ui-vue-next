@@ -34,7 +34,7 @@ jobs:
       run: yarn lint
 
     - name: Build packages
-      run: yarn build
+      run: yarn build && yarn bootstrap
 
     - name: Run tests
       run: yarn test
