@@ -35,7 +35,7 @@ jobs:
       run: yarn lint
 
     - name: Building packages
-      run: yarn build
+      run: yarn build && yarn bootstrap
 
     - name: Testing components
       run: yarn test
