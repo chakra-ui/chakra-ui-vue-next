@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed } from 'vue'
+import { h, defineComponent, PropType, computed, inject } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -41,6 +41,8 @@ export const CIcon = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
+    const icons = inject<Record<string, any>>('$chakraIcons')
+    const icon = computed(() => icons?.[props?.name as string] || fallbackIcon)
     const vnodeProps = computed<StyleAndHTMLAttibutes>(() => ({
       w: props.size,
       h: props.size,
@@ -48,11 +50,15 @@ export const CIcon = defineComponent({
       lineHeight: '1em',
       flexShrink: 0,
       color: 'currentColor',
-      innerHTML:
-        internalIcons[props?.name as string]?.path || fallbackIcon.path,
+      innerHTML: icon.value.path,
       viewBox: fallbackIcon.viewBox,
     }))
 
-    return () => h(chakra(props.as), { ...vnodeProps.value, ...attrs }, slots)
+    return () =>
+      h(
+        chakra(props.as),
+        { ...vnodeProps.value, ...(icon.value.attrs || {}), ...attrs },
+        slots
+      )
   },
 })

@@ -46,7 +46,7 @@ export default Stories
 
 <style>
 .router-link-active {
-  color: #4299e1;
+  color: #4299e1 !important;
   font-weight: bold;
   text-decoration: underline;
 }

@@ -61,6 +61,11 @@
         "component": "@chakra-ui/c-icon/examples/with-color.vue"
       },
       {
+        "name": "With icon library",
+        "path": "/c-icon/with-icon-library",
+        "component": "@chakra-ui/c-icon/examples/with-icon-library.vue"
+      },
+      {
         "name": "With size",
         "path": "/c-icon/with-size",
         "component": "@chakra-ui/c-icon/examples/with-size.vue"
