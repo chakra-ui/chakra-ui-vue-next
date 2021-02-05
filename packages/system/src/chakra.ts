@@ -23,7 +23,6 @@ export const chakra: IChakraFactory = (
       const { class: inheritedClass, ...rest } = attrs
       const { styles, attrs: _attrs } = extractStyleAttrs(rest)
       const className = _css(css(styles)({ theme }))
-
       const _componentName = componentName ? `chakra-${componentName}` : ''
 
       return () =>

@@ -1,13 +1,17 @@
 import kebabCase from 'lodash.kebabcase'
 import camelCase from 'lodash.camelcase'
-import { propNames, StyleObjectOrFn } from '@chakra-ui/styled-system'
+import {
+  propNames,
+  pseudoPropNames,
+  StyleObjectOrFn,
+} from '@chakra-ui/styled-system'
 import { HTMLAttributes } from 'vue'
 
 type StyleAndHTMLAttibutes = StyleObjectOrFn &
   Record<string, string | number | boolean | unknown> &
   HTMLAttributes
 
-export const allStylePropNames = propNames.reduce(
+export const baseStylePropNames = propNames.reduce(
   (acc: StyleAndHTMLAttibutes, curr: string) => {
     acc[curr] = true
     acc[kebabCase(curr)] = true
@@ -15,6 +19,19 @@ export const allStylePropNames = propNames.reduce(
   },
   {}
 )
+
+export const pseudoStylePropNames = pseudoPropNames.reduce(
+  (acc: StyleAndHTMLAttibutes, curr: string) => {
+    acc[curr] = curr
+    return acc
+  },
+  {}
+)
+
+export const allStylePropNames: StyleAndHTMLAttibutes = {
+  ...baseStylePropNames,
+  ...pseudoStylePropNames,
+}
 
 interface ExtractedStyleAttrs {
   styles: Partial<StyleAndHTMLAttibutes>
@@ -32,8 +49,9 @@ export const extractStyleAttrs = <
   const attrs = {} as U
 
   for (const prop in styleProps) {
-    // TODO: Cache style prop names so that that camelCases is only computed once for eahc property
-    const _attr = camelCase(prop)
+    // TODO: Cache style prop names so that that camelCases is only computed once for each property
+    // TODO: Is there another way to detect
+    const _attr = (pseudoStylePropNames[prop] as string) || camelCase(prop)
     if (_attr in allStylePropNames) {
       // @ts-expect-error Not sure how to cast returned string into typeof key of U
       styles[_attr] = styleProps[prop]
