@@ -1,6 +1,9 @@
 <template>
   <div>
-    <c-icon name="star" />
+    <c-icon name="phone" />
+    <c-icon size="6" name="email" />
+    <c-icon size="10" name="sun" />
+    <c-icon size="14" name="moon" />
   </div>
 </template>
 

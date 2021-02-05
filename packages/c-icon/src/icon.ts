@@ -1,6 +1,11 @@
-import { h, defineComponent, PropType } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import { h, defineComponent, PropType, computed } from 'vue'
+import {
+  chakra,
+  DOMElements,
+  StyleAndHTMLAttibutes,
+} from '@chakra-ui/vue-system'
 import { InternalIcon } from './icon.internals'
+import internalIcons from './icon.internals'
 
 const fallbackIcon: InternalIcon = {
   path: `
@@ -25,10 +30,29 @@ export const CIcon = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: 'svg',
+    },
+    name: {
+      type: [String] as PropType<string>,
+    },
+    size: {
+      type: [String] as PropType<string>,
+      default: '1em',
     },
   },
   setup(props, { slots, attrs }) {
-    return () => h(chakra(props.as), { ...attrs }, slots)
+    const vnodeProps = computed<StyleAndHTMLAttibutes>(() => ({
+      w: props.size,
+      h: props.size,
+      display: 'inline-block',
+      lineHeight: '1em',
+      flexShrink: 0,
+      color: 'currentColor',
+      innerHTML:
+        internalIcons[props?.name as string]?.path || fallbackIcon.path,
+      viewBox: fallbackIcon.viewBox,
+    }))
+
+    return () => h(chakra(props.as), { ...vnodeProps.value, ...attrs }, slots)
   },
 })

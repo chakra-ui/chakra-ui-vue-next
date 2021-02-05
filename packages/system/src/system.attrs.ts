@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/styled-system'
 import { HTMLAttributes } from 'vue'
 
-type StyleAndHTMLAttibutes = StyleObjectOrFn &
+export type StyleAndHTMLAttibutes = StyleObjectOrFn &
   Record<string, string | number | boolean | unknown> &
   HTMLAttributes
 

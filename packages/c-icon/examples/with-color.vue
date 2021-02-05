@@ -1,6 +1,6 @@
 <template>
   <div>
-    <c-icon name="star" />
+    <c-icon color="red.400" size="10" name="phone" />
   </div>
 </template>
 

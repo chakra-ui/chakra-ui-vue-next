@@ -54,6 +54,16 @@
         "name": "Base icon",
         "path": "/c-icon/base-icon",
         "component": "@chakra-ui/c-icon/examples/base-icon.vue"
+      },
+      {
+        "name": "With color",
+        "path": "/c-icon/with-color",
+        "component": "@chakra-ui/c-icon/examples/with-color.vue"
+      },
+      {
+        "name": "With size",
+        "path": "/c-icon/with-size",
+        "component": "@chakra-ui/c-icon/examples/with-size.vue"
       }
     ]
   },
