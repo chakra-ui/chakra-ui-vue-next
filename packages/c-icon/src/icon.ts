@@ -51,6 +51,7 @@ export const CIcon = defineComponent({
       flexShrink: 0,
       color: 'currentColor',
       innerHTML: icon.value.path,
+      focusable: false,
       viewBox: fallbackIcon.viewBox,
     }))
 
