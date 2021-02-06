@@ -144,8 +144,11 @@ export const CAlertDescription = defineComponent({
   },
 })
 
-// TODO: Add CAlertIcon component.
-// This should ne done after the icon component is created.
+/**
+ * CAlertIcon component
+ *
+ * The Icon component for alerts
+ */
 export const CAlertIcon = defineComponent({
   name: 'CAlertIcon',
   props: {
