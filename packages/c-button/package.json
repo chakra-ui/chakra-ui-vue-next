@@ -19,6 +19,6 @@
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "1.0.0"
+    "@chakra-ui/vue-system": "*"
   }
 }

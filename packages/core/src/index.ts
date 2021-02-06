@@ -1,6 +1,6 @@
 import { Plugin } from 'vue'
 import defaultTheme, { ColorMode } from '@chakra-ui/vue-theme'
-import { internalIcons } from '@chakra-ui/c-icon'
+import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
 import { MergedIcons, parseIcons } from './parse-icons'
 

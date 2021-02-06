@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@chakra-ui/vue-theme": "*",
-    "@chakra-ui/vue-utils": "*",
-    "@chakra-ui/c-icon": "*"
+    "@chakra-ui/vue-utils": "*"
   }
 }

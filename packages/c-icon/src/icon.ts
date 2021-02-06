@@ -1,13 +1,7 @@
 import { h, defineComponent, PropType, computed, inject } from 'vue'
-import {
-  chakra,
-  DOMElements,
-  StyleAndHTMLAttibutes,
-} from '@chakra-ui/vue-system'
-import { InternalIcon } from './icon.internals'
-import internalIcons from './icon.internals'
+import { chakra, DOMElements } from '@chakra-ui/vue-system'
 
-const fallbackIcon: InternalIcon = {
+const fallbackIcon = {
   path: `
     <g stroke="currentColor" strokeWidth="1.5">
       <path
@@ -43,7 +37,7 @@ export const CIcon = defineComponent({
   setup(props, { slots, attrs }) {
     const icons = inject<Record<string, any>>('$chakraIcons')
     const icon = computed(() => icons?.[props?.name as string] || fallbackIcon)
-    const vnodeProps = computed<StyleAndHTMLAttibutes>(() => ({
+    const vnodeProps = computed(() => ({
       w: props.size,
       h: props.size,
       display: 'inline-block',
