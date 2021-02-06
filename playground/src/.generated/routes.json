@@ -14,14 +14,14 @@
         "component": "@chakra-ui/c-alert/examples/base-alert.vue"
       },
       {
-        "name": "Fix hover",
-        "path": "/c-alert/fix-hover",
-        "component": "@chakra-ui/c-alert/examples/fix-hover.vue"
-      },
-      {
         "name": "With accent",
         "path": "/c-alert/with-accent",
         "component": "@chakra-ui/c-alert/examples/with-accent.vue"
+      },
+      {
+        "name": "With icon",
+        "path": "/c-alert/with-icon",
+        "component": "@chakra-ui/c-alert/examples/with-icon.vue"
       },
       {
         "name": "With status",
