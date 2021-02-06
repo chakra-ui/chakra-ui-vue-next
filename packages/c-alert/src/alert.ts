@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, provide } from 'vue'
+import { h, defineComponent, PropType, provide, inject, computed } from 'vue'
 import {
   chakra,
   ColorScheme,
@@ -10,19 +10,24 @@ import {
   DOMElements,
 } from '@chakra-ui/vue-system'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
+import { CIcon } from '@chakra-ui/c-icon'
 
 const STATUSES = {
   info: {
     colorScheme: 'blue' as ColorScheme,
+    icon: 'info',
   },
   success: {
     colorScheme: 'green' as ColorScheme,
+    icon: 'check-circle',
   },
   warning: {
     colorScheme: 'orange' as ColorScheme,
+    icon: 'warning-alt',
   },
   error: {
     colorScheme: 'red' as ColorScheme,
+    icon: 'warning',
   },
 }
 
@@ -139,5 +144,31 @@ export const CAlertDescription = defineComponent({
   },
 })
 
-// TODO: Add CAlertIcon component.
-// This should ne done after the icon component is created.
+/**
+ * CAlertIcon component
+ *
+ * The Icon component for alerts
+ */
+export const CAlertIcon = defineComponent({
+  name: 'CAlertIcon',
+  props: {
+    icon: {
+      type: [String] as PropType<string>,
+    },
+  },
+  setup(props, { attrs }) {
+    const alertState = inject<AlertState>('$AlertState')
+    const { icon } = STATUSES[alertState?.status as AlertStatus]
+    const styles = useComponentStyles('Alert')
+
+    const alertIcon = computed(() => props.icon || icon)
+
+    return () =>
+      h(CIcon, {
+        class: 'alert__icon',
+        name: alertIcon.value,
+        ...styles.icon,
+        ...attrs,
+      })
+  },
+})
