@@ -71,10 +71,6 @@ const CButton = defineComponent({
 
     const styles = useStyleConfig('Button', themingProps.value)
 
-    console.log('size: ', props.size)
-    console.log('variant: ', props.variant)
-    console.log('colorScheme: ', props.colorScheme)
-
     const buttonStyles: SystemStyleObject = {
       display: 'inline-flex',
       appearance: 'none',
