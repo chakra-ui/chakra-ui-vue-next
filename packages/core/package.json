@@ -23,7 +23,7 @@
     "watch:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-theme": "^1.0.0",
-    "@chakra-ui/vue-utils": "^1.0.0"
+    "@chakra-ui/vue-theme": "*",
+    "@chakra-ui/vue-utils": "*"
   }
 }

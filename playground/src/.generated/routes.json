@@ -14,6 +14,11 @@
         "component": "@chakra-ui/c-alert/examples/base-alert.vue"
       },
       {
+        "name": "Fix hover",
+        "path": "/c-alert/fix-hover",
+        "component": "@chakra-ui/c-alert/examples/fix-hover.vue"
+      },
+      {
         "name": "With accent",
         "path": "/c-alert/with-accent",
         "component": "@chakra-ui/c-alert/examples/with-accent.vue"
@@ -31,22 +36,6 @@
     ]
   },
   {
-    "name": "Box",
-    "path": "/c-box",
-    "children": [
-      {
-        "name": "Base box",
-        "path": "/c-box/base-box",
-        "component": "@chakra-ui/c-box/examples/base-box.vue"
-      },
-      {
-        "name": "Box with chakra directive",
-        "path": "/c-box/box-with-chakra-directive",
-        "component": "@chakra-ui/c-box/examples/box-with-chakra-directive.vue"
-      }
-    ]
-  },
-  {
     "name": "Button",
     "path": "/c-button",
     "children": [
@@ -54,6 +43,32 @@
         "name": "Base button",
         "path": "/c-button/base-button",
         "component": "@chakra-ui/c-button/examples/base-button.vue"
+      }
+    ]
+  },
+  {
+    "name": "Icon",
+    "path": "/c-icon",
+    "children": [
+      {
+        "name": "Base icon",
+        "path": "/c-icon/base-icon",
+        "component": "@chakra-ui/c-icon/examples/base-icon.vue"
+      },
+      {
+        "name": "With color",
+        "path": "/c-icon/with-color",
+        "component": "@chakra-ui/c-icon/examples/with-color.vue"
+      },
+      {
+        "name": "With icon library",
+        "path": "/c-icon/with-icon-library",
+        "component": "@chakra-ui/c-icon/examples/with-icon-library.vue"
+      },
+      {
+        "name": "With size",
+        "path": "/c-icon/with-size",
+        "component": "@chakra-ui/c-icon/examples/with-size.vue"
       }
     ]
   },

@@ -19,7 +19,7 @@
     "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "dependencies": {
-    "@chakra-ui/vue-utils": "^1.0.0",
+    "@chakra-ui/vue-utils": "*",
     "@types/tinycolor2": "1.4.2",
     "tinycolor2": "1.4.1"
   }

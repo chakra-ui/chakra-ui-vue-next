@@ -1,0 +1,6 @@
+{
+  "watch": ["packages", "scripts/parse-routes.ts"],
+  "ext": "vue",
+  "ignore": ["packages/**/*.test.ts"],
+  "exec": "yarn playground:routes"
+}
