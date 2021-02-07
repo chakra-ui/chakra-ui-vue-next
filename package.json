@@ -29,7 +29,8 @@
     "theme": "yarn workspace @chakra-ui/vue-theme",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next",
     "test-utils": "yarn workspace @chakra-ui/vue-test-utils",
-    "c-reset": "yarn workspace @chakra-ui/c-reset"
+    "c-reset": "yarn workspace @chakra-ui/c-reset",
+    "c-spinner": "yarn workspace @chakra-ui/c-spinner"
   },
   "license": "MIT",
   "private": true,

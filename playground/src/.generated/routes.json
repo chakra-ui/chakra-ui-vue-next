@@ -93,6 +93,32 @@
     ]
   },
   {
+    "name": "Spinner",
+    "path": "/c-spinner",
+    "children": [
+      {
+        "name": "Base spinner",
+        "path": "/c-spinner/base-spinner",
+        "component": "@chakra-ui/c-spinner/examples/base-spinner.vue"
+      },
+      {
+        "name": "With color",
+        "path": "/c-spinner/with-color",
+        "component": "@chakra-ui/c-spinner/examples/with-color.vue"
+      },
+      {
+        "name": "With empty area color",
+        "path": "/c-spinner/with-empty-area-color",
+        "component": "@chakra-ui/c-spinner/examples/with-empty-area-color.vue"
+      },
+      {
+        "name": "With size",
+        "path": "/c-spinner/with-size",
+        "component": "@chakra-ui/c-spinner/examples/with-size.vue"
+      }
+    ]
+  },
+  {
     "name": "NotFound",
     "path": "/*",
     "component": "../components/Home.vue"
