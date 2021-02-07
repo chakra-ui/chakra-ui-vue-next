@@ -1,6 +1,6 @@
 import { createContext } from '@chakra-ui/vue-utils/src'
 import { defineComponent, h } from 'vue'
-import { render } from '../../test-utils/src'
+import { render } from '@chakra-ui/vue-test-utils/src'
 
 interface ExampleContext {
   example: string
