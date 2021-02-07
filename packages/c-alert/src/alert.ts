@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, provide, inject, computed } from 'vue'
+import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
   ColorScheme,
