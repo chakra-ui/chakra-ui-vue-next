@@ -79,7 +79,7 @@ const CButton = defineComponent({
 
     return () =>
       h(
-        chakra(props.as, 'button'),
+        chakra(props.as, { label: 'button' }),
         {
           disabled: props.isDisabled || props.isLoading,
           type: props.as === 'button' ? undefined : props.type,
