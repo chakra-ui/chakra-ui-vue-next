@@ -14,14 +14,37 @@ yarn install
 yarn build
 ```
 
+### Bootstrap and link packages
+```bash
+yarn bootstrap
+```
+
 ### Component playground (based on vite)
 ```bash
 yarn dev
 ```
 
+## Development Guide
+### 1. Creating new components
+Chakra UI Vue uses [hygen](https://www.hygen.io/) to generate new components. The component templates can be found in the `_templates/generator/component` directory
+
+```bash
+yarn hygen component --name <COMPONENT_NAME> --description="MY_COMPONENT_DESCRIPTION"
+```
+
+This creates a new package with the name `<COMPONENT_NAME>` with some basic sanity tests.
+
+After creating your new package, run `yarn workspace @chakra-ui/COMPONENT_NAME && yarn bootstrap` to build and link your component in the monorepo.
+
+Run `yarn dev` to view your new component in the playground.
+
+**Additional notes:**
+Add a script for your package workspace in the `package.json` file.
+
 ### Major todos:
 - [ ] Documentation (to be based on Nuxt 3)
 - [ ] Accessibility JS hooks (Documented in Roadmap)
+
 
 #### Contributors' note:
 Hi!
