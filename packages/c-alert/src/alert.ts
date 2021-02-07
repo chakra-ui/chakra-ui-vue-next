@@ -10,6 +10,7 @@ import {
   DOMElements,
 } from '@chakra-ui/vue-system'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
+import { createContext } from '@chakra-ui/vue-utils/src'
 import { CIcon } from '@chakra-ui/c-icon'
 
 const STATUSES = {
@@ -34,9 +35,15 @@ const STATUSES = {
 type AlertStatus = keyof typeof STATUSES
 export type AlertVariant = 'solid' | 'subtle' | 'left-accent' | 'top-accent'
 
-interface AlertState {
+interface AlertContext {
   status: AlertStatus
 }
+
+const [AlertProvider, useAlertContext] = createContext<AlertContext>({
+  name: 'AlertContext',
+  errorMessage:
+    'useAlertContext: `context` is undefined. Seems you forgot to wrap alert components in `<c-alert />`',
+})
 
 /**
  * CAlert component
@@ -85,7 +92,7 @@ export const CAlert = defineComponent({
     }
 
     provideComponentStyles('Alert', styles.value)
-    provide('$AlertState', { status: props.status } as AlertState)
+    AlertProvider({ status: props.status })
 
     return () =>
       h(
@@ -157,8 +164,8 @@ export const CAlertIcon = defineComponent({
     },
   },
   setup(props, { attrs }) {
-    const alertState = inject<AlertState>('$AlertState')
-    const { icon } = STATUSES[alertState?.status as AlertStatus]
+    const { status } = useAlertContext()
+    const { icon } = STATUSES[status]
     const styles = useComponentStyles('Alert')
 
     const alertIcon = computed(() => props.icon || icon)
