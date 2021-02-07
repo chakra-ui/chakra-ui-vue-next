@@ -133,6 +133,7 @@ export const chakra: IChakraFactory = (
         css,
         sx,
         apply,
+        label,
         ...otherStyles
       } = options
 
@@ -176,7 +177,7 @@ export const chakra: IChakraFactory = (
       })
 
       const className = _css(resolvedComponentStyles)
-      const _componentName = options?.label ? `chakra-${options?.label}` : ''
+      const _componentName = label ? `chakra-${label}` : ''
 
       return () =>
         h(
