@@ -5,8 +5,8 @@ import {
   DeepComponentThemeConfig,
   ThemingProps,
   useMultiStyleConfig,
-  provideComponentStyles,
-  useComponentStyles,
+  useStyles,
+  StylesProvider,
   DOMElements,
 } from '@chakra-ui/vue-system'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
@@ -91,7 +91,7 @@ export const CAlert = defineComponent({
       ...styles.value.container,
     }
 
-    provideComponentStyles('Alert', styles.value)
+    StylesProvider(styles.value)
     AlertProvider({ status: props.status })
 
     return () =>
@@ -115,7 +115,7 @@ export const CAlert = defineComponent({
 export const CAlertTitle = defineComponent({
   name: 'CAlertTitle',
   setup(_, { attrs, slots }) {
-    const styles = useComponentStyles('Alert')
+    const styles = useStyles()
 
     return () =>
       h(
@@ -137,7 +137,7 @@ export const CAlertTitle = defineComponent({
 export const CAlertDescription = defineComponent({
   name: 'CAlertDescription',
   setup(_, { attrs, slots }) {
-    const styles = useComponentStyles('Alert')
+    const styles = useStyles()
 
     return () =>
       h(
@@ -166,7 +166,7 @@ export const CAlertIcon = defineComponent({
   setup(props, { attrs }) {
     const { status } = useAlertContext()
     const { icon } = STATUSES[status]
-    const styles = useComponentStyles('Alert')
+    const styles = useStyles()
 
     const alertIcon = computed(() => props.icon || icon)
 
