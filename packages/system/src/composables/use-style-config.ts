@@ -1,4 +1,4 @@
-import { computed, ComputedRef, inject, provide, ref } from 'vue'
+import { computed, ComputedRef } from 'vue'
 
 import { SystemStyleObject } from '@chakra-ui/styled-system'
 import { ChakraComponentName, ComponentThemeConfig } from '@chakra-ui/vue-theme'
@@ -82,19 +82,4 @@ export function useMultiStyleConfig(
   themingProps: any
 ) {
   return useStyleConfig(themeKey, themingProps, { isMultiPart: true })
-}
-
-/** Provides Chakra Multi-parted component styles to descendants */
-export const provideComponentStyles = (
-  component: AllThemedComponents,
-  styles: SystemStyleObject
-) => {
-  provide<SystemStyleObject>(`$chakra${component}Styles`, styles)
-}
-
-/** Injects Chakra Multi-parted component styles from ancestor */
-export const useComponentStyles = (component: AllThemedComponents) => {
-  return inject<Record<string, SystemStyleObject> & SystemStyleObject & any>(
-    `$chakra${component}Styles`
-  )
 }

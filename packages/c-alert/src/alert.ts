@@ -1,15 +1,16 @@
-import { h, defineComponent, PropType, provide, inject, computed } from 'vue'
+import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
   ColorScheme,
   DeepComponentThemeConfig,
   ThemingProps,
   useMultiStyleConfig,
-  provideComponentStyles,
-  useComponentStyles,
+  useStyles,
+  StylesProvider,
   DOMElements,
 } from '@chakra-ui/vue-system'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
+import { createContext } from '@chakra-ui/vue-utils'
 import { CIcon } from '@chakra-ui/c-icon'
 
 const STATUSES = {
@@ -34,9 +35,15 @@ const STATUSES = {
 type AlertStatus = keyof typeof STATUSES
 export type AlertVariant = 'solid' | 'subtle' | 'left-accent' | 'top-accent'
 
-interface AlertState {
+interface AlertContext {
   status: AlertStatus
 }
+
+const [AlertProvider, useAlertContext] = createContext<AlertContext>({
+  name: 'AlertContext',
+  errorMessage:
+    'useAlertContext: `context` is undefined. Seems you forgot to wrap alert components in `<c-alert />`',
+})
 
 /**
  * CAlert component
@@ -84,8 +91,8 @@ export const CAlert = defineComponent({
       ...styles.value.container,
     }
 
-    provideComponentStyles('Alert', styles.value)
-    provide('$AlertState', { status: props.status } as AlertState)
+    StylesProvider(styles.value)
+    AlertProvider({ status: props.status })
 
     return () =>
       h(
@@ -108,7 +115,7 @@ export const CAlert = defineComponent({
 export const CAlertTitle = defineComponent({
   name: 'CAlertTitle',
   setup(_, { attrs, slots }) {
-    const styles = useComponentStyles('Alert')
+    const styles = useStyles()
 
     return () =>
       h(
@@ -130,7 +137,7 @@ export const CAlertTitle = defineComponent({
 export const CAlertDescription = defineComponent({
   name: 'CAlertDescription',
   setup(_, { attrs, slots }) {
-    const styles = useComponentStyles('Alert')
+    const styles = useStyles()
 
     return () =>
       h(
@@ -157,9 +164,9 @@ export const CAlertIcon = defineComponent({
     },
   },
   setup(props, { attrs }) {
-    const alertState = inject<AlertState>('$AlertState')
-    const { icon } = STATUSES[alertState?.status as AlertStatus]
-    const styles = useComponentStyles('Alert')
+    const { status } = useAlertContext()
+    const { icon } = STATUSES[status]
+    const styles = useStyles()
 
     const alertIcon = computed(() => props.icon || icon)
 

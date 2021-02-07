@@ -9,6 +9,7 @@ export * from './tabbable'
 export * from './assertion'
 export * from 'css-box-model'
 export * from './responsive'
+export * from './vue-helpers'
 
 export function orient(options: {
   orientation?: 'vertical' | 'horizontal'
