@@ -1,4 +1,5 @@
 <template>
+  <c-reset />
   <chakra.section d="flex" height="inherit" w="inherit">
     <sidebar :stories="routes" />
     <chakra.main w="full" border-left="1px solid" border-color="gray.400" padding="4">
@@ -9,15 +10,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { CReset } from '@chakra-ui/c-reset'
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
 
 export default defineComponent({
-  components: { Sidebar },
+  components: { Sidebar, CReset },
   setup() {
     return {
       routes,
-      
     }
   },
 })

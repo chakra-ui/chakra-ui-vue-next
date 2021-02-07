@@ -43,6 +43,11 @@
         "name": "Base button",
         "path": "/c-button/base-button",
         "component": "@chakra-ui/c-button/examples/base-button.vue"
+      },
+      {
+        "name": "With button size",
+        "path": "/c-button/with-button-size",
+        "component": "@chakra-ui/c-button/examples/with-button-size.vue"
       }
     ]
   },
