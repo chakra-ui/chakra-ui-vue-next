@@ -96,7 +96,7 @@ export const CAlert = defineComponent({
 
     return () =>
       h(
-        chakra(props.as, 'alert'),
+        chakra(props.as, { label: 'alert' }),
         {
           role: 'alert',
           ...alertStyles,
@@ -119,7 +119,7 @@ export const CAlertTitle = defineComponent({
 
     return () =>
       h(
-        chakra('div', 'alert__title'),
+        chakra('div', { label: 'alert__title' }),
         {
           ...styles.title,
           ...attrs,
@@ -141,7 +141,7 @@ export const CAlertDescription = defineComponent({
 
     return () =>
       h(
-        chakra('div', 'alert__description'),
+        chakra('div', { label: 'alert__description' }),
         {
           ...styles.description,
           ...attrs,

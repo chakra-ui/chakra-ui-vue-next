@@ -7,7 +7,7 @@ const renderComponent = (options?: Record<string, any>) =>
     components: {
       chakra: defineComponent({
         setup(_, { slots }) {
-          return () => h(chakra('span'), {}, slots)
+          return () => h(chakra('span', {}), {}, slots)
         },
       }),
     },
