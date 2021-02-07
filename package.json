@@ -25,6 +25,7 @@
     "c-button": "yarn workspace @chakra-ui/c-button",
     "c-icon": "yarn workspace @chakra-ui/c-icon",
     "system": "yarn workspace @chakra-ui/vue-system",
+    "utils": "yarn workspace @chakra-ui/vue-utils",
     "theme": "yarn workspace @chakra-ui/vue-theme",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next",
     "test-utils": "yarn workspace @chakra-ui/vue-test-utils",

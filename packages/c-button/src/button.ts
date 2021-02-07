@@ -9,19 +9,10 @@ import {
   SystemCSSProperties,
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
-import { Colors } from '@chakra-ui/vue-theme/dist/types/foundations/colors'
 import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { dataAttr } from '@chakra-ui/vue-utils'
 
 type ButtonTypes = 'button' | 'reset' | 'submit'
-export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg'
-export type ButtonVariants =
-  | 'subtle'
-  | 'solid'
-  | 'outline'
-  | 'ghost'
-  | 'link'
-  | string
 
 const props = {
   as: {
@@ -36,13 +27,13 @@ const props = {
   type: String as PropType<ButtonTypes>,
   leftIcon: String as PropType<string>,
   rightIcon: String as PropType<string>,
-  colorScheme: String as PropType<keyof Colors>,
+  colorScheme: String as PropType<string>,
   variant: {
-    type: String as PropType<ButtonVariants>,
+    type: String as PropType<string>,
     default: 'solid',
   },
   size: {
-    type: String as PropType<ButtonSizes>,
+    type: String as PropType<string>,
     default: 'md',
   },
   styleConfig: String as PropType<ComponentThemeConfig>,
