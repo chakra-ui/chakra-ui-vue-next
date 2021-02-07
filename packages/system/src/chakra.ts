@@ -10,7 +10,6 @@ import {
 import {
   css,
   ResponsiveValue,
-  SystemCSSProperties,
   SystemProps,
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
@@ -117,7 +116,7 @@ export type ChakraBaseComponentProps = typeof chakraProps
 // @ts-expect-error
 export const chakra: IChakraFactory = (
   tag: DOMElements & Component,
-  options: StyleResolverProps
+  options: ChakraFactoryOptions
 ): DefineComponent => {
   return defineComponent({
     inheritAttrs: false,

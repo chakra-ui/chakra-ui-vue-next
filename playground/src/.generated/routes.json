@@ -45,9 +45,24 @@
         "component": "@chakra-ui/c-button/examples/base-button.vue"
       },
       {
+        "name": "With attached buttons",
+        "path": "/c-button/with-attached-buttons",
+        "component": "@chakra-ui/c-button/examples/with-attached-buttons.vue"
+      },
+      {
+        "name": "With button group",
+        "path": "/c-button/with-button-group",
+        "component": "@chakra-ui/c-button/examples/with-button-group.vue"
+      },
+      {
         "name": "With button size",
         "path": "/c-button/with-button-size",
         "component": "@chakra-ui/c-button/examples/with-button-size.vue"
+      },
+      {
+        "name": "With button variants",
+        "path": "/c-button/with-button-variants",
+        "component": "@chakra-ui/c-button/examples/with-button-variants.vue"
       }
     ]
   },

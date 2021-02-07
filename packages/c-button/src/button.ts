@@ -10,7 +10,8 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
 import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
-import { dataAttr } from '@chakra-ui/vue-utils'
+import { dataAttr, mergeWith } from '@chakra-ui/vue-utils'
+import { useButtonGroup } from './button-group'
 
 type ButtonTypes = 'button' | 'reset' | 'submit'
 
@@ -60,7 +61,10 @@ const CButton = defineComponent({
       styleConfig: props.styleConfig,
     }))
 
-    const styles = useStyleConfig('Button', themingProps.value)
+    const group = useButtonGroup()
+    const styles = useStyleConfig('Button', { ...group, ...themingProps.value })
+
+    const _focus = mergeWith({}, styles.value?.['_focus'] ?? {}, { zIndex: 1 })
 
     const buttonStyles: SystemStyleObject = {
       display: 'inline-flex',
@@ -75,6 +79,7 @@ const CButton = defineComponent({
       outline: 'none',
       width: props.isFullWidth ? '100%' : 'auto',
       ...styles.value,
+      ...(!!group && { _focus }),
     }
 
     return () =>

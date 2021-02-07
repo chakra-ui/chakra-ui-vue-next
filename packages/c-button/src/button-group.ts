@@ -28,7 +28,10 @@ export interface ButtonGroupProps extends ThemingProps {
 const props = {
   isAttached: Boolean as PropType<ButtonGroupProps['isAttached']>,
   isDisabled: Boolean as PropType<ButtonGroupProps['isDisabled']>,
-  spacing: [String, Number, Array] as PropType<ButtonGroupProps['spacing']>,
+  spacing: {
+    type: [String, Number, Array] as PropType<ButtonGroupProps['spacing']>,
+    default: 3,
+  },
   variant: {
     type: String as PropType<string>,
     default: 'solid',
@@ -52,10 +55,10 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
-export const CButtonGroup = defineComponent({
+const CButtonGroup = defineComponent({
   name: 'CButtonGroup',
   props,
-  setup(props, { slots }) {
+  setup(props, { attrs, slots }) {
     ButtonGroupProvider({
       size: props.size,
       colorScheme: props.colorScheme,
@@ -85,6 +88,18 @@ export const CButtonGroup = defineComponent({
       return groupStyles
     })
 
-    return () => h(chakra.div)
+    return () =>
+      h(
+        chakra('div', { label: 'button__group' }),
+        {
+          __css: styles.value,
+          role: 'group',
+          ...attrs,
+        },
+        slots
+      )
   },
 })
+
+export default CButtonGroup
+export { useButtonGroup }
