@@ -10,7 +10,7 @@ import {
   DOMElements,
 } from '@chakra-ui/vue-system'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
-import { createContext } from '@chakra-ui/vue-utils/src'
+import { createContext } from '@chakra-ui/vue-utils'
 import { CIcon } from '@chakra-ui/c-icon'
 
 const STATUSES = {
