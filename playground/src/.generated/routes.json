@@ -112,9 +112,25 @@
         "component": "@chakra-ui/c-spinner/examples/with-empty-area-color.vue"
       },
       {
+        "name": "With label",
+        "path": "/c-spinner/with-label",
+        "component": "@chakra-ui/c-spinner/examples/with-label.vue"
+      },
+      {
         "name": "With size",
         "path": "/c-spinner/with-size",
         "component": "@chakra-ui/c-spinner/examples/with-size.vue"
+      }
+    ]
+  },
+  {
+    "name": "Visually hidden",
+    "path": "/c-visually-hidden",
+    "children": [
+      {
+        "name": "Base visually hidden",
+        "path": "/c-visually-hidden/base-visually-hidden",
+        "component": "@chakra-ui/c-visually-hidden/examples/base-visually-hidden.vue"
       }
     ]
   },

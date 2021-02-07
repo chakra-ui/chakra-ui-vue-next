@@ -1,7 +1,7 @@
 import { render } from '../../test-utils/src'
-import { CSpinner } from '../src'
+import { CVisuallyHidden } from '../src'
 
 it('should render properly', () => {
-  const { asFragment } = render(CSpinner)
+  const { asFragment } = render(CVisuallyHidden)
   expect(asFragment()).toMatchSnapshot()
 })

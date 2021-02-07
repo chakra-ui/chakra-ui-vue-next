@@ -1,6 +1,6 @@
 {
-  "name": "@chakra-ui/c-spinner",
-  "description": "Chakra UI Vue | Visual cue that an action is either processing awaiting a course of change or a result component",
+  "name": "@chakra-ui/c-visually-hidden",
+  "description": "Chakra UI Vue | A component used in web accessibility to hide content from the visual client but keep it readable for screen readers component",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -37,8 +37,7 @@
   "dependencies": {
     "@chakra-ui/styled-system": "^1.4.1",
     "@chakra-ui/vue-system": "*",
-    "@chakra-ui/vue-utils": "*",
-    "@chakra-ui/c-visually-hidden": "*"
+    "@chakra-ui/vue-utils": "*"
   },
   "peerDependencies": {
     "vue": ">=3.0.5"

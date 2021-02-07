@@ -7,6 +7,7 @@
   '@chakra-ui/c-reset': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-reset/src/index.ts',
   '@chakra-ui/c-spinner': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-spinner/src/index.ts',
   '@chakra-ui/c-theme-provider': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-theme-provider/src/index.ts',
+  '@chakra-ui/c-visually-hidden': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/c-visually-hidden/src/index.ts',
   '@chakra-ui/system': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/system/src/index.ts',
   '@chakra-ui/test-utils': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/test-utils/src/index.ts',
   '@chakra-ui/theme': '/Users/jonathanbakebwa/Github/chakra-ui-vue-next/packages/theme/src/index.ts',

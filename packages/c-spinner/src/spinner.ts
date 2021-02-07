@@ -7,6 +7,7 @@ import {
   useStyleConfig,
 } from '@chakra-ui/vue-system'
 import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
+import { CVisuallyHidden } from '@chakra-ui/c-visually-hidden'
 
 const spin = keyframes({
   '0%': {
@@ -119,7 +120,8 @@ const CSpinner = defineComponent({
         }),
         {
           ...attrs,
-        }
+        },
+        props.label && [h(CVisuallyHidden, props.label)]
       )
   },
 })
