@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { injectGlobal } from '@emotion/css'
+import { injectGlobal } from '@chakra-ui/vue-system'
 
 export const CReset = defineComponent({
   setup() {

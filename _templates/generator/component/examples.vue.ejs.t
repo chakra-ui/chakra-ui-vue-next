@@ -3,7 +3,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/examples/base-<%=h.changeCase.par
 ---
 
 <template>
-  <<%=h.changeCase.pascalCase(name)%>> HELLO <%=h.changeCase.pascalCase(name)%> <<%=h.changeCase.pascalCase(name)%>>
+  <<%=h.changeCase.paramCase(name)%>> HELLO <%=h.changeCase.pascalCase(name)%> </<%=h.changeCase.paramCase(name)%>>
 </template>
 
 <script lang="ts">

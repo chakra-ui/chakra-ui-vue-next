@@ -116,7 +116,7 @@ export type ChakraBaseComponentProps = typeof chakraProps
 // @ts-expect-error
 export const chakra: IChakraFactory = (
   tag: DOMElements & Component,
-  options: ChakraFactoryOptions
+  options = {} as ChakraFactoryOptions
 ): DefineComponent => {
   return defineComponent({
     inheritAttrs: false,
@@ -254,7 +254,7 @@ export const resolveStyles = (
 type IChakraFactory = {
   [key in DOMElements]: DefineComponent
 } & {
-  (tag: DOMElements, options: StyleResolverProps): DefineComponent
+  (tag: DOMElements, options?: StyleResolverProps): DefineComponent
 }
 
 domElements.forEach((tag) => {
