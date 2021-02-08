@@ -25,10 +25,12 @@
     "c-button": "yarn workspace @chakra-ui/c-button",
     "c-icon": "yarn workspace @chakra-ui/c-icon",
     "system": "yarn workspace @chakra-ui/vue-system",
+    "utils": "yarn workspace @chakra-ui/vue-utils",
     "theme": "yarn workspace @chakra-ui/vue-theme",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next",
     "test-utils": "yarn workspace @chakra-ui/vue-test-utils",
-    "c-reset": "yarn workspace @chakra-ui/c-reset"
+    "c-reset": "yarn workspace @chakra-ui/c-reset",
+    "c-spinner": "yarn workspace @chakra-ui/c-spinner"
   },
   "license": "MIT",
   "private": true,
@@ -73,7 +75,6 @@
     "jest-transform-stub": "^2.0.0",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
-    "nodemon": "^2.0.7",
     "prettier": "^2.1.2",
     "pretty": "^2.0.0",
     "recursive-readdir": "^2.2.2",

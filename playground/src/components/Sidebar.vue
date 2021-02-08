@@ -31,7 +31,7 @@ const Stories = defineComponent({
                   color: 'gray.700'
                 },
                 story.children
-                  ? h(chakra.h3, { mt: 2, mb: 0 }, story.name)
+                  ? h(chakra.h3, { mt: 2, mb: 0, fontWeight: 'bold' }, story.name)
                   : [h(chakra(RouterLink), { to: story.path, color: 'gray.600', _hover: { color: 'blue.400'} }, story.path === '/' ? () => [h(chakra.img, { w: '120px', mt: 4, src: 'https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue.png' })] : () => story.name)],
                 story.children && h(Stories, { stories: story.children })
               )

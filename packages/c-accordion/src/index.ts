@@ -9,7 +9,8 @@ const CAccordion = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    return () => h(chakra(props.as), { ...attrs }, slots)
+    return () =>
+      h(chakra(props.as, { label: 'accordion' }), { ...attrs }, slots)
   },
 })
 

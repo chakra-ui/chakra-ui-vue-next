@@ -45,9 +45,24 @@
         "component": "@chakra-ui/c-button/examples/base-button.vue"
       },
       {
+        "name": "With attached buttons",
+        "path": "/c-button/with-attached-buttons",
+        "component": "@chakra-ui/c-button/examples/with-attached-buttons.vue"
+      },
+      {
+        "name": "With button group",
+        "path": "/c-button/with-button-group",
+        "component": "@chakra-ui/c-button/examples/with-button-group.vue"
+      },
+      {
         "name": "With button size",
         "path": "/c-button/with-button-size",
         "component": "@chakra-ui/c-button/examples/with-button-size.vue"
+      },
+      {
+        "name": "With button variants",
+        "path": "/c-button/with-button-variants",
+        "component": "@chakra-ui/c-button/examples/with-button-variants.vue"
       }
     ]
   },
@@ -74,6 +89,48 @@
         "name": "With size",
         "path": "/c-icon/with-size",
         "component": "@chakra-ui/c-icon/examples/with-size.vue"
+      }
+    ]
+  },
+  {
+    "name": "Spinner",
+    "path": "/c-spinner",
+    "children": [
+      {
+        "name": "Base spinner",
+        "path": "/c-spinner/base-spinner",
+        "component": "@chakra-ui/c-spinner/examples/base-spinner.vue"
+      },
+      {
+        "name": "With color",
+        "path": "/c-spinner/with-color",
+        "component": "@chakra-ui/c-spinner/examples/with-color.vue"
+      },
+      {
+        "name": "With empty area color",
+        "path": "/c-spinner/with-empty-area-color",
+        "component": "@chakra-ui/c-spinner/examples/with-empty-area-color.vue"
+      },
+      {
+        "name": "With label",
+        "path": "/c-spinner/with-label",
+        "component": "@chakra-ui/c-spinner/examples/with-label.vue"
+      },
+      {
+        "name": "With size",
+        "path": "/c-spinner/with-size",
+        "component": "@chakra-ui/c-spinner/examples/with-size.vue"
+      }
+    ]
+  },
+  {
+    "name": "Visually hidden",
+    "path": "/c-visually-hidden",
+    "children": [
+      {
+        "name": "Base visually hidden",
+        "path": "/c-visually-hidden/base-visually-hidden",
+        "component": "@chakra-ui/c-visually-hidden/examples/base-visually-hidden.vue"
       }
     ]
   },
