@@ -4,12 +4,3 @@
     <c-button>Cancel</c-button>
   </c-button-group>
 </template>
-
-<script lang="ts">
-import { CButton, CButtonGroup } from '@chakra-ui/c-button/src'
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  components: { CButton, CButtonGroup },
-})
-</script>

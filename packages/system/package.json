@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.4.1",
-    "@chakra-ui/vue-next": "*",
     "@chakra-ui/vue-theme": "*",
     "@chakra-ui/vue-utils": "*",
     "@emotion/css": "^11.1.3",

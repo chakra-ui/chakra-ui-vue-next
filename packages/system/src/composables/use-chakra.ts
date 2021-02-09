@@ -1,10 +1,9 @@
-import { ThemeProviderProps } from '@chakra-ui/vue-next'
-import { ColorMode } from '@chakra-ui/vue-theme'
+import { ColorMode, Theme } from '@chakra-ui/vue-theme'
 import { inject, ref } from 'vue'
 
 /** Provides theme object in component context */
-export const useTheme = (): ThemeProviderProps => {
-  const theme = inject('$chakraTheme') as ThemeProviderProps
+export const useTheme = (): Theme => {
+  const theme = inject('$chakraTheme') as Theme
   return theme
 }
 

@@ -24,6 +24,14 @@
   },
   "dependencies": {
     "@chakra-ui/vue-theme": "*",
-    "@chakra-ui/vue-utils": "*"
+    "@chakra-ui/vue-utils": "*",
+    "@chakra-ui/c-accordion": "*",
+    "@chakra-ui/c-alert": "*",
+    "@chakra-ui/c-button": "*",
+    "@chakra-ui/c-icon": "*",
+    "@chakra-ui/c-reset": "*",
+    "@chakra-ui/c-spinner": "*",
+    "@chakra-ui/c-theme-provider": "*",
+    "@chakra-ui/c-visually-hidden": "*"
   }
 }

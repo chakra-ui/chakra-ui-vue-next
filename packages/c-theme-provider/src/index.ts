@@ -7,13 +7,13 @@ import {
   inject,
   computed,
 } from 'vue'
-import { ThemeProviderProps } from '@chakra-ui/vue-next'
+import { Theme } from '@chakra-ui/vue-theme'
 
 const CThemeProvider = defineComponent({
   name: 'CThemeProvider',
   props: {
     value: {
-      type: [Object] as PropType<ThemeProviderProps>,
+      type: [Object] as PropType<Theme>,
       default: () => undefined,
     },
   },

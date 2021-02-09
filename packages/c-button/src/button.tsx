@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed } from 'vue'
+import { h, defineComponent, PropType, computed, cloneVNode } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -48,8 +48,13 @@ const props = {
   },
 }
 
-/** TODO: How to get component props in typescript */
-
+/**
+ * CButton
+ * 
+ * The Button component is used to trigger an action or event,
+ * such as submitting a form, opening a dialog, canceling
+ * an action, or performing a delete operation.
+ */
 const CButton = defineComponent({
   name: 'CButton',
   props,
@@ -82,19 +87,72 @@ const CButton = defineComponent({
       ...(!!group && { _focus }),
     }
 
+    return () => (
+      <chakra.button
+      // @ts-expect-error JSX props error
+        as={props.as}
+        label="button"
+        disabled={props.isDisabled || props.isLoading}
+        type={props.as === 'button' ? undefined : props.type}
+        dataActive={dataAttr(props.isActive)}
+        dataLoading={dataAttr(props.isLoading)}
+        {...buttonStyles}
+        {...attrs}
+      >
+        {slots}
+      </chakra.button>
+    )
+  },
+})
+
+const CButtonSpinner = defineComponent({
+  name: 'CButtonSpinner',
+  props: {
+    label: Boolean as PropType<boolean>,
+    spacing: [Number, String, Array] as PropType<
+      number | string | string[] | number[]
+    >,
+    __css: Object as PropType<SystemStyleObject>,
+  },
+  setup(props, { attrs, slots }) {
+
+    const spinnerStyles: SystemStyleObject = {
+      display: "flex",
+      alignItems: "center",
+      position: props.label ? "relative" : "absolute",
+      marginEnd: props.label ? props.spacing : 0,
+      ...props.__css,
+    }
+    return () => (
+      // @ts-expect-error JSX props error
+      <chakra.div label="button__spinner" baseStyle={{}} {...attrs} __css={spinnerStyles}>
+        {slots ?? slots}
+      </chakra.div>
+    )
+  },
+})
+
+/**
+ * CButtonIcon
+ * 
+ * Button icon component
+ */
+const CButtonIcon = defineComponent({
+  name: 'CButtonIcon',
+  setup(_, { slots, attrs }) {
+    const children = slots?.default?.()
+    const _children = children
+      ? cloneVNode(children?.[0], {
+          'aria-hidden': true,
+          focusable: false,
+        })
+      : children?.[0]
+
     return () =>
-      h(
-        chakra(props.as, { label: 'button' }),
-        {
-          disabled: props.isDisabled || props.isLoading,
-          type: props.as === 'button' ? undefined : props.type,
-          dataActive: dataAttr(props.isActive),
-          dataLoading: dataAttr(props.isLoading),
-          ...buttonStyles,
-          ...attrs,
-        },
-        slots
-      )
+    // @ts-expect-error JSX props error
+      <chakra.span label="button__icon" {...attrs}>
+        {_children}
+      </chakra.span>
   },
 })
 

@@ -13,8 +13,7 @@
     "bootstrap": "yarn run lerna bootstrap",
     "scaffold": "hygen",
     "build": "lerna run build --no-private --stream",
-    "dev": "concurrently 'ts-node ./scripts/watch-files.ts' 'NODE_ENV=development vite serve playground --config ./vite.config.ts'",
-    "playground:routes": "ts-node ./scripts/parse-routes.ts",
+    "dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts",
     "playground:build": "yarn install && yarn build && yarn playground:routes && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "test": "jest",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
@@ -82,6 +81,8 @@
     "ts-node": "^9.0.0",
     "typescript": "^4.1.2",
     "vite": "^2.0.0-beta.44",
+    "vite-plugin-components": "^0.6.6",
+    "vite-plugin-pages": "^0.3.0",
     "vue": "^3.0.5",
     "vue-jest": "^5.0.0-alpha.7",
     "vue-router": "4.0.0-beta.10"

@@ -11,7 +11,7 @@ import { routes } from '../router'
 export default defineComponent({
   mounted() {
     this.$nextTick(() => {
-      this.$router.push('/c-alert/base-alert')
+      this.$router.push('/c-alert/examples/base-alert')
     })
   }
 })
