@@ -21,7 +21,7 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsconfig: {
-        target: 'ES2019',
+        target: 'ES2018',
       },
     },
   },
