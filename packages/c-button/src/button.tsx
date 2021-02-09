@@ -89,7 +89,7 @@ const CButton = defineComponent({
 
     return () => (
       <chakra.button
-      // @ts-expect-error JSX props error
+      // @ts-ignore JSX props error
         as={props.as}
         label="button"
         disabled={props.isDisabled || props.isLoading}
@@ -124,7 +124,7 @@ const CButtonSpinner = defineComponent({
       ...props.__css,
     }
     return () => (
-      // @ts-expect-error JSX props error
+      // @ts-ignore JSX props error
       <chakra.div label="button__spinner" baseStyle={{}} {...attrs} __css={spinnerStyles}>
         {slots ?? slots}
       </chakra.div>
@@ -149,7 +149,7 @@ const CButtonIcon = defineComponent({
       : children?.[0]
 
     return () =>
-    // @ts-expect-error JSX props error
+    // @ts-ignore JSX props error
       <chakra.span label="button__icon" {...attrs}>
         {_children}
       </chakra.span>
