@@ -7,14 +7,13 @@ import { RouterLink } from 'vue-router'
 const Stories = defineComponent({
   props: ['stories'],
   inheritAttrs: false,
-  setup(props, { attrs }) {
+  setup(props) {
     return () => {
       return h(chakra.nav, [
         h(
           chakra.ul,
           {
             p: 0,
-            h: '100%',
             m: 0,
             w: '175px',
             listStyleType: 'none',

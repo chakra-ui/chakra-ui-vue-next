@@ -2,7 +2,9 @@ const BABEL_ENV = process.env.BABEL_ENV
 const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === 'cjs'
 const isESM = BABEL_ENV !== undefined && BABEL_ENV === 'esm'
 
-module.exports = function (api) {
+const __TEST__ = process.env.NODE_ENV === 'test'
+
+const baseConfig = function (api) {
   api.cache(true)
 
   const presets = [
@@ -18,8 +20,28 @@ module.exports = function (api) {
     ],
     '@babel/preset-typescript',
   ]
+  const plugins = ['@vue/babel-plugin-jsx']
 
   return {
     presets,
+    plugins,
   }
 }
+
+const testConfig = {
+  env: {
+    test: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: { node: true },
+          },
+        ],
+      ],
+      plugins: ['@vue/babel-plugin-jsx'],
+    },
+  },
+}
+
+module.exports = __TEST__ ? testConfig : baseConfig

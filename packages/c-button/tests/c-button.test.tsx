@@ -1,5 +1,5 @@
-import { render, userEvent } from '../../test-utils/src'
 import { CButton } from '../src'
+import { render, userEvent } from '../../test-utils/src'
 
 const renderComponent = (props?: any) => {
   const base = {

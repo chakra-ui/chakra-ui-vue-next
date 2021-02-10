@@ -49,3 +49,14 @@ const ChakraUIVuePlugin: Plugin = {
 export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
 export { extendTheme }
+
+// Component exports
+
+export * from '@chakra-ui/c-accordion'
+export * from '@chakra-ui/c-alert'
+export * from '@chakra-ui/c-button'
+export * from '@chakra-ui/c-icon'
+export * from '@chakra-ui/c-reset'
+export * from '@chakra-ui/c-spinner'
+export * from '@chakra-ui/c-theme-provider'
+export * from '@chakra-ui/c-visually-hidden'

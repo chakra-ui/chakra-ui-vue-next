@@ -3,15 +3,12 @@
 </template>
 
 <script>
-import { defineComponent, h } from 'vue'
-import { RouterLink } from 'vue-router'
-import { routes } from '../router'
-
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   mounted() {
     this.$nextTick(() => {
-      this.$router.push('/c-alert/base-alert')
+      this.$router.push('/c-alert/examples/base-alert')
     })
   }
 })

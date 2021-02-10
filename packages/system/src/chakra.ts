@@ -50,6 +50,12 @@ interface StyleResolverOptions extends StyleResolverProps {
 
 interface ChakraFactoryOptions extends StyleResolverProps {}
 
+declare global {
+  namespace JSX {
+    interface IntrinsicAttributes extends StyleResolverProps {}
+  }
+}
+
 const chakraProps = {
   __css: Object as PropType<StyleResolverProps['__css']>,
   sx: Object as PropType<StyleResolverProps['sx']>,
@@ -60,6 +66,7 @@ const chakraProps = {
   layerStyle: String as PropType<StyleResolverProps['layerStyle']>,
   textStyle: String as PropType<StyleResolverProps['textStyle']>,
   apply: String as PropType<StyleResolverProps['apply']>,
+  label: String as PropType<StyleResolverOptions['label']>,
 }
 
 export type ChakraBaseComponentProps = typeof chakraProps
@@ -252,7 +259,7 @@ export const resolveStyles = (
 }
 
 type IChakraFactory = {
-  [key in DOMElements]: DefineComponent
+  [key in DOMElements]: DefineComponent | JSX.Element
 } & {
   (tag: DOMElements, options?: StyleResolverProps): DefineComponent
 }
