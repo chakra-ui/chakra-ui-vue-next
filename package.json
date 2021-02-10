@@ -14,7 +14,7 @@
     "scaffold": "hygen",
     "build": "lerna run build --no-private --stream",
     "dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts",
-    "playground:build": "yarn install && yarn build && NODE_ENV=production vite build playground --config ./vite.config.ts",
+    "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "test": "cross-env NODE_ENV=test jest --config jest.config.js",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "core": "yarn workspace @chakra-ui/vue-next",
