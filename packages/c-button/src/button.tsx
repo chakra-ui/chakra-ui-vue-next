@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed, cloneVNode } from 'vue'
+import { defineComponent, PropType, computed, cloneVNode } from 'vue'
 import {
   chakra,
   DOMElements,

@@ -1,8 +1,10 @@
+export {}
 declare global {
   namespace JSX {
-    interface IntrinsicAttributes {
+    export interface IntrinsicAttributes {
       as?: string
       label?: string
+      poop?: 'name' | 'hard' | 'soft'
     }
   }
 }
