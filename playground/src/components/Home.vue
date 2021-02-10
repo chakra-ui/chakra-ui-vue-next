@@ -3,10 +3,7 @@
 </template>
 
 <script>
-import { defineComponent, h } from 'vue'
-import { RouterLink } from 'vue-router'
-import { routes } from '../router'
-
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   mounted() {

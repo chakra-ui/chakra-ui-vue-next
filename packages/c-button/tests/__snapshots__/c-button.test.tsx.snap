@@ -3,7 +3,9 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <button
-    class="chakra-button css-myeq6i"
+    as="button"
+    class="css-myeq6i"
+    label="button"
   >
     Happy button
   </button>
