@@ -149,7 +149,8 @@ const CButtonIcon = defineComponent({
       : children?.[0]
 
     return () =>
-      <chakra.span label="button__icon" {...attrs}>
+    // @ts-ignore JSX props error
+      <chakra.span as="button__icon" {...attrs}>
         {_children}
       </chakra.span>
   },

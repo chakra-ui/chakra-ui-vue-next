@@ -60,6 +60,7 @@ const chakraProps = {
   layerStyle: String as PropType<StyleResolverProps['layerStyle']>,
   textStyle: String as PropType<StyleResolverProps['textStyle']>,
   apply: String as PropType<StyleResolverProps['apply']>,
+  label: String as PropType<StyleResolverOptions['label']>,
 }
 
 export type ChakraBaseComponentProps = typeof chakraProps
