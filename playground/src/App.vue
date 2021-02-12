@@ -3,7 +3,11 @@
   <chakra.section d="flex" height="inherit" w="inherit">
     <sidebar :stories="routes" />
     <chakra.main w="full" border-left="1px solid" border-color="gray.400" padding="4">
-      <router-view />
+      <router-view v-slot="{ Component, route }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </chakra.main>
   </chakra.section>
 </template>
@@ -43,6 +47,16 @@ html {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

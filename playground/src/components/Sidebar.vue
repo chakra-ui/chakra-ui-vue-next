@@ -9,7 +9,7 @@ const Stories = defineComponent({
   inheritAttrs: false,
   setup(props) {
     return () => {
-      return h(chakra.nav, [
+      return h(chakra.nav, () => [
         h(
           chakra.ul,
           {
@@ -18,7 +18,7 @@ const Stories = defineComponent({
             w: '175px',
             listStyleType: 'none',
           },
-          props.stories
+          () => props.stories
             .filter(story => story.path !== '/*')
             .map(story =>
               h(
@@ -30,8 +30,16 @@ const Stories = defineComponent({
                   color: 'gray.700'
                 },
                 story.children
-                  ? h(chakra.h3, { mt: 2, mb: 0, fontWeight: 'bold' }, story.name)
-                  : [h(chakra(RouterLink), { to: story.path, color: 'gray.600', _hover: { color: 'blue.400'} }, story.path === '/' ? () => [h(chakra.img, { w: '120px', mt: 4, src: 'https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue.png' })] : () => story.name)],
+                  ? h(chakra.h3, { mt: 2, mb: 0, fontWeight: 'bold' }, () => story.name)
+                  : [
+                      h(chakra(RouterLink), {
+                        to: story.path,
+                        color: 'gray.600',
+                        _hover: { color: 'blue.400' }
+                      }, story.path === '/' 
+                        ? () => [h(chakra.img, { w: '120px', mt: 4, src: 'https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue.png' })]
+                        : () => story.name)
+                    ],
                 story.children && h(Stories, { stories: story.children })
               )
             ),   
