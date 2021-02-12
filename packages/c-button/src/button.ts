@@ -13,6 +13,7 @@ import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { dataAttr, mergeWith } from '@chakra-ui/vue-utils'
 import { useButtonGroup } from './button-group'
 import { CIcon } from '@chakra-ui/c-icon'
+import { CSpinner } from '@chakra-ui/c-spinner'
 
 type ButtonTypes = 'button' | 'reset' | 'submit'
 
@@ -48,6 +49,63 @@ const props = {
     default: '0.5rem',
   },
 }
+
+const CButtonSpinner = defineComponent({
+  name: 'CButtonSpinner',
+  inheritAttrs: false,
+  props: {
+    label: Boolean as PropType<boolean>,
+    spacing: [Number, String, Array] as PropType<
+      number | string | string[] | number[]
+    >,
+  },
+  setup(props, { attrs }) {
+    const spinnerStyles = computed<SystemStyleObject>(() => ({
+      display: 'flex',
+      alignItems: 'center',
+      position: props.label ? 'relative' : 'absolute',
+      marginEnd: props.label ? props.spacing : 0,
+    }))
+    return () =>
+      h(
+        chakra('div', {
+          label: 'button__spinner',
+        }),
+        {
+          ...spinnerStyles.value,
+          ...attrs,
+        },
+        [
+          h(CSpinner, {
+            color: 'currentColor',
+            width: '1em',
+            height: '1em',
+          }),
+        ]
+      )
+  },
+})
+
+/**
+ * CButtonIcon
+ *
+ * Button icon component
+ */
+const CButtonIcon = defineComponent({
+  name: 'CButtonIcon',
+  inheritAttrs: false,
+  props: {
+    icon: String as PropType<string>,
+  },
+  setup(props, { attrs }) {
+    return () =>
+      h(CIcon, {
+        label: 'button__icon',
+        name: props.icon,
+        ...attrs,
+      })
+  },
+})
 
 /**
  * CButton
@@ -90,9 +148,8 @@ const CButton = defineComponent({
 
     return () =>
       h(
-        chakra('button'),
+        chakra(props.as),
         {
-          as: props.as,
           label: 'button',
           disabled: props.isDisabled || props.isLoading,
           type: props.as === 'button' ? undefined : props.type,
@@ -101,72 +158,32 @@ const CButton = defineComponent({
           ...buttonStyles,
           ...attrs,
         },
-        [
-          props.leftIcon && !props.isLoading
-            ? h(CButtonIcon, {
-                icon: props.leftIcon,
-                marginEnd: props.iconSpacing,
-              })
-            : null,
-          slots?.default?.({}),
-          props.rightIcon && !props.isLoading
-            ? h(CButtonIcon, {
-                icon: props.rightIcon,
-                marginStart: props.iconSpacing,
-              })
-            : null,
+        () => [
+          props.leftIcon &&
+            !props.isLoading &&
+            h(CButtonIcon, {
+              icon: props.leftIcon,
+              marginEnd: props.iconSpacing,
+            }),
+          props.isLoading &&
+            // @ts-expect-error Suppress (No overload matches this call.). Not sure about how to fix this now
+            h(CButtonSpinner, {
+              spacing: props.iconSpacing,
+              label: props.loadingText,
+              __css: { fontSize: '1em', lineHeight: 'normal' },
+            }),
+          props.isLoading
+            ? props.loadingText ||
+              h(chakra.span, { opacity: 0 }, slots?.default?.())
+            : slots?.default?.(),
+          props.rightIcon &&
+            !props.isLoading &&
+            h(CButtonIcon, {
+              icon: props.rightIcon,
+              marginStart: props.iconSpacing,
+            }),
         ]
       )
-  },
-})
-
-const CButtonSpinner = defineComponent({
-  name: 'CButtonSpinner',
-  props: {
-    label: Boolean as PropType<boolean>,
-    spacing: [Number, String, Array] as PropType<
-      number | string | string[] | number[]
-    >,
-    __css: Object as PropType<SystemStyleObject>,
-  },
-  setup(props, { attrs, slots }) {
-    const spinnerStyles: SystemStyleObject = {
-      display: 'flex',
-      alignItems: 'center',
-      position: props.label ? 'relative' : 'absolute',
-      marginEnd: props.label ? props.spacing : 0,
-      ...props.__css,
-    }
-    return () =>
-      h(
-        chakra.div,
-        {
-          label: 'button__spinner',
-          __css: spinnerStyles,
-        },
-        slots ?? slots
-      )
-  },
-})
-
-/**
- * CButtonIcon
- *
- * Button icon component
- */
-const CButtonIcon = defineComponent({
-  name: 'CButtonIcon',
-  inheritAttrs: false,
-  props: {
-    icon: String as PropType<string>,
-  },
-  setup(props, { attrs }) {
-    return () =>
-      h(CIcon, {
-        label: 'button__icon',
-        name: props.icon,
-        ...attrs,
-      })
   },
 })
 

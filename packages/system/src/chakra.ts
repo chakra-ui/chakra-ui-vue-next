@@ -50,12 +50,6 @@ interface StyleResolverOptions extends StyleResolverProps {
 
 interface ChakraFactoryOptions extends StyleResolverProps {}
 
-declare global {
-  namespace JSX {
-    interface IntrinsicAttributes extends StyleResolverProps {}
-  }
-}
-
 const chakraProps = {
   __css: Object as PropType<StyleResolverProps['__css']>,
   sx: Object as PropType<StyleResolverProps['sx']>,
@@ -126,6 +120,7 @@ export const chakra: IChakraFactory = (
   options = {} as ChakraFactoryOptions
 ): DefineComponent => {
   return defineComponent({
+    name: `chakra-factory-${String(tag)}`,
     inheritAttrs: false,
     props: chakraProps,
     setup(props, { slots, attrs }) {
