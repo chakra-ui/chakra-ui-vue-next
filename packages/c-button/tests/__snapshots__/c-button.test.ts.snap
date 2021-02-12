@@ -3,11 +3,12 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <button
-    as="button"
-    class="css-myeq6i"
-    label="button"
+    class="chakra-button css-myeq6i"
   >
+    <!---->
+    <!---->
     Happy button
+    <!---->
   </button>
 </DocumentFragment>
 `;

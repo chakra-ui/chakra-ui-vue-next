@@ -45,16 +45,10 @@ interface StyleResolverProps extends SystemProps {
 
 interface StyleResolverOptions extends StyleResolverProps {
   truncateStyle?: CSSObject
-  theme: Theme
+  theme?: Theme
 }
 
 interface ChakraFactoryOptions extends StyleResolverProps {}
-
-declare global {
-  namespace JSX {
-    interface IntrinsicAttributes extends StyleResolverProps {}
-  }
-}
 
 const chakraProps = {
   __css: Object as PropType<StyleResolverProps['__css']>,
@@ -126,6 +120,7 @@ export const chakra: IChakraFactory = (
   options = {} as ChakraFactoryOptions
 ): DefineComponent => {
   return defineComponent({
+    name: `chakra-factory-${String(tag)}`,
     inheritAttrs: false,
     props: chakraProps,
     setup(props, { slots, attrs }) {
@@ -216,8 +211,8 @@ export const resolveStyles = (
     ...otherStyles
   } = resolvers
 
-  const _layerStyle = get(theme, `layerStyles.${layerStyle}`, {})
-  const _textStyle = get(theme, `textStyles.${textStyle}`, {})
+  const _layerStyle = get(theme as object, `layerStyles.${layerStyle}`, {})
+  const _textStyle = get(theme as object, `textStyles.${textStyle}`, {})
 
   let truncateStyle: any = {}
   if (noOfLines != null) {

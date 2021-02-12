@@ -52,7 +52,7 @@ export const CIcon = defineComponent({
     return () =>
       h(
         chakra(props.as, { label: 'icon' }),
-        { ...vnodeProps.value, ...(icon.value.attrs || {}), ...attrs },
+        { ...(icon.value.attrs || {}), ...vnodeProps.value, ...attrs },
         slots
       )
   },
