@@ -7,17 +7,17 @@ exports[`should render properly 1`] = `
     role="group"
   >
     <button
-      as="button"
-      class="css-kb8k9p"
+      class="chakra-button css-kb8k9p"
     >
+      <!---->
       <!---->
       Save
       <!---->
     </button>
     <button
-      as="button"
-      class="css-1vxhs68"
+      class="chakra-button css-1vxhs68"
     >
+      <!---->
       <!---->
       Cancel
       <!---->
