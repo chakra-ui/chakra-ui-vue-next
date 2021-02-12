@@ -148,9 +148,10 @@ const CButton = defineComponent({
 
     return () =>
       h(
-        chakra(props.as),
-        {
+        chakra(props.as, {
           label: 'button',
+        }),
+        {
           disabled: props.isDisabled || props.isLoading,
           type: props.as === 'button' ? undefined : props.type,
           dataActive: dataAttr(props.isActive),
