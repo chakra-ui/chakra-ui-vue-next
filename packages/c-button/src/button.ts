@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed, cloneVNode } from 'vue'
+import { defineComponent, PropType, computed, cloneVNode, h } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -12,6 +12,7 @@ import {
 import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { dataAttr, mergeWith } from '@chakra-ui/vue-utils'
 import { useButtonGroup } from './button-group'
+import { CIcon } from '@chakra-ui/c-icon'
 
 type ButtonTypes = 'button' | 'reset' | 'submit'
 
@@ -50,7 +51,7 @@ const props = {
 
 /**
  * CButton
- * 
+ *
  * The Button component is used to trigger an action or event,
  * such as submitting a form, opening a dialog, canceling
  * an action, or performing a delete operation.
@@ -87,21 +88,35 @@ const CButton = defineComponent({
       ...(!!group && { _focus }),
     }
 
-    return () => (
-      <chakra.button
-      // @ts-ignore JSX props error
-        as={props.as}
-        label="button"
-        disabled={props.isDisabled || props.isLoading}
-        type={props.as === 'button' ? undefined : props.type}
-        dataActive={dataAttr(props.isActive)}
-        dataLoading={dataAttr(props.isLoading)}
-        {...buttonStyles}
-        {...attrs}
-      >
-        {slots}
-      </chakra.button>
-    )
+    return () =>
+      h(
+        chakra('button'),
+        {
+          as: props.as,
+          label: 'button',
+          disabled: props.isDisabled || props.isLoading,
+          type: props.as === 'button' ? undefined : props.type,
+          dataActive: dataAttr(props.isActive),
+          dataLoading: dataAttr(props.isLoading),
+          ...buttonStyles,
+          ...attrs,
+        },
+        [
+          props.leftIcon && !props.isLoading
+            ? h(CButtonIcon, {
+                icon: props.leftIcon,
+                marginEnd: props.iconSpacing,
+              })
+            : null,
+          slots?.default?.({}),
+          props.rightIcon && !props.isLoading
+            ? h(CButtonIcon, {
+                icon: props.rightIcon,
+                marginStart: props.iconSpacing,
+              })
+            : null,
+        ]
+      )
   },
 })
 
@@ -115,44 +130,43 @@ const CButtonSpinner = defineComponent({
     __css: Object as PropType<SystemStyleObject>,
   },
   setup(props, { attrs, slots }) {
-
     const spinnerStyles: SystemStyleObject = {
-      display: "flex",
-      alignItems: "center",
-      position: props.label ? "relative" : "absolute",
+      display: 'flex',
+      alignItems: 'center',
+      position: props.label ? 'relative' : 'absolute',
       marginEnd: props.label ? props.spacing : 0,
       ...props.__css,
     }
-    return () => (
-      // @ts-ignore JSX props error
-      <chakra.div label="button__spinner" baseStyle={{}} {...attrs} __css={spinnerStyles}>
-        {slots ?? slots}
-      </chakra.div>
-    )
+    return () =>
+      h(
+        chakra.div,
+        {
+          label: 'button__spinner',
+          __css: spinnerStyles,
+        },
+        slots ?? slots
+      )
   },
 })
 
 /**
  * CButtonIcon
- * 
+ *
  * Button icon component
  */
 const CButtonIcon = defineComponent({
   name: 'CButtonIcon',
-  setup(_, { slots, attrs }) {
-    const children = slots?.default?.()
-    const _children = children
-      ? cloneVNode(children?.[0], {
-          'aria-hidden': true,
-          focusable: false,
-        })
-      : children?.[0]
-
+  inheritAttrs: false,
+  props: {
+    icon: String as PropType<string>,
+  },
+  setup(props, { attrs }) {
     return () =>
-    // @ts-ignore JSX props error
-      <chakra.span as="button__icon" {...attrs}>
-        {_children}
-      </chakra.span>
+      h(CIcon, {
+        label: 'button__icon',
+        name: props.icon,
+        ...attrs,
+      })
   },
 })
 

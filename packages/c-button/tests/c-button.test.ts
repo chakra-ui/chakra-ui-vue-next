@@ -1,5 +1,6 @@
 import { CButton } from '../src'
 import { render, userEvent } from '../../test-utils/src'
+import { chakra } from '@chakra-ui/vue-system'
 
 const renderComponent = (props?: any) => {
   const base = {

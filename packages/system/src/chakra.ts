@@ -45,7 +45,7 @@ interface StyleResolverProps extends SystemProps {
 
 interface StyleResolverOptions extends StyleResolverProps {
   truncateStyle?: CSSObject
-  theme: Theme
+  theme?: Theme
 }
 
 interface ChakraFactoryOptions extends StyleResolverProps {}
@@ -210,8 +210,8 @@ export const resolveStyles = (
     ...otherStyles
   } = resolvers
 
-  const _layerStyle = get(theme, `layerStyles.${layerStyle}`, {})
-  const _textStyle = get(theme, `textStyles.${textStyle}`, {})
+  const _layerStyle = get(theme as object, `layerStyles.${layerStyle}`, {})
+  const _textStyle = get(theme as object, `textStyles.${textStyle}`, {})
 
   let truncateStyle: any = {}
   if (noOfLines != null) {
