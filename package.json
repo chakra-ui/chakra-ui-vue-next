@@ -17,17 +17,22 @@
     "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "test": "cross-env NODE_ENV=test jest --config jest.config.js",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    
     "core": "yarn workspace @chakra-ui/vue-next",
+    "nuxt": "yarn workspace @chakra-ui/nuxt-next",
+    "system": "yarn workspace @chakra-ui/vue-system",
+    "utils": "yarn workspace @chakra-ui/vue-utils",
+    "theme": "yarn workspace @chakra-ui/vue-theme",
+
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-theme-provider": "yarn workspace @chakra-ui/c-theme-provider",
     "c-box": "yarn workspace @chakra-ui/c-box",
     "c-button": "yarn workspace @chakra-ui/c-button",
     "c-icon": "yarn workspace @chakra-ui/c-icon",
-    "system": "yarn workspace @chakra-ui/vue-system",
-    "utils": "yarn workspace @chakra-ui/vue-utils",
-    "theme": "yarn workspace @chakra-ui/vue-theme",
-    "nuxt": "yarn workspace @chakra-ui/nuxt-next",
-    "test-utils": "yarn workspace @chakra-ui/vue-test-utils",
     "c-reset": "yarn workspace @chakra-ui/c-reset",
     "c-spinner": "yarn workspace @chakra-ui/c-spinner"
   },
@@ -85,6 +90,7 @@
     "vite": "^2.0.0-beta.44",
     "vite-plugin-components": "^0.6.6",
     "vite-plugin-pages": "^0.3.0",
+    "vitepress": "^0.12.0",
     "vue": "^3.0.5",
     "vue-jest": "^5.0.0-alpha.7",
     "vue-router": "4.0.0-beta.10"
