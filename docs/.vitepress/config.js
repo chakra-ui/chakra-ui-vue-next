@@ -45,6 +45,7 @@ function getSetupSidebar() {
       text: 'Components',
       children: [
         { text: 'Alert', link: '/components/alert' },
+        { text: 'Badge', link: '/components/badge' },
         { text: 'Button', link: '/components/button' },
         { text: 'Icon', link: '/components/icon' },
         { text: 'Spinner', link: '/components/spinner' },
@@ -62,6 +63,7 @@ function getComponentsSidebar() {
       children: [
         { text: 'Alert', link: '/components/alert' },
         { text: 'Button', link: '/components/button' },
+        { text: 'Badge', link: '/components/badge' },
         { text: 'Icon', link: '/components/icon' },
         { text: 'Spinner', link: '/components/spinner' },
         { text: 'CSS reset', link: '/components/css-reset' },
