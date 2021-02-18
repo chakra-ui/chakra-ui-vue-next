@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
-import ChakraUIVuePlugin from '@chakra-ui/vue-next'
-import { domElements, chakra } from '@chakra-ui/vue-system'
+import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
+import { domElements } from '@chakra-ui/vue-system'
 import { feActivity } from 'feather-icons-paths'
 import App from './App.vue'
 import router from './router'

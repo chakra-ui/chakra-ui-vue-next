@@ -125,22 +125,22 @@ type FilterFn<T> = (value: any, key: string, object: T) => boolean
  * @param object the object to loop through
  * @param fn The filter function
  */
-export function objectFilter<T extends Dict>(object: T, fn: FilterFn<T>) {
-  const result: Dict = {}
+export function objectFilter<T>(object: T, fn: FilterFn<T>): Partial<T> {
+  const result = {} as T
 
   Object.keys(object).forEach((key) => {
-    const value = object[key]
+    const value = object[key as keyof T]
     const shouldPass = fn(value, key, object)
     if (shouldPass) {
-      result[key] = value
+      result[key as keyof T] = value
     }
   })
 
   return result
 }
 
-export const filterUndefined = (object: Dict) =>
-  objectFilter(object, (val) => val !== null && val !== undefined)
+export const filterUndefined = <T>(object: T): Partial<T> =>
+  objectFilter<T>(object, (val) => val !== null && val !== undefined)
 
 export const objectKeys = <T extends Dict>(obj: T) =>
   (Object.keys(obj) as unknown) as (keyof T)[]

@@ -54,14 +54,29 @@ export { extendTheme }
 // Export chakra factory function
 export { chakra }
 
-// Component exports
+/**
+ *
+ * Component exports
+ * ==================
+ *
+ * Dear contributors,
+ *
+ * Please keep these exports in Alphabetical order :)
+ */
 export const CBox = chakra.div
 
 export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
+
+export * from '@chakra-ui/c-badge'
 export * from '@chakra-ui/c-button'
+
 export * from '@chakra-ui/c-icon'
+
 export * from '@chakra-ui/c-reset'
+
 export * from '@chakra-ui/c-spinner'
+
 export * from '@chakra-ui/c-theme-provider'
+
 export * from '@chakra-ui/c-visually-hidden'
