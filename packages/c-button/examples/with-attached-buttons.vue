@@ -3,7 +3,7 @@
     <c-button-group
       shadow="xl"
       variant="outline"
-      :color-scheme="color"
+      :color-scheme="'purple'"
       is-attached
     >
       <c-button variant="solid">Save</c-button>
@@ -11,9 +11,3 @@
     </c-button-group>
   </chakra.div>
 </template>
-
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
-const color = ref('yellow')
-</script>
