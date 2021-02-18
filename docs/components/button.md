@@ -111,3 +111,92 @@ Theming props passed into the `CButton` component (e.g. `variant`, `colorScheme`
 
 `CButton` composes the `CBox` component, so you can pass all its props.
 These are props specific to the `CButton` component:
+
+## Composition
+
+All props you pass (`variant`, `colorScheme`, etc.) are converted to style
+props. This means you can override any style of the Button via props.
+
+```vue
+<!--
+  The size prop affects the height of the button.
+  It can still be overriden by passing a custom height
+-->
+<c-button
+  size="md"
+  height="48px"
+  width="200px"
+  border="2px"
+  border-color="green.500"
+>
+  Button
+</c-button>
+```
+
+---
+
+## Custom Button
+
+In the event that you need to make your own custom button, you can leverage the
+`CBox` component. It provides the `hover`, `focus`, `active` and `disabled` style
+props to style the button.
+
+```vue
+<!-- Button from facebook.com -->
+<c-box
+  as="button"
+  height="24px"
+  line-height="1.2"
+  transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+  border="1px"
+  px="8px"
+  border-radius="2px"
+  font-size="14px"
+  font-weight="semibold"
+  bg="#f5f6f7"
+  border-color="#ccd0d5"
+  color="#4b4f56"
+  :_hover="{ bg: '#ebedf0' }"
+  :_active="{
+    bg: '#dddfe2',
+    transform: 'scale(0.98)',
+    borderColor: '#bec3c9',
+  }"
+  :_focus="{
+    boxShadow:
+      '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)",
+  }"
+>
+  Join Group
+</c-box>
+```
+## Props
+### Button Props
+| Name | Type | Description | Default |
+| :---: | :---: | :---: | :---: |
+|`colorScheme`|`"blue" | "cyan" | "gray" | "green" | "orange" | "pink" | "purple" | "red" | "teal" | "yellow" | "whiteAlpha" | "blackAlpha" | "linkedin" | "facebook" | "messenger" | "whatsapp" | "twitter" | "telegram"`| Theme color scheme |`"gray"`|
+|`iconSpacing`|`SystemProps["marginRight"]`| The space between the icon and the label | - |
+|`iconSpacing` |	`SystemProps["marginRight"]` |	The space between the button icon and label. | - |
+|`isActive` |	`boolean` |	If `true`, the button will be styled in its active state.	| - |
+|`isDisabled` |	`boolean` |	If `true`, the button will be disabled. |	- |
+|`isFullWidth` |	`boolean` |	If `true`, the button will take up the full width of its container.| - |
+|`isLoading` |	`boolean` |	If `true`, the button will show a spinner.|	| - |
+|`leftIcon` |	`string` |	If added, the button will show an icon before the button's label.	| - |
+|`loadingText` |	`string` |	The label to show in the button when `isLoading` is true If no text is passed, it only shows the spinner	| - |
+|`rightIcon` |	`string` |	If added, the button will show an icon after the button's label.	| - |
+|`size` |	`"sm" | "md" | "lg" | "xs"` |		|`"md"` |
+|`variant` |	`"link" | "outline" | "solid" | "ghost" | "unstyled"` |		| `"solid"` |
+
+### Button Group Props
+
+`CButtonGroup` composes the `CBox` component, so you can pass all its props.
+These are props specific to the `CButtonGroup` component:
+
+| Name | Type | Description | Default |
+| :---: | :---: | :---: | :---: |
+| `colorScheme` |	`"blue" | "cyan" | "gray" | "green" | "orange" | "pink" | "purple" | "red" | "teal" | "yellow" | "whiteAlpha" | "blackAlpha" | |"linkedin" | "facebook" | "messenger" | "whatsapp" | "twitter" | "telegram"` |	Color Schemes for ButtonGroup are not implemented in the default theme. You can extend the theme to implement them.	|-|
+| `isAttached` |	`boolean` |	If `true`, the borderRadius of button that are direct children will be altered to look flushed together	|-|
+| `isDisabled` |	`boolean` |	If `true`, all wrapped button will be disabled |	-|
+| `size` |	`"sm" | "md" | "lg" | "xs"`|		|-|
+| `spacing` |	`SystemProps["marginRight"]`	The spacing between the buttons	| `'0.5rem'`|
+| `variant` |	`"link" | "outline" | "solid" | "ghost" | "unstyled"` |	|
