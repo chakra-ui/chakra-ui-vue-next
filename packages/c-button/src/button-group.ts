@@ -44,7 +44,7 @@ const props = {
   styleConfig: String as PropType<ComponentThemeConfig>,
 }
 
-interface ButtonGroupContext extends ThemingProps {
+type ButtonGroupContext = () => ThemingProps & {
   isDisabled?: boolean
 }
 
@@ -59,12 +59,12 @@ const CButtonGroup = defineComponent({
   name: 'CButtonGroup',
   props,
   setup(props, { attrs, slots }) {
-    ButtonGroupProvider({
+    ButtonGroupProvider(() => ({
       size: props.size,
       colorScheme: props.colorScheme,
       variant: props.variant,
       isDisabled: props.isDisabled,
-    })
+    }))
 
     const styles = computed(() => {
       let groupStyles: SystemStyleObject = {
@@ -92,7 +92,7 @@ const CButtonGroup = defineComponent({
       h(
         chakra('div', { label: 'button__group' }),
         {
-          __css: styles.value,
+          __css: { ...styles.value },
           role: 'group',
           ...attrs,
         },
