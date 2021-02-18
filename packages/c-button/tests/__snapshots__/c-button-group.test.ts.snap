@@ -7,7 +7,7 @@ exports[`should render properly 1`] = `
     role="group"
   >
     <button
-      class="chakra-button css-kb8k9p"
+      class="chakra-button css-byqix5"
     >
       <!---->
       <!---->
@@ -15,7 +15,7 @@ exports[`should render properly 1`] = `
       <!---->
     </button>
     <button
-      class="chakra-button css-1vxhs68"
+      class="chakra-button css-1twjehy"
     >
       <!---->
       <!---->

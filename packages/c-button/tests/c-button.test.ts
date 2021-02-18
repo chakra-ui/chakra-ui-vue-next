@@ -1,6 +1,5 @@
 import { CButton } from '../src'
-import { render, userEvent } from '../../test-utils/src'
-import { chakra } from '@chakra-ui/vue-system'
+import { render, userEvent, testA11y } from '../../test-utils/src'
 
 const renderComponent = (props?: any) => {
   const base = {
@@ -12,6 +11,10 @@ const renderComponent = (props?: any) => {
   }
   return render(base)
 }
+
+it('should have no a11y violations', async () => {
+  await testA11y(renderComponent())
+})
 
 it('should render properly', () => {
   const { asFragment } = renderComponent()

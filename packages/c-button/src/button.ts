@@ -1,54 +1,11 @@
 import { defineComponent, PropType, computed, cloneVNode, h } from 'vue'
-import {
-  chakra,
-  DOMElements,
-  useStyleConfig,
-  ThemingProps,
-} from '@chakra-ui/vue-system'
-import {
-  SystemCSSProperties,
-  SystemStyleObject,
-} from '@chakra-ui/styled-system'
-import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
-import { dataAttr, mergeWith } from '@chakra-ui/vue-utils'
+import { chakra, useStyleConfig, ThemingProps } from '@chakra-ui/vue-system'
+import { SystemStyleObject } from '@chakra-ui/styled-system'
+import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/vue-utils'
 import { useButtonGroup } from './button-group'
 import { CIcon } from '@chakra-ui/c-icon'
 import { CSpinner } from '@chakra-ui/c-spinner'
-
-type ButtonTypes = 'button' | 'reset' | 'submit'
-
-const props = {
-  as: {
-    type: String as PropType<DOMElements>,
-    default: 'button',
-  },
-  isLoading: Boolean as PropType<boolean>,
-  isActive: Boolean as PropType<boolean>,
-  isDisabled: Boolean as PropType<boolean>,
-  loadingText: String as PropType<string>,
-  isFullWidth: Boolean as PropType<boolean>,
-  type: String as PropType<ButtonTypes>,
-  leftIcon: String as PropType<string>,
-  rightIcon: String as PropType<string>,
-  colorScheme: String as PropType<string>,
-  variant: {
-    type: String as PropType<string>,
-    default: 'solid',
-  },
-  size: {
-    type: String as PropType<string>,
-    default: 'md',
-  },
-  styleConfig: String as PropType<ComponentThemeConfig>,
-
-  /** Not sure if the SystemCSSProperties is the right prop type for this */
-  iconSpacing: {
-    type: [String, Number, Array] as PropType<
-      SystemCSSProperties['marginRight']
-    >,
-    default: '0.5rem',
-  },
-}
+import { BUTTON_PROPS } from './button.utils'
 
 const CButtonSpinner = defineComponent({
   name: 'CButtonSpinner',
@@ -116,21 +73,26 @@ const CButtonIcon = defineComponent({
  */
 const CButton = defineComponent({
   name: 'CButton',
-  props,
+  props: BUTTON_PROPS,
   setup(props, { attrs, slots }) {
-    const themingProps = computed<ThemingProps>(() => ({
-      colorScheme: props.colorScheme,
-      variant: props.variant,
-      size: props.size,
-      styleConfig: props.styleConfig,
-    }))
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
 
     const group = useButtonGroup()
-    const styles = useStyleConfig('Button', { ...group, ...themingProps.value })
+    const styles = useStyleConfig('Button', {
+      ...group?.(),
+      ...themingProps.value,
+    })
 
     const _focus = mergeWith({}, styles.value?.['_focus'] ?? {}, { zIndex: 1 })
 
-    const buttonStyles: SystemStyleObject = {
+    const buttonStyles = computed<SystemStyleObject>(() => ({
       display: 'inline-flex',
       appearance: 'none',
       alignItems: 'center',
@@ -144,7 +106,7 @@ const CButton = defineComponent({
       width: props.isFullWidth ? '100%' : 'auto',
       ...styles.value,
       ...(!!group && { _focus }),
-    }
+    }))
 
     return () =>
       h(
@@ -156,7 +118,7 @@ const CButton = defineComponent({
           type: props.as === 'button' ? undefined : props.type,
           dataActive: dataAttr(props.isActive),
           dataLoading: dataAttr(props.isLoading),
-          ...buttonStyles,
+          ...buttonStyles.value,
           ...attrs,
         },
         () => [

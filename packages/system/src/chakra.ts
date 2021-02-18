@@ -144,8 +144,9 @@ export const chakra: IChakraFactory = (
         any,
         HTMLAttributes
       >({
-        ...rest,
         ...otherStyles,
+        // Prioritize user provided styles
+        ...rest,
       })
 
       const theme = useTheme() as Theme

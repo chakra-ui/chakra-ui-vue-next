@@ -4,6 +4,10 @@ import '@testing-library/jest-dom/extend-expect'
 import * as vtl from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { Component, defineComponent, h, provide } from 'vue'
+import { toHaveNoViolations, axe } from 'jest-axe'
+import { RunOptions } from 'axe-core'
+
+expect.extend(toHaveNoViolations)
 
 const useDefaultProviders = () => {
   provide('$chakraTheme', theme)
@@ -11,6 +15,8 @@ const useDefaultProviders = () => {
   provide('$chakraIcons', {})
 }
 
+type UI = Parameters<typeof vtl.render>[0]
+type A11yOptions = { axeOptions?: RunOptions }
 export interface RenderResult extends vtl.RenderResult {
   asFragment: (innerHTML?: string) => DocumentFragment
 }
@@ -86,5 +92,37 @@ export function getElementStyles(selector: string) {
   return styles
 }
 
+/**
+ * Validates against common a11y mistakes.
+ *
+ * Wrapper for jest-axe
+ *
+ * @example
+ * ```ts
+ * it('passes a11y test', async () => {
+ *  await testA11Y(MyComponent, options);
+ * });
+ *
+ * // sometimes we need to perform interactions first to render conditional UI
+ * it('passes a11y test when open', async () => {
+ *  const { container } = render(MyComponent, options);
+ *
+ *  fireEvent.click(screen.getByRole('button'));
+ *
+ *  await testA11Y(container, options);
+ * });
+ * ```
+ */
+export const testA11y = async (
+  ui: UI | Element,
+  { axeOptions, ...options }: A11yOptions = {}
+) => {
+  const container = vtl.render(ui, options).container
+  const results = await axe(container, axeOptions)
+
+  expect(results).toHaveNoViolations()
+}
+
 export * from '@testing-library/vue'
 export { userEvent, waitMs, useDefaultProviders }
+export { axe }
