@@ -23,6 +23,7 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
   },
   "dependencies": {
+    "@chakra-ui/vue-system": "*",
     "@chakra-ui/vue-theme": "*",
     "@chakra-ui/vue-utils": "*",
     "@chakra-ui/c-accordion": "*",

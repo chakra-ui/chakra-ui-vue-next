@@ -1,5 +1,6 @@
 import { Plugin } from 'vue'
 import defaultTheme, { ColorMode } from '@chakra-ui/vue-theme'
+import { chakra } from '@chakra-ui/vue-system'
 import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
 import { MergedIcons, parseIcons } from './parse-icons'
@@ -50,7 +51,11 @@ export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
 export { extendTheme }
 
+// Export chakra factory function
+export { chakra }
+
 // Component exports
+export const CBox = chakra.div
 
 export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
