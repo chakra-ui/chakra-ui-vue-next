@@ -1,6 +1,5 @@
 import { SystemCSSProperties } from '@chakra-ui/styled-system'
-import { DOMElements } from '@chakra-ui/vue-system'
-import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
+import { DOMElements, ThemingProps } from '@chakra-ui/vue-system'
 import { PropType } from 'vue'
 
 type ButtonTypes = 'button' | 'reset' | 'submit'
@@ -18,10 +17,10 @@ export const BUTTON_PROPS = {
   type: String as PropType<ButtonTypes>,
   leftIcon: String as PropType<string>,
   rightIcon: String as PropType<string>,
-  colorScheme: String as PropType<string>,
-  variant: String as PropType<string>,
-  size: String as PropType<string>,
-  styleConfig: String as PropType<ComponentThemeConfig>,
+  colorScheme: String as PropType<ThemingProps['colorScheme']>,
+  variant: String as PropType<ThemingProps['variant']>,
+  size: String as PropType<ThemingProps['size']>,
+  styleConfig: String as PropType<ThemingProps['styleConfig']>,
 
   /** Not sure if the SystemCSSProperties is the right prop type for this */
   iconSpacing: {
