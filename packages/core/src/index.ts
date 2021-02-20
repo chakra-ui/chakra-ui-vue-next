@@ -73,6 +73,8 @@ export * from '@chakra-ui/c-button'
 
 export * from '@chakra-ui/c-icon'
 
+export * from '@chakra-ui/c-portal'
+
 export * from '@chakra-ui/c-reset'
 
 export * from '@chakra-ui/c-spinner'

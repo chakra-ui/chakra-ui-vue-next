@@ -32,7 +32,8 @@
     "c-icon": "yarn workspace @chakra-ui/c-icon",
     "c-reset": "yarn workspace @chakra-ui/c-reset",
     "c-spinner": "yarn workspace @chakra-ui/c-spinner",
-    "c-badge": "yarn workspace @chakra-ui/c-badge"
+    "c-badge": "yarn workspace @chakra-ui/c-badge",
+    "c-portal": "yarn workspace @chakra-ui/c-portal"
   },
   "license": "MIT",
   "private": true,
