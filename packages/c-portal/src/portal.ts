@@ -1,13 +1,8 @@
 import { h, defineComponent, PropType, Teleport, onBeforeMount, ref } from 'vue'
-import { DOMElements } from '@chakra-ui/vue-system'
 import { createPortalTarget, ensureTarget } from './portal.utils'
 
 const CPortal = defineComponent({
   props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
-    },
     to: String as PropType<string>,
     disabled: Boolean as PropType<boolean>,
   },
