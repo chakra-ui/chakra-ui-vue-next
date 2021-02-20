@@ -23,6 +23,6 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "watch": "concurrently yarn:watch:*",
     "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
     "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
-    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
+    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   }
 }
