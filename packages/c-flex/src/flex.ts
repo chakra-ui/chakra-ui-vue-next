@@ -1,5 +1,7 @@
 import { h, defineComponent, PropType, computed } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import { chakra, DOMElements, ThemingProps } from '@chakra-ui/vue-system'
+
+export type FlexProps = 'align' | 'justify' | 'wrap' | 'direction' | 'size'
 
 const CFlex = defineComponent({
   props: {
@@ -19,6 +21,11 @@ const CFlex = defineComponent({
       type: Boolean,
       default: false,
     },
+    align: String as PropType<FlexProps>,
+    justify: String as PropType<FlexProps>,
+    wrap: String as PropType<FlexProps>,
+    direction: String as PropType<FlexProps>,
+    size: String as PropType<FlexProps>,
   },
   setup(props, { slots, attrs }) {
     const flexDirection = computed<String>(() => {
@@ -35,7 +42,12 @@ const CFlex = defineComponent({
         {
           __css: {
             display: 'flex',
-            flexDirection: flexDirection.value || 'row',
+            flexDirection: props.direction || flexDirection.value,
+            alignItems: props.align,
+            justifyContent: props.justify,
+            flexWrap: props.wrap,
+            h: props.size,
+            w: props.size,
           },
           ...attrs,
         },

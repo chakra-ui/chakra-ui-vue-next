@@ -1,5 +1,5 @@
 <template>
-  <c-flex row justify-content="space-between">
+  <c-flex row justify="space-between" align="center" wrap="wrap">
     <chakra.div rounded="md" w="12" h="12" shadow="inner" bg="green.500">
       div 1
     </chakra.div>
