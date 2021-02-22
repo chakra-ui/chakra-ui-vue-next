@@ -29,6 +29,7 @@
     "c-theme-provider": "yarn workspace @chakra-ui/c-theme-provider",
     "c-box": "yarn workspace @chakra-ui/c-box",
     "c-button": "yarn workspace @chakra-ui/c-button",
+    "c-flex": "yarn workspace @chakra-ui/c-flex",
     "c-icon": "yarn workspace @chakra-ui/c-icon",
     "c-reset": "yarn workspace @chakra-ui/c-reset",
     "c-spinner": "yarn workspace @chakra-ui/c-spinner",
