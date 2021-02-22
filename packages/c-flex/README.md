@@ -1,7 +1,8 @@
 # @chakra-ui/c-flex
 
 C flex component
-
+`CFlex` is `CBox` with display: flex and comes with helpful style shorthands.
+ 
 ## Installation
 
 ```sh
