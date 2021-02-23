@@ -1,14 +1,29 @@
 {
-  "name": "@chakra-ui/vue-utils",
+  "name": "@chakra-ui/c-portal",
+  "description": "Chakra UI Vue | The portal allows us to teleport components to a differente location in the document component",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "typings": "dist/types/index.d.ts",
-  "description": "Chakra UI Vue | Utils module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
-  "author": "Jonathan Bakebwa codebender828@gmail.com",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+  },
+  "sideEffects": false,
   "scripts": {
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
@@ -20,10 +35,9 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@types/lodash.mergewith": "4.6.6",
-    "@types/object-assign": "4.0.30",
-    "css-box-model": "1.2.1",
-    "lodash.mergewith": "4.6.2",
-    "object-assign": "4.1.1"
+    "@chakra-ui/vue-utils": "*"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.5"
   }
 }
