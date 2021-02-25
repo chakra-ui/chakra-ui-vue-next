@@ -71,6 +71,8 @@ export * from '@chakra-ui/c-alert'
 export * from '@chakra-ui/c-badge'
 export * from '@chakra-ui/c-button'
 
+export * from '@chakra-ui/c-flex'
+
 export * from '@chakra-ui/c-icon'
 
 export * from '@chakra-ui/c-portal'
