@@ -1,17 +1,29 @@
 {
-  "name": "@chakra-ui/vue-next",
+  "name": "@chakra-ui/c-popper",
+  "description": "Chakra UI Vue | Position engine for vue bult on popperjs core component",
   "version": "1.0.0",
-  "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "typings": "dist/types/index.d.ts",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
-  "author": "Jonathan Bakebwa codebender828@gmail.com",
-  "license": "MIT",
+  
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+  },
+  "sideEffects": false,
   "scripts": {
     "build": "concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
@@ -23,18 +35,11 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
+    "@chakra-ui/styled-system": "^1.4.1",
     "@chakra-ui/vue-system": "*",
-    "@chakra-ui/vue-theme": "*",
-    "@chakra-ui/vue-utils": "*",
-    "@chakra-ui/c-accordion": "*",
-    "@chakra-ui/c-alert": "*",
-    "@chakra-ui/c-button": "*",
-    "@chakra-ui/c-icon": "*",
-    "@chakra-ui/c-reset": "*",
-    "@chakra-ui/c-spinner": "*",
-    "@chakra-ui/c-theme-provider": "*",
-    "@chakra-ui/c-visually-hidden": "*",
-    "@chakra-ui/c-flex": "*",
-    "@chakra-ui/c-popper": "*"
+    "@chakra-ui/vue-utils": "*"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.5"
   }
 }
