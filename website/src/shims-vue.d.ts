@@ -5,3 +5,4 @@ declare module '*.vue' {
 }
 
 declare module 'feather-icons-paths'
+declare module 'pages-generated'

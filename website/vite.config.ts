@@ -1,6 +1,7 @@
 import { UserConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import { extractCritical } from '@emotion/server'
+import Pages from 'vite-plugin-pages'
 
 /**
  *
@@ -20,7 +21,7 @@ const injectCritical = (html: string, ids: string[], css: string) =>
 
 // https://vitejs.dev/config/
 const config: UserConfig = {
-  plugins: [Vue()],
+  plugins: [Vue(), Pages()],
   // @ts-expect-error
   ssgOptions: {
     script: 'async',
