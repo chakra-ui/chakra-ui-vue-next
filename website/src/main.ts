@@ -6,6 +6,8 @@ import { feGithub } from 'feather-icons-paths'
 import { hydrate } from '@emotion/css'
 import routes from 'pages-generated'
 
+import './styles/main.css'
+
 export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
   if (isClient) {
     // @ts-expect-error Need to add $emotionSSRIds to global namespace

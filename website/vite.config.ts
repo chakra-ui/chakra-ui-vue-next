@@ -2,6 +2,8 @@ import { UserConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import { extractCritical } from '@emotion/server'
 import Pages from 'vite-plugin-pages'
+import Markdown from 'vite-plugin-md'
+import prism from 'markdown-it-prism'
 
 /**
  *
@@ -21,7 +23,17 @@ const injectCritical = (html: string, ids: string[], css: string) =>
 
 // https://vitejs.dev/config/
 const config: UserConfig = {
-  plugins: [Vue(), Pages()],
+  plugins: [
+    Vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+    Pages({
+      extensions: ['vue', 'md'],
+    }),
+    Markdown({
+      markdownItUses: [prism],
+    }),
+  ],
   // @ts-expect-error
   ssgOptions: {
     script: 'async',
