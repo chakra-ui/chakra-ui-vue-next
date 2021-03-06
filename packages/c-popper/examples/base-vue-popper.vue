@@ -1,32 +1,33 @@
 <template>
-  <chakra.div
-    h="100%"
-    d="flex"
-    flex-direction="column"
-    align-items="center"
-    justify-content="center"
-    ref="node"
-  >
-    <chakra.pre
-      ref="referenceElement"
-      p="4"
-      bg="gray.100"
-      font-weight="bold"
-      rounded="md"
-      @mousedown="togglePopper"
-    >
-      {{ props }}
-    </chakra.pre>
+  <chakra.div h="100%" d="flex" p="12">
     <c-portal>
-      <transition name="fade">
-        <span
+      <transition
+        :css="false"
+        @leave="(el, done) => motions.popper.leave(done)"
+      >
+        <chakra.span
           ref="popperElement"
-          :style="popper?.styles?.popper"
-          v-show="popperOptions.enabled"
+          v-motion="'popper'"
+          :initial="{
+            opacity: 0,
+            ...popper?.styles?.popper,
+          }"
+          :enter="{
+            opacity: 1,
+            ...popper?.styles?.popper,
+          }"
+          :leave="{
+            opacity: 0,
+            ...popper?.styles?.popper,
+          }"
+          :css="[popper?.styles?.popper]"
           v-bind="popper?.attributes?.popper"
+          v-if="enabled"
           shadow="lg"
-          rounded="md"
+          rounded="lg"
           bg="yellow.300"
+          border-width="5px"
+          border-color="yellow.500"
           color="yellow.700"
           px="3"
           py="2"
@@ -34,50 +35,95 @@
           cursor="pointer"
         >
           Popper content :D
-        </span>
+        </chakra.span>
       </transition>
     </c-portal>
-    <chakra.pre>
-      {{ popper }}
-    </chakra.pre>
+
+    <c-button
+      mt="3"
+      ref="referenceElement"
+      color-scheme="blue"
+      @click="togglePopper"
+    >
+      {{ enabled ? 'Hide' : 'Show' }} popper
+    </c-button>
+
+    <chakra.div pos="fixed" top="8" right="8" z-index="10">
+      <chakra.pre
+        p="4"
+        font-size="sm"
+        bg="gray.100"
+        font-weight="bold"
+        rounded="md"
+        max-h="500px"
+        overflow-y="scroll"
+      >
+        popperStyles: {{ popper?.styles?.popper }}
+      </chakra.pre>
+      <chakra.pre
+        mt="6"
+        p="4"
+        font-size="sm"
+        bg="gray.100"
+        font-weight="bold"
+        rounded="md"
+        max-h="500px"
+        overflow-y="scroll"
+      >
+        placement: {{ popper?.state?.placement }}
+      </chakra.pre>
+    </chakra.div>
   </chakra.div>
 </template>
 
 <script lang="ts" setup>
-import { isVNode, nextTick, onMounted, reactive, ref } from 'vue'
+import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { usePopper } from '@chakra-ui/c-popper'
+import { useMotions } from '@vueuse/motion'
 
-const props = reactive({
-  firstName: 'John',
-  lastName: 'Switch',
-})
+const motions = useMotions()
 
-const node = ref()
 const referenceElement = ref()
 const popperElement = ref()
 
 const popperOptions = reactive({
   enabled: false,
-  placement: 'left',
+  placement: 'right',
 })
-
-const togglePopper = () => {
-  popperOptions.enabled = !popperOptions.enabled
-}
 
 const popper = ref()
 
-onMounted(() => {
-  setTimeout(() => {
-    setInterval(togglePopper, 1000)
-    popper.value = usePopper(
-      referenceElement.value?.$el || referenceElement.value,
-      popperElement.value?.$el || popperElement.value,
-      // @ts-ignore
-      popperOptions
-    )
+const togglePopper = async () => {
+  popperOptions.enabled = !popperOptions.enabled
+}
 
-    console.log(popperElement.value.$el)
-  }, 2000)
+const enabled = computed(() => popperOptions.enabled)
+
+const _referenceElement = computed(
+  () => referenceElement.value?.$el || referenceElement.value
+)
+
+const _popperElement = computed(
+  () => popperElement.value?.$el || popperElement.value
+)
+
+onMounted(() => {
+  watch(
+    () => popperOptions.enabled,
+    async (newVal) => {
+      if (newVal) {
+        await nextTick()
+        if (popper.value) {
+          popper.value.forceUpdate()
+        }
+        popper.value = usePopper(
+          _referenceElement.value,
+          _popperElement.value,
+          // @ts-ignore
+          popperOptions
+        )
+      }
+    }
+  )
 })
 </script>

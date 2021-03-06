@@ -1,22 +1,11 @@
-import {
-  computed,
-  CSSProperties,
-  HTMLAttributes,
-  Ref,
-  ref,
-  watch,
-  watchEffect,
-} from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import {
   createPopper,
   VirtualElement,
   Options as PopperOptions,
   Modifier,
   Instance,
-  popper,
 } from '@popperjs/core'
-import { fromEntries } from '@chakra-ui/vue-utils'
-import { dequal as deepequal } from 'dequal'
 
 export interface Options extends Partial<PopperOptions> {
   enabled: boolean
@@ -40,7 +29,6 @@ function usePopper(
   /** options should be reactive */
   options: Options
 ) {
-  console.log({ referenceElement, popperElement })
   const optionsWithDefaults = computed(() => ({
     onFirstUpdate: options.onFirstUpdate,
     placement: options.placement || 'bottom',
@@ -83,9 +71,9 @@ function usePopper(
 
   // Set popperOptions to popperInstance
   // when popperOptions change
-  watch(popperOptions, (newPopperOptions) => {
+  watchEffect(() => {
     if (popperInstance.value) {
-      popperInstance.value.setOptions(newPopperOptions)
+      popperInstance.value.setOptions(popperOptions.value)
     }
   })
 
