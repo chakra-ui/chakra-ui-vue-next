@@ -76,6 +76,8 @@ const popperOptions = reactive({
 })
 
 const popper = ref()
+// Create local reference for Motion Instance
+// As it will be generated after Popper one
 const motionInstance = ref()
 
 const togglePopper = async () => {
@@ -92,22 +94,22 @@ const _popperElement = computed(
   () => popperElement.value?.$el || popperElement.value
 )
 
-const _variants = computed(() => {
-  return {
-    initial: {
-      opacity: 0,
-      ...popper?.value?.styles?.popper,
-    },
-    enter: {
-      opacity: 1,
-      ...popper?.value?.styles?.popper,
-    },
-    leave: {
-      opacity: 0,
-      ...popper?.value?.styles?.popper,
-    },
-  }
-})
+// Create a computed for Variants
+// As they need to be based on Popper styling
+const _variants = computed(() => ({
+  initial: {
+    opacity: 0,
+    ...popper?.value?.styles?.popper,
+  },
+  enter: {
+    opacity: 1,
+    ...popper?.value?.styles?.popper,
+  },
+  leave: {
+    opacity: 0,
+    ...popper?.value?.styles?.popper,
+  },
+}))
 
 onMounted(() => {
   watch(
@@ -127,6 +129,8 @@ onMounted(() => {
           popperOptions
         )
 
+        // Generate and assign Motion Instance
+        // Once Popper has been initiated
         motionInstance.value = useMotion(_popperElement.value, _variants)
       }
     },
