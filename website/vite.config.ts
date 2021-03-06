@@ -4,6 +4,7 @@ import { extractCritical } from '@emotion/server'
 import Pages from 'vite-plugin-pages'
 import Markdown from 'vite-plugin-md'
 import prism from 'markdown-it-prism'
+import Icons from 'vite-plugin-icons'
 
 /**
  *
@@ -33,8 +34,8 @@ const config: UserConfig = {
     Markdown({
       markdownItUses: [prism],
     }),
+    Icons(),
   ],
-  // @ts-expect-error
   ssgOptions: {
     script: 'async',
     formatting: 'prettify',

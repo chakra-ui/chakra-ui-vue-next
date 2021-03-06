@@ -7,9 +7,16 @@
   color: #2c3e50;
 }
 
+.icon {
+  width: 25px;
+  height: 25px;
+  color: #2c3e50;
+}
+
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: bold;
 }
 h1 {

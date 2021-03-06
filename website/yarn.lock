@@ -154,6 +154,16 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
+"@iconify/json-tools@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@iconify/json-tools/-/json-tools-1.0.10.tgz#d9a7050dbbe8bb29d684d4b3f9446ed2d0bea3cc"
+  integrity sha512-LFelJDOLZ6JHlmlAkgrvmcu4hpNPB91KYcr4f60D/exzU1eNOb4/KCVHIydGHIQFaOacIOD+Xy+B7P1z812cZg==
+
+"@iconify/json@^1.1.312":
+  version "1.1.312"
+  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-1.1.312.tgz#d8e92f31acfb326dcbfa4daea2d4ba885423c186"
+  integrity sha512-bYgaMaNB17MkLL1UgRRD6fv9Vp80kny7KA4SVMxonBEsVtZ+53dCK0R7RccrC45X1mspG8MejUaEw/AaEmWHZQ==
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz#d4b3549a5db5de2683e0c1071ab4f140904bbf69"
@@ -2177,6 +2187,14 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vite-plugin-icons@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-icons/-/vite-plugin-icons-0.3.2.tgz#d44542f6d6569d21970e0859bd63893c08c2e97f"
+  integrity sha512-6HDBO6aqJLaJ8lkT9FChAUtniRRzhDWbhNzJLfT7QdDcQ2kaapReksngNEA1+tNlFd5Auey4VGS2VjI3V1KkvA==
+  dependencies:
+    "@iconify/json-tools" "^1.0.10"
+    vue-template-es2015-compiler "^1.9.1"
+
 vite-plugin-md@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/vite-plugin-md/-/vite-plugin-md-0.6.0.tgz#b7d298f1b27f0071d3ecfeb1aae652f2e9b9caf9"
@@ -2229,6 +2247,11 @@ vue-router@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.4.tgz#ad9b4b7bbdad622407b4ff189b1646f48c1e9053"
   integrity sha512-uN6PDEaYdU9aRO7mU+Dkr1uaY49hV3fucEDG/Vre/Qj8ct3RoJS16vcPrvKVzn69zDDjBV5b9Xw7fZA9r6b/Iw==
+
+vue-template-es2015-compiler@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
+  integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
 vue@^3.0.5:
   version "3.0.7"

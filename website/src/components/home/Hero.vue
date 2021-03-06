@@ -16,7 +16,7 @@
         :text-align="['left', 'center']"
         w="550px"
       >
-        <h1>Chakra UI Vue Next</h1>
+        <h1>Chakra V-UI HAKI</h1>
         <h2>Build Accessible Vue (3) apps with Speed ⚡️</h2>
         <chakra.p mt="4" mb="6">
           Chakra UI Vue Next is a simple modular and accessible component
