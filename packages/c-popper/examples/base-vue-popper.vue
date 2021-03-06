@@ -3,24 +3,10 @@
     <c-portal>
       <transition
         :css="false"
-        @leave="(el, done) => motions.popper.leave(done)"
+        @leave="(el, done) => motionInstance.leave(done)"
       >
         <chakra.span
           ref="popperElement"
-          v-motion="'popper'"
-          :initial="{
-            opacity: 0,
-            ...popper?.styles?.popper,
-          }"
-          :enter="{
-            opacity: 1,
-            ...popper?.styles?.popper,
-          }"
-          :leave="{
-            opacity: 0,
-            ...popper?.styles?.popper,
-          }"
-          :css="[popper?.styles?.popper]"
           v-bind="popper?.attributes?.popper"
           v-if="enabled"
           shadow="lg"
@@ -79,9 +65,7 @@
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { usePopper } from '@chakra-ui/c-popper'
-import { useMotions } from '@vueuse/motion'
-
-const motions = useMotions()
+import { useMotion } from '@vueuse/motion'
 
 const referenceElement = ref()
 const popperElement = ref()
@@ -92,6 +76,9 @@ const popperOptions = reactive({
 })
 
 const popper = ref()
+// Create local reference for Motion Instance
+// As it will be generated after Popper one
+const motionInstance = ref()
 
 const togglePopper = async () => {
   popperOptions.enabled = !popperOptions.enabled
@@ -107,22 +94,48 @@ const _popperElement = computed(
   () => popperElement.value?.$el || popperElement.value
 )
 
+// Create a computed for Variants
+// As they need to be based on Popper styling
+const _variants = computed(() => ({
+  initial: {
+    opacity: 0,
+    ...popper?.value?.styles?.popper,
+  },
+  enter: {
+    opacity: 1,
+    ...popper?.value?.styles?.popper,
+  },
+  leave: {
+    opacity: 0,
+    ...popper?.value?.styles?.popper,
+  },
+}))
+
 onMounted(() => {
   watch(
     () => popperOptions.enabled,
     async (newVal) => {
       if (newVal) {
         await nextTick()
+
         if (popper.value) {
           popper.value.forceUpdate()
         }
+
         popper.value = usePopper(
           _referenceElement.value,
           _popperElement.value,
           // @ts-ignore
           popperOptions
         )
+
+        // Generate and assign Motion Instance
+        // Once Popper has been initiated
+        motionInstance.value = useMotion(_popperElement.value, _variants)
       }
+    },
+    {
+      immediate: true,
     }
   )
 })
