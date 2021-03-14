@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <chakra.main
     :h="['auto', 'auto', '100vh']"
     w="100vw"
@@ -8,6 +9,7 @@
     bg-attachment="fixed"
     bg-size="cover"
     :px="[4, 10, '12rem']"
+    pt="60px"
   >
     <Hero />
     <CFlex
@@ -21,7 +23,7 @@
         :grid-template-columns="['auto', 'auto', 'repeat(3, 1fr)']"
         :style="{ gap: '1.5rem' }"
       >
-        <chakra.div m="3">
+        <CBox m="3">
           <CFlex align-items="center" mb="5">
             <CFlex
               justify-content="center"
@@ -39,8 +41,8 @@
           </CFlex>
           Chakra UI strictly follows WAI-ARIA standards. All components come
           with proper attributes and keyboard interactions out of the box.
-        </chakra.div>
-        <chakra.div m="3">
+        </CBox>
+        <CBox m="3">
           <CFlex align-items="center" mb="5">
             <CFlex
               justify-content="center"
@@ -58,8 +60,8 @@
           </CFlex>
           Quickly and easily reference values from your theme throughout your
           entire application, on any component.
-        </chakra.div>
-        <chakra.div m="3">
+        </CBox>
+        <CBox m="3">
           <CFlex align-items="center" mb="5">
             <CFlex
               justify-content="center"
@@ -77,7 +79,7 @@
           </CFlex>
           Components were built with composition in mind. You can leverage any
           component to create new things.
-        </chakra.div>
+        </CBox>
       </chakra.div>
     </CFlex>
   </chakra.main>
@@ -86,10 +88,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { CFlex } from '@chakra-ui/vue-next'
+import { CFlex, CBox } from '@chakra-ui/vue-next'
 import Hero from '../components/home/Hero.vue'
+import Navbar from '../components/Navbar.vue'
 
-// @ts-expect-error
 import IconAccessibilityAlt from '/@vite-icons/carbon/accessibility-alt'
 import ColorPalette from '/@vite-icons/carbon/color-palette'
 import Cube from '/@vite-icons/carbon/cube'
@@ -98,7 +100,9 @@ export default defineComponent({
   name: 'Index',
   components: {
     Hero,
+    Navbar,
     CFlex,
+    CBox,
     IconAccessibilityAlt,
     ColorPalette,
     Cube,

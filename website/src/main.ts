@@ -2,7 +2,15 @@ import App from './App.vue'
 import { ViteSSG } from 'vite-ssg'
 import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
-import { feGithub, feStar } from 'feather-icons-paths'
+import {
+  feGithub,
+  feStar,
+  feBook,
+  feMenu,
+  feMessageCircle,
+  feSearch,
+  fePackage,
+} from 'feather-icons-paths'
 import { hydrate } from '@emotion/css'
 import routes from 'pages-generated'
 
@@ -20,6 +28,11 @@ export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
       library: {
         feGithub,
         feStar,
+        feBook,
+        feMenu,
+        feMessageCircle,
+        feSearch,
+        fePackage,
       },
     },
   })
