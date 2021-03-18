@@ -1,4 +1,4 @@
-import { computed, ref, watchEffect } from 'vue'
+import { Component, computed, Ref, ref, VNode, watchEffect } from 'vue'
 import {
   createPopper,
   VirtualElement,
@@ -22,7 +22,6 @@ type PopperState = {
     [key: string]: { [key: string]: string | boolean }
   }
 }
-
 function usePopper(
   referenceElement: Element | VirtualElement,
   popperElement: HTMLElement,
@@ -71,40 +70,64 @@ function usePopper(
 
   // Set popperOptions to popperInstance
   // when popperOptions change
-  watchEffect(() => {
-    if (popperInstance.value) {
-      popperInstance.value.setOptions(popperOptions.value)
+  watchEffect(
+    () => {
+      if (popperInstance.value) {
+        popperInstance.value.setOptions(popperOptions.value)
+      }
+    },
+    {
+      flush: 'sync',
     }
-  })
+  )
 
-  watchEffect((onInvalidate) => {
-    if (!options.enabled || !referenceElement || !popperElement) {
-      return
-    }
-
-    popperInstance.value = createPopper(
-      referenceElement,
-      popperElement,
-      popperOptions.value
-    )
-
-    onInvalidate(() => {
-      popperInstance.value?.destroy()
-      popperInstance.value = null
-    })
-  })
-
-  watchEffect((onInvalidate) => {
-    const id = requestAnimationFrame(() => {
+  watchEffect(
+    (onInvalidate) => {
       popperInstance.value?.forceUpdate()
-    })
+      if (!options.enabled || !referenceElement || !popperElement) {
+        return
+      }
 
-    onInvalidate(() => {
-      cancelAnimationFrame(id)
-    })
-  })
+      console.log({
+        referenceElement,
+        popperElement,
+      })
+
+      popperInstance.value = createPopper(
+        referenceElement,
+        popperElement,
+        popperOptions.value
+      )
+
+      popperInstance.value?.forceUpdate()
+
+      onInvalidate(() => {
+        popperInstance.value?.destroy()
+        popperInstance.value = null
+      })
+    },
+    {
+      flush: 'sync',
+    }
+  )
+
+  watchEffect(
+    (onInvalidate) => {
+      const id = requestAnimationFrame(() => {
+        popperInstance.value?.forceUpdate()
+      })
+
+      onInvalidate(() => {
+        cancelAnimationFrame(id)
+      })
+    },
+    {
+      flush: 'sync',
+    }
+  )
 
   return {
+    ...popperInstance.value,
     state: popperInstance.value?.state || null,
     styles,
     attributes,

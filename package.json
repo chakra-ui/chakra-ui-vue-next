@@ -108,7 +108,7 @@
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.mergewith": "^4.6.6",
     "@types/tinycolor2": "^1.4.2",
-    "@vueuse/motion": "^1.2.7",
+    "@vueuse/motion": "^1.4.4",
     "change-case": "^4.1.1",
     "css-get-unit": "^1.0.1",
     "csstype": "^3.0.5",

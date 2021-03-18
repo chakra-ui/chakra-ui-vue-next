@@ -3314,27 +3314,27 @@
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^2.1.2"
 
-"@vueuse/core@^4.3.0":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.3.4.tgz#32dcd4b48536c6b8051495389a259ed1b96e9413"
-  integrity sha512-OKMJNdQltsMu8l9MMQ0qvjKK4kO5x0tHveqn6ypWcSQ/NSSMRcUynbE4G404DM52Adg3aFtgrirXcM4uoM6cjg==
+"@vueuse/core@^4.4.0":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.4.1.tgz#1c1a83ac29306840c96329b1005c4d7608cee92f"
+  integrity sha512-L9TWFwI+pEqgEmfv+uWz2kQ9bXejtpaQdoS67UUyii22rSesjP1aTTU7z7XX5i7aIgsHKnKYv68cDCtEZbjsPA==
   dependencies:
-    "@vueuse/shared" "4.3.4"
+    "@vueuse/shared" "4.4.1"
     vue-demi latest
 
-"@vueuse/motion@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.2.7.tgz#24a56a7355a8e52f4b3846f8e260f2f00b6ad79f"
-  integrity sha512-kyh6ZpoDi8ensj6ZJQ4uzke1GzFidUOxRIt7xgvwSlrXFQ6y/wl0wubsMlxKqEmxtf58MQYYoiX+J4CBKa9C5Q==
+"@vueuse/motion@^1.4.4":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.4.4.tgz#c0c34ea6cb25b9937435f5be39a75ae0bef248ea"
+  integrity sha512-EEHvv+jAjpYgXHkygOOkEmzOZ75wGKbckd0HMjNOEtTw7sAii6d7kVnedtp7ydqRlUPA7GJrHqHyW5jKYUprxg==
   dependencies:
-    "@vueuse/core" "^4.3.0"
-    popmotion "^9.2.1"
-    vue-demi "0.7.0"
+    "@vueuse/core" "^4.4.0"
+    popmotion "^9.3.1"
+    vue-demi "0.7.3"
 
-"@vueuse/shared@4.3.4":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.3.4.tgz#fe8e66842da4b7b5005a4a427d673e89f472f958"
-  integrity sha512-O1PxiG8cSD4YQKHJXWAeBVVTJNpBwCse7TkTsMqqLzqOjP2apbncfPzOcYJHVR5NkUXmtvPBIWAQuRavXKmHSw==
+"@vueuse/shared@4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.4.1.tgz#8963740d1b8a036933ae5c02b461b430430e2433"
+  integrity sha512-pY7bXgYaA9g25XNREE3zeuIWfOwbyiKeQ0IppE4nIRuro4gVGuLoV/BIU6D0VOTv7hYefv5eqE+WS03v61y8xA==
   dependencies:
     vue-demi latest
 
@@ -9547,7 +9547,7 @@ polka@^0.5.2:
     "@polka/url" "^0.5.0"
     trouter "^2.0.1"
 
-popmotion@^9.2.1:
+popmotion@^9.3.1:
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-9.3.1.tgz#134319ed4b9b8e3ec506c99064f7b2f14bc05781"
   integrity sha512-Qozvg8rz2OGeZwWuIjqlSXqqgWto/+QL24ll8sAAc0n71KY/wvN1W4sAASxTuHv8YWdDnk9u9IdadyPo2DGvDA==
@@ -11797,10 +11797,10 @@ vscode-web-custom-data@^0.3.2:
   resolved "https://registry.yarnpkg.com/vscode-web-custom-data/-/vscode-web-custom-data-0.3.2.tgz#62a5a924397d8056c5524ff0ff8f14eb815b7066"
   integrity sha512-GGZ99dJbARyh6rv03dXZImGlP5WvNG382A3nIt0yX1uyqBa558L/klHWcgEJzcVkG4t16OQWwPedMR3JkeD2Qg==
 
-vue-demi@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.0.tgz#34aff70a9d9a45d983d68f5c33bb70f6d19500e1"
-  integrity sha512-yOQ/BMfvTFbguwxQ1h6USEFkxvOI8ThhyZ1+57vlOl4jBZKC6ThmkzuQv4KOv4ItdxTj/foZBR6Lr5+tcr7nqg==
+vue-demi@0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.3.tgz#463188044d31d33985e67da51f315b447a1fed85"
+  integrity sha512-vrzM26H4CZCXBf/eu4T8nks6o7qgziYM52myk8bg+atw4qYqpeWJf5c82W8VdmgGfSIdh9ulOOe9+GeLc3Z/8A==
 
 vue-demi@latest:
   version "0.7.1"

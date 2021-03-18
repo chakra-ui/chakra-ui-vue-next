@@ -4,9 +4,9 @@
     <sidebar :stories="routes" />
     <chakra.main w="full" border-left="1px solid" border-color="gray.400" padding="4">
       <router-view v-slot="{ Component, route }">
-        <transition name="fade" mode="out-in">
+        <!-- <transition name="fade" mode="out-in"> -->
           <component :is="Component" />
-        </transition>
+        <!-- </transition> -->
       </router-view>
     </chakra.main>
   </chakra.section>
