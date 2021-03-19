@@ -88,11 +88,6 @@ function usePopper(
         return
       }
 
-      console.log({
-        referenceElement,
-        popperElement,
-      })
-
       popperInstance.value = createPopper(
         referenceElement,
         popperElement,

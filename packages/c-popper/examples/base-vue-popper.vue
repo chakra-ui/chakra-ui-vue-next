@@ -82,7 +82,7 @@
       color-scheme="blue"
       @click="togglePopper"
     >
-      {{ enabled ? 'Hide' : 'Show' }} popper element
+      {{ enabled ? 'Close' : 'Menu' }}
     </c-button>
 
     <chakra.div pos="fixed" top="8" right="8" z-index="10">
@@ -102,7 +102,17 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, reactive, ref, watch } from 'vue'
+import {
+  computed,
+  defineComponent,
+  nextTick,
+  onBeforeUnmount,
+  onBeforeUpdate,
+  onUpdated,
+  reactive,
+  ref,
+  watch,
+} from 'vue'
 import { usePopper } from '@chakra-ui/c-popper'
 import { CButton } from '@chakra-ui/c-button'
 import { useMotion } from '@vueuse/motion'
@@ -119,7 +129,7 @@ export default defineComponent({
 
     const popperOptions = reactive({
       enabled: false,
-      placement: 'right',
+      placement: 'bottom-start',
     })
 
     const popper = ref()
@@ -233,19 +243,32 @@ export default defineComponent({
       () => popper.value?.state?.modifiersData.hide.isReferenceHidden
     )
 
-    watch(popperReferenceState, async (newVal) => {
-      console.log({ isReferenceHidden: newVal })
-      if (newVal) {
-        await nextTick()
-        popper.value = usePopper(
-          _referenceElement.value,
-          _popperElement.value,
-          // @ts-ignore
-          popperOptions
-        )
+    // watch(popperReferenceState, async (newVal) => {
+    //   if (newVal) {
+    //     await nextTick()
+    //     popper.value = usePopper(
+    //       _referenceElement.value,
+    //       _popperElement.value,
+    //       // @ts-ignore
+    //       popperOptions
+    //     )
 
-        popper.value.forceUpdate()
-      }
+    //     popper.value.forceUpdate()
+    //   }
+    // })
+
+    onUpdated(async () => {
+      popper.value?.destroy?.()
+      await nextTick()
+      await nextTick()
+      popper.value = usePopper(
+        referenceElement.value?.$el,
+        _popperElement.value,
+        // @ts-ignore
+        popperOptions
+      )
+
+      popper.value.forceUpdate()
     })
 
     return {
