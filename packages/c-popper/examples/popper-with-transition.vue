@@ -34,7 +34,7 @@
               border="none"
               rounded="none"
             >
-              New files
+              New file
             </c-button>
             <c-button
               @click="toggleIsOpen"
@@ -64,7 +64,7 @@
               border="none"
               rounded="none"
             >
-              Export files
+              Export file
             </c-button>
           </chakra.div>
         </chakra.span>
@@ -72,7 +72,7 @@
     </c-portal>
 
     <c-button
-      left-icon="star"
+      right-icon="chevron-down"
       mt="3"
       :ref="reference"
       id="referenceElement"
@@ -90,6 +90,7 @@ import { usePopper } from '@chakra-ui/c-popper'
 import { CButton } from '@chakra-ui/c-button'
 import { useToggle } from '@vueuse/core'
 import { useMotion } from '@vueuse/motion'
+import { variants, innerVariants } from './motion.utils'
 
 export default defineComponent({
   components: { CButton },
@@ -107,51 +108,15 @@ export default defineComponent({
       () => innerPopperElement.value?.$el || innerPopperElement.value
     )
 
-    const _variants = computed(() => ({
-      initial: {
-        opacity: 0,
-      },
-      enter: {
-        opacity: 1,
-      },
-      leave: {
-        opacity: 0,
-      },
-    }))
-
-    const innerVariants = computed(() => ({
-      initial: {
-        scale: 0.9,
-        opacity: 0,
-      },
-      enter: {
-        scale: 1,
-        opacity: 1,
-        transition: {
-          scale: {
-            type: 'spring',
-            damping: 5,
-            stiffness: 550,
-          },
-        },
-      },
-      leave: {
-        scale: 0.9,
-        opacity: 0,
-      },
-    }))
-
     watch(
       isOpen,
       async (newVal) => {
         await nextTick()
         if (newVal) {
-          // Generate and assign Motion Instance
-          // Once Popper has been initiated
-          motionInstance.value = useMotion(popperEl, _variants)
+          motionInstance.value = useMotion(popperEl, variants)
           innerMotionInstance.value = useMotion(
             _innerPopperElement.value,
-            innerVariants.value
+            innerVariants
           )
         }
       },

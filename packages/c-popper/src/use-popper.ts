@@ -6,12 +6,10 @@ import {
   VirtualElement,
 } from '@popperjs/core/lib/popper-lite'
 import {
-  computed,
   nextTick,
   onBeforeUpdate,
   onMounted,
   onUnmounted,
-  Ref,
   ref,
   watch,
 } from 'vue'
@@ -63,6 +61,11 @@ export function usePopper(props: UsePopperOptions = {}) {
     if (!reference.value || !popper.value) return
     cleanup.value?.()
 
+    console.log({
+      popper: popper.value,
+      reference: reference.value,
+    })
+
     popperInstance.value = createPopper.value(reference.value, popper.value, {
       placement,
       modifiers,
@@ -77,6 +80,7 @@ export function usePopper(props: UsePopperOptions = {}) {
     // clear refs
     reference.value = null
     popper.value = null
+    console.log('before uupate')
   })
 
   onMounted(async () => {

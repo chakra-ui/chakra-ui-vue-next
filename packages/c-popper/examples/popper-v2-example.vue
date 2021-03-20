@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import { usePopper } from '@chakra-ui/c-popper'
 import { CButton } from '@chakra-ui/c-button'
 import { useToggle } from '@vueuse/core'
