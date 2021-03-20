@@ -1,14 +1,9 @@
 <template>
   <Navbar />
   <chakra.main
-    :h="['auto', 'auto', '100vh']"
+    :min-h="['auto', 'auto', '100vh']"
     w="100vw"
-    bg-image="url(/src/assets/chakra-ui-logo.svg)"
-    bg-pos="left"
-    bg-repeat="no-repeat"
-    bg-attachment="fixed"
-    bg-size="cover"
-    :px="[4, 10, '12rem']"
+    :px="[4, 10, 12]"
     pt="60px"
   >
     <Hero />
@@ -83,7 +78,6 @@
       </chakra.div>
     </CFlex>
   </chakra.main>
-  <chakra.div h="500px" w="full"> Awesome stuff </chakra.div>
 </template>
 
 <script lang="ts">

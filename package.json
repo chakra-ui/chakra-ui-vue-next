@@ -6,7 +6,8 @@
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "website"
   ],
   "scripts": {
     "postinstall": "yarn bootstrap",
@@ -20,6 +21,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
+    "website": "yarn workspace @chakra-ui/vue-docs",
     "core": "yarn workspace @chakra-ui/vue-next",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next",
     "system": "yarn workspace @chakra-ui/vue-system",
@@ -99,7 +101,7 @@
     "vue-router": "4.0.0-beta.10"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.4.1",
+    "@chakra-ui/styled-system": "^1.8.0",
     "@emotion/css": "^11.1.3",
     "@emotion/server": "^11.0.0",
     "@types/lodash.camelcase": "^4.3.6",
