@@ -18,8 +18,17 @@ const CPortal = defineComponent({
       }
     })
 
-    // @ts-ignore
-    return () => h(Teleport, { to: target.value, ...props, ...attrs }, slots)
+    return () =>
+      h(
+        // @ts-ignore
+        Teleport,
+        {
+          to: target.value,
+          ...props,
+          ...attrs,
+        },
+        slots
+      )
   },
 })
 
