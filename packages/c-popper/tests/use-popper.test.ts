@@ -1,8 +1,8 @@
-import { render } from '@chakra-ui/vue-test-utils/src'
+import { render, waitMs } from '@chakra-ui/vue-test-utils/src'
 import { usePopper } from '../src'
 import { useToggle } from '@vueuse/core'
 import { CButton } from '@chakra-ui/c-button'
-import { nextTick } from 'vue'
+import { onMounted } from 'vue'
 
 const renderComponent = (props?: any) => {
   const base = {
@@ -27,13 +27,20 @@ const renderComponent = (props?: any) => {
 }
 
 it('should render properly', async () => {
+  let _referenceEl: any
+  let _popperEl: any
   const { asFragment } = renderComponent({
     setup() {
       const [isOpen, toggleIsOpen] = useToggle(true)
 
-      const { reference, popper } = usePopper({
+      const { reference, referenceEl, popperEl, popper } = usePopper({
         gutter: 16,
         placement: 'right-end',
+      })
+
+      onMounted(() => {
+        _referenceEl = referenceEl.value
+        _popperEl = popperEl.value
       })
 
       return {
@@ -45,6 +52,8 @@ it('should render properly', async () => {
     },
   })
 
-  await nextTick()
+  await waitMs(300)
   expect(asFragment()).toMatchSnapshot()
+  expect(_referenceEl instanceof Element).toBe(true)
+  expect(_popperEl instanceof Element).toBe(true)
 })
