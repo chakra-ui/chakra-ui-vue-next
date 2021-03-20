@@ -1,1 +1,2 @@
-export { default as usePopper } from './vue-popper'
+export * from './use-popper'
+export { popperCSSVars } from './utils'
