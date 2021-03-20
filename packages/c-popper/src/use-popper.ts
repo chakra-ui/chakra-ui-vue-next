@@ -13,7 +13,7 @@ import {
   ref,
   watch,
 } from 'vue'
-import { createPopperFn, CreatePopperOptions } from './vue-popper'
+import { createPopperFn, CreatePopperOptions } from './create-popper'
 
 export type { Placement }
 
@@ -60,11 +60,6 @@ export function usePopper(props: UsePopperOptions = {}) {
     await nextTick()
     if (!reference.value || !popper.value) return
     cleanup.value?.()
-
-    console.log({
-      popper: popper.value,
-      reference: reference.value,
-    })
 
     popperInstance.value = createPopper.value(reference.value, popper.value, {
       placement,

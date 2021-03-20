@@ -6,6 +6,7 @@
     "lib": [ "esnext", "dom" ],
     "types": ["node", "jest", "vite/client", "vite-plugin-pages/client"],
     "declaration": true,
+    "allowJs": true,
     "sourceMap": true,
     "moduleResolution": "node",
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
