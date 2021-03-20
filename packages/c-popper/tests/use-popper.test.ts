@@ -26,7 +26,7 @@ const renderComponent = (props?: any) => {
   return render(base)
 }
 
-it('should render properly', async () => {
+it('should render properly and bind refs', async () => {
   let _referenceEl: any
   let _popperEl: any
   const { asFragment } = renderComponent({
