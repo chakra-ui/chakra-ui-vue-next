@@ -118,7 +118,9 @@ const CButton = defineComponent({
           label: 'button',
         }),
         {
-          disabled: props.isDisabled || props.isLoading,
+          ...((props.isDisabled || props.isLoading) && {
+            disabled: props.isDisabled || props.isLoading,
+          }),
           type: props.as === 'button' ? undefined : props.type,
           dataActive: dataAttr(props.isActive),
           dataLoading: dataAttr(props.isLoading),
