@@ -39,7 +39,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.4.1",
+    "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/vue-system": "*",
     "@chakra-ui/vue-utils": "*"
   },

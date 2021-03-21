@@ -31,8 +31,8 @@ interface StyleResolverProps extends SystemProps {
   css?: CSSObject
   noOfLines?: ResponsiveValue<number>
   isTruncated?: boolean
-  layerStyle?: string
-  textStyle?: string
+  layerStyle?: ResponsiveValue<string>
+  textStyle?: ResponsiveValue<string>
   apply?: ResponsiveValue<string>
   componentName?: String
   label?: string
@@ -250,7 +250,6 @@ export const resolveStyles = (
     finalStyles,
     isFunction(cssProp) ? cssProp(theme) : cssProp
   )
-
   return cssObject
 }
 

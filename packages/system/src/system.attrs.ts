@@ -29,15 +29,15 @@ export const extractStyleAttrs = <
   const attrs = {} as U
 
   for (const prop in styleProps) {
-    const _isStyledProp = isStyleProp(prop)
+    let _attr: string
+    if (camelCaseCache[prop]) {
+      _attr = camelCaseCache[prop]
+    } else {
+      _attr = `${prop.startsWith('_') ? '_' : ''}${camelCase(prop)}`
+      camelCaseCache[prop] = _attr
+    }
+    const _isStyledProp = isStyleProp(_attr)
     if (_isStyledProp) {
-      let _attr: string
-      if (camelCaseCache[prop]) {
-        _attr = camelCaseCache[prop]
-      } else {
-        _attr = camelCase(prop)
-        camelCaseCache[prop] = _attr
-      }
       // @ts-expect-error Not sure how to cast returned string into typeof key of U
       styles[_attr] = styleProps[prop]
     } else {
@@ -45,11 +45,6 @@ export const extractStyleAttrs = <
       attrs[prop] = styleProps[prop]
     }
   }
-
-  console.log({
-    styles,
-    attrs,
-  })
 
   return {
     styles,

@@ -1,5 +1,7 @@
 import { Plugin } from 'vue'
+import { injectGlobal } from '@emotion/css'
 import defaultTheme, { ColorMode } from '@chakra-ui/vue-theme'
+import { toCSSVar, WithCSSVar } from '@chakra-ui/styled-system'
 import { chakra } from '@chakra-ui/vue-system'
 import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
@@ -22,16 +24,23 @@ export interface ChakraUIVuePluginOptions {
 
 const ChakraUIVuePlugin: Plugin = {
   install(app, options: ChakraUIVuePluginOptions = {}) {
-    // Get theme value
+    // 1. Get theme value
+    // 2. Parse theme tokens to CSS variables
+    // 3. Inject all CSS variables as theme object
     const theme = options.extendTheme || defaultTheme
+    const computedTheme: WithCSSVar<ThemeOverride> = toCSSVar(theme)
+    injectGlobal({
+      ':root': computedTheme.__cssVars,
+    })
+
     let libraryIcons = options.icons?.library || {}
 
     // Initialize colormode
     const colorMode = theme.config?.initialColorMode || 'light'
 
     // Bind theme to application global properties and provide to application
-    app.config.globalProperties.$chakraTheme = theme
-    app.provide('$chakraTheme', theme as ThemeOverride)
+    app.config.globalProperties.$chakraTheme = computedTheme
+    app.provide('$chakraTheme', computedTheme as ThemeOverride)
 
     // Provide initial colormode
     app.provide('$chakraColorMode', colorMode as ColorMode)
