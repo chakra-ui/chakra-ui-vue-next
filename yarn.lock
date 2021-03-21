@@ -1269,7 +1269,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chakra-ui/styled-system@^1.4.1", "@chakra-ui/styled-system@^1.8.1":
+"@chakra-ui/styled-system@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-1.4.1.tgz#8c92b2b2e02ed54b74c4fcf5ba82daa621ac8a1b"
   integrity sha512-747yDSH5Gz7X5clzTzSyiy7rEo5uRoDFle8RkA41Cl5hMx6twBLRqfoCdfm5VNYQKM6E0KtG6dW6MgiwOGhY4w==
@@ -1277,14 +1277,6 @@
     "@chakra-ui/utils" "1.1.0"
     css-get-unit "1.0.1"
     csstype "3.0.3"
-
-"@chakra-ui/styled-system@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-1.8.0.tgz#b34f561b9c5e0acc495ca4c6b45da69cd690b329"
-  integrity sha512-EKtVaZSW3drOxNBV/Cl3Int3YN9o7BJ9WOsPBcXfdXjAsk5XORN74Mw8HVHPvcheW0ERTlOFWlTSv4Ot/U8GXg==
-  dependencies:
-    "@chakra-ui/utils" "1.3.0"
-    csstype "^3.0.6"
 
 "@chakra-ui/utils@1.1.0":
   version "1.1.0"
@@ -1296,16 +1288,6 @@
     css-box-model "1.2.1"
     lodash.mergewith "4.6.2"
     object-assign "4.1.1"
-
-"@chakra-ui/utils@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-1.3.0.tgz#7bfe8ffd4a8613ec562f51d27a08c4c430b88132"
-  integrity sha512-MezHglxjRaAZIQDVAi1uOMVNd4a0zKGmV4cvp8+r3xTmGMU/XJCC5J49qufEqLLJbR31Y7UiCRTz86O66s1r5A==
-  dependencies:
-    "@types/lodash.mergewith" "4.6.6"
-    "@types/object-assign" "4.0.30"
-    css-box-model "1.2.1"
-    lodash.mergewith "4.6.2"
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -3404,11 +3386,6 @@
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^2.1.2"
 
-"@vueuse/head@^0.3.1":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@vueuse/head/-/head-0.3.2.tgz#ee700091ab03069ec84f29cc696a5e4b2d890518"
-  integrity sha512-H2sWLeyaZLWeRcZjmpUtgWuUMJINQcW2J8wI3nyRhJbLI+W0t//g41YLppYGxjsb7tfqVREZgyXUWZRGMpwPQg==
-
 "@vueuse/core@^4.4.0":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.4.1.tgz#1c1a83ac29306840c96329b1005c4d7608cee92f"
@@ -3416,6 +3393,11 @@
   dependencies:
     "@vueuse/shared" "4.4.1"
     vue-demi latest
+
+"@vueuse/head@^0.3.1":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/head/-/head-0.3.2.tgz#ee700091ab03069ec84f29cc696a5e4b2d890518"
+  integrity sha512-H2sWLeyaZLWeRcZjmpUtgWuUMJINQcW2J8wI3nyRhJbLI+W0t//g41YLppYGxjsb7tfqVREZgyXUWZRGMpwPQg==
 
 "@vueuse/motion@^1.4.4":
   version "1.4.4"
@@ -5002,11 +4984,6 @@ csstype@^3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.5.tgz#7fdec6a28a67ae18647c51668a9ff95bb2fa7bb8"
   integrity sha512-uVDi8LpBUKQj6sdxNaTetL6FpeCqTjOvAQuQUa/qAqq8oOd4ivkbhgnqayl0dnPal8Tb/yB1tF+gOvCBiicaiQ==
-
-csstype@^3.0.6:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.7.tgz#2a5fb75e1015e84dd15692f71e89a1450290950b"
-  integrity sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g==
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
