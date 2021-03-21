@@ -6,7 +6,8 @@
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "website"
   ],
   "scripts": {
     "postinstall": "yarn bootstrap",
@@ -20,6 +21,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
+    "website": "yarn workspace @chakra-ui/vue-docs",
     "core": "yarn workspace @chakra-ui/vue-next",
     "nuxt": "yarn workspace @chakra-ui/nuxt-next",
     "system": "yarn workspace @chakra-ui/vue-system",
@@ -34,7 +36,8 @@
     "c-reset": "yarn workspace @chakra-ui/c-reset",
     "c-spinner": "yarn workspace @chakra-ui/c-spinner",
     "c-badge": "yarn workspace @chakra-ui/c-badge",
-    "c-portal": "yarn workspace @chakra-ui/c-portal"
+    "c-portal": "yarn workspace @chakra-ui/c-portal",
+    "c-popper": "yarn workspace @chakra-ui/c-popper"
   },
   "license": "MIT",
   "private": true,
@@ -102,18 +105,22 @@
     "@chakra-ui/styled-system": "^1.4.1",
     "@emotion/css": "^11.1.3",
     "@emotion/server": "^11.0.0",
+    "@popperjs/core": "^2.8.4",
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.mergewith": "^4.6.6",
     "@types/tinycolor2": "^1.4.2",
+    "@vueuse/motion": "^1.4.4",
     "change-case": "^4.1.1",
     "css-get-unit": "^1.0.1",
     "csstype": "^3.0.5",
+    "dequal": "^2.0.2",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.mergewith": "^4.6.2",
     "object-assign": "^4.1.1",
     "react": "^17.0.1",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.4.2",
+    "vue": "^3.0.5"
   }
 }

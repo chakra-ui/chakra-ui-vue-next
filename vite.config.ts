@@ -6,6 +6,9 @@ import kebabCase from 'lodash.kebabcase'
 import path from 'path'
 
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ['@popperjs/core'],
+  },
   plugins: [
     vue(),
     Pages({

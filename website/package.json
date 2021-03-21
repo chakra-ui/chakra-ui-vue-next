@@ -1,5 +1,5 @@
 {
-  "name": "chakra-ui-vue-next-website",
+  "name": "@chakra-ui/vue-docs",
   "version": "0.0.0",
   "description": "Website for Chakra UI Vue Next",
   "main": "index.html",
@@ -7,7 +7,8 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "scripts": {
     "dev": "vite",
-    "build": "vite-ssg build",
+    "build": "echo '⚡️ Building docs package stub'",
+    "generate": "vite-ssg build",
     "serve": "vite preview"
   },
   "dependencies": {
