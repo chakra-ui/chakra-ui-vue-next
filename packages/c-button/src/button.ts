@@ -1,6 +1,10 @@
 import { defineComponent, PropType, computed, cloneVNode, h } from 'vue'
-import { chakra, useStyleConfig, ThemingProps } from '@chakra-ui/vue-system'
-import { SystemStyleObject } from '@chakra-ui/styled-system'
+import {
+  chakra,
+  useStyleConfig,
+  ThemingProps,
+  SystemStyleObject,
+} from '@chakra-ui/vue-system'
 import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/vue-utils'
 import { useButtonGroup } from './button-group'
 import { CIcon } from '@chakra-ui/c-icon'
@@ -114,7 +118,9 @@ const CButton = defineComponent({
           label: 'button',
         }),
         {
-          disabled: props.isDisabled || props.isLoading,
+          ...((props.isDisabled || props.isLoading) && {
+            disabled: props.isDisabled || props.isLoading,
+          }),
           type: props.as === 'button' ? undefined : props.type,
           dataActive: dataAttr(props.isActive),
           dataLoading: dataAttr(props.isLoading),

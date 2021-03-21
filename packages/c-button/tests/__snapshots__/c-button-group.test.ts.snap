@@ -3,11 +3,11 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-button__group css-p4lcqj"
+    class="chakra-button__group css-v5zn0n"
     role="group"
   >
     <button
-      class="chakra-button css-byqix5"
+      class="chakra-button css-1bczd7i"
     >
       <!---->
       <!---->
@@ -15,7 +15,7 @@ exports[`should render properly 1`] = `
       <!---->
     </button>
     <button
-      class="chakra-button css-1twjehy"
+      class="chakra-button css-1rwqev2"
     >
       <!---->
       <!---->

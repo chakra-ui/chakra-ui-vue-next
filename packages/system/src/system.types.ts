@@ -58,3 +58,4 @@ export interface ChakraProps extends SystemProps {
 
 export type ColorScheme = keyof ChakraColors
 export type ThemeComponents = ChakraComponentName
+export type { SystemStyleObject } from '@chakra-ui/styled-system'

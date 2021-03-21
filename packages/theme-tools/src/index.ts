@@ -1,7 +1,10 @@
 import Color from 'tinycolor2'
-import { memoizedGet as get, Dict, isEmptyObject } from '@chakra-ui/vue-utils'
-
-import { fromEntries } from '@chakra-ui/vue-utils'
+import {
+  memoizedGet as get,
+  fromEntries,
+  Dict,
+  isEmptyObject,
+} from '@chakra-ui/vue-utils'
 
 // TODO: rEMove this
 export function orient(options: {

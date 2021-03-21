@@ -23,6 +23,7 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
+    "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/vue-system": "*",
     "@chakra-ui/vue-theme": "*",
     "@chakra-ui/vue-utils": "*",
@@ -36,5 +37,17 @@
     "@chakra-ui/c-theme-provider": "*",
     "@chakra-ui/c-visually-hidden": "*",
     "@chakra-ui/c-popper": "*"
+  },
+  "devDependencies": {
+    "@chakra-ui/styled-system": "^1.9.0",
+    "@chakra-ui/vue-system": "*",
+    "vue": "^3.0.5"
+  },
+  "peerDependencies": {
+    "@chakra-ui/styled-system": "^1.9.0",
+    "@chakra-ui/vue-system": "*",
+    "@chakra-ui/vue-theme": "*",
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
   }
 }

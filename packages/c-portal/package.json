@@ -37,7 +37,12 @@
   "dependencies": {
     "@chakra-ui/vue-utils": "*"
   },
+  "devDependencies": {
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
+  },
   "peerDependencies": {
-    "vue": ">=3.0.5"
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
   }
 }

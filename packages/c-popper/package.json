@@ -35,12 +35,15 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.4.1",
-    "@chakra-ui/vue-system": "*",
     "@chakra-ui/vue-utils": "*",
     "@popperjs/core": "^2.8.4"
   },
+  "devDependencies": {
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
+  },
   "peerDependencies": {
-    "vue": ">=3.0.5"
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
   }
 }
