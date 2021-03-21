@@ -35,6 +35,7 @@
         href="https://github.com/chakra-ui/chakra-ui-vue-next"
         size="lg"
         target="_blank"
+        rel="noopener noreferrer"
         color-scheme="green"
       >
         Get started
@@ -43,6 +44,7 @@
         as="a"
         text-decoration="none"
         target="_blank"
+        rel="noopener noreferrer"
         href="https://github.com/chakra-ui/chakra-ui-vue-next"
         left-icon="github"
         ml="4"

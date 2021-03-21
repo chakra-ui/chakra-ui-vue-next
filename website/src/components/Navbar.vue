@@ -30,6 +30,7 @@
           variant-color="gray"
           aria-label="View the documentation"
           target="_blank"
+          rel="noopener noreferrer"
           href="https://github.com/chakra-ui/chakra-ui-vue"
           icon="book"
         />
@@ -40,6 +41,7 @@
           variant="ghost"
           variant-color="gray"
           aria-label="Join Discord channel"
+          rel="noopener noreferrer"
           target="_blank"
           href="https://discord.gg/sq2Kp6x"
           icon="message-circle"
@@ -52,6 +54,7 @@
           variant-color="gray"
           aria-label="Open menu"
           target="_blank"
+          rel="noopener noreferrer"
           href="https://discord.gg/sq2Kp6x"
           icon="menu"
         />
