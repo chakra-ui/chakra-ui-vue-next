@@ -97,3 +97,4 @@ dist
 
 # vscode history extension
 .history
+website/.vite-ssg-temp

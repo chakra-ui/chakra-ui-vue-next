@@ -1,6 +1,8 @@
 import { h, defineComponent, PropType, reactive } from 'vue'
+import type CSS from 'csstype'
 import { chakra, DOMElements, ThemingProps } from '@chakra-ui/vue-system'
-import { SystemStyleObject } from '@chakra-ui/styled-system'
+
+type ArrayOrStringProp<T> = T | T[]
 
 export interface FlexProps {
   /**
@@ -8,43 +10,43 @@ export interface FlexProps {
    * @type SystemStyleObject["alignItems"]
    * SystemStyleObject because prop can be String, Array or Object
    */
-  align?: SystemStyleObject['alignItems']
+  align?: ArrayOrStringProp<CSS.Properties['alignItems']>
 
   /**
    * Shorthand for `justifyContent` style prop
    * @type SystemStyleObject["justifyContent"]
    */
-  justify?: SystemStyleObject['justifyContent']
+  justify?: ArrayOrStringProp<CSS.Properties['justifyContent']>
 
   /**
    * Shorthand for `flexWrap` style prop
    * @type SystemStyleObject["flexWrap"]
    */
-  wrap?: SystemStyleObject['flexWrap']
+  wrap?: ArrayOrStringProp<CSS.Properties['flexWrap']>
 
   /**
    * Shorthand for `flexDirection` style prop
    * @type SystemStyleObject["flexDirection"]
    */
-  direction?: SystemStyleObject['flexDirection']
+  direction?: ArrayOrStringProp<CSS.Properties['flexDirection']>
 
   /**
    * Shorthand for `flexBasis` style prop
    * @type SystemStyleObject["flexBasis"]
    */
-  basis?: SystemStyleObject['flexBasis']
+  basis?: ArrayOrStringProp<CSS.Properties['flexBasis']>
 
   /**
    * Shorthand for `flexGrow` style prop
    * @type SystemStyleObject["flexGrow"]
    */
-  grow?: SystemStyleObject['flexGrow']
+  grow?: ArrayOrStringProp<CSS.Properties['flexGrow']>
 
   /**
    * Shorthand for `flexShrink` style prop
    * @type SystemStyleObject["flexShrink"]
    */
-  shrink?: SystemStyleObject['flexShrink']
+  shrink?: ArrayOrStringProp<CSS.Properties['flexShrink']>
 }
 
 const CFlex = defineComponent({
