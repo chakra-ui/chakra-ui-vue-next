@@ -46,7 +46,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@cypress/react": "^5.2.0",
+    "@cypress/vue": "^3.0.0-alpha.4",
     "@cypress/vite-dev-server": "^1.1.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/user-event": "^12.6.2",
