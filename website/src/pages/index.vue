@@ -8,6 +8,7 @@
   >
     <Hero />
     <PilersHero />
+    <Footer />
   </chakra.main>
 </template>
 
@@ -16,6 +17,7 @@ import { defineComponent } from 'vue'
 import Hero from '../components/home/Hero.vue'
 import PilersHero from '../components/home/PilersHero.vue'
 import Navbar from '../components/Navbar.vue'
+import Footer from '../components/home/Footer.vue'
 
 export default defineComponent({
   name: 'Index',
@@ -23,6 +25,7 @@ export default defineComponent({
     Hero,
     PilersHero,
     Navbar,
+    Footer,
   },
 })
 </script>
