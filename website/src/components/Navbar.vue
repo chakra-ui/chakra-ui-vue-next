@@ -9,6 +9,8 @@
     shadow="sm"
     bg="white"
     z-index="10"
+    border-top="6px solid"
+    border-color="vue.500"
   >
     <CFlex align-items="center" flex="1" />
     <CFlex flex="1" justify-content="center">

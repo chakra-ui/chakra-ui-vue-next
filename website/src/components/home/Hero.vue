@@ -11,7 +11,7 @@
   >
     <chakra.div>
       <chakra.h1
-        maxW="20ch"
+        maxW="16ch"
         :fontSize="{ base: '2.25rem', sm: '3rem', lg: '4rem' }"
         fontFamily="heading"
         letterSpacing="tighter"
@@ -20,7 +20,7 @@
         lineHeight="1.2"
       >
         Build accessible Vue apps
-        <chakra.span color="green.600" px="5px">with speed</chakra.span>
+        <chakra.span color="vue.600" px="5px">with speed</chakra.span>
       </chakra.h1>
     </chakra.div>
     <chakra.p
@@ -45,7 +45,7 @@
         target="_blank"
         rel="noopener noreferrer"
         color-scheme="green"
-        bg="green.600"
+        bg="vue.600"
       >
         Get started
       </CButton>
@@ -60,7 +60,7 @@
         variant="outline"
         color-scheme="green"
         size="lg"
-        color="green.600"
+        color="vue.600"
       >
         Github
       </CButton>
@@ -70,7 +70,7 @@
       alt="Chakra UI Vue Logo"
       :w="{ base: '0', sm: '45%' }"
       pos="absolute"
-      bottom="-5%"
+      bottom="-7%"
       right="0"
     />
   </chakra.header>

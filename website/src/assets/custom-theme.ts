@@ -3,14 +3,14 @@ import { mode } from '@chakra-ui/vue-theme-tools'
 
 export default extendTheme({
   colors: {
-    green: {
+    vue: {
       50: '#EEF8F4',
       100: '#CDEBDD',
       200: '#ACDEC6',
       300: '#8BD1AF',
       400: '#6AC398',
-      500: '#49B682',
-      600: '#35845E',
+      500: '#42B883',
+      600: '#30855F',
       700: '#2E7452',
       800: '#21533B',
       900: '#143223',

@@ -4,7 +4,7 @@
     :min-h="['auto', 'auto', '100vh']"
     w="100%"
     pt="60px"
-    bg="green.50"
+    bg="vue.50"
   >
     <Hero />
     <PilersHero />
