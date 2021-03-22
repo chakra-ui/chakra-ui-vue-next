@@ -19,7 +19,7 @@
         lineHeight="1.2"
       >
         Build accessible Vue apps
-        <chakra.span color="#35845E" px="5px">with speed </chakra.span>
+        <chakra.span color="green.600" px="5px">with speed </chakra.span>
       </chakra.h1>
     </chakra.div>
     <chakra.p
@@ -44,7 +44,7 @@
         target="_blank"
         rel="noopener noreferrer"
         color-scheme="green"
-        bg="#35845E"
+        bg="green.600"
       >
         Get started
       </CButton>
@@ -59,7 +59,7 @@
         variant="outline"
         color-scheme="green"
         size="lg"
-        color="#35845E"
+        color="green.600"
       >
         Github
       </CButton>
