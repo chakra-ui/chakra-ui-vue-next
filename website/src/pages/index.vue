@@ -5,7 +5,6 @@
     w="100%"
     pt="60px"
     bg="green.50"
-    display="block"
   >
     <Hero />
     <PilersHero />

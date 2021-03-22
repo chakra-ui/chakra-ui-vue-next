@@ -3,18 +3,19 @@
     as="section"
     :flex-dir="['column', 'column', 'row']"
     font-family="body"
-    bg="green.50"
-    :pl="[4, 10, 12]"
+    :pl="[0, 10, 12]"
     :py="[4, 10, 10]"
   >
     <chakra.div
       d="grid"
       :grid-template-columns="['auto', 'auto', 'repeat(3, 1fr)']"
       :style="{ gap: '1.5rem' }"
-      border="1px solid"
+      shadow="lg"
       bg="white"
+      py="10"
+      :px="{ base: '3', sm: '10' }"
     >
-      <CBox m="3">
+      <CBox>
         <CFlex align-items="center" mb="5">
           <CFlex
             justify-content="center"
@@ -32,7 +33,7 @@
         Chakra UI strictly follows WAI-ARIA standards. All components come with
         proper attributes and keyboard interactions out of the box.
       </CBox>
-      <CBox m="3">
+      <CBox>
         <CFlex align-items="center" mb="5">
           <CFlex
             justify-content="center"
@@ -50,7 +51,7 @@
         Quickly and easily reference values from your theme throughout your
         entire application, on any component.
       </CBox>
-      <CBox m="3">
+      <CBox>
         <CFlex align-items="center" mb="5">
           <CFlex
             justify-content="center"

@@ -6,11 +6,12 @@
     :pt="{ base: '3rem', sm: '150px' }"
     :px="[4, 10, 12]"
     :pb="{ base: '3rem', sm: '0' }"
-    borderBottom="1px solid"
+    :ml="[0, 10, 12]"
+    shadow="lg"
   >
     <chakra.div>
       <chakra.h1
-        maxW="16ch"
+        maxW="20ch"
         :fontSize="{ base: '2.25rem', sm: '3rem', lg: '4rem' }"
         fontFamily="heading"
         letterSpacing="tighter"
@@ -19,7 +20,7 @@
         lineHeight="1.2"
       >
         Build accessible Vue apps
-        <chakra.span color="green.600" px="5px">with speed </chakra.span>
+        <chakra.span color="green.600" px="5px">with speed</chakra.span>
       </chakra.h1>
     </chakra.div>
     <chakra.p
@@ -64,6 +65,14 @@
         Github
       </CButton>
     </CFlex>
+    <chakra.img
+      src="/src/assets/chakra-ui-vue-logo.svg#svgView(viewBox(0,0,150,190))"
+      alt="Chakra UI Vue Logo"
+      :w="{ base: '0', sm: '45%' }"
+      pos="absolute"
+      bottom="-5%"
+      right="0"
+    />
   </chakra.header>
 </template>
 
