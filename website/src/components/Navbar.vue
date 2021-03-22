@@ -12,7 +12,7 @@
     border-top="6px solid"
     border-color="vue.500"
   >
-    <CFlex align-items="center" flex="1" />
+    <CFlex align-items="center" :flex="{ base: 0, sm: 1 }" />
     <CFlex flex="1" justify-content="center">
       <CIcon name="search" mt="8px" />
     </CFlex>
@@ -25,7 +25,19 @@
       pt="8px"
       justify-content="flex-end"
     >
-      <CBox as="li" mr="2">
+      <CBox as="li" mr="2" :d="{ base: 'none', sm: 'block' }">
+        <CIconButton
+          as="a"
+          variant="ghost"
+          variant-color="gray"
+          aria-label="View GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/chakra-ui/chakra-ui-vue"
+          icon="github"
+        />
+      </CBox>
+      <CBox as="li" mr="2" :d="{ base: 'none', sm: 'block' }">
         <CIconButton
           as="a"
           variant="ghost"
@@ -37,19 +49,19 @@
           icon="book"
         />
       </CBox>
-      <CBox as="li" mr="2">
+      <CBox as="li" mr="2" :d="{ base: 'none', sm: 'block' }">
         <CIconButton
           as="a"
           variant="ghost"
           variant-color="gray"
           aria-label="Join Discord channel"
-          rel="noopener noreferrer"
           target="_blank"
-          href="https://discord.gg/sq2Kp6x"
+          rel="noopener noreferrer"
+          href="https://github.com/chakra-ui/chakra-ui-vue"
           icon="message-circle"
         />
       </CBox>
-      <CBox as="li" mr="2">
+      <CBox as="li">
         <CIconButton
           as="a"
           variant="ghost"
