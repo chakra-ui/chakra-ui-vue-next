@@ -1,7 +1,7 @@
 <template>
   <chakra.nav
     h="60px"
-    w="100vw"
+    w="100%"
     px="4"
     d="flex"
     position="fixed"

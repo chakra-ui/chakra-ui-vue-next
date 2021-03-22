@@ -1,8 +1,12 @@
 <template>
   <chakra.header
     pos="relative"
-    :min-h="{ base: 'auto', sm: '100vh' }"
+    bg="white"
+    :min-h="{ base: 'auto', sm: '90vh' }"
     :pt="{ base: '3rem', sm: '150px' }"
+    :px="[4, 10, 12]"
+    :pb="{ base: '3rem', sm: '0' }"
+    borderBottom="1px solid"
   >
     <chakra.div>
       <chakra.h1
@@ -15,7 +19,7 @@
         lineHeight="1.2"
       >
         Build accessible Vue apps
-        <chakra.span color="green.500"> with speed </chakra.span>
+        <chakra.span color="#35845E" px="5px">with speed </chakra.span>
       </chakra.h1>
     </chakra.div>
     <chakra.p
@@ -28,7 +32,10 @@
       Chakra UI Vue Next is a simple modular and accessible component library
       that gives you the building blocks to build Vue applications with speed.
     </chakra.p>
-    <CFlex flex-dir="row">
+    <CFlex
+      flex-dir="row"
+      :justify-content="{ base: 'center', sm: 'flex-start' }"
+    >
       <CButton
         as="a"
         text-decoration="none"
@@ -37,6 +44,7 @@
         target="_blank"
         rel="noopener noreferrer"
         color-scheme="green"
+        bg="#35845E"
       >
         Get started
       </CButton>
@@ -51,6 +59,7 @@
         variant="outline"
         color-scheme="green"
         size="lg"
+        color="#35845E"
       >
         Github
       </CButton>
