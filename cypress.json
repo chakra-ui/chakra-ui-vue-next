@@ -1,6 +1,5 @@
 {
-  "experimentalComponentTesting": true,
   "componentFolder": "packages",
   "pluginsFile": "./plugins.js",
-  "testFiles": "**/*.test.*"
+  "testFiles": "**/*.cy.ts"
 }
