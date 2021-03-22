@@ -1,5 +1,5 @@
 {
   "componentFolder": "packages",
   "pluginsFile": "./plugins.js",
-  "testFiles": "**/*.cy.test.ts"
+  "testFiles": "**/*.cy.ts"
 }
