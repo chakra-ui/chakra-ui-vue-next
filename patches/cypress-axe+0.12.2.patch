@@ -1,0 +1,13 @@
+diff --git a/node_modules/cypress-axe/dist/index.js b/node_modules/cypress-axe/dist/index.js
+index 6e39e23..e9fcfe2 100644
+--- a/node_modules/cypress-axe/dist/index.js
++++ b/node_modules/cypress-axe/dist/index.js
+@@ -13,7 +13,7 @@ var __rest = (this && this.__rest) || function (s, e) {
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.configureAxe = exports.injectAxe = void 0;
+ exports.injectAxe = function () {
+-    var fileName = typeof (require === null || require === void 0 ? void 0 : require.resolve) === 'function'
++    var fileName = (window.require && (typeof (require === null || require === void 0 ? void 0 : require.resolve) === 'function'))
+         ? require.resolve('axe-core/axe.min.js')
+         : 'node_modules/axe-core/axe.min.js';
+     cy.readFile(fileName).then(function (source) {
