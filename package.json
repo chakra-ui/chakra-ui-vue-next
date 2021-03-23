@@ -35,7 +35,8 @@
     "c-spinner": "yarn workspace @chakra-ui/c-spinner",
     "c-badge": "yarn workspace @chakra-ui/c-badge",
     "c-portal": "yarn workspace @chakra-ui/c-portal",
-    "c-popper": "yarn workspace @chakra-ui/c-popper"
+    "c-popper": "yarn workspace @chakra-ui/c-popper",
+    "cy": "node ../../github/cypress/scripts/cypress.js open-ct"
   },
   "license": "MIT",
   "private": true,
