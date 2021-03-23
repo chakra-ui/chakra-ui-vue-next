@@ -1,6 +1,6 @@
 {
   "experimentalComponentTesting": true,
-  "componentFolder": "packages/tests",
+  "componentFolder": "packages/",
   "pluginsFile": "./plugins.js",
   "testFiles": "**/*.test.*",
   "supportFile": "packages/tests/support.ts"
