@@ -4,6 +4,7 @@ import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
 import { feActivity } from 'feather-icons-paths'
 import { MotionPlugin } from '@vueuse/motion'
+import { h } from 'vue'
 
 import './a11y'
 import axeCore from 'axe-core'
@@ -57,11 +58,14 @@ const components = domElements.reduce((acc, tag) => {
 
 // @ts-ignore
 Cypress.Commands.add('mount', (component, options?) => {
-  return cyMount(component, {
+  return cyMount({
+    render: () => [h(component), h(CReset)],
+    components: { CReset, component }
+  }, {
     global: {
       plugins: [
         MotionPlugin,
-        [ChakraUIVuePlugin, { icons: { library: { feActivity }}}]
+        [ChakraUIVuePlugin, { icons: { library: { feActivity } } }]
       ],
       components
     },

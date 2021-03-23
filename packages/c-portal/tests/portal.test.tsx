@@ -1,7 +1,6 @@
 import * as Examples from '../examples'
 import { h, Fragment } from 'vue'
 import { CPortal } from '../src'
-import { CSSStyleSheet } from '@emotion/css'
 
 afterEach(() => { cy.checkA11y() })
 
