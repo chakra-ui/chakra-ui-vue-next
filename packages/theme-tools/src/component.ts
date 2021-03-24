@@ -29,13 +29,9 @@ export type GlobalStyles = {
   global?: SystemStyleObject | ((props: GlobalStyleProps) => SystemStyleObject)
 }
 
-export type JSXElementStyles = {
-  [K in keyof JSX.IntrinsicElements]?: SystemStyleObject
-}
-
 export { runIfFn }
 
-export type Styles = GlobalStyles & JSXElementStyles
+export type Styles = GlobalStyles
 
 export function mode(light: any, dark: any) {
   return (props: Dict) => (props.colorMode === 'dark' ? dark : light)
