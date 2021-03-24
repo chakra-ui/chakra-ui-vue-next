@@ -1,7 +1,6 @@
 import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
-  ColorScheme,
   ThemingProps,
   useMultiStyleConfig,
   useStyles,
@@ -14,19 +13,19 @@ import { CIcon } from '@chakra-ui/c-icon'
 
 const STATUSES = {
   info: {
-    colorScheme: 'blue' as ColorScheme,
+    colorScheme: 'blue',
     icon: 'info',
   },
   success: {
-    colorScheme: 'green' as ColorScheme,
+    colorScheme: 'green',
     icon: 'check-circle',
   },
   warning: {
-    colorScheme: 'orange' as ColorScheme,
+    colorScheme: 'orange',
     icon: 'warning-alt',
   },
   error: {
-    colorScheme: 'red' as ColorScheme,
+    colorScheme: 'red',
     icon: 'warning',
   },
 }
@@ -62,7 +61,7 @@ export const CAlert = defineComponent({
       default: 'info',
     },
     colorScheme: {
-      type: [String] as PropType<ColorScheme>,
+      type: [String] as PropType<string>,
     },
     styleConfig: {
       type: [Object] as PropType<any>,
@@ -73,7 +72,7 @@ export const CAlert = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    const colorScheme: ColorScheme =
+    const colorScheme: string =
       props.colorScheme || STATUSES[props.status].colorScheme
 
     const themingProps: ThemingProps = {
