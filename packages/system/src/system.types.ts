@@ -1,9 +1,5 @@
 import { Component, Fragment, Suspense, Teleport } from 'vue'
-import {
-  SystemProps,
-  SystemStyleObject,
-  ResponsiveValue,
-} from '@chakra-ui/styled-system'
+import { SystemProps, ResponsiveValue } from '@chakra-ui/styled-system'
 
 import {
   ChakraColors,

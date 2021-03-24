@@ -2,14 +2,13 @@ import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
   ColorScheme,
-  DeepComponentThemeConfig,
   ThemingProps,
   useMultiStyleConfig,
   useStyles,
   StylesProvider,
   DOMElements,
+  SystemStyleObject,
 } from '@chakra-ui/vue-system'
-import { SystemStyleObject } from '@chakra-ui/vue-system'
 import { createContext } from '@chakra-ui/vue-utils'
 import { CIcon } from '@chakra-ui/c-icon'
 
@@ -66,7 +65,7 @@ export const CAlert = defineComponent({
       type: [String] as PropType<ColorScheme>,
     },
     styleConfig: {
-      type: [Object] as PropType<DeepComponentThemeConfig>,
+      type: [Object] as PropType<any>,
     },
     variant: {
       type: [String] as PropType<AlertVariant>,

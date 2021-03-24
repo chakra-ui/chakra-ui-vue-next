@@ -1,4 +1,4 @@
-import { Dict, UnionStringArray } from '@chakra-ui/vue-utils'
+import { UnionStringArray } from '@chakra-ui/vue-utils'
 import { keyframes, injectGlobal } from '@emotion/css'
 
 /**

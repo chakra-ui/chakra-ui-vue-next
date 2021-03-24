@@ -1,4 +1,4 @@
-import { keyframes } from '@chakra-ui/system'
+import { keyframes } from '@chakra-ui/vue-system'
 import { getColor, mode } from '@chakra-ui/vue-theme-tools'
 
 const fade = (startColor: string, endColor: string) =>
