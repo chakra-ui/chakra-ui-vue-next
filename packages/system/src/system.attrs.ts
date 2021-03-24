@@ -1,4 +1,3 @@
-import kebabCase from 'lodash.kebabcase'
 import camelCase from 'lodash.camelcase'
 import {
   propNames,

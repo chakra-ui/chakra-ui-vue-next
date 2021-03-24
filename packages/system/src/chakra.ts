@@ -23,7 +23,7 @@ import { css as _css, CSSObject } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 import { useTheme } from './composables/use-chakra'
-import { Theme } from '@chakra-ui/vue-theme'
+// import { Theme } from '@chakra-ui/vue-theme'
 
 interface StyleResolverProps extends SystemProps {
   __css?: SystemStyleObject
@@ -45,7 +45,7 @@ interface StyleResolverProps extends SystemProps {
 
 interface StyleResolverOptions extends StyleResolverProps {
   truncateStyle?: CSSObject
-  theme?: Theme
+  theme?: any
 }
 
 interface ChakraFactoryOptions extends StyleResolverProps {}
@@ -149,7 +149,7 @@ export const chakra: IChakraFactory = (
         ...rest,
       })
 
-      const theme = useTheme() as Theme
+      const theme = useTheme()
 
       const layerStyle$ = computed(
         () => props.layerStyle || options?.layerStyle

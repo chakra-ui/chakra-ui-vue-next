@@ -1,13 +1,13 @@
 <template>
   <chakra.header
     pos="relative"
-    :min-h="['auto', '100vh']"
-    :pt="['3rem', '150px']"
+    :min-h="{ base: 'auto', sm: '100vh' }"
+    :pt="{ base: '3rem', sm: '150px' }"
   >
     <chakra.div>
       <chakra.h1
         maxW="16ch"
-        :fontSize="['2.25rem', '3rem', '4rem']"
+        :fontSize="{ base: '2.25rem', sm: '3rem', lg: '4rem' }"
         fontFamily="heading"
         letterSpacing="tighter"
         fontWeight="extrabold"
@@ -21,7 +21,7 @@
     <chakra.p
       maxW="560px"
       opacity="0.7"
-      :fontSize="['lg', 'xl']"
+      :fontSize="{ base: 'lg', lg: 'xl' }"
       mt="6"
       mb="10"
     >

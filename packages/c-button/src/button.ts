@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed, cloneVNode, h } from 'vue'
+import { defineComponent, PropType, computed, h } from 'vue'
 import {
   chakra,
   useStyleConfig,
