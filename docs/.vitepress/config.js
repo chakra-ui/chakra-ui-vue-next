@@ -27,6 +27,7 @@ module.exports = {
     sidebar: {
       '/setup/': getSetupSidebar(),
       '/components/': getSetupSidebar(),
+      '/composables/': getSetupSidebar(),
       '/': getSetupSidebar()
     }
   }
@@ -52,6 +53,12 @@ function getSetupSidebar() {
         { text: 'CSS reset', link: '/components/css-reset' },
         { text: 'Visually hidden', link: '/components/visually-hidden' },
       ]
+    },
+    {
+      text: 'Composables',
+      children: [
+        { text: 'usePopper', link: '/composables/use-popper' }
+      ]
     }
   ]
 }
@@ -70,13 +77,5 @@ function getComponentsSidebar() {
         { text: 'Visually hidden', link: '/components/visually-hidden' },
       ]
     },
-    // {
-    //   text: 'Theme',
-    //   children: [
-    //     { text: 'Homepage', link: '/config/homepage' },
-    //     { text: 'Algolia Search', link: '/config/algolia-search' },
-    //     { text: 'Carbon Ads', link: '/config/carbon-ads' }
-    //   ]
-    // }
   ]
 }

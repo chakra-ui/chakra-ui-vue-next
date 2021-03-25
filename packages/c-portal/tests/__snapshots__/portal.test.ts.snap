@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create default target for default children 1`] = `
+<div>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>
+<div id="chakra__portal__1" style="width: 0px; height: 0px; overflow: hidden;">
+  <div>Portal content</div>
+</div>
+`;
+
+exports[`should not render anything if no children exist 1`] = `
+<DocumentFragment>
+  <!--teleport start-->
+  <!--teleport end-->
+</DocumentFragment>
+`;
+
+exports[`should render children to provided portal target 1`] = `
+<div style="display: inline-block; position: absolute; bottom: 50px; right: 50px;" id="new-target">
+  <div>Portal content</div>
+</div>
+<div>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>
+`;

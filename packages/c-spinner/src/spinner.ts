@@ -6,7 +6,6 @@ import {
   ThemingProps,
   useStyleConfig,
 } from '@chakra-ui/vue-system'
-import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { CVisuallyHidden } from '@chakra-ui/c-visually-hidden'
 
 const spin = keyframes({
@@ -84,7 +83,7 @@ const props = {
     type: String as PropType<string>,
     default: 'md',
   },
-  styleConfig: String as PropType<ComponentThemeConfig>,
+  styleConfig: String as PropType<any>,
 }
 
 const CSpinner = defineComponent({

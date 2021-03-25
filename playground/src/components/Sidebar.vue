@@ -9,7 +9,10 @@ const Stories = defineComponent({
   inheritAttrs: false,
   setup(props) {
     return () => {
-      return h(chakra.nav, () => [
+      return h(chakra.nav, {
+        overflowY: 'scroll',
+        w: '250px'
+      }, () => [
         h(
           chakra.ul,
           {

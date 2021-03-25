@@ -1,15 +1,5 @@
 import { Component, Fragment, Suspense, Teleport } from 'vue'
-import {
-  SystemProps,
-  SystemStyleObject,
-  ResponsiveValue,
-} from '@chakra-ui/styled-system'
-
-import {
-  ChakraColors,
-  ChakraComponentName,
-  ComponentThemeConfig,
-} from '@chakra-ui/vue-theme'
+import { SystemProps, ResponsiveValue } from '@chakra-ui/styled-system'
 
 export type Tag =
   | string
@@ -23,7 +13,7 @@ export interface ThemingProps {
   size?: string
   colorScheme?: string
   orientation?: 'vertical' | 'horizontal'
-  styleConfig?: ComponentThemeConfig
+  styleConfig?: any
 }
 
 export interface ChakraProps extends SystemProps {
@@ -56,5 +46,4 @@ export interface ChakraProps extends SystemProps {
   noOfLines?: ResponsiveValue<number>
 }
 
-export type ColorScheme = keyof ChakraColors
-export type ThemeComponents = ChakraComponentName
+export type { SystemStyleObject } from '@chakra-ui/styled-system'

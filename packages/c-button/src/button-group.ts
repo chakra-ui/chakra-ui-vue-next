@@ -4,7 +4,6 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
 import { chakra, ThemingProps } from '@chakra-ui/vue-system'
-import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { createContext } from '@chakra-ui/vue-utils'
 
 export interface ButtonGroupProps extends ThemingProps {
@@ -41,7 +40,7 @@ const props = {
     default: 'sm',
   },
   colorScheme: String as PropType<string>,
-  styleConfig: String as PropType<ComponentThemeConfig>,
+  styleConfig: String as PropType<any>,
 }
 
 type ButtonGroupContext = () => ThemingProps & {
