@@ -7,12 +7,14 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "workspaces": [
     "packages/*",
+    "tooling/*",
     "website"
   ],
   "scripts": {
     "postinstall": "yarn bootstrap",
     "bootstrap": "yarn run lerna bootstrap",
     "scaffold": "hygen",
+    "release": "yarn changeset publish",
     "build": "lerna run build --no-private --stream",
     "dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts",
     "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
@@ -27,6 +29,7 @@
     "system": "yarn workspace @chakra-ui/vue-system",
     "utils": "yarn workspace @chakra-ui/vue-utils",
     "theme": "yarn workspace @chakra-ui/vue-theme",
+    "auto-import": "yarn workspace @chakra-ui/vue-auto-import",
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-theme-provider": "yarn workspace @chakra-ui/c-theme-provider",
     "c-box": "yarn workspace @chakra-ui/c-box",
@@ -46,6 +49,8 @@
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
+    "@changesets/changelog-github": "^0.3.0",
+    "@changesets/cli": "^2.14.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.9",

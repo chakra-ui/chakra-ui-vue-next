@@ -71,24 +71,37 @@ export { chakra }
  *
  * Please keep these exports in Alphabetical order :)
  */
-export const CBox = chakra.div
 
+// A
 export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
 
+// B
+export const CBox = chakra.div
 export * from '@chakra-ui/c-badge'
 export * from '@chakra-ui/c-button'
 
+// C
+export * from '@chakra-ui/c-color-mode'
+
+// F
 export * from '@chakra-ui/c-flex'
 
+// I
 export * from '@chakra-ui/c-icon'
 
+// P
+export * from '@chakra-ui/c-popper'
 export * from '@chakra-ui/c-portal'
 
+// R
 export * from '@chakra-ui/c-reset'
 
+// S
 export * from '@chakra-ui/c-spinner'
 
+// T
 export * from '@chakra-ui/c-theme-provider'
 
+// V
 export * from '@chakra-ui/c-visually-hidden'
