@@ -23,7 +23,7 @@
       </chakra.h1>
     </chakra.div>
     <chakra.p
-      maxW="560px"
+      :maxW="{ base: '560px', lg: '650px' }"
       opacity="0.7"
       :fontSize="{ base: 'lg', lg: 'xl' }"
       mt="6"

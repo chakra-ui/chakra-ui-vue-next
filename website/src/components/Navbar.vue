@@ -43,9 +43,7 @@
           variant="ghost"
           variant-color="gray"
           aria-label="View the documentation"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/chakra-ui/chakra-ui-vue"
+          href="/getting-started"
           icon="book"
         />
       </CBox>
