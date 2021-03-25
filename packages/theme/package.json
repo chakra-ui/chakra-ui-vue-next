@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-theme",
-  "version": "1.0.0",
+  "version": "0.0.1-alpha.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -23,6 +23,6 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-theme-tools": "*"
+    "@chakra-ui/vue-theme-tools": "^0.0.1-alpha.0"
   }
 }
