@@ -19,8 +19,8 @@
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "dependencies": {
-    "@chakra-ui/vue-utils": "*",
-    "@chakra-ui/vue-system": "*",
+    "@chakra-ui/vue-utils": "0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "@types/tinycolor2": "1.4.2",
     "tinycolor2": "1.4.1"
   }
