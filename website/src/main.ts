@@ -3,13 +3,14 @@ import { ViteSSG } from 'vite-ssg'
 import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
 import {
-  feGithub,
-  feStar,
   feBook,
+  feGithub,
   feMenu,
   feMessageCircle,
-  feSearch,
   fePackage,
+  feSearch,
+  feStar,
+  feTwitter,
 } from 'feather-icons-paths'
 import { hydrate } from '@emotion/css'
 import routes from 'pages-generated'
@@ -28,13 +29,14 @@ export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
     extendTheme: customTheme,
     icons: {
       library: {
-        feGithub,
-        feStar,
         feBook,
+        feGithub,
         feMenu,
         feMessageCircle,
-        feSearch,
         fePackage,
+        feSearch,
+        feStar,
+        feTwitter,
       },
     },
   })

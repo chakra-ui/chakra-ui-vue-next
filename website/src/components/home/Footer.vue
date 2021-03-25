@@ -1,27 +1,53 @@
 <template>
   <CFlex
     as="footer"
-    flex-dir="column"
-    font-family="body"
     justify-content="center"
     align-items="center"
     :py="[4, 10, 10]"
     bg="white"
   >
-    <chakra.p px="4">
-      Designed and developed by the Chakra UI Vue core team.
-    </chakra.p>
+    <chakra.a
+      aria-label="View GitHub"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/chakra-ui/chakra-ui-vue"
+      :_hover="{ color: 'vue.500' }"
+      mx="4"
+    >
+      <CIcon name="github" mt="8px" />
+    </chakra.a>
+    <chakra.a
+      aria-label="View Twitter"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://twitter.com/chakraui_vue"
+      :_hover="{ color: 'vue.500' }"
+      mx="4"
+    >
+      <CIcon name="twitter" mt="8px" />
+    </chakra.a>
+    <chakra.a
+      aria-label="Join Discord channel"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/chakra-ui/chakra-ui-vue"
+      :_hover="{ color: 'vue.500' }"
+      mx="4"
+    >
+      <CIcon name="message-circle" mt="8px" />
+    </chakra.a>
   </CFlex>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { CFlex } from '@chakra-ui/vue-next'
+import { CFlex, CIcon } from '@chakra-ui/vue-next'
 
 export default defineComponent({
   name: 'Footer',
   components: {
     CFlex,
+    CIcon,
   },
 })
 </script>
