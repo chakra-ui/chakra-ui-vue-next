@@ -25,6 +25,7 @@
     "@chakra-ui/vue-docs": "0.0.0"
   },
   "changesets": [
-    "chilly-tables-care"
+    "chilly-tables-care",
+    "empty-dragons-wait"
   ]
 }
