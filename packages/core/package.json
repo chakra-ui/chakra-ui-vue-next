@@ -24,30 +24,30 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.9.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
-    "@chakra-ui/vue-theme": "0.0.1-alpha.0",
-    "@chakra-ui/vue-utils": "0.0.1-alpha.0",
-    "@chakra-ui/c-accordion": "0.0.1-alpha.0",
-    "@chakra-ui/c-alert": "0.0.1-alpha.0",
-    "@chakra-ui/c-button": "0.0.1-alpha.0",
-    "@chakra-ui/c-flex": "0.0.1-alpha.0",
-    "@chakra-ui/c-icon": "0.0.1-alpha.0",
-    "@chakra-ui/c-reset": "0.0.1-alpha.0",
-    "@chakra-ui/c-spinner": "0.0.1-alpha.0",
-    "@chakra-ui/c-theme-provider": "0.0.1-alpha.0",
-    "@chakra-ui/c-visually-hidden": "0.0.1-alpha.0",
-    "@chakra-ui/c-popper": "0.0.1-alpha.0"
+    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-theme": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-utils": "^0.0.1-alpha.0",
+    "@chakra-ui/c-accordion": "^0.0.1-alpha.0",
+    "@chakra-ui/c-alert": "^0.0.1-alpha.0",
+    "@chakra-ui/c-button": "^0.0.1-alpha.0",
+    "@chakra-ui/c-flex": "^0.0.1-alpha.0",
+    "@chakra-ui/c-icon": "^0.0.1-alpha.0",
+    "@chakra-ui/c-reset": "^0.0.1-alpha.0",
+    "@chakra-ui/c-spinner": "^0.0.1-alpha.0",
+    "@chakra-ui/c-theme-provider": "^0.0.1-alpha.0",
+    "@chakra-ui/c-visually-hidden": "^0.0.1-alpha.0",
+    "@chakra-ui/c-popper": "^0.0.1-alpha.0"
   },
   "devDependencies": {
     "@chakra-ui/styled-system": "^1.9.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
     "vue": "^3.0.5"
   },
   "peerDependencies": {
     "@chakra-ui/styled-system": "^1.9.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
-    "@chakra-ui/vue-theme": "0.0.1-alpha.0",
-    "@chakra-ui/vue-utils": "0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-theme": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-utils": "^0.0.1-alpha.0",
     "vue": "^3.0.5"
   }
 }
