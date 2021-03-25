@@ -1,3 +1,4 @@
+// WIP: Add Poppers under icons in navbar
 <template>
   <chakra.div h="100%" d="flex" mr="2">
     <c-portal>

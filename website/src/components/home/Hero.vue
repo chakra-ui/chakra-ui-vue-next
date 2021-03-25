@@ -6,7 +6,6 @@
     :pt="{ base: '3rem', sm: '150px' }"
     :px="[4, 10, 12]"
     :pb="{ base: '3rem', sm: '0' }"
-    :ml="[0, 10, 12]"
     shadow="lg"
   >
     <chakra.div>
@@ -65,14 +64,6 @@
         Github
       </CButton>
     </CFlex>
-    <chakra.img
-      src="/src/assets/chakra-ui-vue-logo.svg#svgView(viewBox(0,0,150,190))"
-      alt="Chakra UI Vue Logo"
-      :w="{ base: '0', sm: '45%' }"
-      pos="absolute"
-      bottom="-7%"
-      right="0"
-    />
   </chakra.header>
 </template>
 

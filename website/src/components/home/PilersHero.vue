@@ -3,7 +3,7 @@
     as="section"
     :flex-dir="['column', 'column', 'row']"
     font-family="body"
-    :ml="[0, 10, 12]"
+    :mx="[0, 10, 12]"
     :py="[4, 10, 10]"
   >
     <chakra.div
