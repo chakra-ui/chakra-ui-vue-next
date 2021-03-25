@@ -1,0 +1,28 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@chakra-ui/c-accordion": "1.0.0",
+    "@chakra-ui/c-alert": "1.0.0",
+    "@chakra-ui/c-badge": "1.0.0",
+    "@chakra-ui/c-button": "1.0.0",
+    "@chakra-ui/c-color-mode": "1.0.0",
+    "@chakra-ui/c-flex": "1.0.0",
+    "@chakra-ui/c-icon": "1.0.0",
+    "@chakra-ui/c-popper": "1.0.0",
+    "@chakra-ui/c-portal": "1.0.0",
+    "@chakra-ui/c-reset": "1.0.0",
+    "@chakra-ui/c-spinner": "1.0.0",
+    "@chakra-ui/c-theme-provider": "1.0.0",
+    "@chakra-ui/c-visually-hidden": "1.0.0",
+    "@chakra-ui/vue-next": "1.0.0",
+    "@chakra-ui/nuxt-next": "1.0.0",
+    "@chakra-ui/vue-system": "1.0.0",
+    "@chakra-ui/vue-test-utils": "1.0.0",
+    "@chakra-ui/vue-theme": "1.0.0",
+    "@chakra-ui/vue-theme-tools": "1.0.0",
+    "@chakra-ui/vue-utils": "1.0.0",
+    "@chakra-ui/vue-docs": "0.0.0"
+  },
+  "changesets": []
+}
