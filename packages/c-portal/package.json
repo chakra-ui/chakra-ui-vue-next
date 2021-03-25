@@ -25,7 +25,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
@@ -37,7 +37,12 @@
   "dependencies": {
     "@chakra-ui/vue-utils": "*"
   },
+  "devDependencies": {
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
+  },
   "peerDependencies": {
-    "vue": ">=3.0.5"
+    "@chakra-ui/vue-utils": "*",
+    "vue": "^3.0.5"
   }
 }

@@ -29,7 +29,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   },
   "sideEffects": false,
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
@@ -39,7 +39,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.4.1",
+    "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/vue-system": "*",
     "@chakra-ui/vue-utils": "*"
   },
