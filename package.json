@@ -7,6 +7,7 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "workspaces": [
     "packages/*",
+    "tooling/*",
     "website"
   ],
   "scripts": {
@@ -28,6 +29,7 @@
     "system": "yarn workspace @chakra-ui/vue-system",
     "utils": "yarn workspace @chakra-ui/vue-utils",
     "theme": "yarn workspace @chakra-ui/vue-theme",
+    "auto-import": "yarn workspace @chakra-ui/vue-auto-import",
     "c-alert": "yarn workspace @chakra-ui/c-alert",
     "c-theme-provider": "yarn workspace @chakra-ui/c-theme-provider",
     "c-box": "yarn workspace @chakra-ui/c-box",
