@@ -1,7 +1,7 @@
 import { h, defineComponent, PropType } from 'vue'
 import { chakra, DOMElements } from '@chakra-ui/vue-system'
 
-const CModal = defineComponent({
+export const CModal = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -12,5 +12,3 @@ const CModal = defineComponent({
     return () => h(chakra(props.as), { ...attrs }, slots)
   },
 })
-
-export default CModal

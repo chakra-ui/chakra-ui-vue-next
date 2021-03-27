@@ -1,6 +1,6 @@
 {
-  "name": "@chakra-ui/c-modal",
-  "description": "Chakra UI Vue | An accessible dialog modal component for chakra ui vue component",
+  "name": "@chakra-ui/c-close-button",
+  "description": "Chakra UI Vue | An accessible close button component for chakra ui vue component",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,7 +21,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-modal",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-close-button",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

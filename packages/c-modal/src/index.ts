@@ -1,1 +1,1 @@
-export { default as CModal } from './c-modal'
+export * from './c-modal'

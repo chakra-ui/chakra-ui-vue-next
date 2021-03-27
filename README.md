@@ -26,41 +26,8 @@ yarn dev
 
 ## Development Guide
 ### Major todos:
-- [ ] Documentation (to be based on Nuxt 3)
+- [ ] Documentation
 - [ ] Accessibility JS hooks (Documented in Roadmap)
-
-### Creating new components
-Chakra UI Vue uses [hygen](https://www.hygen.io/) to generate new components. The component templates can be found in the `_templates/generator/component` directory.
-
-* Run the hygen command to generate your new component. 
-  ```bash
-  yarn hygen generator component --name <COMPONENT_NAME> --description="MY_COMPONENT_DESCRIPTION"
-  ```
-  This creates a new package with the name `<COMPONENT_NAME>` with some basic sanity tests.
-
-* Run `yarn workspace @chakra-ui/COMPONENT_NAME build && yarn bootstrap` to build and link your component in the monorepo.
-
-* Add the script for your package workspace in the global `package.json` file. `"COMPONENT_NAME": "yarn workspace @chakra-ui/COMPONENT_NAME",` goes under `scripts`.
-  
-* Before you can play around with your new component in the playground you will have to export your component from the `@chakra-ui/vue-next` package in the  `core` directory under `packages`.
-
-  * Inside the `index.ts` file, you will have to add `export * from '@chakra-ui/COMPONENT_NAME'`. 
-
-  * Your component also needs to be added as a dependency inside the `package.json` of the `@chakra-ui/vue-next` package as following: 
-    ```jsx
-    "dependencies": {
-      ...
-      "@chakra-ui/COMPONENT_NAME": "*",
-      ...
-    }
-    ```
-
-* Run `yarn core build` and then `yarn dev` to view your new component in the playground.
-
-* When you make changes to your component, you will need to rebuild your package to have the changes applied in for example the playground `yarn workspace @chakra-ui/COMPONENT_NAME build` or `yarn COMPONENT_NAME build`. Alternatively, you can use the watch command. `yarn workspace @chakra-ui/COMPONENT_NAME watch` or `yarn COMPONENT_NAME watch`.
-
-**Additional notes:**
-Add a script for your package workspace in the `package.json` file.
 
 ### Creating a new commit message
 The commits follow the [conventional commit format](https://www.conventionalcommits.org/). Husky is setup to lint your commit messages to match this format. 
