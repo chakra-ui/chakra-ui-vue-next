@@ -1,5 +1,5 @@
 ---
-to: tooling/<%=h.changeCase.paramCase(name)%>/README.md
+to: packages/<%=h.changeCase.paramCase(name)%>/README.md
 ---
 
 # @chakra-ui/<%=h.changeCase.paramCase(name)%>
