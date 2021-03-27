@@ -8,8 +8,14 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "description": "Chakra UI Vue | VueThemeTools module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/theme-tools",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -21,7 +27,7 @@
   "dependencies": {
     "@chakra-ui/utils": "1.4.0",
     "@chakra-ui/vue-system": "0.0.1-alpha.0",
-    "@types/tinycolor2": "1.4.2",
-    "tinycolor2": "1.4.1"
+    "@types/tinycolor2": "^1.4.2",
+    "tinycolor2": "^1.4.2"
   }
 }

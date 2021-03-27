@@ -6,7 +6,7 @@
   "types": "dist/types/index.d.ts",
   "typings": "dist/types/index.d.ts",
   "description": "Chakra UI Vue | Utils module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/utils",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "css-box-model": "1.2.1",
-    "lodash.mergewith": "4.6.2",
-    "object-assign": "4.1.1"
+    "lodash.mergewith": "^4.6.2",
+    "object-assign": "^4.1.1"
   },
   "devDependencies": {
-    "@types/lodash.mergewith": "4.6.6",
+    "@types/lodash.mergewith": "^4.6.6",
     "@types/object-assign": "4.0.30"
   }
 }

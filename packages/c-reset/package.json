@@ -18,12 +18,9 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-reset",
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "scripts": {
     "build": "rimraf ./dist && concurrently yarn:build:*",
@@ -43,7 +40,6 @@
     "vue": ">=3.0.5"
   },
   "devDependencies": {
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "vue": ">=3.0.5"
   }
 }

@@ -9,7 +9,13 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/core",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -23,7 +29,6 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/c-accordion": "0.0.1-alpha.0",
     "@chakra-ui/c-alert": "0.0.1-alpha.0",
     "@chakra-ui/c-badge": "0.0.1-alpha.0",
@@ -37,23 +42,20 @@
     "@chakra-ui/c-spinner": "0.0.1-alpha.0",
     "@chakra-ui/c-theme-provider": "0.0.1-alpha.0",
     "@chakra-ui/c-visually-hidden": "0.0.1-alpha.0",
+    "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/utils": "1.4.0",
     "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "@chakra-ui/vue-theme": "0.0.1-alpha.0",
     "@chakra-ui/vue-theme-tools": "0.0.1-alpha.0"
   },
   "devDependencies": {
-    "@chakra-ui/styled-system": "^1.9.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
-    "@chakra-ui/vue-theme": "0.0.1-alpha.0",
-    "@chakra-ui/utils": "1.4.0",
-    "vue": "^3.0.5"
+    "vue": ">=3.0.5"
   },
   "peerDependencies": {
     "@chakra-ui/styled-system": "^1.9.0",
+    "@chakra-ui/utils": "1.4.0",
     "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "@chakra-ui/vue-theme": "0.0.1-alpha.0",
-    "@chakra-ui/utils": "1.4.0",
     "vue": "^3.0.5"
   }
 }
