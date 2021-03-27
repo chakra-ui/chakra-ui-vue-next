@@ -13,17 +13,11 @@ import {
   SystemProps,
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
-import {
-  cx,
-  isFunction,
-  memoizedGet as get,
-  objectAssign,
-} from '@chakra-ui/vue-utils'
+import { cx, isFunction, memoizedGet as get } from '@chakra-ui/utils'
 import { css as _css, CSSObject } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 import { useTheme } from './composables/use-chakra'
-// import { Theme } from '@chakra-ui/vue-theme'
 
 interface StyleResolverProps extends SystemProps {
   __css?: SystemStyleObject
@@ -233,7 +227,7 @@ export const resolveStyles = (
   }
 
   const finalStyles = css(
-    objectAssign(
+    Object.assign(
       {},
       __css,
       baseStyle,
@@ -246,7 +240,7 @@ export const resolveStyles = (
     )
   )(theme)
 
-  const cssObject: CSSObject = objectAssign(
+  const cssObject: CSSObject = Object.assign(
     finalStyles,
     isFunction(cssProp) ? cssProp(theme) : cssProp
   )

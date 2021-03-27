@@ -34,16 +34,16 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-utils": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-utils": "0.0.1-alpha.0",
     "csstype": "^3.0.5"
   },
   "devDependencies": {
-    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "csstype": "^3.0.5",
     "vue": "^3.0.5"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "csstype": "^3.0.5",
     "vue": "^3.0.5"
   }

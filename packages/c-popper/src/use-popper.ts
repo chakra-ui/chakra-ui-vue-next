@@ -1,4 +1,4 @@
-import { filterUndefined } from '@chakra-ui/vue-utils'
+import { filterUndefined } from '@chakra-ui/utils'
 import { Placement } from '@popperjs/core/lib/enums'
 import {
   Instance,

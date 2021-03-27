@@ -5,7 +5,7 @@ import {
   ThemingProps,
   SystemStyleObject,
 } from '@chakra-ui/vue-system'
-import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/vue-utils'
+import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/utils'
 import { useButtonGroup } from './button-group'
 import { CIcon } from '@chakra-ui/c-icon'
 import { CSpinner } from '@chakra-ui/c-spinner'
