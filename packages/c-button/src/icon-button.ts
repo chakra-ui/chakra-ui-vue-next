@@ -22,19 +22,18 @@ const CIconButton = defineComponent({
   name: 'CIconButton',
   props: IconButtonProps,
   setup(props, { attrs }) {
-    if (!props.ariaLabel) {
-      console.error(
-        `chakra-ui: The \`aria-label\` prop is required for the <c-icon-button />`
-      )
-    }
-    return () =>
-      h(
+    return () => {
+      if (!props.ariaLabel) {
+        console.error(
+          `chakra-ui: The \`aria-label\` prop is required for the <c-icon-button />`
+        )
+      }
+      return h(
         CButton,
         {
           padding: 0,
           rounded: props.isRound ? 'rounded' : 'md',
           'aria-label': props.ariaLabel,
-          ...props,
           ...attrs,
         },
         () => [
@@ -43,6 +42,7 @@ const CIconButton = defineComponent({
           }),
         ]
       )
+    }
   },
 })
 

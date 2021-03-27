@@ -30,7 +30,7 @@ export function useStyleConfig(
   const styleConfig = userStyleConfig || themeStyleConfig
 
   const mergedProps = mergeWith(
-    { theme, colorMode },
+    { theme: theme, colorMode: colorMode.value },
     styleConfig?.defaultProps ?? {},
     filterUndefined(themingProps)
   )

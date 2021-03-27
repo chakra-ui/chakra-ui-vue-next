@@ -58,37 +58,37 @@ const CButtonGroup = defineComponent({
   name: 'CButtonGroup',
   props,
   setup(props, { attrs, slots }) {
-    ButtonGroupProvider(() => ({
-      size: props.size,
-      colorScheme: props.colorScheme,
-      variant: props.variant,
-      isDisabled: props.isDisabled,
-    }))
+    return () => {
+      ButtonGroupProvider(() => ({
+        size: props.size,
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        isDisabled: props.isDisabled,
+      }))
 
-    const styles = computed(() => {
-      let groupStyles: SystemStyleObject = {
-        display: 'inline-flex',
-      }
-
-      if (props.isAttached) {
-        groupStyles = {
-          ...groupStyles,
-          '> *:first-of-type:not(:last-of-type)': { borderRightRadius: 0 },
-          '> *:not(:first-of-type):not(:last-of-type)': { borderRadius: 0 },
-          '> *:not(:first-of-type):last-of-type': { borderLeftRadius: 0 },
+      const styles = computed(() => {
+        let groupStyles: SystemStyleObject = {
+          display: 'inline-flex',
         }
-      } else {
-        groupStyles = {
-          ...groupStyles,
-          '& > *:not(style) ~ *:not(style)': { marginLeft: props.spacing },
+
+        if (props.isAttached) {
+          groupStyles = {
+            ...groupStyles,
+            '> *:first-of-type:not(:last-of-type)': { borderRightRadius: 0 },
+            '> *:not(:first-of-type):not(:last-of-type)': { borderRadius: 0 },
+            '> *:not(:first-of-type):last-of-type': { borderLeftRadius: 0 },
+          }
+        } else {
+          groupStyles = {
+            ...groupStyles,
+            '& > *:not(style) ~ *:not(style)': { marginLeft: props.spacing },
+          }
         }
-      }
 
-      return groupStyles
-    })
+        return groupStyles
+      })
 
-    return () =>
-      h(
+      return h(
         chakra('div', { label: 'button__group' }),
         {
           __css: { ...styles.value },
@@ -97,6 +97,7 @@ const CButtonGroup = defineComponent({
         },
         slots
       )
+    }
   },
 })
 

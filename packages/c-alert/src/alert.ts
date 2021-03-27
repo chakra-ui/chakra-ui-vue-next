@@ -72,28 +72,28 @@ export const CAlert = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    const colorScheme: string =
-      props.colorScheme || STATUSES[props.status].colorScheme
+    return () => {
+      const colorScheme: string =
+        props.colorScheme || STATUSES[props.status].colorScheme
 
-    const themingProps: ThemingProps = {
-      colorScheme,
-      variant: props.variant,
-    }
-    const styles = useMultiStyleConfig('Alert', themingProps)
-    const alertStyles: SystemStyleObject = {
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      position: 'relative',
-      overflow: 'hidden',
-      ...styles.value.container,
-    }
+      const themingProps: ThemingProps = {
+        colorScheme,
+        variant: props.variant,
+      }
+      const styles = useMultiStyleConfig('Alert', themingProps)
+      const alertStyles: SystemStyleObject = {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        ...styles.value.container,
+      }
 
-    StylesProvider(styles.value)
-    AlertProvider({ status: props.status })
+      StylesProvider(styles.value)
+      AlertProvider({ status: props.status })
 
-    return () =>
-      h(
+      return h(
         chakra(props.as, { label: 'alert' }),
         {
           role: 'alert',
@@ -102,6 +102,7 @@ export const CAlert = defineComponent({
         },
         slots
       )
+    }
   },
 })
 
@@ -113,10 +114,10 @@ export const CAlert = defineComponent({
 export const CAlertTitle = defineComponent({
   name: 'CAlertTitle',
   setup(_, { attrs, slots }) {
-    const styles = useStyles()
+    return () => {
+      const styles = useStyles()
 
-    return () =>
-      h(
+      return h(
         chakra('div', { label: 'alert__title' }),
         {
           ...styles.title,
@@ -124,6 +125,7 @@ export const CAlertTitle = defineComponent({
         },
         slots
       )
+    }
   },
 })
 
@@ -135,10 +137,10 @@ export const CAlertTitle = defineComponent({
 export const CAlertDescription = defineComponent({
   name: 'CAlertDescription',
   setup(_, { attrs, slots }) {
-    const styles = useStyles()
+    return () => {
+      const styles = useStyles()
 
-    return () =>
-      h(
+      return h(
         chakra('div', { label: 'alert__description' }),
         {
           ...styles.description,
@@ -146,6 +148,7 @@ export const CAlertDescription = defineComponent({
         },
         slots
       )
+    }
   },
 })
 
@@ -162,18 +165,19 @@ export const CAlertIcon = defineComponent({
     },
   },
   setup(props, { attrs }) {
-    const { status } = useAlertContext()
-    const { icon } = STATUSES[status]
-    const styles = useStyles()
+    return () => {
+      const { status } = useAlertContext()
+      const { icon } = STATUSES[status]
+      const styles = useStyles()
 
-    const alertIcon = computed(() => props.icon || icon)
+      const alertIcon = computed(() => props.icon || icon)
 
-    return () =>
-      h(CIcon, {
+      return h(CIcon, {
         class: 'alert__icon',
         name: alertIcon.value,
         ...styles.icon,
         ...attrs,
       })
+    }
   },
 })

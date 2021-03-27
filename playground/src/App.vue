@@ -1,28 +1,62 @@
 <template>
   <c-reset />
-  <chakra.section d="flex" height="inherit" w="inherit">
+  <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :__css="rootStyles">
     <sidebar :stories="routes" />
-    <chakra.main w="full" border-left="1px solid" border-color="gray.400" padding="4">
+    <chakra.main w="full" pos="relative" border-left="1px solid" border-color="gray.400" padding="4">
       <router-view v-slot="{ Component, route }">
         <!-- <transition name="fade" mode="out-in"> -->
           <component :is="Component" />
         <!-- </transition> -->
       </router-view>
+      <c-icon-button pos="absolute" color-scheme="whiteAlpha" @click="toggleColorMode" top="10" right="10" :aria-label="`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`" :icon="colorMode === 'light' ? 'moon' : 'sun'" />
     </chakra.main>
   </chakra.section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { CReset } from '@chakra-ui/c-reset'
+import { computed, defineComponent } from 'vue'
+import { CReset, CIconButton, useColorMode } from '@chakra-ui/vue-next'
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
 
 export default defineComponent({
-  components: { Sidebar, CReset },
+  components: { Sidebar, CReset, CIconButton },
   setup() {
+    const { colorMode, toggleColorMode } = useColorMode()
+
+    const rootStyles = computed(() => {
+
+      const styles = {
+        light: {
+          bg: 'white',
+          color: 'blackAlpha.800',
+          'a.router-link-active': {
+            color: 'teal.500',
+            fontSize: '0.9rem',
+            fontWeight: 'bold',
+            textDecoration: 'underline'
+          }
+        },
+        dark: {
+          bg: 'gray.800',
+          color: 'whiteAlpha.700',
+          'a.router-link-active': {
+            color: 'teal.200',
+            fontSize: '0.9rem',
+            fontWeight: 'bold',
+            textDecoration: 'underline'
+          }
+        },
+      }
+      
+      return styles[colorMode.value]
+    })
+
     return {
       routes,
+      colorMode,
+      toggleColorMode,
+      rootStyles
     }
   },
 })
