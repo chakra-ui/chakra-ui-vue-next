@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType } from 'vue'
+import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -53,10 +53,12 @@ export const CCloseButton = defineComponent({
   },
   setup(props, { slots, attrs }) {
     return () => {
-      const themingProps = filterUndefined({
-        size: props.size,
-        styleConfig: props.styleConfig,
-      })
+      const themingProps = computed(() =>
+        filterUndefined({
+          size: props.size,
+          styleConfig: props.styleConfig,
+        })
+      )
 
       const baseStyles: SystemStyleObject = {
         outline: 0,
@@ -66,7 +68,7 @@ export const CCloseButton = defineComponent({
         flexShrink: 0,
       }
 
-      const styles = useStyleConfig('CloseButton', themingProps)
+      const styles = useStyleConfig('CloseButton', themingProps.value)
 
       return h(
         chakra(props.as, {
