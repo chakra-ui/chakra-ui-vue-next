@@ -34,7 +34,6 @@ export function createContext<ContextType>(options: CreateContextOptions = {}) {
 
   function Provider(payload: ContextType) {
     provide<ContextType>(contextSymbol, payload)
-    console.log('providing', contextSymbol, payload)
   }
 
   function useContext() {
