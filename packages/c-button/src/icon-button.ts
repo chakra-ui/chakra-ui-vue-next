@@ -35,6 +35,7 @@ const CIconButton = defineComponent({
           rounded: props.isRound ? 'rounded' : 'md',
           'aria-label': props.ariaLabel,
           ...attrs,
+          ...props,
         },
         () => [
           h(CIcon, {

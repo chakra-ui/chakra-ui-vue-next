@@ -1,14 +1,16 @@
 <template>
   <c-reset />
   <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :__css="rootStyles">
-    <sidebar :stories="routes" />
-    <chakra.main w="full" pos="relative" border-left="1px solid" border-color="gray.400" padding="4">
+    <perfect-scrollbar>
+      <sidebar :stories="routes" />
+    </perfect-scrollbar>
+    <chakra.main w="full" pos="relative" border-left="1px solid" border-color="gray.200" padding="4">
       <router-view v-slot="{ Component, route }">
         <!-- <transition name="fade" mode="out-in"> -->
           <component :is="Component" />
         <!-- </transition> -->
       </router-view>
-      <c-icon-button pos="absolute" color-scheme="whiteAlpha" @click="toggleColorMode" top="10" right="10" :aria-label="`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`" :icon="colorMode === 'light' ? 'moon' : 'sun'" />
+      <c-icon-button color="inherit" pos="absolute" @click="toggleColorMode" top="10" right="10" :aria-label="`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`" :icon="colorMode === 'light' ? 'moon' : 'sun'" />
     </chakra.main>
   </chakra.section>
 </template>
@@ -39,7 +41,7 @@ export default defineComponent({
         },
         dark: {
           bg: 'gray.800',
-          color: 'whiteAlpha.700',
+          color: 'whiteAlpha.800',
           'a.router-link-active': {
             color: 'teal.200',
             fontSize: '0.9rem',
@@ -49,7 +51,10 @@ export default defineComponent({
         },
       }
       
-      return styles[colorMode.value]
+      return {
+        transition: 'all 0.2s ease-in',
+        ...styles[colorMode.value]
+      }
     })
 
     return {
@@ -93,4 +98,11 @@ a {
 .fade-leave-to {
   opacity: 0;
 }
+
+.ps {
+  height: 100vh;
+  width: 275px;
+}
 </style>
+
+<style src="vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css"/>

@@ -58,14 +58,13 @@ const CButtonGroup = defineComponent({
   name: 'CButtonGroup',
   props,
   setup(props, { attrs, slots }) {
+    ButtonGroupProvider(() => ({
+      size: props.size,
+      colorScheme: props.colorScheme,
+      variant: props.variant,
+      isDisabled: props.isDisabled,
+    }))
     return () => {
-      ButtonGroupProvider(() => ({
-        size: props.size,
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        isDisabled: props.isDisabled,
-      }))
-
       const styles = computed(() => {
         let groupStyles: SystemStyleObject = {
           display: 'inline-flex',

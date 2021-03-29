@@ -114,6 +114,11 @@ export function useHook(props: UseHookProps) {
 export type UseHookReturn = ReturnType<typeof useHook>
 ```
 
+### Compound components
+When building compound component in Vue, we may need to use the `StylesProvider` or component context provider provided by `createContext`. 
+
+**When providing component state, always make sure that you provide your component state in a computed variable**. This will ensure that your provided state is reactive. Otherwise it won't be if the user changes the component state dynamically.
+
 ### TypeScript
 
 The end goal of this ensure all Chakra UI components are as strongly typed as

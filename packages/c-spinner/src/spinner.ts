@@ -96,23 +96,22 @@ const CSpinner = defineComponent({
       styleConfig: props.styleConfig,
     }))
 
-    const styles = useStyleConfig('Spinner', { ...themingProps.value })
+    return () => {
+      const styles = useStyleConfig('Spinner', { ...themingProps.value })
+      const spinnerStyles = {
+        display: 'inline-block',
+        borderColor: 'currentColor',
+        borderStyle: 'solid',
+        borderRadius: '99999px',
+        borderWidth: props.thickness,
+        borderBottomColor: props.emptyColor,
+        borderLeftColor: props.emptyColor,
+        color: props.color,
+        animation: `${spin} ${props.speed} linear infinite`,
+        ...styles.value,
+      }
 
-    const spinnerStyles = {
-      display: 'inline-block',
-      borderColor: 'currentColor',
-      borderStyle: 'solid',
-      borderRadius: '99999px',
-      borderWidth: props.thickness,
-      borderBottomColor: props.emptyColor,
-      borderLeftColor: props.emptyColor,
-      color: props.color,
-      animation: `${spin} ${props.speed} linear infinite`,
-      ...styles.value,
-    }
-
-    return () =>
-      h(
+      return h(
         chakra(props.as, {
           label: 'spinner',
           __css: spinnerStyles,
@@ -122,6 +121,7 @@ const CSpinner = defineComponent({
         },
         props.label && [h(CVisuallyHidden, props.label)]
       )
+    }
   },
 })
 
