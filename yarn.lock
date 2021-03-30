@@ -1054,21 +1054,20 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chakra-ui/styled-system@^1.9.0":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-1.9.1.tgz#4541a3944c64fc2c2705685abe76faaf1591c7f3"
-  integrity sha512-LS/1oW2BP1/wY+GbBpoMTdb1ezVx1P32zR52OUn4ANogsDcB/7/DMMj6tuS4yaZEZ9AKliORI+p0CD9P/ETyQA==
+"@chakra-ui/styled-system@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-1.10.0.tgz#7734c59206c9fe7cada516a4e86411cfe2657934"
+  integrity sha512-f+ujP58hMRbClyXy+4d4rrWKVAf7iImNX6fSJMWG3KLfTI+PyVh7VWOtRlkt+sJQHJBUlAHp9IOTBcv9idL8Hg==
   dependencies:
-    "@chakra-ui/utils" "1.4.0"
+    "@chakra-ui/utils" "1.5.0"
     csstype "^3.0.6"
 
-"@chakra-ui/utils@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-1.4.0.tgz#4b20c522141d68dc62b5c7be929bb6d1596db190"
-  integrity sha512-ND7NIilpncnkzcNBnAySGBFpOXb3urO1X9esSY0+M5zXiq+VSSfK9JuoJd3ilvV4Dbwgzil7hMAELBuHme4uTg==
+"@chakra-ui/utils@1.5.0", "@chakra-ui/utils@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-1.5.0.tgz#8ba5ac1353d85c7fbdfa843c8023d9a2b4a2915d"
+  integrity sha512-rHLGzAo7cwIF9LkfEFEqtmgZN4/e1kuu5fVO4DrLJHcOA7c+wibrNK8QaplBefpq+b5bnmmznE4YHpXqG8yiCQ==
   dependencies:
     "@types/lodash.mergewith" "4.6.6"
-    "@types/object-assign" "4.0.30"
     css-box-model "1.2.1"
     lodash.mergewith "4.6.2"
 
