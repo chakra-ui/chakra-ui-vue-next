@@ -1,4 +1,5 @@
-import { createContext, Dict } from '@chakra-ui/vue-utils'
+import { createContext } from '@chakra-ui/vue-utils'
+import { Dict } from '@chakra-ui/utils'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
 
 const [StylesProvider, useStyles] = createContext<Dict<SystemStyleObject>>({

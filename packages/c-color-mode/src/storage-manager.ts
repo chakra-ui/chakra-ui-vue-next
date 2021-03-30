@@ -1,4 +1,4 @@
-import { __DEV__ } from '@chakra-ui/vue-utils'
+import { __DEV__ } from '@chakra-ui/utils'
 import { ColorMode } from './color-mode.utils'
 
 const hasSupport = () => typeof Storage !== 'undefined'

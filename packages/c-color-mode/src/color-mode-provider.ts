@@ -1,4 +1,4 @@
-import { __DEV__ } from '@chakra-ui/vue-utils'
+import { __DEV__ } from '@chakra-ui/utils'
 import { inject, ref } from 'vue'
 import { ColorMode } from './color-mode.utils'
 

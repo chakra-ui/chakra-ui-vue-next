@@ -1,5 +1,5 @@
 import { SystemStyleObject } from '@chakra-ui/vue-system'
-import { Dict, runIfFn } from '@chakra-ui/vue-utils'
+import { Dict, runIfFn } from '@chakra-ui/utils'
 
 export interface StyleConfig {
   baseStyle?: SystemStyleObject

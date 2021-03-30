@@ -12,12 +12,15 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
   },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-icon",
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "scripts": {
     "build": "rimraf ./dist && concurrently yarn:build:*",
@@ -30,14 +33,13 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "^0.0.1-alpha.0"
+    "@chakra-ui/vue-system": "0.0.1-alpha.0"
   },
   "devDependencies": {
-    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
-    "vue": "^3.0.5"
+    "vue": ">=3.0.5"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-system": "^0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.0.1-alpha.0",
     "vue": "^3.0.5"
   }
 }
