@@ -37,7 +37,7 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/utils": "1.4.0",
+    "@chakra-ui/utils": "^1.5.0",
     "@popperjs/core": "^2.8.4"
   },
   "devDependencies": {
