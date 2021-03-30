@@ -30,5 +30,9 @@ it('should toggle colormode', async () => {
   await nextTick()
   expect(getByTestId('colormode').textContent).toBe('dark')
 
+  await userEvent.click(getByTestId('toggle'))
+  await nextTick()
+  expect(getByTestId('colormode').textContent).toBe('light')
+
   expect(asFragment()).toMatchSnapshot()
 })

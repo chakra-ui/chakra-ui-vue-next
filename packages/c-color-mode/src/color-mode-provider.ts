@@ -1,5 +1,14 @@
 import { __DEV__ } from '@chakra-ui/utils'
-import { inject, ref } from 'vue'
+import { createContext } from '@chakra-ui/vue-utils'
+import {
+  defineComponent,
+  Fragment,
+  getCurrentInstance,
+  h,
+  inject,
+  isRef,
+  ref,
+} from 'vue'
 import { ColorMode } from './color-mode.utils'
 
 export type { ColorMode }
@@ -9,21 +18,22 @@ export interface ColorModeOptions {
   useSystemColorMode?: boolean
 }
 
-interface ColorModeContextType {
+export type ColorModeContext = {
   colorMode: ColorMode
   toggleColorMode: () => void
-  setColorMode: (value: any) => void
 }
 
 /** Injects color mode into component instance */
-export const useColorMode = () => {
+export const useColorMode = (): ColorModeContext => {
   const _colorMode = inject('$chakraColorMode') as ColorMode
-  const colorMode = ref(_colorMode)
+  const colorMode = isRef(_colorMode) ? _colorMode : ref(_colorMode)
 
   const toggleColorMode = () => {
-    colorMode.value = 'light'
-      ? (colorMode.value = 'dark')
-      : (colorMode.value = 'light')
+    if (colorMode.value === 'light') {
+      colorMode.value = 'dark'
+    } else {
+      colorMode.value = 'light'
+    }
   }
 
   return {

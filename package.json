@@ -16,16 +16,19 @@
     "pkgs:fix": "manypkg fix",
     "postinstall": "yarn bootstrap",
     "bootstrap": "yarn run lerna bootstrap",
-    "scaffold": "hygen",
+    "scaffold": "hygen generator",
     "release": "yarn changeset publish",
     "build": "lerna run build --no-private --stream",
     "dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts",
     "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "test": "cross-env NODE_ENV=test jest --config jest.config.js",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:dev:legacy": "vitepress dev docs",
+    "docs:build:legacy": "vitepress build docs",
+    "docs:serve:legacy": "vitepress serve docs",
+    "docs:dev": "yarn pkg @chakra-ui/vue-docs dev",
+    "docs:generate": "yarn pkg @chakra-ui/vue-docs generate",
+    "docs:serve": "yarn pkg @chakra-ui/vue-docs serve"
   },
   "license": "MIT",
   "private": true,
@@ -110,6 +113,7 @@
     "vitepress": "^0.12.0",
     "vue": ">=3.0.5",
     "vue-jest": "^5.0.0-alpha.7",
-    "vue-router": "^4.0.4"
+    "vue-router": "^4.0.4",
+    "vue3-perfect-scrollbar": "^1.5.5"
   }
 }

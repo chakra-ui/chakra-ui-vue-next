@@ -1,4 +1,4 @@
-import { Plugin } from 'vue'
+import { Plugin, Ref, ref } from 'vue'
 import defaultTheme, { ColorMode } from '@chakra-ui/vue-theme'
 import { toCSSVar, WithCSSVar } from '@chakra-ui/styled-system'
 import { chakra, injectGlobal } from '@chakra-ui/vue-system'
@@ -35,14 +35,15 @@ const ChakraUIVuePlugin: Plugin = {
     let libraryIcons = options.icons?.library || {}
 
     // Initialize colormode
-    const colorMode = theme.config?.initialColorMode || 'light'
+    const colorMode = theme.config?.initialColorMode || 'dark'
 
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme
     app.provide('$chakraTheme', computedTheme as ThemeOverride)
 
     // Provide initial colormode
-    app.provide('$chakraColorMode', colorMode as ColorMode)
+    app.config.globalProperties.$initialColorMode = colorMode
+    app.provide<Ref<ColorMode>>('$chakraColorMode', ref<ColorMode>(colorMode))
 
     libraryIcons = parseIcons(libraryIcons)
 
@@ -83,12 +84,16 @@ export * from '@chakra-ui/c-button'
 
 // C
 export * from '@chakra-ui/c-color-mode'
+export * from '@chakra-ui/c-close-button'
 
 // F
 export * from '@chakra-ui/c-flex'
 
 // I
 export * from '@chakra-ui/c-icon'
+
+// M
+export * from '@chakra-ui/c-modal'
 
 // P
 export * from '@chakra-ui/c-popper'

@@ -4,11 +4,11 @@ import { ColorMode } from './color-mode.utils'
 const hasSupport = () => typeof Storage !== 'undefined'
 export const storageKey = 'chakra-ui-color-mode'
 
-type MaybeColorMode = ColorMode | undefined
+type MaybeColorMode = ColorMode['value'] | undefined
 
 export interface StorageManager {
-  get(init?: ColorMode): MaybeColorMode
-  set(value: ColorMode): void
+  get(init?: ColorMode['value']): MaybeColorMode
+  set(value: ColorMode['value']): void
   type: 'cookie' | 'localStorage'
 }
 
@@ -49,7 +49,7 @@ export const cookieStorageManager = (cookies = ''): StorageManager => ({
     const match = cookies.match(new RegExp(`(^| )${storageKey}=([^;]+)`))
 
     if (match) {
-      return match[2] as ColorMode
+      return match[2] as ColorMode['value']
     }
 
     return init
