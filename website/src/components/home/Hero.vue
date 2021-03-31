@@ -2,6 +2,7 @@
   <chakra.header
     pos="relative"
     bg="white"
+    :bgGradient="{ base: '', md: 'linear(to-br, white, white, vue.100)' }"
     :min-h="{ base: 'auto', sm: '90vh' }"
     :pt="{ base: '3rem', sm: '150px' }"
     :px="[4, 10, 12]"
@@ -35,6 +36,7 @@
     <CFlex
       flex-dir="row"
       :justify-content="{ base: 'center', sm: 'flex-start' }"
+      mb="4"
     >
       <CButton
         as="a"
@@ -45,6 +47,7 @@
         rel="noopener noreferrer"
         color-scheme="green"
         bg="vue.600"
+        :flex="{ base: '1', sm: 'none' }"
       >
         Get started
       </CButton>
@@ -60,10 +63,23 @@
         color-scheme="green"
         size="lg"
         color="vue.600"
+        :flex="{ base: '1', sm: 'none' }"
       >
         Github
       </CButton>
     </CFlex>
+    <chakra.a
+      href="https://chakra-ui.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      text-decoration="none"
+      font-size="sm"
+      opacity="0.7"
+      :_hover="{ color: 'vue.600', opacity: '1' }"
+      mt="4"
+    >
+      Looking for the React.js version?
+    </chakra.a>
   </chakra.header>
 </template>
 
