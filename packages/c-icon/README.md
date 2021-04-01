@@ -42,14 +42,15 @@ const customIcons = {
 };
 
 // Step 2: Add the custom icon to the Chakra plugin
-Vue.use(Chakra, {
-  icons: {
-    // ...
-    extend: {
-      ...customIcons
+const app = createApp(App)
+  .use(ChakraUIVuePlugin, {
+    icons: {
+      // ...
+      extend: {
+        ...customIcons
+      }
     }
-  }
-})
+  })
 ```
 
 You can now consume your custom icons in your template like this:
