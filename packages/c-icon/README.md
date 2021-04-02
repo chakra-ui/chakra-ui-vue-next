@@ -46,9 +46,7 @@ const app = createApp(App)
   .use(ChakraUIVuePlugin, {
     icons: {
       // ...
-      extend: {
-        ...customIcons
-      }
+      extend: customIcons
     }
   })
 ```
