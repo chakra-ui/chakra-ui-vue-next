@@ -88,6 +88,7 @@ export * from '@chakra-ui/c-close-button'
 
 // F
 export * from '@chakra-ui/c-flex'
+export * from '@chakra-ui/c-focus-lock'
 
 // I
 export * from '@chakra-ui/c-icon'
