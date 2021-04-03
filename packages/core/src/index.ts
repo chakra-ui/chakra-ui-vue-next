@@ -85,6 +85,7 @@ export * from '@chakra-ui/c-button'
 // C
 export * from '@chakra-ui/c-color-mode'
 export * from '@chakra-ui/c-close-button'
+export * from '@chakra-ui/c-code'
 
 // F
 export * from '@chakra-ui/c-flex'
