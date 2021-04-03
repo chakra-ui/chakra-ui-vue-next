@@ -9,6 +9,9 @@ module.exports = (on, config) => {
     viteConfig.logLevel = 'error'
 
     on('task', {
+      // This command is required to store snapshots,
+      // but running it within `cy:open` causes unnecessary slowness.
+      // TODO: conditionally run snapshots depending on an env var
       readFileMaybe(filename) {
         if (fs.existsSync(filename)) {
           return fs.readFileSync(filename, 'utf8')
