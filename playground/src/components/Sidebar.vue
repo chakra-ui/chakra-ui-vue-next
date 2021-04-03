@@ -31,17 +31,15 @@ const Stories = defineComponent({
                   fontSize: '0.8rem',
                   key: story.path,
                 },
-                story.children
+                () => [story.children
                   ? h(chakra.h3, { mt: 2, mb: 0, fontWeight: 'bold' }, () => story.name)
-                  : [
-                      h(chakra(RouterLink), {
+                  : h(chakra(RouterLink), {
                         to: story.path,
                         _hover: { color: 'blue.400' }
                       }, story.path === '/' 
                         ? () => [h(chakra.img, { w: '120px', mt: 4, src: 'https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue.png' })]
-                        : () => story.name)
-                    ],
-                story.children && h(Stories, { stories: story.children })
+                        : () => story.name),
+                story.children && h(Stories, { stories: story.children })]
               )
             ),   
         )
