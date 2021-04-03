@@ -55,6 +55,7 @@ function getSetupSidebar() {
         { text: 'Alert', link: '/components/alert' },
         { text: 'Badge', link: '/components/badge' },
         { text: 'Button', link: '/components/button' },
+        { text: 'Code', link: '/components/code' },
         { text: 'Icon', link: '/components/icon' },
         { text: 'Spinner', link: '/components/spinner' },
         { text: 'CSS reset', link: '/components/css-reset' },
