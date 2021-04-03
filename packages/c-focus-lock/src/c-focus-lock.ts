@@ -1,20 +1,23 @@
-import { h, defineComponent, PropType, Ref, Component } from 'vue'
+import { h, defineComponent, PropType, ref, onMounted, nextTick } from 'vue'
 import { FocusTrap } from 'focus-trap-vue'
+import { getAllFocusable, focus } from '@chakra-ui/utils'
+
+type RefProp = () => HTMLElement & string
 
 export interface FocusLockProps {
   /**
    * `ref` of the element to receive focus initially
    */
-  initialFocusRef: Ref<() => HTMLElement | string>
+  initialFocusRef: RefProp
   /**
    * `ref` of the element to return focus to when `CFocusLock`
    * unmounts or is deactivated
    */
-  finalFocusRef: Ref<() => HTMLElement | string>
+  finalFocusRef: RefProp
   /**
    * The `ref` of the wrapper for which the focus-lock wraps
    */
-  contentRef: Ref<() => HTMLElement | string>
+  contentRef: RefProp
   /**
    * If `true`, focus will be restored to the element that
    * triggered the `CFocusLock` once it unmounts
@@ -40,17 +43,65 @@ export const CFocusLock = defineComponent({
       FocusLockProps['finalFocusRef']
     >,
     contentRef: [String, Function] as PropType<FocusLockProps['contentRef']>,
-    restoreFocus: Boolean as PropType<FocusLockProps['restoreFocus']>,
+    restoreFocus: {
+      type: Boolean as PropType<FocusLockProps['restoreFocus']>,
+      default: true,
+    },
     isDisabled: Boolean as PropType<FocusLockProps['isDisabled']>,
     autoFocus: Boolean as PropType<FocusLockProps['autoFocus']>,
   },
-  setup(props, { slots, attrs }) {
-    return h(
-      FocusTrap,
-      {
-        initialFocus: props.initialFocusRef,
-      },
-      slots
-    )
+  setup(props, { slots }) {
+    const initialFocusEl = ref<HTMLElement | null>(null)
+    const finalFocusEl = ref<HTMLElement | null>(null)
+    const contentEl = ref<HTMLElement | null>(null)
+
+    const getElementFromRefProp = (prop?: RefProp) => {
+      let el: HTMLElement | null = null
+      // Get final focus element
+      if (typeof prop === 'function') {
+        el = prop?.()
+        // @ts-ignore
+        el = el?.$el || el
+      } else if (typeof prop === 'string') {
+        el = document.querySelector(prop)
+      }
+
+      return el
+    }
+
+    onMounted(async () => {
+      await nextTick()
+      initialFocusEl.value = getElementFromRefProp(props.initialFocusRef)
+      finalFocusEl.value = getElementFromRefProp(props.finalFocusRef)
+      contentEl.value = getElementFromRefProp(props.contentRef)
+      debugger
+    })
+
+    const handleDeactivation = () => {
+      finalFocusEl.value?.focus()
+    }
+
+    const handleActivation = () => {
+      debugger
+      if (initialFocusEl.value) {
+        initialFocusEl.value?.focus()
+      } else if (contentEl.value) {
+        const focusables = getAllFocusable(contentEl.value)
+        if (!focusables.length) {
+          focus(contentEl.value, { nextTick: true })
+        }
+      }
+    }
+
+    return () =>
+      h(
+        FocusTrap,
+        {
+          returnFocusOnDeactivate: props.restoreFocus,
+          onDeactivate: handleDeactivation,
+          onActivate: handleActivation,
+        },
+        slots
+      )
   },
 })

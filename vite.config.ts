@@ -4,6 +4,7 @@ import ComponentsPlugin from 'vite-plugin-components'
 import Pages from 'vite-plugin-pages'
 import { componentResolver } from '@chakra-ui/vue-auto-import'
 import path from 'path'
+import { kebabCase } from 'lodash'
 
 export default defineConfig({
   optimizeDeps: {
@@ -32,7 +33,15 @@ export default defineConfig({
       },
     }),
     ComponentsPlugin({
-      customComponentResolvers: [componentResolver],
+      customComponentResolvers: [
+        (name: string) => {
+          if (kebabCase(name).startsWith('c-'))
+            return {
+              importName: name,
+              path: path.resolve(__dirname, './packages/core/src'),
+            }
+        },
+      ],
     }),
   ],
 })
