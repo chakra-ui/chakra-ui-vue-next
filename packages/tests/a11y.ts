@@ -1,8 +1,25 @@
+/*
+ * This file should be replaced with cypress-axe
+ * once that package becomes esm-compatible
+ */
 import axeCore from 'axe-core'
-const isAccessible = (_chai, utils) => {
 
+axeCore.configure({
+  rules: [{ id: 'color-contrast', enabled: false }],
+})
+
+Cypress.Commands.add('checkA11y', () => {
+  // @ts-ignore
+  expect().to.be.accessible
+})
+
+/**
+ * Register the mocha assertion for `.accessible`
+ */
+const isAccessible = (_chai, utils) => {
   _chai.Assertion.addProperty('accessible', function () {
     let _this = this
+
     return cy.get('#cypress-root', { log: false }).then(async ($root) => {
       const result = await axeCore.run($root[0])
       console.log(`A11y results: `, result)
@@ -12,7 +29,13 @@ const isAccessible = (_chai, utils) => {
       const assert = () => {
         _this.assert(
           violations.length <= 0,
-          violations.length ? `🔨 ${violations.length} A11y checks failed. See console for output.` : `✅ A11y checks passed (${passes.length} passed}`
+          violations.length
+            ? `🔨 ${
+                violations.length
+              } A11y checks failed. See console for output.
+${JSON.stringify(violations, null, 2)}
+`
+            : `✅ A11y checks passed (${passes.length} passed}`
         )
       }
 
@@ -20,11 +43,12 @@ const isAccessible = (_chai, utils) => {
         return assert()
       }
 
-      passes.map(v => () => cy.log(`✅ A11y: ${v.help}`, v))
-        .concat(violations.map(v => () => cy.log(`🚫 A11y: ${v.help}`, v)))
+      passes
+        .map((v) => () => cy.log(`✅ A11y: ${v.help}`, v))
+        .concat(violations.map((v) => () => cy.log(`🚫 A11y: ${v.help}`, v)))
         // @ts-ignore
         .concat([() => cy.then(assert)])
-        .forEach(f => f())
+        .forEach((f) => f())
     })
   })
 }

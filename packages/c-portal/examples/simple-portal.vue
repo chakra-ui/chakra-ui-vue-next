@@ -1,6 +1,6 @@
 <template>
   <chakra.div h="100%" d="flex" flex-direction="column" w="100%">
-    <chakra.section id="new-target">
+    <chakra.section>
       Open Vue Dev Tools to inspect page for portal elements.
       <chakra.span></chakra.span>
     </chakra.section>

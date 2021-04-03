@@ -12,19 +12,20 @@ describe('Alert Examples', () => {
 
 it('contains the correct role', () => {
   cy.mount(Examples.BaseAlert.default)
+    .then(() => {})
     .get('[role=alert]')
     .should('exist')
 })
 
 it.only('renders its children', () => {
-  debugger;
   cy.mount(
     <CAlert data-testid="alert" variant="left-accent" status="info" mb="3">
       <CAlertIcon mr="2" />
       <CAlertTitle> Info alert </CAlertTitle>
       <CAlertDescription> Something just happened </CAlertDescription>
     </CAlert>
-  ).get('[data-testid=alert]')
+  )
+    .get('[data-testid=alert]')
     .should('contain', 'Info alert')
     .and('contain', 'Something just happened')
     .and('descendants', 'svg')

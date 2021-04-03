@@ -9,6 +9,11 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['@popperjs/core'],
   },
+  server: {
+    watch: {
+      ignored: ['**/*snapshots*'],
+    }
+  },
   plugins: [
     vue(),
     Pages({

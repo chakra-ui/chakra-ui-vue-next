@@ -1,7 +1,10 @@
 {
-  "experimentalComponentTesting": true,
   "componentFolder": "packages/",
-  "pluginsFile": "./plugins.js",
-  "testFiles": "**/*.test.*",
-  "supportFile": "packages/tests/support.ts"
+  "pluginsFile": "./packages/tests/plugins.js",
+  "testFiles": "**/*.cy.*",
+  "supportFile": "packages/tests/support.tsx",
+  "ignoreTestFiles": "**/*.snap",
+  "video": false,
+  "fixturesFolder": false,
+  "reporter": "spec"
 }
