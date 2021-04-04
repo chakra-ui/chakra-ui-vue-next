@@ -1,5 +1,5 @@
 <template>
-  <chakra class="div">
+  <chakra.div>
     <c-code
       v-for="(color, i) in colorSchemes"
       :key="i"
@@ -8,7 +8,7 @@
     >
       {{ color }}
     </c-code>
-  </chakra>
+  </chakra.div>
 </template>
 
 <script setup lang="ts">

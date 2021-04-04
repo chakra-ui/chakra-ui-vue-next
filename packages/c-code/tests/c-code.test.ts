@@ -6,7 +6,13 @@ const renderComponent = (props?: any) => {
     components: {
       CCode,
     },
-    template: '<c-code>hello world</c-code>',
+    template: `
+      <c-code>hello world</c-code>
+      <c-code color-scheme="red"> hello world, red </c-code>
+      <c-code color-scheme="green"> hello world, green </c-code>
+      <c-code color-scheme="yellow"> hello world, yellow </c-code>
+      <c-code color-scheme="teal"> hello world, teal </c-code>
+    `,
     ...props,
   }
   return render(base)

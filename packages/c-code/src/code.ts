@@ -11,7 +11,7 @@ const CCode = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: 'code',
     },
     colorScheme: String as PropType<ThemingProps['colorScheme']>,
     styleConfig: String as PropType<ThemingProps['styleConfig']>,
