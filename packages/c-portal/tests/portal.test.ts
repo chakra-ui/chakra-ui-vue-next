@@ -1,5 +1,5 @@
 import { nextTick, ref } from 'vue'
-import { render, screen } from '../../test-utils/src'
+import { render, screen, waitMs } from '../../test-utils/src'
 import { CPortal } from '../src'
 
 const renderComponent = (props?: any) => {
@@ -28,13 +28,15 @@ afterEach(() => {
     document.getElementById(`chakra__portal__${PORTAL_RENDER_COUNT}`)
 })
 
-it('should not render anything if no children exist', () => {
+it('should not render anything if no children exist', async () => {
   const { asFragment } = renderComponent()
+  await waitMs(300)
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should create default target for default children', () => {
+it('should create default target for default children', async () => {
   renderComponent()
+  await waitMs(300)
   expect(document.body).toContainElement(PORTAL_TARGET_ELEMENT())
   expect(document.body.innerHTML).toMatchSnapshot()
 })

@@ -28,6 +28,7 @@ module.exports = {
       '/setup/': getSetupSidebar(),
       '/components/': getSetupSidebar(),
       '/composables/': getSetupSidebar(),
+      '/guides/': getSetupSidebar(),
       '/': getSetupSidebar()
     }
   }
@@ -40,6 +41,12 @@ function getSetupSidebar() {
       children: [
         { text: 'Chakra UI Vue', link: '/' },
         { text: 'Getting Started', link: '/guide/getting-started' }
+      ]
+    },
+    {
+      text: 'Guides',
+      children: [
+        { text: 'Components guide', link: '/guides/component-guide' }
       ]
     },
     {
@@ -60,22 +67,5 @@ function getSetupSidebar() {
         { text: 'usePopper', link: '/composables/use-popper' }
       ]
     }
-  ]
-}
-
-function getComponentsSidebar() {
-  return [
-    {
-      text: 'Components',
-      children: [
-        { text: 'Alert', link: '/components/alert' },
-        { text: 'Button', link: '/components/button' },
-        { text: 'Badge', link: '/components/badge' },
-        { text: 'Icon', link: '/components/icon' },
-        { text: 'Spinner', link: '/components/spinner' },
-        { text: 'CSS reset', link: '/components/css-reset' },
-        { text: 'Visually hidden', link: '/components/visually-hidden' },
-      ]
-    },
   ]
 }

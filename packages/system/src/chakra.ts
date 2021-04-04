@@ -13,17 +13,11 @@ import {
   SystemProps,
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
-import {
-  cx,
-  isFunction,
-  memoizedGet as get,
-  objectAssign,
-} from '@chakra-ui/vue-utils'
+import { cx, isFunction, memoizedGet as get } from '@chakra-ui/utils'
 import { css as _css, CSSObject } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 import { useTheme } from './composables/use-chakra'
-// import { Theme } from '@chakra-ui/vue-theme'
 
 interface StyleResolverProps extends SystemProps {
   __css?: SystemStyleObject
@@ -124,66 +118,66 @@ export const chakra: IChakraFactory = (
     inheritAttrs: false,
     props: chakraProps,
     setup(props, { slots, attrs }) {
-      const { class: inheritedClass, ...rest } = attrs
-      const {
-        layerStyle,
-        baseStyle,
-        textStyle,
-        noOfLines,
-        isTruncated,
-        __css,
-        css,
-        sx,
-        apply,
-        label,
-        ...otherStyles
-      } = options
+      return () => {
+        const { class: inheritedClass, ...rest } = attrs
+        const {
+          layerStyle,
+          baseStyle,
+          textStyle,
+          noOfLines,
+          isTruncated,
+          __css,
+          css,
+          sx,
+          apply,
+          label,
+          ...otherStyles
+        } = options
 
-      // Separate component style attributes from raw HTML attributes
-      const { styles, attrs: elementAttributes } = extractStyleAttrs<
-        any,
-        HTMLAttributes
-      >({
-        ...otherStyles,
-        // Prioritize user provided styles
-        ...rest,
-      })
+        // Separate component style attributes from raw HTML attributes
+        const { styles, attrs: elementAttributes } = extractStyleAttrs<
+          any,
+          HTMLAttributes
+        >({
+          ...otherStyles,
+          // Prioritize user provided styles
+          ...rest,
+        })
 
-      const theme = useTheme()
+        const theme = useTheme()
 
-      const layerStyle$ = computed(
-        () => props.layerStyle || options?.layerStyle
-      )
-      const textStyle$ = computed(() => props.textStyle || options?.textStyle)
-      const baseStyle$ = computed(() => props.baseStyle || options?.baseStyle)
-      const noOfLines$ = computed(() => props.noOfLines || options?.noOfLines)
-      const isTruncated$ = computed(
-        () => props.isTruncated || options?.isTruncated
-      )
-      const __css$ = computed(() => props.__css || options?.__css)
-      const css$ = computed(() => props.css || options?.css)
-      const sx$ = computed(() => props.sx || options?.sx)
-      const apply$ = computed(() => props.apply || options?.apply)
+        const layerStyle$ = computed(
+          () => props.layerStyle || options?.layerStyle
+        )
+        const textStyle$ = computed(() => props.textStyle || options?.textStyle)
+        const baseStyle$ = computed(() => props.baseStyle || options?.baseStyle)
+        const noOfLines$ = computed(() => props.noOfLines || options?.noOfLines)
+        const isTruncated$ = computed(
+          () => props.isTruncated || options?.isTruncated
+        )
+        const __css$ = computed(() => props.__css || options?.__css)
+        const css$ = computed(() => props.css || options?.css)
+        const sx$ = computed(() => props.sx || options?.sx)
+        const apply$ = computed(() => props.apply || options?.apply)
 
-      const resolvedComponentStyles = resolveStyles({
-        __css: __css$.value,
-        baseStyle: baseStyle$.value,
-        apply: apply$.value,
-        layerStyle: layerStyle$.value,
-        noOfLines: noOfLines$.value,
-        isTruncated: isTruncated$.value,
-        textStyle: textStyle$.value,
-        sx: sx$.value,
-        css: css$.value,
-        ...(styles as SystemProps),
-        theme,
-      })
+        const resolvedComponentStyles = resolveStyles({
+          __css: __css$.value,
+          baseStyle: baseStyle$.value,
+          apply: apply$.value,
+          layerStyle: layerStyle$.value,
+          noOfLines: noOfLines$.value,
+          isTruncated: isTruncated$.value,
+          textStyle: textStyle$.value,
+          sx: sx$.value,
+          css: css$.value,
+          ...(styles as SystemProps),
+          theme,
+        })
 
-      const className = _css(resolvedComponentStyles)
-      const _componentName = label ? `chakra-${label}` : ''
+        const className = _css(resolvedComponentStyles)
+        const _componentName = label ? `chakra-${label}` : ''
 
-      return () =>
-        h(
+        return h(
           tag,
           {
             class: cx(inheritedClass, _componentName, className),
@@ -191,6 +185,7 @@ export const chakra: IChakraFactory = (
           },
           slots
         )
+      }
     },
   })
 }
@@ -233,7 +228,7 @@ export const resolveStyles = (
   }
 
   const finalStyles = css(
-    objectAssign(
+    Object.assign(
       {},
       __css,
       baseStyle,
@@ -246,7 +241,7 @@ export const resolveStyles = (
     )
   )(theme)
 
-  const cssObject: CSSObject = objectAssign(
+  const cssObject: CSSObject = Object.assign(
     finalStyles,
     isFunction(cssProp) ? cssProp(theme) : cssProp
   )

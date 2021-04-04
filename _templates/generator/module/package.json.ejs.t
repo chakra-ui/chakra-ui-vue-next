@@ -12,6 +12,12 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.pascalCase(name) + ' module'%>",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
   "author": "Jonathan Bakebwa codebender828@gmail.com",

@@ -15,7 +15,7 @@
     }
   },
   "description": "Chakra UI Vue | CThemeProvider component",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-theme-provider",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -29,12 +29,9 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-theme": "^0.0.1-alpha.0"
+    "@chakra-ui/vue-theme": "0.0.1-alpha.0"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-theme": "^0.0.1-alpha.0"
-  },
-  "devDependencies": {
-    "@chakra-ui/vue-theme": "^0.0.1-alpha.0"
+    "@chakra-ui/vue-theme": "0.0.1-alpha.0"
   }
 }

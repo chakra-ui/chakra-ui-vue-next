@@ -1,4 +1,4 @@
-import { warn } from '@chakra-ui/vue-utils'
+import { warn } from '@chakra-ui/utils'
 
 export interface BaseBreakpointConfig {
   sm: string

@@ -16,7 +16,12 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   "files": [
     "dist"
   ],
-  
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -25,7 +30,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
   },
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {

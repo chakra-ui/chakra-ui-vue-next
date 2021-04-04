@@ -30,14 +30,12 @@ const Stories = defineComponent({
                   pl: 2,
                   fontSize: '0.8rem',
                   key: story.path,
-                  color: 'gray.700'
                 },
                 story.children
                   ? h(chakra.h3, { mt: 2, mb: 0, fontWeight: 'bold' }, () => story.name)
                   : [
                       h(chakra(RouterLink), {
                         to: story.path,
-                        color: 'gray.600',
                         _hover: { color: 'blue.400' }
                       }, story.path === '/' 
                         ? () => [h(chakra.img, { w: '120px', mt: 4, src: 'https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue.png' })]
@@ -53,11 +51,3 @@ const Stories = defineComponent({
 })
 export default Stories
 </script>
-
-<style>
-.router-link-active {
-  color: #4299e1 !important;
-  font-weight: bold;
-  text-decoration: underline;
-}
-</style>

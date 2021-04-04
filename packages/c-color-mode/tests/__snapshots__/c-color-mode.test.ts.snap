@@ -6,7 +6,7 @@ exports[`should toggle colormode 1`] = `
     <div
       data-testid="colormode"
     >
-      dark
+      light
     </div>
     <button
       data-testid="toggle"

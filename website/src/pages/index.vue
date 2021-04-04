@@ -7,6 +7,7 @@
     bg="vue.50"
   >
     <Hero />
+    <SandboxExample />
     <PilersHero />
     <Footer />
   </chakra.main>
@@ -18,6 +19,7 @@ import Hero from '../components/home/Hero.vue'
 import PilersHero from '../components/home/PilersHero.vue'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/home/Footer.vue'
+import SandboxExample from '../components/SandboxExample.vue'
 
 export default defineComponent({
   name: 'Index',
@@ -26,6 +28,7 @@ export default defineComponent({
     PilersHero,
     Navbar,
     Footer,
+    SandboxExample,
   },
 })
 </script>

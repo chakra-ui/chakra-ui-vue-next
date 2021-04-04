@@ -1,5 +1,5 @@
 import defaultTheme, { Theme } from '@chakra-ui/vue-theme'
-import { isFunction, mergeWith } from '@chakra-ui/vue-utils'
+import { isFunction, mergeWith } from '@chakra-ui/utils'
 import { ColorHues } from '@chakra-ui/vue-theme/dist/types/foundations/colors'
 
 type ThemeExtensionTypeHints = {
