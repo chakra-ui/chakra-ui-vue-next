@@ -35,6 +35,7 @@ export const domElements = [
   'h6',
   'header',
   'hr',
+  'iframe',
   'img',
   'input',
   'kbd',
