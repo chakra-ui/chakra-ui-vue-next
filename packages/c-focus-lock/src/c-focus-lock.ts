@@ -1,6 +1,7 @@
 import { h, defineComponent, PropType, ref, onMounted, nextTick } from 'vue'
-import { FocusTrap } from 'focus-trap-vue'
+import { chakra } from '@chakra-ui/vue-system'
 import { getAllFocusable, focus } from '@chakra-ui/utils'
+import { FocusLockOptions, useFocusLock } from './use-focus-lock'
 
 type RefProp = () => HTMLElement & string
 
@@ -95,11 +96,9 @@ export const CFocusLock = defineComponent({
 
     return () =>
       h(
-        FocusTrap,
+        chakra('div'),
         {
-          returnFocusOnDeactivate: props.restoreFocus,
-          onDeactivate: handleDeactivation,
-          onActivate: handleActivation,
+          label: 'focus-lock',
         },
         slots
       )

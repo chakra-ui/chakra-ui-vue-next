@@ -67,7 +67,7 @@ const FOCUS_LOCK_DEFAULTS: FocusLockOptions = {
   delayInitialFocus: true,
 }
 
-export const useFocusLock = (focusLockOptions: FocusLockOptions) => {
+export const useFocusLock = (focusLockOptions?: FocusLockOptions) => {
   const content = ref<HTMLElement | null>(null)
   const trap = ref<FocusTrap | null>(null)
   const enabled = ref(true)
@@ -121,7 +121,7 @@ export const useFocusLock = (focusLockOptions: FocusLockOptions) => {
     })
   })
   watchEffect(() => {
-    console.log('enabled', options.value.enabled)
+    if (enabled.value) trap.value?.activate?.()
   })
 
   onUnmounted(() => {
