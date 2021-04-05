@@ -76,8 +76,8 @@
           aria-label="Join Discord channel"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/chakra-ui/chakra-ui-vue"
-          icon="message-circle"
+          href="https://discord.gg/sq2Kp6x"
+          icon="discord"
         />
       </CBox>
       <CBox as="li">
