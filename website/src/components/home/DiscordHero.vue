@@ -1,20 +1,21 @@
 <template>
   <CFlex
     as="section"
-    :flex-dir="['column', 'column', 'row']"
+    :flex-dir="['column', 'column', 'column', 'row']"
     align="center"
     justify="space-between"
     font-family="body"
     color="white"
     bg="discord.accessible"
-    :h="['auto', 40]"
+    :h="['auto', 'auto', 'auto', 40]"
     :px="[4, 10, 12]"
   >
     <CFlex
       flex-dir="row"
+      flex="1"
       py="10"
-      :mr="{ base: '0', sm: '10' }"
-      :w="{ base: '100%', sm: 'auto' }"
+      :mr="{ base: '0', lg: '10' }"
+      :w="{ base: '100%', lg: 'auto' }"
     >
       <CIcon name="discord" size="48px" mr="5" />
       <CBox>
@@ -27,18 +28,18 @@
       </CBox>
     </CFlex>
     <CBox
-      :w="{ base: 0, md: '10' }"
+      :w="{ base: 0, lg: '10' }"
       h="100%"
       bg="vue.50"
-      mx="10"
+      :mx="{ base: '10', lg: '24' }"
       transform="skewX(20deg)"
     />
     <CFlex
       flex-dir="row"
-      :pt="[0, 10]"
+      :pt="{ base: '0', lg: '10' }"
       pb="10"
       h="100%"
-      :w="{ base: '100%', sm: 'auto' }"
+      :w="{ base: '100%', lg: 'auto' }"
       align="center"
     >
       <CButton
@@ -52,7 +53,7 @@
         color="black"
         bg="white"
         shadow="lg"
-        :w="{ base: '100%', sm: 'auto' }"
+        :w="{ base: '100%', lg: 'auto' }"
       >
         Join the #Chakra Discord!
       </CButton>
