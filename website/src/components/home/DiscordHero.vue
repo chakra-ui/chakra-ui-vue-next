@@ -14,7 +14,7 @@
       flex-dir="row"
       py="10"
       :mr="{ base: '0', sm: '10' }"
-      :w="{ base: '100%', md: 'auto' }"
+      :w="{ base: '100%', sm: 'auto' }"
     >
       <CIcon name="discord" size="48px" mr="5" />
       <CBox>
@@ -30,13 +30,15 @@
       :w="{ base: 0, md: '10' }"
       h="100%"
       bg="vue.50"
+      mx="10"
       transform="skewX(20deg)"
     />
     <CFlex
       flex-dir="row"
-      py="10"
+      :pt="[0, 10]"
+      pb="10"
       h="100%"
-      :w="{ base: '100%', md: 'auto' }"
+      :w="{ base: '100%', sm: 'auto' }"
       align="center"
     >
       <CButton
@@ -50,6 +52,7 @@
         color="black"
         bg="white"
         shadow="lg"
+        :w="{ base: '100%', sm: 'auto' }"
       >
         Join the #Chakra Discord!
       </CButton>

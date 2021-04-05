@@ -15,7 +15,7 @@
       py="10"
       :px="{ base: '3', sm: '10' }"
     >
-      <CBox m="3">
+      <CBox my="3" :mx="{ base: '0', sm: '3' }">
         <CFlex align-items="center" mb="5">
           <CFlex
             justify-content="center"
@@ -33,7 +33,7 @@
         Chakra UI strictly follows WAI-ARIA standards. All components come with
         proper attributes and keyboard interactions out of the box.
       </CBox>
-      <CBox m="3">
+      <CBox my="3" :mx="{ base: '0', sm: '3' }">
         <CFlex align-items="center" mb="5">
           <CFlex
             justify-content="center"
@@ -51,7 +51,7 @@
         Quickly and easily reference values from your theme throughout your
         entire application, on any component.
       </CBox>
-      <CBox m="3">
+      <CBox m="3" :mx="{ base: '0', sm: '3' }">
         <CFlex align-items="center" mb="5">
           <CFlex
             justify-content="center"
