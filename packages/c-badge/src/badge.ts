@@ -5,7 +5,7 @@ import {
   ThemingProps,
   useStyleConfig,
 } from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/vue-utils'
+import { filterUndefined } from '@chakra-ui/utils'
 
 const CBadge = defineComponent({
   props: {
@@ -19,17 +19,18 @@ const CBadge = defineComponent({
     styleConfig: String as PropType<ThemingProps['styleConfig']>,
   },
   setup(props, { slots, attrs }) {
-    const themingProps = computed(() =>
-      filterUndefined<ThemingProps>({
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        size: props.size,
-        styleConfig: props.styleConfig,
-      })
-    )
-    const styles = useStyleConfig('Badge', themingProps.value)
-    return () =>
-      h(
+    return () => {
+      const themingProps = computed<ThemingProps>(() =>
+        filterUndefined({
+          colorScheme: props.colorScheme,
+          variant: props.variant,
+          size: props.size,
+          styleConfig: props.styleConfig,
+        })
+      )
+      const styles = useStyleConfig('Badge', themingProps.value)
+
+      return h(
         chakra(props.as),
         {
           __css: {
@@ -42,6 +43,7 @@ const CBadge = defineComponent({
         },
         slots
       )
+    }
   },
 })
 

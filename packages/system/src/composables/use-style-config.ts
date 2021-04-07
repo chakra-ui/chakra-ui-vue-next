@@ -1,7 +1,7 @@
 import { computed, ComputedRef } from 'vue'
 import { SystemStyleObject } from '@chakra-ui/styled-system'
 import { ThemingProps } from '../system.types'
-import { filterUndefined, get, mergeWith, runIfFn } from '@chakra-ui/vue-utils'
+import { filterUndefined, get, mergeWith, runIfFn } from '@chakra-ui/utils'
 import { useChakra } from './use-chakra'
 
 export function useStyleConfig(
@@ -24,18 +24,18 @@ export function useStyleConfig(
   options: any = {},
   userStyleConfig?: any
 ) {
-  const { theme, colorMode } = useChakra()
-  const themeStyleConfig = get(theme, `components.${themeKey}`)
-
-  const styleConfig = userStyleConfig || themeStyleConfig
-
-  const mergedProps = mergeWith(
-    { theme, colorMode },
-    styleConfig?.defaultProps ?? {},
-    filterUndefined(themingProps)
-  )
-
   return computed(() => {
+    const { theme, colorMode } = useChakra()
+    const themeStyleConfig = get(theme, `components.${themeKey}`)
+
+    const styleConfig = userStyleConfig || themeStyleConfig
+
+    const mergedProps = mergeWith(
+      { theme: theme, colorMode: colorMode.value },
+      styleConfig?.defaultProps ?? {},
+      filterUndefined(themingProps)
+    )
+
     const baseStyles = runIfFn(styleConfig.baseStyle ?? {}, mergedProps)
     const variants = runIfFn(
       styleConfig.variants?.[mergedProps.variant] ?? {},

@@ -1,6 +1,6 @@
 @import './markdown.css';
 
-
+body { overflow-y: scroll; color: #292929; }
 h1,
 h2,
 h3,

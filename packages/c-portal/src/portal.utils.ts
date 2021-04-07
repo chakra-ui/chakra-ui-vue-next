@@ -1,9 +1,9 @@
-import { isBrowser } from '@chakra-ui/vue-utils'
+import { isBrowser } from '@chakra-ui/utils'
 
 let __portal_id__: number = 0
 
-export const createPortalTarget = () => {
-  const portalId = `chakra__portal__${__portal_id__}`
+export const createPortalTarget = (name: string = 'default') => {
+  const portalId = `chakra__${name}__portal__${__portal_id__}`
   let target = document.getElementById(portalId)
   if (!target) {
     target = document.createElement('div')

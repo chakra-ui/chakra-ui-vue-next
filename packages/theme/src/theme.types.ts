@@ -1,6 +1,6 @@
 import { ThemingProps } from '@chakra-ui/vue-system'
 import { Breakpoints, Styles } from '@chakra-ui/vue-theme-tools'
-import { Dict } from '@chakra-ui/vue-utils'
+import { Dict } from '@chakra-ui/utils'
 import { StyleObjectOrFn, SystemStyleObject } from '@chakra-ui/styled-system'
 
 export type ColorMode = 'light' | 'dark'

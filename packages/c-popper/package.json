@@ -12,15 +12,18 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-popper",
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {
@@ -34,15 +37,14 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-utils": "^0.0.1-alpha.0",
+    "@chakra-ui/utils": "^1.5.0",
     "@popperjs/core": "^2.8.4"
   },
   "devDependencies": {
-    "@chakra-ui/vue-utils": "^0.0.1-alpha.0",
-    "vue": "^3.0.5"
+    "vue": ">=3.0.5"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-utils": "^0.0.1-alpha.0",
+    "@chakra-ui/utils": "1.4.0",
     "vue": "^3.0.5"
   }
 }

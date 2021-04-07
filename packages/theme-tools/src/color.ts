@@ -1,5 +1,5 @@
 import Color from 'tinycolor2'
-import { memoizedGet as get, Dict, isEmptyObject } from '@chakra-ui/vue-utils'
+import { memoizedGet as get, Dict, isEmptyObject } from '@chakra-ui/utils'
 
 /**
  * Get the color raw value from theme
