@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^1.5.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.1",
     "focus-trap": "^6.3.0"
   },
   "peerDependencies": {
