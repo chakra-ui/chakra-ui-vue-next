@@ -5,7 +5,7 @@ import { FocusLockOptions, useFocusLock } from './use-focus-lock'
 
 type RefProp = () => HTMLElement & string
 
-export interface FocusLockProps {
+export interface FocusLockProps extends FocusLockOptions {
   /**
    * `ref` of the element to receive focus initially
    */
@@ -40,6 +40,9 @@ export const CFocusLock = defineComponent({
     initialFocusRef: [String, Function] as PropType<
       FocusLockProps['initialFocusRef']
     >,
+    fallbackFocusRef: [String, Function] as PropType<
+      FocusLockProps['fallbackFocus']
+    >,
     finalFocusRef: [String, Function] as PropType<
       FocusLockProps['finalFocusRef']
     >,
@@ -48,50 +51,28 @@ export const CFocusLock = defineComponent({
       type: Boolean as PropType<FocusLockProps['restoreFocus']>,
       default: true,
     },
-    isDisabled: Boolean as PropType<FocusLockProps['isDisabled']>,
+    isDisabled: {
+      type: Boolean as PropType<FocusLockProps['isDisabled']>,
+      default: false,
+    },
     autoFocus: Boolean as PropType<FocusLockProps['autoFocus']>,
+    clickOutsideDeactivates: Boolean as PropType<
+      FocusLockProps['clickOutsideDeactivates']
+    >,
   },
-  setup(props, { slots }) {
-    const initialFocusEl = ref<HTMLElement | null>(null)
-    const finalFocusEl = ref<HTMLElement | null>(null)
-    const contentEl = ref<HTMLElement | null>(null)
-
-    const getElementFromRefProp = (prop?: RefProp) => {
-      let el: HTMLElement | null = null
-      // Get final focus element
-      if (typeof prop === 'function') {
-        el = prop?.()
-        // @ts-ignore
-        el = el?.$el || el
-      } else if (typeof prop === 'string') {
-        el = document.querySelector(prop)
-      }
-
-      return el
-    }
-
-    onMounted(async () => {
-      await nextTick()
-      initialFocusEl.value = getElementFromRefProp(props.initialFocusRef)
-      finalFocusEl.value = getElementFromRefProp(props.finalFocusRef)
-      contentEl.value = getElementFromRefProp(props.contentRef)
-      debugger
+  emits: ['activate', 'deactivate'],
+  setup(props, { slots, emit }) {
+    const { lock, initialFocus } = useFocusLock({
+      enabled: !props.isDisabled,
+      onActivate: () => emit('activate'),
+      onDeactivate: () => emit('deactivate'),
+      clickOutsideDeactivates: props.clickOutsideDeactivates,
+      fallbackFocus: props.fallbackFocusRef,
+      returnFocus: props.restoreFocus,
     })
 
-    const handleDeactivation = () => {
-      finalFocusEl.value?.focus()
-    }
-
-    const handleActivation = () => {
-      debugger
-      if (initialFocusEl.value) {
-        initialFocusEl.value?.focus()
-      } else if (contentEl.value) {
-        const focusables = getAllFocusable(contentEl.value)
-        if (!focusables.length) {
-          focus(contentEl.value, { nextTick: true })
-        }
-      }
+    if (props.initialFocusRef) {
+      initialFocus(props.initialFocusRef?.() || props.initialFocusRef)
     }
 
     return () =>
@@ -99,6 +80,7 @@ export const CFocusLock = defineComponent({
         chakra('div'),
         {
           label: 'focus-lock',
+          ref: lock,
         },
         slots
       )
