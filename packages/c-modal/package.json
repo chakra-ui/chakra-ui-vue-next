@@ -37,7 +37,7 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "1.10.0",
+    "@chakra-ui/styled-system": "^1.10.0",
     "@chakra-ui/vue-system": "0.1.0-alpha.1",
     "@chakra-ui/vue-utils": "0.1.0-alpha.1"
   },
