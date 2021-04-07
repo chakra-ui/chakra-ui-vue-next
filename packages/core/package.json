@@ -37,6 +37,7 @@
     "@chakra-ui/c-color-mode": "0.1.0-alpha.1",
     "@chakra-ui/c-flex": "1.0.0-alpha.1",
     "@chakra-ui/c-icon": "1.0.0-alpha.1",
+    "@chakra-ui/c-modal": "1.1.0-alpha.0",
     "@chakra-ui/c-popper": "0.1.0-alpha.1",
     "@chakra-ui/c-portal": "0.1.0-alpha.1",
     "@chakra-ui/c-reset": "1.0.0-alpha.1",
