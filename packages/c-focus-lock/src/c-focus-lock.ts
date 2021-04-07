@@ -1,6 +1,18 @@
-import { h, defineComponent, PropType, ref, onMounted, nextTick } from 'vue'
+import {
+  h,
+  defineComponent,
+  PropType,
+  ref,
+  onMounted,
+  nextTick,
+  reactive,
+  computed,
+  watch,
+  onUpdated,
+  cloneVNode,
+} from 'vue'
 import { chakra } from '@chakra-ui/vue-system'
-import { getAllFocusable, focus } from '@chakra-ui/utils'
+import { focus, __DEV__ } from '@chakra-ui/utils'
 import { FocusLockOptions, useFocusLock } from './use-focus-lock'
 
 type RefProp = () => HTMLElement & string
@@ -46,43 +58,94 @@ export const CFocusLock = defineComponent({
     finalFocusRef: [String, Function] as PropType<
       FocusLockProps['finalFocusRef']
     >,
-    contentRef: [String, Function] as PropType<FocusLockProps['contentRef']>,
     restoreFocus: {
       type: Boolean as PropType<FocusLockProps['restoreFocus']>,
       default: true,
     },
     isDisabled: {
       type: Boolean as PropType<FocusLockProps['isDisabled']>,
-      default: false,
     },
     autoFocus: Boolean as PropType<FocusLockProps['autoFocus']>,
-    clickOutsideDeactivates: Boolean as PropType<
-      FocusLockProps['clickOutsideDeactivates']
-    >,
+    clickOutsideDeactivates: {
+      type: Boolean as PropType<FocusLockProps['clickOutsideDeactivates']>,
+      default: true,
+    },
   },
   emits: ['activate', 'deactivate'],
   setup(props, { slots, emit }) {
-    const { lock, initialFocus } = useFocusLock({
-      enabled: !props.isDisabled,
-      onActivate: () => emit('activate'),
-      onDeactivate: () => emit('deactivate'),
-      clickOutsideDeactivates: props.clickOutsideDeactivates,
-      fallbackFocus: props.fallbackFocusRef,
-      returnFocus: props.restoreFocus,
-    })
+    const el = ref<HTMLElement | null>(null)
 
-    if (props.initialFocusRef) {
-      initialFocus(props.initialFocusRef?.() || props.initialFocusRef)
-    }
+    onMounted(() => {
+      const { lock, initialFocus } = useFocusLock({
+        enabled: !props.isDisabled,
+        clickOutsideDeactivates: props.clickOutsideDeactivates,
+        fallbackFocus: props.fallbackFocusRef,
+        returnFocus: props.restoreFocus,
+        onActivate: () => emit('activate'),
+        onDeactivate: () => {
+          emit('deactivate')
+          const finalFocusRef =
+            props.initialFocusRef?.() || props.initialFocusRef
+          if (typeof finalFocusRef === 'string') {
+            focus(document.querySelector(finalFocusRef) as HTMLElement)
+          } else {
+            // @ts-expect-error
+            focus(finalFocusRef?.$el || finalFocusRef)
+          }
+        },
+      })
+
+      onUpdated(() => {
+        if (props.initialFocusRef) {
+          initialFocus(props.initialFocusRef?.() || props.initialFocusRef)
+        }
+      })
+
+      watch(
+        () => props.isDisabled,
+        (val) => console.log('isDisabled', val)
+      )
+
+      watch(
+        el,
+        (val) => {
+          console.log({ val })
+          lock(val)
+        },
+        {
+          immediate: true,
+          flush: 'post',
+        }
+      )
+    })
 
     return () =>
       h(
         chakra('div'),
         {
           label: 'focus-lock',
-          ref: lock,
+          ref: el,
         },
         slots
       )
+
+    // return () => {
+    //   if (!slots.default) return null
+
+    //   const vNodes = slots.default().filter((vnode) => vnode.type !== Comment)
+    //   if (!vNodes || !vNodes.length || vNodes.length > 1) {
+    //     if (__DEV__) {
+    //       console.warn(
+    //         '[chakra-ui:focus-lock]: CFocusLock requires exactly one child.'
+    //       )
+    //     }
+
+    //     return vNodes
+    //   }
+
+    //   console.log(lock)
+    //   const vnode = cloneVNode(vNodes[0], { ref: el })
+    //   return vnode
+    // }
   },
 })

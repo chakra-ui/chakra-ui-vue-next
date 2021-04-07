@@ -1,5 +1,5 @@
 <template>
-  <!-- <chakra.div>
+  <chakra.div>
     <chakra.div
       :ref="lock"
       p="4"
@@ -32,7 +32,7 @@
       </c-button>
     </chakra.div>
     <chakra.pre> enabled: {{ options.enabled }} </chakra.pre>
-  </chakra.div> -->
+  </chakra.div>
   <div :ref="lock" data-testid="focus-lock-container">
     <input data-testid="input" />
     <input />
