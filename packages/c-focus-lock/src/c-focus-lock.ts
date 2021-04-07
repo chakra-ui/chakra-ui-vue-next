@@ -8,7 +8,7 @@ import {
   onUpdated,
 } from 'vue'
 import { chakra } from '@chakra-ui/vue-system'
-import { focus, __DEV__ } from '@chakra-ui/utils'
+import { focus, FocusableElement, __DEV__ } from '@chakra-ui/utils'
 import { FocusLockOptions, useFocusLock } from './use-focus-lock'
 
 type RefProp = () => HTMLElement & string & object
@@ -83,7 +83,8 @@ export const CFocusLock = defineComponent({
           const finalFocusRef =
             props.initialFocusRef?.() || props.initialFocusRef
           if (typeof finalFocusRef === 'string') {
-            focus(document.querySelector(finalFocusRef) as HTMLElement)
+            const finalFocus = document.querySelector(finalFocusRef)
+            if (finalFocus) focus(finalFocus as FocusableElement)
           } else {
             // @ts-expect-error
             focus(finalFocusRef?.$el || finalFocusRef)
