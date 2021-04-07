@@ -33,6 +33,7 @@
     "@chakra-ui/c-alert": "1.0.0-alpha.1",
     "@chakra-ui/c-badge": "1.0.0-alpha.1",
     "@chakra-ui/c-button": "1.0.0-alpha.1",
+    "@chakra-ui/c-close-button": "0.1.0-alpha.1",
     "@chakra-ui/c-color-mode": "0.1.0-alpha.1",
     "@chakra-ui/c-flex": "1.0.0-alpha.1",
     "@chakra-ui/c-icon": "1.0.0-alpha.1",
