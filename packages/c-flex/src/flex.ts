@@ -84,6 +84,7 @@ const CFlex = defineComponent({
       h(
         chakra(props.as),
         {
+          label: 'flex',
           __css: styles,
           ...attrs,
         },

@@ -5,6 +5,7 @@ exports[`should render properly 1`] = `
   <button
     aria-label="Close"
     class="chakra-icon-button css-fdaoze"
+    data-testid="closebutton"
     type="button"
   >
     <svg
