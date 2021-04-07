@@ -2,7 +2,7 @@
   <chakra.nav
     h="60px"
     w="100%"
-    px="4"
+    :px="[4, 10, 12]"
     d="flex"
     position="fixed"
     align-items="center"
@@ -12,7 +12,28 @@
     border-top="6px solid"
     border-color="vue.500"
   >
-    <CFlex align-items="center" :flex="{ base: 0, sm: 1 }" />
+    <CFlex align-items="center" justify-content="flex-start" flex="1">
+      <chakra.a
+        aria-current="page"
+        aria-label="Chakra UI Vue, Back to homepage"
+        href="/"
+        h="auto"
+        d="flex"
+        flex-direction="row"
+        align-items="center"
+      >
+        <CBox w="45px" mr="2"><ChakraUILogoIcon /></CBox>
+        <chakra.h1
+          font-size="2xl"
+          font-family="heading"
+          letter-spacing="tighter"
+          mt="8px"
+          :d="{ base: 'none', md: 'block' }"
+        >
+          Chakra Chidori
+        </chakra.h1>
+      </chakra.a>
+    </CFlex>
     <CFlex flex="1" justify-content="center">
       <CIcon name="search" mt="8px" />
     </CFlex>
@@ -78,6 +99,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { CBox, CFlex, CIconButton, CIcon } from '@chakra-ui/vue-next'
+import ChakraUILogoIcon from './ChakraLogoIcon.vue'
 
 export default defineComponent({
   name: 'Navbar',
@@ -86,6 +108,7 @@ export default defineComponent({
     CFlex,
     CIconButton,
     CIcon,
+    ChakraUILogoIcon,
   },
 })
 </script>

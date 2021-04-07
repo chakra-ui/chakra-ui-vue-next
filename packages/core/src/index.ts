@@ -33,6 +33,7 @@ const ChakraUIVuePlugin: Plugin = {
     })
 
     let libraryIcons = options.icons?.library || {}
+    let extendedIcons = options.icons?.extend || {}
 
     // Initialize colormode
     const colorMode = theme.config?.initialColorMode || 'dark'
@@ -51,6 +52,7 @@ const ChakraUIVuePlugin: Plugin = {
     const mergedIcons: MergedIcons = {
       ...internalIcons,
       ...libraryIcons,
+      ...extendedIcons,
     }
     app.provide('$chakraIcons', mergedIcons)
   },

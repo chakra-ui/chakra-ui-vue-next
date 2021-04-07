@@ -46,7 +46,7 @@ export const CIcon = defineComponent({
       color: 'currentColor',
       innerHTML: icon.value.path,
       focusable: false,
-      viewBox: fallbackIcon.viewBox,
+      viewBox: icon.value.viewBox || fallbackIcon.viewBox,
     }))
 
     return () =>
