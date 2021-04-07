@@ -31,7 +31,9 @@
         Enable
       </c-button>
     </chakra.div>
-    <chakra.pre> enabled: {{ options.enabled }} </chakra.pre>
+    <chakra.pre font-weight="bold">
+      Focus lock enabled: {{ options.enabled }}
+    </chakra.pre>
   </chakra.div>
 </template>
 
