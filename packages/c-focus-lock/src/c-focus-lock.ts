@@ -4,18 +4,14 @@ import {
   PropType,
   ref,
   onMounted,
-  nextTick,
-  reactive,
-  computed,
   watch,
   onUpdated,
-  cloneVNode,
 } from 'vue'
 import { chakra } from '@chakra-ui/vue-system'
 import { focus, __DEV__ } from '@chakra-ui/utils'
 import { FocusLockOptions, useFocusLock } from './use-focus-lock'
 
-type RefProp = () => HTMLElement & string
+type RefProp = () => HTMLElement & string & object
 
 export interface FocusLockProps extends FocusLockOptions {
   /**
@@ -128,24 +124,5 @@ export const CFocusLock = defineComponent({
         },
         slots
       )
-
-    // return () => {
-    //   if (!slots.default) return null
-
-    //   const vNodes = slots.default().filter((vnode) => vnode.type !== Comment)
-    //   if (!vNodes || !vNodes.length || vNodes.length > 1) {
-    //     if (__DEV__) {
-    //       console.warn(
-    //         '[chakra-ui:focus-lock]: CFocusLock requires exactly one child.'
-    //       )
-    //     }
-
-    //     return vNodes
-    //   }
-
-    //   console.log(lock)
-    //   const vnode = cloneVNode(vNodes[0], { ref: el })
-    //   return vnode
-    // }
   },
 })

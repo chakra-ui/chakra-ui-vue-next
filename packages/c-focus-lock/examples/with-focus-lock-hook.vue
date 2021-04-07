@@ -41,9 +41,8 @@
 </template>
 
 <script lang="ts">
-import { useFocusLock } from '@chakra-ui/c-focus-lock'
-import { defineComponent, ref, reactive } from 'vue'
-import { FocusLockOptions } from '../src'
+import { useFocusLock, FocusLockOptions } from '@chakra-ui/c-focus-lock'
+import { defineComponent, reactive } from 'vue'
 
 export default defineComponent({
   setup() {
