@@ -23,11 +23,17 @@
     "@chakra-ui/vue-theme-tools": "0.0.0",
     "@chakra-ui/vue-utils": "0.0.0",
     "@chakra-ui/vue-docs": "0.0.0",
-    "@chakra-ui/vue-auto-import": "0.0.1-alpha.0"
+    "@chakra-ui/vue-auto-import": "0.0.1-alpha.0",
+    "@chakra-ui/c-close-button": "0.0.1-alpha.0",
+    "@chakra-ui/c-modal": "1.0.0"
   },
   "changesets": [
     "chilly-tables-care",
     "empty-dragons-wait",
-    "slimy-bugs-give"
+    "neat-rules-cry",
+    "slimy-bugs-give",
+    "sweet-lamps-brake",
+    "ten-pandas-run",
+    "wild-chairs-applaud"
   ]
 }
