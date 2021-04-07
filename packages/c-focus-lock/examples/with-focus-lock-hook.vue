@@ -33,11 +33,6 @@
     </chakra.div>
     <chakra.pre> enabled: {{ options.enabled }} </chakra.pre>
   </chakra.div>
-  <div :ref="lock" data-testid="focus-lock-container">
-    <input data-testid="input" />
-    <input />
-    <input />
-  </div>
 </template>
 
 <script lang="ts">
