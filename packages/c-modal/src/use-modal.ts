@@ -1,4 +1,15 @@
-import { Ref, ref, toRefs, watch, watchEffect } from 'vue'
+import {
+  Component,
+  ComponentOptions,
+  computed,
+  ComputedRef,
+  onMounted,
+  Ref,
+  ref,
+  toRefs,
+  watch,
+  watchEffect,
+} from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
 import { hideOthers, Undo } from 'aria-hidden'
 
@@ -50,6 +61,9 @@ export function useModal(options: UseModalOptions) {
   const dialogRef = ref<HTMLElement | null>(null)
   const overlayRef = ref<HTMLElement | null>(null)
 
+  /**
+   * Creates IDs for the dialog elements
+   */
   const [dialogId, headerId, bodyId] = useIds(
     id?.value,
     `chakra-modal`,
@@ -57,13 +71,37 @@ export function useModal(options: UseModalOptions) {
     `chakra-modal--body`
   )
 
+  /**
+   * `aria-hidden` attributes handling
+   */
+  const shouldHide = computed(() => isOpen.value && useInert?.value)
+  useAriaHidden(dialogRef, shouldHide)
+
+  /**
+   * Dialog props
+   */
+  // const dialogProps = ()
+
   console.log('HELLO useModal', {
     dialogId,
     headerId,
     bodyId,
   })
 
-  return {}
+  // TODO
+  // 1. Get
+
+  return {
+    isOpen,
+    headerId,
+    bodyId,
+    // dialogRef: (el: DOMRef): void => {
+    //   dialogRef.value = el?.$el || el
+    // },
+    // overlayRef: (el: DOMRef): void => {
+    //   overlayRef.value = el?.$el || el
+    // },
+  }
 }
 
 export type UseModalReturn = ReturnType<typeof useModal>
@@ -78,22 +116,28 @@ export type UseModalReturn = ReturnType<typeof useModal>
  * @param shouldHide whether `aria-hidden` should be applied
  */
 export function useAriaHidden(
-  node: Ref<HTMLElement>,
-  shouldHide: Ref<boolean>
+  node: Ref<HTMLElement | null>,
+  shouldHide: Ref<boolean> | ComputedRef<boolean | undefined>
 ) {
-  watchEffect((onInvalidate) => {
-    if (!node.value) return
+  console.log('invoked useAriaHidden')
+  watchEffect(
+    (onInvalidate) => {
+      if (!node.value) return
 
-    let undo: Undo | null = null
+      let undo: Undo | null = null
 
-    if (shouldHide.value && node.value) {
-      undo = hideOthers(node.value)
-    }
-
-    onInvalidate(() => {
-      if (shouldHide.value) {
-        undo?.()
+      if (shouldHide.value && node.value) {
+        undo = hideOthers(node.value)
       }
-    })
-  })
+
+      onInvalidate(() => {
+        if (shouldHide.value) {
+          undo?.()
+        }
+      })
+    },
+    {
+      flush: 'post',
+    }
+  )
 }
