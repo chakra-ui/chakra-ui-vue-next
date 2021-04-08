@@ -193,7 +193,7 @@ export const CModal = defineComponent({
       default: 'scale',
     },
   },
-  emits: ['update:is-open', 'escape'],
+  emits: ['update:is-open', 'escape', 'close'],
   setup(props, { slots, attrs, emit }) {
     const closeModal = () => {
       emit('update:is-open', false)

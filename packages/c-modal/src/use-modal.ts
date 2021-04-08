@@ -141,6 +141,7 @@ export function useModal(options: UseModalOptions) {
     ref: overlayRef as any,
     onClick: (event: MouseEvent) => {
       instance?.emit('update:is-open', !isOpen.value)
+      instance?.emit('close')
       handleOverlayClick(event)
     },
     onKeyDown: (event: KeyboardEvent) => {
