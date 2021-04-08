@@ -8,12 +8,24 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, PropType, Prop, reactive } from 'vue'
+import {
+  h,
+  defineComponent,
+  PropType,
+  Prop,
+  reactive,
+  ComputedRef,
+  Ref,
+  toRefs,
+  computed,
+} from 'vue'
 import {
   chakra,
   DOMElements,
   StylesProvider,
+  SystemStyleObject,
   useMultiStyleConfig,
+  useStyles,
 } from '@chakra-ui/vue-system'
 import { createContext } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
@@ -103,9 +115,15 @@ export interface CModalProps extends UseModalOptions, ModalOptions {
   motionPreset?: MotionPreset
 }
 
-interface CModalContext extends UseModalOptions, UseModalReturn {
-  /** The transition to be used for the CModal */
-  motionPreset?: MotionPreset
+type ToRef<Properties> = {
+  [name in keyof Properties]: Ref<Properties[name]>
+}
+
+type IUseModalOptions = ToRef<UseModalOptions>
+
+interface CModalContext extends IUseModalOptions, UseModalReturn {
+  //   /** The transition to be used for the CModal */
+  //   motionPreset?: MotionPreset
 }
 
 const [ModalContextProvider, useModalContext] = createContext<CModalContext>({
@@ -171,8 +189,33 @@ export const CModal = defineComponent({
     const styles = useMultiStyleConfig('Modal', attrs)
     const modalOptions = reactive(props)
     const modal = useModal(modalOptions)
-    ModalContextProvider(props)
+    ModalContextProvider({
+      ...modal,
+      ...toRefs(props),
+    })
     StylesProvider(styles)
     return () => h(CPortal, {}, slots)
+  },
+})
+
+export const CModalOverlay = defineComponent({
+  setup(_, { attrs }) {
+    const styles = useStyles()
+    const overlayStyle = computed<SystemStyleObject>(() => ({
+      pos: 'fixed',
+      left: '0',
+      top: '0',
+      w: '100vw',
+      h: '100vh',
+      ...styles.value.overlay,
+    }))
+    return () =>
+      h(chakra('div'), {
+        __css: {
+          label: 'modal__overlay',
+          ...overlayStyle.value,
+        },
+        ...attrs,
+      })
   },
 })

@@ -1,16 +1,14 @@
 import {
-  Component,
-  ComponentOptions,
   computed,
   ComputedRef,
-  onMounted,
-  Ref,
+  getCurrentInstance,
   ref,
+  Ref,
   toRefs,
-  watch,
   watchEffect,
 } from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
+import { useRef } from '@chakra-ui/vue-utils'
 import { hideOthers, Undo } from 'aria-hidden'
 
 type ScrollBehavior = 'inside' | 'outside'
@@ -57,9 +55,13 @@ export function useModal(options: UseModalOptions) {
     options
   )
 
+  const instance = getCurrentInstance()
+
   // DOM refs
-  const dialogRef = ref<HTMLElement | null>(null)
-  const overlayRef = ref<HTMLElement | null>(null)
+  const [dialogRef, dialogEl] = useRef()
+  const [overlayRef, overlayEl] = useRef()
+  // const dialogRef = ref<HTMLElement | null>(null)
+  // const overlayRef = ref<HTMLElement | null>(null)
 
   /**
    * Creates IDs for the dialog elements
@@ -75,12 +77,26 @@ export function useModal(options: UseModalOptions) {
    * `aria-hidden` attributes handling
    */
   const shouldHide = computed(() => isOpen.value && useInert?.value)
-  useAriaHidden(dialogRef, shouldHide)
+  useAriaHidden(dialogEl, shouldHide)
+
+  const hasHeader = ref(false)
+  const hasBody = ref(false)
 
   /**
    * Dialog props
    */
-  // const dialogProps = ()
+  const dialogProps = computed(() => ({
+    role: 'dialog',
+    ref: dialogRef,
+    id: dialogId.value,
+    tabIndex: -1,
+    'aria-modal': true,
+    'aria-labelledby': hasHeader.value ? headerId.value : null,
+    'arial-describedby': hasBody.value ? bodyId.value : null,
+    onClick(e: MouseEvent) {
+      instance?.emit('click', e)
+    },
+  }))
 
   console.log('HELLO useModal', {
     dialogId,
@@ -95,9 +111,9 @@ export function useModal(options: UseModalOptions) {
     isOpen,
     headerId,
     bodyId,
-    // dialogRef: (el: DOMRef): void => {
-    //   dialogRef.value = el?.$el || el
-    // },
+    dialogRef,
+    overlayRef,
+    dialogProps,
     // overlayRef: (el: DOMRef): void => {
     //   overlayRef.value = el?.$el || el
     // },

@@ -9,6 +9,7 @@ import { kebabCase } from 'lodash'
 const resolver = {
   CIconButton: 'c-button',
   CButtonGroup: 'c-button',
+  CModalOverlay: 'c-modal',
 }
 
 export default defineConfig({

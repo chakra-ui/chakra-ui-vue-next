@@ -1,5 +1,10 @@
 <template>
-  <c-modal> HELLO CModal </c-modal>
+  <chakra.div>
+    <c-modal>
+      <c-modal-overlay />
+      <chakra.div>Hello, Modal! ⚡️</chakra.div>
+    </c-modal>
+  </chakra.div>
 </template>
 
 <script setup lang="ts"></script>
