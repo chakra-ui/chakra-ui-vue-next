@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-motion",
   "description": "Chakra UI Vue | Chakra ui vue motion and transition components and utilities component",
-  "version": "1.0.0",
+  "version": "0.1.0-alpha.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -21,10 +21,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-motion",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -40,12 +37,15 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "1.10.0",
+    "@chakra-ui/styled-system": "^1.10.0",
     "@chakra-ui/vue-system": "0.1.0-alpha.1",
     "@chakra-ui/vue-utils": "0.1.0-alpha.1",
     "@vueuse/motion": "^1.5.4"
   },
   "peerDependencies": {
+    "vue": ">=3.0.5"
+  },
+  "devDependencies": {
     "vue": ">=3.0.5"
   }
 }
