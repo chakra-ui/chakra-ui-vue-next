@@ -1,7 +1,7 @@
 {
-  "name": "@chakra-ui/c-modal",
-  "description": "Chakra UI Vue | An accessible dialog modal component for chakra ui vue component",
-  "version": "1.1.0-alpha.0",
+  "name": "@chakra-ui/c-code",
+  "description": "Chakra UI Vue | Code is a component used to display inline code. It is composed from the Box component with a font family of mono for displaying code",
+  "version": "0.0.1-alpha.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -21,7 +21,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-modal",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-code",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -37,14 +37,17 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.1",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.1"
-  },
-  "peerDependencies": {
-    "vue": ">=3.0.5"
+    "@chakra-ui/utils": "^1.5.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.1"
   },
   "devDependencies": {
     "vue": ">=3.0.5"
-  }
+  },
+  "peerDependencies": {
+    "@chakra-ui/vue-system": "0.1.0-alpha.1",
+    "vue": "^3.0.5"
+  },
+  "contributors": [
+    "Vivek Wadhwani <devivekw@pm.me>"
+  ]
 }
