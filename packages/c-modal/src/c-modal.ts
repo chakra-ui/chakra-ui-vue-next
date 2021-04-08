@@ -12,7 +12,6 @@ import {
   h,
   defineComponent,
   PropType,
-  Prop,
   reactive,
   ComputedRef,
   Ref,
@@ -21,6 +20,9 @@ import {
   ToRefs,
   unref,
   ref,
+  mergeProps,
+  Fragment,
+  watch,
 } from 'vue'
 import {
   chakra,
@@ -33,13 +35,16 @@ import {
 import { createContext, TemplateRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import { FocusLockOptions, useFocusLock } from '@chakra-ui/c-focus-lock'
+import { CScrollLock } from '@chakra-ui/c-scroll-lock'
+
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { FocusableElement } from '@chakra-ui/utils'
 
 type ScrollBehavior = 'inside' | 'outside'
 type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none'
 
-export interface ModalOptions extends Omit<FocusLockOptions, 'enabled'> {
+export interface ModalOptions
+  extends Omit<FocusLockOptions, 'enabled' | 'closeModal' | 'handleEscape'> {
   /**
    *  If `true`, the modal will be centered on screen.
    * @default false
@@ -118,19 +123,14 @@ export interface CModalProps extends UseModalOptions, ModalOptions {
   motionPreset?: MotionPreset
 }
 
-type ToRef<Properties> = {
-  [name in keyof Properties]:
-    | Ref<Properties[name]>
-    | ComputedRef<Properties[name]>
-}
-
-type IUseModalOptions = ToRefs<CModalProps>
+type IUseModalOptions = ToRefs<Omit<CModalProps, 'closeModal' | 'handleEscape'>>
 
 interface CModalContext extends IUseModalOptions, UseModalReturn {
   //   /** The transition to be used for the CModal */
   //   motionPreset?: MotionPreset
   dialogRef: (el: TemplateRef) => void
   overlayRef: (el: TemplateRef) => void
+  closeModal: () => void
 }
 
 const [ModalContextProvider, useModalContext] = createContext<CModalContext>({
@@ -193,16 +193,35 @@ export const CModal = defineComponent({
       default: 'scale',
     },
   },
-  setup(props, { slots, attrs }) {
-    const styles = useMultiStyleConfig('Modal', attrs)
-    const modalOptions = reactive(props)
+  emits: ['update:is-open', 'escape'],
+  setup(props, { slots, attrs, emit }) {
+    const closeModal = () => {
+      emit('update:is-open', false)
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      emit('escape', event)
+    }
+
+    const styles = useMultiStyleConfig('Modal', mergeProps(props, attrs))
+    const modalOptions = reactive({
+      ...props,
+      closeModal,
+      handleEscape,
+    })
     const modal = useModal(modalOptions)
+
     ModalContextProvider({
       ...modal,
-      ...computed(() => props),
+      ...toRefs(props),
+      closeModal,
     })
+
     StylesProvider(styles)
-    return () => h(CPortal, {}, slots)
+    return () =>
+      h(Fragment, [
+        h(CPortal, () => (props.isOpen ? slots?.default?.() : undefined)),
+      ])
   },
 })
 
@@ -216,12 +235,15 @@ export const CModalFocusScope = defineComponent({
       returnFocusOnClose,
       closeOnOverlayClick,
       closeOnEsc,
-      dialogRef,
       blockScrollOnMount,
+      dialogRef,
       allowPinchZoom,
       finalFocusRef,
       preserveScrollBarGap,
+      ...rest
     } = useModalContext()
+
+    console.log({ rest })
 
     const _enabled = ref<boolean>(trapFocus?.value || true)
 
@@ -233,17 +255,19 @@ export const CModalFocusScope = defineComponent({
         _enabled.value = value
       },
     })
-
-    const focusLockOptions: FocusLockOptions = reactive(
-      unref({
-        enabled,
-        autoFocus,
-        initialFocusRef,
-        returnFocus: returnFocusOnClose,
-        clickOutsideDeactivates: closeOnOverlayClick,
-        escapeDeactivates: closeOnEsc,
+    trapFocus &&
+      watch(trapFocus, (newVal) => {
+        _enabled.value = Boolean(newVal)
       })
-    )
+
+    const focusLockOptions: FocusLockOptions = reactive({
+      enabled: enabled.value,
+      autoFocus: autoFocus?.value,
+      initialFocusRef: initialFocusRef?.value,
+      returnFocus: returnFocusOnClose?.value,
+      clickOutsideDeactivates: closeOnOverlayClick?.value,
+      escapeDeactivates: closeOnEsc?.value,
+    })
 
     const { lock } = useFocusLock(focusLockOptions)
 
@@ -254,9 +278,56 @@ export const CModalFocusScope = defineComponent({
           ref: lock,
           ...attrs,
         },
-        slots
+        () => [
+          h(
+            CScrollLock,
+            {
+              enabled: blockScrollOnMount?.value,
+            },
+            slots
+          ),
+        ]
       )
     }
+  },
+})
+
+/**
+ * ModalContent is used to group modal's content. It has all the
+ * necessary `aria-*` properties to indicate that it is a modal
+ */
+export const CModalContent = defineComponent({
+  name: 'CModalContent',
+  inheritAttrs: false,
+  emits: ['click'],
+  setup(_, { attrs, slots }) {
+    const { dialogProps, dialogContainerProps } = useModalContext()
+    const styles = useStyles()
+
+    const dialogContainerStyles = computed<SystemStyleObject>(() => ({
+      display: 'flex',
+      width: '100vw',
+      height: '100vh',
+      position: 'fixed',
+      left: 0,
+      top: 0,
+      ...styles.value.dialogContainer,
+    }))
+
+    return () =>
+      h(CModalFocusScope, {}, () => [
+        h(
+          chakra('div', {
+            label: 'modal__content-container',
+            __css: dialogContainerStyles.value,
+          }),
+          {
+            ...dialogContainerProps.value,
+            ...attrs,
+          },
+          slots
+        ),
+      ])
   },
 })
 
@@ -279,12 +350,16 @@ export const CModalOverlay = defineComponent({
       ...styles.value.overlay,
     }))
     return () =>
-      h(chakra('div'), {
-        __css: {
+      h(
+        chakra('div', {
           label: 'modal__overlay',
-          ...overlayStyle.value,
-        },
-        ...attrs,
-      })
+        }),
+        {
+          __css: {
+            ...overlayStyle.value,
+          },
+          ...attrs,
+        }
+      )
   },
 })

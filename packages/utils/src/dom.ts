@@ -19,7 +19,10 @@ export interface TemplateRef extends ComponentOptions, HTMLElement {
  *
  * @returns []
  */
-export function useRef(): [(el: TemplateRef) => void, Ref<HTMLElement | null>] {
+export function useRef(): [
+  (el: TemplateRef | null) => void,
+  Ref<HTMLElement | null>
+] {
   const refEl = ref<HTMLElement | null>(null)
 
   onBeforeUpdate(() => {
@@ -31,7 +34,7 @@ export function useRef(): [(el: TemplateRef) => void, Ref<HTMLElement | null>] {
    * Getter function to bind ref to value
    * @param el Template ref value provided by Vue
    */
-  const _ref = (el: TemplateRef) => {
+  const _ref = (el: TemplateRef | null) => {
     refEl.value = el?.$el || el
   }
 

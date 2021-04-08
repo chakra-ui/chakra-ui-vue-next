@@ -7,10 +7,14 @@ import path from 'path'
 import { kebabCase } from 'lodash'
 
 const resolver = {
+  CAlertTitle: 'c-alert',
+  CAlertDescription: 'c-alert',
+  CAlertIcon: 'c-alert',
   CIconButton: 'c-button',
   CButtonGroup: 'c-button',
   CModalOverlay: 'c-modal',
   CModalFocusScope: 'c-modal',
+  CModalContent: 'c-modal',
 }
 
 export default defineConfig({

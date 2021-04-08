@@ -6,6 +6,7 @@ import {
   Ref,
   ToRefs,
   toRefs,
+  VNodeProps,
   watchEffect,
 } from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
@@ -43,6 +44,14 @@ export interface UseModalOptions {
    *  @default true
    */
   useInert?: boolean
+  /**
+   * Emits event to close modal dialog
+   */
+  closeModal: () => void
+  /**
+   * Emits `escape` event to parent scope
+   */
+  handleEscape: (event: KeyboardEvent) => void
 }
 
 /**
@@ -52,6 +61,7 @@ export interface UseModalOptions {
  * @returns
  */
 export function useModal(options: UseModalOptions) {
+  const { handleEscape, closeModal } = options
   const { isOpen, id, closeOnOverlayClick, closeOnEsc, useInert } = toRefs(
     options
   )
@@ -61,8 +71,9 @@ export function useModal(options: UseModalOptions) {
   // DOM refs
   const [dialogRef, dialogEl] = useRef()
   const [overlayRef, overlayEl] = useRef()
-  // const dialogRef = ref<HTMLElement | null>(null)
-  // const overlayRef = ref<HTMLElement | null>(null)
+
+  /** We use this element to keep track of the currently clicked element */
+  const mouseDownTarget = ref<EventTarget | null>(null)
 
   /**
    * Creates IDs for the dialog elements
@@ -86,27 +97,61 @@ export function useModal(options: UseModalOptions) {
   /**
    * Dialog props
    */
-  const dialogProps = computed(() => ({
+  const dialogProps = computed<VNodeProps>(() => ({
     role: 'dialog',
-    ref: dialogRef,
+    ref: dialogRef as any,
     id: dialogId.value,
     tabIndex: -1,
     'aria-modal': true,
     'aria-labelledby': hasHeader.value ? headerId.value : null,
     'arial-describedby': hasBody.value ? bodyId.value : null,
-    onClick(e: MouseEvent) {
-      instance?.emit('click', e)
+    onClick(event: MouseEvent) {
+      event.stopPropagation()
+      instance?.emit('click', event)
     },
   }))
 
-  console.log('HELLO useModal', {
-    dialogId,
-    headerId,
-    bodyId,
-  })
+  const handleOverlayClick = (event: MouseEvent) => {
+    console.log('handleOverlayClick', event)
+    event.stopPropagation()
 
-  // TODO
-  // 1. Get
+    if (mouseDownTarget.value !== event.target) return
+
+    if (closeOnOverlayClick?.value) {
+      closeModal()
+    }
+  }
+
+  const onKeyDown = (event: KeyboardEvent) => {
+    console.log('onKeyDown', event)
+    if (event.key === 'Escape') {
+      event.stopPropagation()
+
+      if (closeOnEsc?.value) {
+        closeModal()
+      }
+
+      handleEscape(event)
+      // instance?.emit('click', event)
+    }
+  }
+
+  /** Dialog container props */
+  const dialogContainerProps = computed<VNodeProps>(() => ({
+    ref: overlayRef as any,
+    onClick: (event: MouseEvent) => {
+      instance?.emit('update:is-open', !isOpen.value)
+      handleOverlayClick(event)
+    },
+    onKeyDown: (event: KeyboardEvent) => {
+      instance?.emit('keydown', event)
+      onKeyDown(event)
+    },
+    onMouseDown: (event: MouseEvent) => {
+      instance?.emit('mousedown', event)
+      mouseDownTarget.value = event.target
+    },
+  }))
 
   return {
     isOpen,
@@ -115,15 +160,13 @@ export function useModal(options: UseModalOptions) {
     dialogRef,
     overlayRef,
     dialogProps,
-    // overlayRef: (el: DOMRef): void => {
-    //   overlayRef.value = el?.$el || el
-    // },
+    dialogContainerProps,
   }
 }
 
 export type UseModalReturn = Omit<
   ToRefs<ReturnType<typeof useModal>>,
-  'dialogRef' | 'overlayRef'
+  'dialogRef' | 'overlayRef' | 'closeModal'
 >
 
 /**
