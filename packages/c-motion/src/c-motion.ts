@@ -42,15 +42,16 @@ export const variants: CMotionVariants = {
   },
   scale: {
     initial: {
-      scale: 0.7,
+      scale: 0.5,
       opacity: 0,
     },
     enter: {
       scale: 1,
       opacity: 1,
+      translateY: 0,
     },
     leave: {
-      scale: 0.7,
+      scale: 0.8,
       opacity: 0,
     },
   },
@@ -67,7 +68,7 @@ export const CMotion = defineComponent({
     },
     type: {
       type: String as PropType<string>,
-      default: 'scale',
+      default: 'fade',
     },
   },
   setup(props, { slots, attrs }) {
@@ -86,19 +87,11 @@ export const CMotion = defineComponent({
       }
     )
     return () => {
-      // if (!slots.default) return null
-
       let children: any = undefined
-      // let transitionComponent: any = Transition
 
       const vNodes = slots
         ?.default?.()
         .filter((vnode) => String(vnode.type) !== 'Symbol(Comment)')
-
-      // if (vNodes.length > 1) {
-      //   transitionComponent = TransitionGroup
-      //   children = vNodes.map((node, i) => cloneVNode(node, { key: `el-${i}` }))
-      // }
 
       children = vNodes?.length
         ? cloneVNode(vNodes[0], { ref: targetRef as any })
@@ -110,7 +103,6 @@ export const CMotion = defineComponent({
           css: false,
           mode: 'out-in',
           onLeave: (el, done) => {
-            console.log(el)
             motionInstance.value.leave(done)
           },
         },

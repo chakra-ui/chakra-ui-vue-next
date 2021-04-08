@@ -115,9 +115,19 @@ export function useModal(options: UseModalOptions) {
     console.log('handleOverlayClick', event)
     event.stopPropagation()
 
-    if (mouseDownTarget.value !== event.target) return
+    console.log('PRE', {
+      closeOnOverlayClick: closeOnOverlayClick?.value,
+      isSameTarget: mouseDownTarget.value === event.target,
+      mouseDownTarget: mouseDownTarget.value,
+      eventTarget: event.target,
+    })
+    if (event.target !== event.currentTarget) return
 
     if (closeOnOverlayClick?.value) {
+      console.log('POST', {
+        closeOnOverlayClick: closeOnOverlayClick?.value,
+        isSameTarget: mouseDownTarget.value !== event.target,
+      })
       closeModal()
     }
   }
@@ -149,8 +159,9 @@ export function useModal(options: UseModalOptions) {
       onKeyDown(event)
     },
     onMouseDown: (event: MouseEvent) => {
-      instance?.emit('mousedown', event)
       mouseDownTarget.value = event.target
+      console.log('OnMouseDown called', mouseDownTarget.value)
+      instance?.emit('mousedown', event)
     },
   }))
 

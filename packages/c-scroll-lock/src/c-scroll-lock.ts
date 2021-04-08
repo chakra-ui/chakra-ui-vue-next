@@ -13,17 +13,19 @@ import { chakra, DOMElements } from '@chakra-ui/vue-system'
 import { BodyScrollLockDirective } from './body-scoll-lock.directive'
 
 export const CScrollLock = defineComponent({
+  name: 'CScrollLock',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: 'span',
     },
     enabled: Boolean as PropType<Boolean>,
   },
   setup(props, { slots, attrs }) {
     return () =>
-      withDirectives(h(chakra(props.as), { ...attrs }, slots), [
-        [BodyScrollLockDirective, props.enabled],
-      ])
+      withDirectives(
+        h(chakra(props.as, { label: 'scroll-lock' }), { ...attrs }, slots),
+        [[BodyScrollLockDirective, props.enabled]]
+      )
   },
 })

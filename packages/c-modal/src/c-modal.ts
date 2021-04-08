@@ -275,20 +275,13 @@ export const CModalFocusScope = defineComponent({
 
     return () => {
       return h(
-        chakra('div'),
+        CScrollLock,
         {
           ref: lock,
           ...attrs,
+          enabled: blockScrollOnMount?.value,
         },
-        () => [
-          h(
-            CScrollLock,
-            {
-              enabled: blockScrollOnMount?.value,
-            },
-            slots
-          ),
-        ]
+        slots
       )
     }
   },
@@ -316,6 +309,8 @@ export const CModalContent = defineComponent({
       ...styles.value.dialogContainer,
     }))
 
+    console.log(dialogContainerProps.value)
+
     return () =>
       h(CModalFocusScope, {}, () => [
         h(
@@ -324,17 +319,20 @@ export const CModalContent = defineComponent({
             __css: dialogContainerStyles.value,
           }),
           {
-            ...dialogContainerProps.value,
             ...attrs,
+            ...dialogContainerProps.value,
           },
-          // slots
           () => [
             h(
               CMotion,
               {
                 type: 'scale',
               },
-              () => [slots?.default?.()]
+              () => [
+                isOpen.value
+                  ? h(chakra('span'), () => slots?.default?.())
+                  : undefined,
+              ]
             ),
           ]
         ),
