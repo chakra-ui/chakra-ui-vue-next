@@ -1,7 +1,7 @@
 import { render } from '@chakra-ui/vue-test-utils/src'
-import { VueScrollLock } from '../src'
+import { CScrollLock } from '../src'
 
 it('should render properly', () => {
-  const { asFragment } = render(VueScrollLock)
+  const { asFragment } = render(CScrollLock)
   expect(asFragment()).toMatchSnapshot()
 })
