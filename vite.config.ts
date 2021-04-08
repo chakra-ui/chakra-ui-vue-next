@@ -6,6 +6,11 @@ import { componentResolver } from '@chakra-ui/vue-auto-import'
 import path from 'path'
 import { kebabCase } from 'lodash'
 
+const resolver = {
+  CIconButton: 'c-button',
+  CButtonGroup: 'c-button',
+}
+
 export default defineConfig({
   optimizeDeps: {
     exclude: ['@popperjs/core'],
@@ -38,7 +43,10 @@ export default defineConfig({
           if (kebabCase(name).startsWith('c-'))
             return {
               importName: name,
-              path: path.resolve(__dirname, './packages/core/src'),
+              path: path.join(
+                path.resolve(__dirname, './packages'),
+                `${resolver[name] || kebabCase(name)}/src`
+              ),
             }
         },
       ],

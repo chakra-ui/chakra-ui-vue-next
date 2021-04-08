@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-composables",
   "description": "Chakra UI Vue | Chakra ui vue utility composables component",
-  "version": "1.0.0",
+  "version": "0.1.0-alpha.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",

@@ -1,8 +1,10 @@
-import { FocusLockOptions } from '@chakra-ui/c-focus-lock'
+import { Ref, ref, toRefs, watch, watchEffect } from 'vue'
+import { useIds } from '@chakra-ui/vue-composables'
+import { hideOthers, Undo } from 'aria-hidden'
 
 type ScrollBehavior = 'inside' | 'outside'
 
-export interface UseModalOptions extends FocusLockOptions {
+export interface UseModalOptions {
   /**
    * If `true`, the modal will be open.
    */
@@ -31,24 +33,67 @@ export interface UseModalOptions extends FocusLockOptions {
    *  @default true
    */
   useInert?: boolean
-  /**
-   *  If `true`, the modal will be centered on screen.
-   * @default false
-   */
-  isCentered?: boolean
-  /**
-   * Where scroll behavior should originate.
-   * - If set to `inside`, scroll only occurs within the `ModalBody`.
-   * - If set to `outside`, the entire `ModalContent` will scroll within the viewport.
-   *
-   * @default "outside"
-   */
-  scrollBehavior?: ScrollBehavior
 }
 
-// Todo: add useModal content
-export function useModal() {
+/**
+ * Modal hook to manage accessibility and state for the modal
+ * dialog components
+ * @param options
+ * @returns
+ */
+export function useModal(options: UseModalOptions) {
+  const { isOpen, id, closeOnOverlayClick, closeOnEsc, useInert } = toRefs(
+    options
+  )
+
+  // DOM refs
+  const dialogRef = ref<HTMLElement | null>(null)
+  const overlayRef = ref<HTMLElement | null>(null)
+
+  const [dialogId, headerId, bodyId] = useIds(
+    id?.value,
+    `chakra-modal`,
+    `chakra-modal--header`,
+    `chakra-modal--body`
+  )
+
+  console.log('HELLO useModal', {
+    dialogId,
+    headerId,
+    bodyId,
+  })
+
   return {}
 }
 
 export type UseModalReturn = ReturnType<typeof useModal>
+
+/**
+ * Modal hook to polyfill `aria-modal`.
+ *
+ * It applies `aria-hidden` to elements behind the modal
+ * to indicate that they're `inert`.
+ *
+ * @param ref ref of the node to be excluded from aria-hidden
+ * @param shouldHide whether `aria-hidden` should be applied
+ */
+export function useAriaHidden(
+  node: Ref<HTMLElement>,
+  shouldHide: Ref<boolean>
+) {
+  watchEffect((onInvalidate) => {
+    if (!node.value) return
+
+    let undo: Undo | null = null
+
+    if (shouldHide.value && node.value) {
+      undo = hideOthers(node.value)
+    }
+
+    onInvalidate(() => {
+      if (shouldHide.value) {
+        undo?.()
+      }
+    })
+  })
+}

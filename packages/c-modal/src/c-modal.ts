@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, PropType, Prop } from 'vue'
+import { h, defineComponent, PropType, Prop, reactive } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -17,14 +17,36 @@ import {
 } from '@chakra-ui/vue-system'
 import { createContext } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
-import { useFocusLock } from '@chakra-ui/c-focus-lock'
-import { UseModalOptions, UseModalReturn } from './use-modal'
+import { FocusLockOptions, useFocusLock } from '@chakra-ui/c-focus-lock'
+import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { FocusableElement } from '@chakra-ui/utils'
 
 type ScrollBehavior = 'inside' | 'outside'
 type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none'
 
-export interface CModalProps extends UseModalOptions {
+export interface ModalOptions extends Omit<FocusLockOptions, 'enabled'> {
+  /**
+   *  If `true`, the modal will be centered on screen.
+   * @default false
+   */
+  isCentered?: boolean
+  /**
+   * Where scroll behavior should originate.
+   * - If set to `inside`, scroll only occurs within the `ModalBody`.
+   * - If set to `outside`, the entire `ModalContent` will scroll within the viewport.
+   *
+   * @default "outside"
+   */
+  scrollBehavior?: ScrollBehavior
+}
+
+export interface CModalProps extends UseModalOptions, ModalOptions {
+  /**
+   * If `true`, the modal will display
+   *
+   * @default true
+   */
+  isOpen: boolean
   /**
    * If `false`, focus lock will be disabled completely.
    *
@@ -81,7 +103,7 @@ export interface CModalProps extends UseModalOptions {
   motionPreset?: MotionPreset
 }
 
-interface CModalContext extends CModalProps, UseModalReturn {
+interface CModalContext extends UseModalOptions, UseModalReturn {
   /** The transition to be used for the CModal */
   motionPreset?: MotionPreset
 }
@@ -97,13 +119,23 @@ export { ModalContextProvider, useModalContext }
 
 export const CModal = defineComponent({
   props: {
-    isOpen: Boolean as PropType<CModalProps['isOpen']>,
+    isOpen: {
+      type: Boolean as PropType<CModalProps['isOpen']>,
+      default: false,
+    },
     id: String as PropType<CModalProps['id']>,
-    closeOnOverlayClick: Boolean as PropType<
-      CModalProps['closeOnOverlayClick']
-    >,
-    closeOnEsc: Boolean as PropType<CModalProps['closeOnEsc']>,
-    useInert: Boolean as PropType<CModalProps['useInert']>,
+    closeOnOverlayClick: {
+      type: Boolean as PropType<CModalProps['closeOnOverlayClick']>,
+      default: true,
+    },
+    closeOnEsc: {
+      type: Boolean as PropType<CModalProps['closeOnEsc']>,
+      default: true,
+    },
+    useInert: {
+      type: Boolean as PropType<CModalProps['useInert']>,
+      default: true,
+    },
     autoFocus: {
       type: Boolean as PropType<CModalProps['autoFocus']>,
       default: true,
@@ -137,19 +169,10 @@ export const CModal = defineComponent({
   },
   setup(props, { slots, attrs }) {
     const styles = useMultiStyleConfig('Modal', attrs)
-    return () =>
-      h(
-        // @ts-expect-error
-        ModalContextProvider,
-        {
-          value: props,
-        },
-        () => [
-          // @ts-expect-error
-          h(StylesProvider, {
-            styles: styles.value,
-          }),
-        ]
-      )
+    const modalOptions = reactive(props)
+    const modal = useModal(modalOptions)
+    ModalContextProvider(props)
+    StylesProvider(styles)
+    return () => h(CPortal, {}, slots)
   },
 })
