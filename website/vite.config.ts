@@ -1,11 +1,12 @@
 import { UserConfig } from 'vite'
+import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 import { extractCritical } from '@emotion/server'
 import Pages from 'vite-plugin-pages'
 import Icons from 'vite-plugin-icons'
 import ViteComponents from 'vite-plugin-components'
 import VueMdx from 'vite-plugin-mdx-vue'
-import path from 'path'
+import { componentResolver } from '@chakra-ui/vue-auto-import'
 
 /**
  *
@@ -33,20 +34,20 @@ const config: UserConfig = {
   plugins: [
     Vue({ include: [/\.vue$/, /\.mdx$/] }),
     VueMdx({
-      // wrapperComponent: 'mdx-layout-wrapper',
-      // mdxComponents: {
-      //   h1: "h1"
-      // }
+      wrapperComponent: 'mdx-layout-wrapper',
     }),
     Pages({
       extensions: ['vue', 'mdx'],
     }),
     ViteComponents({
-      // allow auto load markdown components under `./src/components/`
+      // directories
+      dirs: ['src/components', 'src/docs-theme'],
+      // allow auto load markdown components under `dirs` (above)
       extensions: ['vue', 'mdx'],
-
       // allow auto import and register components used in markdown
       customLoaderMatcher: (path: string) => path.endsWith('.mdx'),
+      // import chakra-ui components
+      customComponentResolvers: [componentResolver],
     }),
     Icons(),
   ],
