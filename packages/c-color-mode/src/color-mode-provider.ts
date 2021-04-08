@@ -1,14 +1,5 @@
 import { __DEV__ } from '@chakra-ui/utils'
-import { createContext } from '@chakra-ui/vue-utils'
-import {
-  defineComponent,
-  Fragment,
-  getCurrentInstance,
-  h,
-  inject,
-  isRef,
-  ref,
-} from 'vue'
+import { inject, isRef, ref } from 'vue'
 import { ColorMode } from './color-mode.utils'
 
 export type { ColorMode }
@@ -40,4 +31,24 @@ export const useColorMode = (): ColorModeContext => {
     colorMode,
     toggleColorMode,
   }
+}
+
+/**
+ * Change value based on color mode.
+ *
+ * @param light the light mode value
+ * @param dark the dark mode value
+ *
+ * @example
+ *
+ * ```js
+ * const Icon = useColorModeValue(MoonIcon, SunIcon)
+ * ```
+ */
+export function useColorModeValue<TLight = unknown, TDark = unknown>(
+  light: TLight,
+  dark: TDark
+) {
+  const { colorMode } = useColorMode()
+  return colorMode.value === 'dark' ? dark : light
 }
