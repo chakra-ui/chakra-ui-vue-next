@@ -2,10 +2,10 @@
   <chakra.div h="inherit" overflow-y="scroll" overflow-x="hidden">
     <chakra.h1 text-align="center">Body scroll locking! Yeah!</chakra.h1>
     <c-flex justify="center" my="4">
-      <c-button mr="3" @click="isScrollBlocked = true"
+      <c-button mr="3" color-scheme="red" @click="blockScroll = true"
         >Disable body scroll</c-button
       >
-      <c-button color-scheme="green" @click="isScrollBlocked = false"
+      <c-button color-scheme="green" @click="blockScroll = false"
         >Enable body scroll</c-button
       >
     </c-flex>
@@ -17,6 +17,7 @@
         border-color="orange.500"
         height="200px"
         overflow-y="scroll"
+        v-scroll-lock="blockScroll"
       >
         <chakra.p>
           {{ container }}
@@ -27,8 +28,8 @@
     <chakra.div mt="10">
       <chakra.h3 font-weight="bold" font-size="lg"
         >Main Body Content —
-        <chakra.span font-size="md" font-weight="normal">
-          {{ isScrollBlocked ? 'Scroll Locked' : 'Scroll Unlocked' }}
+        <chakra.span font-size="md" font-weight="bold" color="red.400">
+          {{ blockScroll ? 'Scroll Locked' : 'Scroll Unlocked' }}
         </chakra.span>
       </chakra.h3>
       <chakra.p>
@@ -41,5 +42,5 @@
 import { ref } from 'vue'
 import { main, container } from './texts'
 
-const isScrollBlocked = ref(false)
+const blockScroll = ref(false)
 </script>

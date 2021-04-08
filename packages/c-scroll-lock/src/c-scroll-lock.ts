@@ -3,8 +3,8 @@
  *
  * Directive to enable and disble body scrolling
  *
- * @see Docs     https://next.vue.chakra-ui.com/vue-scroll-lock
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/vue-scroll-lock/src/vue-scroll-lock/vue-scroll-lock.ts
+ * @see Docs     https://next.vue.chakra-ui.com/c-scroll-lock
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-scroll-lock/src/c-scroll-lock/c-scroll-lock.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
