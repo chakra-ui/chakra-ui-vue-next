@@ -104,6 +104,7 @@ export * from '@chakra-ui/c-icon'
 
 // M
 export * from '@chakra-ui/c-modal'
+export * from '@chakra-ui/c-motion'
 
 // P
 export * from '@chakra-ui/c-popper'

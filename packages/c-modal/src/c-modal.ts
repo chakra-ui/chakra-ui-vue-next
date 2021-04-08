@@ -26,7 +26,6 @@ import {
 } from 'vue'
 import {
   chakra,
-  DOMElements,
   StylesProvider,
   SystemStyleObject,
   useMultiStyleConfig,
@@ -36,6 +35,7 @@ import { createContext, TemplateRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import { FocusLockOptions, useFocusLock } from '@chakra-ui/c-focus-lock'
 import { CScrollLock } from '@chakra-ui/c-scroll-lock'
+import { CMotion } from '@chakra-ui/c-motion'
 
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { FocusableElement } from '@chakra-ui/utils'
@@ -219,8 +219,10 @@ export const CModal = defineComponent({
 
     StylesProvider(styles)
     return () =>
-      h(Fragment, [
-        h(CPortal, () => (props.isOpen ? slots?.default?.() : undefined)),
+      h(CPortal, () => [
+        h(CMotion, () => [
+          props.isOpen && h(chakra('span'), () => slots?.default?.()),
+        ]),
       ])
   },
 })
@@ -301,7 +303,7 @@ export const CModalContent = defineComponent({
   inheritAttrs: false,
   emits: ['click'],
   setup(_, { attrs, slots }) {
-    const { dialogProps, dialogContainerProps } = useModalContext()
+    const { dialogProps, dialogContainerProps, isOpen } = useModalContext()
     const styles = useStyles()
 
     const dialogContainerStyles = computed<SystemStyleObject>(() => ({
@@ -325,7 +327,16 @@ export const CModalContent = defineComponent({
             ...dialogContainerProps.value,
             ...attrs,
           },
-          slots
+          // slots
+          () => [
+            h(
+              CMotion,
+              {
+                type: 'scale',
+              },
+              () => [slots?.default?.()]
+            ),
+          ]
         ),
       ])
   },
@@ -351,15 +362,23 @@ export const CModalOverlay = defineComponent({
     }))
     return () =>
       h(
-        chakra('div', {
-          label: 'modal__overlay',
-        }),
+        CMotion,
         {
-          __css: {
-            ...overlayStyle.value,
-          },
-          ...attrs,
-        }
+          type: 'fade',
+        },
+        () => [
+          h(
+            chakra('div', {
+              label: 'modal__overlay',
+            }),
+            {
+              __css: {
+                ...overlayStyle.value,
+              },
+              ...attrs,
+            }
+          ),
+        ]
       )
   },
 })

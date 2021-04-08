@@ -11,7 +11,7 @@
     <c-modal v-model:is-open="isOpen">
       <c-modal-overlay />
       <c-modal-content>
-        <chakra.div>
+        <chakra.div bg="white" rounded="md" p="10">
           <c-button> Hello, Modal! ⚡️ </c-button>
         </chakra.div>
       </c-modal-content>
