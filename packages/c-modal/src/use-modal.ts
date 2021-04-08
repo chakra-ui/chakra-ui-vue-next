@@ -4,6 +4,7 @@ import {
   getCurrentInstance,
   ref,
   Ref,
+  ToRefs,
   toRefs,
   watchEffect,
 } from 'vue'
@@ -120,7 +121,10 @@ export function useModal(options: UseModalOptions) {
   }
 }
 
-export type UseModalReturn = ReturnType<typeof useModal>
+export type UseModalReturn = Omit<
+  ToRefs<ReturnType<typeof useModal>>,
+  'dialogRef' | 'overlayRef'
+>
 
 /**
  * Modal hook to polyfill `aria-modal`.

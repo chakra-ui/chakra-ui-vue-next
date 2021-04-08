@@ -18,6 +18,9 @@ import {
   Ref,
   toRefs,
   computed,
+  ToRefs,
+  unref,
+  ref,
 } from 'vue'
 import {
   chakra,
@@ -27,7 +30,7 @@ import {
   useMultiStyleConfig,
   useStyles,
 } from '@chakra-ui/vue-system'
-import { createContext } from '@chakra-ui/vue-utils'
+import { createContext, TemplateRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import { FocusLockOptions, useFocusLock } from '@chakra-ui/c-focus-lock'
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
@@ -116,14 +119,18 @@ export interface CModalProps extends UseModalOptions, ModalOptions {
 }
 
 type ToRef<Properties> = {
-  [name in keyof Properties]: Ref<Properties[name]>
+  [name in keyof Properties]:
+    | Ref<Properties[name]>
+    | ComputedRef<Properties[name]>
 }
 
-type IUseModalOptions = ToRef<UseModalOptions>
+type IUseModalOptions = ToRefs<CModalProps>
 
 interface CModalContext extends IUseModalOptions, UseModalReturn {
   //   /** The transition to be used for the CModal */
   //   motionPreset?: MotionPreset
+  dialogRef: (el: TemplateRef) => void
+  overlayRef: (el: TemplateRef) => void
 }
 
 const [ModalContextProvider, useModalContext] = createContext<CModalContext>({
@@ -136,6 +143,7 @@ const [ModalContextProvider, useModalContext] = createContext<CModalContext>({
 export { ModalContextProvider, useModalContext }
 
 export const CModal = defineComponent({
+  name: 'CModal',
   props: {
     isOpen: {
       type: Boolean as PropType<CModalProps['isOpen']>,
@@ -191,14 +199,75 @@ export const CModal = defineComponent({
     const modal = useModal(modalOptions)
     ModalContextProvider({
       ...modal,
-      ...toRefs(props),
+      ...computed(() => props),
     })
     StylesProvider(styles)
     return () => h(CPortal, {}, slots)
   },
 })
 
+export const CModalFocusScope = defineComponent({
+  name: 'CModalFocusScope',
+  setup(_, { attrs, slots }) {
+    const {
+      autoFocus,
+      trapFocus,
+      initialFocusRef,
+      returnFocusOnClose,
+      closeOnOverlayClick,
+      closeOnEsc,
+      dialogRef,
+      blockScrollOnMount,
+      allowPinchZoom,
+      finalFocusRef,
+      preserveScrollBarGap,
+    } = useModalContext()
+
+    const _enabled = ref<boolean>(trapFocus?.value || true)
+
+    const enabled = computed({
+      get() {
+        return _enabled?.value
+      },
+      set(value: boolean) {
+        _enabled.value = value
+      },
+    })
+
+    const focusLockOptions: FocusLockOptions = reactive(
+      unref({
+        enabled,
+        autoFocus,
+        initialFocusRef,
+        returnFocus: returnFocusOnClose,
+        clickOutsideDeactivates: closeOnOverlayClick,
+        escapeDeactivates: closeOnEsc,
+      })
+    )
+
+    const { lock } = useFocusLock(focusLockOptions)
+
+    return () => {
+      return h(
+        chakra('div'),
+        {
+          ref: lock,
+          ...attrs,
+        },
+        slots
+      )
+    }
+  },
+})
+
+/**
+ * CModalOverlay renders a backdrop behind the modal. It is
+ * also used as a wrapper for the modal content for better positioning.
+ *
+ * @see Docs https://next.chakra-ui.com/docs/overlay/modal
+ */
 export const CModalOverlay = defineComponent({
+  name: 'CModalOverlay',
   setup(_, { attrs }) {
     const styles = useStyles()
     const overlayStyle = computed<SystemStyleObject>(() => ({

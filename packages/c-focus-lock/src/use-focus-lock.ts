@@ -18,7 +18,7 @@ export interface FocusLockOptions {
    * Determines whether the focus lock is active or inactive
    * @default true
    */
-  enabled: boolean
+  enabled?: boolean
   /**
    * Invoked handler when focus-lock is activated
    */

@@ -10,6 +10,7 @@ const resolver = {
   CIconButton: 'c-button',
   CButtonGroup: 'c-button',
   CModalOverlay: 'c-modal',
+  CModalFocusScope: 'c-modal',
 }
 
 export default defineConfig({
