@@ -1052,7 +1052,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chakra-ui/styled-system@^1.10.0", "@chakra-ui/styled-system@^1.9.0":
+"@chakra-ui/styled-system@^1.10.0":
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-1.10.1.tgz#6f6774bec8c0fec768ae8ea57686563f888378b6"
   integrity sha512-fmLNnYmk6WbTSrApubsIRr9LOc5lclLkCa8DOP9mRTaUPKboy61c1p6vSYgto5DZVvNxEUqfuneboCUWk5ew+g==
