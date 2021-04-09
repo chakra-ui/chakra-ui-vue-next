@@ -1,11 +1,13 @@
 import {
   Component,
   computed,
+  ConcreteComponent,
   DefineComponent,
   defineComponent,
   h,
   HTMLAttributes,
   PropType,
+  resolveComponent,
 } from 'vue'
 import {
   css,
@@ -13,7 +15,7 @@ import {
   SystemProps,
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
-import { cx, isFunction, memoizedGet as get } from '@chakra-ui/utils'
+import { cx, isFunction, isObject, memoizedGet as get } from '@chakra-ui/utils'
 import { css as _css, CSSObject } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
@@ -109,10 +111,7 @@ export type ChakraBaseComponentProps = typeof chakraProps
  *    ```
  */
 // @ts-expect-error
-export const chakra: IChakraFactory = (
-  tag: DOMElements & Component,
-  options = {} as ChakraFactoryOptions
-): DefineComponent => {
+export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
   return defineComponent({
     name: `chakra-factory-${String(tag)}`,
     inheritAttrs: false,
@@ -177,8 +176,19 @@ export const chakra: IChakraFactory = (
         const className = _css(resolvedComponentStyles)
         const _componentName = label ? `chakra-${label}` : ''
 
+        let componentOrTag = tag
+
+        // if tag is not a dom element like as="div" and an object (vue component as an object) like v-bind:as="RouterLink"
+        if (
+          !isObject(componentOrTag) &&
+          !domElements.includes(componentOrTag as any)
+        ) {
+          // it's a string like as="router-link"
+          componentOrTag = resolveComponent(componentOrTag)
+        }
+
         return h(
-          tag,
+          componentOrTag as any,
           {
             class: cx(inheritedClass, _componentName, className),
             ...elementAttributes,
@@ -248,10 +258,19 @@ export const resolveStyles = (
   return cssObject
 }
 
+/**
+ * @example
+ * h(chakra(RouterLink, { to: 'https://chakraui' }), {}, slots)
+ */
+type UserProvidedProps = { [key: string]: any }
+
 type IChakraFactory = {
   [key in DOMElements]: DefineComponent | JSX.Element
 } & {
-  (tag: DOMElements, options?: StyleResolverProps): DefineComponent
+  (
+    tag: DOMElements | Component | ConcreteComponent | string,
+    options?: StyleResolverOptions & UserProvidedProps
+  ): DefineComponent | JSX.Element
 }
 
 domElements.forEach((tag) => {
