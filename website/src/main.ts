@@ -7,9 +7,11 @@ import {
   feGithub,
   feMenu,
   feMessageCircle,
+  feMoon,
   fePackage,
   feSearch,
   feStar,
+  feSun,
   feTwitter,
 } from 'feather-icons-paths'
 import { hydrate } from '@emotion/css'
@@ -33,9 +35,11 @@ export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
         feGithub,
         feMenu,
         feMessageCircle,
+        feMoon,
         fePackage,
         feSearch,
         feStar,
+        feSun,
         feTwitter,
       },
     },

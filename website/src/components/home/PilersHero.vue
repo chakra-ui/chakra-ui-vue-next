@@ -11,7 +11,7 @@
       :grid-template-columns="['auto', 'auto', 'repeat(3, 1fr)']"
       :style="{ gap: '1.5rem' }"
       shadow="lg"
-      bg="white"
+      :bg="`${colorMode}.bg`"
       py="10"
       :px="{ base: '3', sm: '10' }"
     >
@@ -21,7 +21,7 @@
             justify-content="center"
             align-items="center"
             mr="5"
-            bg="vue.200"
+            :bg="colorMode === 'light' ? 'vue.200' : 'vue.600'"
             w="50px"
             h="50px"
             rounded="full"
@@ -39,7 +39,7 @@
             justify-content="center"
             align-items="center"
             mr="5"
-            bg="vue.200"
+            :bg="colorMode === 'light' ? 'vue.200' : 'vue.600'"
             w="50px"
             h="50px"
             rounded="full"
@@ -57,7 +57,7 @@
             justify-content="center"
             align-items="center"
             mr="5"
-            bg="vue.200"
+            :bg="colorMode === 'light' ? 'vue.200' : 'vue.600'"
             w="50px"
             h="50px"
             rounded="full"
@@ -75,7 +75,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { CFlex, CBox } from '@chakra-ui/vue-next'
+import { CFlex, CBox, useColorMode } from '@chakra-ui/vue-next'
 
 import IconAccessibilityAlt from '/@vite-icons/carbon/accessibility-alt'
 import ColorPalette from '/@vite-icons/carbon/color-palette'
@@ -89,6 +89,13 @@ export default defineComponent({
     IconAccessibilityAlt,
     ColorPalette,
     Cube,
+  },
+  setup() {
+    const { colorMode } = useColorMode()
+
+    return {
+      colorMode,
+    }
   },
 })
 </script>

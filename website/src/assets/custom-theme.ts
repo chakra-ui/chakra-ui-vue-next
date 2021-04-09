@@ -15,6 +15,14 @@ export default extendTheme({
       800: '#21533B',
       900: '#143223',
     },
+    light: {
+      bg: 'white',
+      color: 'rgba(0, 0, 0, 0.80)',
+    },
+    dark: {
+      bg: '#1A202C',
+      color: 'rgba(255, 255, 255, 0.80)',
+    },
   },
   fonts: {
     heading: `Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
@@ -27,7 +35,7 @@ export default extendTheme({
   styles: {
     global: (props: any) => ({
       body: {
-        color: mode('gray.700', 'whiteAlpha.900')(props),
+        color: mode('rgba(0, 0, 0, 0.64)', 'rgba(255, 255, 255, 0.92)')(props),
         '.deleted': {
           color: '#ff8383 !important',
           fontStyle: 'normal !important',
@@ -141,5 +149,8 @@ export default extendTheme({
       whiteSpace: 'nowrap',
       lineHeight: 'normal',
     },
+  },
+  config: {
+    initialColorMode: 'light',
   },
 })

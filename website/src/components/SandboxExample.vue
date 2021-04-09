@@ -1,5 +1,10 @@
 <template>
-  <chakra.div :mx="[0, 10, 12]" :mt="[4, 10, 10]" shadow="2xl" bg="white">
+  <chakra.div
+    :mx="[0, 10, 12]"
+    :mt="[4, 10, 10]"
+    shadow="2xl"
+    :bg="`${colorMode}.bg`"
+  >
     <chakra.div pt="10" :px="{ base: '3', sm: '10' }">
       <chakra.h1
         maxW="16ch"
@@ -38,8 +43,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useColorMode } from '@chakra-ui/vue-next'
 
 export default defineComponent({
   name: 'SandboxExample',
+  setup() {
+    const { colorMode } = useColorMode()
+
+    return {
+      colorMode,
+    }
+  },
 })
 </script>

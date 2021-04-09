@@ -7,7 +7,7 @@
     position="fixed"
     align-items="center"
     shadow="sm"
-    bg="white"
+    :bg="`${colorMode}.bg`"
     z-index="10"
     border-top="6px solid"
     border-color="vue.500"
@@ -80,6 +80,17 @@
           icon="message-circle"
         />
       </CBox>
+      <CBox as="li" mr="2" :d="{ base: 'none', sm: 'block' }">
+        <c-icon-button
+          variant="ghost"
+          variant-color="gray"
+          @click="toggleColorMode"
+          :aria-label="`Switch to ${
+            colorMode === 'light' ? 'dark' : 'light'
+          } mode`"
+          :icon="colorMode === 'light' ? 'moon' : 'sun'"
+        />
+      </CBox>
       <CBox as="li">
         <CIconButton
           as="a"
@@ -98,7 +109,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { CBox, CFlex, CIconButton, CIcon } from '@chakra-ui/vue-next'
+import {
+  CBox,
+  CFlex,
+  CIconButton,
+  CIcon,
+  useColorMode,
+} from '@chakra-ui/vue-next'
 import ChakraUILogoIcon from './ChakraLogoIcon.vue'
 
 export default defineComponent({
@@ -109,6 +126,14 @@ export default defineComponent({
     CIconButton,
     CIcon,
     ChakraUILogoIcon,
+  },
+  setup() {
+    const { colorMode, toggleColorMode } = useColorMode()
+
+    return {
+      colorMode,
+      toggleColorMode,
+    }
   },
 })
 </script>

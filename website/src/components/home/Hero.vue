@@ -1,8 +1,8 @@
 <template>
   <chakra.header
     pos="relative"
-    bg="white"
-    :bgGradient="{ base: '', md: 'linear(to-br, white, white, vue.100)' }"
+    :bg="`${colorMode}.bg`"
+    :bgGradient="{ base: '', md: bgGradient }"
     :min-h="{ base: 'auto', sm: '90vh' }"
     :pt="{ base: '3rem', sm: '150px' }"
     :px="[4, 10, 12]"
@@ -84,14 +84,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { CButton, CFlex } from '@chakra-ui/vue-next'
+import { defineComponent, computed } from 'vue'
+import { CButton, CFlex, useColorMode } from '@chakra-ui/vue-next'
 
 export default defineComponent({
   name: 'Hero',
   components: {
     CButton,
     CFlex,
+  },
+  setup() {
+    const { colorMode } = useColorMode()
+    const bgGradient = computed(() => {
+      if (colorMode.value === 'light') {
+        return 'linear(to-br, white, white, vue.100)'
+      }
+      return 'linear(to-br, dark.bg, dark.bg, vue.900)'
+    })
+
+    return {
+      colorMode,
+      bgGradient,
+    }
   },
 })
 </script>

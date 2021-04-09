@@ -1,11 +1,13 @@
 <template>
   <c-reset />
-  <router-view />
+  <chakra.section :__css="rootStyles">
+    <router-view />
+  </chakra.section>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, computed } from 'vue'
-import { CReset } from '@chakra-ui/vue-next'
+import { CReset, useColorMode } from '@chakra-ui/vue-next'
 import { useHead } from '@vueuse/head'
 
 export default defineComponent({
@@ -28,6 +30,29 @@ export default defineComponent({
         },
       ],
     })
+
+    const { colorMode } = useColorMode()
+    const rootStyles = computed(() => {
+      const styles = {
+        light: {
+          bg: 'light.bg',
+          color: 'light.color',
+        },
+        dark: {
+          bg: 'dark.bg',
+          color: 'dark.color',
+        },
+      }
+
+      return {
+        ...styles[colorMode.value],
+      }
+    })
+
+    return {
+      colorMode,
+      rootStyles,
+    }
   },
 })
 </script>

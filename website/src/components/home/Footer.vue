@@ -4,7 +4,7 @@
     justify-content="center"
     align-items="center"
     :py="[4, 10, 10]"
-    bg="white"
+    :bg="`${colorMode}.bg`"
   >
     <chakra.a
       aria-label="View GitHub"
@@ -41,13 +41,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { CFlex, CIcon } from '@chakra-ui/vue-next'
+import { CFlex, CIcon, useColorMode } from '@chakra-ui/vue-next'
 
 export default defineComponent({
   name: 'Footer',
   components: {
     CFlex,
     CIcon,
+  },
+  setup() {
+    const { colorMode } = useColorMode()
+
+    return {
+      colorMode,
+    }
   },
 })
 </script>
