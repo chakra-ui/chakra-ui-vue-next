@@ -74,12 +74,11 @@ describe('as prop', () => {
     )
 
     expect(container.querySelector('a')).toBeInTheDocument()
-
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('render Vue Component like :as="RouterLink"', () => {
-    const { asFragment } = render({
+    const { container, asFragment } = render({
       components: {
         chakra: defineComponent({
           setup(_, { slots }) {
@@ -95,6 +94,7 @@ describe('as prop', () => {
       template: `<chakra>as RouterLink</chakra>`,
     })
 
+    expect(container.querySelector('a')).toBeInTheDocument()
     expect(asFragment()).toMatchSnapshot()
   })
 })
