@@ -1,7 +1,7 @@
 {
-  "name": "@chakra-ui/c-badge",
-  "description": "Chakra UI Vue | Badges are used to highlight an item s status for quick recognition component",
-  "version": "1.0.0-alpha.1",
+  "name": "@chakra-ui/vue-layout",
+  "description": "Chakra UI Vue | Chakra ui layout components that give you massive speed component",
+  "version": "0.1.0-alpha.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -21,7 +21,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-badge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
+  },
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -37,14 +40,12 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^1.5.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.1"
-  },
-  "devDependencies": {
-    "vue": ">=3.0.5"
+    "@chakra-ui/styled-system": "^1.9.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.1",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.1",
+    "@chakra-ui/vue-layout": "0.1.0-alpha.1"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.1",
-    "vue": "^3.0.5"
+    "vue": ">=3.0.5"
   }
 }

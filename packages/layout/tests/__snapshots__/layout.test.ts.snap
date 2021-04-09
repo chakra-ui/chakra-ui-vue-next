@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <a
+    class="css-xisxf"
+  >
+    CLink
+  </a>
+  <a
+    class="css-xisxf"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    CLink external
+  </a>
+</DocumentFragment>
+`;
