@@ -27,13 +27,6 @@
         </chakra.p>
       </CBox>
     </CFlex>
-    <CBox
-      :w="{ base: 0, lg: '10' }"
-      h="100%"
-      bg="vue.50"
-      :mx="{ base: '10', lg: '24' }"
-      transform="skewX(20deg)"
-    />
     <CFlex
       flex-dir="row"
       :pt="{ base: '0', lg: '10' }"
