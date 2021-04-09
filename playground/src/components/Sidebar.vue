@@ -17,6 +17,7 @@ const Stories = defineComponent({
           chakra.ul,
           {
             p: 0,
+            pb: 4,
             m: 0,
             w: '175px',
             listStyleType: 'none',
