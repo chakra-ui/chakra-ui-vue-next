@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-badge",
   "description": "Chakra UI Vue | Badges are used to highlight an item s status for quick recognition component",
-  "version": "0.0.1-alpha.0",
+  "version": "1.0.0-alpha.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -38,13 +38,13 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^1.5.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0"
+    "@chakra-ui/vue-system": "0.1.0-alpha.1"
   },
   "devDependencies": {
     "vue": ">=3.0.5"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.1",
     "vue": "^3.0.5"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-accordion",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -25,6 +25,6 @@
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.0.1-alpha.0"
+    "@chakra-ui/vue-system": "0.1.0-alpha.1"
   }
 }

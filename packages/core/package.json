@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-next",
-  "version": "0.0.1-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -29,24 +29,26 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/c-accordion": "0.0.1-alpha.0",
-    "@chakra-ui/c-alert": "0.0.1-alpha.0",
-    "@chakra-ui/c-badge": "0.0.1-alpha.0",
-    "@chakra-ui/c-button": "0.0.1-alpha.0",
-    "@chakra-ui/c-color-mode": "0.0.1-alpha.0",
-    "@chakra-ui/c-flex": "0.0.1-alpha.0",
-    "@chakra-ui/c-icon": "0.0.1-alpha.0",
-    "@chakra-ui/c-popper": "0.0.1-alpha.0",
-    "@chakra-ui/c-portal": "0.0.1-alpha.0",
-    "@chakra-ui/c-reset": "0.0.1-alpha.0",
-    "@chakra-ui/c-spinner": "0.0.1-alpha.0",
-    "@chakra-ui/c-theme-provider": "0.0.1-alpha.0",
-    "@chakra-ui/c-visually-hidden": "0.0.1-alpha.0",
+    "@chakra-ui/c-accordion": "0.1.0-alpha.1",
+    "@chakra-ui/c-alert": "1.0.0-alpha.1",
+    "@chakra-ui/c-badge": "1.0.0-alpha.1",
+    "@chakra-ui/c-button": "1.0.0-alpha.1",
+    "@chakra-ui/c-close-button": "0.1.0-alpha.1",
+    "@chakra-ui/c-color-mode": "0.1.0-alpha.1",
+    "@chakra-ui/c-flex": "1.0.0-alpha.1",
+    "@chakra-ui/c-icon": "1.0.0-alpha.1",
+    "@chakra-ui/c-modal": "1.1.0-alpha.0",
+    "@chakra-ui/c-popper": "0.1.0-alpha.1",
+    "@chakra-ui/c-portal": "0.1.0-alpha.1",
+    "@chakra-ui/c-reset": "1.0.0-alpha.1",
+    "@chakra-ui/c-spinner": "1.0.0-alpha.1",
+    "@chakra-ui/c-theme-provider": "1.0.0-alpha.1",
+    "@chakra-ui/c-visually-hidden": "1.0.0-alpha.1",
     "@chakra-ui/styled-system": "^1.10.0",
     "@chakra-ui/utils": "^1.5.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
-    "@chakra-ui/vue-theme": "0.0.1-alpha.0",
-    "@chakra-ui/vue-theme-tools": "0.0.1-alpha.0"
+    "@chakra-ui/vue-system": "0.1.0-alpha.1",
+    "@chakra-ui/vue-theme": "0.1.0-alpha.1",
+    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.1"
   },
   "devDependencies": {
     "vue": ">=3.0.5"
@@ -54,8 +56,8 @@
   "peerDependencies": {
     "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/utils": "1.4.0",
-    "@chakra-ui/vue-system": "0.0.1-alpha.0",
-    "@chakra-ui/vue-theme": "0.0.1-alpha.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.1",
+    "@chakra-ui/vue-theme": "0.1.0-alpha.1",
     "vue": "^3.0.5"
   }
 }

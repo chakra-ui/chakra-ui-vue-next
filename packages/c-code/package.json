@@ -1,10 +1,14 @@
 {
-  "name": "@chakra-ui/c-alert",
-  "version": "1.0.0-alpha.1",
+  "name": "@chakra-ui/c-code",
+  "description": "Chakra UI Vue | Code is a component used to display inline code. It is composed from the Box component with a font family of mono for displaying code",
+  "version": "0.0.1-alpha.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "typings": "dist/types/index.d.ts",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
   "files": [
     "dist"
   ],
@@ -14,10 +18,14 @@
       "default": "./dist/esm/index.js"
     }
   },
-  "description": "Chakra UI Vue | CAlert component",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-alert",
-  "author": "Jonathan Bakebwa codebender828@gmail.com",
-  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-code",
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
   "scripts": {
     "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
@@ -29,9 +37,8 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "1.0.0-alpha.1",
-    "@chakra-ui/vue-system": "0.1.0-alpha.1",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.1"
+    "@chakra-ui/utils": "^1.5.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.1"
   },
   "devDependencies": {
     "vue": ">=3.0.5"
@@ -39,5 +46,8 @@
   "peerDependencies": {
     "@chakra-ui/vue-system": "0.1.0-alpha.1",
     "vue": "^3.0.5"
-  }
+  },
+  "contributors": [
+    "Vivek Wadhwani <devivekw@pm.me>"
+  ]
 }
