@@ -1,5 +1,12 @@
 import { vueThemingProps } from './utils'
-import { h, defineComponent, PropType, computed } from 'vue'
+import {
+  h,
+  defineComponent,
+  PropType,
+  computed,
+  resolveComponent,
+  createVNode,
+} from 'vue'
 import {
   chakra,
   DOMElements,
@@ -12,12 +19,12 @@ import { filterUndefined } from '@chakra-ui/utils'
  * Links are accessible elements used primarily for navigation.
  *
  * It integrates well with other routing libraries like
- * React Router, Reach Router and Next.js Link.
+ * Vue Router and Nuxt.js Link.
  *
  * @example
  *
- * ```jsx
- * <Link as={ReactRouterLink} to="/home">Home</Link>
+ * ```vue
+ * <CLink as="router-link" to="/home">Home</CLink>
  * ```
  *
  * @see Docs https://chakra-ui.com/docs/layout/link
