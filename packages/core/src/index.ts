@@ -81,7 +81,6 @@ export * from '@chakra-ui/c-alert'
 
 // B
 export const CBox = chakra.div
-export * from '@chakra-ui/c-badge'
 export * from '@chakra-ui/c-button'
 
 // C

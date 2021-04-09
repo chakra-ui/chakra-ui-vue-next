@@ -1,4 +1,4 @@
-import { CLink } from '../src'
+import { CLink, CBadge } from '../src'
 import { render, testA11y } from '../../test-utils/src'
 
 const renderComponent = (props?: any) =>
@@ -17,4 +17,21 @@ it('should render properly', () => {
 
 it('should have no a11y violations', async () => {
   await testA11y(renderComponent())
+})
+
+describe('<CBadge />', () => {
+  const renderBadgeComponent = () =>
+    render({
+      components: { CBadge },
+      template: `<CBadge>this is a badge</CBadge>`,
+    })
+
+  test('should render properly', async () => {
+    const { asFragment } = renderBadgeComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('passes a11y test', async () => {
+    await testA11y(renderBadgeComponent())
+  })
 })

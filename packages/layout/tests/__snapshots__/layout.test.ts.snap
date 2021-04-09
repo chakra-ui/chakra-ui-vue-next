@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<CBadge /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1f1oimr"
+  >
+    this is a badge
+  </div>
+</DocumentFragment>
+`;
+
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <a

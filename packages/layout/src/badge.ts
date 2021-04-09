@@ -6,17 +6,15 @@ import {
   useStyleConfig,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
+import { vueThemingProps } from './utils'
 
-const CBadge = defineComponent({
+export const CBadge = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
       default: 'div',
     },
-    colorScheme: String as PropType<ThemingProps['colorScheme']>,
-    variant: String as PropType<ThemingProps['variant']>,
-    size: String as PropType<ThemingProps['size']>,
-    styleConfig: String as PropType<ThemingProps['styleConfig']>,
+    ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
     return () => {
@@ -46,5 +44,3 @@ const CBadge = defineComponent({
     }
   },
 })
-
-export default CBadge
