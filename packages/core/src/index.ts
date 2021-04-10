@@ -94,6 +94,9 @@ export * from '@chakra-ui/c-flex'
 // I
 export * from '@chakra-ui/c-icon'
 
+// L
+export * from '@chakra-ui/vue-layout'
+
 // M
 export * from '@chakra-ui/c-modal'
 
