@@ -119,7 +119,7 @@ const CSpinner = defineComponent({
         {
           ...attrs,
         },
-        props.label && [h(CVisuallyHidden, props.label)]
+        props.label && (() => [h(CVisuallyHidden, () => props.label)])
       )
     }
   },
