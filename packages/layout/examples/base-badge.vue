@@ -41,7 +41,6 @@
   </chakra.div>
 </template>
 <script setup>
-import { CBadge } from '@chakra-ui/vue-layout'
 import { ref } from 'vue'
 
 const colorSchemes = ref(['gray', 'green', 'red', 'orange', 'purple', 'teal'])

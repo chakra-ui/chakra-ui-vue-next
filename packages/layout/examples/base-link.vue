@@ -8,6 +8,4 @@
     </chakra.div>
   </chakra.div>
 </template>
-<script setup>
-import { CLink } from '@chakra-ui/vue-layout'
-</script>
+<script setup></script>
