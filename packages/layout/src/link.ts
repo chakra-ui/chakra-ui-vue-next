@@ -1,4 +1,4 @@
-import { vueThemingProps } from './utils'
+import { vueThemingProps } from '@chakra-ui/vue-utils'
 import {
   h,
   defineComponent,

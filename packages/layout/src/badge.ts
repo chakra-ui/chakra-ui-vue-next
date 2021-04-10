@@ -6,7 +6,7 @@ import {
   useStyleConfig,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
-import { vueThemingProps } from './utils'
+import { vueThemingProps } from '@chakra-ui/vue-utils'
 
 export const CBadge = defineComponent({
   props: {
