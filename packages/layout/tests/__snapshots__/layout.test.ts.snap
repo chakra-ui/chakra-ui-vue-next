@@ -10,7 +10,7 @@ exports[`<CBadge /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should render properly 1`] = `
+exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
     class="css-xisxf"
