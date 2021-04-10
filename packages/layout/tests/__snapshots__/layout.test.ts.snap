@@ -3,7 +3,7 @@
 exports[`<CBadge /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="css-1f1oimr"
+    class="chakra-badge css-1f1oimr"
   >
     this is a badge
   </div>
@@ -13,12 +13,12 @@ exports[`<CBadge /> should render properly 1`] = `
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
-    class="css-xisxf"
+    class="chakra-link css-xisxf"
   >
     CLink
   </a>
   <a
-    class="css-xisxf"
+    class="chakra-link css-xisxf"
     rel="noopener noreferrer"
     target="_blank"
   >
