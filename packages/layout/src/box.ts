@@ -25,11 +25,10 @@ export const CBox = defineComponent({
     return () => {
       return h(
         chakra(props.as, {
+          ...attrs,
           label: attrs.label ? (attrs.label as string) : 'box', // for CSquare
         }),
-        {
-          ...attrs,
-        },
+        {},
         slots
       )
     }

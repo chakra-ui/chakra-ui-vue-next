@@ -1,13 +1,16 @@
 import {
   CAspectRatio,
   CBox,
+  CSquare,
+  CCenter,
+  CCircle,
   CLink,
   CBadge,
   CStack,
   CVStack,
   CHStack,
 } from '../src'
-import { render, testA11y, TestRenderProps } from '../../test-utils/src'
+import { render, testA11y } from '../../test-utils/src'
 
 describe('<CLink />', () => {
   const renderComponent = () =>
@@ -98,6 +101,43 @@ describe('<CBox />', () => {
       <c-box as="section" bg="tomato" w="100%" p="4" color="white" max-w="300px">
         This is a box with as="section"
       </c-box>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CSquare /> & <CCircle />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CSquare, CCircle },
+      template: `
+      <c-square size="40px" bg="purple.700" color="white">
+        S
+      </c-square>
+      <c-circle size="40px" bg="red.500" color="white">
+        C
+      </c-circle>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CCenter />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CCenter },
+      template: `
+      <c-center w="40px" h="40px" bg="purple.700" color="white">
+        C
+      </c-center>
       `,
     })
 

@@ -38,6 +38,16 @@ exports[`<CBox /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CCenter /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-center css-40w18w"
+  >
+     C 
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
@@ -52,6 +62,21 @@ exports[`<CLink /> should render properly 1`] = `
   >
     CLink external
   </a>
+</DocumentFragment>
+`;
+
+exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-square css-yh3vrj"
+  >
+     S 
+  </div>
+  <div
+    class="chakra-circle css-1afsfyy"
+  >
+     C 
+  </div>
 </DocumentFragment>
 `;
 
