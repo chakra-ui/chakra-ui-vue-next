@@ -8,6 +8,12 @@ import {
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
 
+/**
+ * Vue component used to display notifications, messages, or
+ * statuses in different shapes and sizes.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
+ */
 export const CBadge = defineComponent({
   props: {
     as: {

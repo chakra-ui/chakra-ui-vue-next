@@ -27,7 +27,7 @@ import { filterUndefined } from '@chakra-ui/utils'
  * <CLink as="router-link" to="/home">Home</CLink>
  * ```
  *
- * @see Docs https://chakra-ui.com/docs/layout/link
+ * @see Docs https://vue.chakra-ui.com/docs/layout/link
  */
 export const CLink = defineComponent({
   props: {

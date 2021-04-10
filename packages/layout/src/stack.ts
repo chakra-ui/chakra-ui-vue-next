@@ -116,6 +116,17 @@ const stackProps = {
   isInline: [Boolean] as PropType<StackProps['isInline']>,
 }
 
+/**
+ * Stacks help you easily create flexible and automatically distributed layouts
+ *
+ * You can stack elements in the horizontal or vertical direction,
+ * and apply a space or/and divider between each element.
+ *
+ * It uses `display: flex` internally and renders a `div`.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/stack
+ *
+ */
 export const CStack = defineComponent({
   name: 'CStack',
   props: stackProps,
