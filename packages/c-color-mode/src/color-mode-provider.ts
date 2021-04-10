@@ -1,5 +1,5 @@
 import { __DEV__ } from '@chakra-ui/utils'
-import { inject, isRef, ref } from 'vue'
+import { inject, isRef, ref, watchEffect } from 'vue'
 import { ColorMode } from './color-mode.utils'
 
 export type { ColorMode }
@@ -50,5 +50,11 @@ export function useColorModeValue<TLight = unknown, TDark = unknown>(
   dark: TDark
 ) {
   const { colorMode } = useColorMode()
-  return colorMode.value === 'dark' ? dark : light
+  const modeValue = ref()
+
+  watchEffect(() => {
+    modeValue.value = colorMode.value === 'dark' ? dark : light
+  })
+
+  return modeValue
 }
