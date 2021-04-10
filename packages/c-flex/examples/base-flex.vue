@@ -1,6 +1,6 @@
 <template>
   <c-flex align="center">
-    <c-flex bg="green.50" align="flex-end">
+    <c-flex :bg="{ base: 'green.50', sm: 'blue.50' }" align="flex-end">
       <chakra.p>Box 1</chakra.p>
     </c-flex>
     <c-flex
