@@ -114,11 +114,10 @@ export function getElementStyles(selector: string) {
  * ```
  */
 export const testA11y = async (
-  ui: UI | Element,
+  ui: vtl.RenderResult,
   { axeOptions, ...options }: A11yOptions = {}
 ) => {
-  const container = vtl.render(ui, options).container
-  const results = await axe(container, axeOptions)
+  const results = await axe(ui.container, axeOptions)
 
   expect(results).toHaveNoViolations()
 }
