@@ -29,7 +29,7 @@ export const CBadge = defineComponent({
       const styles = useStyleConfig('Badge', themingProps.value)
 
       return h(
-        chakra(props.as),
+        chakra(props.as, { label: 'badge' }),
         {
           __css: {
             display: 'inline-block',

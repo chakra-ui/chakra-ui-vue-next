@@ -51,7 +51,7 @@ export const CLink = defineComponent({
       const styles = useStyleConfig('Link', themingProps.value)
 
       return h(
-        chakra(props.as),
+        chakra(props.as, { label: 'link' }),
         {
           target: props.isExternal ? '_blank' : undefined,
           rel: props.isExternal ? 'noopener noreferrer' : undefined,
