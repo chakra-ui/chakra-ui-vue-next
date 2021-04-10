@@ -80,7 +80,6 @@ export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
 
 // B
-export const CBox = chakra.div
 export * from '@chakra-ui/c-button'
 
 // C

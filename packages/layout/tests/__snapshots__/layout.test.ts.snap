@@ -23,6 +23,21 @@ exports[`<CBadge /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CBox /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-box css-2sy3sl"
+  >
+     This is a div 
+  </div>
+  <section
+    class="chakra-box css-2sy3sl"
+  >
+     This is a box with as="section" 
+  </section>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a

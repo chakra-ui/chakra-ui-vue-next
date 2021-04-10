@@ -1,4 +1,12 @@
-import { CAspectRatio, CLink, CBadge, CStack, CVStack, CHStack } from '../src'
+import {
+  CAspectRatio,
+  CBox,
+  CLink,
+  CBadge,
+  CStack,
+  CVStack,
+  CHStack,
+} from '../src'
 import { render, testA11y, TestRenderProps } from '../../test-utils/src'
 
 describe('<CLink />', () => {
@@ -76,5 +84,25 @@ describe('<CAspectRatio />', () => {
 
   it('a11y test', async () => {
     await testA11y(renderComponent())
+  })
+})
+
+describe('<CBox />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CBox },
+      template: `
+      <c-box bg="tomato" w="100%" p="4" color="white" max-w="300px">
+        This is a div
+      </c-box>
+      <c-box as="section" bg="tomato" w="100%" p="4" color="white" max-w="300px">
+        This is a box with as="section"
+      </c-box>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
