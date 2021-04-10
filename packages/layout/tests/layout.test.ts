@@ -15,7 +15,7 @@ describe('<CLink />', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should have no a11y violations', async () => {
+  it('a11y test', async () => {
     await testA11y(renderComponent())
   })
 })
@@ -27,12 +27,12 @@ describe('<CBadge />', () => {
       template: `<CBadge>this is a badge</CBadge>`,
     })
 
-  test('should render properly', async () => {
+  it('should render properly', async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('passes a11y test', async () => {
+  it('a11y test', async () => {
     await testA11y(renderComponent())
   })
 })
