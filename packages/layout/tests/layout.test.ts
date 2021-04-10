@@ -1,12 +1,12 @@
-import { CLink, CBadge } from '../src'
+import { CLink, CBadge, CStack, CVStack, CHStack } from '../src'
 import { render, testA11y, TestRenderProps } from '../../test-utils/src'
 
 describe('<CLink />', () => {
   const renderComponent = () =>
     render({
       components: { CLink },
-      template: `<c-link>CLink</c-link>
-      <c-link is-external>CLink external</c-link>
+      template: `<CLink>CLink</CLink>
+      <CLink is-external>CLink external</CLink>
       `,
     })
 
@@ -25,6 +25,27 @@ describe('<CBadge />', () => {
     render({
       components: { CBadge },
       template: `<CBadge>this is a badge</CBadge>`,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('a11y test', async () => {
+    await testA11y(renderComponent())
+  })
+})
+
+describe('<CStack />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CHStack, CVStack, CStack },
+      template: `
+      <CStack><div>1</div><div>2</div></CStack>
+      <CHStack><div>1</div><div>2</div></CHStack>
+      <CVStack><div>1</div><div>2</div></CVStack>
+      `,
     })
 
   it('should render properly', async () => {

@@ -26,3 +26,38 @@ exports[`<CLink /> should render properly 1`] = `
   </a>
 </DocumentFragment>
 `;
+
+exports[`<CStack /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-stack css-x9juev"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+  <div
+    class="chakra-stack-horizontal css-84zodg"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+  <div
+    class="chakra-stack-vertical css-owjkmg"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+</DocumentFragment>
+`;
