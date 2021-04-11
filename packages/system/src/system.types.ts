@@ -45,5 +45,3 @@ export interface ChakraProps extends SystemProps {
    */
   noOfLines?: ResponsiveValue<number>
 }
-
-export type { SystemStyleObject } from '@chakra-ui/styled-system'
