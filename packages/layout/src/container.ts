@@ -19,6 +19,14 @@ export interface ContainerProps
   centerContent?: boolean
 }
 
+/**
+ * Layout component used to wrap app or website content
+ *
+ * It sets `margin-left` and `margin-right` to `auto`,
+ * to keep its content centered.
+ *
+ * It also sets a default max-width of `60ch` (60 characters).
+ */
 export const CContainer = defineComponent({
   props: {
     as: {
