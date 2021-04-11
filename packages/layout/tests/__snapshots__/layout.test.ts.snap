@@ -58,6 +58,23 @@ exports[`<CContainer /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CDivider /> should render properly 1`] = `
+<DocumentFragment>
+  <hr
+    aria-orientation="horizontal"
+    class="chakra-divider css-1y71u2e"
+  />
+  <div
+    class="chakra-center css-1yj0ggl"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="chakra-divider css-1psxsf8"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
