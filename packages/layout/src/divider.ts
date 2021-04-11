@@ -1,7 +1,6 @@
-import { h, defineComponent, PropType, computed, unref } from 'vue'
+import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
-  DOMElements,
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
