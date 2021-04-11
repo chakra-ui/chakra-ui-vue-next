@@ -1,12 +1,17 @@
-import { chakra, DOMElements, SystemStyleObject } from '@chakra-ui/vue-system'
+import {
+  chakra,
+  DOMElements,
+  SystemStyleObject,
+  HTMLChakraProps,
+} from '@chakra-ui/vue-system'
 import { defineComponent, h, PropType } from '@vue/runtime-core'
 
-// export interface BoxProps extends HTMLChakraProps<"div"> {}
-interface BoxProps {
-  width: object | string | number
+export interface BoxProps extends HTMLChakraProps<'div'> {
+  /**
+   * label for chakra()
+   */
+  label: string
 }
-
-// export const CBox = chakra('div') // as prop doesnt work this way
 
 /**
  * Box is the most abstract component on top of which other chakra
@@ -35,7 +40,13 @@ export const CBox = defineComponent({
   },
 })
 
-interface SquareProps {
+/**
+ * As a constraint, you can't pass size related props
+ * Only `size` would be allowed
+ */
+type Omitted = 'size' | 'boxSize' | 'width' | 'height' | 'w' | 'h'
+
+export interface SquareProps extends Omit<BoxProps, Omitted> {
   /**
    * The size (width and height) of the square
    */
@@ -45,6 +56,7 @@ interface SquareProps {
    */
   centerContent?: boolean
 }
+
 export const CSquare = defineComponent({
   props: {
     size: [Object, String, Number] as PropType<SquareProps['size']>,
@@ -93,7 +105,7 @@ export const CCircle = defineComponent({
           borderRadius: '9999px',
           size: props.size,
           ...attrs,
-        },
+        } as SquareProps,
         slots
       )
     }
