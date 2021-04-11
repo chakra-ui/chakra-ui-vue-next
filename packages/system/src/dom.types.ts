@@ -34,8 +34,6 @@ import {
   VideoHTMLAttributes,
   WebViewHTMLAttributes,
   SVGAttributes,
-} from 'vue'
-import {
   AnchorHTMLAttributes,
   AreaHTMLAttributes,
   AudioHTMLAttributes,
@@ -52,9 +50,9 @@ import {
   FormHTMLAttributes,
   HTMLAttributes,
   HtmlHTMLAttributes,
-} from '@vue/runtime-dom'
+} from 'vue'
 
-// why its not exported from @vue/runtime-dom?
+// why its not exported from vue
 export interface IntrinsicElementAttributes {
   a: AnchorHTMLAttributes
   abbr: HTMLAttributes
