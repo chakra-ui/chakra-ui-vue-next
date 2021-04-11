@@ -3,6 +3,7 @@ import {
   CBox,
   CSquare,
   CCenter,
+  CContainer,
   CCircle,
   CLink,
   CBadge,
@@ -138,6 +139,23 @@ describe('<CCenter />', () => {
       <c-center w="40px" h="40px" bg="purple.700" color="white">
         C
       </c-center>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CContainer />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CContainer },
+      template: `
+      <c-container max-w="1000px">
+        container
+      </c-container>
       `,
     })
 

@@ -48,6 +48,16 @@ exports[`<CCenter /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CContainer /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-container css-1v8lbpd"
+  >
+     container 
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
