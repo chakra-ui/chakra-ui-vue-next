@@ -34,6 +34,8 @@ export const CDivider = defineComponent({
       const themingProps = computed<ThemingProps>(() =>
         filterUndefined({
           colorScheme: props.colorScheme,
+          variant: props.variant,
+          size: props.size,
           styleConfig: props.styleConfig,
           orientation: props.orientation,
         })
