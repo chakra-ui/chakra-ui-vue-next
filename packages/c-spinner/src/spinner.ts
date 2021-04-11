@@ -1,3 +1,4 @@
+import { vueThemingProps } from '@chakra-ui/vue-utils'
 import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
@@ -74,16 +75,7 @@ const props = {
   label: {
     type: String as PropType<SpinnerProps['label']>,
   },
-  colorScheme: String as PropType<string>,
-  variant: {
-    type: String as PropType<string>,
-    default: 'solid',
-  },
-  size: {
-    type: String as PropType<string>,
-    default: 'md',
-  },
-  styleConfig: String as PropType<any>,
+  ...vueThemingProps,
 }
 
 const CSpinner = defineComponent({
