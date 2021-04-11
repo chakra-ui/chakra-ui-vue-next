@@ -75,6 +75,46 @@ exports[`<CDivider /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-grid css-ssvt16"
+  >
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+  </div>
+  <div
+    class="chakra-grid css-85u0uj"
+  >
+    <div
+      class="chakra-grid__item css-1q1m6d7"
+    />
+    <div
+      class="chakra-grid__item css-1qvc0pb"
+    />
+    <div
+      class="chakra-grid__item css-1qvc0pb"
+    />
+    <div
+      class="chakra-grid__item css-1anmq07"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a

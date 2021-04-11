@@ -6,11 +6,13 @@ import {
   CContainer,
   CCircle,
   CDivider,
+  CGrid,
   CLink,
   CBadge,
   CStack,
   CVStack,
   CHStack,
+  CGridItem,
 } from '../src'
 import { render, testA11y } from '../../test-utils/src'
 
@@ -189,5 +191,37 @@ describe('<CDivider />', () => {
 
   it('a11y test', async () => {
     await testA11y(renderComponent())
+  })
+})
+
+describe('<CGrid /> & <CGridItem />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CBox, CGrid, CGridItem },
+      template: `
+      <c-grid template-columns="repeat(5, 1fr)" gap="6">
+        <c-box w="100%" h="10" bg="blue.500" />
+        <c-box w="100%" h="10" bg="blue.500" />
+        <c-box w="100%" h="10" bg="blue.500" />
+        <c-box w="100%" h="10" bg="blue.500" />
+        <c-box w="100%" h="10" bg="blue.500" />
+      </c-grid>
+      <c-grid
+        h="200px"
+        templateRows="repeat(2, 1fr)"
+        templateColumns="repeat(5, 1fr)"
+        gap="4"
+      >
+        <c-grid-item rowSpan="2" colSpan="1" bg="tomato" />
+        <c-grid-item colSpan="2" bg="papayawhip" />
+        <c-grid-item colSpan="2" bg="papayawhip" />
+        <c-grid-item colSpan="4" bg="tomato" />
+      </c-grid>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
