@@ -8,7 +8,7 @@ import {
   Fragment,
   createVNode,
 } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import { chakra, DOMElements, HTMLChakraProps } from '@chakra-ui/vue-system'
 import {
   getDividerStyles,
   getStackStyles,
@@ -17,7 +17,7 @@ import {
 } from './stack.utils'
 import { getValidChildren } from '@chakra-ui/vue-utils'
 
-interface StackProps {
+interface StackOptions {
   /**
    * Shorthand for `alignItems` style prop
    * @type SystemStyleObject["alignItems"]
@@ -58,9 +58,10 @@ interface StackProps {
   isInline?: boolean
 }
 
+export interface StackDividerProps extends HTMLChakraProps<'div'> {}
+
 export const CStackDivider = defineComponent({
   setup(_, { attrs }) {
-    console.log(attrs.__css)
     return () => {
       return h(
         chakra('div', {
@@ -93,6 +94,8 @@ export const CStackItem = defineComponent({
     }
   },
 })
+
+export interface StackProps extends HTMLChakraProps<'div'>, StackOptions {}
 
 const stackProps = {
   as: {
@@ -187,9 +190,6 @@ export const CStack = defineComponent({
   },
 })
 
-// will change this with HTMLChakraProps
-type SystemAndStackProps = StackProps & SystemProps
-
 /**
  * A view that arranges its children in a horizontal line.
  */
@@ -206,7 +206,7 @@ export const CHStack = defineComponent({
           ...props,
           ...attrs,
           direction: 'row',
-        } as SystemAndStackProps,
+        },
         slots
       )
     }
@@ -229,7 +229,7 @@ export const CVStack = defineComponent({
           ...props,
           ...attrs,
           direction: 'column',
-        } as SystemAndStackProps,
+        },
         slots
       )
     }
