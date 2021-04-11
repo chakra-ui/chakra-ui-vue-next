@@ -9,9 +9,10 @@ import {
   SystemProps,
   ResponsiveValue,
   StyleProps,
+  ThemeTypings,
 } from '@chakra-ui/styled-system'
-import { DOMElements } from './system.utils'
 import { IntrinsicElementAttributes } from './dom.types'
+import { Dict } from '@chakra-ui/utils'
 
 export type Tag =
   | string
@@ -20,12 +21,16 @@ export type Tag =
   | typeof Suspense
   | Component
 
-export interface ThemingProps {
-  variant?: string
-  size?: string
-  colorScheme?: string
+export interface ThemingProps<ThemeComponent extends string = string> {
+  variant?: ThemeComponent extends keyof ThemeTypings['components']
+    ? ThemeTypings['components'][ThemeComponent]['variants'] | (string & {})
+    : string
+  size?: ThemeComponent extends keyof ThemeTypings['components']
+    ? ThemeTypings['components'][ThemeComponent]['sizes'] | (string & {})
+    : string
+  colorScheme?: ThemeTypings['colorSchemes'] | (string & {})
   orientation?: 'vertical' | 'horizontal'
-  styleConfig?: any
+  styleConfig?: Dict
 }
 
 export interface ChakraProps extends SystemProps {
