@@ -115,6 +115,55 @@ exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CHeading /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-stack css-17kdbol"
+  >
+    <h1
+      class="chakra-heading css-cule"
+    >
+      (4xl) In love with Vue & Vite & Nuxt
+    </h1>
+    <h2
+      class="chakra-heading css-15xpjkx"
+    >
+       (3xl) In love with Vue & Vite & Nuxt
+    </h2>
+    <h2
+      class="chakra-heading css-s9ysow"
+    >
+      (2xl) In love with Vue & Vite & Nuxt
+    </h2>
+    <h2
+      class="chakra-heading css-1c36ahl"
+    >
+       (xl) In love with Vue & Vite & Nuxt 
+    </h2>
+    <h3
+      class="chakra-heading css-1uips0z"
+    >
+       (lg) In love with Vue & Vite & Nuxt 
+    </h3>
+    <h4
+      class="chakra-heading css-1on2b54"
+    >
+       (md) In love with Vue & Vite & Nuxt 
+    </h4>
+    <h5
+      class="chakra-heading css-15q9syl"
+    >
+       (sm) In love with Vue & Vite & Nuxt 
+    </h5>
+    <h6
+      class="chakra-heading css-7754ep"
+    >
+       (xs) In love with Vue & Vite & Nuxt 
+    </h6>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
@@ -150,7 +199,7 @@ exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 exports[`<CStack /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-stack css-x9juev"
+    class="chakra-stack css-n21gh5"
   >
     <div>
       1
