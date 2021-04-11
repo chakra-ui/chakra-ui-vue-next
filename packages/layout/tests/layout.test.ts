@@ -14,6 +14,7 @@ import {
   CVStack,
   CHStack,
   CGridItem,
+  CKbd,
 } from '../src'
 import { render, testA11y } from '../../test-utils/src'
 
@@ -242,6 +243,21 @@ describe('<CHeading />', () => {
         <c-heading as="h5" size="sm"> (sm) In love with Vue & Vite & Nuxt </c-heading>
         <c-heading as="h6" size="xs"> (xs) In love with Vue & Vite & Nuxt </c-heading>
       </c-stack>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CKbd />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CKbd },
+      template: `
+      <span> <c-kbd>shift</c-kbd> + <c-kbd>H</c-kbd> </span>
       `,
     })
 

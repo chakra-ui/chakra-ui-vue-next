@@ -164,6 +164,24 @@ exports[`<CHeading /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CKbd /> should render properly 1`] = `
+<DocumentFragment>
+  <span>
+    <kbd
+      class="chakra-kbd css-1t0x8xj"
+    >
+      shift
+    </kbd>
+     + 
+    <kbd
+      class="chakra-kbd css-1t0x8xj"
+    >
+      H
+    </kbd>
+  </span>
+</DocumentFragment>
+`;
+
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
