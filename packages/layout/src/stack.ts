@@ -109,10 +109,8 @@ const stackProps = {
     type: [Object, String, Array] as PropType<StackProps['spacing']>,
     default: '0.5rem',
   },
-  direction: {
-    type: [Object, String, Array] as PropType<StackProps['direction']>,
-    default: 'row',
-  },
+  direction: [Object, String, Array] as PropType<StackProps['direction']>,
+
   // todo: divider
   divider: [Object, Boolean] as PropType<StackProps['divider']>,
   shouldWrapChildren: [Boolean] as PropType<StackProps['shouldWrapChildren']>,
