@@ -2,11 +2,16 @@ import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
   DOMElements,
+  HTMLChakraProps,
   ThemingProps,
   useStyleConfig,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
+
+export interface BadgeProps
+  extends HTMLChakraProps<'span'>,
+    ThemingProps<'Badge'> {}
 
 /**
  * Vue component used to display notifications, messages, or
