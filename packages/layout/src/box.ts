@@ -6,12 +6,7 @@ import {
 } from '@chakra-ui/vue-system'
 import { defineComponent, h, PropType } from '@vue/runtime-core'
 
-export interface BoxProps extends HTMLChakraProps<'div'> {
-  /**
-   * label for chakra()
-   */
-  label: string
-}
+export interface BoxProps extends HTMLChakraProps<'div'> {}
 
 /**
  * Box is the most abstract component on top of which other chakra
@@ -105,7 +100,7 @@ export const CCircle = defineComponent({
           borderRadius: '9999px',
           size: props.size,
           ...attrs,
-        } as SquareProps,
+        } as SquareProps & { label: string },
         slots
       )
     }
