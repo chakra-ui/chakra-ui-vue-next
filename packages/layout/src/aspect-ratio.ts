@@ -1,8 +1,8 @@
 import { mapResponsive } from '@chakra-ui/utils'
-import { chakra, ResponsiveValue } from '@chakra-ui/vue-system'
+import { chakra, HTMLChakraProps, ResponsiveValue } from '@chakra-ui/vue-system'
 import { defineComponent, h, PropType } from '@vue/runtime-core'
 
-interface AspectRatioProps {
+interface AspectRatioOptions {
   /**
    * The aspect ratio of the Box. Common values are:
    *
@@ -10,6 +10,10 @@ interface AspectRatioProps {
    */
   ratio?: ResponsiveValue<number>
 }
+
+export interface AspectRatioProps
+  extends HTMLChakraProps<'div'>,
+    AspectRatioOptions {}
 
 /**
  * Vue component used to cropping media (videos, images and maps)
