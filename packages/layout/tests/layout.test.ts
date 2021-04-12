@@ -17,6 +17,11 @@ import {
   CHStack,
   CGridItem,
   CKbd,
+  CList,
+  CListItem,
+  COrderedList,
+  CUnorderedList,
+  CListIcon,
 } from '../src'
 import { render, testA11y } from '../../test-utils/src'
 
@@ -283,6 +288,38 @@ describe('<CKbd />', () => {
       components: { CKbd },
       template: `
       <span> <c-kbd>shift</c-kbd> + <c-kbd>H</c-kbd> </span>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon /> ', () => {
+  const renderComponent = () =>
+    render({
+      components: { CList, CListItem, COrderedList, CUnorderedList, CListIcon },
+      template: `
+      <c-ordered-list>
+        <c-list-item>Lorem ipsum dolor sit amet</c-list-item>
+        <c-list-item>Facilisis in pretium nisl aliquet</c-list-item>
+      </c-ordered-list>
+      <c-unordered-list>
+        <c-list-item>Lorem ipsum dolor sit amet</c-list-item>
+        <c-list-item>Consectetur adipiscing elit</c-list-item>
+      </c-unordered-list>
+      <c-list>
+        <c-list-item>
+          <c-list-icon name="check-circle" color="green.500" />
+          Lorem ipsum dolor sit amet.
+        </c-list-item>
+        <c-list-item>
+          <c-list-icon name="exclamation" color="green.500" />
+          Facilisis in pretium nisl aliquet
+        </c-list-item>
+      </c-list>
       `,
     })
 

@@ -231,6 +231,138 @@ exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon />  should render properly 1`] = `
+<DocumentFragment>
+  <ul
+    class="chakra-list css-1dg6mvm"
+    role="list"
+  >
+    <li
+      class="chakra-list__item css-0"
+    >
+      Lorem ipsum dolor sit amet
+    </li>
+    <li
+      class="chakra-list__item css-0"
+    >
+      Facilisis in pretium nisl aliquet
+    </li>
+  </ul>
+  <ul
+    class="chakra-list css-tu0njr"
+    role="list"
+  >
+    <li
+      class="chakra-list__item css-0"
+    >
+      Lorem ipsum dolor sit amet
+    </li>
+    <li
+      class="chakra-list__item css-0"
+    >
+      Consectetur adipiscing elit
+    </li>
+  </ul>
+  <ul
+    class="chakra-list css-155za0w"
+    role="list"
+  >
+    <li
+      class="chakra-list__item css-0"
+    >
+      <svg
+        class="chakra-icon css-a2vvhw"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="round"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokelinecap="round"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+  
+      </svg>
+       Lorem ipsum dolor sit amet. 
+    </li>
+    <li
+      class="chakra-list__item css-0"
+    >
+      <svg
+        class="chakra-icon css-a2vvhw"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="round"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokelinecap="round"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+  
+      </svg>
+       Facilisis in pretium nisl aliquet 
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
 exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 <DocumentFragment>
   <div
