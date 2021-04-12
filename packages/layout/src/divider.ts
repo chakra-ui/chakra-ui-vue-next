@@ -40,15 +40,9 @@ export const CDivider = defineComponent({
           orientation: props.orientation,
         })
       )
-      // to support border attrs like borderBottomWidth etc
-      const styleAttrs = extractStyleAttrs(attrs).styles
 
-      const allProps = {
-        ...themingProps.value,
-        ...styleAttrs,
-      }
+      const styles = useStyleConfig('Divider', themingProps.value)
 
-      const styles = useStyleConfig('Divider', allProps as DividerProps)
       const {
         borderLeftWidth,
         borderBottomWidth,
@@ -74,10 +68,9 @@ export const CDivider = defineComponent({
       }
 
       return h(
-        chakra('hr', { label: 'divider' }),
-        {
+        chakra('hr', {
+          label: 'divider',
           'aria-orientation': props.orientation,
-          ...styles.value,
           __css: {
             ...stylesRest,
             border: '0',
@@ -86,6 +79,8 @@ export const CDivider = defineComponent({
             borderStyle,
             ...dividerStyles[props.orientation!],
           },
+        }),
+        {
           ...attrs,
         },
         slots
