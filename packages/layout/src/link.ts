@@ -1,12 +1,6 @@
 import { vueThemingProps } from '@chakra-ui/vue-utils'
-import {
-  h,
-  defineComponent,
-  PropType,
-  computed,
-  resolveComponent,
-  createVNode,
-} from 'vue'
+import { HTMLChakraProps } from '@chakra-ui/vue-system'
+import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -14,6 +8,13 @@ import {
   useStyleConfig,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
+
+export interface LinkProps extends HTMLChakraProps<'a'>, ThemingProps<'Link'> {
+  /**
+   *  If `true`, the link will open in new tab
+   */
+  isExternal?: boolean
+}
 
 /**
  * Links are accessible elements used primarily for navigation.
@@ -35,7 +36,7 @@ export const CLink = defineComponent({
       type: [Object, String] as PropType<DOMElements>,
       default: 'a',
     },
-    isExternal: Boolean,
+    isExternal: Boolean as PropType<LinkProps['isExternal']>,
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
