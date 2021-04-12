@@ -9,6 +9,8 @@ import {
   CGrid,
   CHeading,
   CLink,
+  CLinkBox,
+  CLinkOverlay,
   CBadge,
   CStack,
   CVStack,
@@ -34,6 +36,29 @@ describe('<CLink />', () => {
 
   it('a11y test', async () => {
     await testA11y(renderComponent())
+  })
+})
+describe('<CLinkBox /> <CLinkOverlay />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CHeading, CLink, CLinkBox, CLinkOverlay },
+      template: `
+      <c-link-box as="article">
+        <c-heading as="h2" font-size="20">
+          <c-link-overlay is-external href="https://vue.chakra-ui.com">Some blog post</c-link-overlay>
+        </c-heading>
+        <p>
+          As a side note, using quotation marks around an attribute value is
+          required only if this value is not a valid identifier.
+        </p>
+        <c-link is-external href="https://google.com">Some inner link</c-link>
+      </c-link-box>
+      `,
+    })
+
+  it('should render properly', () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
 
