@@ -24,6 +24,7 @@ import {
   COrderedList,
   CUnorderedList,
   CListIcon,
+  CText,
 } from '../src'
 import { CFlex } from '@chakra-ui/vue-next'
 import { render, testA11y } from '../../test-utils/src'
@@ -368,6 +369,33 @@ describe('<CSpacer />', () => {
         <c-spacer />
         <c-box p="4" bg="green.400"> Box 2 </c-box>
       </c-flex>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CText />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CText },
+      template: `
+      <c-text>normal:</c-text>
+      <c-text fontSize="6xl">(6xl) In love with Vue & Vite & Nuxt</c-text>
+      <c-text>truncated:</c-text>
+      <c-text maxW="sm" isTruncated>
+        Lorem ipsum is placeholder text commonly used in the graphic, print, and
+        publishing industries for previewing layouts and visual mockups.
+      </c-text>
+      <c-text>line clamp:</c-text>
+      <c-text :noOfLines="[1, 2, 3]" maxW="sm">
+        "The quick brown fox jumps over the lazy dog" is an English-language
+        pangram—a sentence that contains all of the letters of the English alphabet.
+        Owing to its existence, Chakra was created.
+      </c-text>
       `,
     })
 
