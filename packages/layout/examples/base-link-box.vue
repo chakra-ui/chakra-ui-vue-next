@@ -1,6 +1,5 @@
 <template>
   <chakra.div py="4">
-    <chakra.h3>Link</chakra.h3>
     <chakra.div py="4">
       <c-link-box as="article">
         <c-heading as="h2" font-size="20">
