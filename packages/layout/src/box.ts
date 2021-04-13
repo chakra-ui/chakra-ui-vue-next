@@ -4,7 +4,7 @@ import {
   SystemStyleObject,
   HTMLChakraProps,
 } from '@chakra-ui/vue-system'
-import { defineComponent, h, PropType } from '@vue/runtime-core'
+import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 
 export interface BoxProps extends HTMLChakraProps<'div'> {}
 
@@ -61,9 +61,11 @@ export const CSquare = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    const styles: SystemStyleObject = props.centerContent
-      ? { display: 'flex', alignItems: 'center', justifyContent: 'center' }
-      : {}
+    const styles = computed<SystemStyleObject>(() =>
+      props.centerContent
+        ? { display: 'flex', alignItems: 'center', justifyContent: 'center' }
+        : {}
+    )
     return () => {
       return h(
         CBox,
@@ -71,7 +73,7 @@ export const CSquare = defineComponent({
           label: 'square',
           boxSize: props.size,
           __css: {
-            ...styles,
+            ...styles.value,
             flexShrink: 0,
             flexGrow: 0,
           },
@@ -84,21 +86,13 @@ export const CSquare = defineComponent({
 })
 
 export const CCircle = defineComponent({
-  props: {
-    size: [Object, String, Number] as PropType<SquareProps['size']>,
-    centerContent: {
-      type: [Boolean] as PropType<SquareProps['centerContent']>,
-      default: true,
-    },
-  },
-  setup(props, { slots, attrs }) {
+  setup(_, { slots, attrs }) {
     return () => {
       return h(
         CSquare,
         {
           label: 'circle',
           borderRadius: '9999px',
-          size: props.size,
           ...attrs,
         },
         slots
