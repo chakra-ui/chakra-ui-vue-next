@@ -5,7 +5,6 @@ import {
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
-  extractStyleAttrs,
 } from '@chakra-ui/vue-system'
 import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 import { filterUndefined } from '@chakra-ui/utils'
@@ -32,17 +31,16 @@ export const CHeading = defineComponent({
       })
     )
     const styles = useStyleConfig('Heading', themingProps.value)
-    // convert attrs like `is-truncated` to `isTruncated`
-    const styleAttrs = extractStyleAttrs(attrs).styles as any
 
     return () => {
       return h(
         chakra(props.as, {
           label: 'heading',
-          ...styleAttrs,
-          __css: styles.value,
         }),
-        {},
+        {
+          ...attrs,
+          __css: styles.value,
+        },
         slots
       )
     }
