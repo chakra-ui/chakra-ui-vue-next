@@ -30,30 +30,30 @@ export const CDivider = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-          orientation: props.orientation,
-        })
-      )
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+        orientation: props.orientation,
+      })
+    )
 
-      const styles = useStyleConfig('Divider', themingProps.value)
+    const styles = useStyleConfig('Divider', themingProps.value)
 
-      const {
-        borderLeftWidth,
-        borderBottomWidth,
-        borderTopWidth,
-        borderRightWidth,
-        borderWidth,
-        borderStyle,
-        borderColor,
-        ...stylesRest
-      } = styles.value
+    const {
+      borderLeftWidth,
+      borderBottomWidth,
+      borderTopWidth,
+      borderRightWidth,
+      borderWidth,
+      borderStyle,
+      borderColor,
+      ...stylesRest
+    } = styles.value
 
+    const dividerStyle = computed(() => {
       const dividerStyles = {
         vertical: {
           borderLeftWidth:
@@ -66,7 +66,10 @@ export const CDivider = defineComponent({
           width: '100%',
         },
       }
+      return dividerStyles[props.orientation!]
+    })
 
+    return () => {
       return h(
         chakra('hr', {
           label: 'divider',
@@ -77,7 +80,7 @@ export const CDivider = defineComponent({
 
             borderColor,
             borderStyle,
-            ...dividerStyles[props.orientation!],
+            ...dividerStyle.value,
           },
         }),
         {
