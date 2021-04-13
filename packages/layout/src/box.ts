@@ -24,11 +24,11 @@ export const CBox = defineComponent({
   setup(props, { slots, attrs }) {
     return () => {
       return h(
-        chakra(props.as),
-        {
-          class: 'chakra-box',
+        chakra(props.as, {
+          label: 'box',
           ...attrs,
-        },
+        }),
+        {},
         slots
       )
     }
@@ -68,7 +68,7 @@ export const CSquare = defineComponent({
       return h(
         CBox,
         {
-          class: 'chakra-square',
+          label: 'square',
           boxSize: props.size,
           __css: {
             ...styles,
@@ -96,7 +96,7 @@ export const CCircle = defineComponent({
       return h(
         CSquare,
         {
-          class: 'chakra-circle',
+          label: 'circle',
           borderRadius: '9999px',
           size: props.size,
           ...attrs,
