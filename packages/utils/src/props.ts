@@ -7,3 +7,6 @@ export const vueThemingProps = {
   size: String as PropType<ThemingProps['size']>,
   styleConfig: String as PropType<ThemingProps['styleConfig']>,
 }
+
+export const SNA = [Number, String, Array]
+export const SNAO = [Number, String, Array, Object]
