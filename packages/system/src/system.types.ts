@@ -76,7 +76,7 @@ export type As<Props = any> = ElementType<Props>
 /**
  * Extract the props of a Vue element or component
  */
-export type PropsOf<T extends As> = ComponentObjectPropsOptions<T> & {
+export type PropsOf<T extends As> = T & {
   as?: As
 }
 
