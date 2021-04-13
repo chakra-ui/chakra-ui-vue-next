@@ -144,9 +144,6 @@ export const CGrid = defineComponent({
         gridTemplateColumns: props.templateColumns,
       })
     )
-    watchEffect(() => {
-      console.log(styles.value)
-    })
     return () => {
       return h(
         chakra('div', { label: 'grid', __css: styles.value, ...attrs }),
