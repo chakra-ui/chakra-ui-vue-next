@@ -44,9 +44,9 @@ interface StackOptions {
   direction?: StackDirection
   /**
    * If `true`, each stack item will show a divider
-   * @type React.ReactElement
+   * @type Component | boolean
    */
-  divider?: Component
+  divider?: Component | boolean
   /**
    * If `true`, the children will be wrapped in a `Box` with
    * `display: inline-block`, and the `Box` will take the spacing props
