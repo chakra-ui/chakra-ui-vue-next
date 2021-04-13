@@ -28,17 +28,16 @@ export const CBadge = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig('Badge', themingProps.value)
     return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
-      const styles = useStyleConfig('Badge', themingProps.value)
-
       return h(
         chakra(props.as, { label: 'badge' }),
         {
