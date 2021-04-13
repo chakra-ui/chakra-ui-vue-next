@@ -15,7 +15,7 @@ import {
   selector,
   StackDirection,
 } from './stack.utils'
-import { getValidChildren } from '@chakra-ui/vue-utils'
+import { getValidChildren, SNAO, SAO } from '@chakra-ui/vue-utils'
 
 interface StackOptions {
   /**
@@ -102,14 +102,14 @@ const stackProps = {
     type: [Object, String] as PropType<DOMElements>,
     default: 'div',
   },
-  align: [Object, String, Array] as PropType<StackProps['align']>,
-  justify: [Object, String, Array] as PropType<StackProps['justify']>,
-  wrap: [Object, String, Array] as PropType<StackProps['wrap']>,
+  align: SAO as PropType<StackProps['align']>,
+  justify: SAO as PropType<StackProps['justify']>,
+  wrap: SAO as PropType<StackProps['wrap']>,
   spacing: {
-    type: [Object, String, Array] as PropType<StackProps['spacing']>,
+    type: SNAO as PropType<StackProps['spacing']>,
     default: '0.5rem',
   },
-  direction: [Object, String, Array] as PropType<StackProps['direction']>,
+  direction: SAO as PropType<StackProps['direction']>,
 
   // todo: divider
   divider: [Object, Boolean] as PropType<StackProps['divider']>,

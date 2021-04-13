@@ -9,4 +9,5 @@ export const vueThemingProps = {
 }
 
 export const SNA = [Number, String, Array]
+export const SAO = [String, Array, Object]
 export const SNAO = [Number, String, Array, Object]

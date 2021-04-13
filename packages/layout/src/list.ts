@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType, computed } from 'vue'
 import { chakra, DOMElements } from '@chakra-ui/vue-system'
-import { getValidChildren } from '@chakra-ui/vue-utils'
+import { getValidChildren, SNAO, SAO } from '@chakra-ui/vue-utils'
 
 interface ListOptions {
   /**
@@ -46,13 +46,11 @@ export const CList = defineComponent({
       default: 'ul',
     },
     styleType: {
-      type: [Object, String, Array] as PropType<ListProps['listStyleType']>,
+      type: SAO as PropType<ListProps['listStyleType']>,
       default: 'none',
     },
-    stylePosition: [Object, String, Array] as PropType<
-      ListProps['listStylePosition']
-    >,
-    spacing: [Object, String, Array] as PropType<ListProps['margin']>,
+    stylePosition: SAO as PropType<ListProps['listStylePosition']>,
+    spacing: SNAO as PropType<ListProps['margin']>,
   },
   setup(props, { slots, attrs }) {
     const styles = useMultiStyleConfig('List', props)
