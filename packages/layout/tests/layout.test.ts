@@ -13,6 +13,7 @@ import {
   CLinkOverlay,
   CBadge,
   CStack,
+  CSimpleGrid,
   CVStack,
   CHStack,
   CGridItem,
@@ -320,6 +321,32 @@ describe('<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon
           Facilisis in pretium nisl aliquet
         </c-list-item>
       </c-list>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CSimpleGrid />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CSimpleGrid, CBox },
+      template: `
+      <c-simple-grid
+        columns="2"
+        :spacingX="['5px', '40px']"
+        :spacingY="['5px', '20px']"
+        minChildWidth="100px"
+      >
+        <c-box bg="tomato" height="80px">simple 1</c-box>
+        <c-box bg="tomato" height="80px">simple 2</c-box>
+        <c-box bg="tomato" height="80px">simple 3</c-box>
+        <c-box bg="tomato" height="80px">simple 4</c-box>
+        <c-box bg="tomato" height="80px">simple 5</c-box>
+      </c-simple-grid>
       `,
     })
 

@@ -363,6 +363,40 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
 </DocumentFragment>
 `;
 
+exports[`<CSimpleGrid /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-simple-grid css-12tmpmw"
+  >
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 1
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 2
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 3
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 4
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 5
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 <DocumentFragment>
   <div
