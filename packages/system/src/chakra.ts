@@ -20,6 +20,7 @@ import { css as _css, CSSObject } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 import { useTheme } from './composables/use-chakra'
+import { SNAO } from '@chakra-ui/vue-utils'
 
 interface StyleResolverProps extends SystemProps {
   __css?: SystemStyleObject
@@ -50,7 +51,7 @@ const chakraProps = {
   __css: Object as PropType<StyleResolverProps['__css']>,
   sx: Object as PropType<StyleResolverProps['sx']>,
   css: Object as PropType<StyleResolverProps['css']>,
-  noOfLines: Number as PropType<StyleResolverProps['noOfLines']>,
+  noOfLines: SNAO as PropType<StyleResolverProps['noOfLines']>,
   baseStyle: Object as PropType<StyleResolverProps['baseStyle']>,
   isTruncated: Boolean as PropType<StyleResolverProps['isTruncated']>,
   layerStyle: String as PropType<StyleResolverProps['layerStyle']>,
