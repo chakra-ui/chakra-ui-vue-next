@@ -15,6 +15,7 @@ import {
   CStack,
   CSimpleGrid,
   CVStack,
+  CSpacer,
   CHStack,
   CGridItem,
   CKbd,
@@ -24,6 +25,7 @@ import {
   CUnorderedList,
   CListIcon,
 } from '../src'
+import { CFlex } from '@chakra-ui/vue-next'
 import { render, testA11y } from '../../test-utils/src'
 
 describe('<CLink />', () => {
@@ -347,6 +349,25 @@ describe('<CSimpleGrid />', () => {
         <c-box bg="tomato" height="80px">simple 4</c-box>
         <c-box bg="tomato" height="80px">simple 5</c-box>
       </c-simple-grid>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CSpacer />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CFlex, CSpacer, CBox },
+      template: `
+      <c-flex>
+        <c-box p="4" bg="red.400"> Box 1 </c-box>
+        <c-spacer />
+        <c-box p="4" bg="green.400"> Box 2 </c-box>
+      </c-flex>
       `,
     })
 

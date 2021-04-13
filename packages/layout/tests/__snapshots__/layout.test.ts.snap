@@ -397,6 +397,28 @@ exports[`<CSimpleGrid /> should render properly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<CSpacer /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1xhj18k"
+  >
+    <div
+      class="chakra-box css-zzdd9b"
+    >
+       Box 1 
+    </div>
+    <div
+      class="chakra-spacer css-17xejub"
+    />
+    <div
+      class="chakra-box css-pp1cg2"
+    >
+       Box 2 
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 <DocumentFragment>
   <div
