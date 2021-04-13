@@ -10,7 +10,7 @@ export interface SpacerProps extends HTMLChakraProps<'div'> {}
  * @see Docs https://chakra-ui.com/docs/layout/flex#using-the-spacer
  */
 export const CSpacer = defineComponent({
-  setup(propss, { slots }) {
+  setup(_, { slots }) {
     return () => {
       return h(
         chakra('div', {
