@@ -1,16 +1,7 @@
-import { CIcon } from '@chakra-ui/c-icon'
-import {
-  HTMLChakraProps,
-  SystemProps,
-  ThemingProps,
-  useMultiStyleConfig,
-  useStyles,
-  StylesProvider,
-  ResponsiveValue,
-} from '@chakra-ui/vue-system'
+import { ResponsiveValue } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType, computed } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
-import { getValidChildren, SNAO } from '@chakra-ui/vue-utils'
+import { DOMElements } from '@chakra-ui/vue-system'
+import { SNAO } from '@chakra-ui/vue-utils'
 import { CGrid, GridProps } from './grid'
 import { isNull, isNumber, mapResponsive } from '@chakra-ui/utils'
 

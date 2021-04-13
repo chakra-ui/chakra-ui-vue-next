@@ -4,7 +4,6 @@ import {
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
-  extractStyleAttrs,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
