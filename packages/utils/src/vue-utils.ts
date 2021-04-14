@@ -1,4 +1,4 @@
-import { inject, InjectionKey, provide } from 'vue'
+import { inject, InjectionKey, provide, isVNode, Slots } from 'vue'
 
 export interface CreateContextOptions {
   /**
@@ -47,4 +47,19 @@ export function createContext<ContextType>(options: CreateContextOptions = {}) {
   }
 
   return [Provider, useContext] as CreateContextReturn<ContextType>
+}
+
+/**
+ * Gets only the valid children of a component,
+ * and ignores any nullish or falsy child.
+ *
+ * @param slots vue slots
+ *
+ * see https://github.com/vuejs/vue-next/blob/HEAD/packages/runtime-core/src/helpers/renderSlot.ts
+ */
+export function getValidChildren(slots: Slots | null) {
+  const slotArray = slots?.default?.() || []
+  return slotArray.filter((child) => {
+    return isVNode(child)
+  })
 }

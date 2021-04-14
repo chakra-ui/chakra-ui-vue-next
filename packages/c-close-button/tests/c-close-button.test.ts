@@ -1,13 +1,21 @@
 import { CCloseButton } from '../src'
-import { render, userEvent, testA11y } from '../../test-utils/src'
+import {
+  render,
+  userEvent,
+  testA11y,
+  TestRenderProps,
+} from '../../test-utils/src'
 import { nextTick } from '@vue/runtime-core'
 
-const renderComponent = (props?: any) => {
+const renderComponent = ({
+  inlineAttrs = '',
+  ...props
+}: TestRenderProps = {}) => {
   const base = {
     components: {
       CCloseButton,
     },
-    template: '<CCloseButton data-testid="closebutton" />',
+    template: `<CCloseButton data-testid="closebutton" ${inlineAttrs} />`,
     ...props,
   }
   return render(base)
@@ -35,15 +43,11 @@ it('should have correct aria-label attribute', () => {
 it('should emit click event on click', async () => {
   const handleClick = jest.fn()
   const { getByTestId } = renderComponent({
-    template: '<c-icon-button data-testid="close" @click="handleClick" />',
-    setup() {
-      return {
-        handleClick,
-      }
-    },
+    setup: () => ({ handleClick }),
+    inlineAttrs: '@click="handleClick"',
   })
 
-  await userEvent.click(getByTestId('close'))
+  await userEvent.click(getByTestId('closebutton'))
   await nextTick()
   expect(handleClick).toHaveBeenCalled()
 })

@@ -2,7 +2,9 @@
   <c-reset />
   <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :__css="rootStyles">
     <perfect-scrollbar>
-      <sidebar :stories="routes" />
+      <chakra.div pb="12">
+        <sidebar :stories="routes" />
+      </chakra.div>
     </perfect-scrollbar>
     <chakra.main w="full" pos="relative" border-left="1px solid" border-color="gray.200" padding="4">
       <router-view v-slot="{ Component, route }">

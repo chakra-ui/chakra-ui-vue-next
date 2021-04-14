@@ -1,3 +1,4 @@
+import { ComponentOptions } from '@vue/runtime-core'
 import theme from '@chakra-ui/vue-theme'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
@@ -15,7 +16,11 @@ const useDefaultProviders = () => {
   provide('$chakraIcons', {})
 }
 
-type UI = Parameters<typeof vtl.render>[0]
+export type TestRenderProps = {
+  [key: string]: any
+  inlineAttrs?: string
+} & Partial<Component>
+
 type A11yOptions = { axeOptions?: RunOptions }
 export interface RenderResult extends vtl.RenderResult {
   asFragment: (innerHTML?: string) => DocumentFragment
@@ -23,7 +28,7 @@ export interface RenderResult extends vtl.RenderResult {
 
 /** Render component instance */
 export const render = (
-  component: Component | any,
+  component: Component,
   ...rest: any | undefined
 ): RenderResult => {
   const utils = vtl.render(
@@ -31,7 +36,7 @@ export const render = (
       name: 'ChakraUIVueTestContainer',
       setup(_, { slots }) {
         useDefaultProviders()
-        return () => h(component, slots)
+        return () => h(component as any, slots)
       },
     }),
     ...rest
@@ -100,7 +105,7 @@ export function getElementStyles(selector: string) {
  * @example
  * ```ts
  * it('passes a11y test', async () => {
- *  await testA11Y(MyComponent, options);
+ *  await testA11Y(render(MyComponent));
  * });
  *
  * // sometimes we need to perform interactions first to render conditional UI
@@ -114,11 +119,14 @@ export function getElementStyles(selector: string) {
  * ```
  */
 export const testA11y = async (
-  ui: UI | Element,
-  { axeOptions, ...options }: A11yOptions = {}
+  ui: vtl.RenderResult | Element,
+  { axeOptions }: A11yOptions = {}
 ) => {
-  const container = vtl.render(ui, options).container
-  const results = await axe(container, axeOptions)
+  let template = ui as Element
+  if ('container' in ui) {
+    template = ui.container
+  }
+  const results = await axe(template, axeOptions)
 
   expect(results).toHaveNoViolations()
 }

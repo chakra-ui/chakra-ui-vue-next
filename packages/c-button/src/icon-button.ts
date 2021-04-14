@@ -38,6 +38,8 @@ const CIconButton = defineComponent({
           ...props,
         },
         () => [
+          // whats the problem here?
+          // @ts-ignore
           h(CIcon, {
             name: props.icon,
           }),

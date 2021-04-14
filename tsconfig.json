@@ -29,7 +29,7 @@
     "playground/**/*.tsx",
     "playground/**/*.vue",
   ],
-  "exclude": ["node_modules", "./@types"],
+  "exclude": ["node_modules", "./@types", "dist"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
