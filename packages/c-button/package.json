@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-button",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -29,17 +29,17 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "1.0.0-alpha.1",
-    "@chakra-ui/c-spinner": "1.0.0-alpha.1",
+    "@chakra-ui/c-icon": "1.0.0-alpha.2",
+    "@chakra-ui/c-spinner": "1.0.0-alpha.2",
     "@chakra-ui/utils": "^1.5.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.1",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.1"
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.2"
   },
   "devDependencies": {
     "vue": ">=3.0.5"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.1",
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
     "vue": "^3.0.5"
   }
 }

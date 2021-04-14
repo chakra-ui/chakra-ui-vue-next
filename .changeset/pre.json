@@ -24,12 +24,18 @@
     "@chakra-ui/vue-docs": "0.0.0",
     "@chakra-ui/vue-auto-import": "0.0.1-alpha.0",
     "@chakra-ui/c-close-button": "0.0.1-alpha.0",
-    "@chakra-ui/c-modal": "1.0.0"
+    "@chakra-ui/c-modal": "1.0.0",
+    "@chakra-ui/c-code": "0.0.1-alpha.0",
+    "@chakra-ui/vue-layout": "0.1.0-alpha.1"
   },
   "changesets": [
     "chilly-tables-care",
+    "dull-masks-build",
     "empty-dragons-wait",
+    "khaki-hounds-hunt",
+    "kind-tools-camp",
     "neat-rules-cry",
+    "proud-apples-compare",
     "slimy-bugs-give",
     "sweet-lamps-brake",
     "ten-pandas-run",
