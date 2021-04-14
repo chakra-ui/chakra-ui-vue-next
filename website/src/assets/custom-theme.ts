@@ -15,6 +15,10 @@ export default extendTheme({
       800: '#21533B',
       900: '#143223',
     },
+    discord: {
+      primary: '#7289DA',
+      accessible: '#5570D2',
+    },
   },
   fonts: {
     heading: `Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,

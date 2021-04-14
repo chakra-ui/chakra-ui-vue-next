@@ -9,6 +9,7 @@
     <Hero />
     <SandboxExample />
     <PilersHero />
+    <DiscordHero />
     <Footer />
   </chakra.main>
 </template>
@@ -20,6 +21,7 @@ import PilersHero from '../components/home/PilersHero.vue'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/home/Footer.vue'
 import SandboxExample from '../components/SandboxExample.vue'
+import DiscordHero from '../components/home/DiscordHero.vue'
 
 export default defineComponent({
   name: 'Index',
@@ -29,6 +31,7 @@ export default defineComponent({
     Navbar,
     Footer,
     SandboxExample,
+    DiscordHero,
   },
 })
 </script>

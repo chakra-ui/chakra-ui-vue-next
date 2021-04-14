@@ -30,11 +30,11 @@
       aria-label="Join Discord channel"
       target="_blank"
       rel="noopener noreferrer"
-      href="https://github.com/chakra-ui/chakra-ui-vue"
+      href="https://discord.gg/sq2Kp6x"
       :_hover="{ color: 'vue.500' }"
       mx="4"
     >
-      <CIcon name="message-circle" mt="8px" />
+      <CIcon name="discord" mt="8px" />
     </chakra.a>
   </CFlex>
 </template>

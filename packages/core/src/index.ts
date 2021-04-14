@@ -80,19 +80,21 @@ export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
 
 // B
-export const CBox = chakra.div
-export * from '@chakra-ui/c-badge'
 export * from '@chakra-ui/c-button'
 
 // C
 export * from '@chakra-ui/c-color-mode'
 export * from '@chakra-ui/c-close-button'
+export * from '@chakra-ui/c-code'
 
 // F
 export * from '@chakra-ui/c-flex'
 
 // I
 export * from '@chakra-ui/c-icon'
+
+// L
+export * from '@chakra-ui/vue-layout'
 
 // M
 export * from '@chakra-ui/c-modal'

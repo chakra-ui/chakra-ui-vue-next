@@ -16,11 +16,11 @@ const CCloseIcon = defineComponent({
         CIcon,
         {
           focusable: false,
-          'aria-hidden': '',
+          'aria-hidden': true,
           name: 'close',
           ...attrs,
         },
-        [
+        () => [
           h('path', {
             fill: 'currentColor',
             d:

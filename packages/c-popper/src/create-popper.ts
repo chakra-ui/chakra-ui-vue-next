@@ -1,12 +1,14 @@
-import arrow from '@popperjs/core/lib/modifiers/arrow'
-import eventListeners from '@popperjs/core/lib/modifiers/eventListeners'
-import flip from '@popperjs/core/lib/modifiers/flip'
-import offset from '@popperjs/core/lib/modifiers/offset'
-import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow'
 import {
-  defaultModifiers,
+  arrow,
+  eventListeners,
+  flip,
+  offset,
+  preventOverflow,
   popperGenerator,
-} from '@popperjs/core/lib/popper-lite'
+  popperOffsets,
+  computeStyles,
+  applyStyles,
+} from '@popperjs/core'
 import {
   innerArrow,
   matchWidth,
@@ -21,6 +23,13 @@ import { getEventListenerOptions } from './utils'
 
   @see https://popper.js.org/docs/v2/tree-shaking/
 * -----------------------------------------------------------------------------------------------*/
+
+const defaultModifiers = [
+  eventListeners,
+  popperOffsets,
+  computeStyles,
+  applyStyles,
+]
 
 export interface CreatePopperOptions {
   offset?: [x: number, y: number]

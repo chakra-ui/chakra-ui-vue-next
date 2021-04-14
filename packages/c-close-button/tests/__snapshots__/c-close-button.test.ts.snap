@@ -9,7 +9,7 @@ exports[`should render properly 1`] = `
     type="button"
   >
     <svg
-      aria-hidden=""
+      aria-hidden="true"
       class="chakra-icon css-13otjrl"
       focusable="false"
       viewBox="0 0 24 24"
