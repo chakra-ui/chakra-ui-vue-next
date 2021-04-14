@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-layout",
   "description": "Chakra UI Vue | Chakra ui layout components that give you massive speed component",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
