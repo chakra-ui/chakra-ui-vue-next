@@ -161,8 +161,8 @@ export const CGrid = defineComponent({
     )
     return () => {
       return h(
-        chakra(props.as, { label: 'grid', __css: styles.value }),
-        attrs,
+        chakra(props.as, { label: 'grid', __css: styles.value, ...attrs }),
+        {},
         slots
       )
     }
