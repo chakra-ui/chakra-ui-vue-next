@@ -1,5 +1,15 @@
 # @chakra-ui/vue-next
 
+## 1.0.0-alpha.4
+
+### Patch Changes
+
+- [`0b34bda`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/0b34bda9396859324e7c90a1bfea6483f1022585) Thanks [@codebender828](https://github.com/codebender828)! - Fixes dependency resolution for code and layout components"
+
+- Updated dependencies [[`ad7d2f2`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/ad7d2f2db3bcce5d278fe73384d5c8bfae5503a9)]:
+  - @chakra-ui/c-code@1.0.0-alpha.2
+  - @chakra-ui/vue-layout@0.1.0-alpha.3
+
 ## 1.0.0-alpha.3
 
 ### Minor Changes
