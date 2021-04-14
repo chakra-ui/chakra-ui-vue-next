@@ -37,8 +37,8 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
-    "vite": "^2.0.1",
-    "vite-plugin-components": "^0.6.6",
+    "vite": "2.1.5",
+    "vite-plugin-components": "^0.8.3",
     "vue": ">=3.0.5"
   }
 }

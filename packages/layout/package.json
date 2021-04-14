@@ -21,10 +21,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/layout",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -40,11 +37,14 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.9.0",
+    "@chakra-ui/styled-system": "^1.10.0",
     "@chakra-ui/vue-system": "0.1.0-alpha.1",
     "@chakra-ui/vue-utils": "0.1.0-alpha.1"
   },
   "peerDependencies": {
+    "vue": ">=3.0.5"
+  },
+  "devDependencies": {
     "vue": ">=3.0.5"
   }
 }
