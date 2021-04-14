@@ -11,9 +11,12 @@ import {
   feSearch,
   feStar,
   feTwitter,
+  feCompass,
+  feExternalLink,
 } from 'feather-icons-paths'
 import { hydrate } from '@emotion/css'
 import routes from 'pages-generated'
+import 'vue-prism-editor/dist/prismeditor.min.css'
 
 import './styles/main.css'
 import customTheme from './assets/custom-theme'
@@ -37,6 +40,8 @@ export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
         feSearch,
         feStar,
         feTwitter,
+        feCompass,
+        feExternalLink,
       },
       extend: {
         discord: {

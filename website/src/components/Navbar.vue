@@ -22,15 +22,21 @@
         flex-direction="row"
         align-items="center"
       >
-        <CBox w="45px" mr="2"><ChakraUILogoIcon /></CBox>
+        <CBox w="30px" mr="2"><ChakraUILogoIcon /></CBox>
         <chakra.h1
-          font-size="2xl"
+          font-size="xl"
           font-family="heading"
+          line-height="1.2"
           letter-spacing="tighter"
-          mt="8px"
           :d="{ base: 'none', md: 'block' }"
         >
-          Chakra Chidori
+          chakra-ui/vue-next
+          <c-badge
+            font-family="mono"
+            font-size="0.5em"
+            text-transform="lowercase"
+            >{{ pkg.version }}</c-badge
+          >
         </chakra.h1>
       </chakra.a>
     </CFlex>
@@ -60,11 +66,11 @@
       </CBox>
       <CBox as="li" mr="2" :d="{ base: 'none', sm: 'block' }">
         <CIconButton
-          as="a"
+          as="router-link"
           variant="ghost"
           variant-color="gray"
           aria-label="View the documentation"
-          href="/getting-started"
+          to="#"
           icon="book"
         />
       </CBox>
@@ -98,17 +104,18 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { CBox, CFlex, CIconButton, CIcon } from '@chakra-ui/vue-next'
 import ChakraUILogoIcon from './ChakraLogoIcon.vue'
+import pkg from '../../../packages/core/package.json'
 
 export default defineComponent({
   name: 'Navbar',
   components: {
-    CBox,
-    CFlex,
-    CIconButton,
-    CIcon,
     ChakraUILogoIcon,
+  },
+  setup() {
+    return {
+      pkg,
+    }
   },
 })
 </script>

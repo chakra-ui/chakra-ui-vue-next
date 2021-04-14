@@ -1,10 +1,19 @@
 import { BoxProps } from './box'
-import { h, defineComponent, PropType, computed, watchEffect } from 'vue'
+import {
+  h,
+  defineComponent,
+  PropType,
+  computed,
+  watchEffect,
+  Component,
+  ConcreteComponent,
+} from 'vue'
 import {
   chakra,
   HTMLChakraProps,
   SystemProps,
   ResponsiveValue,
+  DOMElements,
 } from '@chakra-ui/vue-system'
 import { filterUndefined, mapResponsive } from '@chakra-ui/utils'
 import { SNAO } from '@chakra-ui/vue-utils'
@@ -113,6 +122,12 @@ export interface GridItemProps extends BoxProps {
  */
 export const CGrid = defineComponent({
   props: {
+    as: {
+      type: [String, Object] as PropType<
+        DOMElements | Component | ConcreteComponent | string
+      >,
+      default: 'div',
+    },
     templateColumns: SNAO as PropType<GridProps['gridTemplateColumns']>,
     gap: SNAO as PropType<GridProps['gridGap']>,
     rowGap: SNAO as PropType<GridProps['gridRowGap']>,
@@ -146,8 +161,8 @@ export const CGrid = defineComponent({
     )
     return () => {
       return h(
-        chakra('div', { label: 'grid', __css: styles.value, ...attrs }),
-        {},
+        chakra(props.as, { label: 'grid', __css: styles.value }),
+        attrs,
         slots
       )
     }
@@ -162,6 +177,12 @@ function spanFn(span?: ResponsiveValue<number | 'auto'>) {
 
 export const CGridItem = defineComponent({
   props: {
+    as: {
+      type: [String, Object] as PropType<
+        DOMElements | Component | ConcreteComponent | string
+      >,
+      default: 'div',
+    },
     colSpan: SNAO as PropType<GridItemProps['colSpan']>,
     colStart: SNAO as PropType<GridItemProps['colStart']>,
     colEnd: SNAO as PropType<GridItemProps['colEnd']>,
@@ -183,11 +204,8 @@ export const CGridItem = defineComponent({
 
     return () => {
       return h(
-        chakra('div', { label: 'grid__item' }),
-        {
-          __css: styles.value,
-          ...attrs,
-        },
+        chakra(props.as, { label: 'grid__item', __css: styles.value }),
+        attrs,
         slots
       )
     }

@@ -29,8 +29,7 @@ const CCode = defineComponent({
       const styles = useStyleConfig('Code', themingProps.value)
 
       return h(
-        chakra(props.as),
-        {
+        chakra(props.as, {
           __css: {
             display: 'inline-block',
             verticalAlign: 'middle',
@@ -40,8 +39,8 @@ const CCode = defineComponent({
             rounded: 'sm',
             ...styles.value,
           },
-          ...attrs,
-        },
+        }),
+        attrs,
         slots
       )
     }
