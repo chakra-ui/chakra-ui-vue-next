@@ -45,7 +45,15 @@ export const CText = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    const styles = useStyleConfig('Text', props)
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig('Text', themingProps.value)
 
     const aliasedProps = computed(() =>
       filterUndefined({
