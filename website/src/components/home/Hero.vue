@@ -12,7 +12,6 @@
     }"
     :px="[4, 10, 12]"
     :py="{ base: 10, sm: 20 }"
-    shadow="lg"
     gap="5"
   >
     <c-flex align="center" h="full">
