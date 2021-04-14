@@ -22,12 +22,12 @@ const CIconButton = defineComponent({
   name: 'CIconButton',
   props: IconButtonProps,
   setup(props, { attrs }) {
+    if (!props.ariaLabel) {
+      console.error(
+        `chakra-ui: The \`aria-label\` prop is required for the <c-icon-button />`
+      )
+    }
     return () => {
-      if (!props.ariaLabel) {
-        console.error(
-          `chakra-ui: The \`aria-label\` prop is required for the <c-icon-button />`
-        )
-      }
       return h(
         CButton,
         {

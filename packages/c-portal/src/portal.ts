@@ -1,4 +1,12 @@
-import { h, defineComponent, PropType, Teleport, onBeforeMount, ref } from 'vue'
+import {
+  h,
+  defineComponent,
+  PropType,
+  Teleport,
+  onBeforeMount,
+  ref,
+  onUnmounted,
+} from 'vue'
 import { createPortalTarget, ensureTarget } from './portal.utils'
 
 const CPortal = defineComponent({

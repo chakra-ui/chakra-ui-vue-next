@@ -21,13 +21,13 @@ const CButtonSpinner = defineComponent({
     >,
   },
   setup(props, { attrs }) {
+    const spinnerStyles = computed<SystemStyleObject>(() => ({
+      display: 'flex',
+      alignItems: 'center',
+      position: props.label ? 'relative' : 'absolute',
+      marginEnd: props.label ? props.spacing : 0,
+    }))
     return () => {
-      const spinnerStyles = computed<SystemStyleObject>(() => ({
-        display: 'flex',
-        alignItems: 'center',
-        position: props.label ? 'relative' : 'absolute',
-        marginEnd: props.label ? props.spacing : 0,
-      }))
       return h(
         chakra('div', {
           label: 'button__spinner',

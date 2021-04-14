@@ -20,7 +20,7 @@ const CCloseIcon = defineComponent({
           name: 'close',
           ...attrs,
         },
-        [
+        () => [
           h('path', {
             fill: 'currentColor',
             d:

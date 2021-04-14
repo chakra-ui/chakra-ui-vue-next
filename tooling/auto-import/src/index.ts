@@ -5,5 +5,5 @@ export const componentResolver = (name: string) => {
     return {
       importName: name,
       path: `@chakra-ui/vue-next`,
-  }
+    }
 }

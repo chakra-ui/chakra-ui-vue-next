@@ -6,13 +6,13 @@
     h="full"
     w="100%"
   >
-    <c-button @click="isOpen = true">Open Modal</c-button>
+    <c-button @click="isOpen = true" variant="luxury">Checkout</c-button>
     <!-- eslint-disable-next-line -->
     <c-modal v-model:is-open="isOpen">
       <c-modal-overlay />
       <c-modal-content>
-        <chakra.div bg="white" rounded="md" p="10">
-          <c-button> Hello, Modal! ⚡️ </c-button>
+        <chakra.div p="10">
+          <c-button @click="isOpen = false">Hello, Modal! ⚡️</c-button>
         </chakra.div>
       </c-modal-content>
     </c-modal>

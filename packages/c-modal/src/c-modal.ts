@@ -38,7 +38,7 @@ import { CScrollLock } from '@chakra-ui/c-scroll-lock'
 import { CMotion } from '@chakra-ui/c-motion'
 
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
-import { FocusableElement } from '@chakra-ui/utils'
+import { focus, FocusableElement } from '@chakra-ui/utils'
 
 type ScrollBehavior = 'inside' | 'outside'
 type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none'
@@ -231,44 +231,31 @@ export const CModalFocusScope = defineComponent({
   name: 'CModalFocusScope',
   setup(_, { attrs, slots }) {
     const {
-      autoFocus,
-      trapFocus,
+      isOpen,
       initialFocusRef,
       returnFocusOnClose,
-      closeOnOverlayClick,
-      closeOnEsc,
-      blockScrollOnMount,
-      dialogRef,
-      allowPinchZoom,
       finalFocusRef,
-      preserveScrollBarGap,
-      ...rest
+      blockScrollOnMount,
     } = useModalContext()
 
-    console.log({ rest })
-
-    const _enabled = ref<boolean>(trapFocus?.value || true)
-
-    const enabled = computed({
-      get() {
-        return _enabled?.value
-      },
-      set(value: boolean) {
-        _enabled.value = value
-      },
-    })
-    trapFocus &&
-      watch(trapFocus, (newVal) => {
-        _enabled.value = Boolean(newVal)
-      })
+    const finalFocusEl = computed(() =>
+      typeof finalFocusRef?.value === 'function'
+        ? finalFocusRef.value()
+        : finalFocusRef?.value
+    )
 
     const focusLockOptions: FocusLockOptions = reactive({
-      enabled: enabled.value,
-      autoFocus: autoFocus?.value,
+      enabled: isOpen.value,
+      autoFocus: true,
       initialFocusRef: initialFocusRef?.value,
       returnFocus: returnFocusOnClose?.value,
-      clickOutsideDeactivates: closeOnOverlayClick?.value,
-      escapeDeactivates: closeOnEsc?.value,
+      clickOutsideDeactivates: false,
+      escapeDeactivates: false,
+      onDeactivate: () => {
+        if (finalFocusEl.value) {
+          focus(finalFocusEl.value)
+        }
+      },
     })
 
     const { lock } = useFocusLock(focusLockOptions)
@@ -309,7 +296,14 @@ export const CModalContent = defineComponent({
       ...styles.value.dialogContainer,
     }))
 
-    console.log(dialogContainerProps.value)
+    const dialogStyles = computed<SystemStyleObject>(() => ({
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      width: '100%',
+      outline: 0,
+      ...styles.value.dialog,
+    }))
 
     return () =>
       h(CModalFocusScope, {}, () => [
@@ -318,10 +312,7 @@ export const CModalContent = defineComponent({
             label: 'modal__content-container',
             __css: dialogContainerStyles.value,
           }),
-          {
-            ...attrs,
-            ...dialogContainerProps.value,
-          },
+          dialogContainerProps.value,
           () => [
             h(
               CMotion,
@@ -329,9 +320,18 @@ export const CModalContent = defineComponent({
                 type: 'scale',
               },
               () => [
-                isOpen.value
-                  ? h(chakra('span'), () => slots?.default?.())
-                  : undefined,
+                isOpen.value &&
+                  h(
+                    chakra('div', {
+                      __css: dialogStyles.value,
+                      label: 'modal__content',
+                    }),
+                    {
+                      ...attrs,
+                      ...dialogProps.value,
+                    },
+                    slots
+                  ),
               ]
             ),
           ]

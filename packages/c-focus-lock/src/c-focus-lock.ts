@@ -1,41 +1,41 @@
-import {
-  h,
-  defineComponent,
-  PropType,
-  ref,
-  onMounted,
-  watch,
-  onUpdated,
-} from 'vue'
+/**
+ *
+ * `@chakra-ui/c-focus-lock` component.
+ *
+ * Some known issues:
+ *
+ * At this point in time, there seems to be a weird bug
+ * where focus is first sent to the body before it
+ * is sent into the focus trap.
+ *
+ * I think this might be an issue later.
+ *
+ * I did some inspection around this issue for some time
+ * and my suspicion is that it is happening inside the library
+ */
+
+import { h, defineComponent, PropType, computed } from 'vue'
 import { chakra } from '@chakra-ui/vue-system'
 import { focus, FocusableElement, __DEV__ } from '@chakra-ui/utils'
-import { FocusLockOptions, useFocusLock } from './use-focus-lock'
+import { UseFocusLockOptions, useFocusLock } from './use-focus-lock'
+import { useRef } from '@chakra-ui/vue-utils'
+import { FocusTarget } from 'focus-trap'
 
-type RefProp = () => HTMLElement & string & object
+type RefProp = () => HTMLElement | string | object | undefined
 
-export interface FocusLockProps extends FocusLockOptions {
+export interface FocusLockProps extends UseFocusLockOptions {
   /**
-   * `ref` of the element to receive focus initially
-   */
-  initialFocusRef: RefProp
-  /**
-   * `ref` of the element to return focus to when `CFocusLock`
-   * unmounts or is deactivated
+   * Element to which to send focus when focus trap has been deacivated
    */
   finalFocusRef: RefProp
   /**
-   * The `ref` of the wrapper for which the focus-lock wraps
+   * Element to which to send focus when focus trap has been activated
    */
-  contentRef: RefProp
-  /**
-   * If `true`, focus will be restored to the element that
-   * triggered the `CFocusLock` once it unmounts
-   */
-  restoreFocus: boolean
+  initialFocusRef: RefProp
   /**
    * Disables focus trapping when set to `true`.
    */
-  isDisabled: boolean
+  isActive: boolean
   /**
    * If `true`, the first focuable element within the `contentRef`
    * will be auto-focused once `CFocusLock` mounts
@@ -44,86 +44,92 @@ export interface FocusLockProps extends FocusLockOptions {
 }
 
 export const CFocusLock = defineComponent({
+  name: 'CFocusLock',
+  emits: ['activate', 'deactivate'],
   props: {
-    initialFocusRef: [String, Function] as PropType<
-      FocusLockProps['initialFocusRef']
-    >,
-    fallbackFocusRef: [String, Function] as PropType<
-      FocusLockProps['fallbackFocus']
-    >,
     finalFocusRef: [String, Function] as PropType<
       FocusLockProps['finalFocusRef']
     >,
-    restoreFocus: {
-      type: Boolean as PropType<FocusLockProps['restoreFocus']>,
+    initialFocusRef: [String, Function] as PropType<
+      FocusLockProps['initialFocusRef']
+    >,
+    isActive: Boolean as PropType<FocusLockProps['isActive']>,
+    autoFocus: {
+      type: Boolean as PropType<FocusLockProps['autoFocus']>,
       default: true,
     },
-    isDisabled: {
-      type: Boolean as PropType<FocusLockProps['isDisabled']>,
+    escapeDeactivates: {
+      type: Boolean as PropType<FocusLockProps['escapeDeactivates']>,
+      default: false,
     },
-    autoFocus: Boolean as PropType<FocusLockProps['autoFocus']>,
     clickOutsideDeactivates: {
       type: Boolean as PropType<FocusLockProps['clickOutsideDeactivates']>,
+      default: false,
+    },
+    allowOutsideClick: {
+      type: Boolean as PropType<FocusLockProps['allowOutsideClick']>,
+      default: false,
+    },
+    restoreFocus: {
+      type: Boolean as PropType<Boolean>,
       default: true,
     },
   },
-  emits: ['activate', 'deactivate'],
-  setup(props, { slots, emit }) {
-    const el = ref<HTMLElement | null>(null)
+  setup(props, { attrs, slots, emit }) {
+    const finalFocusElement = computed(() => {
+      let finalFocus
+      if (props.finalFocusRef) {
+        const finalFocusRef = props.finalFocusRef?.() || props.finalFocusRef
+        if (typeof finalFocusRef === 'string') {
+          finalFocus = document.querySelector<FocusableElement & Element>(
+            finalFocusRef
+          )
+        } else {
+          // @ts-expect-error
+          finalFocus = finalFocusRef?.$el || finalFocusRef
+        }
+      }
+      return finalFocus
+    })
 
-    onMounted(() => {
-      const { lock, initialFocus } = useFocusLock({
-        enabled: !props.isDisabled,
-        clickOutsideDeactivates: props.clickOutsideDeactivates,
-        fallbackFocus: props.fallbackFocusRef,
-        returnFocus: props.restoreFocus,
-        onActivate: () => emit('activate'),
-        onDeactivate: () => {
+    /**
+     * Basic state for focus lock component.
+     */
+    const { lock, ...focusLockState } = useFocusLock({
+      ...props,
+      onActivate() {
+        emit('activate')
+      },
+      onDeactivate() {
+        setTimeout(() => {
           emit('deactivate')
-          const finalFocusRef =
-            props.initialFocusRef?.() || props.initialFocusRef
-          if (typeof finalFocusRef === 'string') {
-            const finalFocus = document.querySelector(finalFocusRef)
-            if (finalFocus) focus(finalFocus as FocusableElement)
-          } else {
-            // @ts-expect-error
-            focus(finalFocusRef?.$el || finalFocusRef)
+          if (finalFocusElement.value) {
+            focus(finalFocusElement.value)
           }
-        },
-      })
-
-      onUpdated(() => {
-        if (props.initialFocusRef) {
-          initialFocus(props.initialFocusRef?.() || props.initialFocusRef)
-        }
-      })
-
-      watch(
-        () => props.isDisabled,
-        (val) => console.log('isDisabled', val)
-      )
-
-      watch(
-        el,
-        (val) => {
-          console.log({ val })
-          lock(val)
-        },
-        {
-          immediate: true,
-          flush: 'post',
-        }
-      )
+        })
+      },
+      initialFocus: props.initialFocusRef as FocusTarget,
+      // Should only return focus to original element
+      // when the final focus element is not set
+      returnFocusOnDeactivate: !!!finalFocusElement.value,
+      immediate: props.autoFocus,
     })
 
     return () =>
       h(
-        chakra('div'),
-        {
+        chakra('div', {
           label: 'focus-lock',
-          ref: el,
+        }),
+        {
+          // @ts-expect-error
+          ref: lock,
+          ...attrs,
         },
-        slots
+        () =>
+          slots.default?.({
+            ...focusLockState,
+            hasFocus: focusLockState.hasFocus.value,
+          })
       )
   },
 })

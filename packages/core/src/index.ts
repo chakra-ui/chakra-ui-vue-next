@@ -5,10 +5,6 @@ import { chakra, injectGlobal } from '@chakra-ui/vue-system'
 import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
 import { MergedIcons, parseIcons } from './parse-icons'
-import {
-  useBodyScrollLock,
-  BodyScrollLockDirective,
-} from '@chakra-ui/c-scroll-lock'
 
 interface ExtendIconsPath {
   path: string
@@ -60,8 +56,6 @@ const ChakraUIVuePlugin: Plugin = {
     }
 
     app.provide('$chakraIcons', mergedIcons)
-
-    app.directive('scroll-lock', BodyScrollLockDirective)
   },
 }
 

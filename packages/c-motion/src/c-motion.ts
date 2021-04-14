@@ -51,7 +51,7 @@ export const variants: CMotionVariants = {
       translateY: 0,
     },
     leave: {
-      scale: 0.8,
+      scale: 0.5,
       opacity: 0,
     },
   },
@@ -78,7 +78,6 @@ export const CMotion = defineComponent({
       targetNode,
       (node) => {
         if (!node) return
-        console.log(node)
         motionInstance.value = useMotion(targetNode, variants[props.type])
       },
       {
@@ -103,6 +102,7 @@ export const CMotion = defineComponent({
           css: false,
           mode: 'out-in',
           onLeave: (el, done) => {
+            console.log(el)
             motionInstance.value.leave(done)
           },
         },

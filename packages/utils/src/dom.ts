@@ -1,11 +1,18 @@
-import { ComponentOptions, onBeforeUpdate, Ref, ref } from 'vue'
+import {
+  ComponentOptions,
+  defineComponent,
+  onBeforeUpdate,
+  Ref,
+  ref,
+  unref,
+  UnwrapRef,
+} from 'vue'
+import { MaybeRef } from './types'
 
 /**
  * Interface for node provided by template ref
  */
-export interface TemplateRef extends ComponentOptions, HTMLElement {
-  $el?: HTMLElement | null
-}
+export type TemplateRef = Element | VueComponentInstance | undefined | null
 
 /**
  * For internal use
@@ -35,8 +42,29 @@ export function useRef(): [
    * @param el Template ref value provided by Vue
    */
   const _ref = (el: TemplateRef | null) => {
-    refEl.value = el?.$el || el
+    refEl.value = (el as VueComponentInstance)?.$el ?? el
   }
 
   return [_ref, refEl]
+}
+
+/** Vue Component HTML Element Instance */
+export type VueComponentInstance = InstanceType<
+  ReturnType<typeof defineComponent>
+>
+
+/** Ref may or may not be an HTML Element or VueComponent instance */
+export type MaybeElementRef = MaybeRef<
+  Element | VueComponentInstance | undefined | null
+>
+
+/**
+ * Unwraps element from ref
+ * @param elementRef Ref of template node
+ */
+export function unrefElement(
+  elementRef: MaybeElementRef
+): UnwrapRef<MaybeElementRef> {
+  const node = unref(elementRef)
+  return (node as VueComponentInstance)?.$el ?? node
 }

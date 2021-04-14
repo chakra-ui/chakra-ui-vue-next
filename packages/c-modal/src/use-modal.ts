@@ -7,6 +7,7 @@ import {
   ToRefs,
   toRefs,
   VNodeProps,
+  watch,
   watchEffect,
 } from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
@@ -89,7 +90,9 @@ export function useModal(options: UseModalOptions) {
    * `aria-hidden` attributes handling
    */
   const shouldHide = computed(() => isOpen.value && useInert?.value)
-  useAriaHidden(dialogEl, shouldHide)
+  useAriaHidden(dialogEl.value, shouldHide.value)
+
+  watch(shouldHide, console.log)
 
   const hasHeader = ref(false)
   const hasBody = ref(false)
@@ -112,22 +115,11 @@ export function useModal(options: UseModalOptions) {
   }))
 
   const handleOverlayClick = (event: MouseEvent) => {
-    console.log('handleOverlayClick', event)
     event.stopPropagation()
-
-    console.log('PRE', {
-      closeOnOverlayClick: closeOnOverlayClick?.value,
-      isSameTarget: mouseDownTarget.value === event.target,
-      mouseDownTarget: mouseDownTarget.value,
-      eventTarget: event.target,
-    })
+    // @click.self modifier
     if (event.target !== event.currentTarget) return
 
     if (closeOnOverlayClick?.value) {
-      console.log('POST', {
-        closeOnOverlayClick: closeOnOverlayClick?.value,
-        isSameTarget: mouseDownTarget.value !== event.target,
-      })
       closeModal()
     }
   }
@@ -142,7 +134,6 @@ export function useModal(options: UseModalOptions) {
       }
 
       handleEscape(event)
-      // instance?.emit('click', event)
     }
   }
 
@@ -160,7 +151,6 @@ export function useModal(options: UseModalOptions) {
     },
     onMouseDown: (event: MouseEvent) => {
       mouseDownTarget.value = event.target
-      console.log('OnMouseDown called', mouseDownTarget.value)
       instance?.emit('mousedown', event)
     },
   }))
@@ -191,22 +181,21 @@ export type UseModalReturn = Omit<
  * @param shouldHide whether `aria-hidden` should be applied
  */
 export function useAriaHidden(
-  node: Ref<HTMLElement | null>,
-  shouldHide: Ref<boolean> | ComputedRef<boolean | undefined>
+  node: HTMLElement | null,
+  shouldHide: boolean | undefined
 ) {
-  console.log('invoked useAriaHidden')
   watchEffect(
     (onInvalidate) => {
-      if (!node.value) return
+      if (!node) return
 
       let undo: Undo | null = null
 
-      if (shouldHide.value && node.value) {
-        undo = hideOthers(node.value)
+      if (shouldHide && node) {
+        undo = hideOthers(node)
       }
 
       onInvalidate(() => {
-        if (shouldHide.value) {
+        if (shouldHide) {
           undo?.()
         }
       })

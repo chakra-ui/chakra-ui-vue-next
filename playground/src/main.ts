@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import ChakraUIVuePlugin, { chakra, extendTheme } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
-import { feActivity } from 'feather-icons-paths'
+import { feActivity, feUser } from 'feather-icons-paths'
 import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
@@ -14,7 +14,8 @@ const app = createApp(App)
   .use(ChakraUIVuePlugin, {
     icons: {
       library: {
-        feActivity
+        feActivity,
+        feUser
       },
       extend: {
         discord: {
@@ -25,9 +26,7 @@ const app = createApp(App)
       },
     },
     extendTheme: extendTheme({
-      config: {
-        initialColorMode: 'light'
-      }
+      config: {},
     })
   })
   .use(PerfectScrollbar)

@@ -1,165 +1,160 @@
-/**
- * 1. When component mounts, initialize focus trap
- */
-
+import { MaybeElementRef, unrefElement, useRef } from '@chakra-ui/vue-utils'
+import { AnyFunction, focus, getFirstFocusable } from '@chakra-ui/utils'
+import { watch, ref, Ref, UnwrapRef, onBeforeUnmount, nextTick } from 'vue'
 import {
-  computed,
-  nextTick,
-  onBeforeUpdate,
-  onMounted,
-  onUnmounted,
-  ref,
-  watch,
-} from 'vue'
-import { createFocusTrap, FocusTrap, FocusTarget } from 'focus-trap'
-import { focus, getAllFocusable } from '@chakra-ui/utils'
-export interface FocusLockOptions {
+  ActivateOptions,
+  createFocusTrap,
+  DeactivateOptions,
+  FocusTarget,
+  FocusTrap,
+  Options,
+} from 'focus-trap'
+
+export interface UseFocusLockOptions extends Options {
   /**
-   * Determines whether the focus lock is active or inactive
-   * @default true
+   * Immediately activate the trap
    */
-  enabled?: boolean
+  immediate?: boolean
+}
+
+export interface UseFocusLockReturn {
   /**
-   * Invoked handler when focus-lock is activated
+   * Indicates if the focus trap is currently active
    */
-  onActivate?: () => void
+  hasFocus: Ref<boolean>
+
   /**
-   * Invoked handler when focus-lock is deactivated
+   * Indicates if the focus trap is currently paused
    */
-  onDeactivate?: () => void
+  isPaused: Ref<boolean>
+
   /**
-   * Invoked handler when focus-lock is activated.
+   * Activate the focus trap
    *
-   * By default, an error will be thrown if the focus lock
-   * contains no elements in its tab order. With this
-   * option you can specify a fallback element to
-   * programmatically receive focus if no other
-   * tabbable elements are found.
+   * @link https://github.com/focus-trap/focus-trap#trapactivateactivateoptions
+   * @param opts Activate focus trap options
    */
-  fallbackFocus?: FocusTarget
+  activate: (opts?: ActivateOptions) => void
+
   /**
-   * Determines whether focus lock is activated when user clicks outside.
-   * @default true
+   * Deactivate the focus trap
+   *
+   * @link https://github.com/focus-trap/focus-trap#trapdeactivatedeactivateoptions
+   * @param opts Deactivate focus trap options
    */
-  clickOutsideDeactivates?: boolean | ((e: MouseEvent) => boolean)
-  persistentFocus?: boolean | ((e: MouseEvent) => boolean)
-  returnFocus?: boolean
-  preventScroll?: boolean
-  escapeDeactivates?: boolean
-  delayInitialFocus?: boolean
+  deactivate: (opts?: DeactivateOptions) => void
+
+  /**
+   * Pause the focus trap
+   *
+   * @link https://github.com/focus-trap/focus-trap#trappause
+   */
+  pause: AnyFunction
+
+  /**
+   * Unpauses the focus trap
+   *
+   * @link https://github.com/focus-trap/focus-trap#trapunpause
+   */
+  unpause: AnyFunction
+
+  /**
+   * Node ref getter for initial focus element inside the focus trap
+   */
+  initialFocus: (el: UnwrapRef<MaybeElementRef>) => void
+
+  /**
+   * Node ref getter for focus lock element
+   */
+  lock: (el: UnwrapRef<MaybeElementRef>) => void
 }
 
-const FOCUS_LOCK_DEFAULTS: FocusLockOptions = {
-  enabled: true,
-  clickOutsideDeactivates: true,
-  escapeDeactivates: false,
-  persistentFocus: false,
-  preventScroll: false,
-  delayInitialFocus: true,
-  returnFocus: true,
-}
+/**
+ * Reactive focus-lock composable
+ *
+ * @param target The target element to trap focus within
+ * @param options Focus lock options
+ */
+export function useFocusLock(
+  options: UseFocusLockOptions = {}
+): UseFocusLockReturn {
+  let trap: undefined | FocusTrap
 
-export const useFocusLock = (focusLockOptions?: FocusLockOptions) => {
-  const focusLockRef = ref<HTMLElement | null>(null)
-  const initialFocus = ref<HTMLElement | null>(null)
-  const trap = ref<FocusTrap | null>(null)
+  const [lock, lockEl] = useRef()
+  const [initialFocus, initialFocusEl] = useRef()
 
-  const options = computed(() => ({
-    ...FOCUS_LOCK_DEFAULTS,
-    ...focusLockOptions,
-  }))
+  const { immediate, ...focusLockOptions } = options
 
-  const setupFocusLock = () => {
-    if (options.value.enabled) {
-      try {
-        const focusables = getAllFocusable(focusLockRef.value as HTMLElement)
-        if (focusables.length === 0) {
-          console.warn(
-            'chakra-ui:focus-lock',
-            'No focusable elements found inside content ref',
-            {
-              container: focusLockRef.value,
-              children: focusLockRef.value?.childNodes,
-            }
-          )
-          focus(focusLockRef.value, { nextTick: true })
-        }
+  const hasFocus = ref(false)
+  const isPaused = ref(false)
 
-        trap.value = createFocusTrap(focusLockRef.value as HTMLElement, {
-          initialFocus:
-            (initialFocus.value as FocusTarget) ||
-            focusables[0] ||
-            (focusLockRef.value as FocusTarget),
-          escapeDeactivates: options.value.escapeDeactivates,
-          allowOutsideClick: options.value.persistentFocus,
-          returnFocusOnDeactivate: options.value.returnFocus,
-          clickOutsideDeactivates: options.value.clickOutsideDeactivates,
-          onActivate: options.value.onActivate,
-          onDeactivate: () => {
-            options.value?.onDeactivate?.()
-            if (focusLockOptions) {
-              focusLockOptions.enabled = false
-            }
-          },
-          fallbackFocus: options.value.fallbackFocus,
-        })
-        trap.value.activate()
-      } catch (error) {
-        console.warn('chakra-ui:focus-lock', error)
-      }
-    } else {
-      trap.value?.deactivate()
-      trap.value = null
+  const activate = (opts?: ActivateOptions) =>
+    setTimeout(() => trap && trap.activate(opts))
+  const deactivate = (opts?: DeactivateOptions) =>
+    setTimeout(() => trap && trap.deactivate(opts))
+
+  const pause = () => {
+    if (trap) {
+      trap.pause()
+      isPaused.value = true
     }
   }
 
-  onMounted(async () => {
-    await nextTick()
+  const unpause = () => {
+    if (trap) {
+      trap.unpause()
+      isPaused.value = false
+    }
+  }
 
-    watch(() => [focusLockRef, options.value.enabled], setupFocusLock, {
-      immediate: true,
-      flush: 'post',
-    })
+  watch(
+    lockEl,
+    async (el) => {
+      await nextTick()
+      if (!el) return
+      trap = createFocusTrap(el, {
+        initialFocus: initialFocusEl.value as FocusTarget,
+        ...focusLockOptions,
+        onActivate() {
+          hasFocus.value = true
 
-    focusLockRef.value?.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && options.value.escapeDeactivates) {
-        if (options.value.enabled && focusLockOptions) {
-          focusLockOptions.enabled = false
-        }
-      }
-    })
-  })
+          // In some cases the initial focus element
+          // may not yet be active. So just in case,
+          // There's a fallback call here to focus the
+          // element after the initial focus element is focused.
+          const initialFocus = initialFocusEl.value ?? getFirstFocusable(el)
+          console.log('initialFocusElement', initialFocus)
+          setTimeout(() => focus(initialFocus))
 
-  onUnmounted(() => {
-    trap.value?.deactivate?.()
-    trap.value = null
-  })
+          // Apply if consumer provides onActivate option
+          if (options.onActivate) options.onActivate()
+        },
+        onDeactivate() {
+          hasFocus.value = false
+          // Apply if consumer provides onDeactivate option
+          if (options.onDeactivate) options.onDeactivate()
+        },
+      })
 
-  onBeforeUpdate(() => {
-    // clear refs before DOM updates
-    focusLockRef.value = null
-    initialFocus.value = null
+      // Focus if immediate is set to true
+      if (immediate) activate()
+    },
+    { flush: 'post', immediate: true }
+  )
+
+  // Cleanup on unmount
+  onBeforeUnmount(() => {
+    deactivate()
   })
 
   return {
-    /**
-     * DOM ref of focus-lock container
-     */
-    lock: (el: any) => {
-      if (el) {
-        focusLockRef.value = el.$el || el
-      }
-    },
-    /**
-     * The content child element to be focused when the focus lock is activated.
-     * By default, when a focus trap is activated the first element in the
-     * focus trap's tab order will receive focus. With this option you
-     * can specify a different element to receive that initial focus.
-     */
-    initialFocus: (el: any) => {
-      if (el) {
-        initialFocus.value = el.$el || el
-      }
-    },
+    lock,
+    initialFocus,
+    hasFocus,
+    isPaused,
+    activate,
+    deactivate,
+    pause,
+    unpause,
   }
 }
