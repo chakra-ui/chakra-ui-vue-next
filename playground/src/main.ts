@@ -24,9 +24,9 @@ const app = createApp(App)
       },
     },
     extendTheme: extendTheme({
-      config: {
-        initialColorMode: 'light'
-      }
+      // config: {
+      //   initialColorMode: 'light'
+      // }
     })
   })
   .use(PerfectScrollbar)

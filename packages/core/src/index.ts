@@ -36,7 +36,7 @@ const ChakraUIVuePlugin: Plugin = {
     let extendedIcons = options.icons?.extend || {}
 
     // Initialize colormode
-    const colorMode = theme.config?.initialColorMode || 'dark'
+    const colorMode: ColorMode = theme.config?.initialColorMode || 'light'
 
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme

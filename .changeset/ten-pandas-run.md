@@ -2,7 +2,6 @@
 '@chakra-ui/c-icon': minor
 '@chakra-ui/c-accordion': patch
 '@chakra-ui/c-alert': patch
-'@chakra-ui/c-badge': patch
 '@chakra-ui/c-button': patch
 '@chakra-ui/c-close-button': patch
 '@chakra-ui/c-color-mode': patch

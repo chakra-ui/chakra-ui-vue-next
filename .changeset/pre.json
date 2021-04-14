@@ -4,7 +4,6 @@
   "initialVersions": {
     "@chakra-ui/c-accordion": "0.0.0",
     "@chakra-ui/c-alert": "0.0.0",
-    "@chakra-ui/c-badge": "0.0.0",
     "@chakra-ui/c-button": "0.0.0",
     "@chakra-ui/c-color-mode": "0.0.0",
     "@chakra-ui/c-flex": "0.0.0",
