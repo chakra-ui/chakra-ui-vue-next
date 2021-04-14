@@ -27,20 +27,16 @@ export interface FocusLockProps extends UseFocusLockOptions {
   /**
    * Element to which to send focus when focus trap has been deacivated
    */
-  finalFocusRef: RefProp
+  finalFocusRef?: RefProp
   /**
    * Element to which to send focus when focus trap has been activated
    */
-  initialFocusRef: RefProp
-  /**
-   * Disables focus trapping when set to `true`.
-   */
-  isActive: boolean
+  initialFocusRef?: RefProp
   /**
    * If `true`, the first focuable element within the `contentRef`
    * will be auto-focused once `CFocusLock` mounts
    */
-  autoFocus: boolean
+  autoFocus?: boolean
 }
 
 export const CFocusLock = defineComponent({
@@ -53,7 +49,6 @@ export const CFocusLock = defineComponent({
     initialFocusRef: [String, Function] as PropType<
       FocusLockProps['initialFocusRef']
     >,
-    isActive: Boolean as PropType<FocusLockProps['isActive']>,
     autoFocus: {
       type: Boolean as PropType<FocusLockProps['autoFocus']>,
       default: true,

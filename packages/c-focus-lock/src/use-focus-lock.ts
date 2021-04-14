@@ -1,5 +1,10 @@
 import { MaybeElementRef, unrefElement, useRef } from '@chakra-ui/vue-utils'
-import { AnyFunction, focus, getFirstFocusable } from '@chakra-ui/utils'
+import {
+  AnyFunction,
+  focus,
+  getAllFocusable,
+  getFirstFocusable,
+} from '@chakra-ui/utils'
 import { watch, ref, Ref, UnwrapRef, onBeforeUnmount, nextTick } from 'vue'
 import {
   ActivateOptions,
@@ -64,6 +69,11 @@ export interface UseFocusLockReturn {
   initialFocus: (el: UnwrapRef<MaybeElementRef>) => void
 
   /**
+   * Node ref of the actual content node towhich focus lock should be scoped
+   */
+  content: (el: UnwrapRef<MaybeElementRef>) => void
+
+  /**
    * Node ref getter for focus lock element
    */
   lock: (el: UnwrapRef<MaybeElementRef>) => void
@@ -82,6 +92,7 @@ export function useFocusLock(
 
   const [lock, lockEl] = useRef()
   const [initialFocus, initialFocusEl] = useRef()
+  const [content, contentEl] = useRef()
 
   const { immediate, ...focusLockOptions } = options
 
@@ -107,6 +118,8 @@ export function useFocusLock(
     }
   }
 
+  watch(contentEl, (el) => console.log('contentEl', el))
+
   watch(
     lockEl,
     async (el) => {
@@ -122,7 +135,16 @@ export function useFocusLock(
           // may not yet be active. So just in case,
           // There's a fallback call here to focus the
           // element after the initial focus element is focused.
-          const initialFocus = initialFocusEl.value ?? getFirstFocusable(el)
+          let initialFocus = initialFocusEl.value ?? getFirstFocusable(el)
+          if (initialFocusEl.value) {
+            initialFocus = initialFocusEl.value
+          } else {
+            const focusables = getAllFocusable(contentEl.value || el)
+            if (focusables.length) {
+              initialFocus = focusables[0]
+              console.log(focusables)
+            }
+          }
           console.log('initialFocusElement', initialFocus)
           setTimeout(() => focus(initialFocus))
 
@@ -156,5 +178,6 @@ export function useFocusLock(
     deactivate,
     pause,
     unpause,
+    content,
   }
 }

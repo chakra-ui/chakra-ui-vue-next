@@ -20,21 +20,21 @@ export interface UseModalOptions {
   /**
    * If `true`, the modal will be open.
    */
-  isOpen: boolean
+  isOpen: Ref<boolean>
   /**
    * The `id` of the modal
    */
-  id?: string
+  id?: Ref<string>
   /**
    * If `true`, the modal will close when the overlay is clicked
    * @default true
    */
-  closeOnOverlayClick?: boolean
+  closeOnOverlayClick?: Ref<boolean>
   /**
    * If `true`, the modal will close when the `Esc` key is pressed
    * @default true
    */
-  closeOnEsc?: boolean
+  closeOnEsc?: Ref<boolean>
 
   /**
    * A11y: If `true`, the siblings of the `modal` will have `aria-hidden`
@@ -44,7 +44,7 @@ export interface UseModalOptions {
    *
    *  @default true
    */
-  useInert?: boolean
+  useInert?: Ref<boolean>
   /**
    * Emits event to close modal dialog
    */
@@ -70,7 +70,8 @@ export function useModal(options: UseModalOptions) {
   const instance = getCurrentInstance()
 
   // DOM refs
-  const [dialogRef, dialogEl] = useRef()
+  const [dialogRef] = useRef()
+  const dialogEl = ref()
   const [overlayRef, overlayEl] = useRef()
 
   /** We use this element to keep track of the currently clicked element */
@@ -90,9 +91,10 @@ export function useModal(options: UseModalOptions) {
    * `aria-hidden` attributes handling
    */
   const shouldHide = computed(() => isOpen.value && useInert?.value)
-  useAriaHidden(dialogEl.value, shouldHide.value)
+  console.log({ shouldHide: shouldHide.value })
+  useAriaHidden(dialogEl, shouldHide)
 
-  watch(shouldHide, console.log)
+  watch(isOpen, (val) => console.log('isopen', val))
 
   const hasHeader = ref(false)
   const hasBody = ref(false)
@@ -160,6 +162,7 @@ export function useModal(options: UseModalOptions) {
     headerId,
     bodyId,
     dialogRef,
+    dialogEl,
     overlayRef,
     dialogProps,
     dialogContainerProps,
@@ -181,27 +184,48 @@ export type UseModalReturn = Omit<
  * @param shouldHide whether `aria-hidden` should be applied
  */
 export function useAriaHidden(
-  node: HTMLElement | null,
-  shouldHide: boolean | undefined
+  node: Ref<HTMLElement | undefined>,
+  shouldHide: Ref<boolean | undefined>
 ) {
-  watchEffect(
-    (onInvalidate) => {
-      if (!node) return
+  let undo: Undo | null = null
+  watch(
+    () => [node, shouldHide],
+    ([newNode, newShouldHide]) => {
+      console.log('useAriaHidden', node.value)
 
-      let undo: Undo | null = null
-
-      if (shouldHide && node) {
-        undo = hideOthers(node)
+      if (undo) {
+        undo?.()
+        undo = null
       }
 
-      onInvalidate(() => {
-        if (shouldHide) {
-          undo?.()
-        }
-      })
+      if (newShouldHide.value && newNode.value) {
+        undo = hideOthers(newNode.value as HTMLElement)
+      }
     },
     {
+      immediate: true,
       flush: 'post',
     }
   )
+  // watchEffect(
+  //   (onInvalidate) => {
+  //     if (!node.value) return
+
+  //     let undo: Undo | null = null
+
+  //     console.log('useAriaHidden', node.value)
+  //     if (shouldHide.value && node.value) {
+  //       undo = hideOthers(node.value)
+  //     }
+
+  //     onInvalidate(() => {
+  //       if (shouldHide.value) {
+  //         undo?.()
+  //       }
+  //     })
+  //   },
+  //   {
+  //     flush: 'post',
+  //   }
+  // )
 }

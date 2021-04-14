@@ -20,9 +20,13 @@ export type TemplateRef = Element | VueComponentInstance | undefined | null
  * Creates refs that will be bound to the template/render function.
  *
  * Why not just use the regular `ref(null)` and bind it to the element?
+ *
  * 1. To avoid unwrapping template refs which maybe components. This hook will always
  *    give us the actual element being bound the the element, and not the component
  *    options.
+ *
+ * 2. In some cases where we need an up-to-date value of the ref node,
+ *    from the consuming component, we can use this hook.
  *
  * @returns []
  */

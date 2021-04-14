@@ -6,7 +6,7 @@
     h="full"
     w="100%"
   >
-    <c-button @click="isOpen = true" variant="luxury">Checkout</c-button>
+    <c-button @click="isOpen = true">Checkout</c-button>
     <!-- eslint-disable-next-line -->
     <c-modal v-model:is-open="isOpen">
       <c-modal-overlay />

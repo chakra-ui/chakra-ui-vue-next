@@ -18,11 +18,13 @@ import {
   toRefs,
   computed,
   ToRefs,
-  unref,
-  ref,
   mergeProps,
-  Fragment,
+  onMounted,
+  watchEffect,
+  UnwrapRef,
   watch,
+  ref,
+  cloneVNode,
 } from 'vue'
 import {
   chakra,
@@ -33,18 +35,26 @@ import {
 } from '@chakra-ui/vue-system'
 import { createContext, TemplateRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
-import { FocusLockOptions, useFocusLock } from '@chakra-ui/c-focus-lock'
+import {
+  CFocusLock,
+  FocusLockProps,
+  useFocusLock,
+} from '@chakra-ui/c-focus-lock'
 import { CScrollLock } from '@chakra-ui/c-scroll-lock'
 import { CMotion } from '@chakra-ui/c-motion'
 
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { focus, FocusableElement } from '@chakra-ui/utils'
+import { FocusTarget } from 'focus-trap'
 
 type ScrollBehavior = 'inside' | 'outside'
 type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none'
 
 export interface ModalOptions
-  extends Omit<FocusLockOptions, 'enabled' | 'closeModal' | 'handleEscape'> {
+  extends Omit<
+    FocusLockProps,
+    'enabled' | 'closeModal' | 'isActive' | 'handleEscape'
+  > {
   /**
    *  If `true`, the modal will be centered on screen.
    * @default false
@@ -60,7 +70,7 @@ export interface ModalOptions
   scrollBehavior?: ScrollBehavior
 }
 
-export interface CModalProps extends UseModalOptions, ModalOptions {
+export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
   /**
    * If `true`, the modal will display
    *
@@ -85,15 +95,7 @@ export interface CModalProps extends UseModalOptions, ModalOptions {
    *
    * @default true
    */
-  autoFocus?: boolean
-  /**
-   * The `ref` of element to receive focus when the modal opens.
-   */
-  initialFocusRef?: () => FocusableElement
-  /**
-   * The `ref` of element to receive focus when the modal closes.
-   */
-  finalFocusRef?: () => FocusableElement
+  autoFocus: boolean
   /**
    * If `true`, the modal will return focus to the element that triggered it when it closes.
    * @default true
@@ -123,7 +125,18 @@ export interface CModalProps extends UseModalOptions, ModalOptions {
   motionPreset?: MotionPreset
 }
 
-type IUseModalOptions = ToRefs<Omit<CModalProps, 'closeModal' | 'handleEscape'>>
+type IUseModalOptions = ToRefs<
+  Omit<
+    CModalProps,
+    | 'closeModal'
+    | 'handleEscape'
+    | 'preserveScrollBarGap'
+    | 'allowPinchZoom'
+    | 'motionPreset'
+    | 'trapFocus'
+    | 'autoFocus'
+  >
+>
 
 interface CModalContext extends IUseModalOptions, UseModalReturn {
   //   /** The transition to be used for the CModal */
@@ -204,11 +217,11 @@ export const CModal = defineComponent({
     }
 
     const styles = useMultiStyleConfig('Modal', mergeProps(props, attrs))
-    const modalOptions = reactive({
-      ...props,
+    const modalOptions = {
+      ...toRefs(reactive(props)),
       closeModal,
       handleEscape,
-    })
+    }
     const modal = useModal(modalOptions)
 
     ModalContextProvider({
@@ -235,6 +248,8 @@ export const CModalFocusScope = defineComponent({
       initialFocusRef,
       returnFocusOnClose,
       finalFocusRef,
+      dialogRef,
+      dialogEl,
       blockScrollOnMount,
     } = useModalContext()
 
@@ -244,31 +259,47 @@ export const CModalFocusScope = defineComponent({
         : finalFocusRef?.value
     )
 
-    const focusLockOptions: FocusLockOptions = reactive({
-      enabled: isOpen.value,
-      autoFocus: true,
-      initialFocusRef: initialFocusRef?.value,
-      returnFocus: returnFocusOnClose?.value,
-      clickOutsideDeactivates: false,
-      escapeDeactivates: false,
-      onDeactivate: () => {
-        if (finalFocusEl.value) {
-          focus(finalFocusEl.value)
-        }
-      },
-    })
+    // const focusLockOptions = reactive({
+    //   immediate: true,
+    //   initialFocus: initialFocusRef?.value as FocusTarget,
+    //   returnFocus: returnFocusOnClose?.value,
+    //   clickOutsideDeactivates: false,
+    //   escapeDeactivates: false,
+    //   onDeactivate: () => {
+    //     if (finalFocusEl.value) {
+    //       focus(finalFocusEl.value as FocusableElement)
+    //     }
+    //   },
+    //   onActivate: () => {
+    //     console.log('focus lock activated')
+    //   },
+    // })
+    // })
 
-    const { lock } = useFocusLock(focusLockOptions)
+    const contentRef = ref()
+
+    watch(contentRef, (el) => console.log('contentRef value updated', el), {
+      flush: 'post',
+    })
 
     return () => {
       return h(
-        CScrollLock,
+        CFocusLock,
         {
-          ref: lock,
-          ...attrs,
-          enabled: blockScrollOnMount?.value,
+          attrs,
         },
-        slots
+        () => [
+          h(
+            CScrollLock,
+            {
+              enabled: blockScrollOnMount?.value,
+            },
+            () =>
+              slots.default?.({
+                contentRef,
+              })
+          ),
+        ]
       )
     }
   },
@@ -283,7 +314,13 @@ export const CModalContent = defineComponent({
   inheritAttrs: false,
   emits: ['click'],
   setup(_, { attrs, slots }) {
-    const { dialogProps, dialogContainerProps, isOpen } = useModalContext()
+    const {
+      dialogProps,
+      dialogContainerProps,
+      dialogEl,
+      dialogRef,
+      isOpen,
+    } = useModalContext()
     const styles = useStyles()
 
     const dialogContainerStyles = computed<SystemStyleObject>(() => ({
@@ -305,8 +342,14 @@ export const CModalContent = defineComponent({
       ...styles.value.dialog,
     }))
 
+    const dialogHack = ref()
+
+    watch(dialogHack, (el) => {
+      console.log('fromCModalContent', el)
+    })
+
     return () =>
-      h(CModalFocusScope, {}, () => [
+      h(CModalFocusScope, null, () =>
         h(
           chakra('div', {
             label: 'modal__content-container',
@@ -321,22 +364,28 @@ export const CModalContent = defineComponent({
               },
               () => [
                 isOpen.value &&
-                  h(
-                    chakra('div', {
-                      __css: dialogStyles.value,
-                      label: 'modal__content',
-                    }),
+                  cloneVNode(
+                    h(
+                      chakra('div', {
+                        __css: dialogStyles.value,
+                        label: 'modal__content',
+                      }),
+                      {
+                        ...attrs,
+                        ...dialogProps.value,
+                        ref: dialogHack,
+                      },
+                      slots
+                    ),
                     {
-                      ...attrs,
-                      ...dialogProps.value,
-                    },
-                    slots
+                      ref: dialogHack,
+                    }
                   ),
               ]
             ),
           ]
-        ),
-      ])
+        )
+      )
   },
 })
 
