@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-auto-import",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -37,8 +37,9 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
-    "vite": "^2.0.1",
-    "vite-plugin-components": "^0.6.6",
+    "@chakra-ui/vue-next": "1.0.0-alpha.4",
+    "vite": "2.1.5",
+    "vite-plugin-components": "^0.8.3",
     "vue": ">=3.0.5"
   }
 }

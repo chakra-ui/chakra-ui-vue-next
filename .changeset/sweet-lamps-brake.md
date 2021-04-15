@@ -1,7 +1,6 @@
 ---
 '@chakra-ui/c-accordion': patch
 '@chakra-ui/c-alert': patch
-'@chakra-ui/c-badge': patch
 '@chakra-ui/c-button': patch
 '@chakra-ui/c-color-mode': patch
 '@chakra-ui/c-flex': patch

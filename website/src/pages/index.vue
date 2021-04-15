@@ -1,14 +1,11 @@
 <template>
   <Navbar />
-  <chakra.main
-    :min-h="['auto', 'auto', '100vh']"
-    w="100%"
-    pt="60px"
-    bg="vue.50"
-  >
+  <chakra.main :min-h="['auto', 'auto', '100vh']" w="100%" pt="60px" bg="white">
     <Hero />
-    <SandboxExample />
     <PilersHero />
+    <!-- <Features /> -->
+    <SandboxExample />
+    <DiscordHero />
     <Footer />
   </chakra.main>
 </template>
@@ -20,6 +17,8 @@ import PilersHero from '../components/home/PilersHero.vue'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/home/Footer.vue'
 import SandboxExample from '../components/SandboxExample.vue'
+import DiscordHero from '../components/home/DiscordHero.vue'
+// import Features from '../components/home/Features.vue'
 
 export default defineComponent({
   name: 'Index',
@@ -29,6 +28,8 @@ export default defineComponent({
     Navbar,
     Footer,
     SandboxExample,
+    DiscordHero,
+    // Features,
   },
 })
 </script>

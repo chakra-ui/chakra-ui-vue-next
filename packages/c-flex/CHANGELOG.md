@@ -1,5 +1,21 @@
 # @chakra-ui/c-flex
 
+## 1.0.0-alpha.2
+
+### Minor Changes
+
+- [#61](https://github.com/chakra-ui/chakra-ui-vue-next/pull/61) [`520550f`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/520550f0a233af45d83a5dd49907646422b39eb9) Thanks [@koca](https://github.com/koca)! - Created layout components and updated theminnng types for packages.
+
+### Patch Changes
+
+- [#59](https://github.com/chakra-ui/chakra-ui-vue-next/pull/59) [`a79204f`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/a79204f8a6786fdb6456632350480a14e17ad345) Thanks [@devivekw](https://github.com/devivekw)! - Created code component
+
+* [#60](https://github.com/chakra-ui/chakra-ui-vue-next/pull/60) [`e65c3b4`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/e65c3b402a3e795ff32b81e9bf00be5bcbc739cb) Thanks [@carwack](https://github.com/carwack)! - Fix bug where it was not possible to use object as prop
+
+* Updated dependencies [[`a79204f`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/a79204f8a6786fdb6456632350480a14e17ad345), [`520550f`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/520550f0a233af45d83a5dd49907646422b39eb9)]:
+  - @chakra-ui/vue-system@0.1.0-alpha.2
+  - @chakra-ui/vue-utils@0.1.0-alpha.2
+
 ## 1.0.0-alpha.1
 
 ### Minor Changes

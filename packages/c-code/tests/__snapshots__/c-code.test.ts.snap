@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <code
+    class="css-1b9x1mh"
+  >
+    hello world
+  </code>
+  <code
+    class="css-1hzweom"
+  >
+     hello world, red 
+  </code>
+  <code
+    class="css-bri9l4"
+  >
+     hello world, green 
+  </code>
+  <code
+    class="css-1y46pxi"
+  >
+     hello world, yellow 
+  </code>
+  <code
+    class="css-1kx42k1"
+  >
+     hello world, teal 
+  </code>
+</DocumentFragment>
+`;

@@ -1,7 +1,6 @@
 ---
 '@chakra-ui/c-accordion': minor
 '@chakra-ui/c-alert': minor
-'@chakra-ui/c-badge': minor
 '@chakra-ui/c-button': minor
 '@chakra-ui/c-close-button': minor
 '@chakra-ui/c-color-mode': minor

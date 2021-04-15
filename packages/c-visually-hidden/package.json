@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-visually-hidden",
   "description": "Chakra UI Vue | A component used in web accessibility to hide content from the visual client but keep it readable for screen readers component",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -37,9 +37,9 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.1"
+    "@chakra-ui/vue-system": "0.1.0-alpha.2"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.1"
+    "@chakra-ui/vue-system": "0.1.0-alpha.2"
   }
 }

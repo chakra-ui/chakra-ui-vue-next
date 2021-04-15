@@ -4,7 +4,6 @@
   "initialVersions": {
     "@chakra-ui/c-accordion": "0.0.0",
     "@chakra-ui/c-alert": "0.0.0",
-    "@chakra-ui/c-badge": "0.0.0",
     "@chakra-ui/c-button": "0.0.0",
     "@chakra-ui/c-color-mode": "0.0.0",
     "@chakra-ui/c-flex": "0.0.0",
@@ -25,15 +24,23 @@
     "@chakra-ui/vue-docs": "0.0.0",
     "@chakra-ui/vue-auto-import": "0.0.1-alpha.0",
     "@chakra-ui/c-close-button": "0.0.1-alpha.0",
-    "@chakra-ui/c-modal": "1.0.0"
+    "@chakra-ui/c-modal": "1.0.0",
+    "@chakra-ui/c-code": "0.0.1-alpha.0",
+    "@chakra-ui/vue-layout": "0.1.0-alpha.1"
   },
   "changesets": [
     "chilly-tables-care",
+    "dull-masks-build",
     "empty-dragons-wait",
+    "khaki-hounds-hunt",
+    "kind-tools-camp",
     "neat-rules-cry",
+    "proud-apples-compare",
+    "quiet-bananas-develop",
     "slimy-bugs-give",
     "sweet-lamps-brake",
     "ten-pandas-run",
+    "tricky-olives-live",
     "wild-chairs-applaud"
   ]
 }

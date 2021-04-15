@@ -1,10 +1,12 @@
 import { UserConfig } from 'vite'
+import path from 'path'
 import Vue from '@vitejs/plugin-vue'
 import { extractCritical } from '@emotion/server'
 import Pages from 'vite-plugin-pages'
-import Markdown from 'vite-plugin-md'
-import prism from 'markdown-it-prism'
 import Icons from 'vite-plugin-icons'
+import ViteComponents from 'vite-plugin-components'
+import VueMdx from 'vite-plugin-mdx-vue'
+import { componentResolver } from '@chakra-ui/vue-auto-import'
 
 /**
  *
@@ -24,15 +26,28 @@ const injectCritical = (html: string, ids: string[], css: string) =>
 
 // https://vitejs.dev/config/
 const config: UserConfig = {
+  resolve: {
+    alias: {
+      '@': `${path.resolve(__dirname, 'src')}`,
+    },
+  },
   plugins: [
-    Vue({
-      include: [/\.vue$/, /\.md$/],
+    Vue({ include: [/\.vue$/, /\.mdx$/] }),
+    VueMdx({
+      wrapperComponent: 'mdx-layout-wrapper',
     }),
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ['vue', 'mdx'],
     }),
-    Markdown({
-      markdownItUses: [prism],
+    ViteComponents({
+      // directories
+      dirs: ['src/components', 'src/docs-theme'],
+      // allow auto load markdown components under `dirs` (above)
+      extensions: ['vue', 'mdx'],
+      // allow auto import and register components used in markdown
+      customLoaderMatcher: (path: string) => path.endsWith('.mdx'),
+      // import chakra-ui components
+      customComponentResolvers: [componentResolver],
     }),
     Icons(),
   ],

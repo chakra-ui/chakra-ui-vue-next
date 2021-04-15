@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CAspectRatio /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-aspect-ratio css-w9t1xc"
+  >
+    <img
+      alt="img"
+      src="https://bit.ly/naruto-sage"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CBadge /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-badge css-1f1oimr"
+  >
+    this is a badge
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CBox /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-box css-2sy3sl"
+  >
+     This is a div 
+  </div>
+  <section
+    class="chakra-box css-2sy3sl"
+  >
+     This is a box with as="section" 
+  </section>
+</DocumentFragment>
+`;
+
+exports[`<CCenter /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-center css-40w18w"
+  >
+     C 
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CContainer /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-container css-1v8lbpd"
+  >
+     container 
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CDivider /> should render properly 1`] = `
+<DocumentFragment>
+  <hr
+    aria-orientation="horizontal"
+    class="chakra-divider css-1y71u2e"
+  />
+  <div
+    class="chakra-center css-1yj0ggl"
+  >
+    <hr
+      aria-orientation="vertical"
+      class="chakra-divider css-1psxsf8"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-grid css-ssvt16"
+  >
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+    <div
+      class="chakra-box css-62u0by"
+    />
+  </div>
+  <div
+    class="chakra-grid css-85u0uj"
+  >
+    <div
+      class="chakra-grid__item css-1q1m6d7"
+    />
+    <div
+      class="chakra-grid__item css-1qvc0pb"
+    />
+    <div
+      class="chakra-grid__item css-1qvc0pb"
+    />
+    <div
+      class="chakra-grid__item css-1anmq07"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CHeading /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-stack css-17kdbol"
+  >
+    <h1
+      class="chakra-heading css-cule"
+    >
+      (4xl) In love with Vue & Vite & Nuxt
+    </h1>
+    <h2
+      class="chakra-heading css-15xpjkx"
+    >
+       (3xl) In love with Vue & Vite & Nuxt
+    </h2>
+    <h2
+      class="chakra-heading css-s9ysow"
+    >
+      (2xl) In love with Vue & Vite & Nuxt
+    </h2>
+    <h2
+      class="chakra-heading css-1c36ahl"
+    >
+       (xl) In love with Vue & Vite & Nuxt 
+    </h2>
+    <h3
+      class="chakra-heading css-1uips0z"
+    >
+       (lg) In love with Vue & Vite & Nuxt 
+    </h3>
+    <h4
+      class="chakra-heading css-1on2b54"
+    >
+       (md) In love with Vue & Vite & Nuxt 
+    </h4>
+    <h5
+      class="chakra-heading css-15q9syl"
+    >
+       (sm) In love with Vue & Vite & Nuxt 
+    </h5>
+    <h6
+      class="chakra-heading css-7754ep"
+    >
+       (xs) In love with Vue & Vite & Nuxt 
+    </h6>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CKbd /> should render properly 1`] = `
+<DocumentFragment>
+  <span>
+    <kbd
+      class="chakra-kbd css-1t0x8xj"
+    >
+      shift
+    </kbd>
+     + 
+    <kbd
+      class="chakra-kbd css-1t0x8xj"
+    >
+      H
+    </kbd>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`<CLink /> should render properly 1`] = `
+<DocumentFragment>
+  <a
+    class="chakra-link css-xisxf"
+  >
+    CLink
+  </a>
+  <a
+    class="chakra-link css-xisxf"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    CLink external
+  </a>
+</DocumentFragment>
+`;
+
+exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
+<DocumentFragment>
+  <article
+    class="chakra-linkbox css-10n1vic"
+  >
+    <h2
+      class="chakra-heading css-wvce4s"
+    >
+      <a
+        class="chakra-linkbox__overlay css-1hnz6hu"
+        href="https://vue.chakra-ui.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Some blog post
+      </a>
+    </h2>
+    <p>
+       As a side note, using quotation marks around an attribute value is required only if this value is not a valid identifier. 
+    </p>
+    <a
+      class="chakra-link css-xisxf"
+      href="https://google.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Some inner link
+    </a>
+  </article>
+</DocumentFragment>
+`;
+
+exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon />  should render properly 1`] = `
+<DocumentFragment>
+  <ul
+    class="chakra-list css-1dg6mvm"
+    role="list"
+  >
+    <li
+      class="chakra-list__item css-0"
+    >
+      Lorem ipsum dolor sit amet
+    </li>
+    <li
+      class="chakra-list__item css-0"
+    >
+      Facilisis in pretium nisl aliquet
+    </li>
+  </ul>
+  <ul
+    class="chakra-list css-tu0njr"
+    role="list"
+  >
+    <li
+      class="chakra-list__item css-0"
+    >
+      Lorem ipsum dolor sit amet
+    </li>
+    <li
+      class="chakra-list__item css-0"
+    >
+      Consectetur adipiscing elit
+    </li>
+  </ul>
+  <ul
+    class="chakra-list css-155za0w"
+    role="list"
+  >
+    <li
+      class="chakra-list__item css-0"
+    >
+      <svg
+        class="chakra-icon css-a2vvhw"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="round"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokelinecap="round"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+  
+      </svg>
+       Lorem ipsum dolor sit amet. 
+    </li>
+    <li
+      class="chakra-list__item css-0"
+    >
+      <svg
+        class="chakra-icon css-a2vvhw"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="round"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="currentColor"
+            strokelinecap="round"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+  
+      </svg>
+       Facilisis in pretium nisl aliquet 
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`<CSimpleGrid /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-simple-grid css-12tmpmw"
+  >
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 1
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 2
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 3
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 4
+    </div>
+    <div
+      class="chakra-box css-9rloc5"
+    >
+      simple 5
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CSpacer /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1xhj18k"
+  >
+    <div
+      class="chakra-box css-zzdd9b"
+    >
+       Box 1 
+    </div>
+    <div
+      class="chakra-spacer css-17xejub"
+    />
+    <div
+      class="chakra-box css-pp1cg2"
+    >
+       Box 2 
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-square css-yh3vrj"
+  >
+     S 
+  </div>
+  <div
+    class="chakra-circle css-1afsfyy"
+  >
+     C 
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CStack /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-stack css-n21gh5"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+  <div
+    class="chakra-stack-horizontal css-84zodg"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+  <div
+    class="chakra-stack-vertical css-owjkmg"
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CText /> should render properly 1`] = `
+<DocumentFragment>
+  <p
+    class="chakra-text css-0"
+  >
+    normal:
+  </p>
+  <p
+    class="chakra-text css-n2bes8"
+  >
+    (6xl) In love with Vue & Vite & Nuxt
+  </p>
+  <p
+    class="chakra-text css-0"
+  >
+    truncated:
+  </p>
+  <p
+    class="chakra-text css-3urtkt"
+  >
+     Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. 
+  </p>
+  <p
+    class="chakra-text css-0"
+  >
+    line clamp:
+  </p>
+  <p
+    class="chakra-text css-3jijpv"
+  >
+     "The quick brown fox jumps over the lazy dog" is an English-language pangram—a sentence that contains all of the letters of the English alphabet. Owing to its existence, Chakra was created. 
+  </p>
+</DocumentFragment>
+`;

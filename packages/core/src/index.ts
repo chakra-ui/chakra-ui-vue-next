@@ -36,7 +36,7 @@ const ChakraUIVuePlugin: Plugin = {
     let extendedIcons = options.icons?.extend || {}
 
     // Initialize colormode
-    const colorMode = theme.config?.initialColorMode || 'dark'
+    const colorMode: ColorMode = theme.config?.initialColorMode || 'light'
 
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme
@@ -81,13 +81,12 @@ export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
 
 // B
-export const CBox = chakra.div
-export * from '@chakra-ui/c-badge'
 export * from '@chakra-ui/c-button'
 
 // C
 export * from '@chakra-ui/c-color-mode'
 export * from '@chakra-ui/c-close-button'
+export * from '@chakra-ui/c-code'
 
 // F
 export * from '@chakra-ui/c-flex'
@@ -95,6 +94,9 @@ export * from '@chakra-ui/c-focus-lock'
 
 // I
 export * from '@chakra-ui/c-icon'
+
+// L
+export * from '@chakra-ui/vue-layout'
 
 // M
 export * from '@chakra-ui/c-modal'

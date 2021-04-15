@@ -15,12 +15,17 @@ export default extendTheme({
       800: '#21533B',
       900: '#143223',
     },
+    discord: {
+      primary: '#7289DA',
+      accessible: '#5570D2',
+    },
   },
   fonts: {
     heading: `Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
     body: `Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
   },
   shadows: {
+    outline: `0 0 0 4px rgba(47, 133, 90, 0.62)`,
     search:
       '0 0 0 1px rgba(16,22,26,.1), 0 4px 8px rgba(16,22,26,.2), 0 18px 46px 6px rgba(16,22,26,.2)',
   },

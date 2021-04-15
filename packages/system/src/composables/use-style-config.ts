@@ -7,43 +7,41 @@ import { useChakra } from './use-chakra'
 export function useStyleConfig(
   themeKey: string,
   themingProps: ThemingProps,
-  options: { isMultiPart: true },
-  userStyleConfig?: any
+  options: { isMultiPart: true }
 ): ComputedRef<Record<string, SystemStyleObject>>
 
 export function useStyleConfig(
   themeKey: string,
   themingProps?: ThemingProps,
-  options?: { isMultiPart?: boolean },
-  userStyleConfig?: any
+  options?: { isMultiPart?: boolean }
 ): ComputedRef<SystemStyleObject>
 
 export function useStyleConfig(
   themeKey: any,
   themingProps: any,
-  options: any = {},
-  userStyleConfig?: any
+  options: any = {}
 ) {
   return computed(() => {
+    const { styleConfig: styleConfigProp, ...rest } = themingProps
     const { theme, colorMode } = useChakra()
     const themeStyleConfig = get(theme, `components.${themeKey}`)
 
-    const styleConfig = userStyleConfig || themeStyleConfig
+    const styleConfig = styleConfigProp || themeStyleConfig
 
     const mergedProps = mergeWith(
       { theme: theme, colorMode: colorMode.value },
       styleConfig?.defaultProps ?? {},
-      filterUndefined(themingProps)
+      filterUndefined(rest)
     )
 
-    const baseStyles = runIfFn(styleConfig.baseStyle ?? {}, mergedProps)
+    const baseStyles = runIfFn(styleConfig?.baseStyle ?? {}, mergedProps)
     const variants = runIfFn(
-      styleConfig.variants?.[mergedProps.variant] ?? {},
+      styleConfig?.variants?.[mergedProps.variant] ?? {},
       mergedProps
     )
 
     const sizes = runIfFn(
-      styleConfig.sizes?.[mergedProps.size] ?? {},
+      styleConfig?.sizes?.[mergedProps.size] ?? {},
       mergedProps
     )
 
