@@ -9,6 +9,7 @@
     bg="discord.accessible"
     :h="['auto', 'auto', 'auto', 40]"
     :px="[4, 10, 12]"
+    :mt="[4, 10, 10]"
   >
     <CFlex
       flex-dir="row"
