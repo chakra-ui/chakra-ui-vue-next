@@ -1,5 +1,5 @@
 <template>
-  <chakra.div :mx="[0, 10, 12]" :mt="[4, 10, 10]" shadow="2xl" bg="white">
+  <chakra.div :mx="[0, 10, 12]" shadow="2xl" bg="white">
     <chakra.div pt="10" :px="{ base: '3', sm: '10' }">
       <chakra.h1
         maxW="16ch"
