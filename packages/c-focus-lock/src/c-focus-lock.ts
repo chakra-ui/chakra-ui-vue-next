@@ -14,7 +14,15 @@
  * and my suspicion is that it is happening inside the library
  */
 
-import { h, defineComponent, PropType, computed } from 'vue'
+import {
+  h,
+  defineComponent,
+  PropType,
+  computed,
+  cloneVNode,
+  VNode,
+  watch,
+} from 'vue'
 import { chakra } from '@chakra-ui/vue-system'
 import { focus, FocusableElement, __DEV__ } from '@chakra-ui/utils'
 import { UseFocusLockOptions, useFocusLock } from './use-focus-lock'
@@ -43,10 +51,10 @@ export const CFocusLock = defineComponent({
   name: 'CFocusLock',
   emits: ['activate', 'deactivate'],
   props: {
-    finalFocusRef: [String, Function] as PropType<
+    finalFocusRef: [String, Object, Function] as PropType<
       FocusLockProps['finalFocusRef']
     >,
-    initialFocusRef: [String, Function] as PropType<
+    initialFocusRef: [String, Object, Function] as PropType<
       FocusLockProps['initialFocusRef']
     >,
     autoFocus: {
@@ -90,7 +98,7 @@ export const CFocusLock = defineComponent({
     /**
      * Basic state for focus lock component.
      */
-    const { lock, ...focusLockState } = useFocusLock({
+    const { lock } = useFocusLock({
       ...props,
       onActivate() {
         emit('activate')
@@ -110,21 +118,21 @@ export const CFocusLock = defineComponent({
       immediate: props.autoFocus,
     })
 
-    return () =>
-      h(
-        chakra('div', {
-          label: 'focus-lock',
-        }),
-        {
-          // @ts-expect-error
-          ref: lock,
-          ...attrs,
-        },
-        () =>
-          slots.default?.({
-            ...focusLockState,
-            hasFocus: focusLockState.hasFocus.value,
-          })
-      )
+    return () => {
+      const [firstChild] = slots.default?.({}) as VNode[]
+
+      if (!firstChild) {
+        console.warn(
+          `[chakra-ui:focus-lock]: Focus lock component expects at least and only one child element.`
+        )
+        return
+      }
+
+      return cloneVNode(firstChild, {
+        ref: lock,
+        ...attrs,
+        'data-chakra-focus-lock': '',
+      })
+    }
   },
 })

@@ -25,6 +25,12 @@ import {
   watch,
   ref,
   cloneVNode,
+  getCurrentInstance,
+  withDirectives,
+  nextTick,
+  unref,
+  Transition,
+  onUnmounted,
 } from 'vue'
 import {
   chakra,
@@ -33,15 +39,21 @@ import {
   useMultiStyleConfig,
   useStyles,
 } from '@chakra-ui/vue-system'
-import { createContext, TemplateRef } from '@chakra-ui/vue-utils'
+import {
+  createContext,
+  TemplateRef,
+  useRef,
+  VueComponentInstance,
+} from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import {
   CFocusLock,
   FocusLockProps,
   useFocusLock,
 } from '@chakra-ui/c-focus-lock'
-import { CScrollLock } from '@chakra-ui/c-scroll-lock'
+import { CScrollLock, BodyScrollLockDirective } from '@chakra-ui/c-scroll-lock'
 import { CMotion } from '@chakra-ui/c-motion'
+import { MotionDirective } from '@vueuse/motion'
 
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { focus, FocusableElement } from '@chakra-ui/utils'
@@ -146,7 +158,12 @@ interface CModalContext extends IUseModalOptions, UseModalReturn {
   closeModal: () => void
 }
 
-const [ModalContextProvider, useModalContext] = createContext<CModalContext>({
+type CModalReactiveContext = ComputedRef<CModalContext>
+
+const [
+  ModalContextProvider,
+  useModalContext,
+] = createContext<CModalReactiveContext>({
   strict: true,
   name: 'ModalContext',
   errorMessage:
@@ -183,8 +200,12 @@ export const CModal = defineComponent({
       type: Boolean as PropType<CModalProps['trapFocus']>,
       default: true,
     },
-    initialFocusRef: Function as PropType<CModalProps['initialFocusRef']>,
-    finalFocusRef: Function as PropType<CModalProps['finalFocusRef']>,
+    initialFocusRef: [String, Object, Function] as PropType<
+      CModalProps['initialFocusRef']
+    >,
+    finalFocusRef: [String, Object, Function] as PropType<
+      CModalProps['finalFocusRef']
+    >,
     returnFocusOnClose: {
       type: Boolean as PropType<CModalProps['returnFocusOnClose']>,
       default: true,
@@ -222,13 +243,18 @@ export const CModal = defineComponent({
       closeModal,
       handleEscape,
     }
+    // @ts-expect-error
     const modal = useModal(modalOptions)
 
-    ModalContextProvider({
-      ...modal,
-      ...toRefs(props),
-      closeModal,
-    })
+    console.log(modal)
+
+    ModalContextProvider(
+      computed(() => ({
+        ...modal,
+        ...toRefs(reactive(props)),
+        closeModal,
+      }))
+    )
 
     StylesProvider(styles)
     return () =>
@@ -248,8 +274,6 @@ export const CModalFocusScope = defineComponent({
       initialFocusRef,
       returnFocusOnClose,
       finalFocusRef,
-      dialogRef,
-      dialogEl,
       blockScrollOnMount,
     } = useModalContext()
 
@@ -259,34 +283,12 @@ export const CModalFocusScope = defineComponent({
         : finalFocusRef?.value
     )
 
-    // const focusLockOptions = reactive({
-    //   immediate: true,
-    //   initialFocus: initialFocusRef?.value as FocusTarget,
-    //   returnFocus: returnFocusOnClose?.value,
-    //   clickOutsideDeactivates: false,
-    //   escapeDeactivates: false,
-    //   onDeactivate: () => {
-    //     if (finalFocusEl.value) {
-    //       focus(finalFocusEl.value as FocusableElement)
-    //     }
-    //   },
-    //   onActivate: () => {
-    //     console.log('focus lock activated')
-    //   },
-    // })
-    // })
-
-    const contentRef = ref()
-
-    watch(contentRef, (el) => console.log('contentRef value updated', el), {
-      flush: 'post',
-    })
-
     return () => {
       return h(
         CFocusLock,
         {
-          attrs,
+          finalFocusEl: finalFocusEl.value,
+          ...attrs,
         },
         () => [
           h(
@@ -294,10 +296,7 @@ export const CModalFocusScope = defineComponent({
             {
               enabled: blockScrollOnMount?.value,
             },
-            () =>
-              slots.default?.({
-                contentRef,
-              })
+            () => slots.default?.()
           ),
         ]
       )
@@ -314,13 +313,8 @@ export const CModalContent = defineComponent({
   inheritAttrs: false,
   emits: ['click'],
   setup(_, { attrs, slots }) {
-    const {
-      dialogProps,
-      dialogContainerProps,
-      dialogEl,
-      dialogRef,
-      isOpen,
-    } = useModalContext()
+    const context = useModalContext()
+
     const styles = useStyles()
 
     const dialogContainerStyles = computed<SystemStyleObject>(() => ({
@@ -342,50 +336,72 @@ export const CModalContent = defineComponent({
       ...styles.value.dialog,
     }))
 
-    const dialogHack = ref()
-
-    watch(dialogHack, (el) => {
-      console.log('fromCModalContent', el)
-    })
-
-    return () =>
-      h(CModalFocusScope, null, () =>
+    return () => {
+      return withDirectives(
         h(
           chakra('div', {
             label: 'modal__content-container',
             __css: dialogContainerStyles.value,
           }),
-          dialogContainerProps.value,
+          context.value.dialogContainerProps.value,
           () => [
             h(
-              CMotion,
+              CFocusLock,
               {
-                type: 'scale',
+                allowOutsideClick: true,
+                initialFocusRef: context.value.initialFocusRef?.value,
+                finalFocusRef: context.value.finalFocusRef?.value,
+                restoreFocus: context.value.returnFocusOnClose?.value,
               },
-              () => [
-                isOpen.value &&
-                  cloneVNode(
-                    h(
-                      chakra('div', {
-                        __css: dialogStyles.value,
-                        label: 'modal__content',
-                      }),
-                      {
-                        ...attrs,
-                        ...dialogProps.value,
-                        ref: dialogHack,
-                      },
-                      slots
-                    ),
-                    {
-                      ref: dialogHack,
-                    }
-                  ),
-              ]
+              () =>
+                h(
+                  Transition,
+                  {
+                    css: false,
+                  },
+                  () =>
+                    context.value.isOpen.value && [
+                      withDirectives(
+                        h(
+                          chakra('section', {
+                            __css: dialogStyles.value,
+                            label: 'modal__content',
+                          }),
+                          {
+                            ...attrs,
+                            ...context.value.dialogProps.value,
+                          },
+                          slots
+                        ),
+                        [
+                          [
+                            MotionDirective,
+                            {
+                              initial: {
+                                scale: 0.5,
+                                opacity: 0,
+                              },
+                              enter: {
+                                scale: 1,
+                                opacity: 1,
+                                translateY: 0,
+                              },
+                              leave: {
+                                scale: 0.5,
+                                opacity: 0,
+                              },
+                            },
+                          ],
+                        ]
+                      ),
+                    ]
+                )
             ),
           ]
-        )
+        ),
+        [[BodyScrollLockDirective, context.value.blockScrollOnMount?.value]]
       )
+    }
   },
 })
 
@@ -426,6 +442,37 @@ export const CModalOverlay = defineComponent({
             }
           ),
         ]
+      )
+  },
+})
+
+export const CModalHeader = defineComponent({
+  name: 'CModalHeader',
+  setup(_, { attrs, slots }) {
+    const context = useModalContext()
+    const styles = useStyles()
+    const headerStyles = computed<SystemStyleObject>(() => ({
+      flex: 0,
+      ...styles.value.header,
+    }))
+
+    const [headerRef, headerEl] = useRef()
+
+    watch(headerEl, (el) => {
+      context.value.hasHeader.value = !!el
+    })
+
+    return () =>
+      h(
+        chakra('header', {
+          __css: headerStyles.value,
+        }),
+        {
+          ...attrs,
+          ref: headerRef,
+          id: context.value.headerId.value,
+        },
+        slots
       )
   },
 })

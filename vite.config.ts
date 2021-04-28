@@ -15,6 +15,7 @@ const resolver = {
   CModalOverlay: 'c-modal',
   CModalFocusScope: 'c-modal',
   CModalContent: 'c-modal',
+  CModalHeader: 'c-modal',
 }
 
 export default defineConfig({

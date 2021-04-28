@@ -8,24 +8,36 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, PropType, withDirectives } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import {
+  defineComponent,
+  PropType,
+  withDirectives,
+  VNode,
+  cloneVNode,
+} from 'vue'
 import { BodyScrollLockDirective } from './body-scoll-lock.directive'
 
 export const CScrollLock = defineComponent({
   name: 'CScrollLock',
   props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: 'span',
-    },
     enabled: Boolean as PropType<Boolean>,
   },
   setup(props, { slots, attrs }) {
-    return () =>
-      withDirectives(
-        h(chakra(props.as, { label: 'scroll-lock' }), { ...attrs }, slots),
-        [[BodyScrollLockDirective, props.enabled]]
-      )
+    return () => {
+      const [firstChild] = slots.default?.({}) as VNode[]
+      if (!firstChild) {
+        console.warn(
+          `[chakra-ui:focus-lock]: Focus lock component expects at least and only one child element.`
+        )
+        return
+      }
+      const scrollLockVNode = cloneVNode(firstChild, {
+        ...attrs,
+        'data-chakra-scroll-lock': `${props.enabled}`,
+      })
+      return withDirectives(scrollLockVNode, [
+        [BodyScrollLockDirective, props.enabled],
+      ])
+    }
   },
 })

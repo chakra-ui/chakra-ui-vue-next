@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.1",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.1",
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.2",
     "@vueuse/motion": "^1.5.4"
   },
   "peerDependencies": {

@@ -70,7 +70,7 @@ export function useModal(options: UseModalOptions) {
   const instance = getCurrentInstance()
 
   // DOM refs
-  const [dialogRef] = useRef()
+  const [dialogRef, dialogRefEl] = useRef()
   const dialogEl = ref()
   const [overlayRef, overlayEl] = useRef()
 
@@ -91,10 +91,7 @@ export function useModal(options: UseModalOptions) {
    * `aria-hidden` attributes handling
    */
   const shouldHide = computed(() => isOpen.value && useInert?.value)
-  console.log({ shouldHide: shouldHide.value })
-  useAriaHidden(dialogEl, shouldHide)
-
-  watch(isOpen, (val) => console.log('isopen', val))
+  useAriaHidden(dialogRefEl, shouldHide)
 
   const hasHeader = ref(false)
   const hasBody = ref(false)
@@ -109,12 +106,16 @@ export function useModal(options: UseModalOptions) {
     tabIndex: -1,
     'aria-modal': true,
     'aria-labelledby': hasHeader.value ? headerId.value : null,
-    'arial-describedby': hasBody.value ? bodyId.value : null,
+    'aria-describedby': hasBody.value ? bodyId.value : null,
     onClick(event: MouseEvent) {
       event.stopPropagation()
       instance?.emit('click', event)
     },
   }))
+
+  watchEffect(() => {
+    console.log(hasHeader, 'hasHeader HAS CHANGED FORM HOOK')
+  })
 
   const handleOverlayClick = (event: MouseEvent) => {
     event.stopPropagation()
@@ -165,6 +166,8 @@ export function useModal(options: UseModalOptions) {
     dialogEl,
     overlayRef,
     dialogProps,
+    hasHeader,
+    hasBody,
     dialogContainerProps,
   }
 }
@@ -184,48 +187,25 @@ export type UseModalReturn = Omit<
  * @param shouldHide whether `aria-hidden` should be applied
  */
 export function useAriaHidden(
-  node: Ref<HTMLElement | undefined>,
+  node: Ref<HTMLElement | undefined | null>,
   shouldHide: Ref<boolean | undefined>
 ) {
   let undo: Undo | null = null
-  watch(
-    () => [node, shouldHide],
-    ([newNode, newShouldHide]) => {
-      console.log('useAriaHidden', node.value)
 
-      if (undo) {
+  watchEffect(
+    (onInvalidate) => {
+      if (!node.value) return
+
+      if (shouldHide.value && node.value) {
+        undo = hideOthers(node.value)
+      }
+
+      onInvalidate(() => {
         undo?.()
-        undo = null
-      }
-
-      if (newShouldHide.value && newNode.value) {
-        undo = hideOthers(newNode.value as HTMLElement)
-      }
+      })
     },
     {
-      immediate: true,
       flush: 'post',
     }
   )
-  // watchEffect(
-  //   (onInvalidate) => {
-  //     if (!node.value) return
-
-  //     let undo: Undo | null = null
-
-  //     console.log('useAriaHidden', node.value)
-  //     if (shouldHide.value && node.value) {
-  //       undo = hideOthers(node.value)
-  //     }
-
-  //     onInvalidate(() => {
-  //       if (shouldHide.value) {
-  //         undo?.()
-  //       }
-  //     })
-  //   },
-  //   {
-  //     flush: 'post',
-  //   }
-  // )
 }

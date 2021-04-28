@@ -42,7 +42,7 @@ export const variants: CMotionVariants = {
   },
   scale: {
     initial: {
-      scale: 0.5,
+      scale: 0.8,
       opacity: 0,
     },
     enter: {
@@ -51,7 +51,7 @@ export const variants: CMotionVariants = {
       translateY: 0,
     },
     leave: {
-      scale: 0.5,
+      scale: 0.8,
       opacity: 0,
     },
   },
@@ -102,7 +102,6 @@ export const CMotion = defineComponent({
           css: false,
           mode: 'out-in',
           onLeave: (el, done) => {
-            console.log(el)
             motionInstance.value.leave(done)
           },
         },

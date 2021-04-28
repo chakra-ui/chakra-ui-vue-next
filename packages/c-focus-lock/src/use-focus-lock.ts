@@ -118,13 +118,12 @@ export function useFocusLock(
     }
   }
 
-  watch(contentEl, (el) => console.log('contentEl', el))
-
   watch(
     lockEl,
     async (el) => {
       await nextTick()
       if (!el) return
+
       trap = createFocusTrap(el, {
         initialFocus: initialFocusEl.value as FocusTarget,
         ...focusLockOptions,
@@ -135,17 +134,16 @@ export function useFocusLock(
           // may not yet be active. So just in case,
           // There's a fallback call here to focus the
           // element after the initial focus element is focused.
+          const container = contentEl.value || el
           let initialFocus = initialFocusEl.value ?? getFirstFocusable(el)
           if (initialFocusEl.value) {
             initialFocus = initialFocusEl.value
           } else {
             const focusables = getAllFocusable(contentEl.value || el)
             if (focusables.length) {
-              initialFocus = focusables[0]
-              console.log(focusables)
+              ;[initialFocus] = focusables.filter((el) => el !== container)
             }
           }
-          console.log('initialFocusElement', initialFocus)
           setTimeout(() => focus(initialFocus))
 
           // Apply if consumer provides onActivate option

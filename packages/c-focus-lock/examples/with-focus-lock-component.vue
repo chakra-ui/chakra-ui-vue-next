@@ -4,35 +4,69 @@
       Focus trap enabled: {{ isActive }}
     </chakra.pre>
     <c-portal to="#new-target">
-      <c-focus-lock
-        p="4"
-        border="4px dashed"
-        rounded="lg"
-        border-color="gray.400"
-        d="inline-block"
-        @activate="handleActivate"
-        @deactivate="handleDeactivate"
-        :allow-outside-click="false"
-        :initial-focus-ref="() => initialFocusRef"
-        :final-focus-ref="() => finalFocusRef"
-        #default="{ hasFocus, deactivate }"
-        pos="relative"
-        v-if="isActive"
-      >
-        <c-close-button
-          position="absolute"
-          top="10px"
-          right="10px"
-          @click="deactivate"
-        ></c-close-button>
-        <chakra.pre> Focus trap enabled: {{ hasFocus }} </chakra.pre>
-        <chakra.p mb="2">Inside focus trap</chakra.p>
-        <c-button color-scheme="teal"> Login </c-button>
-        <c-button :ref="initialFocus" color-scheme="yellow" mx="2"
-          >Initial focus!</c-button
+      <c-motion type="fade">
+        <c-focus-lock
+          p="4"
+          border="4px dashed"
+          rounded="lg"
+          border-color="gray.400"
+          d="inline-block"
+          @activate="handleActivate"
+          @deactivate="handleDeactivate"
+          :allow-outside-click="false"
+          :initial-focus-ref="() => initialFocusRef"
+          :final-focus-ref="() => finalFocusRef"
+          #default="{ hasFocus, deactivate }"
+          pos="relative"
+          v-if="isActive"
         >
-        <c-button left-icon="user" color-scheme="red">Delete account</c-button>
-      </c-focus-lock>
+          <chakra.div>
+            <c-close-button
+              position="absolute"
+              top="10px"
+              right="10px"
+              @click="deactivate"
+            ></c-close-button>
+            <chakra.pre> Focus trap enabled: {{ hasFocus }} </chakra.pre>
+            <chakra.p mb="2">Inside focus trap</chakra.p>
+            <c-button color-scheme="teal"> Login </c-button>
+            <c-button :ref="initialFocus" color-scheme="yellow" mx="2"
+              >Initial focus!</c-button
+            >
+            <c-button left-icon="user" color-scheme="red"
+              >Delete account</c-button
+            >
+            <chakra.pre> Focus trap enabled: {{ hasFocus }} </chakra.pre>
+            <chakra.p mb="2">Inside focus trap</chakra.p>
+            <c-button color-scheme="teal"> Login </c-button>
+            <c-button color-scheme="yellow" mx="2">Initial focus!</c-button>
+            <c-button left-icon="user" color-scheme="red"
+              >Delete account</c-button
+            >
+            <chakra.pre> Focus trap enabled: {{ hasFocus }} </chakra.pre>
+            <chakra.p mb="2">Inside focus trap</chakra.p>
+            <c-button color-scheme="teal"> Login </c-button>
+            <c-button color-scheme="yellow" mx="2">Initial focus!</c-button>
+            <c-button left-icon="user" color-scheme="red"
+              >Delete account</c-button
+            >
+            <chakra.pre> Focus trap enabled: {{ hasFocus }} </chakra.pre>
+            <chakra.p mb="2">Inside focus trap</chakra.p>
+            <c-button color-scheme="teal"> Login </c-button>
+            <c-button color-scheme="yellow" mx="2">Initial focus!</c-button>
+            <c-button left-icon="user" color-scheme="red"
+              >Delete account</c-button
+            >
+            <chakra.pre> Focus trap enabled: {{ hasFocus }} </chakra.pre>
+            <chakra.p mb="2">Inside focus trap</chakra.p>
+            <c-button color-scheme="teal"> Login </c-button>
+            <c-button color-scheme="yellow" mx="2">Initial focus!</c-button>
+            <c-button left-icon="user" color-scheme="red"
+              >Delete account</c-button
+            >
+          </chakra.div>
+        </c-focus-lock>
+      </c-motion>
     </c-portal>
 
     <chakra.div
@@ -59,7 +93,7 @@
 
 <script lang="ts">
 import { useRef } from '@chakra-ui/vue-utils'
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import { CFocusLock } from '../src/c-focus-lock'
 
 if (!document.getElementById('new-target')) {
@@ -91,6 +125,12 @@ export default defineComponent({
       isActive.value = false
       setTimeout(() => {})
     }
+
+    watch(isActive, () => {
+      setTimeout(() => {
+        isActive.value = !isActive.value
+      }, 3000)
+    })
 
     return {
       isActive,

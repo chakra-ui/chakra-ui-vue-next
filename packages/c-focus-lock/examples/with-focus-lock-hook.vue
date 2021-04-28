@@ -5,29 +5,33 @@
    -->
   <chakra.div>
     <c-portal to="#new-target">
-      <chakra.div
-        :ref="lock"
-        p="4"
-        border="4px dashed"
-        rounded="lg"
-        border-color="gray.400"
-        d="inline-block"
-        position="relative"
-        v-if="isLocked"
-      >
-        <c-close-button
-          position="absolute"
-          top="10px"
-          right="10px"
-          @click="deactivate"
-        ></c-close-button>
-        <chakra.p mb="2">Inside focus trap</chakra.p>
-        <c-button color-scheme="teal"> Login </c-button>
-        <c-button color-scheme="yellow" :ref="initialFocus" mx="2"
-          >Initial focus!</c-button
+      <c-motion type="fade">
+        <chakra.div
+          :ref="lock"
+          p="4"
+          border="4px dashed"
+          rounded="lg"
+          border-color="gray.400"
+          d="inline-block"
+          position="relative"
+          v-if="isLocked"
         >
-        <c-button left-icon="user" color-scheme="red">Delete account</c-button>
-      </chakra.div>
+          <c-close-button
+            position="absolute"
+            top="10px"
+            right="10px"
+            @click="deactivate"
+          ></c-close-button>
+          <chakra.p mb="2">Inside focus trap</chakra.p>
+          <c-button color-scheme="teal"> Login </c-button>
+          <c-button color-scheme="yellow" :ref="initialFocus" mx="2"
+            >Initial focus!</c-button
+          >
+          <c-button left-icon="user" color-scheme="red"
+            >Delete account</c-button
+          >
+        </chakra.div>
+      </c-motion>
     </c-portal>
     <chakra.div
       p="4"
@@ -81,7 +85,7 @@ const {
 const activate = async () => {
   isLocked.value = true
   // setTimeout(lockactivate)
-  lockactivate()
+  setTimeout(lockactivate)
 }
 
 const deactivate = () => {
