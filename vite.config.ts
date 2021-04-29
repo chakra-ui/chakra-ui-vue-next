@@ -16,6 +16,9 @@ const resolver = {
   CModalFocusScope: 'c-modal',
   CModalContent: 'c-modal',
   CModalHeader: 'c-modal',
+  CModalBody: 'c-modal',
+  CModalFooter: 'c-modal',
+  CModalCloseButton: 'c-modal',
 }
 
 export default defineConfig({
@@ -53,6 +56,7 @@ export default defineConfig({
               path: path.join(
                 path.resolve(__dirname, './packages'),
                 `${resolver[name] || kebabCase(name)}/src`
+                // `core/src`
               ),
             }
         },

@@ -12,9 +12,19 @@
       <c-modal-overlay />
       <c-modal-content>
         <c-modal-header>Modal header</c-modal-header>
-        <chakra.div p="10">
-          <c-button @click="isOpen = false">Hello, Modal! ⚡️</c-button>
-        </chakra.div>
+        <c-modal-close-button />
+        <c-modal-body>
+          <chakra.p>
+            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+            ullamco deserunt aute id consequat veniam incididunt duis in sint
+            irure nisi.
+          </chakra.p>
+        </c-modal-body>
+
+        <c-modal-footer>
+          <c-button @click="isOpen = false" mr="3"> Close </c-button>
+          <c-button>Secondary action</c-button>
+        </c-modal-footer>
       </c-modal-content>
     </c-modal>
   </chakra.div>

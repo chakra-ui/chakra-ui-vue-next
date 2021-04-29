@@ -1,7 +1,7 @@
-import { Plugin, Ref, ref } from 'vue'
+import { computed, Plugin, Ref, ref, watch } from 'vue'
 import defaultTheme, { ColorMode } from '@chakra-ui/vue-theme'
 import { toCSSVar, WithCSSVar } from '@chakra-ui/styled-system'
-import { chakra, injectGlobal } from '@chakra-ui/vue-system'
+import { chakra, injectGlobal, css } from '@chakra-ui/vue-system'
 import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
 import { MergedIcons, parseIcons } from './parse-icons'
@@ -16,20 +16,23 @@ interface IconsOptions {
   extend?: Record<string, ExtendIconsPath>
 }
 export interface ChakraUIVuePluginOptions {
+  cssReset?: boolean
   extendTheme?: ThemeOverride
   icons?: IconsOptions
   defaultColorMode?: ColorMode
 }
 
 const ChakraUIVuePlugin: Plugin = {
-  install(app, options: ChakraUIVuePluginOptions = {}) {
+  install(app, options: ChakraUIVuePluginOptions = { cssReset: true }) {
     // 1. Get theme value
     // 2. Parse theme tokens to CSS variables
     // 3. Inject all CSS variables as theme object
     const theme = options.extendTheme || defaultTheme
-    const computedTheme: WithCSSVar<ThemeOverride> = toCSSVar(theme)
+    const computedTheme = computed<WithCSSVar<ThemeOverride>>(() =>
+      toCSSVar(theme)
+    )
     injectGlobal({
-      ':root': computedTheme.__cssVars,
+      ':root': computedTheme.value.__cssVars,
     })
 
     let libraryIcons = options.icons?.library || {}
@@ -39,12 +42,13 @@ const ChakraUIVuePlugin: Plugin = {
     const colorMode: ColorMode = theme.config?.initialColorMode || 'light'
 
     // Bind theme to application global properties and provide to application
-    app.config.globalProperties.$chakraTheme = computedTheme
-    app.provide('$chakraTheme', computedTheme as ThemeOverride)
+    app.config.globalProperties.$chakraTheme = computedTheme.value
+    app.provide('$chakraTheme', computedTheme.value as ThemeOverride)
 
     // Provide initial colormode
     app.config.globalProperties.$initialColorMode = colorMode
-    app.provide<Ref<ColorMode>>('$chakraColorMode', ref<ColorMode>(colorMode))
+    const colorModeRef = ref<ColorMode>(colorMode)
+    app.provide<Ref<ColorMode>>('$chakraColorMode', colorModeRef)
 
     libraryIcons = parseIcons(libraryIcons)
 

@@ -113,10 +113,6 @@ export function useModal(options: UseModalOptions) {
     },
   }))
 
-  watchEffect(() => {
-    console.log(hasHeader, 'hasHeader HAS CHANGED FORM HOOK')
-  })
-
   const handleOverlayClick = (event: MouseEvent) => {
     event.stopPropagation()
     // @click.self modifier

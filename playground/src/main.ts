@@ -12,6 +12,7 @@ const app = createApp(App)
   .use(router)
   .use(MotionPlugin)
   .use(ChakraUIVuePlugin, {
+    cssReset: true,
     icons: {
       library: {
         feActivity,

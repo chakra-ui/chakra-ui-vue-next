@@ -1,6 +1,11 @@
 import { mapResponsive } from '@chakra-ui/utils'
 import { chakra, HTMLChakraProps, ResponsiveValue } from '@chakra-ui/vue-system'
-import { defineComponent, h, PropType } from '@vue/runtime-core'
+import {
+  DefineComponent,
+  defineComponent,
+  h,
+  PropType,
+} from '@vue/runtime-core'
 
 interface AspectRatioOptions {
   /**
@@ -15,56 +20,64 @@ export interface AspectRatioProps
   extends HTMLChakraProps<'div'>,
     AspectRatioOptions {}
 
+const props = {
+  ratio: {
+    type: [Number] as PropType<AspectRatioProps['ratio']>,
+    default: 4 / 3,
+  },
+}
+
+type PROPS = typeof props
+
+interface IAspectRatioProps extends PROPS, HTMLChakraProps<'div'> {}
+
 /**
  * Vue component used to cropping media (videos, images and maps)
  * to a desired aspect ratio.
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
  */
-export const CAspectRatio = defineComponent({
-  props: {
-    ratio: {
-      type: [Number] as PropType<AspectRatioProps['ratio']>,
-      default: 4 / 3,
+export const CAspectRatio: DefineComponent<IAspectRatioProps> = defineComponent(
+  {
+    props,
+    setup(props, { slots, attrs }) {
+      return () => {
+        return h(
+          chakra('div', {
+            label: 'aspect-ratio',
+            position: 'relative',
+            _before: {
+              height: 0,
+              content: `""`,
+              display: 'block',
+              paddingBottom: mapResponsive(
+                props.ratio,
+                (r) => `${(1 / r) * 100}%`
+              ),
+            },
+            __css: {
+              '& > *:not(style)': {
+                overflow: 'hidden',
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                bottom: '0',
+                left: '0',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%',
+              },
+              '& > img, & > video': {
+                objectFit: 'cover',
+              },
+            },
+          }),
+          { ...attrs },
+          slots
+        )
+      }
     },
-  },
-  setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        chakra('div', {
-          label: 'aspect-ratio',
-          position: 'relative',
-          _before: {
-            height: 0,
-            content: `""`,
-            display: 'block',
-            paddingBottom: mapResponsive(
-              props.ratio,
-              (r) => `${(1 / r) * 100}%`
-            ),
-          },
-          __css: {
-            '& > *:not(style)': {
-              overflow: 'hidden',
-              position: 'absolute',
-              top: '0',
-              right: '0',
-              bottom: '0',
-              left: '0',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%',
-              height: '100%',
-            },
-            '& > img, & > video': {
-              objectFit: 'cover',
-            },
-          },
-        }),
-        { ...attrs },
-        slots
-      )
-    }
-  },
-})
+  }
+)

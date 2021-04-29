@@ -14,23 +14,14 @@ import {
   PropType,
   reactive,
   ComputedRef,
-  Ref,
   toRefs,
   computed,
   ToRefs,
   mergeProps,
-  onMounted,
-  watchEffect,
   UnwrapRef,
   watch,
-  ref,
-  cloneVNode,
-  getCurrentInstance,
   withDirectives,
-  nextTick,
   unref,
-  Transition,
-  onUnmounted,
 } from 'vue'
 import {
   chakra,
@@ -39,25 +30,15 @@ import {
   useMultiStyleConfig,
   useStyles,
 } from '@chakra-ui/vue-system'
-import {
-  createContext,
-  TemplateRef,
-  useRef,
-  VueComponentInstance,
-} from '@chakra-ui/vue-utils'
+import { createContext, TemplateRef, useRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
-import {
-  CFocusLock,
-  FocusLockProps,
-  useFocusLock,
-} from '@chakra-ui/c-focus-lock'
+import { CFocusLock, FocusLockProps } from '@chakra-ui/c-focus-lock'
 import { CScrollLock, BodyScrollLockDirective } from '@chakra-ui/c-scroll-lock'
 import { CMotion } from '@chakra-ui/c-motion'
+import { CCloseButton } from '@chakra-ui/c-close-button'
 import { MotionDirective } from '@vueuse/motion'
 
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
-import { focus, FocusableElement } from '@chakra-ui/utils'
-import { FocusTarget } from 'focus-trap'
 
 type ScrollBehavior = 'inside' | 'outside'
 type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none'
@@ -231,6 +212,7 @@ export const CModal = defineComponent({
   setup(props, { slots, attrs, emit }) {
     const closeModal = () => {
       emit('update:is-open', false)
+      console.log('CLOSING MODAL =============')
     }
 
     const handleEscape = (event: KeyboardEvent) => {
@@ -245,8 +227,6 @@ export const CModal = defineComponent({
     }
     // @ts-expect-error
     const modal = useModal(modalOptions)
-
-    console.log(modal)
 
     ModalContextProvider(
       computed(() => ({
@@ -353,49 +333,41 @@ export const CModalContent = defineComponent({
                 finalFocusRef: context.value.finalFocusRef?.value,
                 restoreFocus: context.value.returnFocusOnClose?.value,
               },
-              () =>
-                h(
-                  Transition,
-                  {
-                    css: false,
-                  },
-                  () =>
-                    context.value.isOpen.value && [
-                      withDirectives(
-                        h(
-                          chakra('section', {
-                            __css: dialogStyles.value,
-                            label: 'modal__content',
-                          }),
-                          {
-                            ...attrs,
-                            ...context.value.dialogProps.value,
-                          },
-                          slots
-                        ),
-                        [
-                          [
-                            MotionDirective,
-                            {
-                              initial: {
-                                scale: 0.5,
-                                opacity: 0,
-                              },
-                              enter: {
-                                scale: 1,
-                                opacity: 1,
-                                translateY: 0,
-                              },
-                              leave: {
-                                scale: 0.5,
-                                opacity: 0,
-                              },
-                            },
-                          ],
-                        ]
-                      ),
-                    ]
-                )
+              () => [
+                withDirectives(
+                  h(
+                    chakra('section', {
+                      __css: dialogStyles.value,
+                      label: 'modal__content',
+                    }),
+                    {
+                      ...attrs,
+                      ...context.value.dialogProps.value,
+                    },
+                    slots
+                  ),
+                  [
+                    [
+                      MotionDirective,
+                      {
+                        initial: {
+                          scale: 0.5,
+                          opacity: 0,
+                        },
+                        enter: {
+                          scale: 1,
+                          opacity: 1,
+                          translateY: 0,
+                        },
+                        leave: {
+                          scale: 0.5,
+                          opacity: 0,
+                        },
+                      },
+                    ],
+                  ]
+                ),
+              ]
             ),
           ]
         ),
@@ -433,23 +405,26 @@ export const CModalOverlay = defineComponent({
           h(
             chakra('div', {
               label: 'modal__overlay',
+              __css: overlayStyle.value,
             }),
-            {
-              __css: {
-                ...overlayStyle.value,
-              },
-              ...attrs,
-            }
+            attrs
           ),
         ]
       )
   },
 })
 
+/**
+ * CModalHeader
+ *
+ * Component that houses the title of the modal.
+ *
+ * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
+ */
 export const CModalHeader = defineComponent({
   name: 'CModalHeader',
   setup(_, { attrs, slots }) {
-    const context = useModalContext()
+    const { hasHeader, headerId } = unref(useModalContext())
     const styles = useStyles()
     const headerStyles = computed<SystemStyleObject>(() => ({
       flex: 0,
@@ -459,20 +434,122 @@ export const CModalHeader = defineComponent({
     const [headerRef, headerEl] = useRef()
 
     watch(headerEl, (el) => {
-      context.value.hasHeader.value = !!el
+      hasHeader.value = !!el
     })
 
     return () =>
       h(
         chakra('header', {
+          label: 'modal__header',
           __css: headerStyles.value,
         }),
         {
           ...attrs,
           ref: headerRef,
-          id: context.value.headerId.value,
+          id: headerId.value,
         },
         slots
+      )
+  },
+})
+
+/**
+ * CModalBody
+ *
+ * Component that houses the body of the modal.
+ *
+ * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
+ */
+export const CModalBody = defineComponent({
+  name: 'CModalBody',
+  setup(_, { slots, attrs }) {
+    const { bodyId, hasBody } = unref(useModalContext())
+    const styles = useStyles()
+
+    const [bodyRef, bodyEl] = useRef()
+
+    /**
+     * Used to bind the `aria-descibedby` attribute
+     */
+    watch(bodyEl, (el) => {
+      hasBody.value = !!el
+    })
+
+    return () =>
+      h(
+        chakra('div', {
+          label: 'modal__body',
+          __css: styles.value.body,
+        }),
+        {
+          id: bodyId.value,
+          ...attrs,
+          ref: bodyRef,
+        },
+        slots
+      )
+  },
+})
+
+/**
+ * CModalFooter
+ *
+ * Component that houses the footer of the modal.
+ *
+ * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
+ */
+export const CModalFooter = defineComponent({
+  name: 'CModalFooter',
+  setup(_, { slots, attrs }) {
+    const styles = useStyles()
+
+    const footerStyles = computed<SystemStyleObject>(() => ({
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      ...styles.value.footer,
+    }))
+
+    return () =>
+      h(
+        chakra('div', {
+          label: 'modal__body',
+          __css: footerStyles.value,
+        }),
+        attrs,
+        slots
+      )
+  },
+})
+
+/**
+ * CModalCloseButton
+ *
+ * Used to close the modal. It internally invokes the `closeModal` event,
+ * but also emits the `@click` event to the user.
+ *
+ * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
+ */
+export const CModalCloseButton = defineComponent({
+  name: 'CModalCloseButton',
+  emits: ['click'],
+  setup(_, { attrs, emit }) {
+    const { closeModal } = unref(useModalContext())
+    const styles = useStyles()
+
+    return () =>
+      h(
+        chakra(CCloseButton, {
+          label: 'modal__close-button',
+          __css: styles.value.closeButton,
+        }),
+        {
+          ...attrs,
+          onClick: (e: MouseEvent | TouchEvent) => {
+            closeModal()
+            emit('click', e)
+          },
+        }
       )
   },
 })
