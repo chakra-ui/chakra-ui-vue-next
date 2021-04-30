@@ -6,7 +6,8 @@
     h="full"
     w="100%"
   >
-    <c-button @click="isOpen = true">Checkout</c-button>
+    <c-button color-scheme="blue" @click="isOpen = true">Open modal</c-button>
+    <c-button ml="3">Other button</c-button>
     <!-- eslint-disable-next-line -->
     <c-modal v-model:is-open="isOpen">
       <c-modal-overlay />

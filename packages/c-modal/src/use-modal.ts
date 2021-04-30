@@ -1,13 +1,10 @@
 import {
   computed,
   getCurrentInstance,
-  nextTick,
   onBeforeMount,
   onBeforeUnmount,
-  onMounted,
   ref,
   Ref,
-  SetupContext,
   ToRefs,
   toRefs,
   VNodeProps,
@@ -16,7 +13,7 @@ import {
 } from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
 import { FocusLockProps, useFocusLock } from '@chakra-ui/c-focus-lock'
-import { MaybeElementRef, useRef } from '@chakra-ui/vue-utils'
+import { MaybeElementRef, useRef, getSelector } from '@chakra-ui/vue-utils'
 import { hideOthers, Undo } from 'aria-hidden'
 import { FocusTarget } from 'focus-trap'
 import { focus, FocusableElement } from '@chakra-ui/utils'
@@ -128,7 +125,7 @@ export function useModal(options: UseModalOptions) {
    */
   const shouldHide = computed(() => isOpen.value && useInert?.value)
   useAriaHidden(dialogRefEl, shouldHide)
-  const { lastFocused, lastFocusedSelector } = useReturnFocus(isOpen)
+  const { lastFocusedSelector } = useReturnFocusSelector(isOpen)
 
   const hasHeader = ref(false)
   const hasBody = ref(false)
@@ -142,23 +139,42 @@ export function useModal(options: UseModalOptions) {
     delayInitialFocus: true,
     initialFocus: initialFocusRef?.value as FocusTarget,
     onDeactivate() {
-      console.log('lastFocused', lastFocused.value)
+      /**
+       * There appears to be a bug in which
+       * the DOM refreshes and elements are modified
+       * in a way that displaces the DOM.
+       *
+       * At the time of writing this composable, I am
+       * unable to ascertain where it came from. However,
+       * this acts a failsafe to allow the `useFocusLock()`
+       * hook to always track the last focused element
+       * before it was activated.
+       */
       setTimeout(() => {
-        console.log('Getting last focused', lastFocusedSelector.value)
         const lastfocusedNode = document.querySelector(
           lastFocusedSelector.value as string
         )
 
-        focus(lastfocusedNode as HTMLElement)
+        if (finalFocusElement.value) {
+          focus(finalFocusElement.value)
+        } else {
+          focus(lastfocusedNode as HTMLElement)
+        }
       }, 100)
-      // if (finalFocusElement.value) {
-      //   focus(finalFocusElement.value)
-      // }
     },
     immediate: true,
   })
+
   const { scrollLockRef } = useBodyScrollLock(isOpen)
 
+  /**
+   * This watcher is being used to track
+   * the element refs for the dialog container
+   * element.
+   *
+   * When the ref is bound, we activate
+   * the focus lock and body scroll lock refs.
+   */
   watch(dialogRefEl, (newVal) => {
     if (newVal) {
       lock(newVal)
@@ -264,31 +280,31 @@ export function useAriaHidden(
 ) {
   let undo: Undo | null = null
 
-  watchEffect(
-    (onInvalidate) => {
-      if (!node.value) return
+  watchEffect((onInvalidate) => {
+    if (!node.value) return
 
-      if (shouldHide.value && node.value) {
-        undo = hideOthers(node.value)
-      }
+    console.log({
+      hasNode: !!node.value,
+      shouldHide: shouldHide.value,
+    })
 
-      onInvalidate(() => {
-        undo?.()
-      })
-    },
-    {
-      flush: 'post',
+    if (shouldHide.value && node.value) {
+      undo = hideOthers(node.value)
     }
-  )
+
+    onInvalidate(() => {
+      undo?.()
+    })
+  })
 }
 
-/** Tracks last opened element before Modal is opened */
-export function useReturnFocus(isOpen: Ref<boolean>) {
+/** Tracks last focused element selector before Modal/dialog is opened */
+export function useReturnFocusSelector(shouldTrack: Ref<boolean>) {
   const lastFocused = ref<EventTarget | null>(null)
   const lastFocusedSelector = ref<string | undefined>()
 
   const trackFocus = (event: Event) => {
-    if (!isOpen.value) {
+    if (!shouldTrack.value) {
       lastFocusedSelector.value = getSelector(event.target as HTMLElement)
     }
   }
@@ -307,56 +323,4 @@ export function useReturnFocus(isOpen: Ref<boolean>) {
     lastFocused,
     lastFocusedSelector,
   }
-}
-
-function getSelector(node: HTMLElement) {
-  var id = node.getAttribute('id')
-
-  if (id) {
-    return '#' + id
-  }
-
-  var path = ''
-
-  while (node) {
-    var name = node.localName
-    var parent = node.parentNode
-
-    if (!parent) {
-      path = name + ' > ' + path
-      continue
-    }
-
-    if (node.getAttribute('id')) {
-      path = '#' + node.getAttribute('id') + ' > ' + path
-      break
-    }
-
-    var sameTagSiblings = []
-    var children = parent.childNodes
-    children = Array.prototype.slice.call(children)
-
-    children.forEach(function (child) {
-      if (child.localName == name) {
-        sameTagSiblings.push(child)
-      }
-    })
-
-    // if there are more than one children of that type use nth-of-type
-
-    if (sameTagSiblings.length > 1) {
-      var index = sameTagSiblings.indexOf(node)
-      name += ':nth-of-type(' + (index + 1) + ')'
-    }
-
-    if (path) {
-      path = name + ' > ' + path
-    } else {
-      path = name
-    }
-
-    node = parent
-  }
-
-  return path
 }

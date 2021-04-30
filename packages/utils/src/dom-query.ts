@@ -12,11 +12,14 @@ interface IChildNode extends ChildNode {
  *
  * This was breaking the behaviour of the `useFocusLock`
  * hook.
+ *
+ * Adopted from stack overflow:
+ * https://stackoverflow.com/questions/22515835/javascript-find-selector-of-an-element
  */
 export function getSelector(node: HTMLElement) {
   const id = node.getAttribute('id')
 
-  if (id) return `#${id}`
+  if (id) return '#' + id
 
   let path = ''
 
@@ -25,30 +28,28 @@ export function getSelector(node: HTMLElement) {
     const parent = node.parentNode
 
     if (!parent) {
-      path = `${name} > ${path}`
+      path = name + ' > ' + path
       continue
     }
 
-    const idAttr = node.getAttribute('id')
-    if (idAttr) {
+    if (node.getAttribute('id')) {
       path = '#' + node.getAttribute('id') + ' > ' + path
-      path = `#${idAttr} > ${path}`
       break
     }
 
     const sameTagSiblings: any = []
-    let children: NodeListOf<IChildNode> = parent.childNodes
-    // @ts-ignore
-    children = Array.prototype.slice.call(children)
+    let children = parent.childNodes
+    children = Array.prototype.slice.call(children) as any
 
     children.forEach((child) => {
-      if (child.localName === name) {
+      // @ts-ignore
+      if (child.localName == name) {
         sameTagSiblings.push(child)
       }
     })
 
-    // if there are more than one children
-    // of that type use nth-of-type
+    // if there are more than one
+    // children of that type use nth-of-type
     if (sameTagSiblings.length > 1) {
       const index = sameTagSiblings.indexOf(node)
       name += ':nth-of-type(' + (index + 1) + ')'
