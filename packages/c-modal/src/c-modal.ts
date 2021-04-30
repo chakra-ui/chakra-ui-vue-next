@@ -22,6 +22,7 @@ import {
   watch,
   withDirectives,
   unref,
+  watchEffect,
 } from 'vue'
 import {
   chakra,
@@ -212,7 +213,6 @@ export const CModal = defineComponent({
   setup(props, { slots, attrs, emit }) {
     const closeModal = () => {
       emit('update:is-open', false)
-      console.log('CLOSING MODAL =============')
     }
 
     const handleEscape = (event: KeyboardEvent) => {
@@ -220,11 +220,11 @@ export const CModal = defineComponent({
     }
 
     const styles = useMultiStyleConfig('Modal', mergeProps(props, attrs))
-    const modalOptions = {
+    const modalOptions = reactive({
       ...toRefs(reactive(props)),
       closeModal,
       handleEscape,
-    }
+    })
     // @ts-expect-error
     const modal = useModal(modalOptions)
 
@@ -246,44 +246,6 @@ export const CModal = defineComponent({
   },
 })
 
-export const CModalFocusScope = defineComponent({
-  name: 'CModalFocusScope',
-  setup(_, { attrs, slots }) {
-    const {
-      isOpen,
-      initialFocusRef,
-      returnFocusOnClose,
-      finalFocusRef,
-      blockScrollOnMount,
-    } = useModalContext()
-
-    const finalFocusEl = computed(() =>
-      typeof finalFocusRef?.value === 'function'
-        ? finalFocusRef.value()
-        : finalFocusRef?.value
-    )
-
-    return () => {
-      return h(
-        CFocusLock,
-        {
-          finalFocusEl: finalFocusEl.value,
-          ...attrs,
-        },
-        () => [
-          h(
-            CScrollLock,
-            {
-              enabled: blockScrollOnMount?.value,
-            },
-            () => slots.default?.()
-          ),
-        ]
-      )
-    }
-  },
-})
-
 /**
  * ModalContent is used to group modal's content. It has all the
  * necessary `aria-*` properties to indicate that it is a modal
@@ -291,10 +253,9 @@ export const CModalFocusScope = defineComponent({
 export const CModalContent = defineComponent({
   name: 'CModalContent',
   inheritAttrs: false,
-  emits: ['click'],
-  setup(_, { attrs, slots }) {
-    const context = useModalContext()
-
+  emits: ['click', 'mousedown', 'keydown'],
+  setup(_, { attrs, slots, emit }) {
+    const { dialogContainerProps, dialogProps } = unref(useModalContext())
     const styles = useStyles()
 
     const dialogContainerStyles = computed<SystemStyleObject>(() => ({
@@ -317,61 +278,25 @@ export const CModalContent = defineComponent({
     }))
 
     return () => {
-      return withDirectives(
-        h(
-          chakra('div', {
-            label: 'modal__content-container',
-            __css: dialogContainerStyles.value,
-          }),
-          context.value.dialogContainerProps.value,
-          () => [
-            h(
-              CFocusLock,
-              {
-                allowOutsideClick: true,
-                initialFocusRef: context.value.initialFocusRef?.value,
-                finalFocusRef: context.value.finalFocusRef?.value,
-                restoreFocus: context.value.returnFocusOnClose?.value,
-              },
-              () => [
-                withDirectives(
-                  h(
-                    chakra('section', {
-                      __css: dialogStyles.value,
-                      label: 'modal__content',
-                    }),
-                    {
-                      ...attrs,
-                      ...context.value.dialogProps.value,
-                    },
-                    slots
-                  ),
-                  [
-                    [
-                      MotionDirective,
-                      {
-                        initial: {
-                          scale: 0.5,
-                          opacity: 0,
-                        },
-                        enter: {
-                          scale: 1,
-                          opacity: 1,
-                          translateY: 0,
-                        },
-                        leave: {
-                          scale: 0.5,
-                          opacity: 0,
-                        },
-                      },
-                    ],
-                  ]
-                ),
-              ]
-            ),
-          ]
-        ),
-        [[BodyScrollLockDirective, context.value.blockScrollOnMount?.value]]
+      return h(
+        chakra('div', {
+          label: 'modal__content-container',
+          __css: dialogContainerStyles.value,
+        }),
+        dialogContainerProps.value({ emit }),
+        () => [
+          h(
+            chakra('section', {
+              __css: dialogStyles.value,
+              label: 'modal__content',
+            }),
+            {
+              ...attrs,
+              ...dialogProps.value({ emit }),
+            },
+            slots
+          ),
+        ]
       )
     }
   },

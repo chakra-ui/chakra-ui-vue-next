@@ -21,6 +21,8 @@ const resolver = {
   CModalCloseButton: 'c-modal',
 }
 
+const __DEV__ = process.env.NODE_ENV !== 'production'
+
 export default defineConfig({
   optimizeDeps: {
     exclude: ['@popperjs/core'],
@@ -49,17 +51,18 @@ export default defineConfig({
     }),
     ComponentsPlugin({
       customComponentResolvers: [
-        (name: string) => {
-          if (kebabCase(name).startsWith('c-'))
-            return {
-              importName: name,
-              path: path.join(
-                path.resolve(__dirname, './packages'),
-                `${resolver[name] || kebabCase(name)}/src`
-                // `core/src`
-              ),
-            }
-        },
+        !__DEV__
+          ? componentResolver
+          : (name: string) => {
+              if (kebabCase(name).startsWith('c-'))
+                return {
+                  importName: name,
+                  path: path.join(
+                    path.resolve(__dirname, './packages'),
+                    `${resolver[name] || kebabCase(name)}/src`
+                  ),
+                }
+            },
       ],
     }),
   ],

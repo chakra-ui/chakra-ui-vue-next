@@ -15,7 +15,6 @@
           @deactivate="handleDeactivate"
           :allow-outside-click="false"
           :initial-focus-ref="() => initialFocusRef"
-          :final-focus-ref="() => finalFocusRef"
           #default="{ hasFocus, deactivate }"
           pos="relative"
           v-if="isActive"

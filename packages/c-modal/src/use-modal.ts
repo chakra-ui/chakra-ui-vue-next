@@ -1,9 +1,13 @@
 import {
   computed,
-  ComputedRef,
   getCurrentInstance,
+  nextTick,
+  onBeforeMount,
+  onBeforeUnmount,
+  onMounted,
   ref,
   Ref,
+  SetupContext,
   ToRefs,
   toRefs,
   VNodeProps,
@@ -11,10 +15,12 @@ import {
   watchEffect,
 } from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
-import { useRef } from '@chakra-ui/vue-utils'
+import { FocusLockProps, useFocusLock } from '@chakra-ui/c-focus-lock'
+import { MaybeElementRef, useRef } from '@chakra-ui/vue-utils'
 import { hideOthers, Undo } from 'aria-hidden'
-
-type ScrollBehavior = 'inside' | 'outside'
+import { FocusTarget } from 'focus-trap'
+import { focus, FocusableElement } from '@chakra-ui/utils'
+import { useBodyScrollLock } from '@chakra-ui/c-scroll-lock'
 
 export interface UseModalOptions {
   /**
@@ -30,6 +36,14 @@ export interface UseModalOptions {
    * @default true
    */
   closeOnOverlayClick?: Ref<boolean>
+  /**
+   * The initial element to be focused when the focus lock is opened
+   */
+  initialFocusRef?: Ref<FocusLockProps['initialFocusRef']>
+  /**
+   * The initial element to be focused when the focus lock is opened
+   */
+  finalFocusRef?: Ref<FocusLockProps['finalFocusRef']>
   /**
    * If `true`, the modal will close when the `Esc` key is pressed
    * @default true
@@ -63,11 +77,33 @@ export interface UseModalOptions {
  */
 export function useModal(options: UseModalOptions) {
   const { handleEscape, closeModal } = options
-  const { isOpen, id, closeOnOverlayClick, closeOnEsc, useInert } = toRefs(
-    options
-  )
+  const {
+    isOpen,
+    id,
+    closeOnOverlayClick,
+    closeOnEsc,
+    initialFocusRef,
+    finalFocusRef,
+    useInert,
+  } = toRefs(options)
 
   const instance = getCurrentInstance()
+
+  const finalFocusElement = computed(() => {
+    let finalFocus
+    if (finalFocusRef?.value) {
+      const resolvedFinalFocusRef: MaybeElementRef =
+        finalFocusRef.value?.() || finalFocusRef.value
+      if (typeof resolvedFinalFocusRef === 'string') {
+        finalFocus = document.querySelector<FocusableElement & Element>(
+          resolvedFinalFocusRef
+        )
+      } else {
+        finalFocus = resolvedFinalFocusRef?.$el || resolvedFinalFocusRef
+      }
+    }
+    return finalFocus
+  })
 
   // DOM refs
   const [dialogRef, dialogRefEl] = useRef()
@@ -92,26 +128,64 @@ export function useModal(options: UseModalOptions) {
    */
   const shouldHide = computed(() => isOpen.value && useInert?.value)
   useAriaHidden(dialogRefEl, shouldHide)
+  const { lastFocused, lastFocusedSelector } = useReturnFocus(isOpen)
 
   const hasHeader = ref(false)
   const hasBody = ref(false)
 
+  /** Initialize focus lock */
+  const { lock, deactivate } = useFocusLock({
+    escapeDeactivates: false,
+    clickOutsideDeactivates: false,
+    allowOutsideClick: true,
+    returnFocusOnDeactivate: true,
+    delayInitialFocus: true,
+    initialFocus: initialFocusRef?.value as FocusTarget,
+    onDeactivate() {
+      console.log('lastFocused', lastFocused.value)
+      setTimeout(() => {
+        console.log('Getting last focused', lastFocusedSelector.value)
+        const lastfocusedNode = document.querySelector(
+          lastFocusedSelector.value as string
+        )
+
+        focus(lastfocusedNode as HTMLElement)
+      }, 100)
+      // if (finalFocusElement.value) {
+      //   focus(finalFocusElement.value)
+      // }
+    },
+    immediate: true,
+  })
+  const { scrollLockRef } = useBodyScrollLock(isOpen)
+
+  watch(dialogRefEl, (newVal) => {
+    if (newVal) {
+      lock(newVal)
+      scrollLockRef(newVal)
+    } else {
+      deactivate()
+    }
+  })
+
   /**
    * Dialog props
    */
-  const dialogProps = computed<VNodeProps>(() => ({
-    role: 'dialog',
-    ref: dialogRef as any,
-    id: dialogId.value,
-    tabIndex: -1,
-    'aria-modal': true,
-    'aria-labelledby': hasHeader.value ? headerId.value : null,
-    'aria-describedby': hasBody.value ? bodyId.value : null,
-    onClick(event: MouseEvent) {
-      event.stopPropagation()
-      instance?.emit('click', event)
-    },
-  }))
+  const dialogProps = computed<(context: any) => VNodeProps>(
+    () => ({ emit }) => ({
+      role: 'dialog',
+      ref: dialogRef as any,
+      id: dialogId.value,
+      tabIndex: -1,
+      'aria-modal': true,
+      'aria-labelledby': hasHeader.value ? headerId.value : null,
+      'aria-describedby': hasBody.value ? bodyId.value : null,
+      onClick(event: MouseEvent) {
+        event.stopPropagation()
+        emit('click', event)
+      },
+    })
+  )
 
   const handleOverlayClick = (event: MouseEvent) => {
     event.stopPropagation()
@@ -137,22 +211,24 @@ export function useModal(options: UseModalOptions) {
   }
 
   /** Dialog container props */
-  const dialogContainerProps = computed<VNodeProps>(() => ({
-    ref: overlayRef as any,
-    onClick: (event: MouseEvent) => {
-      instance?.emit('update:is-open', !isOpen.value)
-      instance?.emit('close')
-      handleOverlayClick(event)
-    },
-    onKeyDown: (event: KeyboardEvent) => {
-      instance?.emit('keydown', event)
-      onKeyDown(event)
-    },
-    onMouseDown: (event: MouseEvent) => {
-      mouseDownTarget.value = event.target
-      instance?.emit('mousedown', event)
-    },
-  }))
+  const dialogContainerProps = computed<(context: any) => VNodeProps>(
+    () => ({ emit }) => ({
+      ref: overlayRef as any,
+      onClick: (event: MouseEvent) => {
+        instance?.emit('update:is-open', !isOpen.value)
+        instance?.emit('close')
+        handleOverlayClick(event)
+      },
+      onKeyDown: (event: KeyboardEvent) => {
+        emit('keydown', event)
+        onKeyDown(event)
+      },
+      onMouseDown: (event: MouseEvent) => {
+        mouseDownTarget.value = event.target
+        emit('mousedown', event)
+      },
+    })
+  )
 
   return {
     isOpen,
@@ -204,4 +280,83 @@ export function useAriaHidden(
       flush: 'post',
     }
   )
+}
+
+/** Tracks last opened element before Modal is opened */
+export function useReturnFocus(isOpen: Ref<boolean>) {
+  const lastFocused = ref<EventTarget | null>(null)
+  const lastFocusedSelector = ref<string | undefined>()
+
+  const trackFocus = (event: Event) => {
+    if (!isOpen.value) {
+      lastFocusedSelector.value = getSelector(event.target as HTMLElement)
+    }
+  }
+
+  onBeforeMount(() => {
+    document.addEventListener('focusin', trackFocus)
+  })
+
+  onBeforeUnmount(() => {
+    document.removeEventListener('focusin', trackFocus)
+    lastFocused.value = null
+    lastFocusedSelector.value = undefined
+  })
+
+  return {
+    lastFocused,
+    lastFocusedSelector,
+  }
+}
+
+function getSelector(node: HTMLElement) {
+  var id = node.getAttribute('id')
+
+  if (id) {
+    return '#' + id
+  }
+
+  var path = ''
+
+  while (node) {
+    var name = node.localName
+    var parent = node.parentNode
+
+    if (!parent) {
+      path = name + ' > ' + path
+      continue
+    }
+
+    if (node.getAttribute('id')) {
+      path = '#' + node.getAttribute('id') + ' > ' + path
+      break
+    }
+
+    var sameTagSiblings = []
+    var children = parent.childNodes
+    children = Array.prototype.slice.call(children)
+
+    children.forEach(function (child) {
+      if (child.localName == name) {
+        sameTagSiblings.push(child)
+      }
+    })
+
+    // if there are more than one children of that type use nth-of-type
+
+    if (sameTagSiblings.length > 1) {
+      var index = sameTagSiblings.indexOf(node)
+      name += ':nth-of-type(' + (index + 1) + ')'
+    }
+
+    if (path) {
+      path = name + ' > ' + path
+    } else {
+      path = name
+    }
+
+    node = parent
+  }
+
+  return path
 }

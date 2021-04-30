@@ -115,7 +115,7 @@ export * from '@chakra-ui/c-reset'
 
 // S
 export * from '@chakra-ui/c-spinner'
-export { useBodyScrollLock } from '@chakra-ui/c-scroll-lock'
+export * from '@chakra-ui/c-scroll-lock'
 
 // T
 export * from '@chakra-ui/c-theme-provider'

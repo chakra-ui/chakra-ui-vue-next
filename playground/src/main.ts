@@ -1,12 +1,11 @@
 import { createApp } from 'vue'
-import ChakraUIVuePlugin, { chakra, extendTheme } from '@chakra-ui/vue-next'
+import ChakraUIVuePlugin, { chakra, extendTheme, BodyScrollLockDirective } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
 import { feActivity, feUser } from 'feather-icons-paths'
 import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
 import router from './router'
-import { BodyScrollLockDirective } from '../../packages/c-scroll-lock/src/body-scoll-lock.directive'
 
 const app = createApp(App)
   .use(router)

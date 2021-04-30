@@ -80,6 +80,7 @@ const {
 } = useFocusLock({
   escapeDeactivates: false,
   delayInitialFocus: true,
+  immediate: true,
 })
 
 const activate = async () => {
