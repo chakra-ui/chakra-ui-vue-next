@@ -15,7 +15,6 @@ import { useIds } from '@chakra-ui/vue-composables'
 import { FocusLockProps, useFocusLock } from '@chakra-ui/c-focus-lock'
 import { MaybeElementRef, useRef, getSelector } from '@chakra-ui/vue-utils'
 import { hideOthers, Undo } from '@chakra-ui/vue-a11y'
-import { FocusTarget } from 'focus-trap'
 import { focus, FocusableElement } from '@chakra-ui/utils'
 import { useBodyScrollLock } from '@chakra-ui/c-scroll-lock'
 
@@ -102,9 +101,26 @@ export function useModal(options: UseModalOptions) {
     return finalFocus
   })
 
+  const initialFocusElement = computed(() => {
+    let initialFocus
+    if (initialFocusRef?.value) {
+      const resolvedInitialFocusRef: MaybeElementRef =
+        typeof initialFocusRef?.value === 'function'
+          ? initialFocusRef?.value?.()
+          : initialFocusRef?.value
+      if (typeof resolvedInitialFocusRef === 'string') {
+        initialFocus = document.querySelector<FocusableElement & Element>(
+          resolvedInitialFocusRef
+        )
+      } else {
+        initialFocus = resolvedInitialFocusRef?.$el || resolvedInitialFocusRef
+      }
+    }
+    return initialFocus
+  })
+
   // DOM refs
   const [dialogRef, dialogRefEl] = useRef()
-  const dialogEl = ref()
   const [overlayRef, overlayEl] = useRef()
 
   /** We use this element to keep track of the currently clicked element */
@@ -132,18 +148,29 @@ export function useModal(options: UseModalOptions) {
     allowOutsideClick: true,
     returnFocusOnDeactivate: true,
     delayInitialFocus: true,
-    initialFocus: initialFocusRef?.value as FocusTarget,
+    onActivate() {
+      if (initialFocusElement.value) {
+        setTimeout(() => {
+          focus(initialFocusElement.value)
+        })
+      }
+    },
     onDeactivate() {
       /**
        * There appears to be a bug in which
        * the DOM refreshes and elements are modified
-       * in a way that displaces the DOM.
+       * in a way that completely replaces elements in the DOM
+       * such that the targeted nodes are not found in the
+       * browser even though we have them in JavaScript.
        *
        * At the time of writing this composable, I am
-       * unable to ascertain where it came from. However,
-       * this acts a failsafe to allow the `useFocusLock()`
+       * unable to ascertain where this issue came from.
+       *
+       * However, as a failsafe, ew allow the `useModal()`
        * hook to always track the last focused element
-       * before it was activated.
+       * before it was activated using the `useReturnFocusSelector`
+       *
+       * @see useReturnFocusSelector Function
        */
       setTimeout(() => {
         const lastfocusedNode = document.querySelector(
@@ -242,6 +269,7 @@ export function useModal(options: UseModalOptions) {
   )
   /**
    * `aria-hidden` attributes handling
+   * @see useAriaHidden
    */
   const shouldHide = computed(() => (isOpen.value && useInert?.value) || false)
   useAriaHidden(dialogRefEl, shouldHide)
@@ -251,7 +279,7 @@ export function useModal(options: UseModalOptions) {
     headerId,
     bodyId,
     dialogRef,
-    dialogEl,
+    dialogRefEl,
     overlayRef,
     dialogProps,
     hasHeader,

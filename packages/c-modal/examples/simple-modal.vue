@@ -7,9 +7,9 @@
     w="100%"
   >
     <c-button color-scheme="blue" @click="isOpen = true">Open modal</c-button>
-    <c-button ml="3">Other button</c-button>
+    <c-button ref="finalFocus" ml="3">Other button</c-button>
     <!-- eslint-disable-next-line -->
-    <c-modal v-model:is-open="isOpen">
+    <c-modal v-model:is-open="isOpen" :initial-focus-ref="'#initialFocus'" :final-focus-ref="() => $refs.finalFocus">
       <c-modal-overlay />
       <c-modal-content>
         <c-modal-header>Modal header</c-modal-header>
@@ -24,7 +24,9 @@
 
         <c-modal-footer>
           <c-button @click="isOpen = false" mr="3"> Close </c-button>
-          <c-button>Secondary action</c-button>
+          <c-button id="initialFocus" ref="initialFocus"
+            >Secondary action</c-button
+          >
         </c-modal-footer>
       </c-modal-content>
     </c-modal>
@@ -34,4 +36,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const isOpen = ref(false)
+const finalFocus = ref()
+const initialFocus = ref()
 </script>

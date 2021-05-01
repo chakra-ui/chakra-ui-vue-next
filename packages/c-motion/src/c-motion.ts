@@ -16,8 +16,6 @@ import {
   ref,
   watch,
   cloneVNode,
-  FunctionalComponent,
-  TransitionGroup,
 } from 'vue'
 import type { DOMElements } from '@chakra-ui/vue-system'
 import { useRef } from '@chakra-ui/vue-utils'
