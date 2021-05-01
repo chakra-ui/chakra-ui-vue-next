@@ -14,7 +14,7 @@ import {
 import { useIds } from '@chakra-ui/vue-composables'
 import { FocusLockProps, useFocusLock } from '@chakra-ui/c-focus-lock'
 import { MaybeElementRef, useRef, getSelector } from '@chakra-ui/vue-utils'
-import { hideOthers, Undo } from 'aria-hidden'
+import { hideOthers, Undo } from '@chakra-ui/vue-a11y'
 import { FocusTarget } from 'focus-trap'
 import { focus, FocusableElement } from '@chakra-ui/utils'
 import { useBodyScrollLock } from '@chakra-ui/c-scroll-lock'
@@ -120,11 +120,6 @@ export function useModal(options: UseModalOptions) {
     `chakra-modal--body`
   )
 
-  /**
-   * `aria-hidden` attributes handling
-   */
-  const shouldHide = computed(() => isOpen.value && useInert?.value)
-  useAriaHidden(dialogRefEl, shouldHide)
   const { lastFocusedSelector } = useReturnFocusSelector(isOpen)
 
   const hasHeader = ref(false)
@@ -245,6 +240,11 @@ export function useModal(options: UseModalOptions) {
       },
     })
   )
+  /**
+   * `aria-hidden` attributes handling
+   */
+  const shouldHide = computed(() => isOpen.value && useInert?.value)
+  useAriaHidden(dialogRefEl, shouldHide)
 
   return {
     isOpen,
@@ -276,26 +276,22 @@ export type UseModalReturn = Omit<
  */
 export function useAriaHidden(
   node: Ref<HTMLElement | undefined | null>,
-  shouldHide: Ref<boolean | undefined>
+  shouldHide: Ref<boolean>
 ) {
   let undo: Undo | null = null
 
-  watchEffect((onInvalidate) => {
-    if (!node.value) return
-
-    console.log({
-      hasNode: !!node.value,
-      shouldHide: shouldHide.value,
-    })
-
-    if (shouldHide.value && node.value) {
-      undo = hideOthers(node.value)
+  watchEffect(
+    () => {
+      if (shouldHide.value && node.value) {
+        undo = hideOthers(node.value)
+      } else {
+        undo?.()
+      }
+    },
+    {
+      flush: 'post',
     }
-
-    onInvalidate(() => {
-      undo?.()
-    })
-  })
+  )
 }
 
 /** Tracks last focused element selector before Modal/dialog is opened */

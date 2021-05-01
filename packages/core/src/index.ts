@@ -123,6 +123,10 @@ export * from '@chakra-ui/c-theme-provider'
 // V
 export * from '@chakra-ui/c-visually-hidden'
 
+// OTHERS
+export * from '@chakra-ui/vue-composables'
+export * from '@chakra-ui/vue-a11y'
+
 /**
  *
  * Directives exports
