@@ -243,7 +243,7 @@ export function useModal(options: UseModalOptions) {
   /**
    * `aria-hidden` attributes handling
    */
-  const shouldHide = computed(() => isOpen.value && useInert?.value)
+  const shouldHide = computed(() => (isOpen.value && useInert?.value) || false)
   useAriaHidden(dialogRefEl, shouldHide)
 
   return {
