@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 import { render, screen, userEvent, waitMs } from '../../test-utils/src'
-import { CFocusLock, useFocusLock } from '../src'
+import { CFocusLock, useFocusLock, UseFocusLockOptions } from '../src'
 import { CPortal } from '../../c-portal/src'
 
 const onActivateMock = jest.fn()
@@ -35,7 +35,11 @@ const renderComponent = (props?: any) => {
         </div>
     `,
     setup() {
-      const { lock } = useFocusLock()
+      const { lock } = useFocusLock({
+        immediate: true,
+        onActivate: onActivateMock,
+        onDeactivate: onDeactivateMock,
+      })
 
       return {
         lock,
@@ -46,7 +50,7 @@ const renderComponent = (props?: any) => {
   return render(base)
 }
 
-it.skip('should focus first focusable child when mounted', async () => {
+it('should focus first focusable child when mounted', async () => {
   renderComponent()
 
   /** We delay so that focus lock has time to activate */
@@ -57,7 +61,7 @@ it.skip('should focus first focusable child when mounted', async () => {
   expect(onActivateMock).toHaveBeenCalledTimes(1)
 })
 
-it.skip('should focus first focusable child when after tab cycle is complete', async () => {
+it('should focus first focusable child when after tab cycle is complete', async () => {
   renderComponent()
 
   /** We delay so that focus lock has time to activate */
@@ -72,7 +76,7 @@ it.skip('should focus first focusable child when after tab cycle is complete', a
   expect(onActivateMock).toHaveBeenCalledTimes(1)
 })
 
-it.skip('should focus initialFocus element when initialFocus element is provided', async () => {
+it('should focus initialFocus element when initialFocus element is provided', async () => {
   renderComponent({
     template: `
       <div :ref="lock" data-testid="focus-lock-container">
@@ -82,10 +86,11 @@ it.skip('should focus initialFocus element when initialFocus element is provided
       </div>
     `,
     setup() {
-      const options = reactive({
+      const options: UseFocusLockOptions = {
+        immediate: true,
         onActivate: onActivateMock,
         onDeactivate: onDeactivateMock,
-      })
+      }
 
       const { lock, initialFocus } = useFocusLock(options)
 
@@ -104,7 +109,7 @@ it.skip('should focus initialFocus element when initialFocus element is provided
   expect(onActivateMock).toHaveBeenCalledTimes(1)
 })
 
-it.skip('should deactivate focus-lock when clickOutsideDeactivates=`true` and click event happens outside focus lock', async () => {
+it('should deactivate focus-lock when clickOutsideDeactivates=`true` and click event happens outside focus lock', async () => {
   renderComponent({
     template: `
       <div :ref="lock" data-testid="focus-lock-container">
@@ -116,7 +121,7 @@ it.skip('should deactivate focus-lock when clickOutsideDeactivates=`true` and cl
     `,
     setup() {
       const options = reactive({
-        enabled: true,
+        immediate: true,
         clickOutsideDeactivates: true,
         escapeDeactivates: false,
         onActivate: onActivateMock,
