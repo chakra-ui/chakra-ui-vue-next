@@ -1,9 +1,9 @@
 <template>
-  <chakra.div border="1px solid red" max-w="500px"><slot /></chakra.div>
+  <c-box px="4" max-w="1200px" mx="auto" border="1px solid blue">
+    <slot />
+  </c-box>
 </template>
 
-<script>
-export default {}
-</script>
+<script></script>
 
 <style></style>

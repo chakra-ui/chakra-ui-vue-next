@@ -1,5 +1,5 @@
 <template>
-  <chakra.div border="1px solid green" max-w="500px"><slot /></chakra.div>
+  <chakra.div border="1px solid green"><slot /></chakra.div>
 </template>
 
 <script>

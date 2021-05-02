@@ -7,6 +7,9 @@ import Icons from 'vite-plugin-icons'
 import ViteComponents from 'vite-plugin-components'
 import VueMdx from 'vite-plugin-mdx-vue'
 import { componentResolver } from '@chakra-ui/vue-auto-import'
+import { MdxComponents } from './src/docs-theme/components/MdxComponents'
+import VueJsx from '@vitejs/plugin-vue-jsx'
+import remarkGfm from 'remark-gfm'
 
 /**
  *
@@ -33,8 +36,15 @@ const config: UserConfig = {
   },
   plugins: [
     Vue({ include: [/\.vue$/, /\.mdx$/] }),
+    VueJsx(),
     VueMdx({
       wrapperComponent: 'mdx-layout-wrapper',
+      mdxComponents: MdxComponents,
+      xdmOptions: (vFile, options) => {
+        options.remarkPlugins = [remarkGfm]
+
+        return options
+      },
     }),
     Pages({
       extensions: ['vue', 'mdx'],

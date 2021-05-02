@@ -6,7 +6,6 @@
     pos="sticky"
     top="0"
     zIndex="3"
-    :bg="bg"
     left="0"
     right="0"
     width="full"
@@ -34,15 +33,9 @@
           align="center"
           color="gray.400"
         >
-          <chakra.div>Search</chakra.div>
-          <chakra.div>Switcher</chakra.div>
-          <CFlex
-            todo="HStack"
-            spacing="5"
-            :display="{ base: 'none', md: 'flex' }"
-          >
+          <CHStack spacing="5" :display="{ base: 'none', md: 'flex' }">
             <CLink
-              is-external
+              isExternal
               aria-label="Go to Chakra UI GitHub page"
               href="{siteConfig.repo.url}"
             >
@@ -52,20 +45,50 @@
                 w="5"
                 h="5"
                 :_hover="{ color: 'gray.600' }"
-                icon="github"
+                name="github"
               />
             </CLink>
-            <CLink aria-label="Go to Chakra UI Discord page" href="/discord">
+            <CLink
+              isExternal
+              aria-label="Go to Chakra UI Discord page"
+              href="/discord"
+            >
               <CIcon
                 display="block"
                 transition="color 0.2s"
                 w="5"
                 h="5"
                 :_hover="{ color: 'gray.600' }"
-                icon="discord"
+                name="discord"
               />
             </CLink>
-          </CFlex>
+            <CLink
+              isExternal
+              aria-label="Go to Chakra UI YouTube channel"
+              :href="siteConfig.youtube"
+            >
+              <CIcon
+                display="block"
+                transition="color 0.2s"
+                w="5"
+                h="5"
+                :_hover="{ color: 'gray.600' }"
+                name="youtube"
+              />
+            </CLink>
+          </CHStack>
+          <CIconButton
+            size="md"
+            fontSize="lg"
+            :aria-label="`Switch to ${text} mode`"
+            :title="`Switch to ${text} mode`"
+            variant="ghost"
+            color="current"
+            :ml="{ base: '0', md: '3' }"
+            @click="toggleColorMode"
+            :icon="switchIcon"
+          />
+          <sponsor-button ml="5" />
         </CFlex>
       </CFlex>
     </chakra.div>
@@ -73,23 +96,22 @@
 </template>
 
 <script setup lang="ts">
-import { useColorModeValue } from '@chakra-ui/c-color-mode'
+import { useColorMode, useColorModeValue } from '@chakra-ui/c-color-mode'
 import { useWindowScroll } from '@vueuse/core'
-import { onMounted, ref, watchEffect } from 'vue'
+import { onMounted, ref } from 'vue'
+import siteConfig from '@/config/site-config.ts'
 
-const headerRef = ref<{ $el: HTMLDivElement }>()
+const { toggleColorMode } = useColorMode()
+const text = useColorModeValue('dark', 'light')
+const switchIcon = useColorModeValue('moon', 'sun')
 
-const bg = useColorModeValue('white', 'gray.800')
+const headerRef = ref<{ $el: HTMLDivElement } | undefined>(undefined)
+
 const { y } = useWindowScroll()
 
 const height = ref(0)
 onMounted(() => {
   height.value = headerRef.value?.$el.getBoundingClientRect().height ?? 0
-})
-
-watchEffect(() => {
-  console.log({ y: y.value })
-  console.log({ height: height.value })
 })
 </script>
 

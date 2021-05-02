@@ -5,7 +5,6 @@
     width="auto"
     viewBox="0 0 257 257"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
   >
     <!-- eslint-enable -->
     <rect width="257" height="257" rx="128.5" fill="url(#mark)" />

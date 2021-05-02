@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "jsx": "preserve",
     "module": "ESNext",
     "target": "es2016",
     "lib": ["DOM", "ESNext"],
@@ -19,7 +20,7 @@
     ],
     "paths": {
       "~/*": ["src/*"]
-    }
+    },
   },
   "exclude": ["dist", "node_modules"]
 }
