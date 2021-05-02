@@ -1,14 +1,7 @@
 import { useId } from '@chakra-ui/vue-composables'
 import { createContext } from '@chakra-ui/vue-utils'
-import {
-  computed,
-  ComputedRef,
-  reactive,
-  ref,
-  Ref,
-  watch,
-  watchEffect,
-} from 'vue'
+import { MotionVariants } from '@vueuse/motion'
+import { computed, ComputedRef, reactive, ref, Ref, watchEffect } from 'vue'
 
 export type DialogTransitionStatus = 'exited' | 'entered' | 'initial' | 'active'
 
@@ -17,6 +10,25 @@ export interface TransitionInstance {
   isActive: boolean
   el?: HTMLElement
   status: DialogTransitionStatus
+}
+
+export interface TransitionStateHelpers {
+  /**
+   * Sets the transition status to 'initial'
+   */
+  initial: VoidFunction
+  /**
+   * Sets the transition status to 'active'
+   */
+  active: VoidFunction
+  /**
+   * Sets the transition status to 'entered'
+   */
+  entered: VoidFunction
+  /**
+   * Sets the transition status to 'exited'
+   */
+  exited: VoidFunction
 }
 
 export interface DialogTransitionContext {
@@ -39,7 +51,9 @@ export interface DialogTransitionContext {
   /**
    * Registers a new transition to set of transitions
    */
-  register: (uid: number | string) => Ref<TransitionInstance>
+  register: (
+    uid: number | string
+  ) => [Ref<TransitionInstance>, TransitionStateHelpers]
 }
 
 export interface DialogTransitionsOptions {
@@ -68,7 +82,7 @@ const [DialogTransitionsProvider, useDialogTransition] = createContext<
  */
 export function useDialogTransitions(
   isOpen: Ref<boolean> | ComputedRef<boolean>,
-  { onChildrenEntered, onChildrenLeft }: DialogTransitionsOptions
+  events?: DialogTransitionsOptions
 ) {
   const localIsOpen = ref(false)
   const transitions = ref<Ref<TransitionInstance>[]>([])
@@ -111,28 +125,43 @@ export function useDialogTransitions(
       status: 'initial',
     })
 
+    const exited = () => {
+      transition.value.status = 'exited'
+    }
+    const initial = () => {
+      transition.value.status = 'initial'
+    }
+    const entered = () => {
+      transition.value.status = 'entered'
+    }
+    const active = () => {
+      transition.value.status = 'active'
+    }
+
     if (transitionsStore[uid]) {
-      return transitionsStore[uid]
+      return [transition, { active, initial, entered, exited }]
     } else {
       transitions.value.push(transition)
       transitionsStore[uid] = transition
     }
-    return transition
+
+    return [transition, { active, initial, entered, exited }]
   }
 
   watchEffect(
     () => {
-      if (!isOpen.value) return
-      else if (!localIsOpen.value) {
+      if (isOpen.value) {
         localIsOpen.value = true
+      } else if (!isOpen.value) {
+        localIsOpen.value = false
       }
 
       if (transitionsEntered.value) {
-        onChildrenEntered()
+        events?.onChildrenEntered()
       }
 
       if (transitionsExited.value) {
-        onChildrenLeft()
+        events?.onChildrenLeft()
       }
     },
     {
@@ -162,3 +191,69 @@ export function useDialogTransitions(
 }
 
 export { useDialogTransition }
+
+export type DialogMotionPreset =
+  | 'slideInBottom'
+  | 'slideInRight'
+  | 'scale'
+  | 'fade'
+  | 'none'
+
+export type DialogMotionPresets = Record<DialogMotionPreset, MotionVariants>
+
+export const dialogMotionPresets: DialogMotionPresets = {
+  slideInBottom: {
+    initial: {
+      opacity: 0,
+      translateY: 10,
+    },
+    enter: {
+      opacity: 1,
+      translateY: 0,
+    },
+    leave: {
+      opacity: 0,
+      translateY: 10,
+    },
+  },
+  slideInRight: {
+    initial: {
+      opacity: 0,
+      translateX: 10,
+    },
+    enter: {
+      opacity: 1,
+      translateX: 0,
+    },
+    leave: {
+      opacity: 0,
+      translateX: 10,
+    },
+  },
+  scale: {
+    initial: {
+      scale: 0.9,
+      opacity: 0,
+    },
+    enter: {
+      scale: 1,
+      opacity: 1,
+    },
+    leave: {
+      scale: 0.95,
+      opacity: 0,
+    },
+  },
+  fade: {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+  },
+  none: {},
+}

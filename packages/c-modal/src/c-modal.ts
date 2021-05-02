@@ -21,13 +21,7 @@ import {
   UnwrapRef,
   watch,
   unref,
-  getCurrentInstance,
-  Transition,
-  ref,
-  nextTick,
-  onMounted,
   withDirectives,
-  WatchStopHandle,
 } from 'vue'
 import {
   chakra,
@@ -36,23 +30,16 @@ import {
   useMultiStyleConfig,
   useStyles,
 } from '@chakra-ui/vue-system'
-import {
-  createContext,
-  getSelector,
-  TemplateRef,
-  useRef,
-} from '@chakra-ui/vue-utils'
+import { createContext, TemplateRef, useRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import { FocusLockProps } from '@chakra-ui/c-focus-lock'
 import { CMotion } from '@chakra-ui/c-motion'
 import { CCloseButton } from '@chakra-ui/c-close-button'
-import { MotionDirective, useMotion } from '@vueuse/motion'
-
+import { MotionDirective, useMotions } from '@vueuse/motion'
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
-import { useDialogTransition, useDialogTransitions } from './modal-transitions'
+import { DialogMotionPreset, dialogMotionPresets } from './modal-transitions'
 
 type ScrollBehavior = 'inside' | 'outside'
-type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none'
 
 export interface ModalOptions
   extends Omit<
@@ -126,7 +113,7 @@ export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
   /**
    * The transition that should be used for the modal
    */
-  motionPreset?: MotionPreset
+  motionPreset: DialogMotionPreset
 }
 
 type IUseModalOptions = ToRefs<
@@ -136,15 +123,12 @@ type IUseModalOptions = ToRefs<
     | 'handleEscape'
     | 'preserveScrollBarGap'
     | 'allowPinchZoom'
-    | 'motionPreset'
     | 'trapFocus'
     | 'autoFocus'
   >
 >
 
 interface CModalContext extends IUseModalOptions, UseModalReturn {
-  //   /** The transition to be used for the CModal */
-  //   motionPreset?: MotionPreset
   dialogRef: (el: TemplateRef) => void
   overlayRef: (el: TemplateRef) => void
   closeModal: () => void
@@ -216,24 +200,13 @@ export const CModal = defineComponent({
     },
     motionPreset: {
       type: String as PropType<CModalProps['motionPreset']>,
-      default: 'scale',
+      default: 'slideInBottom',
     },
   },
   emits: ['update:is-open', 'escape', 'close'],
   setup(props, { slots, attrs, emit }) {
-    const isOpen = computed(() => props.isOpen)
-    const { localIsOpen, transitionsExited } = useDialogTransitions(isOpen, {
-      onChildrenEntered: () => {
-        console.log('========= TRANSITIONS ENTER ================')
-      },
-      onChildrenLeft: () => {
-        console.log('========= TRANSITIONS LEFT ================')
-        emit('update:is-open', false)
-      },
-    })
-
     const closeModal = () => {
-      localIsOpen.value = false
+      emit('update:is-open', false)
     }
 
     const handleEscape = (event: KeyboardEvent) => {
@@ -276,13 +249,26 @@ export const CModalContent = defineComponent({
   inheritAttrs: false,
   emits: ['click', 'mousedown', 'keydown'],
   setup(_, { attrs, slots, emit }) {
-    const { dialogContainerProps, dialogProps, dialogRefEl } = unref(
+    const { dialogContainerProps, dialogProps, isOpen, motionPreset } = unref(
       useModalContext()
     )
     const styles = useStyles()
+    const transitionId = 'modal-content'
 
-    const { localIsOpen, register } = unref(useDialogTransition())
-    const modalContentTransition = register('modal-content')
+    /** Handles exit transition */
+    const leave = (done: VoidFunction) => {
+      const motions = useMotions()
+      const instance = motions[transitionId]
+      instance?.leave(() => {
+        done()
+      })
+    }
+
+    watch(isOpen, (newVal) => {
+      if (!newVal) {
+        leave(() => null)
+      }
+    })
 
     const dialogContainerStyles = computed<SystemStyleObject>(() => ({
       display: 'flex',
@@ -303,17 +289,6 @@ export const CModalContent = defineComponent({
       ...styles.value.dialog,
     }))
 
-    watch(
-      modalContentTransition,
-      (content) => {
-        console.log('modalContentTransition state changed to:', content.status)
-      },
-      {
-        immediate: true,
-        deep: true,
-      }
-    )
-
     return () => {
       return h(
         chakra('div', {
@@ -322,66 +297,26 @@ export const CModalContent = defineComponent({
         }),
         dialogContainerProps.value({ emit }),
         () => [
-          h(
-            Transition,
-            {
-              css: false,
-              onBeforeEnter: () => {
-                modalContentTransition.value.status = 'active'
-                console.log('onBeforeEnter', 'active')
-              },
-              onAfterEnter: () => {
-                modalContentTransition.value.status = 'entered'
-                console.log('onAfterEnter', 'entered')
-              },
-              onBeforeLeave: () => {
-                modalContentTransition.value.status = 'active'
-                console.log('onAfterLeave', 'active')
-              },
-              onLeave: (el, done) => {
-                modalContentTransition.value.status = 'exited'
-                console.log('onAfterLeave', 'exited')
-                done()
-              },
-            },
-            () => [
-              localIsOpen.value &&
-                withDirectives(
-                  h(
-                    chakra('section', {
-                      __css: dialogStyles.value,
-                      label: 'modal__content',
-                    }),
-                    {
-                      ...attrs,
-                      ...dialogProps.value({ emit }),
-                    },
-                    slots
-                  ),
-                  [
-                    [
-                      MotionDirective({
-                        initial: {
-                          scale: 0.8,
-                          opacity: 0,
-                          translateY: 10,
-                        },
-                        enter: {
-                          scale: 1,
-                          opacity: 1,
-                          translateY: 0,
-                        },
-                        leave: {
-                          scale: 0.8,
-                          opacity: 0,
-                          translateY: 10,
-                        },
-                      }),
-                    ],
-                  ]
-                ),
-            ]
-          ),
+          isOpen.value &&
+            withDirectives(
+              h(
+                chakra('section', {
+                  __css: dialogStyles.value,
+                  label: 'modal__content',
+                }),
+                {
+                  ...attrs,
+                  ...dialogProps.value({ emit }),
+                },
+                slots
+              ),
+              [
+                [
+                  MotionDirective(dialogMotionPresets[motionPreset?.value]),
+                  transitionId,
+                ],
+              ]
+            ),
         ]
       )
     }

@@ -6,9 +6,10 @@
  * @see Docs     https://next.vue.chakra-ui.com/vue-a11y
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/vue-a11y/src/vue-a11y/vue-a11y.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
+ *
+ * Credit: Adapted from `aria-hidden`
+ * https://npmjs.com/aria-hidden
  */
-
-import { getSelector } from '@chakra-ui/vue-utils'
 
 export type Undo = () => void
 

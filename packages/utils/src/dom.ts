@@ -1,5 +1,5 @@
 import {
-  ComponentOptions,
+  customRef,
   defineComponent,
   onBeforeUpdate,
   Ref,
@@ -7,6 +7,7 @@ import {
   unref,
   UnwrapRef,
 } from 'vue'
+import { debounce } from './timers'
 import { MaybeRef } from './types'
 
 /**
@@ -72,3 +73,50 @@ export function unrefElement(
   const node = unref(elementRef)
   return (node as VueComponentInstance)?.$el ?? node
 }
+
+/**
+ * Creates a ref whose value updates are debounced
+ *
+ * @example Simple example
+ *
+ * ```ts
+ * const foo = useDebouncedRef('bar')
+ * foo.value = 'baz'
+ *
+ * // foo.value to be updated to 'baz' after the delay of 300ms
+ * ```
+ *
+ * @example Custom delay
+ *
+ * ```ts
+ * const foo = useDebouncedRef('bar', 500)
+ * foo.value = 'baz'
+ *
+ * // foo.value to be updated to 'baz' after the delay of 500ms
+ * ```
+ */
+export function useDebouncedRef<T = unknown>(
+  initialValue: T,
+  delay: number = 300,
+  immediate: boolean = false
+) {
+  const state = ref<T>(initialValue)
+  const debouncedRef = customRef((track, trigger) => ({
+    get() {
+      track()
+      return state.value
+    },
+    set: debounce(
+      (value: T) => {
+        state.value = value as UnwrapRef<T>
+        trigger()
+      },
+      delay,
+      immediate
+    ),
+  }))
+
+  return debouncedRef
+}
+
+export type DebouncedRef = Ref<unknown>

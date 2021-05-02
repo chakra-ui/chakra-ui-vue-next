@@ -1,6 +1,7 @@
 import {
   computed,
   getCurrentInstance,
+  nextTick,
   onBeforeMount,
   onBeforeUnmount,
   ref,
@@ -310,6 +311,7 @@ export function useAriaHidden(
 
   watchEffect(
     () => {
+      // await nextTick()
       if (shouldHide.value && node.value) {
         undo = hideOthers(node.value)
       } else {
