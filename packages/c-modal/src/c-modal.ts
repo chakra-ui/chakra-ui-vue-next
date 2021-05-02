@@ -67,7 +67,7 @@ export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
    *
    * @default true
    */
-  isOpen: boolean
+  modelValue: boolean
   /**
    * If `false`, focus lock will be disabled completely.
    *
@@ -151,8 +151,8 @@ export { ModalContextProvider, useModalContext }
 export const CModal = defineComponent({
   name: 'CModal',
   props: {
-    isOpen: {
-      type: Boolean as PropType<CModalProps['isOpen']>,
+    modelValue: {
+      type: Boolean as PropType<CModalProps['modelValue']>,
       default: false,
     },
     id: String as PropType<CModalProps['id']>,
@@ -203,10 +203,10 @@ export const CModal = defineComponent({
       default: 'slideInBottom',
     },
   },
-  emits: ['update:is-open', 'escape', 'close'],
+  emits: ['update:modelValue', 'escape', 'close'],
   setup(props, { slots, attrs, emit }) {
     const closeModal = () => {
-      emit('update:is-open', false)
+      emit('update:modelValue', false)
     }
 
     const handleEscape = (event: KeyboardEvent) => {
@@ -234,7 +234,7 @@ export const CModal = defineComponent({
     return () =>
       h(CPortal, () => [
         h(CMotion, { type: 'fade' }, () => [
-          props.isOpen && h(chakra('span'), () => slots?.default?.()),
+          props.modelValue && h(chakra('span'), () => slots?.default?.()),
         ]),
       ])
   },
@@ -249,9 +249,12 @@ export const CModalContent = defineComponent({
   inheritAttrs: false,
   emits: ['click', 'mousedown', 'keydown'],
   setup(_, { attrs, slots, emit }) {
-    const { dialogContainerProps, dialogProps, isOpen, motionPreset } = unref(
-      useModalContext()
-    )
+    const {
+      dialogContainerProps,
+      dialogProps,
+      modelValue,
+      motionPreset,
+    } = unref(useModalContext())
     const styles = useStyles()
     const transitionId = 'modal-content'
 
@@ -264,7 +267,7 @@ export const CModalContent = defineComponent({
       })
     }
 
-    watch(isOpen, (newVal) => {
+    watch(modelValue, (newVal) => {
       if (!newVal) {
         leave(() => null)
       }
@@ -297,7 +300,7 @@ export const CModalContent = defineComponent({
         }),
         dialogContainerProps.value({ emit }),
         () => [
-          isOpen.value &&
+          modelValue.value &&
             withDirectives(
               h(
                 chakra('section', {

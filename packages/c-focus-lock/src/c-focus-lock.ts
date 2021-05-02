@@ -14,19 +14,9 @@
  * and my suspicion is that it is happening inside the library
  */
 
-import {
-  h,
-  defineComponent,
-  PropType,
-  computed,
-  cloneVNode,
-  VNode,
-  watch,
-} from 'vue'
-import { chakra } from '@chakra-ui/vue-system'
-import { focus, FocusableElement, __DEV__ } from '@chakra-ui/utils'
+import { defineComponent, PropType, computed, cloneVNode, VNode } from 'vue'
+import { focus, FocusableElement, warn, __DEV__ } from '@chakra-ui/utils'
 import { UseFocusLockOptions, useFocusLock } from './use-focus-lock'
-import { useRef } from '@chakra-ui/vue-utils'
 import { FocusTarget } from 'focus-trap'
 
 type RefProp = () => HTMLElement | string | object | undefined
@@ -122,9 +112,12 @@ export const CFocusLock = defineComponent({
       const [firstChild] = slots.default?.({}) as VNode[]
 
       if (!firstChild) {
-        console.warn(
-          `[chakra-ui:focus-lock]: Focus lock component expects at least and only one child element.`
-        )
+        warn([
+          {
+            condition: __DEV__,
+            message: `[chakra-ui:focus-lock]: Focus lock component expects at least and only one child element.`,
+          },
+        ])
         return
       }
 

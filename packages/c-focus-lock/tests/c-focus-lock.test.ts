@@ -24,17 +24,15 @@ afterEach(() => {
 const renderComponent = (props?: any) => {
   const base = {
     components: {
-      CPortal,
+      // CPortal,
       CFocusLock,
     },
     template: `
-      <c-portal>
         <div :ref="lock" data-testid="focus-lock-container">
           <input data-testid="input" />
           <input />
           <input />
         </div>
-      </c-portal>
     `,
     setup() {
       const { lock } = useFocusLock()

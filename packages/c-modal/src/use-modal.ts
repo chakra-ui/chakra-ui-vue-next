@@ -1,7 +1,6 @@
 import {
   computed,
   getCurrentInstance,
-  nextTick,
   onBeforeMount,
   onBeforeUnmount,
   ref,
@@ -23,7 +22,7 @@ export interface UseModalOptions {
   /**
    * If `true`, the modal will be open.
    */
-  isOpen: Ref<boolean>
+  modelValue: Ref<boolean>
   /**
    * The `id` of the modal
    */
@@ -33,6 +32,11 @@ export interface UseModalOptions {
    * @default true
    */
   closeOnOverlayClick?: Ref<boolean>
+  /**
+   * If `true`, the body will not be scollable when mounted
+   * @default true
+   */
+  blockScrollOnMount?: Ref<boolean>
   /**
    * The initial element to be focused when the focus lock is opened
    */
@@ -75,13 +79,14 @@ export interface UseModalOptions {
 export function useModal(options: UseModalOptions) {
   const { handleEscape, closeModal } = options
   const {
-    isOpen,
+    modelValue,
     id,
     closeOnOverlayClick,
     closeOnEsc,
     initialFocusRef,
     finalFocusRef,
     useInert,
+    blockScrollOnMount,
   } = toRefs(options)
 
   const instance = getCurrentInstance()
@@ -137,7 +142,7 @@ export function useModal(options: UseModalOptions) {
     `chakra-modal--body`
   )
 
-  const { lastFocusedSelector } = useReturnFocusSelector(isOpen)
+  const { lastFocusedSelector } = useReturnFocusSelector(modelValue)
 
   const hasHeader = ref(false)
   const hasBody = ref(false)
@@ -188,7 +193,9 @@ export function useModal(options: UseModalOptions) {
     immediate: true,
   })
 
-  const { scrollLockRef } = useBodyScrollLock(isOpen)
+  const { scrollLockRef } = useBodyScrollLock(
+    blockScrollOnMount?.value ? modelValue : ref(false)
+  )
 
   /**
    * This watcher is being used to track
@@ -254,7 +261,7 @@ export function useModal(options: UseModalOptions) {
     () => ({ emit }) => ({
       ref: overlayRef as any,
       onClick: (event: MouseEvent) => {
-        instance?.emit('update:is-open', !isOpen.value)
+        instance?.emit('update:modelValue', !modelValue.value)
         instance?.emit('close')
         handleOverlayClick(event)
       },
@@ -272,11 +279,13 @@ export function useModal(options: UseModalOptions) {
    * `aria-hidden` attributes handling
    * @see useAriaHidden
    */
-  const shouldHide = computed(() => (isOpen.value && useInert?.value) || false)
+  const shouldHide = computed(
+    () => (modelValue.value && useInert?.value) || false
+  )
   useAriaHidden(dialogRefEl, shouldHide)
 
   return {
-    isOpen,
+    modelValue,
     headerId,
     bodyId,
     dialogRef,
