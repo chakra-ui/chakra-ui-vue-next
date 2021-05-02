@@ -10,17 +10,6 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-// TODO:
-//
-// The majority of the tests in this file are skipped in jest
-// because focus tracking seems to behave differently here
-// than with in the browser.
-//
-// Focus appears to be sent to the body instead of the components.
-// However in the browser/playground focus behaves as expected.
-//
-// A possible solution for this problem is to test this in Cypress.
-
 const renderComponent = (props?: any) => {
   const base = {
     components: {

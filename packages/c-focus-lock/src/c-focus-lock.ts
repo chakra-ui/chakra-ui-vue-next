@@ -112,12 +112,10 @@ export const CFocusLock = defineComponent({
       const [firstChild] = slots.default?.({}) as VNode[]
 
       if (!firstChild) {
-        warn([
-          {
-            condition: __DEV__,
-            message: `[chakra-ui:focus-lock]: Focus lock component expects at least and only one child element.`,
-          },
-        ])
+        warn({
+          condition: __DEV__,
+          message: `[chakra-ui:focus-lock]: Focus lock component expects at least and only one child element.`,
+        })
         return
       }
 

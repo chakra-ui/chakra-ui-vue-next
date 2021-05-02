@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match aria-hidden snapshot 1`] = `
+<div>
+  <main>
+    <div data-testid="aria-container"><input data-testid="input"><button>Another button</button></div>
+    <section data-testid="outside-aria-container" chakra-aria-hidden="true" aria-hidden="true">Outside aria hidden</section>
+  </main>
+</div>
+`;
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <main>
+    <div
+      data-testid="aria-container"
+    >
+      <input
+        data-testid="input"
+      />
+      <button>
+        Another button
+      </button>
+    </div>
+    <section
+      data-testid="outside-aria-container"
+    >
+      Outside aria hidden
+    </section>
+  </main>
+</DocumentFragment>
+`;
