@@ -58,22 +58,22 @@ it('`useDOMRef` should bind components to render function elements', async () =>
       return () =>
         h('div', [
           h(
-            // @ts-expect-error
+            // @ts-ignore
             'div',
             {
               'data-testid': 'divElement',
               ref: container,
             },
-            () => 'Regular element'
+            'Regular element'
           ),
           h(
-            // @ts-expect-error
+            // @ts-ignore
             ExampleComponent,
             {
               'data-testid': 'buttonComponent',
               ref: component,
             },
-            () => 'Click me'
+            'Click me'
           ),
         ])
     },

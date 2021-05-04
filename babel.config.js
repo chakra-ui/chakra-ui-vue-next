@@ -39,7 +39,7 @@ const testConfig = {
           },
         ],
       ],
-      plugins: ['@vue/babel-plugin-jsx'],
+      plugins: ['@vue/babel-plugin-jsx', '@babel/plugin-transform-runtime'],
     },
   },
 }

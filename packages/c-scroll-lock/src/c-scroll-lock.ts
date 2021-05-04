@@ -20,7 +20,10 @@ import { BodyScrollLockDirective } from './body-scoll-lock.directive'
 export const CScrollLock = defineComponent({
   name: 'CScrollLock',
   props: {
-    enabled: Boolean as PropType<Boolean>,
+    enabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   setup(props, { slots, attrs }) {
     return () => {
@@ -31,10 +34,12 @@ export const CScrollLock = defineComponent({
         )
         return
       }
+
       const scrollLockVNode = cloneVNode(firstChild, {
         ...attrs,
         'data-chakra-scroll-lock': `${props.enabled}`,
       })
+
       return withDirectives(scrollLockVNode, [
         [BodyScrollLockDirective, props.enabled],
       ])
