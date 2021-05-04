@@ -68,6 +68,7 @@ it('`useIds` should create compound ids and patch once onMounted', async () => {
         modalId,
         headerId,
         bodyId,
+        count,
       }
     },
   })

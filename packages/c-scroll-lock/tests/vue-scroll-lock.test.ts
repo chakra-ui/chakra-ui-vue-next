@@ -3,6 +3,7 @@ import { CScrollLock } from '../src'
 
 const renderComponent = (props?: {}) =>
   render({
+    components: { CScrollLock },
     template: `
     <div>
       <section>
