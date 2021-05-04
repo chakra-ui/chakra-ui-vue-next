@@ -120,44 +120,45 @@ export function useFocusLock(
 
   watch(
     lockEl,
-    async (el) => {
-      await nextTick()
-      if (!el) return
+    (el) => {
+      nextTick().then(() => {
+        if (!el) return
 
-      trap = createFocusTrap(el, {
-        initialFocus: initialFocusEl.value as FocusTarget,
-        ...focusLockOptions,
-        onActivate() {
-          hasFocus.value = true
+        trap = createFocusTrap(el, {
+          initialFocus: initialFocusEl.value as FocusTarget,
+          ...focusLockOptions,
+          onActivate() {
+            hasFocus.value = true
 
-          // In some cases the initial focus element
-          // may not yet be active. So just in case,
-          // There's a fallback call here to focus the
-          // element after the initial focus element is focused.
-          const container = contentEl.value || el
-          let initialFocus = initialFocusEl.value ?? getFirstFocusable(el)
-          if (initialFocusEl.value) {
-            initialFocus = initialFocusEl.value
-          } else {
-            const focusables = getAllFocusable(contentEl.value || el)
-            if (focusables.length) {
-              ;[initialFocus] = focusables.filter((el) => el !== container)
+            // In some cases the initial focus element
+            // may not yet be active. So just in case,
+            // There's a fallback call here to focus the
+            // element after the initial focus element is focused.
+            const container = contentEl.value || el
+            let initialFocus = initialFocusEl.value ?? getFirstFocusable(el)
+            if (initialFocusEl.value) {
+              initialFocus = initialFocusEl.value
+            } else {
+              const focusables = getAllFocusable(contentEl.value || el)
+              if (focusables.length) {
+                ;[initialFocus] = focusables.filter((el) => el !== container)
+              }
             }
-          }
-          setTimeout(() => focus(initialFocus))
+            setTimeout(() => focus(initialFocus))
 
-          // Apply if consumer provides onActivate option
-          if (options.onActivate) options.onActivate()
-        },
-        onDeactivate() {
-          hasFocus.value = false
-          // Apply if consumer provides onDeactivate option
-          if (options.onDeactivate) options.onDeactivate()
-        },
+            // Apply if consumer provides onActivate option
+            if (options.onActivate) options.onActivate()
+          },
+          onDeactivate() {
+            hasFocus.value = false
+            // Apply if consumer provides onDeactivate option
+            if (options.onDeactivate) options.onDeactivate()
+          },
+        })
+
+        // Focus if immediate is set to true
+        if (immediate) activate()
       })
-
-      // Focus if immediate is set to true
-      if (immediate) activate()
     },
     { flush: 'post', immediate: true }
   )
