@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-theme-tools",
-  "version": "1.0.0",
+  "version": "0.1.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -8,19 +8,26 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "description": "Chakra UI Vue | VueThemeTools module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/theme-tools",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
   },
   "dependencies": {
-    "@chakra-ui/vue-utils": "*",
-    "@types/tinycolor2": "1.4.2",
-    "tinycolor2": "1.4.1"
+    "@chakra-ui/utils": "^1.5.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@types/tinycolor2": "^1.4.2",
+    "tinycolor2": "^1.4.2"
   }
 }

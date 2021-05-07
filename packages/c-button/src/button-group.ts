@@ -4,8 +4,7 @@ import {
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
 import { chakra, ThemingProps } from '@chakra-ui/vue-system'
-import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
-import { createContext } from '@chakra-ui/vue-utils'
+import { createContext, vueThemingProps } from '@chakra-ui/vue-utils'
 
 export interface ButtonGroupProps extends ThemingProps {
   /**
@@ -32,16 +31,7 @@ const props = {
     type: [String, Number, Array] as PropType<ButtonGroupProps['spacing']>,
     default: 3,
   },
-  variant: {
-    type: String as PropType<string>,
-    default: 'solid',
-  },
-  size: {
-    type: String as PropType<string>,
-    default: 'sm',
-  },
-  colorScheme: String as PropType<string>,
-  styleConfig: String as PropType<ComponentThemeConfig>,
+  ...vueThemingProps,
 }
 
 type ButtonGroupContext = () => ThemingProps & {
@@ -65,31 +55,30 @@ const CButtonGroup = defineComponent({
       variant: props.variant,
       isDisabled: props.isDisabled,
     }))
-
-    const styles = computed(() => {
-      let groupStyles: SystemStyleObject = {
-        display: 'inline-flex',
-      }
-
-      if (props.isAttached) {
-        groupStyles = {
-          ...groupStyles,
-          '> *:first-of-type:not(:last-of-type)': { borderRightRadius: 0 },
-          '> *:not(:first-of-type):not(:last-of-type)': { borderRadius: 0 },
-          '> *:not(:first-of-type):last-of-type': { borderLeftRadius: 0 },
+    return () => {
+      const styles = computed(() => {
+        let groupStyles: SystemStyleObject = {
+          display: 'inline-flex',
         }
-      } else {
-        groupStyles = {
-          ...groupStyles,
-          '& > *:not(style) ~ *:not(style)': { marginLeft: props.spacing },
+
+        if (props.isAttached) {
+          groupStyles = {
+            ...groupStyles,
+            '> *:first-of-type:not(:last-of-type)': { borderRightRadius: 0 },
+            '> *:not(:first-of-type):not(:last-of-type)': { borderRadius: 0 },
+            '> *:not(:first-of-type):last-of-type': { borderLeftRadius: 0 },
+          }
+        } else {
+          groupStyles = {
+            ...groupStyles,
+            '& > *:not(style) ~ *:not(style)': { marginLeft: props.spacing },
+          }
         }
-      }
 
-      return groupStyles
-    })
+        return groupStyles
+      })
 
-    return () =>
-      h(
+      return h(
         chakra('div', { label: 'button__group' }),
         {
           __css: { ...styles.value },
@@ -98,6 +87,7 @@ const CButtonGroup = defineComponent({
         },
         slots
       )
+    }
   },
 })
 

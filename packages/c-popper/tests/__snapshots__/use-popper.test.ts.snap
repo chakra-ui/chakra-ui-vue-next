@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly and bind refs 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      class="chakra-button css-7an410"
+    >
+      <!---->
+      <!---->
+      Testing
+      <!---->
+    </button>
+    <div
+      data-popper-placement="right-end"
+      style="padding: 20px; background: red; --popper-transform-origin: left bottom; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(16px, 0px);"
+    >
+      <div
+        data-popper-arrow=""
+        style="--popper-arrow-size: 10px; background: yellow; z-index: -1; --popper-arrow-size-half: calc(var(--popper-arrow-size, 8px) / 2); --popper-arrow-offset: calc(var(--popper-arrow-size-half) * -1); position: absolute; top: 0px; transform: translate(0px, 8px);"
+      />
+       Popper 
+    </div>
+  </div>
+</DocumentFragment>
+`;

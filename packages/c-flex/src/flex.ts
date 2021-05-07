@@ -1,6 +1,11 @@
 import { h, defineComponent, PropType, reactive } from 'vue'
-import { chakra, DOMElements, ThemingProps } from '@chakra-ui/vue-system'
-import { SystemStyleObject } from '@chakra-ui/styled-system'
+import type CSS from 'csstype'
+import {
+  chakra,
+  DOMElements,
+  ThemingProps,
+  SystemStyleObject,
+} from '@chakra-ui/vue-system'
 
 export interface FlexProps {
   /**

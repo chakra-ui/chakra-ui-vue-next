@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render all children 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-alert css-mt4tyf"
+    data-testid="alert"
+    role="alert"
+  >
+    <svg
+      class="alert__icon chakra-icon css-1bwzgwf"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      
+    
+      <g
+        stroke="currentColor"
+        strokewidth="1.5"
+      >
+        
+      
+        <path
+          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+          fill="none"
+          strokelinecap="round"
+        />
+        
+      
+        <path
+          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+          fill="currentColor"
+          strokelinecap="round"
+        />
+        
+      
+        <circle
+          cx="12"
+          cy="12"
+          fill="none"
+          r="11.25"
+          strokemiterlimit="10"
+        />
+        
+    
+      </g>
+      
+  
+    </svg>
+    <div
+      class="chakra-alert__title css-1x7s9vs"
+    >
+       Info alert 
+    </div>
+    <div
+      class="chakra-alert__description css-1xfoiaz"
+    >
+       Something just happened 
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-alert css-e32ira"
+    role="alert"
+  />
+</DocumentFragment>
+`;

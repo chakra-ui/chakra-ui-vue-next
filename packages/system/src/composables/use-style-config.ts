@@ -1,65 +1,47 @@
 import { computed, ComputedRef } from 'vue'
-
 import { SystemStyleObject } from '@chakra-ui/styled-system'
-import { ChakraComponentName, ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { ThemingProps } from '../system.types'
-import { DeepPartial } from '../system.utils'
-import { filterUndefined, get, mergeWith, runIfFn } from '@chakra-ui/vue-utils'
+import { filterUndefined, get, mergeWith, runIfFn } from '@chakra-ui/utils'
 import { useChakra } from './use-chakra'
 
-export type AllThemedComponents = ChakraComponentName &
-  keyof Record<string, any>
-
-/**
- * This type allows us to loosely type values for consumer provided
- * components in the theme config.
- *
- * @note At the time of writing this, I'm not sure whether this should
- * be loosely typed with a {DeepComponentThemeConfig} or should be strictly
- * typed with as the {ComponentThemeConfig}
- */
-export type DeepComponentThemeConfig = DeepPartial<ComponentThemeConfig>
-
 export function useStyleConfig(
-  themeKey: AllThemedComponents,
+  themeKey: string,
   themingProps: ThemingProps,
-  options: { isMultiPart: true },
-  userStyleConfig?: DeepComponentThemeConfig
+  options: { isMultiPart: true }
 ): ComputedRef<Record<string, SystemStyleObject>>
 
 export function useStyleConfig(
-  themeKey: AllThemedComponents,
+  themeKey: string,
   themingProps?: ThemingProps,
-  options?: { isMultiPart?: boolean },
-  userStyleConfig?: DeepComponentThemeConfig
+  options?: { isMultiPart?: boolean }
 ): ComputedRef<SystemStyleObject>
 
 export function useStyleConfig(
   themeKey: any,
   themingProps: any,
-  options: any = {},
-  userStyleConfig?: any
+  options: any = {}
 ) {
-  const { theme, colorMode } = useChakra()
-  const themeStyleConfig = get(theme, `components.${themeKey}`)
-
-  const styleConfig = userStyleConfig || themeStyleConfig
-
-  const mergedProps = mergeWith(
-    { theme, colorMode },
-    styleConfig?.defaultProps ?? {},
-    filterUndefined(themingProps)
-  )
-
   return computed(() => {
-    const baseStyles = runIfFn(styleConfig.baseStyle ?? {}, mergedProps)
+    const { styleConfig: styleConfigProp, ...rest } = themingProps
+    const { theme, colorMode } = useChakra()
+    const themeStyleConfig = get(theme, `components.${themeKey}`)
+
+    const styleConfig = styleConfigProp || themeStyleConfig
+
+    const mergedProps = mergeWith(
+      { theme: theme, colorMode: colorMode.value },
+      styleConfig?.defaultProps ?? {},
+      filterUndefined(rest)
+    )
+
+    const baseStyles = runIfFn(styleConfig?.baseStyle ?? {}, mergedProps)
     const variants = runIfFn(
-      styleConfig.variants?.[mergedProps.variant] ?? {},
+      styleConfig?.variants?.[mergedProps.variant] ?? {},
       mergedProps
     )
 
     const sizes = runIfFn(
-      styleConfig.sizes?.[mergedProps.size] ?? {},
+      styleConfig?.sizes?.[mergedProps.size] ?? {},
       mergedProps
     )
 
@@ -67,8 +49,7 @@ export function useStyleConfig(
     const styles = mergeWith({}, baseStyles, sizes, variants) as ComponentStyles
 
     if (options.isMultiPart && styleConfig.parts) {
-      styleConfig.parts.forEach((part: keyof ComponentStyles) => {
-        // @ts-expect-error
+      styleConfig.parts.forEach((part: string) => {
         styles[part] = styles[part] ?? {}
       })
     }
@@ -77,9 +58,6 @@ export function useStyleConfig(
   })
 }
 
-export function useMultiStyleConfig(
-  themeKey: AllThemedComponents,
-  themingProps: any
-) {
+export function useMultiStyleConfig(themeKey: string, themingProps: any) {
   return useStyleConfig(themeKey, themingProps, { isMultiPart: true })
 }

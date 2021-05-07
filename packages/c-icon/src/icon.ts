@@ -1,5 +1,12 @@
-import { h, defineComponent, PropType, computed, inject } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import {
+  h,
+  defineComponent,
+  PropType,
+  computed,
+  inject,
+  SVGAttributes,
+} from 'vue'
+import { chakra, ChakraProps, DOMElements } from '@chakra-ui/vue-system'
 
 const fallbackIcon = {
   path: `
@@ -20,6 +27,15 @@ const fallbackIcon = {
   viewBox: '0 0 24 24',
 }
 
+export interface IconProps
+  extends Omit<SVGAttributes, keyof ChakraProps>,
+    ChakraProps {
+  /**
+   * Icon Size
+   */
+  size?: string
+}
+
 export const CIcon = defineComponent({
   props: {
     as: {
@@ -27,10 +43,10 @@ export const CIcon = defineComponent({
       default: 'svg',
     },
     name: {
-      type: [String] as PropType<string>,
+      type: [String] as PropType<IconProps['name']>,
     },
     size: {
-      type: [String] as PropType<string>,
+      type: [String] as PropType<IconProps['size']>,
       default: '1em',
     },
   },
@@ -46,7 +62,7 @@ export const CIcon = defineComponent({
       color: 'currentColor',
       innerHTML: icon.value.path,
       focusable: false,
-      viewBox: fallbackIcon.viewBox,
+      viewBox: icon.value.viewBox || fallbackIcon.viewBox,
     }))
 
     return () =>

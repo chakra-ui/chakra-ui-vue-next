@@ -22,10 +22,10 @@ jobs:
         # so that Changesets can generate changelogs with the correct commits
         fetch-depth: 0
 
-    - name: Use Node.js 12.x
+    - name: Use Node.js 14.x
       uses: actions/setup-node@master
       with:
-        node-version: 12.19
+        node-version: 14
 
     - name: Install dependencies
       run: yarn install --frozen-lockfile && yarn bootstrap
@@ -44,17 +44,17 @@ jobs:
 
     # TODO: Uncomment when ready to start testing RCs
 
-    # - name: Setup CI Git User
-    #   run: |
-    #     git config --global user.name "codebender828"
-    #     git config --global user.email "jbakebwa@163.com"
+    - name: Setup CI Git User
+      run: |
+        git config --global user.name "codebender828"
+        git config --global user.email "jbakebwa@163.com"
     
-    # - name: Publish packages
-    #   uses: changesets/action@master
-    #   with:
-    #     publish: yarn release
-    #     title: "chore(release): version packages"
-    #     commit: "chore(release): version packages"
-    #   env:
-    #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Create Release Pull Request
+      uses: changesets/action@master
+      with:
+        publish: yarn release
+        title: "chore(release): version packages and publish"
+        commit: "chore(release): version packages"
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

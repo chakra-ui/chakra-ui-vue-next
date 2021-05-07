@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "1.0.0",
+  "version": "0.1.0-alpha.2",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,11 +9,17 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/nuxt",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types"

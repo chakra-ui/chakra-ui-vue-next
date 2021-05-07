@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should be render properly 1`] = `
+exports[`as prop render Vue Component like :as="RouterLink" 1`] = `
+<DocumentFragment>
+  <a
+    class="css-0"
+    href="https://vue.chakra-ui.com/"
+  >
+    as RouterLink
+  </a>
+</DocumentFragment>
+`;
+
+exports[`as prop render dom elements like as="h1" 1`] = `
+<DocumentFragment>
+  <h1
+    class="css-0"
+  >
+    as h1
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`as prop resolve global vue components like as="router-link" 1`] = `
+<DocumentFragment>
+  <a
+    class="css-0"
+    href="https://google.com"
+  >
+    as router-link
+  </a>
+</DocumentFragment>
+`;
+
+exports[`chakra() works should be render properly 1`] = `
 <DocumentFragment>
   <span
     class="css-0"

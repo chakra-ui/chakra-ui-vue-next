@@ -28,6 +28,7 @@ module.exports = {
       '/setup/': getSetupSidebar(),
       '/components/': getSetupSidebar(),
       '/composables/': getSetupSidebar(),
+      '/guides/': getSetupSidebar(),
       '/': getSetupSidebar()
     }
   }
@@ -43,11 +44,18 @@ function getSetupSidebar() {
       ]
     },
     {
+      text: 'Guides',
+      children: [
+        { text: 'Components guide', link: '/guides/component-guide' }
+      ]
+    },
+    {
       text: 'Components',
       children: [
         { text: 'Alert', link: '/components/alert' },
         { text: 'Badge', link: '/components/badge' },
         { text: 'Button', link: '/components/button' },
+        { text: 'Code', link: '/components/code' },
         { text: 'Icon', link: '/components/icon' },
         { text: 'Spinner', link: '/components/spinner' },
         { text: 'CSS reset', link: '/components/css-reset' },
@@ -60,22 +68,5 @@ function getSetupSidebar() {
         { text: 'usePopper', link: '/composables/use-popper' }
       ]
     }
-  ]
-}
-
-function getComponentsSidebar() {
-  return [
-    {
-      text: 'Components',
-      children: [
-        { text: 'Alert', link: '/components/alert' },
-        { text: 'Button', link: '/components/button' },
-        { text: 'Badge', link: '/components/badge' },
-        { text: 'Icon', link: '/components/icon' },
-        { text: 'Spinner', link: '/components/spinner' },
-        { text: 'CSS reset', link: '/components/css-reset' },
-        { text: 'Visually hidden', link: '/components/visually-hidden' },
-      ]
-    },
   ]
 }

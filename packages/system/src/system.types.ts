@@ -1,15 +1,18 @@
-import { Component, Fragment, Suspense, Teleport } from 'vue'
+import {
+  Component,
+  Fragment,
+  Suspense,
+  Teleport,
+  ComponentObjectPropsOptions,
+} from 'vue'
 import {
   SystemProps,
-  SystemStyleObject,
   ResponsiveValue,
+  StyleProps,
+  ThemeTypings,
 } from '@chakra-ui/styled-system'
-
-import {
-  ChakraColors,
-  ChakraComponentName,
-  ComponentThemeConfig,
-} from '@chakra-ui/vue-theme'
+import { IntrinsicElementAttributes } from './dom.types'
+import { Dict } from '@chakra-ui/utils'
 
 export type Tag =
   | string
@@ -18,12 +21,16 @@ export type Tag =
   | typeof Suspense
   | Component
 
-export interface ThemingProps {
-  variant?: string
-  size?: string
-  colorScheme?: string
+export interface ThemingProps<ThemeComponent extends string = string> {
+  variant?: ThemeComponent extends keyof ThemeTypings['components']
+    ? ThemeTypings['components'][ThemeComponent]['variants'] | (string & {})
+    : string
+  size?: ThemeComponent extends keyof ThemeTypings['components']
+    ? ThemeTypings['components'][ThemeComponent]['sizes'] | (string & {})
+    : string
+  colorScheme?: ThemeTypings['colorSchemes'] | (string & {})
   orientation?: 'vertical' | 'horizontal'
-  styleConfig?: ComponentThemeConfig
+  styleConfig?: Dict
 }
 
 export interface ChakraProps extends SystemProps {
@@ -56,5 +63,27 @@ export interface ChakraProps extends SystemProps {
   noOfLines?: ResponsiveValue<number>
 }
 
-export type ColorScheme = keyof ChakraColors
-export type ThemeComponents = ChakraComponentName
+type ElementType<P = any> =
+  | {
+      [K in keyof IntrinsicElementAttributes]: P extends IntrinsicElementAttributes[K]
+        ? K
+        : never
+    }[keyof IntrinsicElementAttributes]
+  | Component<P>
+
+export type As<Props = any> = ElementType<Props>
+
+/**
+ * Extract the props of a Vue element or component
+ */
+export type PropsOf<T extends As> = T & {
+  as?: As
+}
+
+export type HTMLChakraProps<T extends As> = Omit<
+  PropsOf<T>,
+  T extends 'svg'
+    ? 'ref' | 'children' | keyof StyleProps
+    : 'ref' | keyof StyleProps
+> &
+  ChakraProps & { as?: As }

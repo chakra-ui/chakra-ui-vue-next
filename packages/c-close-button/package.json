@@ -1,0 +1,51 @@
+{
+  "name": "@chakra-ui/c-close-button",
+  "description": "Chakra UI Vue | An accessible close button component for chakra ui vue component",
+  "version": "0.1.0-alpha.2",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-close-button",
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf ./dist && concurrently yarn:build:*",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "watch": "concurrently yarn:watch:*",
+    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
+    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
+    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
+  },
+  "dependencies": {
+    "@chakra-ui/c-icon": "1.0.0-alpha.2",
+    "@chakra-ui/styled-system": "^1.10.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.2"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.5"
+  },
+  "devDependencies": {
+    "vue": ">=3.0.5"
+  }
+}

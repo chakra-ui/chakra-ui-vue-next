@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-button__group css-v5zn0n"
+    role="group"
+  >
+    <button
+      class="chakra-button css-177203b"
+    >
+      <!---->
+      <!---->
+      Save
+      <!---->
+    </button>
+    <button
+      class="chakra-button css-1saahg5"
+    >
+      <!---->
+      <!---->
+      Cancel
+      <!---->
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -1,4 +1,4 @@
-import { Dict, UnionStringArray } from '@chakra-ui/vue-utils'
+import { UnionStringArray } from '@chakra-ui/utils'
 import { keyframes, injectGlobal } from '@emotion/css'
 
 /**
@@ -35,6 +35,7 @@ export const domElements = [
   'h6',
   'header',
   'hr',
+  'iframe',
   'img',
   'input',
   'kbd',

@@ -6,7 +6,7 @@
         @leave="
           (el, done) => {
             motionInstance.leave(done)
-            innerMotionInstance.leave?.(() => null)
+            innerMotionInstance.leave?.(done)
           }
         "
       >

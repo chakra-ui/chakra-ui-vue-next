@@ -1,7 +1,11 @@
-import { defineComponent, PropType, computed, cloneVNode, h } from 'vue'
-import { chakra, useStyleConfig, ThemingProps } from '@chakra-ui/vue-system'
-import { SystemStyleObject } from '@chakra-ui/styled-system'
-import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/vue-utils'
+import { defineComponent, PropType, computed, h } from 'vue'
+import {
+  chakra,
+  useStyleConfig,
+  ThemingProps,
+  SystemStyleObject,
+} from '@chakra-ui/vue-system'
+import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/utils'
 import { useButtonGroup } from './button-group'
 import { CIcon } from '@chakra-ui/c-icon'
 import { CSpinner } from '@chakra-ui/c-spinner'
@@ -17,14 +21,14 @@ const CButtonSpinner = defineComponent({
     >,
   },
   setup(props, { attrs }) {
-    const spinnerStyles = computed<SystemStyleObject>(() => ({
-      display: 'flex',
-      alignItems: 'center',
-      position: props.label ? 'relative' : 'absolute',
-      marginEnd: props.label ? props.spacing : 0,
-    }))
-    return () =>
-      h(
+    return () => {
+      const spinnerStyles = computed<SystemStyleObject>(() => ({
+        display: 'flex',
+        alignItems: 'center',
+        position: props.label ? 'relative' : 'absolute',
+        marginEnd: props.label ? props.spacing : 0,
+      }))
+      return h(
         chakra('div', {
           label: 'button__spinner',
         }),
@@ -40,6 +44,7 @@ const CButtonSpinner = defineComponent({
           }),
         ]
       )
+    }
   },
 })
 
@@ -75,46 +80,50 @@ const CButton = defineComponent({
   name: 'CButton',
   props: BUTTON_PROPS,
   setup(props, { attrs, slots }) {
-    const themingProps = computed<ThemingProps>(() =>
-      filterUndefined({
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        size: props.size,
-        styleConfig: props.styleConfig,
+    return () => {
+      const themingProps = computed<ThemingProps>(() =>
+        filterUndefined({
+          colorScheme: props.colorScheme,
+          variant: props.variant,
+          size: props.size,
+          styleConfig: props.styleConfig,
+        })
+      )
+
+      const group = useButtonGroup()
+      const styles = useStyleConfig('Button', {
+        ...group?.(),
+        ...themingProps.value,
       })
-    )
 
-    const group = useButtonGroup()
-    const styles = useStyleConfig('Button', {
-      ...group?.(),
-      ...themingProps.value,
-    })
+      const _focus = mergeWith({}, styles.value?.['_focus'] ?? {}, {
+        zIndex: 1,
+      })
 
-    const _focus = mergeWith({}, styles.value?.['_focus'] ?? {}, { zIndex: 1 })
+      const buttonStyles = computed<SystemStyleObject>(() => ({
+        display: 'inline-flex',
+        appearance: 'none',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 250ms',
+        userSelect: 'none',
+        position: 'relative',
+        whiteSpace: 'nowrap',
+        verticalAlign: 'middle',
+        outline: 'none',
+        width: props.isFullWidth ? '100%' : 'auto',
+        ...styles.value,
+        ...(!!group && { _focus }),
+      }))
 
-    const buttonStyles = computed<SystemStyleObject>(() => ({
-      display: 'inline-flex',
-      appearance: 'none',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'all 250ms',
-      userSelect: 'none',
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      verticalAlign: 'middle',
-      outline: 'none',
-      width: props.isFullWidth ? '100%' : 'auto',
-      ...styles.value,
-      ...(!!group && { _focus }),
-    }))
-
-    return () =>
-      h(
+      return h(
         chakra(props.as, {
           label: 'button',
         }),
         {
-          disabled: props.isDisabled || props.isLoading,
+          ...((props.isDisabled || props.isLoading) && {
+            disabled: props.isDisabled || props.isLoading,
+          }),
           type: props.as === 'button' ? undefined : props.type,
           dataActive: dataAttr(props.isActive),
           dataLoading: dataAttr(props.isLoading),
@@ -147,6 +156,7 @@ const CButton = defineComponent({
             }),
         ]
       )
+    }
   },
 })
 

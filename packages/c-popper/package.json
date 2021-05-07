@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-popper",
   "description": "Chakra UI Vue | Position engine for vue bult on popperjs core component",
-  "version": "1.0.0",
+  "version": "0.1.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -12,20 +12,22 @@
   "files": [
     "dist"
   ],
-  
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-popper",
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
@@ -35,12 +37,14 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.4.1",
-    "@chakra-ui/vue-system": "*",
-    "@chakra-ui/vue-utils": "*",
+    "@chakra-ui/utils": "^1.5.0",
     "@popperjs/core": "^2.8.4"
   },
-  "peerDependencies": {
+  "devDependencies": {
     "vue": ">=3.0.5"
+  },
+  "peerDependencies": {
+    "@chakra-ui/utils": "1.4.0",
+    "vue": "^3.0.5"
   }
 }

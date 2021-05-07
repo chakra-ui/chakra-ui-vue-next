@@ -16,7 +16,12 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   "files": [
     "dist"
   ],
-  
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -25,11 +30,11 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
   },
   "bugs": {
-    "url": "https://github.com/chakra-ui/chakra-ui=vue-next/issues"
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
@@ -39,7 +44,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.4.1",
+    "@chakra-ui/styled-system": "^1.9.0",
     "@chakra-ui/vue-system": "*",
     "@chakra-ui/vue-utils": "*"
   },

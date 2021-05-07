@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-next",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.4",
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,11 +9,17 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next.git",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/core",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "rimraf ./dist && concurrently yarn:build:*",
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
@@ -23,18 +29,36 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "*",
-    "@chakra-ui/vue-theme": "*",
-    "@chakra-ui/vue-utils": "*",
-    "@chakra-ui/c-accordion": "*",
-    "@chakra-ui/c-alert": "*",
-    "@chakra-ui/c-button": "*",
-    "@chakra-ui/c-flex": "*",
-    "@chakra-ui/c-icon": "*",
-    "@chakra-ui/c-reset": "*",
-    "@chakra-ui/c-spinner": "*",
-    "@chakra-ui/c-theme-provider": "*",
-    "@chakra-ui/c-visually-hidden": "*",
-    "@chakra-ui/c-popper": "*"
+    "@chakra-ui/c-accordion": "0.1.0-alpha.2",
+    "@chakra-ui/c-alert": "1.0.0-alpha.2",
+    "@chakra-ui/c-button": "1.0.0-alpha.2",
+    "@chakra-ui/c-close-button": "0.1.0-alpha.2",
+    "@chakra-ui/c-code": "1.0.0-alpha.2",
+    "@chakra-ui/c-color-mode": "0.1.0-alpha.2",
+    "@chakra-ui/c-flex": "1.0.0-alpha.2",
+    "@chakra-ui/c-icon": "1.0.0-alpha.2",
+    "@chakra-ui/c-modal": "1.1.0-alpha.1",
+    "@chakra-ui/c-popper": "0.1.0-alpha.2",
+    "@chakra-ui/c-portal": "0.1.0-alpha.2",
+    "@chakra-ui/c-reset": "1.0.0-alpha.2",
+    "@chakra-ui/c-spinner": "1.0.0-alpha.2",
+    "@chakra-ui/c-theme-provider": "1.0.0-alpha.2",
+    "@chakra-ui/c-visually-hidden": "1.0.0-alpha.2",
+    "@chakra-ui/styled-system": "^1.10.0",
+    "@chakra-ui/utils": "^1.5.0",
+    "@chakra-ui/vue-layout": "0.1.0-alpha.3",
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@chakra-ui/vue-theme": "0.1.0-alpha.2",
+    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.2"
+  },
+  "devDependencies": {
+    "vue": ">=3.0.5"
+  },
+  "peerDependencies": {
+    "@chakra-ui/styled-system": "^1.9.0",
+    "@chakra-ui/utils": "1.4.0",
+    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@chakra-ui/vue-theme": "0.1.0-alpha.2",
+    "vue": "^3.0.5"
   }
 }

@@ -62,29 +62,34 @@ it('should resolve styles correctly', () => {
           "content": "",
           "display": "block",
         },
-        "@media screen and (min-width: 30em)": Object {
-          "fontSize": 26,
-        },
-        "background": "#68D391",
-        "fontSize": 12,
-      },
-      "@media screen and (min-width: 30em)": Object {
-        "WebkitLineClamp": 4,
-        "fontSize": 23,
-        "letterSpacing": "0.2px",
-        "textTransform": "lowercase",
+        "background": "green.300",
+        "fontSize": Array [
+          12,
+          26,
+        ],
       },
       "WebkitBoxOrient": "vertical",
-      "WebkitLineClamp": 3,
+      "WebkitLineClamp": Array [
+        3,
+        4,
+      ],
+      "apply": Object {
+        "base": "textStyles.caps",
+        "sm": "textStyles.lower",
+      },
       "background": "tomato",
       "backgroundPosition": "top left",
-      "color": "#F687B3",
+      "color": "pink.300",
       "display": "-webkit-box",
-      "fontSize": 10,
+      "fontSize": Array [
+        10,
+        23,
+      ],
       "letterSpacing": "2px",
       "overflow": "hidden",
+      "paddingInlineEnd": "5px",
+      "paddingInlineStart": "5px",
       "paddingLeft": 40,
-      "paddingRight": "1.25rem",
       "textOverflow": "ellipsis",
       "textTransform": "capitalize",
     }
@@ -106,10 +111,11 @@ it('should override padding correctly', () => {
   expect(result).toMatchInlineSnapshot(`
     Object {
       "background": "pinkish",
-      "color": "#68D391",
-      "marginRight": "1.25rem",
-      "paddingLeft": "1rem",
-      "paddingRight": "0.75rem",
+      "color": "green.300",
+      "marginRight": "5px",
+      "paddingInlineEnd": "4px",
+      "paddingInlineStart": "4px",
+      "paddingRight": "3px",
     }
   `)
 })

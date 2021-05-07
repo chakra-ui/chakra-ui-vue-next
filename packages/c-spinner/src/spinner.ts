@@ -1,3 +1,4 @@
+import { vueThemingProps } from '@chakra-ui/vue-utils'
 import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
@@ -6,7 +7,6 @@ import {
   ThemingProps,
   useStyleConfig,
 } from '@chakra-ui/vue-system'
-import { ComponentThemeConfig } from '@chakra-ui/vue-theme'
 import { CVisuallyHidden } from '@chakra-ui/c-visually-hidden'
 
 const spin = keyframes({
@@ -75,16 +75,7 @@ const props = {
   label: {
     type: String as PropType<SpinnerProps['label']>,
   },
-  colorScheme: String as PropType<string>,
-  variant: {
-    type: String as PropType<string>,
-    default: 'solid',
-  },
-  size: {
-    type: String as PropType<string>,
-    default: 'md',
-  },
-  styleConfig: String as PropType<ComponentThemeConfig>,
+  ...vueThemingProps,
 }
 
 const CSpinner = defineComponent({
@@ -97,23 +88,22 @@ const CSpinner = defineComponent({
       styleConfig: props.styleConfig,
     }))
 
-    const styles = useStyleConfig('Spinner', { ...themingProps.value })
+    return () => {
+      const styles = useStyleConfig('Spinner', { ...themingProps.value })
+      const spinnerStyles = {
+        display: 'inline-block',
+        borderColor: 'currentColor',
+        borderStyle: 'solid',
+        borderRadius: '99999px',
+        borderWidth: props.thickness,
+        borderBottomColor: props.emptyColor,
+        borderLeftColor: props.emptyColor,
+        color: props.color,
+        animation: `${spin} ${props.speed} linear infinite`,
+        ...styles.value,
+      }
 
-    const spinnerStyles = {
-      display: 'inline-block',
-      borderColor: 'currentColor',
-      borderStyle: 'solid',
-      borderRadius: '99999px',
-      borderWidth: props.thickness,
-      borderBottomColor: props.emptyColor,
-      borderLeftColor: props.emptyColor,
-      color: props.color,
-      animation: `${spin} ${props.speed} linear infinite`,
-      ...styles.value,
-    }
-
-    return () =>
-      h(
+      return h(
         chakra(props.as, {
           label: 'spinner',
           __css: spinnerStyles,
@@ -121,8 +111,9 @@ const CSpinner = defineComponent({
         {
           ...attrs,
         },
-        props.label && [h(CVisuallyHidden, props.label)]
+        props.label && (() => [h(CVisuallyHidden, () => props.label)])
       )
+    }
   },
 })
 
