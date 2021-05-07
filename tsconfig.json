@@ -4,7 +4,7 @@
     "module": "esnext",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "resolveJsonModule": true,
     "lib": [ "esnext", "dom" ],
-    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "cypress"],
+    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "cypress", "./packages/tests"],
     "declaration": true,
     "allowJs": true,
     "sourceMap": true,

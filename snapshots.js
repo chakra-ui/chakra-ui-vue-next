@@ -1,5 +1,5 @@
 module.exports = {
-  __version: '6.9.0',
+  __version: '7.2.0',
   '<Portal />': {
     'Portal Examples': {
       'renders SimplePortal successfully': {

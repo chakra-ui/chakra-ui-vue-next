@@ -3,7 +3,7 @@
 import { mount } from '@cypress/vue'
 
 declare namespace Cypress {
-  interface Chainable<Subject> {
+  export interface Chainable {
     mount(): ReturnType<typeof mount>
     /**
      * Run a11y tests or only a subset of all tests
@@ -11,6 +11,6 @@ declare namespace Cypress {
      * @example
      *  cy.checkA11y()
      */
-    checkA11y(any, object): Chainable<any>
+    checkA11y(any, object): Chainable
   }
 }

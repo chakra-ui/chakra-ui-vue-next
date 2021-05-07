@@ -20,7 +20,7 @@ const isAccessible = (_chai, utils) => {
   _chai.Assertion.addProperty('accessible', function () {
     let _this = this
 
-    return cy.get('#cypress-root', { log: false }).then(async ($root) => {
+    return cy.get('#__cy_root', { log: false }).then(async ($root) => {
       const result = await axeCore.run($root[0])
       console.log(`A11y results: `, result)
       const { passes, violations } = result
