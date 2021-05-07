@@ -1,34 +1,10 @@
+import { h } from 'vue'
 import * as Examples from '../examples'
 
-import { h, onMounted } from 'vue'
-import { usePopper } from '../src'
-import { useToggle } from '@vueuse/core'
+it('should work', () => {
+  cy.mount(<Examples.PopperV2Example.default />)
 
-// Fails with isRef error
-xit('should work', () => {
-  cy.mount({
-    setup() {
-      const [isOpen, toggleIsOpen] = useToggle(true)
-
-      const { reference, referenceEl, popperEl, popper } = usePopper({
-        gutter: 16,
-        placement: 'right-end',
-      })
-
-      onMounted(() => {
-        _referenceEl = referenceEl.value
-        _popperEl = popperEl.value
-      })
-
-      return {
-        isOpen,
-        toggleIsOpen,
-        reference,
-        popper,
-      }
-    }
-  })
+  cy.get('div').contains('Popper').should('exist')
+  cy.get('div').contains('Testing').click()
+  cy.get('div').contains('Popper').should('not.exist')
 })
-
-
-

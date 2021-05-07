@@ -7,7 +7,7 @@ import path from 'path'
 
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['@popperjs/core'],
+    exclude: ['@popperjs/core', '@vueuse/core', '@vueuse/motion'],
   },
   server: {
     watch: {

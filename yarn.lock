@@ -3544,6 +3544,14 @@
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^2.1.2"
 
+"@vueuse/core@4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.9.1.tgz#e5805222a26107b16518cdb8459569b5b7d58c90"
+  integrity sha512-BmmEEaistQqNsGlmmpwS2fRkzpf/2riBnUAmm4uDOj4ZDUpssCvCyTeOoIGbZYg92Hzaz0YF9qSeE7megjYLCg==
+  dependencies:
+    "@vueuse/shared" "4.9.1"
+    vue-demi "*"
+
 "@vueuse/core@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.7.0.tgz#733f4b86832346a014dfdf818e3773ebfcbaebc4"
@@ -3557,7 +3565,7 @@
   resolved "https://registry.yarnpkg.com/@vueuse/head/-/head-0.5.1.tgz#7d8a31ba4d214fff75c1d0845148d7f0bdf5b68f"
   integrity sha512-xt6qgtItb4z/7vp664opQc0c2+ZoU9itMfvpmg4+h0uJcEnhl7LYxO4V+G8H7EVki7SyXDIFMfoCiCFaJrArmg==
 
-"@vueuse/motion@^1.4.4":
+"@vueuse/motion@1.5.4":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.5.4.tgz#ab5eb0de143a664f217f93ecf059cd6404246536"
   integrity sha512-hSGnVOzzXfp9q9WMDYZImckQCp5BZb6WM1kq+pOZHhLolPt9JqPnK/gImIE/xU27bKZwjE8PeTTcIhCC18xwmQ==
@@ -3572,6 +3580,13 @@
   integrity sha512-a9wmH6g+dh6ALeOejIL53s1HkASyOldbHunwEUEtRdgQyUCnU+RRiYTZlNLEyt1r79kPtnBjp5fHq0X36H96MA==
   dependencies:
     vue-demi latest
+
+"@vueuse/shared@4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.9.1.tgz#ff3fa7c35f77a1f30e7c568de9113fc42bfb4019"
+  integrity sha512-5jj+/Ve7e82LP4OFpU8jBRhjC7QGUxI95U2m4bB2BGuWA8v6r2EVV7AVkU/rXZ5EvRoYkAnUs8jWRCj0QlD6XQ==
+  dependencies:
+    vue-demi "*"
 
 "@wildpeaks/snapshot-dom@1.6.0":
   version "1.6.0"
@@ -14139,6 +14154,11 @@ vscode-web-custom-data@^0.3.2:
   resolved "https://registry.yarnpkg.com/vscode-web-custom-data/-/vscode-web-custom-data-0.3.3.tgz#9e1f2388c718d6f190038a19d144834a436b876f"
   integrity sha512-orMjjj1r4efP5ocODYZm3orpANakRBsxPZPDoD5UIrFOPKDFtMJQLp6PIH1rb3AYVRD1iYXMhDQoC6tZ+DrigA==
 
+vue-demi@*:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.9.0.tgz#b30da61450079d60a132d7aaf9e86d1949e8445e"
+  integrity sha512-f8vVUpC726YXv99fF/3zHaw5CUYbP5H/DVWBN+pncXM8P2Uz88kkffwj9yD7MukuVzPICDHNrgS3VC2ursaP7g==
+
 vue-demi@0.7.4, vue-demi@latest:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.4.tgz#4c6be525788e1f6b3fd5d4f5f9f2148cf6645979"
@@ -14208,7 +14228,7 @@ vue3-perfect-scrollbar@^1.5.5:
     perfect-scrollbar "^1.5.0"
     postcss-import "^12.0.0"
 
-vue@>=3.0.5, vue@^3.0.5:
+vue@>=3.0.5, vue@^3.0.11, vue@^3.0.5:
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.11.tgz#c82f9594cbf4dcc869241d4c8dd3e08d9a8f4b5f"
   integrity sha512-3/eUi4InQz8MPzruHYSTQPxtM3LdZ1/S/BvaU021zBnZi0laRUyH6pfuE4wtUeLvI8wmUNwj5wrZFvbHUXL9dw==
