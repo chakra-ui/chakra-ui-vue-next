@@ -23,7 +23,7 @@
     "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "cy:open": "cypress open-ct",
     "cy:run": "cypress run-ct --quiet",
-    "test:component": "cy:run",
+    "test:component": "yarn cy:run",
     "test": "jest && yarn cy:run",
     "test:unit": "cross-env NODE_ENV=test jest --config jest.config.js",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",

@@ -1,8 +1,8 @@
 {
   "componentFolder": "packages/",
-  "pluginsFile": "./packages/tests/plugins.js",
+  "pluginsFile": "./tests/plugins.js",
   "testFiles": "**/*.cy.*",
-  "supportFile": "packages/tests/support.tsx",
+  "supportFile": "./tests/support.tsx",
   "ignoreTestFiles": "**/*.snap",
   "video": false,
   "fixturesFolder": false,
