@@ -2,7 +2,6 @@
 import { defineComponent, PropType } from 'vue'
 import { useColorModeValue } from '@chakra-ui/c-color-mode'
 import siteConfig from '../../config/site-config'
-import { clippingParents } from '@popperjs/core'
 
 export type ComponentLinksProps = {
   theme?: { componentName: string }
