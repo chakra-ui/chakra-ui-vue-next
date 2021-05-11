@@ -5,16 +5,9 @@
     :bg="bg"
     :color="color"
   >
-    <app-header :frontmatter="frontmatter" />
-    <layout-docs v-if="isDocs">
+    <layout-mdx :frontmatter="frontmatter">
       <slot />
-    </layout-docs>
-    <layout-blog v-else-if="isBlog">
-      <slot />
-    </layout-blog>
-    <layout-default v-else class="default">
-      <slot />
-    </layout-default>
+    </layout-mdx>
   </chakra.div>
 </template>
 
@@ -31,6 +24,14 @@ const docsPath = `${rootPath}docs`
 const isBlog = computed(() => path.startsWith(blogPath))
 const isDocs = computed(() => path.startsWith(docsPath))
 const props = defineProps<{ frontmatter: { title: string } }>()
+
+const layoutMap = {
+  blog: 'layout-mdx',
+  guides: 'layout-mdx',
+  docs: 'layout-mdx',
+  changelog: 'layout-mdx',
+  default: 'page-container',
+}
 
 const bg = useColorModeValue('white', 'gray.800')
 const color = useColorModeValue('gray.700', 'whiteAlpha.900')

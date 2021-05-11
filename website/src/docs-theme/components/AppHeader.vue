@@ -10,7 +10,7 @@
     right="0"
     width="full"
   >
-    <chakra.div height="4.5rem" mx="auto" maxW="1200px">
+    <chakra.div height="4.5rem" mx="auto" maxW="8xl">
       <!-- content -->
 
       <CFlex w="100%" h="100%" px="6" align="center" justify="space-between">

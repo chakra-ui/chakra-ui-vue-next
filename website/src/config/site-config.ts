@@ -19,6 +19,7 @@ const siteConfig = {
     url: 'https://discord.gg/dQHfcWF',
   },
   youtube: 'https://www.youtube.com/channel/UC4TmDovH46TB4S0SM0Y4CIg',
+  twitter: 'https://twitter.com/chakraui_vue',
   seo: {
     title: 'Chakra UI',
     titleTemplate: '%s - Chakra UI',
