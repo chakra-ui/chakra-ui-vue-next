@@ -36,5 +36,5 @@
   </CBox>
 </template>
 <script setup lang="ts">
-import siteConfig from '@/config/site-config.ts'
+import siteConfig from '@/config/site-config'
 </script>

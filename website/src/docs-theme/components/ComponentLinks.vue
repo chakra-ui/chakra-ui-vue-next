@@ -1,7 +1,7 @@
 <script lang="tsx">
 import { defineComponent, PropType } from 'vue'
 import { useColorModeValue } from '@chakra-ui/c-color-mode'
-import siteConfig from '../../config/site-config'
+import siteConfig from '@/config/site-config'
 
 export type ComponentLinksProps = {
   theme?: { componentName: string }

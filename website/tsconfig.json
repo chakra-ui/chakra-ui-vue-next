@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
     "jsx": "preserve",
     "module": "ESNext",
     "target": "es2016",
@@ -18,9 +22,6 @@
       "vite/client",
       "vite-plugin-pages/client"
     ],
-    "paths": {
-      "~/*": ["src/*"]
-    },
   },
   "exclude": ["dist", "node_modules"]
 }
