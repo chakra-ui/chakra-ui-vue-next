@@ -26,9 +26,8 @@ export const CBox = defineComponent({
       return h(
         chakra(props.as, {
           label: 'box',
-          ...attrs,
         }),
-        {},
+        { ...attrs },
         slots
       )
     }
