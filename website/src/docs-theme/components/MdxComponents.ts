@@ -1,4 +1,4 @@
-import { h, renderSlot, resolveComponent, SetupContext } from 'vue'
+import { h, renderSlot, SetupContext } from 'vue'
 /**
  * MDX Components
  *
@@ -36,7 +36,12 @@ const MdxChakra = (
   )
 
 export const MdxComponents = {
-  h1: LinkedHeading('h1', 'mdx.h1'),
+  h1: (props: any, context: SetupContext) =>
+    h(
+      'chakra.h1',
+      { apply: 'mdx.h1', ...props },
+      renderSlot(context.slots, 'default')
+    ),
   h2: LinkedHeading('h2', 'mdx.h2'),
   h3: LinkedHeading('h3', 'mdx.h3'),
   h4: LinkedHeading('h4', 'mdx.h4'),
@@ -83,4 +88,5 @@ export const MdxComponents = {
   li: MdxChakra({ as: 'li', customProps: { pb: '4px' } }),
   blockquote: 'MdxBlockquote',
   CarbonAd: 'CarbonAd',
+  ComponentLinks: 'ComponentLinks',
 }

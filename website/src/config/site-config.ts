@@ -1,4 +1,4 @@
-const baseUrl = 'https://github.com/chakra-ui/chakra-ui'
+const baseUrl = 'https://github.com/chakra-ui/chakra-ui-vue-next'
 
 const siteUrl = 'https://vue.chakra-ui.com'
 const description =
