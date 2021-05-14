@@ -1,11 +1,30 @@
+/// <reference types="cypress" />
+
 import { mount as cyMount } from '@cypress/vue'
 import { feActivity } from 'feather-icons-paths'
 import { MotionPlugin } from '@vueuse/motion'
-import { h, Fragment } from 'vue'
+import { h, Fragment, Component } from 'vue'
 
 import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
 import { CReset } from '@chakra-ui/c-reset'
+
+
+declare global {
+  namespace Cypress {
+    interface cy extends Chainable {
+      mount(component: Component, options?: any): ReturnType<typeof cyMount>
+      /**
+       * Run a11y tests or only a subset of all tests
+       * @see https://github.com/avanslaars/cypress-axe
+       * @example
+       *  cy.checkA11y()
+       */
+      checkA11y(noop?: any): Chainable
+    }
+  }
+}
+
 
 import './env' // stub process.env
 import './a11y' // checkA11y and axeCore configuration
