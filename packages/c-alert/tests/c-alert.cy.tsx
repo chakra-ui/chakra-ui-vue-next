@@ -5,7 +5,9 @@ import { CAlert, CAlertDescription, CAlertIcon, CAlertTitle } from '../src'
 describe('Alert Examples', () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
-      cy.mount(example.default).checkA11y()
+      cy.mount(example.default)
+      .then(() => {})
+      .checkA11y()
     })
   })
 })
