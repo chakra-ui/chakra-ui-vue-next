@@ -7,6 +7,7 @@ import Icons from 'vite-plugin-icons'
 import ViteComponents from 'vite-plugin-components'
 import VueMdx from 'vite-plugin-mdx-vue'
 import { componentResolver } from '@chakra-ui/vue-auto-import'
+import MDXComponents from './src/docs-theme/components/MdxComponents'
 
 /**
  *
@@ -35,6 +36,7 @@ const config: UserConfig = {
     Vue({ include: [/\.vue$/, /\.mdx$/] }),
     VueMdx({
       wrapperComponent: 'mdx-layout-wrapper',
+      mdxComponents: MDXComponents,
     }),
     Pages({
       extensions: ['vue', 'mdx'],

@@ -1,12 +1,7 @@
 <template>
   <c-reset />
   <Navbar />
-  <chakra.main
-    :min-h="['auto', 'auto', '100vh']"
-    w="100%"
-    pt="60px"
-    bg="vue.50"
-  >
+  <chakra.main :min-h="['auto', 'auto', '100vh']" w="100%" pt="60px" bg="white">
     <layout-docs v-if="isDocs">
       <slot />
     </layout-docs>

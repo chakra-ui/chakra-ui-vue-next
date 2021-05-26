@@ -1,6 +1,6 @@
 <template>
   <CFlex max-h="calc(100vh - 60px)">
-    <CBox w="20vw" />
+    <CBox w="20vw" bg="white" />
     <CBox
       id="main-content"
       ref="docContainer"
@@ -12,7 +12,7 @@
       :px="[10, 10, 20, '14rem']"
       font-family="body"
     >
-      <slot />
+      <mdx-content><slot /></mdx-content>
     </CBox>
   </CFlex>
 </template>
