@@ -10,6 +10,10 @@ import { componentResolver } from '@chakra-ui/vue-auto-import'
 import { MdxComponents } from './src/docs-theme/components/MdxComponents'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import remarkGfm from 'remark-gfm'
+// @ts-ignore
+import remarkAutolinkHeadings from 'remark-autolink-headings'
+// @ts-ignore
+import remarkSlug from 'remark-slug'
 
 /**
  *
@@ -41,8 +45,17 @@ const config: UserConfig = {
       wrapperComponent: 'mdx-layout-wrapper',
       mdxComponents: MdxComponents,
       xdmOptions: (vFile, options) => {
-        options.remarkPlugins = [remarkGfm]
+        // our plugins
+        const customRemarkPlugins = [
+          remarkGfm,
+          remarkAutolinkHeadings,
+          remarkSlug,
+        ]
 
+        // extend default plugins instead of replace (since we want to keep frontmatter plugin etc.)
+        options.remarkPlugins = options.remarkPlugins?.concat(
+          customRemarkPlugins
+        )
         return options
       },
     }),

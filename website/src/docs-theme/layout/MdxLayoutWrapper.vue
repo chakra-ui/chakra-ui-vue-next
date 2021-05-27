@@ -5,9 +5,18 @@
     :bg="bg"
     :color="color"
   >
-    <layout-mdx :frontmatter="frontmatter">
+    <layout-mdx
+      :frontmatter="frontmatter"
+      v-if="layoutComponent === 'layout-mdx'"
+    >
       <slot />
     </layout-mdx>
+    <page-container
+      :frontmatter="frontmatter"
+      v-if="layoutComponent === 'page-container'"
+    >
+      <slot />
+    </page-container>
   </chakra.div>
 </template>
 
@@ -18,11 +27,6 @@ import { useHead } from '@vueuse/head'
 import { useColorModeValue } from '@chakra-ui/c-color-mode'
 const { path } = useRoute()
 
-const rootPath = '/'
-const blogPath = `${rootPath}blog`
-const docsPath = `${rootPath}docs`
-const isBlog = computed(() => path.startsWith(blogPath))
-const isDocs = computed(() => path.startsWith(docsPath))
 const props = defineProps<{ frontmatter: { title: string } }>()
 
 const layoutMap = {
@@ -32,6 +36,15 @@ const layoutMap = {
   changelog: 'layout-mdx',
   default: 'page-container',
 }
+
+// convert to dynamic import? maybe.
+const layoutComponent = computed(() => {
+  const layout = Object.entries(layoutMap).find(([layoutPath, _component]) =>
+    String(path).startsWith(`/${layoutPath}`)
+  )
+  if (!layout) return layoutMap.default
+  return layout[1]
+})
 
 const bg = useColorModeValue('white', 'gray.800')
 const color = useColorModeValue('gray.700', 'whiteAlpha.900')

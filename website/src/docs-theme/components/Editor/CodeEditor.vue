@@ -1,3 +1,7 @@
 <template>
-  <pre contentEditable="true"><slot /></pre>
+  <chakra.pre>
+    <code>
+      <slot />
+    </code>
+  </chakra.pre>
 </template>

@@ -29,9 +29,9 @@ export default defineComponent({
           minH="32px"
           borderWidth="1px"
           borderRadius="md"
-          color={useColorModeValue('gray.600', 'whiteAlpha.700')}
+          color={useColorModeValue('gray.600', 'whiteAlpha.700').value}
           _hover={{
-            color: useColorModeValue('gray.700', 'whiteAlpha.900'),
+            color: useColorModeValue('gray.700', 'whiteAlpha.900').value,
             boxShadow: 'sm',
             transform: 'translateY(-1px)',
           }}

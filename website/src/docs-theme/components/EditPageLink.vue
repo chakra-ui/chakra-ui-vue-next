@@ -1,5 +1,5 @@
 <template>
-  <c-link :href="props.href" isExternal>
+  <c-link :href="href" isExternal>
     <c-stack
       display="inline-flex"
       direction="row"
@@ -13,7 +13,8 @@
   </c-link>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue-demi'
+import { defineProps } from 'vue'
 
+// @ts-ignore
 const props = defineProps<{ href?: string }>()
 </script>

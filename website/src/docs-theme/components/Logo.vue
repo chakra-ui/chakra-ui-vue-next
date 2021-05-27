@@ -37,5 +37,6 @@
 import { useColorModeValue } from '@chakra-ui/c-color-mode'
 
 const fill = useColorModeValue('#2D3748', '#fff')
-console.log({ fill })
+// todo: AppHeader causes re-rendering of this logo, why?
+// console.log({ fill })
 </script>
