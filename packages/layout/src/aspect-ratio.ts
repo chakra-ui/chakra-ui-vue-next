@@ -1,6 +1,12 @@
 import { mapResponsive } from '@chakra-ui/utils'
-import { chakra, HTMLChakraProps, ResponsiveValue } from '@chakra-ui/vue-system'
-import { defineComponent, h, PropType } from '@vue/runtime-core'
+import {
+  chakra,
+  HTMLChakraProps,
+  ResponsiveValue,
+  DeepPartial,
+  ComponentWithProps,
+} from '@chakra-ui/vue-system'
+import { defineComponent, h, PropType } from 'vue'
 
 interface AspectRatioOptions {
   /**
@@ -15,13 +21,7 @@ export interface AspectRatioProps
   extends HTMLChakraProps<'div'>,
     AspectRatioOptions {}
 
-/**
- * Vue component used to cropping media (videos, images and maps)
- * to a desired aspect ratio.
- *
- * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
- */
-export const CAspectRatio = defineComponent({
+const CAspectRatioImpl = defineComponent({
   props: {
     ratio: {
       type: [Number] as PropType<AspectRatioProps['ratio']>,
@@ -68,3 +68,13 @@ export const CAspectRatio = defineComponent({
     }
   },
 })
+
+/**
+ * Vue component used to cropping media (videos, images and maps)
+ * to a desired aspect ratio.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
+ */
+export const CAspectRatio = CAspectRatioImpl as ComponentWithProps<
+  DeepPartial<AspectRatioProps>
+>
