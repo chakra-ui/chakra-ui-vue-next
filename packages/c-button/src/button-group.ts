@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, PropType } from 'vue'
+import { computed, ComputedRef, defineComponent, h, PropType } from 'vue'
 import {
   SystemCSSProperties,
   SystemStyleObject,
@@ -34,9 +34,9 @@ const props = {
   ...vueThemingProps,
 }
 
-type ButtonGroupContext = () => ThemingProps & {
+type ButtonGroupContext = ComputedRef<ThemingProps & {
   isDisabled?: boolean
-}
+}>
 
 const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   {
@@ -49,12 +49,13 @@ const CButtonGroup = defineComponent({
   name: 'CButtonGroup',
   props,
   setup(props, { attrs, slots }) {
-    ButtonGroupProvider(() => ({
+    ButtonGroupProvider(computed(() => ({
       size: props.size,
       colorScheme: props.colorScheme,
       variant: props.variant,
       isDisabled: props.isDisabled,
-    }))
+    })))
+
     const styles = computed(() => {
       let groupStyles: SystemStyleObject = {
         display: 'inline-flex',
@@ -76,7 +77,9 @@ const CButtonGroup = defineComponent({
 
       return groupStyles
     })
+    
     return () => {
+
       return h(
         chakra('div', { label: 'button__group' }),
         {

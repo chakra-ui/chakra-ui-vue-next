@@ -25,7 +25,12 @@ const __DEV__ = process.env.NODE_ENV !== 'production'
 
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['@popperjs/core'],
+    exclude: ['@popperjs/core', '@vueuse/core', '@vueuse/motion'],
+  },
+  server: {
+    watch: {
+      ignored: ['**/*snapshots*'],
+    }
   },
   plugins: [
     vue(),

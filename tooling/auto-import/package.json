@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@chakra-ui/vue-next": "1.0.0-alpha.4",
-    "vite": "^2.2.3",
+    "vite": "2.2.4",
     "vite-plugin-components": "^0.8.3",
     "vue": ">=3.0.5"
   }

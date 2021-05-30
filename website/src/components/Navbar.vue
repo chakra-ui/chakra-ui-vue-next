@@ -60,7 +60,7 @@
           aria-label="View GitHub"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/chakra-ui/chakra-ui-vue"
+          href="https://github.com/chakra-ui/chakra-ui-vue-next"
           icon="github"
         />
       </CBox>
