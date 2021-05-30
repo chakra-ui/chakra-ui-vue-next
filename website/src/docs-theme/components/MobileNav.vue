@@ -4,7 +4,7 @@ import { useColorModeValue } from '@chakra-ui/vue-next'
 import { useRoute } from 'vue-router'
 import { useLockScroll } from 'vue-composable'
 import { SidebarContent } from '../components/Sidebar/AppSidebar.vue'
-import { getRoutes } from '../layout/LayoutMdx.vue'
+import { getRoutes } from '../utils/get-routes'
 
 export const MobileNavButton = (props: any, { slots }: SetupContext) => (
   <c-icon-button
