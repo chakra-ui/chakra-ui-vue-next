@@ -4,11 +4,12 @@ import { mount as cyMount } from '@cypress/vue'
 import { feActivity } from 'feather-icons-paths'
 import { MotionPlugin } from '@vueuse/motion'
 import { h, Fragment, Component } from 'vue'
-
-import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
+import Chakra, { chakra, extendTheme } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
 import { CReset } from '@chakra-ui/c-reset'
 
+
+const theme = extendTheme({})
 
 declare global {
   namespace Cypress {
@@ -44,9 +45,9 @@ const globalComponents = domElements.reduce((acc, tag) => {
 const plugins = [
   MotionPlugin,
   [
-    ChakraUIVuePlugin,
+    Chakra,
     {
-      // TODO: import icons from the same place that Playground does
+      extendTheme: theme,
       icons: {
         library: { feActivity },
       },
@@ -56,13 +57,14 @@ const plugins = [
 
 // @ts-ignore
 Cypress.Commands.add('mount', (MyComponent, options?) => {
-  // createApp root element
-  const rootComponent = () => (
-    <>
-      <MyComponent />
-      <CReset />
-    </>
-  )
+  const rootComponent = () => {
+    return (
+      <>
+        <MyComponent />
+        <CReset />
+      </>
+    )
+  }
 
   return cyMount(
     {

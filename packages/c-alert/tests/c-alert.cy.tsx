@@ -19,7 +19,7 @@ it('contains the correct role', () => {
     .should('exist')
 })
 
-it.only('renders its children', () => {
+it('renders its children', () => {
   cy.mount(
     <CAlert data-testid="alert" variant="left-accent" status="info" mb="3">
       <CAlertIcon mr="2" />
