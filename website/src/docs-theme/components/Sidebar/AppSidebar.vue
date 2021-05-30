@@ -103,7 +103,7 @@ export type SidebarContentProps = Routes & {
   contentRef?: any
 }
 
-const SidebarContent = defineComponent({
+export const SidebarContent = defineComponent({
   props: {
     routes: Object as PropType<SidebarContentProps['routes']>,
     pathname: String as PropType<SidebarContentProps['pathname']>,

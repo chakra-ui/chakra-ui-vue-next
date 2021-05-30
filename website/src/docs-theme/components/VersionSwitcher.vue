@@ -24,6 +24,8 @@ export const VersionSwitcher = defineComponent({
           bg="transparent"
           value={v1Url}
           fontSize="sm"
+          flexShrink="0"
+          display={{ base: 'none', md: 'flex' }}
           aria-label="Select the Chakra UI Docs version. You're currently viewing the version 1.0 docs"
           onChange={(e: any) => {
             document.location = e.target.value

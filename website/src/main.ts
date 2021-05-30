@@ -9,7 +9,6 @@ import {
   fePackage,
   feSearch,
   feStar,
-  feTwitter,
   feCompass,
   feExternalLink,
 } from 'feather-icons-paths'
@@ -86,6 +85,10 @@ export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
         edit: {
           path: `<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z" fill="currentColor"></path>`,
           viewBox: '0 0 24 24',
+        },
+        menu: {
+          path: `<path fill="currentColor" d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>`,
+          viewBox: '0 0 1024 1024',
         },
       },
     },

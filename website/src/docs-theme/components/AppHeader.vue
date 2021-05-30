@@ -92,16 +92,19 @@
             :icon="switchIcon"
           />
           <sponsor-button ml="5" />
+          <mobile-nav-button @click="isOpen = true"></mobile-nav-button>
         </CFlex>
       </CFlex>
+      <mobile-nav :is-open="isOpen" @close="isOpen = false"></mobile-nav>
     </chakra.div>
   </chakra.header>
 </template>
 
 <script setup lang="ts">
 import { SearchButton } from './AlgoliaSearch.vue'
+import { MobileNavButton } from './MobileNav.vue'
 import { VersionSwitcher } from './VersionSwitcher.vue'
-import { useColorMode, useColorModeValue } from '@chakra-ui/c-color-mode'
+import { useColorMode, useColorModeValue } from '@chakra-ui/vue-next'
 import { useWindowScroll } from '@vueuse/core'
 import { computed, onMounted, ref } from 'vue'
 import siteConfig from '@/config/site-config'
@@ -124,6 +127,8 @@ onMounted(() => {
 const headerShadow = computed(() => {
   return y.value > height.value ? 'sm' : undefined
 })
+
+const isOpen = ref(false)
 </script>
 
 <style></style>
