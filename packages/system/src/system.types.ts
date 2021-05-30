@@ -1,10 +1,4 @@
-import {
-  Component,
-  Fragment,
-  Suspense,
-  Teleport,
-  ComponentObjectPropsOptions,
-} from 'vue'
+import { Component, Fragment, Suspense, Teleport } from 'vue'
 import {
   SystemProps,
   ResponsiveValue,
@@ -13,6 +7,19 @@ import {
 } from '@chakra-ui/styled-system'
 import { IntrinsicElementAttributes } from './dom.types'
 import { Dict } from '@chakra-ui/utils'
+import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue'
+
+/**
+ * Export component with custom type
+ *
+ * @example
+ * export const CBox = CBoxImpl as ComponentWithProps<{hello?: string}>
+ */
+export type ComponentWithProps<P> = {
+  new (): {
+    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & P
+  }
+}
 
 export type Tag =
   | string
