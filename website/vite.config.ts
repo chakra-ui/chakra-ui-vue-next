@@ -15,6 +15,20 @@ import remarkAutolinkHeadings from 'remark-autolink-headings'
 // @ts-ignore
 import remarkSlug from 'remark-slug'
 
+const getEditPageUrl = (resourcePath: string) => {
+  const EDIT_PAGE_PATH =
+    'https://github.com/chakra-ui/chakra-ui-vue-next/edit/develop/website/'
+  const editUrl = EDIT_PAGE_PATH + resourcePath
+  return editUrl
+}
+
+const getPageSlug = (resourcePath: string) => {
+  const { dir, name } = path.parse(resourcePath)
+  const dirPath = dir.replace('src/pages', '')
+  const fullPath = path.join(...[dirPath, name])
+  return fullPath
+}
+
 /**
  *
  * @param html Page HTML
@@ -57,6 +71,18 @@ const config: UserConfig = {
           customRemarkPlugins
         )
         return options
+      },
+      extendFrontmatter: {
+        process: (_mdxContent, frontmatter) => {
+          const editUrl = getEditPageUrl(frontmatter.__resourcePath)
+          const slug = getPageSlug(frontmatter.__resourcePath)
+
+          return {
+            ...frontmatter,
+            editUrl,
+            slug,
+          }
+        },
       },
     }),
     Pages({

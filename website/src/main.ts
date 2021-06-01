@@ -90,6 +90,14 @@ export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
           path: `<path fill="currentColor" d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>`,
           viewBox: '0 0 1024 1024',
         },
+        chevronLeft: {
+          path: `<path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>`,
+          viewBox: '0 0 24 24',
+        },
+        chevronRight: {
+          path: `<path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>`,
+          viewBox: '0 0 24 24',
+        },
       },
     },
   })
