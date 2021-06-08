@@ -69,7 +69,7 @@ export default defineComponent({
         <c-box class="code-block" pos="relative">
           {props.live && <code-editor code={props.code} />}
           {!props.live && (
-            <CodeContainer overflow="hidden">
+            <CodeContainer overflow="hidden" pt="3">
               <code-highlight code={props.code} language={props.language} />
               <CopyButton top="4">COPY</CopyButton>
             </CodeContainer>
@@ -86,7 +86,7 @@ export default defineComponent({
 }
 .prism-editor__textarea,
 .prism-editor__editor {
-  padding: 10px !important;
+  padding: 5px !important;
   font-size: 14px !important;
   overflow-x: auto !important;
   font-family: SF Mono, Menlo, monospace !important;
