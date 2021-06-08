@@ -1,4 +1,5 @@
 import { h, renderSlot, SetupContext } from 'vue'
+import { trim } from 'lodash'
 /**
  * MDX Components
  *
@@ -58,17 +59,28 @@ export const MdxComponents = {
       renderSlot(context.slots, 'default')
     ),
   code: (props: { className: string }, context: SetupContext) => {
-    // inlineCode work around
-    const isInlineCode = !props.className?.includes('language-')
-    if (isInlineCode) return h('MdxInlineCode', props, context.slots)
-    return h('CodeEditor', props, context.slots)
+    return h('MdxInlineCode', props, context.slots)
   },
-  pre: (props: any, context: SetupContext) =>
-    h(
-      'c-box',
-      { my: '2em', borderRadius: 'sm', ...props },
-      renderSlot(context.slots, 'default')
-    ),
+  pre: (props: { live?: boolean }, context: any) => {
+    // props comes from remark-mdx-code-meta automatically
+
+    // new lines `\n` doesnt work with custom components so we pass as a prop and render it with `v-html`
+    const pre = context?.slots?.default?.()
+    const defaultSlot = pre?.[0]?.children.default()[0] || ''
+    const code = trim(defaultSlot)
+    const realProps = pre?.[0]?.props
+
+    // get language from classname eg.  language-bash => bash
+    const [_, language] = realProps?.className?.split('-')
+
+    const comp = h(
+      'MdxPre',
+      { ...props, ...realProps, language, code },
+      // no need for slot
+      { default: '' }
+    )
+    return comp
+  },
   kbd: 'CKbd',
   // todo: use <Cbr /> instead of <br reset />
   CBr: ({ reset, ...props }: { reset: Boolean }, context: SetupContext) => {

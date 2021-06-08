@@ -14,6 +14,7 @@ import remarkGfm from 'remark-gfm'
 import remarkAutolinkHeadings from 'remark-autolink-headings'
 // @ts-ignore
 import remarkSlug from 'remark-slug'
+import { remarkMdxCodeMeta } from 'remark-mdx-code-meta'
 
 const getEditPageUrl = (resourcePath: string) => {
   const EDIT_PAGE_PATH =
@@ -49,6 +50,7 @@ const injectCritical = (html: string, ids: string[], css: string) =>
 const config: UserConfig = {
   resolve: {
     alias: {
+      vue: 'vue/dist/vue.esm-browser.js', // for vue-live editor
       '@': `${path.resolve(__dirname, 'src')}`,
     },
   },
@@ -64,6 +66,7 @@ const config: UserConfig = {
           remarkGfm,
           remarkAutolinkHeadings,
           remarkSlug,
+          remarkMdxCodeMeta,
         ]
 
         // extend default plugins instead of replace (since we want to keep frontmatter plugin etc.)

@@ -1,5 +1,10 @@
-import { nextTick, onMounted, onUnmounted, ref } from '@vue/runtime-core'
-import { useWindowScroll, debouncedWatch } from '@vueuse/core'
+import { nextTick, ref } from '@vue/runtime-core'
+import {
+  useWindowScroll,
+  debouncedWatch,
+  tryOnMounted,
+  tryOnUnmounted,
+} from '@vueuse/core'
 
 interface TocOptions {
   /**
@@ -41,7 +46,7 @@ export const useToc = ({
 
   let stop: Function | null = null
 
-  onMounted(async () => {
+  tryOnMounted(async () => {
     const { y } = useWindowScroll()
     const anchors = Array.from(
       document.querySelectorAll(
@@ -72,7 +77,7 @@ export const useToc = ({
       { debounce: 20 }
     )
   })
-  onUnmounted(() => {
+  tryOnUnmounted(() => {
     if (!stop) return
     stop()
   })

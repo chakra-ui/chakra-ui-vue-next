@@ -59,6 +59,7 @@ import { useColorModeValue } from '@chakra-ui/vue-next'
 import type { Heading } from '@/docs-theme/utils/get-headings'
 import { useToc } from '../hooks/useToc'
 import { useRoute } from 'vue-router'
+import { tryOnMounted } from '@vueuse/core'
 
 // @ts-ignore
 const props = defineProps<{
@@ -67,7 +68,7 @@ const props = defineProps<{
 const { hash } = useRoute()
 const { activeTocId: activeId, scrollToHash } = useToc()
 
-onMounted(() => {
+tryOnMounted(() => {
   scrollToHash(hash)
 })
 </script>
