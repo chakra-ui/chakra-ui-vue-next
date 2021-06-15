@@ -7,45 +7,109 @@ version: 1.0+
 
 ## Installation
 
-Inside your React project directory, install Chakra UI by running either of the
-following:
+Using Chakra UI Vue in your Vue.js project is very simple. Install the package and its dependencies.
 
 ```bash
-npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+npm install @chakra-ui/vue-next
 ```
 
 ```bash
-yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+yarn add @chakra-ui/vue-next
 ```
 
-> For `create-react-app` installation instructions, check this
-> [CRA templates guide](/guides/integrations/with-cra).
+<CarbonAd />
 
-## Set up Provider
+## Providing the Plugin
 
-For Chakra UI to work correctly, you need to set up the `ChakraProvider` at the
-root of your application.
-
-Go to the root of your application and do this:
+Before you can use Chakra, you have to add it to the Vue.js instance. This will be done in your `main.ts` file.
 
 ```jsx live="false"
-import * as React from "react"
+import { createApp } from 'vue'
+import App from './App.vue'
+// 1. import `ChakraUIVue` plugin
+import ChakraUIVue from '@chakra-ui/vue-next'
 
-// 1. import `ChakraProvider` component
-import { ChakraProvider } from "@chakra-ui/vue-next"
+// 2. Tell the Vue.js instance to use the plugin
+const app = createApp(App).use(ChakraUIVue)
+app.mount('#app')
+```
 
-function App({ Component }) {
-  // 2. Use at the root of your app
-  return (
-    <ChakraProvider>
-      <Component />
-    </ChakraProvider>
-  )
-}
+## Using Chakra UI components
+
+When you can use a Chakra UI Vue component, you will first have to import the Chakra UI component you want to use, for example, the `CButton`.
+In the following example this will be done in your `App.vue` file.
+
+```jsx live="false"
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { CButton } from "@chakra-ui/vue-next"
+
+export default defineComponent({
+  ...
+</script>
+```
+Next, you have to add it to the components option.
+
+```jsx live="false"
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { CButton } from "@chakra-ui/vue-next"
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    CButton
+  }
+})
+</script>
+```
+
+You are now able to use the `CButton` component in the template. And the `App.vue` file will look as following.
+
+```jsx live="false"
+<template>
+  <CButton variant-color="green">Button</CButton>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { CButton } from "@chakra-ui/vue-next"
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    CButton
+  }
+})
+</script>
+```
+
+## C-Reset
+Sometimes you may need to apply css reset styles to your application.
+Chakra UI exports a `CReset` that'll remove browser default styles. It's heavily inspired by `Tailwind's preflight`.
+
+> We highly recommend that you add the `CReset` at the root of your application to ensure all components work correctly.
+```jsx live="false"
+<template>
+  <CReset />
+  <CButton variant-color="green">Button</CButton>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { CButton, CReset } from "@chakra-ui/vue-next"
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    CButton,
+    CReset
+  }
+})
+</script>
 ```
 
 ## Mdx Components - Examples
-
 ### Editor
 
 ```html live
