@@ -27,7 +27,6 @@ const CButtonSpinner = defineComponent({
       position: props.label ? 'relative' : 'absolute',
       marginEnd: props.label ? props.spacing : 0,
     }))
-
     return () => {
       return h(
         chakra('div', {
@@ -92,13 +91,15 @@ const CButton = defineComponent({
 
     const group = useButtonGroup()
     const styles = useStyleConfig('Button', {
-      ...group.value,
+      ...group?.value,
       ...themingProps.value,
     })
-    
-    const _focus = computed(() => mergeWith({}, styles.value?.['_focus'] ?? {}, {
-      zIndex: 1,
-    }))
+
+    const _focus = computed(() =>
+      mergeWith({}, styles.value?.['_focus'] ?? {}, {
+        zIndex: 1,
+      })
+    )
 
     const buttonStyles = computed<SystemStyleObject>(() => ({
       display: 'inline-flex',
@@ -113,11 +114,10 @@ const CButton = defineComponent({
       outline: 'none',
       width: props.isFullWidth ? '100%' : 'auto',
       ...styles.value,
-      ...(!!group.value && { _focus: _focus.value }),
+      ...(!!group?.value && { _focus: _focus.value }),
     }))
 
     return () => {
-
       return h(
         chakra(props.as, {
           label: 'button',

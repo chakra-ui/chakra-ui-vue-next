@@ -30,13 +30,13 @@ export const createPortalTarget = (name: string = 'default') => {
 export const ensureTarget = (selector: string) => {
   if (!isBrowser) {
     console.warn(
-      `chakra-ui:portal: The CPortal component can only be used in the document`
+      `[chakra-ui:portal]: The CPortal component can only be used in the document`
     )
   }
 
   if (!document.querySelector(selector)) {
     console.warn(
-      `chakra-ui:portal: the portal target "${selector}" cound not be found in the document. Portal children may not be rendered`
+      `[chakra-ui:portal]: the portal target "${selector}" cound not be found in the document. Portal children may not be rendered`
     )
   }
 }

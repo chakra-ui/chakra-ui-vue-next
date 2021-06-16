@@ -94,7 +94,7 @@ we advice to follow to deliver on the quality expectations.
 
 ### General
 
-- Ensure you check the `@chakra-ui/vue-hooks`, and `@chakra-ui/vue-utils` package to be
+- Ensure you check the `@chakra-ui/vue-composables`, and `@chakra-ui/vue-utils` package to be
   sure we don't already have the hook you're looking to create.
 - Leverage existing code, hook, or utils as much as possible.
 - Separate component logic from UI by writing hooks, and then writing the
