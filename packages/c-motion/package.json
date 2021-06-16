@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-motion",
   "description": "Chakra UI Vue | Chakra ui vue motion and transition components and utilities component",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.2",
+    "@chakra-ui/vue-system": "0.1.0-alpha.3",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.3",
     "@vueuse/motion": "^1.5.4"
   },
   "peerDependencies": {

@@ -1,5 +1,14 @@
 # @chakra-ui/c-close-button
 
+## 0.1.0-alpha.3
+
+### Patch Changes
+
+- Updated dependencies [[`576a7f1`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/576a7f12c179852ebfd9ee1905764357d7698dd6)]:
+  - @chakra-ui/c-icon@1.0.0-alpha.3
+  - @chakra-ui/vue-utils@0.1.0-alpha.3
+  - @chakra-ui/vue-system@0.1.0-alpha.3
+
 ## 0.1.0-alpha.2
 
 ### Minor Changes
