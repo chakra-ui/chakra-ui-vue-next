@@ -244,7 +244,6 @@ export function useModal(options: UseModalOptions) {
   }
 
   const onKeyDown = (event: KeyboardEvent) => {
-    console.log('onKeyDown', event)
     if (event.key === 'Escape') {
       event.stopPropagation()
 
@@ -262,14 +261,14 @@ export function useModal(options: UseModalOptions) {
       ref: overlayRef as any,
       onClick: (event: MouseEvent) => {
         instance?.emit('update:modelValue', !modelValue.value)
-        instance?.emit('close')
+        instance?.emit('closeModal')
         handleOverlayClick(event)
       },
-      onKeyDown: (event: KeyboardEvent) => {
+      onKeydown: (event: KeyboardEvent) => {
         emit('keydown', event)
         onKeyDown(event)
       },
-      onMouseDown: (event: MouseEvent) => {
+      onMousedown: (event: MouseEvent) => {
         mouseDownTarget.value = event.target
         emit('mousedown', event)
       },
