@@ -37,9 +37,12 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
+    "@chakra-ui/c-motion": "0.1.0-alpha.1",
     "@chakra-ui/styled-system": "^1.10.0",
+    "@chakra-ui/vue-composables": "0.1.0-alpha.1",
     "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.2"
+    "@chakra-ui/vue-utils": "0.1.0-alpha.2",
+    "aria-hidden": "^1.1.2"
   },
   "peerDependencies": {
     "vue": ">=3.0.5"

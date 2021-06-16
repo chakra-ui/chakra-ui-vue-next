@@ -5,33 +5,16 @@ import { feActivity } from 'feather-icons-paths'
 import { MotionPlugin } from '@vueuse/motion'
 import { h, Fragment, Component } from 'vue'
 import Chakra, { chakra, extendTheme } from '@chakra-ui/vue-next'
-import { domElements } from '@chakra-ui/vue-system'
+import { domElements, injectGlobal, toCSSVar } from '@chakra-ui/vue-system'
 import { CReset } from '@chakra-ui/c-reset'
-
+import 'cypress-plugin-tab'
 
 const theme = extendTheme({})
-
-declare global {
-  namespace Cypress {
-    interface cy extends Chainable {
-      mount(component: Component, options?: any): ReturnType<typeof cyMount>
-      /**
-       * Run a11y tests or only a subset of all tests
-       * @see https://github.com/avanslaars/cypress-axe
-       * @example
-       *  cy.checkA11y()
-       */
-      checkA11y(noop?: any): Chainable
-    }
-  }
-}
-
 
 import './env' // stub process.env
 import './a11y' // checkA11y and axeCore configuration
 import './styles' // root stylesheet
 import './snapshots' // @cypress/snapshot configuration
-
 /**
  * Chakra-specific root component configuration
  */
@@ -73,7 +56,7 @@ Cypress.Commands.add('mount', (MyComponent, options?) => {
     },
     {
       global: { plugins, components: globalComponents },
-      ...options, // To override values for specific tests
+      ...options,
     }
   )
 })

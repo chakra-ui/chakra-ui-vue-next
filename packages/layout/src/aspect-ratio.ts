@@ -1,6 +1,11 @@
 import { mapResponsive } from '@chakra-ui/utils'
 import { chakra, HTMLChakraProps, ResponsiveValue } from '@chakra-ui/vue-system'
-import { defineComponent, h, PropType } from '@vue/runtime-core'
+import {
+  DefineComponent,
+  defineComponent,
+  h,
+  PropType,
+} from '@vue/runtime-core'
 
 interface AspectRatioOptions {
   /**

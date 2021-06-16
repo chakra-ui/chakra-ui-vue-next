@@ -75,7 +75,6 @@ export function usePopper(props: UsePopperOptions = {}) {
     // clear refs
     reference.value = null
     popper.value = null
-    console.log('before uupate')
   })
 
   onMounted(async () => {

@@ -48,13 +48,18 @@ describe('<Portal />', () => {
     const childText = `Now we're thinking with portals`
     const portalSelector = 'actual-portal'
 
+    const target = document.createElement('div')
+    target.id = targetId
+    Object.assign(target.style, style)
+    document.body.appendChild(target)
+
     cy.mount(
       <>
-        <div id={targetId} style={style} />
         <CPortal data-testid={portalSelector} to={`#${targetId}`}>
           {' '}
           {childText}{' '}
         </CPortal>
+        {/* <div id={targetId} style={style} /> */}
       </>
     )
       .get(`#${targetId}`)

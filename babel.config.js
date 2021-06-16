@@ -35,11 +35,11 @@ const testConfig = {
         [
           '@babel/preset-env',
           {
-            targets: { node: true },
+            targets: { node: 'current' },
           },
         ],
       ],
-      plugins: ['@vue/babel-plugin-jsx'],
+      plugins: ['@vue/babel-plugin-jsx', '@babel/plugin-transform-runtime'],
     },
   },
 }

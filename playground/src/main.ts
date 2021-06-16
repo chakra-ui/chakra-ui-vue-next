@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-import ChakraUIVuePlugin, { chakra, extendTheme } from '@chakra-ui/vue-next'
+import ChakraUIVuePlugin, { chakra, extendTheme, BodyScrollLockDirective } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
-import { feActivity } from 'feather-icons-paths'
+import { feActivity, feUser } from 'feather-icons-paths'
 import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
@@ -11,9 +11,11 @@ const app = createApp(App)
   .use(router)
   .use(MotionPlugin)
   .use(ChakraUIVuePlugin, {
+    cssReset: true,
     icons: {
       library: {
-        feActivity
+        feActivity,
+        feUser
       },
       extend: {
         discord: {
@@ -24,9 +26,7 @@ const app = createApp(App)
       },
     },
     extendTheme: extendTheme({
-      // config: {
-      //   initialColorMode: 'light'
-      // }
+      config: {},
     })
   })
   .use(PerfectScrollbar)
@@ -34,5 +34,7 @@ const app = createApp(App)
 domElements.forEach((tag) => {
   app.component(`chakra.${tag}`, chakra(tag))
 })
+
+app.directive('scroll-lock', BodyScrollLockDirective)
 
 app.mount('#app')
