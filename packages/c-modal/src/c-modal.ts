@@ -38,7 +38,6 @@ import { CCloseButton } from '@chakra-ui/c-close-button'
 import { MotionDirective, useMotions } from '@vueuse/motion'
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { DialogMotionPreset, dialogMotionPresets } from './modal-transitions'
-import { useId } from '@chakra-ui/vue-composables'
 
 type ScrollBehavior = 'inside' | 'outside'
 
@@ -259,12 +258,12 @@ export const CModalContent = defineComponent({
       motionPreset,
     } = unref(useModalContext())
     const styles = useStyles()
-    const transitionId = useId('modal-content')
+    const transitionId = 'modal-content'
 
     /** Handles exit transition */
     const leave = (done: VoidFunction) => {
       const motions = useMotions()
-      const instance = motions[transitionId.value]
+      const instance = motions[transitionId]
       instance?.leave(() => {
         done()
       })
