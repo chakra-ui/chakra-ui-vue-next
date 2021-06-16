@@ -114,3 +114,5 @@ export * from '@chakra-ui/c-theme-provider'
 
 // V
 export * from '@chakra-ui/c-visually-hidden'
+
+export * from './components'
