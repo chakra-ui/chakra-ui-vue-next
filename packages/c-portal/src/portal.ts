@@ -2,6 +2,7 @@ import { h, defineComponent, PropType, Teleport, onBeforeMount, ref } from 'vue'
 import { createPortalTarget, ensureTarget } from './portal.utils'
 
 const CPortal = defineComponent({
+  name: 'CPortal',
   props: {
     to: String as PropType<string>,
     disabled: Boolean as PropType<boolean>,

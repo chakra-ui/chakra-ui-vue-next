@@ -16,7 +16,7 @@ import Hero from '../components/home/Hero.vue'
 import PilersHero from '../components/home/PilersHero.vue'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/home/Footer.vue'
-import SandboxExample from '../components/SandboxExample.vue'
+import SandboxExample from '../components/home/SandboxExample.vue'
 import DiscordHero from '../components/home/DiscordHero.vue'
 // import Features from '../components/home/Features.vue'
 

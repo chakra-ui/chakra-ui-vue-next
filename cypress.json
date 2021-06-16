@@ -1,0 +1,10 @@
+{
+  "componentFolder": "packages/",
+  "pluginsFile": "./tests/plugins.js",
+  "testFiles": "**/*.cy.*",
+  "supportFile": "./tests/support.tsx",
+  "ignoreTestFiles": "**/*.snap",
+  "video": false,
+  "fixturesFolder": false,
+  "reporter": "spec"
+}

@@ -15,4 +15,3 @@
     </chakra.div>
   </chakra.div>
 </template>
-<script setup></script>

@@ -18,8 +18,16 @@ git clone https://github.com/<your_github_username>/chakra-ui-vue-next.git
 cd chakra-ui
 ```
 
-3. Setup all the dependencies and packages by running `yarn bootstrap`. This
+3. Build components
+```bash
+yarn build
+```
+
+4. Setup all the dependencies and packages by running `yarn bootstrap`. This
    command will install dependencies and bootstrap the repo using `lerna`
+```bash
+yarn bootstrap
+```
 
 > If you run into any issues during this step, kindly reach out to the Chakra UI
 > Vue team here:[https://discord.gg/cMpMfvxa](https://discord.gg/cMpMfvxa)

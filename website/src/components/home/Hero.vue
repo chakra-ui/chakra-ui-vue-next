@@ -97,7 +97,7 @@
         shadow="search"
         :font-size="{ base: 'lg', md: '2xl' }"
       >
-        yarn add @chakra-ui/vue-next
+        {{ installCode }}
       </c-code>
     </c-flex>
     <!-- Will hide for now -->

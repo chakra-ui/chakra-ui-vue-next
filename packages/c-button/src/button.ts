@@ -21,13 +21,13 @@ const CButtonSpinner = defineComponent({
     >,
   },
   setup(props, { attrs }) {
+    const spinnerStyles = computed<SystemStyleObject>(() => ({
+      display: 'flex',
+      alignItems: 'center',
+      position: props.label ? 'relative' : 'absolute',
+      marginEnd: props.label ? props.spacing : 0,
+    }))
     return () => {
-      const spinnerStyles = computed<SystemStyleObject>(() => ({
-        display: 'flex',
-        alignItems: 'center',
-        position: props.label ? 'relative' : 'absolute',
-        marginEnd: props.label ? props.spacing : 0,
-      }))
       return h(
         chakra('div', {
           label: 'button__spinner',
@@ -80,42 +80,44 @@ const CButton = defineComponent({
   name: 'CButton',
   props: BUTTON_PROPS,
   setup(props, { attrs, slots }) {
-    return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
-
-      const group = useButtonGroup()
-      const styles = useStyleConfig('Button', {
-        ...group?.(),
-        ...themingProps.value,
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
       })
+    )
 
-      const _focus = mergeWith({}, styles.value?.['_focus'] ?? {}, {
+    const group = useButtonGroup()
+    const styles = useStyleConfig('Button', {
+      ...group?.value,
+      ...themingProps.value,
+    })
+
+    const _focus = computed(() =>
+      mergeWith({}, styles.value?.['_focus'] ?? {}, {
         zIndex: 1,
       })
+    )
 
-      const buttonStyles = computed<SystemStyleObject>(() => ({
-        display: 'inline-flex',
-        appearance: 'none',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'all 250ms',
-        userSelect: 'none',
-        position: 'relative',
-        whiteSpace: 'nowrap',
-        verticalAlign: 'middle',
-        outline: 'none',
-        width: props.isFullWidth ? '100%' : 'auto',
-        ...styles.value,
-        ...(!!group && { _focus }),
-      }))
+    const buttonStyles = computed<SystemStyleObject>(() => ({
+      display: 'inline-flex',
+      appearance: 'none',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transition: 'all 250ms',
+      userSelect: 'none',
+      position: 'relative',
+      whiteSpace: 'nowrap',
+      verticalAlign: 'middle',
+      outline: 'none',
+      width: props.isFullWidth ? '100%' : 'auto',
+      ...styles.value,
+      ...(!!group?.value && { _focus: _focus.value }),
+    }))
 
+    return () => {
       return h(
         chakra(props.as, {
           label: 'button',

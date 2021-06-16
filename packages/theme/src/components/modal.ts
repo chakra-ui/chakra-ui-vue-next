@@ -5,6 +5,7 @@ const parts = [
   'dialogContainer',
   'dialog',
   'header',
+  'closeButton',
   'body',
   'footer',
 ]
@@ -37,7 +38,7 @@ function baseStyleDialog(props: Dict) {
     color: 'inherit',
     my: '3.75rem',
     zIndex: 'modal',
-    maxH: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : undefined,
+    maxH: scrollBehavior === 'inside' ? 'calc(100% - 7.5rem)' : undefined,
     boxShadow: mode('lg', 'dark-lg')(props),
   }
 }
@@ -47,6 +48,12 @@ const baseStyleHeader = {
   py: 4,
   fontSize: 'xl',
   fontWeight: 'semibold',
+}
+
+const baseStyleCloseButton = {
+  position: 'absolute',
+  top: 2,
+  insetEnd: 3,
 }
 
 function baseStyleBody(props: Dict) {
@@ -69,6 +76,7 @@ const baseStyle = (props: Dict) => ({
   dialogContainer: baseStyleDialogContainer(props),
   dialog: baseStyleDialog(props),
   header: baseStyleHeader,
+  closeButton: baseStyleCloseButton,
   body: baseStyleBody(props),
   footer: baseStyleFooter,
 })
@@ -79,7 +87,7 @@ const baseStyle = (props: Dict) => ({
  */
 function getSize(value: string) {
   if (value === 'full') {
-    return { dialog: { maxW: '100vw', h: '100vh' } }
+    return { dialog: { maxW: '100vw', minH: '100vh' } }
   }
   return { dialog: { maxW: value } }
 }
