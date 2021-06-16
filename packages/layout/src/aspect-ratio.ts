@@ -21,7 +21,15 @@ export interface AspectRatioProps
   extends HTMLChakraProps<'div'>,
     AspectRatioOptions {}
 
-const CAspectRatioImpl = defineComponent({
+/**
+ * Vue component used to cropping media (videos, images and maps)
+ * to a desired aspect ratio.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
+ */
+export const CAspectRatio: ComponentWithProps<
+  DeepPartial<AspectRatioProps>
+> = defineComponent({
   props: {
     ratio: {
       type: [Number] as PropType<AspectRatioProps['ratio']>,
@@ -68,13 +76,3 @@ const CAspectRatioImpl = defineComponent({
     }
   },
 })
-
-/**
- * Vue component used to cropping media (videos, images and maps)
- * to a desired aspect ratio.
- *
- * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
- */
-export const CAspectRatio = CAspectRatioImpl as ComponentWithProps<
-  DeepPartial<AspectRatioProps>
->
