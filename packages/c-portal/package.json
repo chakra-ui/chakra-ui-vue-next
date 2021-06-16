@@ -40,7 +40,7 @@
     "@chakra-ui/utils": "^1.5.0"
   },
   "devDependencies": {
-    "vue": ">=3.0.5"
+    "vue": "^3.0.11"
   },
   "peerDependencies": {
     "@chakra-ui/utils": "1.4.0",

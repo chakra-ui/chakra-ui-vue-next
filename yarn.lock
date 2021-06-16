@@ -14228,7 +14228,7 @@ vue3-perfect-scrollbar@^1.5.5:
     perfect-scrollbar "^1.5.0"
     postcss-import "^12.0.0"
 
-vue@>=3.0.5, vue@^3.0.11, vue@^3.0.5:
+vue@^3.0.11, vue@^3.0.5:
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.11.tgz#c82f9594cbf4dcc869241d4c8dd3e08d9a8f4b5f"
   integrity sha512-3/eUi4InQz8MPzruHYSTQPxtM3LdZ1/S/BvaU021zBnZi0laRUyH6pfuE4wtUeLvI8wmUNwj5wrZFvbHUXL9dw==
