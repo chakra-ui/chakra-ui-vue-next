@@ -15,7 +15,15 @@ export interface BadgeProps
   extends HTMLChakraProps<'span'>,
     ThemingProps<'Badge'> {}
 
-const CBadgeImpl = defineComponent({
+/**
+ * Vue component used to display notifications, messages, or
+ * statuses in different shapes and sizes.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
+ */
+export const CBadge: ComponentWithProps<
+  DeepPartial<BadgeProps>
+> = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -50,11 +58,3 @@ const CBadgeImpl = defineComponent({
     }
   },
 })
-
-/**
- * Vue component used to display notifications, messages, or
- * statuses in different shapes and sizes.
- *
- * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
- */
-export const CBadge = CBadgeImpl as ComponentWithProps<DeepPartial<BadgeProps>>
