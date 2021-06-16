@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-theme-tools",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^1.5.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
+    "@chakra-ui/vue-system": "0.1.0-alpha.3",
     "@types/tinycolor2": "^1.4.2",
     "tinycolor2": "^1.4.2"
   }

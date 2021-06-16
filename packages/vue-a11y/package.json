@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-a11y",
   "description": "Chakra UI Vue | Accessibility composables for chakra ui vue component",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.2"
+    "@chakra-ui/vue-system": "0.1.0-alpha.3",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.3"
   },
   "peerDependencies": {
     "vue": ">=3.0.5"

@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-modal",
   "description": "Chakra UI Vue | An accessible dialog modal component for chakra ui vue component",
-  "version": "1.1.0-alpha.1",
+  "version": "1.1.0-alpha.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -37,11 +37,11 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/c-motion": "0.1.0-alpha.1",
+    "@chakra-ui/c-motion": "0.1.0-alpha.2",
     "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/vue-composables": "0.1.0-alpha.1",
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.2",
+    "@chakra-ui/vue-composables": "0.1.0-alpha.2",
+    "@chakra-ui/vue-system": "0.1.0-alpha.3",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.3",
     "aria-hidden": "^1.1.2"
   },
   "peerDependencies": {
