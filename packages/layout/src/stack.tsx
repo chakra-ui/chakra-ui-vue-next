@@ -7,8 +7,11 @@ import {
   computed,
   Fragment,
   createVNode,
+  AllowedComponentProps,
+  ComponentCustomProps,
+  VNodeProps,
 } from 'vue'
-import { chakra, DOMElements, HTMLChakraProps } from '@chakra-ui/vue-system'
+import { chakra, BaseStyleResolverProps, DOMElements, HTMLChakraProps } from '@chakra-ui/vue-system'
 import {
   getDividerStyles,
   getStackStyles,
@@ -58,38 +61,40 @@ interface StackOptions {
   isInline?: boolean
 }
 
+export type ComponentWithProps<P> = {
+  new (): {
+    $props: AllowedComponentProps &
+      ComponentCustomProps &
+      VNodeProps &
+      // ChakraFactoryProps &
+      P
+  }
+}
+
 export interface StackDividerProps extends HTMLChakraProps<'div'> {}
 
-export const CStackDivider = defineComponent({
-  setup(_, { attrs }) {
+export const CStackDivider: ComponentWithProps<StackDividerProps> = defineComponent({
+  name: 'CStackDivider',
+  inheritAttrs: false,
+  setup(_, { attrs, slots }) {
     return () => {
-      return h(
-        chakra('div', {
-          label: 'stack__divider',
-          borderWidth: 0,
-          alignSelf: 'stretch',
-          borderColor: 'inherit',
-          width: 'auto',
-          height: 'auto',
-          __css: attrs.__css as any,
-        })
+      return (
+        <chakra.div label="stack__divider" borderWidth={0} alignSelf={'stretch'} borderColor="inherit" width="auto" height="auto" {...attrs}>
+          {slots?.default?.()}
+        </chakra.div>
       )
     }
   },
 })
 
-export const CStackItem = defineComponent({
-  setup(_, { attrs }) {
+export const CStackItem: ComponentWithProps<HTMLChakraProps<'div'>> = defineComponent({
+  name: 'CStackItem',
+  setup(_, { attrs, slots }) {
     return () => {
-      return h(
-        chakra('div', {
-          label: 'stack__item',
-          ...attrs,
-          display: 'inline-block',
-          flex: '0 0 auto',
-          minWidth: 0,
-          __css: attrs.__css as any,
-        })
+      return (
+        <chakra.div label="stack__item" display="inline-block" flex="0 0 auto" minWidth="0" {...attrs}>
+          {slots?.default?.()}
+        </chakra.div>
       )
     }
   },
@@ -128,7 +133,7 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack = defineComponent({
+export const CStack: ComponentWithProps<StackProps> = defineComponent({
   name: 'CStack',
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -172,40 +177,36 @@ export const CStack = defineComponent({
             return createVNode(Fragment, { key: index }, [_child, _divider])
           })
 
-      return h(
-        chakra('div', {
-          label: attrs.label ? (attrs.label as string) : 'stack', // CHStack and CVStack
-          display: 'flex',
-          alignItems: props.align,
-          justifyContent: props.justify,
-          flexDirection: styles.value.flexDirection,
-          flexWrap: props.wrap,
-          __css: hasDivider.value ? {} : { [selector]: styles.value[selector] },
-        }),
-        () => clones
+      return (
+        <chakra.div
+          label={attrs.label ? (attrs.label as string) : 'stack'}
+          display={'flex'}
+          alignItems={props.align}
+          justifyContent={props.justify}
+          flexDirection={styles.value.flexDirection}
+          flexWrap={props.wrap}
+          __css={hasDivider.value ? {} : { [selector]: styles.value[selector] }}
+        >
+          {() => clones}
+        </chakra.div>
       )
     }
-  },
+  }
 })
 
 /**
  * A view that arranges its children in a horizontal line.
  */
-export const CHStack = defineComponent({
+export const CHStack: ComponentWithProps<StackProps> = defineComponent({
   name: 'CHStack',
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => {
-      return h(
-        CStack,
-        {
-          label: 'stack-horizontal',
-          align: 'center',
-          ...props,
-          ...attrs,
-          direction: 'row',
-        },
-        slots
+      return (
+        // @ts-expect-error
+        <CStack label="stack-horizontal" align="center" {...props} {...attrs } direction="row">
+          {slots?.default?.()}
+        </CStack>
       )
     }
   },
@@ -214,22 +215,15 @@ export const CHStack = defineComponent({
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack = defineComponent({
+export const CVStack: ComponentWithProps<StackProps> = defineComponent({
   name: 'CVStack',
   props: stackProps,
   setup(props, { attrs, slots }) {
-    return () => {
-      return h(
-        CStack,
-        {
-          label: 'stack-vertical',
-          align: 'center',
-          ...props,
-          ...attrs,
-          direction: 'column',
-        },
-        slots
-      )
-    }
+    return () => (
+      // @ts-expect-error
+      <CStack label="stack-vertical" align={'center'} {...props} {...attrs} direction="column">
+        {slots?.default?.()}
+      </CStack>
+    )
   },
 })

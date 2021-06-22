@@ -1,4 +1,4 @@
-import { chakra, HTMLChakraProps } from '@chakra-ui/vue-system'
+import { chakra, ComponentWithProps, HTMLChakraProps } from '@chakra-ui/vue-system'
 import { defineComponent, h } from '@vue/runtime-core'
 
 export interface SpacerProps extends HTMLChakraProps<'div'> {}
@@ -9,20 +9,14 @@ export interface SpacerProps extends HTMLChakraProps<'div'> {}
  *
  * @see Docs https://chakra-ui.com/docs/layout/flex#using-the-spacer
  */
-export const CSpacer = defineComponent({
+export const CSpacer: ComponentWithProps<SpacerProps> = defineComponent({
+  name: 'CSpacer',
   setup(_, { slots }) {
     return () => {
-      return h(
-        chakra('div', {
-          label: 'spacer',
-          baseStyle: {
-            flex: 1,
-            justifySelf: 'stretch',
-            alignSelf: 'stretch',
-          },
-        }),
-        {},
-        slots
+      return (
+        <chakra.div label="spacer" baseStyle={{ flex: 1, justifySelf: 'stretch', alignSelf: 'stretch' }}>
+          {slots?.default?.()}
+        </chakra.div>
       )
     }
   },

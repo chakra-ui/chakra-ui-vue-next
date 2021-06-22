@@ -14,12 +14,20 @@
     </c-box>
     <c-box>
       <c-box>Circle</c-box>
-      <c-circle size="40px" bg="teal.700" color="white">
+      <c-circle size="40px" bg="teal.700" color="white" display="">
         <c-icon name="phone"></c-icon>
       </c-circle>
     </c-box>
   </c-v-stack>
 </template>
-<script setup>
-import { CHStack, CVStack } from '@chakra-ui/vue-layout'
+
+<script setup lang="ts">
+import {
+  CHStack,
+  CVStack,
+  CCenter,
+  CBox,
+  CSquare,
+  CCircle,
+} from '@chakra-ui/vue-layout'
 </script>

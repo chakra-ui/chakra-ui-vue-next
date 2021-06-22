@@ -24,13 +24,17 @@ const resolver = {
 const __DEV__ = process.env.NODE_ENV !== 'production'
 
 export default defineConfig({
+  esbuild: {
+    jsxFactory: 'h',
+    jsxFragment: 'Fragment',
+  },
   optimizeDeps: {
     exclude: ['@popperjs/core', '@vueuse/core', '@vueuse/motion'],
   },
   server: {
     watch: {
       ignored: ['**/*snapshots*'],
-    }
+    },
   },
   plugins: [
     vue(),

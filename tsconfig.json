@@ -28,7 +28,8 @@
     "playground/**/*.d.ts",
     "playground/**/*.tsx",
     "playground/**/*.vue",
-    "tests/index.d.ts"
+    "tests/index.d.ts",
+    "components.d.ts"
   ],
   "exclude": ["node_modules", "./@types", "dist"],
   "ts-node": {

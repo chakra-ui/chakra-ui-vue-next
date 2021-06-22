@@ -10,6 +10,7 @@ interface ExtendIconsPath {
   path: string
   viewBox?: string
 }
+
 interface IconsOptions {
   pack?: 'fa' | 'fe'
   library?: {}

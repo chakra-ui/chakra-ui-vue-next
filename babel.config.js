@@ -20,7 +20,7 @@ const baseConfig = function (api) {
     ],
     '@babel/preset-typescript',
   ]
-  const plugins = ['@vue/babel-plugin-jsx']
+  const plugins = ['@vue/babel-plugin-jsx', '@babel/plugin-transform-runtime']
 
   return {
     presets,

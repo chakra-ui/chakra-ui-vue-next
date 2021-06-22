@@ -1,5 +1,5 @@
 import { vueThemingProps } from '@chakra-ui/vue-utils'
-import { HTMLChakraProps } from '@chakra-ui/vue-system'
+import { ComponentWithProps, HTMLChakraProps } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType, computed } from 'vue'
 import {
   chakra,
@@ -30,7 +30,8 @@ export interface LinkProps extends HTMLChakraProps<'a'>, ThemingProps<'Link'> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/link
  */
-export const CLink = defineComponent({
+export const CLink: ComponentWithProps<LinkProps> = defineComponent({
+  name: 'CLink',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -51,15 +52,18 @@ export const CLink = defineComponent({
       )
       const styles = useStyleConfig('Link', themingProps.value)
 
-      return h(
-        chakra(props.as, { label: 'link' }),
-        {
-          target: props.isExternal ? '_blank' : undefined,
-          rel: props.isExternal ? 'noopener noreferrer' : undefined,
-          __css: styles.value,
-          ...attrs,
-        },
-        slots
+      return () => (
+        <chakra.a
+          as={props.as}
+          label="link"
+          // @ts-ignore Need to type "target" as Intrinsic HTML property
+          target={props.isExternal ? '_blank' : undefined}
+          rel={props.isExternal ? 'noopener noreferrer' : undefined}
+          __css={styles.value}
+          {...attrs}
+        >
+          {slots?.default?.()}
+        </chakra.a>
       )
     }
   },

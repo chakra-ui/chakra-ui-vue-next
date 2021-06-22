@@ -28,6 +28,7 @@ export interface ContainerProps
  * It also sets a default max-width of `60ch` (60 characters).
  */
 export const CContainer = defineComponent({
+  name: 'CContainer',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -39,32 +40,33 @@ export const CContainer = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig('Container', themingProps.value)
+
     return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
-
-      const styles = useStyleConfig('Container', themingProps.value)
-
-      return h(
-        chakra(props.as, { label: 'container' }),
-        {
-          ...styles.value,
-          __css: {
+      return (
+        <chakra.div
+          label="container"
+          __css={{
+            ...styles.value,
             ...(props.centerContent && {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-            }),
-          },
-          ...attrs,
-        },
-        slots
+            })
+          }}
+          {...props}
+          {...attrs}
+        >
+          {slots.default?.()}
+        </chakra.div>
       )
     }
   },

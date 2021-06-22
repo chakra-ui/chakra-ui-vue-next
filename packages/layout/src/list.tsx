@@ -6,6 +6,7 @@ import {
   useMultiStyleConfig,
   useStyles,
   StylesProvider,
+  ComponentWithProps,
 } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType, computed } from 'vue'
 import { chakra, DOMElements } from '@chakra-ui/vue-system'
@@ -39,7 +40,8 @@ export interface ListProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/list
  */
-export const CList = defineComponent({
+export const CList: ComponentWithProps<ListProps> = defineComponent({
+  name: 'CList',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -64,95 +66,74 @@ export const CList = defineComponent({
     return () => {
       const validChildren = getValidChildren(slots)
 
-      return h(
-        chakra(props.as, {
-          label: 'list',
-          listStyleType: props.styleType,
-          listStylePosition: props.stylePosition,
-          role: 'list',
-          __css: {
+      return (
+        <chakra.ul
+          label="list"
+          as={props.as}
+          listStyleType={props.styleType}
+          listStylePosition={props.stylePosition}
+          role="list"
+          __css={{
             ...styles.value.container,
             ...spacingStyle.value,
-          },
-          ...attrs,
-        }),
-        {},
-        () => validChildren
+          }}
+          {...attrs}
+        >
+          {validChildren}
+        </chakra.ul>
       )
     }
   },
 })
 
 export const COrderedList = defineComponent({
-  props: {},
+  name: 'COrderedList',
   setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        CList,
-        {
-          styleType: 'decimal',
-          marginStart: '1em',
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      // @ts-ignore
+      <CList styleType="decimal" marginStart="1em" {...attrs}>
+        {slots?.default?.()}
+      </CList>
+    )
   },
 })
 
 export const CUnorderedList = defineComponent({
-  props: {},
+  name: 'CUnorderedList',
   setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        CList,
-        {
-          styleType: 'initial',
-          marginStart: '1em',
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      // @ts-ignore
+      <CList styleType="initial" marginStart="1em" {...attrs}>
+        {slots?.default?.()}
+      </CList>
+    )
   },
 })
 
 export const CListItem = defineComponent({
-  props: {},
-  setup(props, { slots, attrs }) {
+  name: 'CListItem',
+  setup(_, { slots, attrs }) {
     const styles = useStyles()
     return () => {
-      return h(
-        chakra('li', {
-          label: 'list__item',
-          __css: {
-            ...styles.value.item,
-          },
-        }),
-        {
-          ...attrs,
-        },
-        slots
+      return (
+        <chakra.li label="list__item" __css={styles.value.item} {...attrs}>
+          {slots?.default?.()}
+        </chakra.li>
       )
     }
   },
 })
 
 export const CListIcon = defineComponent({
-  props: {},
-  setup(props, { slots, attrs }) {
+  name: 'CListIcon',
+  setup(_, { slots, attrs }) {
     const styles = useStyles()
     return () => {
-      return h(
-        CIcon,
-        {
-          role: 'presentation',
-          ...attrs,
-          __css: {
-            ...styles.value.icon,
-          },
-        },
-        slots
+      return (
+        // @ts-expect-error
+        <CIcon role="presentation" {...attrs} __css={styles.value.icon}>
+          {slots?.default?.()}
+        </CIcon>
       )
     }
   },

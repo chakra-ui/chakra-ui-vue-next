@@ -21,20 +21,28 @@ export interface AspectRatioProps
   extends HTMLChakraProps<'div'>,
     AspectRatioOptions {}
 
-const CAspectRatioImpl = defineComponent({
-  props: {
-    ratio: {
-      type: [Number] as PropType<AspectRatioProps['ratio']>,
-      default: 4 / 3,
+/**
+ * Vue component used to cropping media (videos, images and maps)
+ * to a desired aspect ratio.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
+ */
+
+export const CAspectRatio: ComponentWithProps<AspectRatioProps> = defineComponent(
+  {
+    name: 'CAspectRatio',
+    props: {
+      ratio: {
+        type: [Number] as PropType<AspectRatioProps['ratio']>,
+        default: 4 / 3,
+      },
     },
-  },
-  setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        chakra('div', {
-          label: 'aspect-ratio',
-          position: 'relative',
-          _before: {
+    setup(props, { slots, attrs }) {
+      return () => (
+        <chakra.div
+          label="aspect-ratio"
+          position="relative"
+          _before={{
             height: 0,
             content: `""`,
             display: 'block',
@@ -42,8 +50,8 @@ const CAspectRatioImpl = defineComponent({
               props.ratio,
               (r) => `${(1 / r) * 100}%`
             ),
-          },
-          __css: {
+          }}
+          __css={{
             '& > *:not(style)': {
               overflow: 'hidden',
               position: 'absolute',
@@ -60,21 +68,12 @@ const CAspectRatioImpl = defineComponent({
             '& > img, & > video': {
               objectFit: 'cover',
             },
-          },
-        }),
-        { ...attrs },
-        slots
+          }}
+          {...attrs}
+        >
+          {slots?.default?.()}
+        </chakra.div>
       )
-    }
-  },
-})
-
-/**
- * Vue component used to cropping media (videos, images and maps)
- * to a desired aspect ratio.
- *
- * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
- */
-export const CAspectRatio = CAspectRatioImpl as ComponentWithProps<
-  DeepPartial<AspectRatioProps>
->
+    },
+  }
+)

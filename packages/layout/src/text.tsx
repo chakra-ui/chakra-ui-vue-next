@@ -34,6 +34,7 @@ export interface TextProps extends HTMLChakraProps<'p'>, ThemingProps<'Text'> {
  * @see Docs https://vue.chakra-ui.com/docs/typography/text
  */
 export const CText = defineComponent({
+  name: 'CText',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -64,15 +65,10 @@ export const CText = defineComponent({
     )
 
     return () => {
-      return h(
-        chakra(props.as, {
-          label: 'text',
-          ...aliasedProps.value,
-          __css: styles.value,
-          ...attrs,
-        }),
-        {},
-        slots
+      return (
+        <chakra.p label="text" {...aliasedProps.value} __css={styles.value} {...attrs}>
+          {slots?.default?.()}
+        </chakra.p>
       )
     }
   },

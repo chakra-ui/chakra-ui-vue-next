@@ -5,6 +5,7 @@ import {
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
+  ComponentWithProps,
 } from '@chakra-ui/vue-system'
 import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 import { filterUndefined } from '@chakra-ui/utils'
@@ -13,7 +14,8 @@ export interface HeadingProps
   extends HTMLChakraProps<'h2'>,
     ThemingProps<'Heading'> {}
 
-export const CHeading = defineComponent({
+export const CHeading: ComponentWithProps<HeadingProps> = defineComponent({
+  name: 'CHeading',
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
@@ -33,15 +35,11 @@ export const CHeading = defineComponent({
     const styles = useStyleConfig('Heading', themingProps.value)
 
     return () => {
-      return h(
-        chakra(props.as, {
-          label: 'heading',
-        }),
-        {
-          ...attrs,
-          __css: styles.value,
-        },
-        slots
+
+      return (
+        <chakra.h2 as={props.as} label="heading" __css={styles.value} {...attrs}>
+          {slots?.default?.()}
+        </chakra.h2>
       )
     }
   },

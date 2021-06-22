@@ -21,15 +21,19 @@ import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 import { useTheme } from './composables/use-chakra'
 import { SNAO } from '@chakra-ui/vue-utils'
+import {
+  ChakraProps,
+  ComponentWithProps,
+  HTMLChakraProps,
+} from './system.types'
 
-interface StyleResolverProps extends SystemProps {
+export interface BaseStyleResolverProps {
+  as?: ChakraTagOrComponent
   __css?: SystemStyleObject
   sx?: SystemStyleObject
   css?: CSSObject
   noOfLines?: ResponsiveValue<number>
   isTruncated?: boolean
-  layerStyle?: ResponsiveValue<string>
-  textStyle?: ResponsiveValue<string>
   apply?: ResponsiveValue<string>
   componentName?: String
   label?: string
@@ -40,6 +44,10 @@ interface StyleResolverProps extends SystemProps {
   styles?: SystemStyleObject
 }
 
+export interface StyleResolverProps
+  extends BaseStyleResolverProps,
+    SystemProps {}
+
 interface StyleResolverOptions extends StyleResolverProps {
   truncateStyle?: CSSObject
   theme?: any
@@ -48,6 +56,7 @@ interface StyleResolverOptions extends StyleResolverProps {
 interface ChakraFactoryOptions extends StyleResolverProps {}
 
 const chakraProps = {
+  as: [String, Object] as PropType<ChakraTagOrComponent>,
   __css: Object as PropType<StyleResolverProps['__css']>,
   sx: Object as PropType<StyleResolverProps['sx']>,
   css: Object as PropType<StyleResolverProps['css']>,
@@ -61,6 +70,11 @@ const chakraProps = {
 }
 
 export type ChakraBaseComponentProps = typeof chakraProps
+export type ChakraTagOrComponent =
+  | DOMElements
+  | Component
+  | ConcreteComponent
+  | string
 
 /**
  * Chakra factory serves as an object of chakra enabled HTML elements,
@@ -189,7 +203,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
         }
 
         return h(
-          componentOrTag as any,
+          props.as || (componentOrTag as any),
           {
             class: cx(inheritedClass, _componentName, className),
             ...elementAttributes,
@@ -259,19 +273,24 @@ export const resolveStyles = (
   return cssObject
 }
 
+export type ChakraFactoryProps = ChakraProps &
+  StyleResolverProps &
+  HTMLAttributes &
+  JSX.IntrinsicAttributes
+
 /**
  * @example
- * h(chakra(RouterLink, { to: 'https://chakraui' }), {}, slots)
+ * h(chakra(RouterLink, { to: 'https://vue.chakra-ui.com' }), {}, slots)
  */
 type UserProvidedProps = { [key: string]: any }
 
 type IChakraFactory = {
-  [key in DOMElements]: DefineComponent | JSX.Element
+  [key in DOMElements]: DefineComponent | ComponentWithProps<ChakraFactoryProps>
 } & {
   (
-    tag: DOMElements | Component | ConcreteComponent | string,
+    tag: ChakraTagOrComponent,
     options?: StyleResolverOptions & UserProvidedProps
-  ): DefineComponent | JSX.Element
+  ): DefineComponent | ComponentWithProps<ChakraFactoryProps>
 }
 
 domElements.forEach((tag) => {

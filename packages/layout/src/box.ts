@@ -1,3 +1,4 @@
+import { computed, defineComponent, h, PropType } from 'vue'
 import {
   chakra,
   DOMElements,
@@ -6,11 +7,17 @@ import {
   DeepPartial,
   ComponentWithProps,
 } from '@chakra-ui/vue-system'
-import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 
 export interface BoxProps extends HTMLChakraProps<'div'> {}
 
-const CBoxImpl = defineComponent({
+/**
+ * Box is the most abstract component on top of which other chakra
+ * components are built. It renders a `div` element by default.
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/box
+ */
+export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
+  name: 'CBox',
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
@@ -32,14 +39,6 @@ const CBoxImpl = defineComponent({
 })
 
 /**
- * Box is the most abstract component on top of which other chakra
- * components are built. It renders a `div` element by default.
- *
- * @see Docs https://vue.chakra-ui.com/docs/layout/box
- */
-export const CBox = CBoxImpl as ComponentWithProps<DeepPartial<BoxProps>>
-
-/**
  * As a constraint, you can't pass size related props
  * Only `size` would be allowed
  */
@@ -56,7 +55,15 @@ export interface SquareProps extends Omit<BoxProps, Omitted> {
   centerContent?: boolean
 }
 
-const CSquareImpl = defineComponent({
+/**
+ * CSquare is the `CBox` component implemented as a square
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/box
+ */
+export const CSquare: ComponentWithProps<
+  DeepPartial<SquareProps>
+> = defineComponent({
+  name: 'CSquare',
   props: {
     size: [Object, String, Number] as PropType<SquareProps['size']>,
     centerContent: {
@@ -89,11 +96,15 @@ const CSquareImpl = defineComponent({
   },
 })
 
-export const CSquare = CSquareImpl as ComponentWithProps<
+/**
+ * CCircle is the `CBox` component implemented as a circle
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/box
+ */
+export const CCircle: ComponentWithProps<
   DeepPartial<SquareProps>
->
-
-const CCircleImpl = defineComponent({
+> = defineComponent({
+  name: 'CCircle',
   setup(_, { slots, attrs }) {
     return () => {
       return h(
@@ -108,7 +119,3 @@ const CCircleImpl = defineComponent({
     }
   },
 })
-
-export const CCircle = CCircleImpl as ComponentWithProps<
-  DeepPartial<SquareProps>
->

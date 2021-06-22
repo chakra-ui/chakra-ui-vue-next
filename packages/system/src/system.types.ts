@@ -8,6 +8,7 @@ import {
 import { IntrinsicElementAttributes } from './dom.types'
 import { Dict } from '@chakra-ui/utils'
 import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue'
+import { ChakraFactoryProps } from './chakra'
 
 /**
  * Export component with custom type
@@ -17,7 +18,11 @@ import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue'
  */
 export type ComponentWithProps<P> = {
   new (): {
-    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & P
+    $props: AllowedComponentProps &
+      ComponentCustomProps &
+      VNodeProps &
+      ChakraFactoryProps &
+      P
   }
 }
 

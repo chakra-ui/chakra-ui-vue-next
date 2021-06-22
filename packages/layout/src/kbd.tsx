@@ -6,6 +6,7 @@ import {
   useStyleConfig,
   HTMLChakraProps,
   extractStyleAttrs,
+  ComponentWithProps,
 } from '@chakra-ui/vue-system'
 import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 import { filterUndefined } from '@chakra-ui/utils'
@@ -19,13 +20,18 @@ export interface KbdProps extends HTMLChakraProps<'kbd'>, ThemingProps<'Kbd'> {}
  * @example
  *
  * ```jsx
- * <Kbd>⌘ + T</Kbd>
+ * <CKbd>⌘ + T</CKbd>
  * ```
  *
- * @see Docs https://chakra-ui.com/docs/data-display/kbd
+ * @see Docs https://vue.chakra-ui.com/docs/data-display/kbd
  */
-export const CKbd = defineComponent({
+export const CKbd: ComponentWithProps<KbdProps> = defineComponent({
+  name: 'CKbd',
   props: {
+    as: {
+      type: [String, Object] as PropType<DOMElements>,
+      default: 'h2',
+    },
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
@@ -40,17 +46,10 @@ export const CKbd = defineComponent({
     const styles = useStyleConfig('Kbd', themingProps.value)
 
     return () => {
-      return h(
-        chakra('kbd', {
-          label: 'kbd',
-          ...attrs,
-          __css: {
-            fontFamily: 'mono',
-            ...styles.value,
-          },
-        }),
-        {},
-        slots
+      return (
+        <chakra.kbd label="kdb" __css={{ fontFamily: 'mono', ...styles.value }} {...attrs}>
+          {slots?.default?.()}
+        </chakra.kbd>
       )
     }
   },

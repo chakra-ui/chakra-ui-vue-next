@@ -1,4 +1,4 @@
-import { ResponsiveValue } from '@chakra-ui/vue-system'
+import { ComponentWithProps, ResponsiveValue } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType, computed } from 'vue'
 import { DOMElements } from '@chakra-ui/vue-system'
 import { SNAO } from '@chakra-ui/vue-utils'
@@ -38,7 +38,8 @@ export interface SimpleGridProps extends GridProps, SimpleGridOptions {}
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/simple-grid
  */
-export const CSimpleGrid = defineComponent({
+export const CSimpleGrid: ComponentWithProps<SimpleGridProps> = defineComponent({
+  name: 'CSimpleGrid',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -57,20 +58,20 @@ export const CSimpleGrid = defineComponent({
         : countToColumns(props.columns)
     )
 
-    return () => {
-      return h(
-        CGrid,
-        {
-          label: 'simple-grid',
-          gap: props.spacing,
-          columnGap: props.spacingX,
-          rowGap: props.spacingY,
-          templateColumns: templateColumns.value,
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      <CGrid
+        as={props.as}
+        // @ts-expect-error label attribute is not global prop. So
+        label="simple-grid"
+        gap={props.spacing}
+        columnGap={props.spacingX}
+        rowGap={props.spacingY}
+        templateColumns={templateColumns.value}
+        {...attrs}
+      >
+        {slots?.default?.()}
+      </CGrid>
+    )
   },
 })
 
