@@ -73,6 +73,10 @@ export interface ChakraProps extends SystemProps {
    * Used to truncate text at a specific number of lines
    */
   noOfLines?: ResponsiveValue<number>
+  /**
+   * Internal prop used to label component tags
+   */
+  label?: string
 }
 
 type ElementType<P = any> =

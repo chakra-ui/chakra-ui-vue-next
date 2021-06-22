@@ -40,11 +40,45 @@ async function generateComponents() {
    * 
    * This file was generated on ${new Date().toISOString()}
    */
+
+   import { HTMLChakraProps } from '@chakra-ui/vue-system'
+   import { VNodeChild, HTMLAttributes } from 'vue'
+   
+   export type JsxNode = VNodeChild | JSX.Element
+   
+   export interface SlotDirective {
+     [name: string]: () => JsxNode
+   }
+   
+   type JsxComponentCustomProps = {
+     vModel?: unknown
+     vModels?: unknown[]
+     vCustom?: unknown[]
+     vShow?: boolean
+     vHtml?: JsxNode
+     vSlots?: SlotDirective
+   } & Omit<HTMLAttributes, 'innerHTML'> & {
+       innerHTML?: JsxNode
+     }
+  
+  
   declare module 'vue' {
+    /* Global component types for Volar auto-complete */
     export interface GlobalComponents {
         ${code}
+    }
+
+    /* Component custom props types for JSX and TSX auto complete */
+    export interface ComponentCustomProps
+      extends JsxComponentCustomProps,
+        HTMLChakraProps<'div'> {
+      onClick?: () => any
+      vSlots?: {
+        [eleName: string]: JSX.Element
       }
     }
+  }
+
   `
 
   // Write files
@@ -54,7 +88,7 @@ async function generateComponents() {
     '../packages/core/dist/types/index.d.ts'
   )
   writeFileSync(projectTypesFilePath, allTypes, 'utf-8')
-  appendFileSync(projectTypesFilePath, allTypes, 'utf-8')
+  appendFileSync(coreTypesFilePath, allTypes, 'utf-8')
 
   // Lint and Fix filea after writing types
   const eslint = new ESLint({ fix: true })

@@ -11,7 +11,7 @@ import {
   ComponentCustomProps,
   VNodeProps,
 } from 'vue'
-import { chakra, BaseStyleResolverProps, DOMElements, HTMLChakraProps } from '@chakra-ui/vue-system'
+import { chakra, DOMElements, DeepPartial, HTMLChakraProps } from '@chakra-ui/vue-system'
 import {
   getDividerStyles,
   getStackStyles,
@@ -133,7 +133,7 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack: ComponentWithProps<StackProps> = defineComponent({
+export const CStack: ComponentWithProps<DeepPartial<StackProps>> = defineComponent({
   name: 'CStack',
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -203,7 +203,6 @@ export const CHStack: ComponentWithProps<StackProps> = defineComponent({
   setup(props, { attrs, slots }) {
     return () => {
       return (
-        // @ts-expect-error
         <CStack label="stack-horizontal" align="center" {...props} {...attrs } direction="row">
           {slots?.default?.()}
         </CStack>
@@ -220,7 +219,6 @@ export const CVStack: ComponentWithProps<StackProps> = defineComponent({
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
-      // @ts-expect-error
       <CStack label="stack-vertical" align={'center'} {...props} {...attrs} direction="column">
         {slots?.default?.()}
       </CStack>
