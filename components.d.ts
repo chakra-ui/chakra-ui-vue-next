@@ -2,7 +2,7 @@
  * Global component types for @@chakra-ui/vue-next1.0.0-alpha.4
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-06-22T09:14:59.565Z
+ * This file was generated on 2021-06-22T09:21:16.557Z
  */
 declare module 'vue' {
   export interface GlobalComponents {
@@ -121,7 +121,7 @@ declare module 'vue' {
  * Global component types for @@chakra-ui/vue-next1.0.0-alpha.4
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-06-22T09:14:59.565Z
+ * This file was generated on 2021-06-22T09:21:16.557Z
  */
 declare module 'vue' {
   export interface GlobalComponents {

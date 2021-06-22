@@ -1,12 +1,12 @@
-import { writeFileSync, appendFileSync } from 'fs'
-import { resolve } from 'path'
-import * as ChakraComponents from '@chakra-ui/vue-next'
-import {
-  name as pkgName,
-  version as pkgVersion,
-} from '../packages/core/package.json'
-import { ESLint } from 'eslint'
-import { domElements } from '@chakra-ui/vue-system'
+const { writeFileSync, appendFileSync } = require('fs')
+const { resolve } = require('path')
+const {
+  name: pkgName,
+  version: pkgVersion,
+} = require('../packages/core/package.json')
+const { ESLint } = require('eslint')
+const { domElements } = require('@chakra-ui/vue-system')
+const ChakraComponents = require('@chakra-ui/vue-next')
 
 type ComponentsImport = typeof ChakraComponents
 

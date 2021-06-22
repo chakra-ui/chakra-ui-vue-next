@@ -136,5 +136,8 @@
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.0.6",
     "vue3-perfect-scrollbar": "^1.5.5"
+  },
+  "devDependencies": {
+    "@types/eslint": "^7.2.13"
   }
 }
