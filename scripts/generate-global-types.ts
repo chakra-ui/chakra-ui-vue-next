@@ -35,7 +35,11 @@ async function generateComponents() {
 
   const allTypes = `
   /**
-   * Global component types for @${pkgName}${pkgVersion}
+   * Typescript support for @${pkgName}${pkgVersion} auto-imported
+   * components using \`vite-plugin-components\`
+   * 
+   * @see: https://github.com/antfu/vite-plugin-components#typescript
+   * 
    * This is a generated file. Do not edit it's contents.
    * 
    * This file was generated on ${new Date().toISOString()}

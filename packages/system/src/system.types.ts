@@ -21,7 +21,7 @@ export type ComponentWithProps<P> = {
     $props: AllowedComponentProps &
       ComponentCustomProps &
       VNodeProps &
-      ChakraFactoryProps &
+      // ChakraFactoryProps &
       P
   }
 }
