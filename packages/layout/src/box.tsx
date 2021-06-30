@@ -25,16 +25,11 @@ export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        chakra(props.as, {
-          label: 'box',
-          ...attrs,
-        }),
-        {},
-        slots
-      )
-    }
+    return () => (
+      <chakra.div as={props.as} label="box" {...attrs}>
+        {slots?.default?.()}
+      </chakra.div>
+    )
   },
 })
 
@@ -77,22 +72,20 @@ export const CSquare: ComponentWithProps<
         ? { display: 'flex', alignItems: 'center', justifyContent: 'center' }
         : {}
     )
-    return () => {
-      return h(
-        CBox,
-        {
-          label: 'square',
-          boxSize: props.size,
-          __css: {
-            ...styles.value,
-            flexShrink: 0,
-            flexGrow: 0,
-          },
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      <CBox
+        label="square"
+        boxSize={props.size}
+        __css={{
+          ...styles.value,
+          flexShrink: 0,
+          flexGrow: 0,
+        }}
+        {...attrs}
+      >
+        {slots?.default?.()}
+      </CBox>
+    )
   },
 })
 
@@ -106,16 +99,10 @@ export const CCircle: ComponentWithProps<
 > = defineComponent({
   name: 'CCircle',
   setup(_, { slots, attrs }) {
-    return () => {
-      return h(
-        CSquare,
-        {
-          label: 'circle',
-          borderRadius: '9999px',
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      <CSquare label="circle" borderRadius="9999px" {...attrs}>
+        {slots?.default?.()}
+      </CSquare>
+    )
   },
 })

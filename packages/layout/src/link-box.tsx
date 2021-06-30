@@ -1,6 +1,6 @@
 import { ComponentWithProps, HTMLChakraProps } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import { chakra, DOMElements, DeepPartial } from '@chakra-ui/vue-system'
 
 export interface LinkOverlayProps extends HTMLChakraProps<'a'> {
   /**
@@ -9,7 +9,7 @@ export interface LinkOverlayProps extends HTMLChakraProps<'a'> {
   isExternal?: boolean
 }
 
-export const CLinkOverlay: ComponentWithProps<LinkOverlayProps> = defineComponent(
+export const CLinkOverlay: ComponentWithProps<DeepPartial<LinkOverlayProps>> = defineComponent(
   {
     name: 'CLinkOverlay',
     props: {
@@ -57,7 +57,7 @@ export interface LinkBoxProps extends HTMLChakraProps<'div'> {}
  * @see Docs https://vue.chakra-ui.com/docs/link-overlay
  * @see Resources https://www.sarasoueidan.com/blog/nested-links
  */
-export const CLinkBox: ComponentWithProps<LinkBoxProps> = defineComponent({
+export const CLinkBox: ComponentWithProps<DeepPartial<LinkBoxProps>> = defineComponent({
   name: 'CLinkBox',
   props: {
     as: {

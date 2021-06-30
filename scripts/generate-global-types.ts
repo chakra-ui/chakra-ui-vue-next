@@ -4,6 +4,7 @@ const {
   name: pkgName,
   version: pkgVersion,
 } = require('../packages/core/package.json')
+
 const { ESLint } = require('eslint')
 const { domElements } = require('@chakra-ui/vue-system')
 const ChakraComponents = require('@chakra-ui/vue-next')
@@ -45,7 +46,7 @@ async function generateComponents() {
    * This file was generated on ${new Date().toISOString()}
    */
 
-   import { HTMLChakraProps } from '@chakra-ui/vue-system'
+   import { ChakraProps } from '@chakra-ui/vue-system'
    import { VNodeChild, HTMLAttributes } from 'vue'
    
    export type JsxNode = VNodeChild | JSX.Element
@@ -75,7 +76,7 @@ async function generateComponents() {
     /* Component custom props types for JSX and TSX auto complete */
     export interface ComponentCustomProps
       extends JsxComponentCustomProps,
-        HTMLChakraProps<'div'> {
+        ChakraProps {
       onClick?: () => any
       vSlots?: {
         [eleName: string]: JSX.Element

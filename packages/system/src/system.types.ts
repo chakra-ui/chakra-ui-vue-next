@@ -8,23 +8,22 @@ import {
 import { IntrinsicElementAttributes } from './dom.types'
 import { Dict } from '@chakra-ui/utils'
 import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue'
-import { ChakraFactoryProps } from './chakra'
+import { DOMElements } from './system.utils'
+import { StyleResolverProps } from './chakra'
 
 /**
  * Export component with custom type
  *
  * @example
- * export const CBox = CBoxImpl as ComponentWithProps<{hello?: string}>
+ * export const CBox = CBoxImpl as ComponentWithProps<{ hello?: string }>
  */
 export type ComponentWithProps<P> = {
   new (): {
-    $props: AllowedComponentProps &
-      ComponentCustomProps &
-      VNodeProps &
-      // ChakraFactoryProps &
-      P
+    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & P
   }
 }
+
+export type AsPolymorphicProp = { as?: DOMElements | string | object }
 
 export type Tag =
   | string
@@ -45,7 +44,7 @@ export interface ThemingProps<ThemeComponent extends string = string> {
   styleConfig?: Dict
 }
 
-export interface ChakraProps extends SystemProps {
+export interface ChakraProps extends SystemProps, StyleResolverProps {
   /**
    * apply layer styles defined in `theme.layerStyles`
    */

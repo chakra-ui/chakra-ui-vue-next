@@ -7,11 +7,8 @@ import {
   computed,
   Fragment,
   createVNode,
-  AllowedComponentProps,
-  ComponentCustomProps,
-  VNodeProps,
 } from 'vue'
-import { chakra, DOMElements, DeepPartial, HTMLChakraProps } from '@chakra-ui/vue-system'
+import { chakra, DOMElements, DeepPartial, HTMLChakraProps, ComponentWithProps } from '@chakra-ui/vue-system'
 import {
   getDividerStyles,
   getStackStyles,
@@ -61,19 +58,10 @@ interface StackOptions {
   isInline?: boolean
 }
 
-export type ComponentWithProps<P> = {
-  new (): {
-    $props: AllowedComponentProps &
-      ComponentCustomProps &
-      VNodeProps &
-      // ChakraFactoryProps &
-      P
-  }
-}
 
 export interface StackDividerProps extends HTMLChakraProps<'div'> {}
 
-export const CStackDivider: ComponentWithProps<StackDividerProps> = defineComponent({
+export const CStackDivider: ComponentWithProps<DeepPartial<StackDividerProps>> = defineComponent({
   name: 'CStackDivider',
   inheritAttrs: false,
   setup(_, { attrs, slots }) {
@@ -87,7 +75,7 @@ export const CStackDivider: ComponentWithProps<StackDividerProps> = defineCompon
   },
 })
 
-export const CStackItem: ComponentWithProps<HTMLChakraProps<'div'>> = defineComponent({
+export const CStackItem: ComponentWithProps<DeepPartial<HTMLChakraProps<'div'>>> = defineComponent({
   name: 'CStackItem',
   setup(_, { attrs, slots }) {
     return () => {
@@ -197,7 +185,7 @@ export const CStack: ComponentWithProps<DeepPartial<StackProps>> = defineCompone
 /**
  * A view that arranges its children in a horizontal line.
  */
-export const CHStack: ComponentWithProps<StackProps> = defineComponent({
+export const CHStack: ComponentWithProps<DeepPartial<StackProps>> = defineComponent({
   name: 'CHStack',
   props: stackProps,
   setup(props, { attrs, slots }) {
@@ -214,7 +202,7 @@ export const CHStack: ComponentWithProps<StackProps> = defineComponent({
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack: ComponentWithProps<StackProps> = defineComponent({
+export const CVStack: ComponentWithProps<DeepPartial<StackProps>> = defineComponent({
   name: 'CVStack',
   props: stackProps,
   setup(props, { attrs, slots }) {

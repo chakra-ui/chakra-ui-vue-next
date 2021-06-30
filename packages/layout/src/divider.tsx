@@ -5,6 +5,7 @@ import {
   useStyleConfig,
   HTMLChakraProps,
   ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
@@ -21,7 +22,7 @@ export interface DividerProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/divider
  */
-export const CDivider: ComponentWithProps<DividerProps> = defineComponent({
+export const CDivider: ComponentWithProps<DeepPartial<DividerProps>> = defineComponent({
   name: 'CDivider',
   props: {
     orientation: {

@@ -5,6 +5,8 @@ import {
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
+  DeepPartial,
+  ComponentWithProps
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
@@ -27,7 +29,7 @@ export interface ContainerProps
  *
  * It also sets a default max-width of `60ch` (60 characters).
  */
-export const CContainer = defineComponent({
+export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> = defineComponent({
   name: 'CContainer',
   props: {
     as: {
@@ -50,24 +52,22 @@ export const CContainer = defineComponent({
     )
     const styles = useStyleConfig('Container', themingProps.value)
 
-    return () => {
-      return (
-        <chakra.div
-          label="container"
-          __css={{
-            ...styles.value,
-            ...(props.centerContent && {
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            })
-          }}
-          {...props}
-          {...attrs}
-        >
-          {slots.default?.()}
-        </chakra.div>
-      )
-    }
+    return () => (
+      <chakra.div
+        label="container"
+        __css={{
+          ...styles.value,
+          ...(props.centerContent && {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          })
+        }}
+        {...props}
+        {...attrs}
+      >
+        {slots.default?.()}
+      </chakra.div>
+    )
   },
 })

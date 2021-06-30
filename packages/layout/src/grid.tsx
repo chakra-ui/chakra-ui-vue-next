@@ -15,6 +15,7 @@ import {
   ResponsiveValue,
   DOMElements,
   ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { filterUndefined, mapResponsive } from '@chakra-ui/utils'
 import { SNAO } from '@chakra-ui/vue-utils'
@@ -121,7 +122,7 @@ export interface GridItemProps extends BoxProps {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/grid
  */
-export const CGrid: ComponentWithProps<GridProps> = defineComponent({
+export const CGrid: ComponentWithProps<DeepPartial<GridProps>> = defineComponent({
   name: 'CGrid',
   props: {
     as: {
@@ -182,7 +183,7 @@ function spanFn(span?: ResponsiveValue<number | 'auto'>) {
   )
 }
 
-export const CGridItem: ComponentWithProps<GridItemProps> = defineComponent({
+export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> = defineComponent({
   name: 'CGridItem',
   props: {
     as: {

@@ -1,12 +1,15 @@
 /**
- * Global component types for @@chakra-ui/vue-next1.0.0-alpha.4
+ * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.4 auto-imported
+ * components using `vite-plugin-components`
+ *
+ * @see: https://github.com/antfu/vite-plugin-components#typescript
+ *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-06-22T10:04:03.124Z
+ * This file was generated on 2021-06-30T12:42:36.843Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'
-import { HTMLChakraProps } from '@chakra-ui/vue-system'
 import { VNodeChild, HTMLAttributes } from 'vue'
 
 export type JsxNode = VNodeChild | JSX.Element
@@ -24,7 +27,7 @@ type JsxComponentCustomProps = {
   vSlots?: SlotDirective
 } & Omit<HTMLAttributes, 'innerHTML'> & {
     innerHTML?: JsxNode
-  } & {}
+  }
 
 declare module 'vue' {
   /* Global component types for Volar auto-complete */

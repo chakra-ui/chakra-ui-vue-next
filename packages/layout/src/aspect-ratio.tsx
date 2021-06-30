@@ -27,8 +27,7 @@ export interface AspectRatioProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
  */
-
-export const CAspectRatio: ComponentWithProps<AspectRatioProps> = defineComponent(
+export const CAspectRatio: ComponentWithProps<DeepPartial<AspectRatioProps>> = defineComponent(
   {
     name: 'CAspectRatio',
     props: {

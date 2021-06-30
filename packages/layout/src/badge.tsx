@@ -21,7 +21,7 @@ export interface BadgeProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
  */
-export const CBadge: ComponentWithProps<BadgeProps> = defineComponent({
+export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> = defineComponent({
   name: 'CBadge',
   props: {
     as: {

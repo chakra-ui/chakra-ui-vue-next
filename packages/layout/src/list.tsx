@@ -7,6 +7,7 @@ import {
   useStyles,
   StylesProvider,
   ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { h, defineComponent, PropType, computed } from 'vue'
 import { chakra, DOMElements } from '@chakra-ui/vue-system'
@@ -40,7 +41,7 @@ export interface ListProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/list
  */
-export const CList: ComponentWithProps<ListProps> = defineComponent({
+export const CList: ComponentWithProps<DeepPartial<ListProps>> = defineComponent({
   name: 'CList',
   props: {
     as: {
@@ -86,7 +87,7 @@ export const CList: ComponentWithProps<ListProps> = defineComponent({
   },
 })
 
-export const COrderedList = defineComponent({
+export const COrderedList: ComponentWithProps<DeepPartial<ListProps>> = defineComponent({
   name: 'COrderedList',
   setup(props, { slots, attrs }) {
     return () => (
@@ -98,7 +99,7 @@ export const COrderedList = defineComponent({
   },
 })
 
-export const CUnorderedList = defineComponent({
+export const CUnorderedList: ComponentWithProps<DeepPartial<ListProps>> = defineComponent({
   name: 'CUnorderedList',
   setup(props, { slots, attrs }) {
     return () => (
@@ -110,7 +111,7 @@ export const CUnorderedList = defineComponent({
   },
 })
 
-export const CListItem = defineComponent({
+export const CListItem: ComponentWithProps<DeepPartial<HTMLChakraProps<'li'>>> = defineComponent({
   name: 'CListItem',
   setup(_, { slots, attrs }) {
     const styles = useStyles()
@@ -124,7 +125,7 @@ export const CListItem = defineComponent({
   },
 })
 
-export const CListIcon = defineComponent({
+export const CListIcon: ComponentWithProps<DeepPartial<HTMLChakraProps<'svg'>>> = defineComponent({
   name: 'CListIcon',
   setup(_, { slots, attrs }) {
     const styles = useStyles()

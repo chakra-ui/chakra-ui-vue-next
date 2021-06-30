@@ -7,6 +7,7 @@ import {
   HTMLChakraProps,
   extractStyleAttrs,
   ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 import { filterUndefined } from '@chakra-ui/utils'
@@ -25,7 +26,7 @@ export interface KbdProps extends HTMLChakraProps<'kbd'>, ThemingProps<'Kbd'> {}
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/kbd
  */
-export const CKbd: ComponentWithProps<KbdProps> = defineComponent({
+export const CKbd: ComponentWithProps<DeepPartial<KbdProps>> = defineComponent({
   name: 'CKbd',
   props: {
     as: {
@@ -45,12 +46,10 @@ export const CKbd: ComponentWithProps<KbdProps> = defineComponent({
     )
     const styles = useStyleConfig('Kbd', themingProps.value)
 
-    return () => {
-      return (
-        <chakra.kbd label="kdb" __css={{ fontFamily: 'mono', ...styles.value }} {...attrs}>
-          {slots?.default?.()}
-        </chakra.kbd>
-      )
-    }
+    return () => (
+      <chakra.kbd label="kdb" __css={{ fontFamily: 'mono', ...styles.value }} {...attrs}>
+        {slots?.default?.()}
+      </chakra.kbd>
+    )
   },
 })
