@@ -11,7 +11,7 @@
         lineHeight="1.2"
       >
         Less code.
-        <chakra.span color="vue.600" px="5px">More speed.</chakra.span>
+        <chakra.span color="emerald.600" px="5px">More speed.</chakra.span>
       </chakra.h1>
       <chakra.p
         :maxW="{ base: '560px', lg: '650px' }"
