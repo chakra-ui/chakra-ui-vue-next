@@ -31,7 +31,7 @@
   "dependencies": {
     "@chakra-ui/c-icon": "1.0.0-alpha.3",
     "@chakra-ui/c-spinner": "1.0.0-alpha.3",
-    "@chakra-ui/utils": "^1.5.0",
+    "@chakra-ui/utils": "^1.8.0",
     "@chakra-ui/vue-system": "0.1.0-alpha.3",
     "@chakra-ui/vue-utils": "0.1.0-alpha.3"
   },
