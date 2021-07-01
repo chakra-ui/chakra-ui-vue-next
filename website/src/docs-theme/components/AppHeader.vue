@@ -86,11 +86,6 @@ const height = ref(0)
 onMounted(() => {
   height.value = headerRef.value?.$el.getBoundingClientRect().height ?? 0
 })
-
-watchEffect(() => {
-  console.log({ y: y.value })
-  console.log({ height: height.value })
-})
 </script>
 
 <style></style>
