@@ -28,6 +28,9 @@ export default defineConfig({
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
   },
+  build: {
+    target: 'modules',
+  },
   optimizeDeps: {
     exclude: ['@popperjs/core', '@vueuse/core', '@vueuse/motion'],
   },

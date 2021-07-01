@@ -31,6 +31,9 @@ const config: UserConfig = {
       '@': `${path.resolve(__dirname, 'src')}`,
     },
   },
+  build: {
+    target: 'modules',
+  },
   plugins: [
     Vue({ include: [/\.vue$/, /\.mdx$/] }),
     VueMdx({
