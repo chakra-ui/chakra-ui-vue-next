@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-flex",
   "description": "Chakra UI Vue | C-flex component component",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
