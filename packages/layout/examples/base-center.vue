@@ -14,9 +14,21 @@
     </c-box>
     <c-box>
       <c-box>Circle</c-box>
-      <c-circle size="40px" bg="teal.700" color="white" display="">
+      <c-circle
+        :center-content="true"
+        size="40px"
+        bg="teal.700"
+        color="white"
+        display=""
+      >
         <c-icon name="phone"></c-icon>
       </c-circle>
+    </c-box>
+    <c-box>
+      <c-link to="/"> Test router link </c-link>
+    </c-box>
+    <c-box>
+      <c-kbd color-scheme="cyan"> Test router link </c-kbd>
     </c-box>
   </c-v-stack>
 </template>
@@ -29,5 +41,7 @@ import {
   CBox,
   CSquare,
   CCircle,
-} from '@chakra-ui/vue-layout'
+  CLink,
+  CKbd,
+} from '../src'
 </script>

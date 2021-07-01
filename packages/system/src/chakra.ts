@@ -42,6 +42,12 @@ export interface BaseStyleResolverProps {
    * User provided styles from component/chakra API
    */
   styles?: SystemStyleObject
+  /**
+   * This attribute/property is reserved for all TSX component definitions.
+   * It is referenced by the chakra factiry function to
+   * preserve the component's label class
+   */
+  __label?: string
 }
 
 export interface StyleResolverProps
@@ -133,7 +139,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
     props: chakraProps,
     setup(props, { slots, attrs }) {
       return () => {
-        const { class: inheritedClass, ...rest } = attrs
+        const { class: inheritedClass, __label, ...rest } = attrs
         const {
           layerStyle,
           baseStyle,
@@ -151,7 +157,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
         // Separate component style attributes from raw HTML attributes
         const { styles, attrs: elementAttributes } = extractStyleAttrs<
           any,
-          HTMLAttributes
+          HTMLAttributes & BaseStyleResolverProps
         >({
           ...otherStyles,
           // Prioritize user provided styles
@@ -188,8 +194,9 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
           theme,
         })
 
+        const componentLabel = label || __label
         const className = _css(resolvedComponentStyles)
-        const _componentName = label ? `chakra-${label}` : ''
+        const _componentName = componentLabel ? `chakra-${componentLabel}` : ''
 
         let componentOrTag = tag
 

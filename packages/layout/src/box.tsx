@@ -26,8 +26,8 @@ export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
   },
   setup(props, { slots, attrs }) {
     return () => (
-      <chakra.div as={props.as} label="box" {...attrs}>
-        {slots?.default?.()}
+      <chakra.div as={props.as} __label="box" {...attrs}>
+        {slots}
       </chakra.div>
     )
   },
@@ -74,7 +74,7 @@ export const CSquare: ComponentWithProps<
     )
     return () => (
       <CBox
-        label="square"
+        __label="square"
         boxSize={props.size}
         __css={{
           ...styles.value,
@@ -83,7 +83,7 @@ export const CSquare: ComponentWithProps<
         }}
         {...attrs}
       >
-        {slots?.default?.()}
+        {slots}
       </CBox>
     )
   },
@@ -100,8 +100,8 @@ export const CCircle: ComponentWithProps<
   name: 'CCircle',
   setup(_, { slots, attrs }) {
     return () => (
-      <CSquare label="circle" borderRadius="9999px" {...attrs}>
-        {slots?.default?.()}
+      <CSquare __label="circle" borderRadius="9999px" {...attrs}>
+        {slots}
       </CSquare>
     )
   },

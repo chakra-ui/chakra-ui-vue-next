@@ -29,16 +29,16 @@ export const CCenter: ComponentWithProps<
     return () => {
       return (
         <chakra.div
-          label="center"
+          __label="center"
           __css={{
             display: 'flex',
-            alignItems: 'flex',
+            alignItems: 'center',
             justifyContent: 'center'
           }}
           {...props}
           {...attrs}
         >
-          {slots.default?.()}
+          {slots}
         </chakra.div>
       )
     }

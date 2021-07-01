@@ -65,11 +65,11 @@ export const CList: ComponentWithProps<DeepPartial<ListProps>> = defineComponent
     )
 
     return () => {
-      const validChildren = getValidChildren(slots)
+      const validChildren = () => getValidChildren(slots)
 
       return (
         <chakra.ul
-          label="list"
+          __label="list"
           as={props.as}
           listStyleType={props.styleType}
           listStylePosition={props.stylePosition}
@@ -93,7 +93,7 @@ export const COrderedList: ComponentWithProps<DeepPartial<ListProps>> = defineCo
     return () => (
       // @ts-ignore
       <CList styleType="decimal" marginStart="1em" {...attrs}>
-        {slots?.default?.()}
+        {slots}
       </CList>
     )
   },
@@ -105,7 +105,7 @@ export const CUnorderedList: ComponentWithProps<DeepPartial<ListProps>> = define
     return () => (
       // @ts-ignore
       <CList styleType="initial" marginStart="1em" {...attrs}>
-        {slots?.default?.()}
+        {slots}
       </CList>
     )
   },
@@ -117,8 +117,8 @@ export const CListItem: ComponentWithProps<DeepPartial<HTMLChakraProps<'li'>>> =
     const styles = useStyles()
     return () => {
       return (
-        <chakra.li label="list__item" __css={styles.value.item} {...attrs}>
-          {slots?.default?.()}
+        <chakra.li __label="list__item" __css={styles.value.item} {...attrs}>
+          {slots}
         </chakra.li>
       )
     }
@@ -133,7 +133,7 @@ export const CListIcon: ComponentWithProps<DeepPartial<HTMLChakraProps<'svg'>>> 
       return (
         // @ts-expect-error
         <CIcon role="presentation" {...attrs} __css={styles.value.icon}>
-          {slots?.default?.()}
+          {slots}
         </CIcon>
       )
     }

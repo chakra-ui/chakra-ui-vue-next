@@ -6387,15 +6387,25 @@ es6-promisify@^5.0.0:
   dependencies:
     es6-promise "^4.0.3"
 
-esbuild-jest@^0.4.0:
+esbuild-jest@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/esbuild-jest/-/esbuild-jest-0.4.0.tgz#d1187d3aa98d458d72467ded77d543943cff6f66"
   integrity sha512-KpL7u1SyVRme2uBVenAbM4yipDqiy1kjx43EiQQnxz4cEXI4Q6UBRIldaQkBNr3GrqNGDz8xYwb0heUvznxtHA==
+
+esbuild-plugin-babel@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-babel/-/esbuild-plugin-babel-0.2.3.tgz#e6bce2ad9b962bf725700b6d0c803eed21b9fff6"
+  integrity sha512-hGLL31n+GvBhkHUpPCt1sU4ynzOH7I1IUkKhera66jigi4mHFPL6dfJo44L6/1rfcZudXx+wGdf9VOifzDPqYQ==
 
 esbuild@0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.9.0.tgz#b8320df85048ed1637c6b59ee52abba248936d3c"
   integrity sha512-IqYFO7ZKHf0y4uJpJfGqInmSRn8jMPMbyI1W0Y2PSjSjJcVP538tC8TleJAS4Y8QeqwajqBTwFKayWVzYlMIgg==
+
+esbuild@^0.12.12:
+  version "0.12.12"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.12.tgz#2c3815c508e20f771cf6b2ffb03aa7349e651657"
+  integrity sha512-fdB/8HRg9u95Zi4/qV+osrfzpvLzubFKUr8SkZf/kUKImLiX61Y7qBzV14FCKphFk7YoXWY85nbPGkI6pq+Zeg==
 
 esbuild@^0.8.40:
   version "0.8.57"

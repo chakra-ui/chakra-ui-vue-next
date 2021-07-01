@@ -67,7 +67,7 @@ export const CStackDivider: ComponentWithProps<DeepPartial<StackDividerProps>> =
   setup(_, { attrs, slots }) {
     return () => {
       return (
-        <chakra.div label="stack__divider" borderWidth={0} alignSelf={'stretch'} borderColor="inherit" width="auto" height="auto" {...attrs}>
+        <chakra.div __label="stack__divider" borderWidth={0} alignSelf={'stretch'} borderColor="inherit" width="auto" height="auto" {...attrs}>
           {slots?.default?.()}
         </chakra.div>
       )
@@ -80,7 +80,7 @@ export const CStackItem: ComponentWithProps<DeepPartial<HTMLChakraProps<'div'>>>
   setup(_, { attrs, slots }) {
     return () => {
       return (
-        <chakra.div label="stack__item" display="inline-block" flex="0 0 auto" minWidth="0" {...attrs}>
+        <chakra.div __label="stack__item" display="inline-block" flex="0 0 auto" minWidth="0" {...attrs}>
           {slots?.default?.()}
         </chakra.div>
       )
@@ -167,7 +167,7 @@ export const CStack: ComponentWithProps<DeepPartial<StackProps>> = defineCompone
 
       return (
         <chakra.div
-          label={attrs.label ? (attrs.label as string) : 'stack'}
+          __label={attrs.label ? (attrs.label as string) : 'stack'}
           display={'flex'}
           alignItems={props.align}
           justifyContent={props.justify}
@@ -191,8 +191,8 @@ export const CHStack: ComponentWithProps<DeepPartial<StackProps>> = defineCompon
   setup(props, { attrs, slots }) {
     return () => {
       return (
-        <CStack label="stack-horizontal" align="center" {...props} {...attrs } direction="row">
-          {slots?.default?.()}
+        <CStack __label="stack-horizontal" align="center" {...props} {...attrs } direction="row">
+          {slots}
         </CStack>
       )
     }
@@ -207,8 +207,8 @@ export const CVStack: ComponentWithProps<DeepPartial<StackProps>> = defineCompon
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
-      <CStack label="stack-vertical" align={'center'} {...props} {...attrs} direction="column">
-        {slots?.default?.()}
+      <CStack __label="stack-vertical" align={'center'} {...props} {...attrs} direction="column">
+        {slots}
       </CStack>
     )
   },

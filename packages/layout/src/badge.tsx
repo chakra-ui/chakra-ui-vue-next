@@ -44,7 +44,7 @@ export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> = defineCompone
       return (
         <chakra.div
           as={props.as}   
-          label="badge"   
+          __label="badge"   
           __css={{
             display: 'inline-block',
             whiteSpace: 'nowrap',
@@ -53,7 +53,7 @@ export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> = defineCompone
           }}
           {...attrs}
         >
-          {slots?.default?.()}
+          {slots}
         </chakra.div>
       )
     }

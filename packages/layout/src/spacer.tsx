@@ -14,8 +14,8 @@ export const CSpacer: ComponentWithProps<DeepPartial<SpacerProps>> = defineCompo
   setup(_, { slots }) {
     return () => {
       return (
-        <chakra.div label="spacer" baseStyle={{ flex: 1, justifySelf: 'stretch', alignSelf: 'stretch' }}>
-          {slots?.default?.()}
+        <chakra.div __label="spacer" baseStyle={{ flex: 1, justifySelf: 'stretch', alignSelf: 'stretch' }}>
+          {slots}
         </chakra.div>
       )
     }

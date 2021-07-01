@@ -47,8 +47,8 @@ export const CKbd: ComponentWithProps<DeepPartial<KbdProps>> = defineComponent({
     const styles = useStyleConfig('Kbd', themingProps.value)
 
     return () => (
-      <chakra.kbd label="kdb" __css={{ fontFamily: 'mono', ...styles.value }} {...attrs}>
-        {slots?.default?.()}
+      <chakra.kbd __label="kbd" __css={{ fontFamily: 'mono', ...styles.value }} {...attrs}>
+        {slots}
       </chakra.kbd>
     )
   },

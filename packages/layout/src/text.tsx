@@ -68,8 +68,8 @@ export const CText: ComponentWithProps<DeepPartial<TextProps>> = defineComponent
 
     return () => {
       return (
-        <chakra.p label="text" {...aliasedProps.value} __css={styles.value} {...attrs}>
-          {slots?.default?.()}
+        <chakra.p __label="text" {...aliasedProps.value} __css={styles.value} {...attrs}>
+          {slots}
         </chakra.p>
       )
     }

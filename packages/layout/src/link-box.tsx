@@ -22,7 +22,8 @@ export const CLinkOverlay: ComponentWithProps<DeepPartial<LinkOverlayProps>> = d
     setup(props, { slots, attrs }) {
       return () => (
         <chakra.div
-          label="linkbox__ovelay"
+          as={props.as}
+          __label="linkbox__overlay"
           // @ts-ignore Can we type the "rel" HTML JSX Attribute?
           rel={props.isExternal ? 'noopener noreferrer' : undefined}
           target={props.isExternal ? '_blank' : undefined}
@@ -42,7 +43,7 @@ export const CLinkOverlay: ComponentWithProps<DeepPartial<LinkOverlayProps>> = d
           }}
           {...attrs}
         >
-          {slots?.default?.()}
+          {slots}
         </chakra.div>
       )
     }
@@ -68,7 +69,7 @@ export const CLinkBox: ComponentWithProps<DeepPartial<LinkBoxProps>> = defineCom
   setup(props, { slots, attrs }) {
     return () => {
       return (
-        <chakra.div as={props.as} label="linkbox" position="relative" __css={{
+        <chakra.div as={props.as} __label="linkbox" position="relative" __css={{
           /* Elevates links and abbreviations */
           'a[href]:not(.chakra-linkbox__overlay), abbr[title]': {
             position: 'relative',
@@ -77,7 +78,7 @@ export const CLinkBox: ComponentWithProps<DeepPartial<LinkBoxProps>> = defineCom
         }}
         {...attrs}
         >
-          {slots?.default?.()}
+          {slots}
         </chakra.div>
       )
     }

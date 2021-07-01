@@ -61,14 +61,14 @@ export const CSimpleGrid: ComponentWithProps<DeepPartial<SimpleGridProps>> = def
     return () => (
       <CGrid
         as={props.as}
-        label="simple-grid"
+        __label="simple-grid"
         gap={props.spacing}
         columnGap={props.spacingX}
         rowGap={props.spacingY}
         templateColumns={templateColumns.value}
         {...attrs}
       >
-        {slots?.default?.()}
+        {slots}
       </CGrid>
     )
   },

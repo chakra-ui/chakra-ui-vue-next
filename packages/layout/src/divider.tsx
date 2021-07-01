@@ -81,7 +81,7 @@ export const CDivider: ComponentWithProps<DeepPartial<DividerProps>> = defineCom
         borderStyle,
         ...dividerStyle.value
       }}
-      label="divider"
+      __label="divider"
       >
         {slots.default?.()}
       </chakra.hr>

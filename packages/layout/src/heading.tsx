@@ -36,8 +36,8 @@ export const CHeading: ComponentWithProps<DeepPartial<HeadingProps>> = defineCom
     const styles = useStyleConfig('Heading', themingProps.value)
 
     return () => (
-      <chakra.h2 as={props.as} label="heading" __css={styles.value} {...attrs}>
-        {slots?.default?.()}
+      <chakra.h2 as={props.as} __label="heading" __css={styles.value} {...attrs}>
+        {slots}
       </chakra.h2>
     )
   },

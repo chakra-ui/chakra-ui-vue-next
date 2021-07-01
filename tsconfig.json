@@ -31,7 +31,7 @@
     "tests/index.d.ts",
     "components.d.ts"
   ],
-  "exclude": ["node_modules", "./@types", "dist"],
+  "exclude": ["node_modules", "./@types", "dist", "packages/**/*.test.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",

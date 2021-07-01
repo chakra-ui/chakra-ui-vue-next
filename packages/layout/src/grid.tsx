@@ -166,11 +166,11 @@ export const CGrid: ComponentWithProps<DeepPartial<GridProps>> = defineComponent
       return (
         <chakra.div
           as={props.as}
-          label="grid"
+          __label="grid"
           __css={styles.value}
           {...attrs}
         >
-          {slots?.default?.()}
+          {slots}
         </chakra.div>
       )
     }
@@ -212,8 +212,8 @@ export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> = defineC
     )
 
     return () => (
-      <chakra.div as={props.as} label="grid__item" __css={styles.value} {...attrs}>
-        {slots?.default?.()}
+      <chakra.div as={props.as} __label="grid__item" __css={styles.value} {...attrs}>
+        {slots}
       </chakra.div>
     )
   },

@@ -42,30 +42,28 @@ export const CLink: ComponentWithProps<DeepPartial<LinkProps>> = defineComponent
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
-      const styles = useStyleConfig('Link', themingProps.value)
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig('Link', themingProps.value)
 
-      return () => (
-        <chakra.a
-          as={props.as}
-          label="link"
-          // @ts-ignore Need to type "target" as Intrinsic HTML property
-          target={props.isExternal ? '_blank' : undefined}
-          rel={props.isExternal ? 'noopener noreferrer' : undefined}
-          __css={styles.value}
-          {...attrs}
-        >
-          {slots?.default?.()}
-        </chakra.a>
-      )
-    }
+    return () => (
+      <chakra.a
+        as={props.as}
+        __label="link"
+        // @ts-ignore Need to type "target" as Intrinsic HTML property
+        target={props.isExternal ? '_blank' : undefined}
+        rel={props.isExternal ? 'noopener noreferrer' : undefined}
+        __css={styles.value}
+        {...attrs}
+      >
+        {slots}
+      </chakra.a>
+    )
   },
 })

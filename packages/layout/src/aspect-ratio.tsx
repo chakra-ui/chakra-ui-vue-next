@@ -39,7 +39,7 @@ export const CAspectRatio: ComponentWithProps<DeepPartial<AspectRatioProps>> = d
     setup(props, { slots, attrs }) {
       return () => (
         <chakra.div
-          label="aspect-ratio"
+          __label="aspect-ratio"
           position="relative"
           _before={{
             height: 0,
@@ -70,7 +70,7 @@ export const CAspectRatio: ComponentWithProps<DeepPartial<AspectRatioProps>> = d
           }}
           {...attrs}
         >
-          {slots?.default?.()}
+          {slots}
         </chakra.div>
       )
     },

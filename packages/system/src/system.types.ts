@@ -73,9 +73,13 @@ export interface ChakraProps extends SystemProps, StyleResolverProps {
    */
   noOfLines?: ResponsiveValue<number>
   /**
-   * Internal prop used to label component tags
+   * Internal prop used to label Chakra factory component tags
    */
   label?: string
+  /**
+   * Internal prop used to label JSX component tags
+   */
+  __label?: string
 }
 
 type ElementType<P = any> =

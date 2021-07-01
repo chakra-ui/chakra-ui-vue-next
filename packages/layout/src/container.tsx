@@ -54,7 +54,7 @@ export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> = defin
 
     return () => (
       <chakra.div
-        label="container"
+        __label="container"
         __css={{
           ...styles.value,
           ...(props.centerContent && {
@@ -63,10 +63,9 @@ export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> = defin
             alignItems: 'center',
           })
         }}
-        {...props}
         {...attrs}
       >
-        {slots.default?.()}
+        {slots}
       </chakra.div>
     )
   },
