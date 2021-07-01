@@ -303,5 +303,3 @@ type IChakraFactory = {
 domElements.forEach((tag) => {
   chakra[tag] = chakra(tag, {})
 })
-
-export { domElements }
