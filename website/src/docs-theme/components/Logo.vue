@@ -37,6 +37,5 @@
 <script setup lang="ts">
 import { useColorModeValue } from '@chakra-ui/c-color-mode'
 
-const fill = useColorModeValue('#2D3748', '#fff')
-console.log({ fill })
+useColorModeValue('#2D3748', '#fff')
 </script>

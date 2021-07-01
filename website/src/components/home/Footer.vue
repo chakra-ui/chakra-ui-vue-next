@@ -11,7 +11,7 @@
       target="_blank"
       rel="noopener noreferrer"
       href="https://github.com/chakra-ui/chakra-ui-vue-next"
-      :_hover="{ color: 'vue.500' }"
+      :_hover="{ color: 'emerald.500' }"
       mx="4"
     >
       <CIcon name="github" mt="8px" />
@@ -21,7 +21,7 @@
       target="_blank"
       rel="noopener noreferrer"
       href="https://twitter.com/chakraui_vue"
-      :_hover="{ color: 'vue.500' }"
+      :_hover="{ color: 'emerald.500' }"
       mx="4"
     >
       <CIcon name="twitter" mt="8px" />
@@ -31,7 +31,7 @@
       target="_blank"
       rel="noopener noreferrer"
       href="https://discord.gg/sq2Kp6x"
-      :_hover="{ color: 'vue.500' }"
+      :_hover="{ color: 'emerald.500' }"
       mx="4"
     >
       <CIcon name="discord" mt="8px" />

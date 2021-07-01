@@ -5,6 +5,10 @@
         <img src="https://bit.ly/naruto-sage" alt="img" />
       </c-aspect-ratio>
 
+      <c-aspect-ratio color="telegram.400" bg="pink.500">
+        <img src="https://bit.ly/naruto-sage" alt="img" />
+      </c-aspect-ratio>
+
       <c-aspect-ratio maxW="560px" :ratio="1">
         <iframe
           title="naruto"

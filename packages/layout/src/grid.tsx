@@ -14,6 +14,8 @@ import {
   SystemProps,
   ResponsiveValue,
   DOMElements,
+  ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { filterUndefined, mapResponsive } from '@chakra-ui/utils'
 import { SNAO } from '@chakra-ui/vue-utils'
@@ -120,7 +122,8 @@ export interface GridItemProps extends BoxProps {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/grid
  */
-export const CGrid = defineComponent({
+export const CGrid: ComponentWithProps<DeepPartial<GridProps>> = defineComponent({
+  name: 'CGrid',
   props: {
     as: {
       type: [String, Object] as PropType<
@@ -160,10 +163,15 @@ export const CGrid = defineComponent({
       })
     )
     return () => {
-      return h(
-        chakra(props.as, { label: 'grid', __css: styles.value, ...attrs }),
-        {},
-        slots
+      return (
+        <chakra.div
+          as={props.as}
+          __label="grid"
+          __css={styles.value}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
     }
   },
@@ -175,7 +183,8 @@ function spanFn(span?: ResponsiveValue<number | 'auto'>) {
   )
 }
 
-export const CGridItem = defineComponent({
+export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> = defineComponent({
+  name: 'CGridItem',
   props: {
     as: {
       type: [String, Object] as PropType<
@@ -202,12 +211,10 @@ export const CGridItem = defineComponent({
       })
     )
 
-    return () => {
-      return h(
-        chakra(props.as, { label: 'grid__item', __css: styles.value }),
-        attrs,
-        slots
-      )
-    }
+    return () => (
+      <chakra.div as={props.as} __label="grid__item" __css={styles.value} {...attrs}>
+        {slots}
+      </chakra.div>
+    )
   },
 })

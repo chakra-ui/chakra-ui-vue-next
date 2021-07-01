@@ -42,12 +42,6 @@
     "@chakra-ui/vue-theme": "0.1.0-alpha.2"
   },
   "devDependencies": {
-    "vue": ">=3.0.5"
-  },
-  "peerDependencies": {
-    "@chakra-ui/c-visually-hidden": "1.0.0-alpha.2",
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "@chakra-ui/vue-theme": "0.1.0-alpha.2",
-    "vue": "^3.0.5"
+    "vue": "^3.0.11"
   }
 }

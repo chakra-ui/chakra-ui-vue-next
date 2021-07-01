@@ -365,7 +365,7 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
 
 exports[`<CSimpleGrid /> should render properly 1`] = `
 <DocumentFragment>
-  <div
+  <ul
     class="chakra-simple-grid css-12tmpmw"
   >
     <div
@@ -393,7 +393,7 @@ exports[`<CSimpleGrid /> should render properly 1`] = `
     >
       simple 5
     </div>
-  </div>
+  </ul>
 </DocumentFragment>
 `;
 

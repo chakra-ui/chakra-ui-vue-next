@@ -1,7 +1,6 @@
 import { reactive } from 'vue'
 import { render, screen, userEvent, waitMs } from '../../test-utils/src'
-import { CFocusLock, useFocusLock, UseFocusLockOptions } from '../src'
-import { CPortal } from '../../c-portal/src'
+import { CFocusLock, useFocusLock } from '../src'
 
 const onActivateMock = jest.fn()
 const onDeactivateMock = jest.fn()
@@ -75,7 +74,7 @@ it('should focus initialFocus element when initialFocus element is provided', as
       </div>
     `,
     setup() {
-      const options: UseFocusLockOptions = {
+      const options = {
         immediate: true,
         onActivate: onActivateMock,
         onDeactivate: onDeactivateMock,

@@ -42,10 +42,7 @@
     "@chakra-ui/vue-utils": "0.1.0-alpha.2",
     "@vueuse/motion": "^1.5.4"
   },
-  "peerDependencies": {
-    "vue": ">=3.0.5"
-  },
   "devDependencies": {
-    "vue": ">=3.0.5"
+    "vue": "^3.0.11"
   }
 }

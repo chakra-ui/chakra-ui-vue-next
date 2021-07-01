@@ -41,10 +41,7 @@
     "@chakra-ui/vue-system": "0.1.0-alpha.2",
     "focus-trap": "^6.3.0"
   },
-  "peerDependencies": {
-    "vue": ">=3.0.5"
-  },
   "devDependencies": {
-    "vue": ">=3.0.5"
+    "vue": "^3.0.11"
   }
 }

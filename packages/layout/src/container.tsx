@@ -5,6 +5,8 @@ import {
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
+  DeepPartial,
+  ComponentWithProps
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
@@ -27,7 +29,8 @@ export interface ContainerProps
  *
  * It also sets a default max-width of `60ch` (60 characters).
  */
-export const CContainer = defineComponent({
+export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> = defineComponent({
+  name: 'CContainer',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -39,33 +42,31 @@ export const CContainer = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig('Container', themingProps.value)
 
-      const styles = useStyleConfig('Container', themingProps.value)
-
-      return h(
-        chakra(props.as, { label: 'container' }),
-        {
+    return () => (
+      <chakra.div
+        __label="container"
+        __css={{
           ...styles.value,
-          __css: {
-            ...(props.centerContent && {
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }),
-          },
-          ...attrs,
-        },
-        slots
-      )
-    }
+          ...(props.centerContent && {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          })
+        }}
+        {...attrs}
+      >
+        {slots}
+      </chakra.div>
+    )
   },
 })

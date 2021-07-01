@@ -6,6 +6,8 @@ import {
   SystemProps,
   useStyleConfig,
   DOMElements,
+  ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { SNAO, vueThemingProps } from '@chakra-ui/vue-utils'
 import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
@@ -33,7 +35,8 @@ export interface TextProps extends HTMLChakraProps<'p'>, ThemingProps<'Text'> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/typography/text
  */
-export const CText = defineComponent({
+export const CText: ComponentWithProps<DeepPartial<TextProps>> = defineComponent({
+  name: 'CText',
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -64,15 +67,10 @@ export const CText = defineComponent({
     )
 
     return () => {
-      return h(
-        chakra(props.as, {
-          label: 'text',
-          ...aliasedProps.value,
-          __css: styles.value,
-          ...attrs,
-        }),
-        {},
-        slots
+      return (
+        <chakra.p __label="text" {...aliasedProps.value} __css={styles.value} {...attrs}>
+          {slots}
+        </chakra.p>
       )
     }
   },

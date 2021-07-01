@@ -1,4 +1,4 @@
-import { MaybeElementRef, unrefElement, useRef } from '@chakra-ui/vue-utils'
+import { MaybeElementRef, useRef } from '@chakra-ui/vue-utils'
 import {
   AnyFunction,
   focus,
@@ -6,9 +6,10 @@ import {
   getFirstFocusable,
 } from '@chakra-ui/utils'
 import { watch, ref, Ref, UnwrapRef, onBeforeUnmount, nextTick } from 'vue'
-import {
+import { createFocusTrap } from 'focus-trap'
+
+import type {
   ActivateOptions,
-  createFocusTrap,
   DeactivateOptions,
   FocusTarget,
   FocusTrap,

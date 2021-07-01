@@ -30,8 +30,5 @@
   },
   "dependencies": {
     "@chakra-ui/vue-theme": "0.1.0-alpha.2"
-  },
-  "peerDependencies": {
-    "@chakra-ui/vue-theme": "0.1.0-alpha.2"
   }
 }

@@ -1,5 +1,6 @@
 import { UnionStringArray } from '@chakra-ui/utils'
 import { keyframes, injectGlobal } from '@emotion/css'
+import { PropType } from '@vue/runtime-core'
 
 /**
  * Carefully selected html elements for chakra components.
@@ -74,6 +75,10 @@ export type DOMElements = UnionStringArray<typeof domElements>
 
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>
+}
+
+export type ToPropType<T> = {
+  [P in keyof T]?: PropType<T[P]>
 }
 
 export { keyframes, injectGlobal }

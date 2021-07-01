@@ -41,10 +41,6 @@
     "@popperjs/core": "^2.8.4"
   },
   "devDependencies": {
-    "vue": ">=3.0.5"
-  },
-  "peerDependencies": {
-    "@chakra-ui/utils": "1.4.0",
-    "vue": "^3.0.5"
+    "vue": "^3.0.11"
   }
 }

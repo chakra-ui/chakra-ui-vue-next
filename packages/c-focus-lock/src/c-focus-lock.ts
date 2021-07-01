@@ -16,8 +16,9 @@
 
 import { defineComponent, PropType, computed, cloneVNode, VNode } from 'vue'
 import { focus, FocusableElement, warn, __DEV__ } from '@chakra-ui/utils'
-import { UseFocusLockOptions, useFocusLock } from './use-focus-lock'
-import { FocusTarget } from 'focus-trap'
+import { useFocusLock } from './use-focus-lock'
+import type { UseFocusLockOptions } from './use-focus-lock'
+import type { FocusTarget } from 'focus-trap'
 
 type RefProp = () => HTMLElement | string | object | undefined
 
@@ -64,7 +65,7 @@ export const CFocusLock = defineComponent({
       default: false,
     },
     restoreFocus: {
-      type: Boolean as PropType<Boolean>,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
   },

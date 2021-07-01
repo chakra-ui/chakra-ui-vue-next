@@ -1,11 +1,12 @@
 import { mapResponsive } from '@chakra-ui/utils'
-import { chakra, HTMLChakraProps, ResponsiveValue } from '@chakra-ui/vue-system'
 import {
-  DefineComponent,
-  defineComponent,
-  h,
-  PropType,
-} from '@vue/runtime-core'
+  chakra,
+  HTMLChakraProps,
+  ResponsiveValue,
+  DeepPartial,
+  ComponentWithProps,
+} from '@chakra-ui/vue-system'
+import { defineComponent, h, PropType } from 'vue'
 
 interface AspectRatioOptions {
   /**
@@ -26,20 +27,21 @@ export interface AspectRatioProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
  */
-export const CAspectRatio = defineComponent({
-  props: {
-    ratio: {
-      type: [Number] as PropType<AspectRatioProps['ratio']>,
-      default: 4 / 3,
+export const CAspectRatio: ComponentWithProps<DeepPartial<AspectRatioProps>> = defineComponent(
+  {
+    name: 'CAspectRatio',
+    props: {
+      ratio: {
+        type: [Number] as PropType<AspectRatioProps['ratio']>,
+        default: 4 / 3,
+      },
     },
-  },
-  setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        chakra('div', {
-          label: 'aspect-ratio',
-          position: 'relative',
-          _before: {
+    setup(props, { slots, attrs }) {
+      return () => (
+        <chakra.div
+          __label="aspect-ratio"
+          position="relative"
+          _before={{
             height: 0,
             content: `""`,
             display: 'block',
@@ -47,8 +49,8 @@ export const CAspectRatio = defineComponent({
               props.ratio,
               (r) => `${(1 / r) * 100}%`
             ),
-          },
-          __css: {
+          }}
+          __css={{
             '& > *:not(style)': {
               overflow: 'hidden',
               position: 'absolute',
@@ -65,11 +67,12 @@ export const CAspectRatio = defineComponent({
             '& > img, & > video': {
               objectFit: 'cover',
             },
-          },
-        }),
-        { ...attrs },
-        slots
+          }}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
-    }
-  },
-})
+    },
+  }
+)
