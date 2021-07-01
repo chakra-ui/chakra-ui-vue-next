@@ -59,12 +59,5 @@
   },
   "devDependencies": {
     "vue": "^3.0.11"
-  },
-  "peerDependencies": {
-    "@chakra-ui/styled-system": "^1.9.0",
-    "@chakra-ui/utils": "1.4.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "@chakra-ui/vue-theme": "0.1.0-alpha.2",
-    "vue": "^3.0.5"
   }
 }

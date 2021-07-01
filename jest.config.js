@@ -1,6 +1,5 @@
 module.exports = {
   transform: {
-    // '^.+\\.(ts|tsx)$': 'ts-jest',
     '^.+\\.(ts|tsx)$': [
       'esbuild-jest',
       {
@@ -21,12 +20,4 @@ module.exports = {
     '@chakra-ui/vue-test-utils/dist/cjs/snapshot-serializer.js',
   ],
   testMatch: ['**/**/*.test.(js|jsx|ts|tsx)'],
-  // globals: {
-  //   'ts-jest': {
-  //     tsconfig: 'tsconfig.test.json',
-  //     babelConfig: {
-  //       plugins: ['@vue/babel-plugin-jsx'],
-  //     },
-  //   },
-  // },
 }

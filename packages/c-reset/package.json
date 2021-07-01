@@ -35,10 +35,6 @@
   "dependencies": {
     "@chakra-ui/vue-system": "0.1.0-alpha.2"
   },
-  "peerDependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.2",
-    "vue": ">=3.0.5"
-  },
   "devDependencies": {
     "vue": "^3.0.11"
   }
