@@ -65,7 +65,7 @@ export const CMotion = defineComponent({
       default: 'div',
     },
     type: {
-      type: String as PropType<string>,
+      type: String as PropType<keyof CMotionVariants>,
       default: 'fade',
     },
   },
@@ -83,6 +83,10 @@ export const CMotion = defineComponent({
         flush: 'post',
       }
     )
+
+    const onLeave = (el: Element, done: VoidFunction) => {
+      motionInstance.value.leave(done)
+    }
     return () => {
       let children: any = undefined
 
@@ -94,16 +98,10 @@ export const CMotion = defineComponent({
         ? cloneVNode(vNodes[0], { ref: targetRef as any })
         : vNodes
 
-      return h(
-        Transition,
-        {
-          css: false,
-          mode: 'out-in',
-          onLeave: (el, done) => {
-            motionInstance.value.leave(done)
-          },
-        },
-        () => [children]
+      return (
+        <Transition css={false} mode="out-in" onLeave={onLeave}>
+          {() => [children]}
+        </Transition>
       )
     }
   },

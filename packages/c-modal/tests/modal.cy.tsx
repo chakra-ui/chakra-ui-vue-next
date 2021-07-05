@@ -10,8 +10,8 @@ import {
   CModalContent,
 } from '../'
 import { CButton } from '../../c-button/src'
-import ReturnFocusOnCloseExample from '../examples/return-focus-on-close.vue'
-import SimpleModalExample from '../examples/simple-modal.vue'
+import ReturnFocusOnCloseExample from '../examples/modal-return-focus.vue'
+import SimpleModalExample from '../examples/modal-simple.vue'
 
 const render = (props: any = {}) => {
   return cy.mount(

@@ -25,6 +25,7 @@ import {
 } from 'vue'
 import {
   chakra,
+  ComponentWithProps,
   StylesProvider,
   SystemStyleObject,
   useMultiStyleConfig,
@@ -33,11 +34,13 @@ import {
 import { createContext, TemplateRef, useRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import { FocusLockProps } from '@chakra-ui/c-focus-lock'
-import { CMotion } from '@chakra-ui/c-motion'
+import { CAnimatePresence, CMotion } from '@chakra-ui/c-motion'
 import { CCloseButton } from '@chakra-ui/c-close-button'
 import { MotionDirective, useMotions } from '@vueuse/motion'
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { DialogMotionPreset, dialogMotionPresets } from './modal-transitions'
+import { Dict } from '@chakra-ui/utils'
+import { useId } from '@chakra-ui/vue-composables'
 
 type ScrollBehavior = 'inside' | 'outside'
 
@@ -114,6 +117,15 @@ export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
    * The transition that should be used for the modal
    */
   motionPreset: DialogMotionPreset
+  /**
+   * Modal style config
+   */
+  styleConfig?: Dict
+
+  /**
+   * Typescript helper for parent components
+   */
+  'onUpdate:modeValue'?: any
 }
 
 type IUseModalOptions = ToRefs<
@@ -148,61 +160,63 @@ const [
 
 export { ModalContextProvider, useModalContext }
 
-export const CModal = defineComponent({
-  name: 'CModal',
-  props: {
-    modelValue: {
-      type: Boolean as PropType<CModalProps['modelValue']>,
-      default: false,
-    },
-    id: String as PropType<CModalProps['id']>,
-    closeOnOverlayClick: {
-      type: Boolean as PropType<CModalProps['closeOnOverlayClick']>,
-      default: true,
-    },
-    closeOnEsc: {
-      type: Boolean as PropType<CModalProps['closeOnEsc']>,
-      default: true,
-    },
-    useInert: {
-      type: Boolean as PropType<CModalProps['useInert']>,
-      default: true,
-    },
-    autoFocus: {
-      type: Boolean as PropType<CModalProps['autoFocus']>,
-      default: true,
-    },
-    trapFocus: {
-      type: Boolean as PropType<CModalProps['trapFocus']>,
-      default: true,
-    },
-    initialFocusRef: [String, Object, Function] as PropType<
-      CModalProps['initialFocusRef']
-    >,
-    finalFocusRef: [String, Object, Function] as PropType<
-      CModalProps['finalFocusRef']
-    >,
-    returnFocusOnClose: {
-      type: Boolean as PropType<CModalProps['returnFocusOnClose']>,
-      default: true,
-    },
-    blockScrollOnMount: {
-      type: Boolean as PropType<CModalProps['blockScrollOnMount']>,
-      default: true,
-    },
-    allowPinchZoom: Boolean as PropType<CModalProps['allowPinchZoom']>,
-    preserveScrollBarGap: Boolean as PropType<
-      CModalProps['preserveScrollBarGap']
-    >,
-    scrollBehaviour: {
-      type: String as PropType<CModalProps['scrollBehavior']>,
-      default: 'outside',
-    },
-    motionPreset: {
-      type: String as PropType<CModalProps['motionPreset']>,
-      default: 'slideInBottom',
-    },
+export const modalProps = {
+  modelValue: {
+    type: Boolean as PropType<CModalProps['modelValue']>,
+    default: false,
   },
+  id: String as PropType<CModalProps['id']>,
+  closeOnOverlayClick: {
+    type: Boolean as PropType<CModalProps['closeOnOverlayClick']>,
+    default: true,
+  },
+  closeOnEsc: {
+    type: Boolean as PropType<CModalProps['closeOnEsc']>,
+    default: true,
+  },
+  useInert: {
+    type: Boolean as PropType<CModalProps['useInert']>,
+    default: true,
+  },
+  autoFocus: {
+    type: Boolean as PropType<CModalProps['autoFocus']>,
+    default: true,
+  },
+  trapFocus: {
+    type: Boolean as PropType<CModalProps['trapFocus']>,
+    default: true,
+  },
+  initialFocusRef: [String, Object, Function] as PropType<
+    CModalProps['initialFocusRef']
+  >,
+  finalFocusRef: [String, Object, Function] as PropType<
+    CModalProps['finalFocusRef']
+  >,
+  returnFocusOnClose: {
+    type: Boolean as PropType<CModalProps['returnFocusOnClose']>,
+    default: true,
+  },
+  blockScrollOnMount: {
+    type: Boolean as PropType<CModalProps['blockScrollOnMount']>,
+    default: true,
+  },
+  allowPinchZoom: Boolean as PropType<CModalProps['allowPinchZoom']>,
+  preserveScrollBarGap: Boolean as PropType<
+    CModalProps['preserveScrollBarGap']
+  >,
+  scrollBehaviour: {
+    type: String as PropType<CModalProps['scrollBehavior']>,
+    default: 'outside',
+  },
+  motionPreset: {
+    type: String as PropType<CModalProps['motionPreset']>,
+    default: 'scale',
+  },
+}
+
+export const CModal: ComponentWithProps<CModalProps> = defineComponent({
+  name: 'CModal',
+  props: modalProps,
   emits: ['update:modelValue', 'escape', 'closeModal'],
   setup(props, { slots, attrs, emit }) {
     const closeModal = () => {
@@ -235,7 +249,8 @@ export const CModal = defineComponent({
     StylesProvider(styles)
     return () =>
       h(CPortal, () => [
-        h(CMotion, { type: 'fade' }, () => [
+        // props.modelValue && h(chakra('span'), () => slots?.default?.()),
+        h(CAnimatePresence, { type: props.motionPreset }, () => [
           props.modelValue && h(chakra('span'), () => slots?.default?.()),
         ]),
       ])
@@ -258,12 +273,12 @@ export const CModalContent = defineComponent({
       motionPreset,
     } = unref(useModalContext())
     const styles = useStyles()
-    const transitionId = 'modal-content'
+    const transitionId = useId('modal-content')
 
     /** Handles exit transition */
     const leave = (done: VoidFunction) => {
       const motions = useMotions()
-      const instance = motions[transitionId]
+      const instance = motions[transitionId.value]
       instance?.leave(() => {
         done()
       })
@@ -310,15 +325,15 @@ export const CModalContent = defineComponent({
                   label: 'modal__content',
                 }),
                 {
-                  ...attrs,
                   ...dialogProps.value({ emit }),
+                  ...attrs,
                 },
                 slots
               ),
               [
                 [
                   MotionDirective(dialogMotionPresets[motionPreset?.value]),
-                  transitionId,
+                  transitionId.value,
                 ],
               ]
             ),
