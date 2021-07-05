@@ -9,7 +9,7 @@ import {
   CModalOverlay,
   CModalContent,
 } from '../'
-import { CButton } from '../../c-button/src'
+import { CButton } from '../../c-button'
 import ReturnFocusOnCloseExample from '../examples/modal-return-focus.vue'
 import SimpleModalExample from '../examples/modal-simple.vue'
 
