@@ -25,6 +25,8 @@ import {
   CUnorderedList,
   CListIcon,
   CText,
+  CWrap,
+  CWrapItem,
 } from '../src'
 import { CFlex } from '@chakra-ui/vue-next'
 import { render, testA11y } from '../../test-utils/src'
@@ -396,6 +398,34 @@ describe('<CText />', () => {
         pangram—a sentence that contains all of the letters of the English alphabet.
         Owing to its existence, Chakra was created.
       </c-text>
+      `,
+    })
+
+  it('should render properly', async () => {
+    const { asFragment } = renderComponent()
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<CWrap /> & <CWrapItem />', () => {
+  const renderComponent = () =>
+    render({
+      components: { CWrap, CWrapItem, CCenter },
+      template: `
+      <c-wrap spacing="10px">
+        <c-wrap-item>
+          <c-center w="180px" h="80px" bg="red.200"> Box 1 </c-center>
+        </c-wrap-item>
+        <c-wrap-item>
+          <c-center w="180px" h="80px" bg="green.200"> Box 2 </c-center>
+        </c-wrap-item>
+        <c-wrap-item>
+          <c-center w="180px" h="80px" bg="tomato"> Box 3 </c-center>
+        </c-wrap-item>
+        <c-wrap-item>
+          <c-center w="180px" h="80px" bg="blue.200"> Box 4 </c-center>
+        </c-wrap-item>
+      </c-wrap>
       `,
     })
 

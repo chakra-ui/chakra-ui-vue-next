@@ -503,3 +503,52 @@ exports[`<CText /> should render properly 1`] = `
   </p>
 </DocumentFragment>
 `;
+
+exports[`<CWrap /> & <CWrapItem /> should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-wrap css-0"
+  >
+    <ul
+      class="chakra-wrap__list css-gbdy1k"
+    >
+      <li
+        class="chakra-wrap__listItem css-1yp4ln"
+      >
+        <div
+          class="chakra-center css-58a5xs"
+        >
+           Box 1 
+        </div>
+      </li>
+      <li
+        class="chakra-wrap__listItem css-1yp4ln"
+      >
+        <div
+          class="chakra-center css-1cf3c28"
+        >
+           Box 2 
+        </div>
+      </li>
+      <li
+        class="chakra-wrap__listItem css-1yp4ln"
+      >
+        <div
+          class="chakra-center css-1un2hvj"
+        >
+           Box 3 
+        </div>
+      </li>
+      <li
+        class="chakra-wrap__listItem css-1yp4ln"
+      >
+        <div
+          class="chakra-center css-dd3w5r"
+        >
+           Box 4 
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
