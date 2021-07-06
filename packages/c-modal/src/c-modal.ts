@@ -97,7 +97,7 @@ export interface CModalProps
    *
    * @default true
    */
-  autoFocus: boolean
+  autoFocus?: boolean
   /**
    * If `true`, the modal will return focus to the element that triggered it when it closes.
    * @default true
@@ -124,7 +124,7 @@ export interface CModalProps
   /**
    * The transition that should be used for the modal
    */
-  motionPreset: DialogMotionPreset
+  motionPreset?: DialogMotionPreset
   /**
    * Modal style config
    */
@@ -358,7 +358,7 @@ export const CModalContent: ComponentWithProps<
               ),
               [
                 [
-                  MotionDirective(dialogMotionPresets[motionPreset?.value]),
+                  MotionDirective(dialogMotionPresets[motionPreset?.value!]),
                   transitionId.value,
                 ],
               ]

@@ -20,12 +20,14 @@ let PORTAL_TARGET_ELEMENT: () => HTMLElement | null
  * Clean up to remove previous portals
  */
 afterEach(() => {
-  document.getElementById(`chakra__portal__${PORTAL_RENDER_COUNT}`)?.remove()
+  document
+    .getElementById(`chakra__default__portal__${PORTAL_RENDER_COUNT}`)
+    ?.remove()
 
   PORTAL_RENDER_COUNT++
 
   PORTAL_TARGET_ELEMENT = () =>
-    document.getElementById(`chakra__portal__${PORTAL_RENDER_COUNT}`)
+    document.getElementById(`chakra__default__portal__${PORTAL_RENDER_COUNT}`)
 })
 
 it('should not render anything if no children exist', async () => {

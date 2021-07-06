@@ -7,6 +7,7 @@ import {
   Ref,
   ToRefs,
   toRefs,
+  unref,
   VNodeProps,
   watch,
   watchEffect,
@@ -122,10 +123,12 @@ export function useModal(options: UseModalOptions) {
   const initialFocusElement = computed(() => {
     let initialFocus
     if (initialFocusRef?.value) {
-      const resolvedInitialFocusRef: MaybeElementRef =
+      let resolvedInitialFocusRef: MaybeElementRef =
         typeof initialFocusRef?.value === 'function'
-          ? initialFocusRef?.value?.()
+          ? initialFocusRef?.value()
           : initialFocusRef?.value
+
+      resolvedInitialFocusRef = unref(resolvedInitialFocusRef)
       if (typeof resolvedInitialFocusRef === 'string') {
         initialFocus = document.querySelector<FocusableElement & Element>(
           resolvedInitialFocusRef
@@ -134,6 +137,7 @@ export function useModal(options: UseModalOptions) {
         initialFocus = resolvedInitialFocusRef?.$el || resolvedInitialFocusRef
       }
     }
+    console.log({ initialFocus })
     return initialFocus
   })
 

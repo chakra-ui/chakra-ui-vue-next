@@ -6,17 +6,14 @@
     h="full"
     w="100%"
   >
-    <c-button
-      color-scheme="blue"
-      data-testid="open-modal"
-      @click="isOpen = true"
+    <c-button color-scheme="blue" data-testid="open-modal" @click="open"
       >Open modal</c-button
     >
     <c-button ref="finalFocus" data-testid="final-focus" ml="3"
       >Other button</c-button
     >
     <!-- eslint-disable-next-line -->
-    <c-modal v-model="isOpen" :initial-focus-ref="'#initialFocus'" :blockScrollOnMount="false" :final-focus-ref="() => $refs.finalFocus">
+    <c-modal v-model="isOpen" :initial-focus-ref="() => $refs.initialFocus" :blockScrollOnMount="false" :final-focus-ref="() => $refs.finalFocus">
       <c-modal-overlay />
       <c-modal-content>
         <c-modal-header>Modal header</c-modal-header>
@@ -30,7 +27,7 @@
         </c-modal-body>
 
         <c-modal-footer>
-          <c-button @click="isOpen = false" mr="3"> Close </c-button>
+          <c-button @click="close" mr="3"> Close </c-button>
           <c-button id="initialFocus" ref="initialFocus"
             >Secondary action</c-button
           >
@@ -40,9 +37,17 @@
   </chakra.div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="js">
 import { ref } from 'vue'
 const isOpen = ref(false)
 const finalFocus = ref()
 const initialFocus = ref()
+
+const open = () => {
+  isOpen.value = true
+}
+
+const close = () => {
+  isOpen.value = false
+}
 </script>
