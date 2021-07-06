@@ -23,7 +23,7 @@
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "watch": "concurrently yarn:watch:*",
+    "watch": "yarn:watch:*",
     "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
     "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
@@ -32,14 +32,14 @@
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
-    "vite": "^2.0.0-beta.44",
-    "vite-plugin-components": "^0.6.6",
-    "vue": "^3.0.5"
+    "vite": "^2.2.4",
+    "vite-plugin-components": "^0.8.3",
+    "vue": "^3.0.11"
   },
   "devDependencies": {
     "@chakra-ui/vue-next": "1.0.0-alpha.5",
-    "vite": "2.2.4",
+    "vite": "^2.3.8",
     "vite-plugin-components": "^0.8.3",
-    "vue": ">=3.0.5"
+    "vue": "^3.0.11"
   }
 }

@@ -1,5 +1,10 @@
 <template>
-  <chakra.div :min-h="['auto', 'auto', '100vh']" w="100%" pt="60px" bg="vue.50">
+  <chakra.div
+    :min-h="['auto', 'auto', '100vh']"
+    w="100%"
+    pt="60px"
+    bg="emerald.50"
+  >
     <app-header :frontmatter="frontmatter" />
     <layout-docs style="border: 1px solid green" v-if="isDocs">
       <slot />

@@ -75,7 +75,7 @@
 <script setup lang="ts">
 import { useColorModeValue } from '@chakra-ui/c-color-mode'
 import { useWindowScroll } from '@vueuse/core'
-import { onMounted, ref, watchEffect } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const headerRef = ref<{ $el: HTMLDivElement }>()
 
@@ -85,11 +85,6 @@ const { y } = useWindowScroll()
 const height = ref(0)
 onMounted(() => {
   height.value = headerRef.value?.$el.getBoundingClientRect().height ?? 0
-})
-
-watchEffect(() => {
-  console.log({ y: y.value })
-  console.log({ height: height.value })
 })
 </script>
 

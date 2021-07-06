@@ -22,9 +22,15 @@ import {
   watch,
   unref,
   withDirectives,
+  Component,
+  onErrorCaptured,
+  Ref,
 } from 'vue'
 import {
   chakra,
+  ComponentWithProps,
+  DeepPartial,
+  HTMLChakraProps,
   StylesProvider,
   SystemStyleObject,
   useMultiStyleConfig,
@@ -33,11 +39,14 @@ import {
 import { createContext, TemplateRef, useRef } from '@chakra-ui/vue-utils'
 import { CPortal } from '@chakra-ui/c-portal'
 import { FocusLockProps } from '@chakra-ui/c-focus-lock'
-import { CMotion } from '@chakra-ui/c-motion'
+import { CAnimatePresence, CMotion } from '@chakra-ui/c-motion'
 import { CCloseButton } from '@chakra-ui/c-close-button'
 import { MotionDirective, useMotions } from '@vueuse/motion'
 import { useModal, UseModalOptions, UseModalReturn } from './use-modal'
 import { DialogMotionPreset, dialogMotionPresets } from './modal-transitions'
+import { Dict } from '@chakra-ui/utils'
+import { useId } from '@chakra-ui/vue-composables'
+import { CPortalProps } from '@chakra-ui/c-portal/dist/types/portal'
 
 type ScrollBehavior = 'inside' | 'outside'
 
@@ -61,7 +70,13 @@ export interface ModalOptions
   scrollBehavior?: ScrollBehavior
 }
 
-export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
+export interface CModalProps
+  extends Omit<
+      UnwrapRef<UseModalOptions>,
+      'closeModal' | 'handleEscape' | 'modelValue'
+    >,
+    Pick<CPortalProps, 'label'>,
+    ModalOptions {
   /**
    * If `true`, the modal will display
    *
@@ -86,7 +101,7 @@ export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
    *
    * @default true
    */
-  autoFocus: boolean
+  autoFocus?: boolean
   /**
    * If `true`, the modal will return focus to the element that triggered it when it closes.
    * @default true
@@ -113,7 +128,17 @@ export interface CModalProps extends UnwrapRef<UseModalOptions>, ModalOptions {
   /**
    * The transition that should be used for the modal
    */
-  motionPreset: DialogMotionPreset
+  motionPreset?: DialogMotionPreset
+  /**
+   * Modal style config
+   */
+  styleConfig?: Dict
+
+  /**
+   * Typescript helper for parent components
+   */
+  'onUpdate:modelValue'?: any
+  onClose?: any
 }
 
 type IUseModalOptions = ToRefs<
@@ -125,6 +150,7 @@ type IUseModalOptions = ToRefs<
     | 'allowPinchZoom'
     | 'trapFocus'
     | 'autoFocus'
+    | 'modelValue'
   >
 >
 
@@ -132,6 +158,7 @@ interface CModalContext extends IUseModalOptions, UseModalReturn {
   dialogRef: (el: TemplateRef) => void
   overlayRef: (el: TemplateRef) => void
   closeModal: () => void
+  modelValue: Ref<boolean>
 }
 
 type CModalReactiveContext = ComputedRef<CModalContext>
@@ -148,61 +175,70 @@ const [
 
 export { ModalContextProvider, useModalContext }
 
-export const CModal = defineComponent({
-  name: 'CModal',
-  props: {
-    modelValue: {
-      type: Boolean as PropType<CModalProps['modelValue']>,
-      default: false,
-    },
-    id: String as PropType<CModalProps['id']>,
-    closeOnOverlayClick: {
-      type: Boolean as PropType<CModalProps['closeOnOverlayClick']>,
-      default: true,
-    },
-    closeOnEsc: {
-      type: Boolean as PropType<CModalProps['closeOnEsc']>,
-      default: true,
-    },
-    useInert: {
-      type: Boolean as PropType<CModalProps['useInert']>,
-      default: true,
-    },
-    autoFocus: {
-      type: Boolean as PropType<CModalProps['autoFocus']>,
-      default: true,
-    },
-    trapFocus: {
-      type: Boolean as PropType<CModalProps['trapFocus']>,
-      default: true,
-    },
-    initialFocusRef: [String, Object, Function] as PropType<
-      CModalProps['initialFocusRef']
-    >,
-    finalFocusRef: [String, Object, Function] as PropType<
-      CModalProps['finalFocusRef']
-    >,
-    returnFocusOnClose: {
-      type: Boolean as PropType<CModalProps['returnFocusOnClose']>,
-      default: true,
-    },
-    blockScrollOnMount: {
-      type: Boolean as PropType<CModalProps['blockScrollOnMount']>,
-      default: true,
-    },
-    allowPinchZoom: Boolean as PropType<CModalProps['allowPinchZoom']>,
-    preserveScrollBarGap: Boolean as PropType<
-      CModalProps['preserveScrollBarGap']
-    >,
-    scrollBehaviour: {
-      type: String as PropType<CModalProps['scrollBehavior']>,
-      default: 'outside',
-    },
-    motionPreset: {
-      type: String as PropType<CModalProps['motionPreset']>,
-      default: 'slideInBottom',
-    },
+export const modalProps = {
+  modelValue: {
+    type: Boolean as PropType<CModalProps['modelValue']>,
+    default: false,
   },
+  id: String as PropType<CModalProps['id']>,
+  closeOnOverlayClick: {
+    type: Boolean as PropType<CModalProps['closeOnOverlayClick']>,
+    default: true,
+  },
+  closeOnEsc: {
+    type: Boolean as PropType<CModalProps['closeOnEsc']>,
+    default: true,
+  },
+  useInert: {
+    type: Boolean as PropType<CModalProps['useInert']>,
+    default: true,
+  },
+  autoFocus: {
+    type: Boolean as PropType<CModalProps['autoFocus']>,
+    default: true,
+  },
+  trapFocus: {
+    type: Boolean as PropType<CModalProps['trapFocus']>,
+    default: true,
+  },
+  initialFocusRef: [String, Object, Function] as PropType<
+    CModalProps['initialFocusRef']
+  >,
+  finalFocusRef: [String, Object, Function] as PropType<
+    CModalProps['finalFocusRef']
+  >,
+  returnFocusOnClose: {
+    type: Boolean as PropType<CModalProps['returnFocusOnClose']>,
+    default: true,
+  },
+  blockScrollOnMount: {
+    type: Boolean as PropType<CModalProps['blockScrollOnMount']>,
+    default: true,
+  },
+  allowPinchZoom: Boolean as PropType<CModalProps['allowPinchZoom']>,
+  preserveScrollBarGap: Boolean as PropType<
+    CModalProps['preserveScrollBarGap']
+  >,
+  scrollBehaviour: {
+    type: String as PropType<CModalProps['scrollBehavior']>,
+    default: 'outside',
+  },
+  motionPreset: {
+    type: String as PropType<CModalProps['motionPreset']>,
+    default: 'scale',
+  },
+  'onUpdate:modelValue': {
+    type: Function as PropType<(arg: any) => any>,
+  },
+  label: {
+    type: String as PropType<CModalProps['label']>,
+    default: 'modal',
+  },
+}
+
+export const CModal: ComponentWithProps<CModalProps> = defineComponent({
+  name: 'CModal',
+  props: modalProps,
   emits: ['update:modelValue', 'escape', 'closeModal'],
   setup(props, { slots, attrs, emit }) {
     const closeModal = () => {
@@ -232,21 +268,32 @@ export const CModal = defineComponent({
       }))
     )
 
+    onErrorCaptured((error, target) => {
+      console.error(`ChakraModalCapturedError`, error, target)
+    })
+
     StylesProvider(styles)
     return () =>
-      h(CPortal, () => [
-        h(CMotion, { type: 'fade' }, () => [
+      h(CPortal, { label: props.label }, () => [
+        // props.modelValue && h(chakra('span'), () => slots?.default?.()),
+        h(CAnimatePresence, { type: props.motionPreset }, () => [
           props.modelValue && h(chakra('span'), () => slots?.default?.()),
         ]),
       ])
   },
 })
 
+export interface CModalContentProps extends HTMLChakraProps<'section'> {
+  role?: string
+}
+
 /**
  * ModalContent is used to group modal's content. It has all the
  * necessary `aria-*` properties to indicate that it is a modal
  */
-export const CModalContent = defineComponent({
+export const CModalContent: ComponentWithProps<
+  DeepPartial<CModalContentProps>
+> = defineComponent({
   name: 'CModalContent',
   inheritAttrs: false,
   emits: ['click', 'mousedown', 'keydown'],
@@ -258,18 +305,18 @@ export const CModalContent = defineComponent({
       motionPreset,
     } = unref(useModalContext())
     const styles = useStyles()
-    const transitionId = 'modal-content'
+    const transitionId = useId('modal-content')
 
     /** Handles exit transition */
     const leave = (done: VoidFunction) => {
       const motions = useMotions()
-      const instance = motions[transitionId]
+      const instance = motions[transitionId.value]
       instance?.leave(() => {
         done()
       })
     }
 
-    watch(modelValue, (newVal) => {
+    watch(modelValue!, (newVal) => {
       if (!newVal) {
         leave(() => null)
       }
@@ -302,7 +349,7 @@ export const CModalContent = defineComponent({
         }),
         dialogContainerProps.value({ emit }),
         () => [
-          modelValue.value &&
+          modelValue!.value &&
             withDirectives(
               h(
                 chakra('section', {
@@ -310,15 +357,15 @@ export const CModalContent = defineComponent({
                   label: 'modal__content',
                 }),
                 {
-                  ...attrs,
                   ...dialogProps.value({ emit }),
+                  ...attrs,
                 },
                 slots
               ),
               [
                 [
-                  MotionDirective(dialogMotionPresets[motionPreset?.value]),
-                  transitionId,
+                  MotionDirective(dialogMotionPresets[motionPreset?.value!]),
+                  transitionId.value,
                 ],
               ]
             ),
@@ -334,7 +381,9 @@ export const CModalContent = defineComponent({
  *
  * @see Docs https://next.chakra-ui.com/docs/overlay/modal
  */
-export const CModalOverlay = defineComponent({
+export const CModalOverlay: ComponentWithProps<
+  DeepPartial<HTMLChakraProps<'div'>>
+> = defineComponent({
   name: 'CModalOverlay',
   setup(_, { attrs }) {
     const styles = useStyles()
@@ -372,7 +421,9 @@ export const CModalOverlay = defineComponent({
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalHeader = defineComponent({
+export const CModalHeader: ComponentWithProps<
+  DeepPartial<HTMLChakraProps<'header'>>
+> = defineComponent({
   name: 'CModalHeader',
   setup(_, { attrs, slots }) {
     const { hasHeader, headerId } = unref(useModalContext())
@@ -411,7 +462,9 @@ export const CModalHeader = defineComponent({
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalBody = defineComponent({
+export const CModalBody: ComponentWithProps<
+  DeepPartial<HTMLChakraProps<'div'>>
+> = defineComponent({
   name: 'CModalBody',
   setup(_, { slots, attrs }) {
     const { bodyId, hasBody } = unref(useModalContext())
@@ -449,7 +502,9 @@ export const CModalBody = defineComponent({
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalFooter = defineComponent({
+export const CModalFooter: ComponentWithProps<
+  DeepPartial<HTMLChakraProps<'footer'>>
+> = defineComponent({
   name: 'CModalFooter',
   setup(_, { slots, attrs }) {
     const styles = useStyles()
@@ -481,7 +536,9 @@ export const CModalFooter = defineComponent({
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalCloseButton = defineComponent({
+export const CModalCloseButton: ComponentWithProps<
+  DeepPartial<HTMLChakraProps<'button'>>
+> = defineComponent({
   name: 'CModalCloseButton',
   emits: ['click'],
   setup(_, { attrs, emit }) {

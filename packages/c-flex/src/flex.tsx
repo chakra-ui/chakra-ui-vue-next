@@ -5,6 +5,8 @@ import {
   DOMElements,
   ThemingProps,
   SystemStyleObject,
+  ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 
 export interface FlexProps {
@@ -52,7 +54,7 @@ export interface FlexProps {
   shrink?: SystemStyleObject['flexShrink']
 }
 
-const CFlex = defineComponent({
+const CFlex: ComponentWithProps<DeepPartial<FlexProps>> = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -83,16 +85,11 @@ const CFlex = defineComponent({
       h: props.size,
       w: props.size,
     })
-    return () =>
-      h(
-        chakra(props.as),
-        {
-          label: 'flex',
-          __css: styles,
-          ...attrs,
-        },
-        slots
-      )
+    return () => (
+      <chakra.div as={props.as} __label="flex" __css={styles} {...attrs}>
+        {slots}
+      </chakra.div>
+    )
   },
 })
 

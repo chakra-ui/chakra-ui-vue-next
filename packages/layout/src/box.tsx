@@ -1,10 +1,12 @@
+import { computed, defineComponent, h, PropType } from 'vue'
 import {
   chakra,
   DOMElements,
   SystemStyleObject,
   HTMLChakraProps,
+  DeepPartial,
+  ComponentWithProps,
 } from '@chakra-ui/vue-system'
-import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
 
 export interface BoxProps extends HTMLChakraProps<'div'> {}
 
@@ -14,7 +16,8 @@ export interface BoxProps extends HTMLChakraProps<'div'> {}
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
-export const CBox = defineComponent({
+export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
+  name: 'CBox',
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
@@ -22,16 +25,11 @@ export const CBox = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    return () => {
-      return h(
-        chakra(props.as, {
-          label: 'box',
-          ...attrs,
-        }),
-        {},
-        slots
-      )
-    }
+    return () => (
+      <chakra.div as={props.as} __label="box" {...attrs}>
+        {slots}
+      </chakra.div>
+    )
   },
 })
 
@@ -52,7 +50,15 @@ export interface SquareProps extends Omit<BoxProps, Omitted> {
   centerContent?: boolean
 }
 
-export const CSquare = defineComponent({
+/**
+ * CSquare is the `CBox` component implemented as a square
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/box
+ */
+export const CSquare: ComponentWithProps<
+  DeepPartial<SquareProps>
+> = defineComponent({
+  name: 'CSquare',
   props: {
     size: [Object, String, Number] as PropType<SquareProps['size']>,
     centerContent: {
@@ -66,37 +72,37 @@ export const CSquare = defineComponent({
         ? { display: 'flex', alignItems: 'center', justifyContent: 'center' }
         : {}
     )
-    return () => {
-      return h(
-        CBox,
-        {
-          label: 'square',
-          boxSize: props.size,
-          __css: {
-            ...styles.value,
-            flexShrink: 0,
-            flexGrow: 0,
-          },
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      <CBox
+        __label="square"
+        boxSize={props.size}
+        __css={{
+          ...styles.value,
+          flexShrink: 0,
+          flexGrow: 0,
+        }}
+        {...attrs}
+      >
+        {slots}
+      </CBox>
+    )
   },
 })
 
-export const CCircle = defineComponent({
+/**
+ * CCircle is the `CBox` component implemented as a circle
+ *
+ * @see Docs https://vue.chakra-ui.com/docs/layout/box
+ */
+export const CCircle: ComponentWithProps<
+  DeepPartial<SquareProps>
+> = defineComponent({
+  name: 'CCircle',
   setup(_, { slots, attrs }) {
-    return () => {
-      return h(
-        CSquare,
-        {
-          label: 'circle',
-          borderRadius: '9999px',
-          ...attrs,
-        },
-        slots
-      )
-    }
+    return () => (
+      <CSquare __label="circle" borderRadius="9999px" {...attrs}>
+        {slots}
+      </CSquare>
+    )
   },
 })

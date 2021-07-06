@@ -6,10 +6,7 @@
     h="full"
     w="100%"
   >
-    <c-button
-      color-scheme="blue"
-      data-testid="open-modal"
-      @click="isOpen = true"
+    <c-button color-scheme="blue" data-testid="open-modal" @click="open"
       >Open modal</c-button
     >
     <!-- eslint-disable-next-line -->
@@ -27,7 +24,7 @@
         </c-modal-body>
 
         <c-modal-footer>
-          <c-button @click="isOpen = false" mr="3"> Close </c-button>
+          <c-button @click="close" mr="3"> Close </c-button>
           <c-button id="initialFocus" ref="initialFocus"
             >Secondary action</c-button
           >
@@ -40,4 +37,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const isOpen = ref(false)
+const open = () => {
+  isOpen.value = true
+}
+
+const close = () => {
+  isOpen.value = false
+}
 </script>

@@ -365,7 +365,7 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
 
 exports[`<CSimpleGrid /> should render properly 1`] = `
 <DocumentFragment>
-  <div
+  <ul
     class="chakra-simple-grid css-12tmpmw"
   >
     <div
@@ -393,14 +393,14 @@ exports[`<CSimpleGrid /> should render properly 1`] = `
     >
       simple 5
     </div>
-  </div>
+  </ul>
 </DocumentFragment>
 `;
 
 exports[`<CSpacer /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="css-1xhj18k"
+    class="chakra-flex css-1xhj18k"
   >
     <div
       class="chakra-box css-zzdd9b"
@@ -447,7 +447,7 @@ exports[`<CStack /> should render properly 1`] = `
     </div>
   </div>
   <div
-    class="chakra-stack-horizontal css-84zodg"
+    class="chakra-stack-horizontal css-x9juev"
   >
     <div>
       1
@@ -457,7 +457,7 @@ exports[`<CStack /> should render properly 1`] = `
     </div>
   </div>
   <div
-    class="chakra-stack-vertical css-owjkmg"
+    class="chakra-stack-vertical css-n21gh5"
   >
     <div>
       1

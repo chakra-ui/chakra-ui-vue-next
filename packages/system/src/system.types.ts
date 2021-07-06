@@ -1,10 +1,4 @@
-import {
-  Component,
-  Fragment,
-  Suspense,
-  Teleport,
-  ComponentObjectPropsOptions,
-} from 'vue'
+import { Component, Fragment, Suspense, Teleport } from 'vue'
 import {
   SystemProps,
   ResponsiveValue,
@@ -13,6 +7,23 @@ import {
 } from '@chakra-ui/styled-system'
 import { IntrinsicElementAttributes } from './dom.types'
 import { Dict } from '@chakra-ui/utils'
+import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue'
+import { DOMElements } from './system.utils'
+import { StyleResolverProps } from './chakra'
+
+/**
+ * Export component with custom type
+ *
+ * @example
+ * export const CBox = CBoxImpl as ComponentWithProps<{ hello?: string }>
+ */
+export type ComponentWithProps<P> = {
+  new (): {
+    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & P
+  }
+}
+
+export type AsPolymorphicProp = { as?: DOMElements | string | object }
 
 export type Tag =
   | string
@@ -33,7 +44,7 @@ export interface ThemingProps<ThemeComponent extends string = string> {
   styleConfig?: Dict
 }
 
-export interface ChakraProps extends SystemProps {
+export interface ChakraProps extends SystemProps, StyleResolverProps {
   /**
    * apply layer styles defined in `theme.layerStyles`
    */
@@ -61,6 +72,14 @@ export interface ChakraProps extends SystemProps {
    * Used to truncate text at a specific number of lines
    */
   noOfLines?: ResponsiveValue<number>
+  /**
+   * Internal prop used to label Chakra factory component tags
+   */
+  label?: string
+  /**
+   * Internal prop used to label JSX component tags
+   */
+  __label?: string
 }
 
 type ElementType<P = any> =

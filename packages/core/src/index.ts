@@ -5,11 +5,13 @@ import { chakra, injectGlobal, css } from '@chakra-ui/vue-system'
 import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
 import { MergedIcons, parseIcons } from './parse-icons'
+import { mode } from '@chakra-ui/vue-theme-tools'
 
 interface ExtendIconsPath {
   path: string
   viewBox?: string
 }
+
 interface IconsOptions {
   pack?: 'fa' | 'fe'
   library?: {}
@@ -60,6 +62,9 @@ const ChakraUIVuePlugin: Plugin = {
     }
 
     app.provide('$chakraIcons', mergedIcons)
+
+    // Set color mode property
+    app.config.globalProperties.$mode = mode
   },
 }
 

@@ -23,7 +23,7 @@
     "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
     "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "watch": "concurrently yarn:watch:*",
+    "watch": "yarn:watch:*",
     "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
     "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
@@ -34,10 +34,6 @@
     "@chakra-ui/vue-utils": "0.1.0-alpha.3"
   },
   "devDependencies": {
-    "vue": ">=3.0.5"
-  },
-  "peerDependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.3",
-    "vue": "^3.0.5"
+    "vue": "^3.0.11"
   }
 }
