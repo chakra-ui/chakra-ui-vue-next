@@ -1,6 +1,11 @@
 <template>
   <c-reset />
-  <router-view />
+  <router-view
+    v-motion
+    :initial="{ opacity: 0, y: 100 }"
+    :enter="{ opacity: 1, y: 0 }"
+    :leave="{ opacity: 0, y: -100 }"
+  />
 </template>
 
 <script setup lang="ts">
