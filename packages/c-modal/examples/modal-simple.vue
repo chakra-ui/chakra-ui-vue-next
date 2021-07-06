@@ -37,7 +37,7 @@
   </chakra.div>
 </template>
 
-<script setup lang="js">
+<script setup lang="ts">
 import { ref } from 'vue'
 const isOpen = ref(false)
 const finalFocus = ref()
