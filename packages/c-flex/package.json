@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-flex",
   "description": "Chakra UI Vue | C-flex component component",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -37,8 +37,8 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.3",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.3"
+    "@chakra-ui/vue-system": "0.1.0-alpha.4",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.4"
   },
   "devDependencies": {
     "csstype": "^3.0.5",

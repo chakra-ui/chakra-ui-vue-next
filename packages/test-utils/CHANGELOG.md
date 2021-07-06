@@ -1,5 +1,11 @@
 # @chakra-ui/vue-test-utils
 
+## 0.1.0-alpha.3
+
+### Patch Changes
+
+- [#76](https://github.com/chakra-ui/chakra-ui-vue-next/pull/76) [`52fa76a`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/52fa76ab461cf53ac619bcab0e591fe525a7a30b) Thanks [@codebender828](https://github.com/codebender828)! - Adds Drawer and AlertDialog components
+
 ## 0.1.0-alpha.2
 
 ### Minor Changes

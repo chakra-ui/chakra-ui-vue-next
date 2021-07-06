@@ -1,5 +1,39 @@
 # @chakra-ui/vue-next
 
+## 1.0.0-alpha.6
+
+### Patch Changes
+
+- [#72](https://github.com/chakra-ui/chakra-ui-vue-next/pull/72) [`86045b1`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/86045b1c34a21c05f93015489a461887beffee27) Thanks [@koca](https://github.com/koca)! - Migrated layout packages to TSX \nMigrate test suite to esbuild-jest runner. \nAdded intellisense support for Chakra UI Vue components
+
+* [#76](https://github.com/chakra-ui/chakra-ui-vue-next/pull/76) [`52fa76a`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/52fa76ab461cf53ac619bcab0e591fe525a7a30b) Thanks [@codebender828](https://github.com/codebender828)! - Adds Drawer and AlertDialog components
+
+* Updated dependencies [[`86045b1`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/86045b1c34a21c05f93015489a461887beffee27), [`52fa76a`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/52fa76ab461cf53ac619bcab0e591fe525a7a30b)]:
+  - @chakra-ui/c-accordion@0.1.0-alpha.4
+  - @chakra-ui/c-alert@1.0.0-alpha.4
+  - @chakra-ui/c-button@1.0.0-alpha.4
+  - @chakra-ui/c-close-button@0.1.0-alpha.4
+  - @chakra-ui/c-code@1.0.0-alpha.4
+  - @chakra-ui/c-color-mode@0.1.0-alpha.3
+  - @chakra-ui/c-flex@1.0.0-alpha.4
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.2
+  - @chakra-ui/c-icon@1.0.0-alpha.4
+  - @chakra-ui/c-modal@1.1.0-alpha.3
+  - @chakra-ui/c-motion@0.1.0-alpha.3
+  - @chakra-ui/c-popper@0.1.0-alpha.4
+  - @chakra-ui/c-portal@0.1.0-alpha.4
+  - @chakra-ui/c-reset@1.0.0-alpha.4
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.2
+  - @chakra-ui/c-spinner@1.0.0-alpha.4
+  - @chakra-ui/c-theme-provider@1.0.0-alpha.4
+  - @chakra-ui/c-visually-hidden@1.0.0-alpha.4
+  - @chakra-ui/vue-layout@0.1.0-alpha.5
+  - @chakra-ui/vue-system@0.1.0-alpha.4
+  - @chakra-ui/vue-theme@0.1.0-alpha.4
+  - @chakra-ui/vue-theme-tools@0.1.0-alpha.4
+  - @chakra-ui/vue-a11y@0.1.0-alpha.3
+  - @chakra-ui/vue-composables@0.1.0-alpha.3
+
 ## 1.0.0-alpha.5
 
 ### Minor Changes
