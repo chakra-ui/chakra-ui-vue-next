@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-07-05T11:14:26.922Z
+ * This file was generated on 2021-07-06T03:35:25.968Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'
@@ -25,6 +25,12 @@ type JsxComponentCustomProps = {
   vShow?: boolean
   vHtml?: JsxNode
   vSlots?: SlotDirective
+  'v-model'?: unknown
+  'v-models'?: unknown[]
+  'v-custom'?: unknown[]
+  'v-show'?: boolean
+  'v-html'?: JsxNode
+  'v-slots'?: SlotDirective
 } & Omit<HTMLAttributes, 'innerHTML'> & {
     innerHTML?: JsxNode
   }
