@@ -22,7 +22,9 @@ export interface DividerProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/divider
  */
-export const CDivider: ComponentWithProps<DeepPartial<DividerProps>> = defineComponent({
+export const CDivider: ComponentWithProps<
+  DeepPartial<DividerProps>
+> = defineComponent({
   name: 'CDivider',
   props: {
     orientation: {
@@ -73,15 +75,15 @@ export const CDivider: ComponentWithProps<DeepPartial<DividerProps>> = defineCom
 
     return () => (
       <chakra.hr
-      aria-orientation={props.orientation}
-      __css={{
-        ...stylesRest,
-        border: 0,
-        borderColor,
-        borderStyle,
-        ...dividerStyle.value
-      }}
-      __label="divider"
+        aria-orientation={props.orientation}
+        __css={{
+          ...stylesRest,
+          border: 0,
+          borderColor,
+          borderStyle,
+          ...dividerStyle.value,
+        }}
+        __label="divider"
       >
         {slots.default?.()}
       </chakra.hr>

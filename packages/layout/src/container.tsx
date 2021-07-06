@@ -6,7 +6,7 @@ import {
   useStyleConfig,
   HTMLChakraProps,
   DeepPartial,
-  ComponentWithProps
+  ComponentWithProps,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { vueThemingProps } from '@chakra-ui/vue-utils'
@@ -29,7 +29,9 @@ export interface ContainerProps
  *
  * It also sets a default max-width of `60ch` (60 characters).
  */
-export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> = defineComponent({
+export const CContainer: ComponentWithProps<
+  DeepPartial<ContainerProps>
+> = defineComponent({
   name: 'CContainer',
   props: {
     as: {
@@ -61,7 +63,7 @@ export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> = defin
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          })
+          }),
         }}
         {...attrs}
       >

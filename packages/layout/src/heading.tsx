@@ -15,7 +15,9 @@ export interface HeadingProps
   extends HTMLChakraProps<'h2'>,
     ThemingProps<'Heading'> {}
 
-export const CHeading: ComponentWithProps<DeepPartial<HeadingProps>> = defineComponent({
+export const CHeading: ComponentWithProps<
+  DeepPartial<HeadingProps>
+> = defineComponent({
   name: 'CHeading',
   props: {
     as: {
@@ -36,7 +38,12 @@ export const CHeading: ComponentWithProps<DeepPartial<HeadingProps>> = defineCom
     const styles = useStyleConfig('Heading', themingProps.value)
 
     return () => (
-      <chakra.h2 as={props.as} __label="heading" __css={styles.value} {...attrs}>
+      <chakra.h2
+        as={props.as}
+        __label="heading"
+        __css={styles.value}
+        {...attrs}
+      >
         {slots}
       </chakra.h2>
     )

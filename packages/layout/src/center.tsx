@@ -33,7 +33,7 @@ export const CCenter: ComponentWithProps<
           __css={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
           }}
           {...props}
           {...attrs}

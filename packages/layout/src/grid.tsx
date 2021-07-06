@@ -122,7 +122,9 @@ export interface GridItemProps extends BoxProps {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/grid
  */
-export const CGrid: ComponentWithProps<DeepPartial<GridProps>> = defineComponent({
+export const CGrid: ComponentWithProps<
+  DeepPartial<GridProps>
+> = defineComponent({
   name: 'CGrid',
   props: {
     as: {
@@ -183,7 +185,9 @@ function spanFn(span?: ResponsiveValue<number | 'auto'>) {
   )
 }
 
-export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> = defineComponent({
+export const CGridItem: ComponentWithProps<
+  DeepPartial<GridItemProps>
+> = defineComponent({
   name: 'CGridItem',
   props: {
     as: {
@@ -212,7 +216,12 @@ export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> = defineC
     )
 
     return () => (
-      <chakra.div as={props.as} __label="grid__item" __css={styles.value} {...attrs}>
+      <chakra.div
+        as={props.as}
+        __label="grid__item"
+        __css={styles.value}
+        {...attrs}
+      >
         {slots}
       </chakra.div>
     )

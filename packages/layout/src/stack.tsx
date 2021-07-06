@@ -8,7 +8,13 @@ import {
   Fragment,
   createVNode,
 } from 'vue'
-import { chakra, DOMElements, DeepPartial, HTMLChakraProps, ComponentWithProps } from '@chakra-ui/vue-system'
+import {
+  chakra,
+  DOMElements,
+  DeepPartial,
+  HTMLChakraProps,
+  ComponentWithProps,
+} from '@chakra-ui/vue-system'
 import {
   getDividerStyles,
   getStackStyles,
@@ -58,16 +64,25 @@ interface StackOptions {
   isInline?: boolean
 }
 
-
 export interface StackDividerProps extends HTMLChakraProps<'div'> {}
 
-export const CStackDivider: ComponentWithProps<DeepPartial<StackDividerProps>> = defineComponent({
+export const CStackDivider: ComponentWithProps<
+  DeepPartial<StackDividerProps>
+> = defineComponent({
   name: 'CStackDivider',
   inheritAttrs: false,
   setup(_, { attrs, slots }) {
     return () => {
       return (
-        <chakra.div __label="stack__divider" borderWidth={0} alignSelf={'stretch'} borderColor="inherit" width="auto" height="auto" {...attrs}>
+        <chakra.div
+          __label="stack__divider"
+          borderWidth={0}
+          alignSelf={'stretch'}
+          borderColor="inherit"
+          width="auto"
+          height="auto"
+          {...attrs}
+        >
           {slots?.default?.()}
         </chakra.div>
       )
@@ -75,12 +90,20 @@ export const CStackDivider: ComponentWithProps<DeepPartial<StackDividerProps>> =
   },
 })
 
-export const CStackItem: ComponentWithProps<DeepPartial<HTMLChakraProps<'div'>>> = defineComponent({
+export const CStackItem: ComponentWithProps<
+  DeepPartial<HTMLChakraProps<'div'>>
+> = defineComponent({
   name: 'CStackItem',
   setup(_, { attrs, slots }) {
     return () => {
       return (
-        <chakra.div __label="stack__item" display="inline-block" flex="0 0 auto" minWidth="0" {...attrs}>
+        <chakra.div
+          __label="stack__item"
+          display="inline-block"
+          flex="0 0 auto"
+          minWidth="0"
+          {...attrs}
+        >
           {slots?.default?.()}
         </chakra.div>
       )
@@ -121,7 +144,9 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack: ComponentWithProps<DeepPartial<StackProps>> = defineComponent({
+export const CStack: ComponentWithProps<
+  DeepPartial<StackProps>
+> = defineComponent({
   name: 'CStack',
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -179,19 +204,27 @@ export const CStack: ComponentWithProps<DeepPartial<StackProps>> = defineCompone
         </chakra.div>
       )
     }
-  }
+  },
 })
 
 /**
  * A view that arranges its children in a horizontal line.
  */
-export const CHStack: ComponentWithProps<DeepPartial<StackProps>> = defineComponent({
+export const CHStack: ComponentWithProps<
+  DeepPartial<StackProps>
+> = defineComponent({
   name: 'CHStack',
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => {
       return (
-        <CStack __label="stack-horizontal" align="center" {...props} {...attrs } direction="row">
+        <CStack
+          __label="stack-horizontal"
+          align="center"
+          {...props}
+          {...attrs}
+          direction="row"
+        >
           {slots}
         </CStack>
       )
@@ -202,12 +235,20 @@ export const CHStack: ComponentWithProps<DeepPartial<StackProps>> = defineCompon
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack: ComponentWithProps<DeepPartial<StackProps>> = defineComponent({
+export const CVStack: ComponentWithProps<
+  DeepPartial<StackProps>
+> = defineComponent({
   name: 'CVStack',
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
-      <CStack __label="stack-vertical" align={'center'} {...props} {...attrs} direction="column">
+      <CStack
+        __label="stack-vertical"
+        align={'center'}
+        {...props}
+        {...attrs}
+        direction="column"
+      >
         {slots}
       </CStack>
     )

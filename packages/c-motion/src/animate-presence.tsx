@@ -8,7 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-motion/src/c-motion/c-animate-presence.ts
  */
 
- import {
+import {
   h,
   Transition,
   defineComponent,
@@ -40,7 +40,7 @@ export const CAnimatePresence = defineComponent({
       type: String as PropType<CMotionVariant>,
       default: 'fade',
     },
-    variant: Object as PropType<MotionVariants>
+    variant: Object as PropType<MotionVariants>,
   },
   emits: ['leave', 'beforeLeave'],
   setup(props, { slots, attrs, emit }) {
@@ -51,14 +51,16 @@ export const CAnimatePresence = defineComponent({
      * If user provides the "variant" prop, we prefer it over the type prop.
      */
 
-     warn({
-      condition: (!props.variant && !TransitionVariants[props.type]),
+    warn({
+      condition: !props.variant && !TransitionVariants[props.type],
       message:
         'The animate presence component expects either the "variant" or a value for "type" that is an existing preset' +
         'Please check to make sure that these values are correct.',
     })
 
-    const variant = computed(() => props.variant || TransitionVariants[props.type])
+    const variant = computed(
+      () => props.variant || TransitionVariants[props.type]
+    )
 
     watch(
       targetNode,
@@ -75,7 +77,7 @@ export const CAnimatePresence = defineComponent({
     const onLeave = (el: Element, done?: VoidFunction) => {
       motionInstance.value.leave(done)
     }
-    
+
     return () => {
       let children: any = undefined
 
@@ -88,7 +90,13 @@ export const CAnimatePresence = defineComponent({
         : vNodes
 
       return (
-        <Transition css={false} mode="out-in" onLeave={onLeave} onBeforeLeave={onLeave} {...attrs}>
+        <Transition
+          css={false}
+          mode="out-in"
+          onLeave={onLeave}
+          onBeforeLeave={onLeave}
+          {...attrs}
+        >
           {() => [children]}
         </Transition>
       )

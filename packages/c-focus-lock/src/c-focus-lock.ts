@@ -15,12 +15,20 @@
  */
 
 import { defineComponent, PropType, computed, cloneVNode, VNode } from 'vue'
-import { focus, FocusableElement, warn, __DEV__ } from '@chakra-ui/utils'
+import {
+  focus,
+  FocusableElement,
+  isFunction,
+  warn,
+  __DEV__,
+} from '@chakra-ui/utils'
 import { useFocusLock } from './use-focus-lock'
 import type { UseFocusLockOptions } from './use-focus-lock'
 import type { FocusTarget } from 'focus-trap'
 
-type RefProp = () => HTMLElement | string | object | undefined
+type RefProp =
+  | (() => HTMLElement | string | object | undefined | unknown)
+  | string
 
 export interface FocusLockProps extends UseFocusLockOptions {
   /**
@@ -73,7 +81,9 @@ export const CFocusLock = defineComponent({
     const finalFocusElement = computed(() => {
       let finalFocus
       if (props.finalFocusRef) {
-        const finalFocusRef = props.finalFocusRef?.() || props.finalFocusRef
+        const finalFocusRef = isFunction(props.finalFocusRef)
+          ? props.finalFocusRef?.()
+          : props.finalFocusRef
         if (typeof finalFocusRef === 'string') {
           finalFocus = document.querySelector<FocusableElement & Element>(
             finalFocusRef

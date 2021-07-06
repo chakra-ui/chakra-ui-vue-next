@@ -6,7 +6,7 @@ import {
   DOMElements,
   ThemingProps,
   useStyleConfig,
-  DeepPartial
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 
@@ -31,7 +31,9 @@ export interface LinkProps extends HTMLChakraProps<'a'>, ThemingProps<'Link'> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/link
  */
-export const CLink: ComponentWithProps<DeepPartial<LinkProps>> = defineComponent({
+export const CLink: ComponentWithProps<
+  DeepPartial<LinkProps>
+> = defineComponent({
   name: 'CLink',
   props: {
     as: {

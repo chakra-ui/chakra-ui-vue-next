@@ -18,7 +18,9 @@ const render = (props: any = {}) => {
         <CAlertDialogOverlay />
         <CAlertDialogContent data-testid="dialog">
           <CAlertDialogCloseButton data-testid="close-button" />
-          <CAlertDialogHeader data-testid="header">Modal header</CAlertDialogHeader>
+          <CAlertDialogHeader data-testid="header">
+            Modal header
+          </CAlertDialogHeader>
           <CAlertDialogBody data-testid="body">Modal body</CAlertDialogBody>
           <CAlertDialogFooter>Modal footer</CAlertDialogFooter>
         </CAlertDialogContent>
@@ -67,7 +69,9 @@ describe('AlertDialog', () => {
           <CAlertDialogOverlay />
           <CAlertDialogContent data-testid="dialog">
             <CAlertDialogCloseButton data-testid="close-button" />
-            <CAlertDialogHeader data-testid="header">Modal header</CAlertDialogHeader>
+            <CAlertDialogHeader data-testid="header">
+              Modal header
+            </CAlertDialogHeader>
             <CAlertDialogBody data-testid="body">Modal body</CAlertDialogBody>
             <CAlertDialogFooter>Modal footer</CAlertDialogFooter>
           </CAlertDialogContent>
@@ -91,7 +95,9 @@ describe('AlertDialog', () => {
           <CAlertDialogOverlay />
           <CAlertDialogContent data-testid="dialog">
             <CAlertDialogCloseButton data-testid="close-button" />
-            <CAlertDialogHeader data-testid="header">Modal header</CAlertDialogHeader>
+            <CAlertDialogHeader data-testid="header">
+              Modal header
+            </CAlertDialogHeader>
             <CAlertDialogBody data-testid="body">Modal body</CAlertDialogBody>
             <CAlertDialogFooter>
               <CButton size="sm">Action 1</CButton>
