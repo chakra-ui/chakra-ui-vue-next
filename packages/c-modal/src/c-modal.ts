@@ -24,6 +24,7 @@ import {
   withDirectives,
   Component,
   onErrorCaptured,
+  Ref,
 } from 'vue'
 import {
   chakra,
@@ -70,7 +71,10 @@ export interface ModalOptions
 }
 
 export interface CModalProps
-  extends Omit<UnwrapRef<UseModalOptions>, 'closeModal' | 'handleEscape'>,
+  extends Omit<
+      UnwrapRef<UseModalOptions>,
+      'closeModal' | 'handleEscape' | 'modelValue'
+    >,
     Pick<CPortalProps, 'label'>,
     ModalOptions {
   /**
@@ -146,6 +150,7 @@ type IUseModalOptions = ToRefs<
     | 'allowPinchZoom'
     | 'trapFocus'
     | 'autoFocus'
+    | 'modelValue'
   >
 >
 
@@ -153,6 +158,7 @@ interface CModalContext extends IUseModalOptions, UseModalReturn {
   dialogRef: (el: TemplateRef) => void
   overlayRef: (el: TemplateRef) => void
   closeModal: () => void
+  modelValue: Ref<boolean>
 }
 
 type CModalReactiveContext = ComputedRef<CModalContext>
@@ -310,7 +316,7 @@ export const CModalContent: ComponentWithProps<
       })
     }
 
-    watch(modelValue, (newVal) => {
+    watch(modelValue!, (newVal) => {
       if (!newVal) {
         leave(() => null)
       }
@@ -343,7 +349,7 @@ export const CModalContent: ComponentWithProps<
         }),
         dialogContainerProps.value({ emit }),
         () => [
-          modelValue.value &&
+          modelValue!.value &&
             withDirectives(
               h(
                 chakra('section', {

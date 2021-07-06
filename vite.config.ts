@@ -21,6 +21,7 @@ const resolver = {
   CModalBody: 'c-modal',
   CModalFooter: 'c-modal',
   CModalCloseButton: 'c-modal',
+  CDrawer: 'c-modal',
   CDrawerOverlay: 'c-modal',
   CDrawerFocusScope: 'c-modal',
   CDrawerContent: 'c-modal',
@@ -116,7 +117,9 @@ export default defineConfig({
                   importName: name,
                   path: path.join(
                     path.resolve(__dirname, './packages'),
-                    `${resolver[name] || kebabCase(name)}/src`
+                    !(process.env.NODE_ENV === 'production')
+                      ? `${resolver[name] || kebabCase(name)}/src`
+                      : '@chakra-ui/vue-next'
                   ),
                 }
             },

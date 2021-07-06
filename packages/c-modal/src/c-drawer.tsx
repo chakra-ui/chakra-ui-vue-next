@@ -8,6 +8,8 @@ import {
   withDirectives,
   watch,
   ref,
+  Ref,
+  watchEffect,
 } from 'vue'
 import {
   SlideDirection,
@@ -77,18 +79,11 @@ export const CDrawer: ComponentWithProps<
   },
   emits: ['update:modelValue', 'close', 'escape'],
   setup(props, { slots, attrs, emit }) {
+    const isOpen = computed(() => props.modelValue!)
+
     const handleUpdateModelValue = (val: boolean) => {
       emit('update:modelValue', val)
     }
-    const closeDrawer = () => {
-      emit('update:modelValue', false)
-    }
-
-    const isOpen = ref(props.modelValue)
-
-    watch(isOpen, (newVal) => {
-      emit('update:modelValue', newVal)
-    })
 
     const context: CDrawerContext = computed(() => ({
       placement: props.placement,
@@ -99,18 +94,23 @@ export const CDrawer: ComponentWithProps<
     const drawerStyleConfig = theme.components?.Drawer
 
     CDrawerContextProvider(context)
-    return () => (
-      <CModal
-        v-model={isOpen.value}
-        onClose={closeDrawer}
-        {...props}
-        {...attrs}
-        label='drawer'
-        styleConfig={drawerStyleConfig}
-      >
-        {slots}
-      </CModal>
-    )
+
+    return () => {
+      const { modelValue, "onUpdate:modelValue": updateModelValue, ...rest } = props
+      return (
+        <CModal
+          {...rest}
+          {...attrs}
+          modelValue={isOpen.value}
+          /* eslint-disable-next-line */
+          onUpdate:modelValue={handleUpdateModelValue}
+          label='drawer'
+          styleConfig={drawerStyleConfig}
+        >
+          {slots}
+        </CModal>
+      )
+    }
   },
 })
 
@@ -166,7 +166,7 @@ export const CDrawerContent: ComponentWithProps<
       })
     }
 
-    watch(modelValue, (newVal) => {
+    watch(modelValue!, (newVal) => {
       if (!newVal) {
         leave(() => null)
       }
@@ -183,14 +183,13 @@ export const CDrawerContent: ComponentWithProps<
 
     const transitionVariant = computed(() => placementToVariant(placement!))
 
-    return () => (
-      <chakra.div
-        {...containerProps.value}
-        __label="modal__content-container"
-        __css={dialogContainerStyles.value}
-      >
-        {modelValue.value &&
-          (() =>
+    return () => {
+        return <chakra.div
+          {...containerProps.value}
+          __label="modal__content-container"
+          __css={dialogContainerStyles.value}
+        >
+          {modelValue!.value &&
             withDirectives(
               <chakra.section
                 {...dialogProps.value}
@@ -198,7 +197,7 @@ export const CDrawerContent: ComponentWithProps<
                 __css={dialogStyles.value}
                 {...attrs}
               >
-                {() => slots?.default?.()}
+                {slots}
               </chakra.section>,
               [
                 [
@@ -206,9 +205,9 @@ export const CDrawerContent: ComponentWithProps<
                   transitionId.value,
                 ],
               ]
-            ))}
-      </chakra.div>
-    )
+            )}
+        </chakra.div>
+    }
   },
 })
 

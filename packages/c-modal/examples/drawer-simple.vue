@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { CDrawer } from '../src/c-drawer'
 import { useToggle } from '@vueuse/core'
 
 const [isOpen, toggleOpen] = useToggle(false)

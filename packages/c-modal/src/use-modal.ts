@@ -137,7 +137,7 @@ export function useModal(options: UseModalOptions) {
         initialFocus = resolvedInitialFocusRef?.$el || resolvedInitialFocusRef
       }
     }
-    console.log({ initialFocus })
+
     return initialFocus
   })
 

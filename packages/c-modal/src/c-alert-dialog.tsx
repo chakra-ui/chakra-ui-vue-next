@@ -1,5 +1,5 @@
 import { ComponentWithProps, DeepPartial } from '@chakra-ui/vue-system'
-import { defineComponent, PropType, h, ref, watch } from 'vue'
+import { defineComponent, PropType, h, computed } from 'vue'
 import {
   CModal,
   CModalContent,
@@ -23,37 +23,34 @@ export const CAlertDialog: ComponentWithProps<
   name: 'CAlertDialog',
   props: {
     ...modalProps,
-    leastDestructiveRef: [String, Object] as PropType<
+    leastDestructiveRef: [Function, String] as PropType<
       CModalProps['initialFocusRef']
     >,
   },
   emits: ['update:modelValue', 'close', 'escape'],
   setup(props, { attrs, slots, emit }) {
+    const isOpen = computed(() => props.modelValue!)
+
     const handleUpdateModelValue = (val: boolean) => {
       emit('update:modelValue', val)
     }
-    const closeDrawer = () => {
-      emit('update:modelValue', false)
+
+    return () => {
+      const { modelValue, "onUpdate:modelValue": updateModelValue, ...rest } = props
+      return (
+        <CModal
+          {...rest}
+          {...attrs}
+          modelValue={isOpen.value}
+          /* eslint-disable-next-line */
+          onUpdate:modelValue={handleUpdateModelValue}
+          label="alertdialog"
+          initialFocusRef={props.leastDestructiveRef}
+        >
+          {slots}
+        </CModal>
+      )
     }
-
-    const isOpen = ref(props.modelValue)
-
-    watch(isOpen, (newVal) => {
-      emit('update:modelValue', newVal)
-    })
-
-    return () => (
-      <CModal
-        {...props}
-        {...attrs}
-        label='alertdialog'
-        v-model={isOpen.value}
-        onClose={closeDrawer}
-        initialFocusRef={props.leastDestructiveRef}
-      >
-        {slots}
-      </CModal>
-    )
   },
 })
 
