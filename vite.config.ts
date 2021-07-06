@@ -12,6 +12,8 @@ const resolver = {
   CAlertIcon: 'c-alert',
   CIconButton: 'c-button',
   CButtonGroup: 'c-button',
+  CMotion: 'c-motion',
+  CAnimatePresence: 'c-motion',
   CModalOverlay: 'c-modal',
   CModalFocusScope: 'c-modal',
   CModalContent: 'c-modal',
@@ -19,6 +21,22 @@ const resolver = {
   CModalBody: 'c-modal',
   CModalFooter: 'c-modal',
   CModalCloseButton: 'c-modal',
+  CDrawer: 'c-modal',
+  CDrawerOverlay: 'c-modal',
+  CDrawerFocusScope: 'c-modal',
+  CDrawerContent: 'c-modal',
+  CDrawerHeader: 'c-modal',
+  CDrawerBody: 'c-modal',
+  CDrawerFooter: 'c-modal',
+  CDrawerCloseButton: 'c-modal',
+  CAlertDialog: 'c-modal',
+  CAlertDialogOverlay: 'c-modal',
+  CAlertDialogFocusScope: 'c-modal',
+  CAlertDialogContent: 'c-modal',
+  CAlertDialogHeader: 'c-modal',
+  CAlertDialogBody: 'c-modal',
+  CAlertDialogFooter: 'c-modal',
+  CAlertDialogCloseButton: 'c-modal',
   CAspectRatio: 'layout',
   CBadge: 'layout',
   CBox: 'layout',
@@ -99,7 +117,9 @@ export default defineConfig({
                   importName: name,
                   path: path.join(
                     path.resolve(__dirname, './packages'),
-                    `${resolver[name] || kebabCase(name)}/src`
+                    !(process.env.NODE_ENV === 'production')
+                      ? `${resolver[name] || kebabCase(name)}/src`
+                      : '@chakra-ui/vue-next'
                   ),
                 }
             },

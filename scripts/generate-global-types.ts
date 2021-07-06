@@ -56,12 +56,18 @@ async function generateComponents() {
    }
    
    type JsxComponentCustomProps = {
-     vModel?: unknown
-     vModels?: unknown[]
-     vCustom?: unknown[]
-     vShow?: boolean
-     vHtml?: JsxNode
-     vSlots?: SlotDirective
+      vModel?: unknown
+      vModels?: unknown[]
+      vCustom?: unknown[]
+      vShow?: boolean
+      vHtml?: JsxNode
+      vSlots?: SlotDirective
+      'v-model'?: unknown
+      'v-models'?: unknown[]
+      'v-custom'?: unknown[]
+      'v-show'?: boolean
+      'v-html'?: JsxNode
+      'v-slots'?: SlotDirective
    } & Omit<HTMLAttributes, 'innerHTML'> & {
        innerHTML?: JsxNode
      }

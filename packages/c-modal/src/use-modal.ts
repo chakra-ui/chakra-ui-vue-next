@@ -7,15 +7,21 @@ import {
   Ref,
   ToRefs,
   toRefs,
+  unref,
   VNodeProps,
   watch,
   watchEffect,
 } from 'vue'
 import { useIds } from '@chakra-ui/vue-composables'
 import { FocusLockProps, useFocusLock } from '@chakra-ui/c-focus-lock'
-import { MaybeElementRef, useRef, getSelector } from '@chakra-ui/vue-utils'
+import {
+  MaybeElementRef,
+  useRef,
+  getSelector,
+  TemplateRef,
+} from '@chakra-ui/vue-utils'
 import { hideOthers, Undo } from '@chakra-ui/vue-a11y'
-import { focus, FocusableElement } from '@chakra-ui/utils'
+import { focus, FocusableElement, isFunction } from '@chakra-ui/utils'
 import { useBodyScrollLock } from '@chakra-ui/c-scroll-lock'
 
 export interface UseModalOptions {
@@ -70,6 +76,10 @@ export interface UseModalOptions {
   handleEscape: (event: KeyboardEvent) => void
 }
 
+export interface MergedVNodeProps extends VNodeProps {
+  ref: TemplateRef | ((el: TemplateRef | null) => void)
+}
+
 /**
  * Modal hook to manage accessibility and state for the modal
  * dialog components
@@ -94,8 +104,11 @@ export function useModal(options: UseModalOptions) {
   const finalFocusElement = computed(() => {
     let finalFocus
     if (finalFocusRef?.value) {
-      const resolvedFinalFocusRef: MaybeElementRef =
-        finalFocusRef.value?.() || finalFocusRef.value
+      const resolvedFinalFocusRef: MaybeElementRef = isFunction(
+        finalFocusRef.value
+      )
+        ? finalFocusRef.value?.()
+        : finalFocusRef.value
       if (typeof resolvedFinalFocusRef === 'string') {
         finalFocus = document.querySelector<FocusableElement & Element>(
           resolvedFinalFocusRef
@@ -110,10 +123,12 @@ export function useModal(options: UseModalOptions) {
   const initialFocusElement = computed(() => {
     let initialFocus
     if (initialFocusRef?.value) {
-      const resolvedInitialFocusRef: MaybeElementRef =
+      let resolvedInitialFocusRef: MaybeElementRef =
         typeof initialFocusRef?.value === 'function'
-          ? initialFocusRef?.value?.()
+          ? initialFocusRef?.value()
           : initialFocusRef?.value
+
+      resolvedInitialFocusRef = unref(resolvedInitialFocusRef)
       if (typeof resolvedInitialFocusRef === 'string') {
         initialFocus = document.querySelector<FocusableElement & Element>(
           resolvedInitialFocusRef
@@ -122,6 +137,7 @@ export function useModal(options: UseModalOptions) {
         initialFocus = resolvedInitialFocusRef?.$el || resolvedInitialFocusRef
       }
     }
+
     return initialFocus
   })
 
@@ -217,10 +233,10 @@ export function useModal(options: UseModalOptions) {
   /**
    * Dialog props
    */
-  const dialogProps = computed<(context: any) => VNodeProps>(
+  const dialogProps = computed<(context: any) => MergedVNodeProps>(
     () => ({ emit }) => ({
       role: 'dialog',
-      ref: dialogRef as any,
+      ref: dialogRef,
       id: dialogId.value,
       tabIndex: -1,
       'aria-modal': true,
@@ -256,7 +272,7 @@ export function useModal(options: UseModalOptions) {
   }
 
   /** Dialog container props */
-  const dialogContainerProps = computed<(context: any) => VNodeProps>(
+  const dialogContainerProps = computed<(context: any) => MergedVNodeProps>(
     () => ({ emit }) => ({
       ref: overlayRef as any,
       onClick: (event: MouseEvent) => {

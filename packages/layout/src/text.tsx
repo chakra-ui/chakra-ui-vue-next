@@ -35,7 +35,9 @@ export interface TextProps extends HTMLChakraProps<'p'>, ThemingProps<'Text'> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/typography/text
  */
-export const CText: ComponentWithProps<DeepPartial<TextProps>> = defineComponent({
+export const CText: ComponentWithProps<
+  DeepPartial<TextProps>
+> = defineComponent({
   name: 'CText',
   props: {
     as: {
@@ -68,7 +70,12 @@ export const CText: ComponentWithProps<DeepPartial<TextProps>> = defineComponent
 
     return () => {
       return (
-        <chakra.p __label="text" {...aliasedProps.value} __css={styles.value} {...attrs}>
+        <chakra.p
+          __label="text"
+          {...aliasedProps.value}
+          __css={styles.value}
+          {...attrs}
+        >
           {slots}
         </chakra.p>
       )

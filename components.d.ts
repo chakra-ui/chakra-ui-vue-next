@@ -1,12 +1,12 @@
 /**
- * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.4 auto-imported
+ * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.5 auto-imported
  * components using `vite-plugin-components`
  *
  * @see: https://github.com/antfu/vite-plugin-components#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-07-01T09:59:46.739Z
+ * This file was generated on 2021-07-06T07:42:41.009Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'
@@ -25,6 +25,12 @@ type JsxComponentCustomProps = {
   vShow?: boolean
   vHtml?: JsxNode
   vSlots?: SlotDirective
+  'v-model'?: unknown
+  'v-models'?: unknown[]
+  'v-custom'?: unknown[]
+  'v-show'?: boolean
+  'v-html'?: JsxNode
+  'v-slots'?: SlotDirective
 } & Omit<HTMLAttributes, 'innerHTML'> & {
     innerHTML?: JsxNode
   }
@@ -75,7 +81,22 @@ declare module 'vue' {
     CModalBody: typeof import('@chakra-ui/vue-next')['CModalBody']
     CModalFooter: typeof import('@chakra-ui/vue-next')['CModalFooter']
     CModalCloseButton: typeof import('@chakra-ui/vue-next')['CModalCloseButton']
+    CDrawer: typeof import('@chakra-ui/vue-next')['CDrawer']
+    CDrawerContent: typeof import('@chakra-ui/vue-next')['CDrawerContent']
+    CDrawerBody: typeof import('@chakra-ui/vue-next')['CDrawerBody']
+    CDrawerCloseButton: typeof import('@chakra-ui/vue-next')['CDrawerCloseButton']
+    CDrawerFooter: typeof import('@chakra-ui/vue-next')['CDrawerFooter']
+    CDrawerHeader: typeof import('@chakra-ui/vue-next')['CDrawerHeader']
+    CDrawerOverlay: typeof import('@chakra-ui/vue-next')['CDrawerOverlay']
+    CAlertDialog: typeof import('@chakra-ui/vue-next')['CAlertDialog']
+    CAlertDialogContent: typeof import('@chakra-ui/vue-next')['CAlertDialogContent']
+    CAlertDialogBody: typeof import('@chakra-ui/vue-next')['CAlertDialogBody']
+    CAlertDialogCloseButton: typeof import('@chakra-ui/vue-next')['CAlertDialogCloseButton']
+    CAlertDialogFooter: typeof import('@chakra-ui/vue-next')['CAlertDialogFooter']
+    CAlertDialogHeader: typeof import('@chakra-ui/vue-next')['CAlertDialogHeader']
+    CAlertDialogOverlay: typeof import('@chakra-ui/vue-next')['CAlertDialogOverlay']
     CMotion: typeof import('@chakra-ui/vue-next')['CMotion']
+    CAnimatePresence: typeof import('@chakra-ui/vue-next')['CAnimatePresence']
     CPortal: typeof import('@chakra-ui/vue-next')['CPortal']
     CScrollLock: typeof import('@chakra-ui/vue-next')['CScrollLock']
     CVisuallyHidden: typeof import('@chakra-ui/vue-next')['CVisuallyHidden']

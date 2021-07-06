@@ -9,6 +9,24 @@ export type DialogMotionPreset =
 
 export type DialogMotionPresets = Record<DialogMotionPreset, MotionVariants>
 
+export const TransitionEasings = {
+  ease: [0.25, 0.1, 0.25, 1],
+  easeIn: [0.4, 0, 1, 1],
+  easeOut: [0, 0, 0.2, 1],
+  easeInOut: [0.4, 0, 0.2, 1],
+} as const
+
+export const TransitionDefaults = {
+  enter: {
+    duration: 100,
+    ease: TransitionEasings.easeOut,
+  },
+  leave: {
+    duration: 200,
+    ease: TransitionEasings.easeIn,
+  },
+} as const
+
 export const dialogMotionPresets: DialogMotionPresets = {
   slideInBottom: {
     initial: {
@@ -39,18 +57,9 @@ export const dialogMotionPresets: DialogMotionPresets = {
     },
   },
   scale: {
-    initial: {
-      scale: 0.9,
-      opacity: 0,
-    },
-    enter: {
-      scale: 1,
-      opacity: 1,
-    },
-    leave: {
-      scale: 0.95,
-      opacity: 0,
-    },
+    initial: { scale: 0.95, opacity: 0 },
+    enter: { scale: 1, transition: TransitionDefaults.enter, opacity: 1 },
+    leave: { scale: 0.95, transition: TransitionDefaults.leave, opacity: 0 },
   },
   fade: {
     initial: {

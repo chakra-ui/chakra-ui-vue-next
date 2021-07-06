@@ -21,7 +21,9 @@ export interface BadgeProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
  */
-export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> = defineComponent({
+export const CBadge: ComponentWithProps<
+  DeepPartial<BadgeProps>
+> = defineComponent({
   name: 'CBadge',
   props: {
     as: {
@@ -43,8 +45,8 @@ export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> = defineCompone
     return () => {
       return (
         <chakra.div
-          as={props.as}   
-          __label="badge"   
+          as={props.as}
+          __label="badge"
           __css={{
             display: 'inline-block',
             whiteSpace: 'nowrap',
