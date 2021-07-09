@@ -95,7 +95,7 @@ const config: UserConfig = {
       // directories
       dirs: ['src/components', 'src/docs-theme'],
       // allow auto load markdown components under `dirs` (above)
-      extensions: ['vue', 'mdx'],
+      extensions: ['vue', 'mdx', 'tsx'],
       // allow auto import and register components used in markdown
       customLoaderMatcher: (path: string) => path.endsWith('.mdx'),
       // import chakra-ui components

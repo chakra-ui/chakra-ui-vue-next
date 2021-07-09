@@ -25,11 +25,9 @@ export const useToc = ({
   contentSelector = '#content',
   scrollTopOffset = 100,
 }: TocOptions = {}) => {
+  let pageOffset = 0
+
   const activeTocId = ref()
-
-  const appElement = document.body
-  const pageOffset = appElement.offsetTop
-
   const scrollToHash = async (hash: string) => {
     if (!hash) {
       return
@@ -41,12 +39,15 @@ export const useToc = ({
     activeTocId.value = hash.substring(1) // without #
   }
 
-  const getAnchorTop = (anchor: HTMLElement) =>
-    anchor.offsetTop - pageOffset - 15 - scrollTopOffset
-
-  let stop: Function | null = null
-
   tryOnMounted(async () => {
+    const appElement = document.body
+    pageOffset = appElement.offsetTop
+
+    const getAnchorTop = (anchor: HTMLElement) =>
+      anchor.offsetTop - pageOffset - 15 - scrollTopOffset
+
+    let stop: Function | null = null
+
     const { y } = useWindowScroll()
     const anchors = Array.from(
       document.querySelectorAll(

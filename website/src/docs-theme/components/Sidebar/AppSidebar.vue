@@ -47,7 +47,7 @@ const MainNavLink = (
         color={active ? linkColor.value : 'gray.500'}
         _hover={{ color: linkColor.value }}
       >
-        <c-center w="6" h="6" bg="teal.400" rounded="base" mr="3">
+        <c-center w="6" h="6" bg="emerald.400" rounded="base" mr="3">
           {icon}
         </c-center>
         {renderSlot(slots, 'default')}

@@ -43,12 +43,10 @@
           :justify-content="{ base: 'center', sm: 'flex-start' }"
         >
           <CButton
-            as="a"
+            as="router-link"
             text-decoration="none"
-            href="https://github.com/chakra-ui/chakra-ui-vue-next"
+            to="/docs/getting-started"
             size="lg"
-            target="_blank"
-            rel="noopener noreferrer"
             color-scheme="green"
             bg="emerald.600"
             :flex="{ base: '1', sm: 'none' }"

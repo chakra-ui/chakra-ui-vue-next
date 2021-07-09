@@ -1,11 +1,12 @@
 <template>
   <c-reset />
-  <router-view
-    v-motion
-    :initial="{ opacity: 0, y: 100 }"
-    :enter="{ opacity: 1, y: 0 }"
-    :leave="{ opacity: 0, y: -100 }"
-  />
+  <router-view v-slot="{ Component, route }">
+    <c-container px="0" :max-w="route.path === '/' ? 'auto' : '1440px'">
+      <!-- <c-animate-presence type="scale"> -->
+      <component :is="Component" />
+      <!-- </c-animate-presence> -->
+    </c-container>
+  </router-view>
 </template>
 
 <script setup lang="ts">
