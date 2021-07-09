@@ -1,4 +1,4 @@
-import { inject, InjectionKey, provide, isVNode, Slots } from 'vue'
+import { inject, InjectionKey, provide, isVNode, Slots, VNode } from 'vue'
 
 export interface CreateContextOptions {
   /**
@@ -57,7 +57,7 @@ export function createContext<ContextType>(options: CreateContextOptions = {}) {
  *
  * see https://github.com/vuejs/vue-next/blob/HEAD/packages/runtime-core/src/helpers/renderSlot.ts
  */
-export function getValidChildren(slots: Slots | null) {
+export function getValidChildren(slots: Slots | null): VNode[] {
   const slotArray = slots?.default?.() || []
   return slotArray.filter((child) => {
     return isVNode(child)

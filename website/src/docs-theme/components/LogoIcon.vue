@@ -4,8 +4,8 @@
     height="8"
     width="auto"
     viewBox="0 0 257 257"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    fill="none"
   >
     <!-- eslint-enable -->
     <rect width="257" height="257" rx="128.5" fill="url(#mark)" />
@@ -19,10 +19,10 @@
         x1="128.5"
         x2="128.5"
         y2="257"
-        gradientUnits="userSpaceOnUse"
+        gradient-units="userSpaceOnUse"
       >
-        <stop stopColor="#7BCBD4" />
-        <stop offset="1" stopColor="#29C6B7" />
+        <stop stop-color="#7BCBD4" />
+        <stop offset="1" stop-color="#29C6B7" />
       </linearGradient>
     </defs>
   </chakra.svg>

@@ -41,7 +41,7 @@
     "@chakra-ui/vue-system": "0.1.0-alpha.4"
   },
   "devDependencies": {
-    "vue": "^3.0.11"
+    "vue": "^3.1.4"
   },
   "contributors": [
     "Vivek Wadhwani <devivekw@pm.me>"
