@@ -3,18 +3,6 @@ import { mode } from '@chakra-ui/vue-theme-tools'
 
 export default extendTheme({
   colors: {
-    // vue: {
-    //   50: '#EEF8F4',
-    //   100: '#CDEBDD',
-    //   200: '#ACDEC6',
-    //   300: '#8BD1AF',
-    //   400: '#6AC398',
-    //   500: '#42B883',
-    //   600: '#30855F',
-    //   700: '#2E7452',
-    //   800: '#21533B',
-    //   900: '#143223',
-    // },
     emerald: {
       DEFAULT: '#30855F',
       '50': '#B6E5D0',
@@ -116,12 +104,12 @@ export default extendTheme({
       fontSize: '1.125rem',
     },
     a: {
-      color: 'teal.500',
+      color: 'emerald.500',
       fontWeight: 'semibold',
       transition: 'color 0.15s',
       transitionTimingFunction: 'ease-out',
       _hover: {
-        color: 'teal.600',
+        color: 'emerald.600',
       },
     },
     p: {
