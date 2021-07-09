@@ -1,11 +1,11 @@
 <template>
   <chakra.div
-    :min-h="['auto', 'auto', '100vh']"
-    w="100%"
     :bg="bg"
     :color="color"
+    :min-h="['auto', 'auto', '100vh']"
+    w="100%"
   >
-    <layout-mdx
+    <!-- <layout-mdx
       :frontmatter="frontmatter"
       v-if="layoutComponent === 'layout-mdx'"
     >
@@ -16,7 +16,8 @@
       v-if="layoutComponent === 'page-container'"
     >
       <slot />
-    </page-container>
+    </page-container> -->
+    <slot />
   </chakra.div>
 </template>
 
