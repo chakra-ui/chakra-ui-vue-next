@@ -1,5 +1,5 @@
 <template>
-  <c-reset />
+  <!-- <c-reset /> -->
   <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :__css="rootStyles">
     <perfect-scrollbar>
       <chakra.div pb="12">
