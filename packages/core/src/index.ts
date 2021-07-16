@@ -6,26 +6,20 @@ import internalIcons from './icon.internals'
 import { extendTheme, ThemeOverride } from './extend-theme'
 import { MergedIcons, parseIcons } from './parse-icons'
 import { mode } from '@chakra-ui/vue-theme-tools'
+import { ChakraPluginOptions } from './helpers/plugin.types'
 
-interface ExtendIconsPath {
-  path: string
-  viewBox?: string
-}
-
-interface IconsOptions {
-  pack?: 'fa' | 'fe'
-  library?: {}
-  extend?: Record<string, ExtendIconsPath>
-}
-export interface ChakraUIVuePluginOptions {
-  cssReset?: boolean
-  extendTheme?: ThemeOverride
-  icons?: IconsOptions
-  defaultColorMode?: ColorMode
+/**
+ * Helper function to extend Chakra plugin with options
+ * It just returns its arguments
+ */
+export function extendChakra(
+  options: ChakraPluginOptions = { cssReset: true }
+) {
+  return options
 }
 
 const ChakraUIVuePlugin: Plugin = {
-  install(app, options: ChakraUIVuePluginOptions = { cssReset: true }) {
+  install(app, options: ChakraPluginOptions = { cssReset: true }) {
     // 1. Get theme value
     // 2. Parse theme tokens to CSS variables
     // 3. Inject all CSS variables as theme object
@@ -68,6 +62,7 @@ const ChakraUIVuePlugin: Plugin = {
   },
 }
 
+export type { ChakraPluginOptions }
 export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
 export { extendTheme }

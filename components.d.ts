@@ -1,12 +1,12 @@
 /**
- * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.5 auto-imported
+ * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.6 auto-imported
  * components using `vite-plugin-components`
  *
  * @see: https://github.com/antfu/vite-plugin-components#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-07-06T09:19:34.498Z
+ * This file was generated on 2021-07-16T08:32:18.292Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'

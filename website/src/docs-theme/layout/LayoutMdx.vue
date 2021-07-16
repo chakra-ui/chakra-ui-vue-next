@@ -3,8 +3,8 @@
     <template #sidebar>
       <app-sidebar :routes="routes" />
     </template>
-    <template #default>
-      <slot />
+    <template>
+      <slot name="default" />
     </template>
     <template #pagination>
       <app-pagination
@@ -46,6 +46,9 @@ export default defineComponent({
       removeFromLast(props.frontmatter.slug, '#'),
       routes
     )
+
+    console.log(slots?.default?.())
+
     const routeContext = getRouteContext(route, routes)
 
     return {

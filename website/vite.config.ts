@@ -8,6 +8,7 @@ import ViteComponents from 'vite-plugin-components'
 import VueMdx from 'vite-plugin-mdx-vue'
 import { componentResolver } from '@chakra-ui/vue-auto-import'
 import { MdxComponents } from './src/docs-theme/components/MdxComponents'
+import Layouts from 'vite-plugin-vue-layouts'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import remarkGfm from 'remark-gfm'
 // @ts-ignore
@@ -90,6 +91,9 @@ const config: UserConfig = {
     }),
     Pages({
       extensions: ['vue', 'mdx'],
+    }),
+    Layouts({
+      layoutsDir: 'src/layouts',
     }),
     ViteComponents({
       // directories

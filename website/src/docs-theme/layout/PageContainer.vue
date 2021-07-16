@@ -24,7 +24,7 @@
                   letter-spacing="wider"
                   >v{{ frontmatter.version }}</c-badge
                 >
-                <slot />
+                <slot name="default" />
                 <c-box mt="40px">
                   <c-box>
                     <edit-page-link :href="frontmatter.editUrl" />
