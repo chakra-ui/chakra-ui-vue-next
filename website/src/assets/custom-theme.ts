@@ -3,17 +3,18 @@ import { mode } from '@chakra-ui/vue-theme-tools'
 
 export default extendTheme({
   colors: {
-    vue: {
-      50: '#EEF8F4',
-      100: '#CDEBDD',
-      200: '#ACDEC6',
-      300: '#8BD1AF',
-      400: '#6AC398',
-      500: '#42B883',
-      600: '#30855F',
-      700: '#2E7452',
-      800: '#21533B',
-      900: '#143223',
+    emerald: {
+      DEFAULT: '#30855F',
+      '50': '#B6E5D0',
+      '100': '#A3DEC4',
+      '200': '#7ED0AB',
+      '300': '#58C393',
+      '400': '#3EAA7A',
+      '500': '#30855F',
+      '600': '#226044',
+      '700': '#153A29',
+      '800': '#07150F',
+      '900': '#000000',
     },
     discord: {
       primary: '#7289DA',
@@ -103,12 +104,12 @@ export default extendTheme({
       fontSize: '1.125rem',
     },
     a: {
-      color: 'teal.500',
+      color: 'emerald.500',
       fontWeight: 'semibold',
       transition: 'color 0.15s',
       transitionTimingFunction: 'ease-out',
       _hover: {
-        color: 'teal.600',
+        color: 'emerald.600',
       },
     },
     p: {

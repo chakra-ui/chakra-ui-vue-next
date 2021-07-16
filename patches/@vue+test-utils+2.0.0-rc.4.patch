@@ -1,0 +1,17 @@
+diff --git a/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.js b/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.js
+index eb3e780..48ff841 100644
+--- a/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.js
++++ b/node_modules/@vue/test-utils/dist/vue-test-utils.esm-bundler.js
+@@ -2319,9 +2319,9 @@ function mount(originalComponent, options) {
+     var appRef = vm.$refs[MOUNT_COMPONENT_REF];
+     var $vm = Reflect.ownKeys(appRef).length ? appRef : vm;
+     // we add `hasOwnProperty` so jest can spy on the proxied vm without throwing
+-    $vm.hasOwnProperty = function (property) {
+-        return Reflect.has($vm, property);
+-    };
++    // $vm.hasOwnProperty = function (property) {
++    //     return Reflect.has($vm, property);
++    // };
+     console.warn = warnSave;
+     return createWrapper(app, $vm, setProps);
+ }

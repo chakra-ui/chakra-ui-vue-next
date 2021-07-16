@@ -1,0 +1,13 @@
+{
+  "name": "@chakra-ui/vue-cypress-tests",
+  "version": "0.1.0-alpha.2",
+  "main": "./support.tsx",
+  "typings": "index.d.ts",
+  "files": [
+    "."
+  ],
+  "description": "Chakra UI Vue | Cypress Tests setup package",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/tests",
+  "author": "Jonathan Bakebwa codebender828@gmail.com",
+  "license": "MIT"
+}

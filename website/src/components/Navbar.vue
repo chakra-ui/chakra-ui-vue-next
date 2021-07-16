@@ -10,7 +10,7 @@
     bg="white"
     z-index="10"
     border-top="6px solid"
-    border-color="vue.500"
+    border-color="emerald.500"
   >
     <CFlex align-items="center" justify-content="flex-start" flex="1">
       <chakra.a

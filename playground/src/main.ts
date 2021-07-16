@@ -1,19 +1,22 @@
 import { createApp } from 'vue'
-import ChakraUIVuePlugin, { chakra, extendTheme } from '@chakra-ui/vue-next'
+import ChakraUIVuePlugin, { chakra, extendTheme, BodyScrollLockDirective } from '@chakra-ui/vue-next'
 import { domElements } from '@chakra-ui/vue-system'
-import { feActivity } from 'feather-icons-paths'
+import { feActivity, feUser } from 'feather-icons-paths'
 import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
 import router from './router'
+import { mode } from '@chakra-ui/vue-theme-tools'
 
 const app = createApp(App)
   .use(router)
   .use(MotionPlugin)
   .use(ChakraUIVuePlugin, {
+    cssReset: true,
     icons: {
       library: {
-        feActivity
+        feActivity,
+        feUser
       },
       extend: {
         discord: {
@@ -24,9 +27,31 @@ const app = createApp(App)
       },
     },
     extendTheme: extendTheme({
-      // config: {
-      //   initialColorMode: 'light'
-      // }
+      config: {},
+      fonts: {
+        heading: `Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+        body: `Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+      },
+      shadows: {
+        outline: `0 0 0 4px rgba(47, 133, 90, 0.62)`,
+        search:
+          '0 0 0 1px rgba(16,22,26,.1), 0 4px 8px rgba(16,22,26,.2), 0 18px 46px 6px rgba(16,22,26,.2)',
+      },
+      styles: {
+        global: (props: any) => ({
+          body: {
+            color: mode('gray.700', 'whiteAlpha.900')(props),
+            '.deleted': {
+              color: '#ff8383 !important',
+              fontStyle: 'normal !important',
+            },
+            '.inserted': {
+              color: '#b5f4a5 !important',
+              fontStyle: 'normal !important',
+            },
+          },
+        }),
+      },
     })
   })
   .use(PerfectScrollbar)
@@ -34,5 +59,7 @@ const app = createApp(App)
 domElements.forEach((tag) => {
   app.component(`chakra.${tag}`, chakra(tag))
 })
+
+app.directive('scroll-lock', BodyScrollLockDirective)
 
 app.mount('#app')

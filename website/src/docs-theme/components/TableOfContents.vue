@@ -31,7 +31,7 @@
     </CText>
     <COrderedList spacing="1" ml="0" mt="4" styleType="none">
       <CListItem
-        v-for="heading in headings"
+        v-for="heading in headings || []"
         :key="heading.id"
         :title="heading.text"
         :ml="heading.level === 'h3' ? '4' : undefined"

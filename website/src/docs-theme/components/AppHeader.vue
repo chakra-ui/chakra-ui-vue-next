@@ -114,6 +114,8 @@ const text = useColorModeValue('dark', 'light')
 const switchIcon = useColorModeValue('moon', 'sun')
 const bg = useColorModeValue('white', 'gray.800')
 
+const isOpen = ref(false)
+
 const headerRef = ref<{ $el: HTMLDivElement } | undefined>(undefined)
 
 const { y } = useWindowScroll()
@@ -127,8 +129,4 @@ onMounted(() => {
 const headerShadow = computed(() => {
   return y.value > height.value ? 'sm' : undefined
 })
-
-const isOpen = ref(false)
 </script>
-
-<style></style>

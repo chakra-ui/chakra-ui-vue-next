@@ -31,7 +31,7 @@ const PaginationLink = (
         <c-text fontSize="sm" px="2">
           {label}
         </c-text>
-        <c-text mt="1" fontSize="lg" fontWeight="bold" color="teal.400">
+        <c-text mt="1" fontSize="lg" fontWeight="bold" color="emerald.400">
           {renderSlot(slots, 'default')}
         </c-text>
       </c-link>

@@ -4,7 +4,7 @@
     :template-columns="{ base: '1fr', md: '1fr 1fr' }"
     pos="relative"
     bg="white"
-    :bgGradient="{ base: '', md: 'linear(to-br, white, white, vue.100)' }"
+    :bgGradient="{ base: '', md: 'linear(to-br, white, white, emerald.100)' }"
     :min-h="{
       base: 'calc(100vh - 60px)',
       sm: 'auto',
@@ -26,7 +26,7 @@
             lineHeight="1.2"
           >
             Build accessible Vue apps
-            <chakra.span color="vue.600" px="5px">with speed</chakra.span>
+            <chakra.span color="emerald.600" px="5px">with speed</chakra.span>
           </chakra.h1>
         </chakra.div>
         <chakra.p
@@ -43,14 +43,12 @@
           :justify-content="{ base: 'center', sm: 'flex-start' }"
         >
           <CButton
-            as="a"
+            as="router-link"
             text-decoration="none"
-            href="https://github.com/chakra-ui/chakra-ui-vue-next"
+            to="/docs/getting-started"
             size="lg"
-            target="_blank"
-            rel="noopener noreferrer"
             color-scheme="green"
-            bg="vue.600"
+            bg="emerald.600"
             :flex="{ base: '1', sm: 'none' }"
           >
             Get started
@@ -66,7 +64,7 @@
             variant="outline"
             color-scheme="green"
             size="lg"
-            color="vue.600"
+            color="emerald.600"
             :flex="{ base: '1', sm: 'none' }"
           >
             Github
@@ -108,7 +106,7 @@
       text-decoration="none"
       font-size="sm"
       opacity="0.7"
-      :_hover="{ color: 'vue.600', opacity: '1' }"
+      :_hover="{ color: 'emerald.600', opacity: '1' }"
       mt="4"
     >
       Looking for the React.js version?

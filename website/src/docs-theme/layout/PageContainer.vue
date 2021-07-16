@@ -39,7 +39,7 @@
               </c-box>
             </c-box>
             <table-of-contents
-              :visibility="headings.length === 0 ? 'hidden' : 'initial'"
+              :visibility="headings?.length === 0 ? 'hidden' : 'initial'"
               :headings="headings"
             />
           </c-flex>

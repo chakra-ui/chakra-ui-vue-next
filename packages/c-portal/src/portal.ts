@@ -1,10 +1,43 @@
-import { h, defineComponent, PropType, Teleport, onBeforeMount, ref } from 'vue'
-import { createPortalTarget, ensureTarget } from './portal.utils'
+import {
+  h,
+  defineComponent,
+  PropType,
+  Teleport,
+  TeleportProps,
+  onBeforeMount,
+  ref,
+  onUnmounted,
+  warn,
+} from 'vue'
+import { createPortalTarget, ensureTarget, unmountTarget } from './portal.utils'
 
+export interface CPortalProps extends Omit<TeleportProps, 'to'> {
+  /**
+   * The target element to which to mount the portal
+   */
+  to?: string
+  /**
+   * Determines whether the `CPortal` component is enabled or disabled
+   */
+  disabled?: boolean
+  /**
+   * Name of the portal we use to label component with
+   */
+  label?: string
+}
+
+/**
+ * Chakra component to teleport it's children to pre-ordained target.
+ *
+ * If no target is given to the `CPortal` component via the `to` prop,
+ * it will generate a target and append to the document body
+ */
 const CPortal = defineComponent({
+  name: 'CPortal',
   props: {
-    to: String as PropType<string>,
-    disabled: Boolean as PropType<boolean>,
+    to: String as PropType<CPortalProps['to']>,
+    disabled: Boolean as PropType<CPortalProps['disabled']>,
+    label: String as PropType<CPortalProps['label']>,
   },
   setup(props, { slots, attrs }) {
     const target = ref<string | null>(null)
@@ -14,21 +47,28 @@ const CPortal = defineComponent({
         ensureTarget(props.to)
         target.value = props.to
       } else {
-        target.value = `#${createPortalTarget().id}`
+        target.value = `#${createPortalTarget(props.label).id}`
       }
     })
 
-    return () =>
-      h(
+    onUnmounted(() => {
+      if (!props.to) {
+        unmountTarget(target.value!)
+      }
+    })
+
+    return () => {
+      return h(
         // @ts-ignore
         Teleport,
         {
-          to: target.value,
           ...props,
           ...attrs,
+          to: target.value,
         },
         slots
       )
+    }
   },
 })
 

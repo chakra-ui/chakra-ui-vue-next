@@ -35,8 +35,8 @@ export const StyledLink = (
       color={useColorModeValue('gray.700', 'whiteAlpha.900').value}
       transition="all 0.2s"
       _activeLink={{
-        bg: useColorModeValue('teal.50', 'rgba(48, 140, 122, 0.3)').value,
-        color: useColorModeValue('teal.700', 'teal.200').value,
+        bg: useColorModeValue('emerald.50', 'rgba(48, 140, 122, 0.3)').value,
+        color: useColorModeValue('emerald.700', 'emerald.200').value,
         fontWeight: '600',
       }}
       {...rest}

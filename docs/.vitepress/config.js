@@ -65,7 +65,8 @@ function getSetupSidebar() {
     {
       text: 'Composables',
       children: [
-        { text: 'usePopper', link: '/composables/use-popper' }
+        { text: 'usePopper', link: '/composables/use-popper' },
+        { text: 'useFocusLock', link: '/composables/use-focus-lock' }
       ]
     }
   ]

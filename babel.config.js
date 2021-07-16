@@ -35,7 +35,7 @@ const testConfig = {
         [
           '@babel/preset-env',
           {
-            targets: { node: true },
+            targets: { node: 'current' },
           },
         ],
       ],

@@ -36,12 +36,12 @@ const NavLink = ({ href }: { href?: string }, { slots }: SetupContext) => {
           rounded="md"
           transition="0.2s all"
           fontWeight={isActive ? 'semibold' : 'medium'}
-          bg={isActive ? 'teal.400' : undefined}
+          bg={isActive ? 'emerald.400' : undefined}
           borderWidth={isActive ? undefined : '1px'}
           color={isActive ? 'white' : undefined}
           _hover={{
             bg: isActive
-              ? 'teal.500'
+              ? 'emerald.500'
               : useColorModeValue('gray.100', 'whiteAlpha.100').value,
           }}
         >
@@ -106,7 +106,7 @@ export default defineComponent({
             >
               <c-box>
                 <c-flex justify="space-between" px="6" pt="5" pb="4">
-                  <logo sx={{ rect: { fill: 'teal.300' } }} />
+                  <logo sx={{ rect: { fill: 'emerald.300' } }} />
                   <c-h-stack spacing="5">
                     <sponsor-button display="flex" />
                     <c-close-button ref={closeBtnRef} onClick={handleClose} />
