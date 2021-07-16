@@ -1,4 +1,5 @@
-import { ColorMode } from '@chakra-ui/c-color-mode'
+import { ColorModeRef } from '@chakra-ui/c-color-mode'
+import { UnwrapRef } from 'vue-demi'
 import { ThemeOverride } from '../extend-theme'
 
 interface ExtendIconsPath {
@@ -15,5 +16,5 @@ export interface ChakraPluginOptions {
   cssReset?: boolean
   extendTheme?: ThemeOverride
   icons?: IconsOptions
-  defaultColorMode?: ColorMode
+  defaultColorMode?: UnwrapRef<ColorModeRef>
 }
