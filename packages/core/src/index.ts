@@ -1,4 +1,4 @@
-import { computed, Plugin, Ref, ref, UnwrapRef } from 'vue'
+import { computed, Plugin, ref, UnwrapRef } from 'vue'
 import defaultTheme from '@chakra-ui/vue-theme'
 import type { ColorModeRef } from '@chakra-ui/c-color-mode'
 import { toCSSVar, WithCSSVar } from '@chakra-ui/styled-system'
@@ -14,7 +14,7 @@ import { ChakraPluginOptions } from './helpers/plugin.types'
  * Helper function to extend Chakra plugin with options
  * It just returns its arguments with typescript types added
  */
-export function extendChakra(
+export function chakraOptions(
   options: ChakraPluginOptions = { cssReset: true }
 ) {
   return options
@@ -53,6 +53,7 @@ const ChakraUIVuePlugin: Plugin = {
 
     let libraryIcons = options.icons?.library || {}
     let extendedIcons = options.icons?.extend || {}
+
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme.value
     app.provide('$chakraTheme', computedTheme.value as ThemeOverride)
@@ -96,6 +97,7 @@ export * from '@chakra-ui/c-accordion'
 export * from '@chakra-ui/c-alert'
 
 // B
+export * from '@chakra-ui/c-breadcrumb'
 export * from '@chakra-ui/c-button'
 
 // C

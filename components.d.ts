@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-07-16T10:09:49.527Z
+ * This file was generated on 2021-07-27T08:11:47.550Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'
@@ -42,6 +42,7 @@ declare module 'vue' {
     CAlertTitle: typeof import('@chakra-ui/vue-next')['CAlertTitle']
     CAlertDescription: typeof import('@chakra-ui/vue-next')['CAlertDescription']
     CAlertIcon: typeof import('@chakra-ui/vue-next')['CAlertIcon']
+    CBreadcrumb: typeof import('@chakra-ui/vue-next')['CBreadcrumb']
     CButton: typeof import('@chakra-ui/vue-next')['CButton']
     CButtonGroup: typeof import('@chakra-ui/vue-next')['CButtonGroup']
     CIconButton: typeof import('@chakra-ui/vue-next')['CIconButton']
