@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, PropType, ConcreteComponent, Component, computed, cloneVNode, VNode, VNodeProps, mergeProps } from 'vue'
+import { defineComponent, PropType, computed, cloneVNode, VNode, h } from 'vue'
 import {
   chakra,
   HTMLChakraProps,
@@ -17,22 +17,23 @@ import {
   StylesProvider,
   useMultiStyleConfig,
   useStyles,
-  SystemStyleObject
+  SystemStyleObject,
+  ChakraProps
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
 import { getValidChildren, SNA, SNAO } from '@chakra-ui/vue-utils'
+import { DOMElements } from '@chakra-ui/vue-system'
 
 /**
  * CBreadcrumb (root)
  */
-
 
 export interface BreadcrumbOptions {
   /**
    * The visual separator between each breadcrumb item
    * @type string | ConcreteComponent | Component
    */
-  separator?: string | ConcreteComponent | Component
+  separator?: string | object
   /**
    * The left and right margin applied to the separator
    * @type SystemProps["mx"]
@@ -41,7 +42,7 @@ export interface BreadcrumbOptions {
 }
 
 export interface BreadcrumbProps
-  extends HTMLChakraProps<'nav'>,
+  extends ChakraProps,
     BreadcrumbOptions,
     ThemingProps<'Breadcrumb'> {}
 
@@ -81,11 +82,12 @@ export const CBreadcrumb = defineComponent(
       return (
         <chakra.nav
           as={props.as}
+          __label="breadcrumb"
           aria-label="breadcrumb"
           __css={styles.value.container}
           {...attrs}
         >
-          <chakra.ol __label="chakra-breadcrumb__list">
+          <chakra.ol __label="breadcrumb__list">
             {() => children}
           </chakra.ol>
         </chakra.nav>
@@ -106,7 +108,7 @@ CBreadcrumb.props = {
     default: '0.5rem'
   },
   as: {
-    type: [String, Object] as PropType<DOMElements | Component | string>,
+    type: [String, Object] as PropType<DOMElements | object | string>,
     default: 'nav',
   },
 }
@@ -138,7 +140,7 @@ export const CBreadcrumbSeparator = defineComponent((props: BreadcrumbSeparatorP
   return () => (
     <chakra.span
       role="presentation"
-      __label="chakra-breadcrumb__separator"
+      __label="breadcrumb__separator"
       {...attrs}
       __css={separatorStyles.value}
     >
@@ -167,7 +169,7 @@ interface BreadcrumbItemOptions extends BreadcrumbOptions {
 
 export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
-    HTMLChakraProps<"li"> {}
+    ChakraProps {}
 
 export const CBreadcrumbItem = defineComponent((props: BreadcrumbItemProps, { attrs, slots }) => {
   const styles = useStyles()
@@ -199,7 +201,7 @@ export const CBreadcrumbItem = defineComponent((props: BreadcrumbItemProps, { at
     })
 
     return (
-      <chakra.li __label="chakra-breadcrumb__list-it" __css={itemStyles.value}>
+      <chakra.li __label="breadcrumb__list-item" __css={itemStyles.value}>
         {children}
         {!props.isLastChild && (
           // @ts-expect-error
@@ -224,8 +226,9 @@ CBreadcrumbItem.props = {
  * CBreadcrumbLink
  */
 
-export interface BreadcrumbLinkProps extends HTMLChakraProps<"a"> {
-  isCurrentPage?: boolean
+export interface BreadcrumbLinkProps extends ChakraProps {
+  isCurrentPage?: boolean,
+  href?: string
 }
 
 /**
@@ -240,14 +243,14 @@ export const CBreadcrumbLink = defineComponent((props: BreadcrumbLinkProps, { at
   return () => {
     if (props.isCurrentPage) {
       return (
-        <chakra.span __label="chakra-breadcrumb__link" aria-current="page" __css={styles.value.link} as={props.as} {...attrs}>
+        <chakra.span __label="breadcrumb__link" aria-current="page" __css={styles.value.link} as={props.as} {...attrs}>
           {slots}
         </chakra.span>
       )
     }
 
     return (
-      <chakra.a __label="chakra-breadcrumb__link" as={props.as} __css={styles.value.link} {...attrs}>
+      <chakra.a __label="breadcrumb__link" as={props.as} __css={styles.value.link} {...attrs}>
         {slots}
       </chakra.a>
     )
