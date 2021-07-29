@@ -1,8 +1,10 @@
 <template>
   <page-container :frontmatter="frontmatter" :headings="headings">
-    <slot />
     <template #sidebar>
       <app-sidebar :routes="routes" />
+    </template>
+    <template>
+      <slot name="default" />
     </template>
     <template #pagination>
       <app-pagination
@@ -19,6 +21,7 @@ import { getHeadings } from '@/docs-theme/utils/get-headings'
 import { getRoutes } from '@/docs-theme/utils/get-routes'
 import { useRoute } from 'vue-router'
 import { getRouteContext } from '@/docs-theme/utils/get-route-context'
+
 import {
   findRouteByPath,
   removeFromLast,
@@ -27,8 +30,10 @@ import {
 export default defineComponent({
   props: {
     frontmatter: {
-      // prettier-ignore
-      type: Object as PropType<{ title: string, slug: string }>,
+      type: Object as PropType<{
+        title: string
+        slug: string
+      }>,
       default: () => ({}),
     },
   },
@@ -41,6 +46,9 @@ export default defineComponent({
       removeFromLast(props.frontmatter.slug, '#'),
       routes
     )
+
+    console.log(slots?.default?.())
+
     const routeContext = getRouteContext(route, routes)
 
     return {

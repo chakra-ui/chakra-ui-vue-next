@@ -1,12 +1,12 @@
 /**
- * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.5 auto-imported
+ * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.6 auto-imported
  * components using `vite-plugin-components`
  *
  * @see: https://github.com/antfu/vite-plugin-components#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-07-06T09:19:34.498Z
+ * This file was generated on 2021-07-29T05:01:14.847Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'
@@ -42,6 +42,10 @@ declare module 'vue' {
     CAlertTitle: typeof import('@chakra-ui/vue-next')['CAlertTitle']
     CAlertDescription: typeof import('@chakra-ui/vue-next')['CAlertDescription']
     CAlertIcon: typeof import('@chakra-ui/vue-next')['CAlertIcon']
+    CBreadcrumb: typeof import('@chakra-ui/vue-next')['CBreadcrumb']
+    CBreadcrumbSeparator: typeof import('@chakra-ui/vue-next')['CBreadcrumbSeparator']
+    CBreadcrumbItem: typeof import('@chakra-ui/vue-next')['CBreadcrumbItem']
+    CBreadcrumbLink: typeof import('@chakra-ui/vue-next')['CBreadcrumbLink']
     CButton: typeof import('@chakra-ui/vue-next')['CButton']
     CButtonGroup: typeof import('@chakra-ui/vue-next')['CButtonGroup']
     CIconButton: typeof import('@chakra-ui/vue-next')['CIconButton']

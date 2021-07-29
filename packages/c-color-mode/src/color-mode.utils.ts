@@ -6,7 +6,7 @@ const classNames = {
   dark: 'chakra-ui-dark',
 }
 
-export type ColorMode = Ref<'light' | 'dark'>
+export type ColorModeRef = Ref<'light' | 'dark'>
 
 /**
  * SSR: Graceful fallback for the `body` element
@@ -45,7 +45,7 @@ export const queries = {
 export const lightQuery = queries.light
 export const darkQuery = queries.dark
 
-export function getColorScheme(fallback?: ColorMode) {
+export function getColorScheme(fallback?: ColorModeRef) {
   const isDark = getMediaQuery(queries.dark) ?? fallback?.value === 'dark'
   return isDark ? 'dark' : 'light'
 }
@@ -77,8 +77,8 @@ export const root = {
   get: () =>
     document.documentElement.style.getPropertyValue(
       '--chakra-ui-color-mode'
-    ) as ColorMode['value'],
-  set: (mode: ColorMode) => {
+    ) as ColorModeRef['value'],
+  set: (mode: ColorModeRef) => {
     if (isBrowser) {
       document.documentElement.style.setProperty(
         '--chakra-ui-color-mode',

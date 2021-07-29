@@ -5,11 +5,8 @@
     :min-h="['auto', 'auto', '100vh']"
     w="100%"
   >
-    <layout-mdx
-      :frontmatter="frontmatter"
-      v-if="layoutComponent === 'layout-mdx'"
-    >
-      <slot />
+    <layout-mdx :frontmatter="frontmatter">
+      <router-view />
     </layout-mdx>
   </chakra.div>
 </template>

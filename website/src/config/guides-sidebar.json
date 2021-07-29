@@ -30,20 +30,12 @@
           "open": true,
           "routes": [
             {
-              "title": "Create React App",
-              "path": "/guides/integrations/with-cra"
+              "title": "Vite",
+              "path": "/guides/integrations/with-vite"
             },
             {
-              "title": "Framer Motion",
-              "path": "/guides/integrations/with-framer"
-            },
-            {
-              "title": "React Hook Form",
-              "path": "/guides/integrations/with-hook-form"
-            },
-            {
-              "title": "React Table",
-              "path": "/guides/integrations/with-react-table"
+              "title": "Vue CLI",
+              "path": "/guides/integrations/with-vue-cli"
             }
           ]
         }
