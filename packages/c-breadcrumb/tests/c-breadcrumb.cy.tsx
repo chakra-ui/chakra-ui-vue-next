@@ -72,7 +72,7 @@ describe('Separator tests', () => {
   })
   
   it('should render separator as Functional component if provided', () => {
-    const Sun = () => <CIcon data-testid="custom-separator" name="sun" v-slot:separator/>
+    const Sun = () => <CIcon data-testid="custom-separator" name="sun" />
     cy.mount(
       h(() => (
         <CBreadcrumb separator={Sun} data-testid="breadcrumb">
