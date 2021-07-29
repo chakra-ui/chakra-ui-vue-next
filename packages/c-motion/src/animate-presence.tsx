@@ -76,6 +76,11 @@ export const CAnimatePresence = defineComponent({
 
     const onLeave = (el: Element, done?: VoidFunction) => {
       motionInstance.value.leave(done)
+      emit('leave', el, done)
+    }
+
+    const onBeforeLeave = (el: Element, done?: VoidFunction) => {
+      emit('beforeLeave', el, done)
     }
 
     return () => {
@@ -94,7 +99,7 @@ export const CAnimatePresence = defineComponent({
           css={false}
           mode="out-in"
           onLeave={onLeave}
-          onBeforeLeave={onLeave}
+          onBeforeLeave={onBeforeLeave}
           {...attrs}
         >
           {() => [children]}
