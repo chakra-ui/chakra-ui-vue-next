@@ -4,12 +4,14 @@ import {
   useStyleConfig,
   ThemingProps,
   SystemStyleObject,
+  ComponentWithProps,
+  DeepPartial,
 } from '@chakra-ui/vue-system'
 import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/utils'
 import { useButtonGroup } from './button-group'
 import { CIcon } from '@chakra-ui/c-icon'
 import { CSpinner } from '@chakra-ui/c-spinner'
-import { BUTTON_PROPS } from './button.utils'
+import { ButtonProps, BUTTON_PROPS } from './button.utils'
 
 const CButtonSpinner = defineComponent({
   name: 'CButtonSpinner',
@@ -76,7 +78,7 @@ const CButtonIcon = defineComponent({
  * such as submitting a form, opening a dialog, canceling
  * an action, or performing a delete operation.
  */
-const CButton = defineComponent({
+const CButton: ComponentWithProps<DeepPartial<ButtonProps>> = defineComponent({
   name: 'CButton',
   props: BUTTON_PROPS,
   setup(props, { attrs, slots }) {

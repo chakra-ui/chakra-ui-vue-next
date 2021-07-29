@@ -16,8 +16,14 @@ import { trim } from 'lodash'
 const LinkedHeading = (as: string, apply: string) => (
   props: any,
   context: SetupContext
-) =>
-  h('MdxHeading', { ...props, as, apply }, renderSlot(context.slots, 'default'))
+) => {
+  console.log(' RENDERING HEADING', props, context)
+  return h(
+    'MdxHeading',
+    { ...props, as, apply },
+    renderSlot(context.slots, 'default')
+  )
+}
 
 const MdxChakra = (
   {
@@ -37,12 +43,14 @@ const MdxChakra = (
   )
 
 export const MdxComponents = {
-  h1: (props: any, context: SetupContext) =>
-    h(
+  h1: (props: any, context: SetupContext) => {
+    console.log(' RENDERING HEADER', props, context)
+    return h(
       'chakra.h1',
       { apply: 'mdx.h1', ...props },
       renderSlot(context.slots, 'default')
-    ),
+    )
+  },
   h2: LinkedHeading('h2', 'mdx.h2'),
   h3: LinkedHeading('h3', 'mdx.h3'),
   h4: LinkedHeading('h4', 'mdx.h4'),

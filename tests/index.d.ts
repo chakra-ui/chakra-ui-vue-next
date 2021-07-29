@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="local-cypress" />
 /// <reference types="cypress-plugin-tab" />
 
 import { ChakraProps, HTMLChakraProps } from '@chakra-ui/vue-system'

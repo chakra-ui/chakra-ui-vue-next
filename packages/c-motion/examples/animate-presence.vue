@@ -19,7 +19,11 @@
     <c-text> Active variant: {{ activeVariant }} </c-text>
   </c-stack>
   <!-- <c-portal> -->
-  <c-animate-presence :type="activeVariant">
+  <c-animate-presence
+    :type="activeVariant"
+    @before-enter="handleOnBeforeEnter"
+    @after-enter="handleOnAfterEnter"
+  >
     <chakra.div
       :bg="useColorModeValue('teal.100', 'teal.800').value"
       :color="useColorModeValue('teal.800', 'teal.100').value"
@@ -50,6 +54,13 @@ const [isMounted, toggleIsOpen] = useToggle(true)
 const variants = computed(
   () => Object.keys(TransitionVariants) as CMotionVariant[]
 )
+
+const handleOnBeforeEnter = (...args: any[]) => {
+  console.log('handleOnBeforeEnter', ...args)
+}
+const handleOnAfterEnter = (...args: any[]) => {
+  console.log('handleOnAfterEnter', ...args)
+}
 
 const setVariant = (variant: CMotionVariant) => {
   activeVariant.value = variant

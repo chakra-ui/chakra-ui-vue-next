@@ -65,6 +65,9 @@ const resolver = {
   CHStack: 'layout',
   CVStack: 'layout',
   CText: 'layout',
+  CBreadcrumb: 'c-breadcrumb',
+  CBreadcrumbItem: 'c-breadcrumb',
+  CBreadcrumbLink: 'c-breadcrumb',
 }
 
 const __DEV__ = process.env.NODE_ENV !== 'production'

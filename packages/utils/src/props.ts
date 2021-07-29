@@ -1,4 +1,4 @@
-import { ThemingProps } from '@chakra-ui/vue-system'
+import { DOMElements, ThemingProps } from '@chakra-ui/vue-system'
 import { PropType } from 'vue'
 
 export const vueThemingProps = {
@@ -11,3 +11,11 @@ export const vueThemingProps = {
 export const SNA = [Number, String, Array]
 export const SAO = [String, Array, Object]
 export const SNAO = [Number, String, Array, Object]
+
+export interface BaseThemedComponentProps
+  extends Pick<
+    ThemingProps,
+    'colorScheme' | 'variant' | 'size' | 'styleConfig'
+  > {
+  as: DOMElements | 'router-link' | 'nuxt-link'
+}

@@ -24,14 +24,12 @@
                   letter-spacing="wider"
                   >v{{ frontmatter.version }}</c-badge
                 >
-                <slot> Default Slots </slot>
+                <slot name="default" />
                 <c-box mt="40px">
                   <c-box>
-                    <edit-page-link
-                      :href="frontmatter.editUrl"
-                    ></edit-page-link>
+                    <edit-page-link :href="frontmatter.editUrl" />
                   </c-box>
-                  <slot name="pagination"></slot>
+                  <slot name="pagination" />
                 </c-box>
                 <c-box pb="20">
                   <app-footer />

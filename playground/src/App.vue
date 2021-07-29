@@ -1,5 +1,5 @@
 <template>
-  <c-reset />
+  <!-- <c-reset /> -->
   <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :__css="rootStyles">
     <perfect-scrollbar>
       <chakra.div pb="12">
@@ -33,7 +33,7 @@ export default defineComponent({
       const styles = {
         light: {
           bg: 'white',
-          color: 'blackAlpha.800',
+          // color: 'blackAlpha.800',
           'a.router-link-active': {
             color: 'teal.500',
             fontSize: '0.9rem',
@@ -43,7 +43,7 @@ export default defineComponent({
         },
         dark: {
           bg: 'gray.800',
-          color: 'whiteAlpha.800',
+          // color: 'whiteAlpha.800',
           'a.router-link-active': {
             color: 'teal.200',
             fontSize: '0.9rem',
