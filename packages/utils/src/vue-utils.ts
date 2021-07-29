@@ -1,3 +1,4 @@
+import { isFunction, isObject } from '@chakra-ui/utils'
 import { inject, InjectionKey, provide, isVNode, Slots, VNode } from 'vue'
 
 export interface CreateContextOptions {
@@ -62,4 +63,28 @@ export function getValidChildren(slots: Slots | null): VNode[] {
   return slotArray.filter((child) => {
     return isVNode(child)
   })
+}
+
+export interface CouldBeObjectComponent {
+  setup?: FunctionConstructor
+  render?: FunctionConstructor
+}
+
+/** Checkes whether a provided object is a component */
+export function isObjectComponent<T extends CouldBeObjectComponent>(
+  subject: T
+) {
+  const validComponentTypes = ['function', 'object']
+  if (!validComponentTypes.includes(typeof subject)) return false
+
+  // Is sub
+  if (isObject(subject)) {
+    // Is object component with render function
+    if (typeof subject?.render === 'function' && isVNode(subject.render()))
+      return true
+    // Is object component with setup function
+    else if (typeof subject?.setup === 'function') return true
+  }
+
+  return false
 }

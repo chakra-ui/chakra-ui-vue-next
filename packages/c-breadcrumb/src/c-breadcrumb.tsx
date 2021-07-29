@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, PropType, computed, cloneVNode, VNode, h } from 'vue'
+import { defineComponent, PropType, computed, cloneVNode, h, VNode } from 'vue'
 import {
   chakra,
   HTMLChakraProps,
@@ -21,7 +21,7 @@ import {
   ChakraProps
 } from '@chakra-ui/vue-system'
 import { filterUndefined } from '@chakra-ui/utils'
-import { getValidChildren, SNA, SNAO } from '@chakra-ui/vue-utils'
+import { getValidChildren, isObjectComponent, SNA, SNAO } from '@chakra-ui/vue-utils'
 import { DOMElements } from '@chakra-ui/vue-system'
 
 /**
@@ -67,7 +67,24 @@ export const CBreadcrumb = defineComponent(
     const styles = useMultiStyleConfig('Breadcrumb', themingProps.value)
     StylesProvider(styles)
 
-    const separator = computed(() => slots?.separator?.() || props.separator)
+    const separator = computed(() => {
+      if (slots.separator) {
+        return slots?.separator?.() 
+      } else {
+        return typeof props.separator === 'string'
+          ? props.separator
+          : isObjectComponent(props.separator!)
+            // TODO:
+            // Add support for
+            // object components. ATM,
+            // This computed property will only
+            // work for functional components provided as
+            // separators
+            ? h(() => props.separator!)
+            : h(props.separator!)
+        }
+      }
+    )
 
     return () => {
       const validChildren = getValidChildren(slots)
