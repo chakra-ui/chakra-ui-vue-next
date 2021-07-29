@@ -77,7 +77,6 @@ This component doesn't have any custom props.
 | ---------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | isOpen           | `boolean` | If `true`, the content will be visible                                                                       |
 | animateOpacity   | `boolean` | If `true`, the opacity of the content will be animated                                                       |
-| duration         | `number`  | The animation duration as it expands                                                                         |
 | startingHeight   | `number`  | The height you want the content in it's collapsed state. Set to `0` by default                               |
 | endingHeight     | `number`  | The height you want the content in it's expanded state. Set to `auto` by default                             |
 

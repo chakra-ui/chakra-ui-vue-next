@@ -1,5 +1,4 @@
 import { SystemCSSProperties } from '@chakra-ui/styled-system'
-import { DOMElements } from '@chakra-ui/vue-system'
 import { vueThemingProps, BaseThemedComponentProps } from '@chakra-ui/vue-utils'
 import { PropType } from 'vue'
 
@@ -19,7 +18,9 @@ export interface ButtonProps extends BaseThemedComponentProps {
 
 export const BUTTON_PROPS = {
   as: {
-    type: String as PropType<ButtonProps['as']>,
+    type: [String, Object] as PropType<
+      ButtonProps['as'] | 'router-link' | 'nuxt-link' | object
+    >,
     default: 'button',
   },
   isLoading: Boolean as PropType<ButtonProps['isLoading']>,
