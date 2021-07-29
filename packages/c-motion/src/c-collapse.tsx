@@ -66,6 +66,7 @@ export const CCollapse = defineComponent({
       default: true
     },
   },
+  emits: ['entered', 'left'],
   setup(props, { slots, attrs, emit }) {
     const [targetRef, targetNode] = useRef()
     const transitionId = useId('collapse-transition')
@@ -144,11 +145,18 @@ export const CCollapse = defineComponent({
 
     watch(() => props.isOpen!, (newVal) => {
       if (!newVal && targetNode.value!) {
-        leave(() => null)
+        leave(onDoneLeft)
       } else {
-        enter(() => null)
+        enter(onDoneEnter)
       }
     })
+
+    const onDoneEnter = () => {
+      emit('entered')
+    }
+    const onDoneLeft = () => {
+      emit('left')
+    }
 
     /**
      * We first invoke
@@ -174,7 +182,7 @@ export const CCollapse = defineComponent({
 
       return (
         withDirectives(
-          <chakra.div ref={targetRef}>
+          <chakra.div {...attrs} ref={targetRef}>
             {() => children}
           </chakra.div>,
           [
