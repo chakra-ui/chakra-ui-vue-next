@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-docs",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "description": "Website for Chakra UI Vue Next",
   "main": "index.html",
   "private": true,

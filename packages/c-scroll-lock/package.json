@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-scroll-lock",
   "description": "Chakra UI Vue | Component and Directive to enable and disble body scrolling component",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.4",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.4",
+    "@chakra-ui/vue-system": "0.1.0-alpha.5",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.5",
     "body-scroll-lock": "^3.1.5"
   },
   "devDependencies": {

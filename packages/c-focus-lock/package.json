@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-focus-lock",
   "description": "Chakra UI Vue | A component to trap focus within a dom element it is useful for modals dialogs and popovers component",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^1.8.0",
-    "@chakra-ui/vue-system": "0.1.0-alpha.4",
+    "@chakra-ui/vue-system": "0.1.0-alpha.5",
     "focus-trap": "^6.3.0"
   },
   "devDependencies": {

@@ -31,7 +31,8 @@
     "@chakra-ui/c-motion": "0.1.0-alpha.1",
     "@chakra-ui/c-scroll-lock": "0.0.1-alpha.0",
     "@chakra-ui/vue-a11y": "0.1.0-alpha.1",
-    "@chakra-ui/vue-composables": "0.1.0-alpha.1"
+    "@chakra-ui/vue-composables": "0.1.0-alpha.1",
+    "@chakra-ui/c-breadcrumb": "1.0.0-alpha.4"
   },
   "changesets": [
     "chilly-tables-care",
@@ -40,6 +41,7 @@
     "khaki-hounds-hunt",
     "kind-tools-camp",
     "neat-rules-cry",
+    "old-insects-exist",
     "orange-camels-doubt",
     "proud-apples-compare",
     "quiet-bananas-develop",
