@@ -1,5 +1,15 @@
 # @chakra-ui/vue-system
 
+## 0.1.0-alpha.6
+
+### Patch Changes
+
+- Mock release
+
+- Updated dependencies []:
+  - @chakra-ui/c-color-mode@0.1.0-alpha.5
+  - @chakra-ui/vue-utils@0.1.0-alpha.6
+
 ## 0.1.0-alpha.5
 
 ### Minor Changes

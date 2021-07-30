@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-popper",
   "description": "Chakra UI Vue | Position engine for vue bult on popperjs core component",
-  "version": "0.1.0-alpha.5",
+  "version": "0.1.0-alpha.6",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",

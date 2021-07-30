@@ -1,12 +1,12 @@
 /**
- * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.6 auto-imported
+ * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.7 auto-imported
  * components using `vite-plugin-components`
  *
  * @see: https://github.com/antfu/vite-plugin-components#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-07-29T05:01:14.847Z
+ * This file was generated on 2021-07-30T03:52:22.359Z
  */
 
 import { ChakraProps } from '@chakra-ui/vue-system'
@@ -101,6 +101,7 @@ declare module 'vue' {
     CAlertDialogOverlay: typeof import('@chakra-ui/vue-next')['CAlertDialogOverlay']
     CMotion: typeof import('@chakra-ui/vue-next')['CMotion']
     CAnimatePresence: typeof import('@chakra-ui/vue-next')['CAnimatePresence']
+    CCollapse: typeof import('@chakra-ui/vue-next')['CCollapse']
     CPortal: typeof import('@chakra-ui/vue-next')['CPortal']
     CScrollLock: typeof import('@chakra-ui/vue-next')['CScrollLock']
     CVisuallyHidden: typeof import('@chakra-ui/vue-next')['CVisuallyHidden']

@@ -1,5 +1,14 @@
 # @chakra-ui/vue-theme
 
+## 0.1.0-alpha.6
+
+### Patch Changes
+
+- Mock release
+
+- Updated dependencies []:
+  - @chakra-ui/vue-theme-tools@0.1.0-alpha.6
+
 ## 0.1.0-alpha.5
 
 ### Minor Changes

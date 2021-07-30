@@ -1,5 +1,11 @@
 # @chakra-ui/vue-docs
 
+## 0.1.0-alpha.6
+
+### Patch Changes
+
+- Mock release
+
 ## 0.1.0-alpha.5
 
 ### Minor Changes

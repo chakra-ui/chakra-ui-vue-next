@@ -1,5 +1,15 @@
 # @chakra-ui/vue-layout
 
+## 0.1.0-alpha.7
+
+### Patch Changes
+
+- Mock release
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.6
+  - @chakra-ui/vue-utils@0.1.0-alpha.6
+
 ## 0.1.0-alpha.6
 
 ### Minor Changes

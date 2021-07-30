@@ -1,5 +1,11 @@
 # @chakra-ui/vue-test-utils
 
+## 0.1.0-alpha.5
+
+### Patch Changes
+
+- Mock release
+
 ## 0.1.0-alpha.4
 
 ### Minor Changes

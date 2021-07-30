@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-alert",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -29,9 +29,9 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "1.0.0-alpha.5",
-    "@chakra-ui/vue-system": "0.1.0-alpha.5",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.5"
+    "@chakra-ui/c-icon": "1.0.0-alpha.6",
+    "@chakra-ui/vue-system": "0.1.0-alpha.6",
+    "@chakra-ui/vue-utils": "0.1.0-alpha.6"
   },
   "devDependencies": {
     "vue": "^3.1.4"

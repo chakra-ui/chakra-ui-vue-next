@@ -1,5 +1,14 @@
 # @chakra-ui/c-focus-lock
 
+## 0.1.0-alpha.4
+
+### Patch Changes
+
+- Mock release
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.6
+
 ## 0.1.0-alpha.3
 
 ### Minor Changes

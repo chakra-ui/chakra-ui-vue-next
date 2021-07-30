@@ -1,5 +1,17 @@
 # @chakra-ui/c-modal
 
+## 1.1.0-alpha.5
+
+### Patch Changes
+
+- Mock release
+
+- Updated dependencies []:
+  - @chakra-ui/c-motion@0.1.0-alpha.5
+  - @chakra-ui/vue-system@0.1.0-alpha.6
+  - @chakra-ui/vue-utils@0.1.0-alpha.6
+  - @chakra-ui/vue-composables@0.1.0-alpha.5
+
 ## 1.1.0-alpha.4
 
 ### Minor Changes
