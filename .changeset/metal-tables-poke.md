@@ -1,5 +1,5 @@
 ---
-'@chakra-ui/c-reset': minor
+'@chakra-ui/c-reset': patch
 ---
 
 remove console.logs
