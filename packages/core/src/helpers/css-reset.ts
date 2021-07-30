@@ -28,13 +28,7 @@ export function injectThemeGlobalStyles(
   watch(
     colorMode,
     () => {
-      console.log('colorMode', colorMode.value)
       const styles = css(globalStyles.value)(theme)
-      console.log(
-        injectGlobal({
-          ['html']: styles,
-        })
-      )
     },
     {
       immediate: true,
