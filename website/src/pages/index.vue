@@ -29,7 +29,11 @@ export default defineComponent({
     Footer,
     SandboxExample,
     DiscordHero,
-    // Features,
   },
 })
 </script>
+
+<route lang="yaml">
+meta:
+  layout: home
+</route>

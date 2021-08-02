@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-icon",
   "description": "Chakra UI Vue | A component to display icons in the browser component",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -33,7 +33,7 @@
     "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.4"
+    "@chakra-ui/vue-system": "0.1.0-alpha.5"
   },
   "devDependencies": {
     "vue": "^3.1.4"

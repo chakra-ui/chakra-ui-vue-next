@@ -17,7 +17,7 @@ function isHeading(child: any) {
 }
 
 export function getHeadings(children: Slots) {
-  const validChildren = getValidChildren(children)[0].children
+  const validChildren = getValidChildren(children)[0]?.children
   if (isString(validChildren)) return []
   if (!isArray(validChildren)) return []
   return validChildren
@@ -32,7 +32,7 @@ export function getHeadings(children: Slots) {
       if (isArray(child)) return false
       const validChildren = getValidChildren(child.children as Slots)
       const textChildren = validChildren.filter((node) => node.type !== Comment)
-      const text = textChildren[0].children
+      const text = textChildren[0]?.children
 
       return {
         level: child.props?.as,

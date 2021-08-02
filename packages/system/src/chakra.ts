@@ -198,7 +198,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
         const className = _css(resolvedComponentStyles)
         const _componentName = componentLabel ? `chakra-${componentLabel}` : ''
 
-        let componentOrTag = tag
+        let componentOrTag = props.as || tag
 
         // if tag is not a dom element like as="div" and an object (vue component as an object) like v-bind:as="RouterLink"
         if (
@@ -210,7 +210,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
         }
 
         return h(
-          props.as || (componentOrTag as any),
+          (componentOrTag as any) || props.as,
           {
             class: cx(inheritedClass, _componentName, className),
             ...elementAttributes,

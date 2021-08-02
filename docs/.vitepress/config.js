@@ -54,6 +54,7 @@ function getSetupSidebar() {
       children: [
         { text: 'Alert', link: '/components/alert' },
         { text: 'Badge', link: '/components/badge' },
+        { text: 'Breadcrumb', link: '/components/breadcrumb' },
         { text: 'Button', link: '/components/button' },
         { text: 'Code', link: '/components/code' },
         { text: 'Icon', link: '/components/icon' },

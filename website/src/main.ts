@@ -19,6 +19,8 @@ import 'vue-prism-editor/dist/prismeditor.min.css'
 import './styles/main.css'
 import customTheme from './assets/custom-theme'
 
+console.log(routes)
+
 export const createApp = ViteSSG(App, { routes }, ({ app, isClient }) => {
   if (isClient) {
     // @ts-expect-error Need to add $emotionSSRIds to global namespace

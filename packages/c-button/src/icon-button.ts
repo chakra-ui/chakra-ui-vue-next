@@ -1,7 +1,8 @@
 import { h, ComponentObjectPropsOptions, defineComponent, PropType } from 'vue'
 import CButton from './button'
-import { BUTTON_PROPS } from './button.utils'
+import { BUTTON_PROPS, ButtonProps } from './button.utils'
 import { CIcon } from '@chakra-ui/c-icon'
+import { ComponentWithProps, DeepPartial } from '@chakra-ui/vue-system'
 
 const IconButtonProps: ComponentObjectPropsOptions = {
   ...BUTTON_PROPS,
@@ -13,12 +14,20 @@ const IconButtonProps: ComponentObjectPropsOptions = {
   },
 }
 
+export interface CIconButtonProps extends ButtonProps {
+  icon: string
+  isRound?: boolean
+  ariaLabel: string
+}
+
 /**
  * CIconButton
  *
  * IconButton composes the Button component except that it renders only an icon.
  */
-const CIconButton = defineComponent({
+const CIconButton: ComponentWithProps<
+  DeepPartial<CIconButtonProps>
+> = defineComponent({
   name: 'CIconButton',
   props: IconButtonProps,
   setup(props, { attrs }) {
