@@ -56,7 +56,7 @@ export function usePopper(props: UsePopperOptions = {}) {
     unsubscribe?.()
   })
 
-  const setup = async () => {
+  const setup = () => {
     nextTick().then(() => {
       if (!reference.value || !popper.value) return
       cleanup.value?.()
@@ -78,8 +78,7 @@ export function usePopper(props: UsePopperOptions = {}) {
     popper.value = null
   })
 
-  onMounted(async () => {
-    await nextTick()
+  onMounted(() => {
     nextTick().then(() => {
       unsubscribe = watch(() => [reference, popper], setup, {
         immediate: true,

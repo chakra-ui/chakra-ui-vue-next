@@ -47,8 +47,7 @@
   "dependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.12.7",
     "@chakra-ui/styled-system": "^1.10.0",
     "@chakra-ui/utils": "1.8.2",
