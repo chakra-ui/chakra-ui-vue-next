@@ -99,3 +99,4 @@ dist
 .history
 website/.vite-ssg-temp
 .npmrc
+cypress/screenshots
