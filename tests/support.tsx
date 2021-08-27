@@ -8,6 +8,7 @@ import Chakra, { chakra, extendTheme } from '@chakra-ui/vue-next'
 import { domElements, injectGlobal, toCSSVar } from '@chakra-ui/vue-system'
 import { CReset } from '@chakra-ui/c-reset'
 import 'cypress-plugin-tab'
+import "@babel/polyfill"
 
 const theme = extendTheme({})
 

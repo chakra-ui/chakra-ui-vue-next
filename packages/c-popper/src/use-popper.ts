@@ -57,18 +57,19 @@ export function usePopper(props: UsePopperOptions = {}) {
   })
 
   const setup = async () => {
-    await nextTick()
-    if (!reference.value || !popper.value) return
-    cleanup.value?.()
+    nextTick().then(() => {
+      if (!reference.value || !popper.value) return
+      cleanup.value?.()
 
-    popperInstance.value = createPopper.value(reference.value, popper.value, {
-      placement,
-      modifiers,
-      strategy,
+      popperInstance.value = createPopper.value(reference.value, popper.value, {
+        placement,
+        modifiers,
+        strategy,
+      })
+
+      popperInstance.value.forceUpdate()
+      cleanup.value = popperInstance.value.destroy
     })
-
-    popperInstance.value.forceUpdate()
-    cleanup.value = popperInstance.value.destroy
   }
 
   onBeforeUpdate(() => {
@@ -79,9 +80,11 @@ export function usePopper(props: UsePopperOptions = {}) {
 
   onMounted(async () => {
     await nextTick()
-    unsubscribe = watch(() => [reference, popper], setup, {
-      immediate: true,
-      flush: 'post',
+    nextTick().then(() => {
+      unsubscribe = watch(() => [reference, popper], setup, {
+        immediate: true,
+        flush: 'post',
+      })
     })
   })
 

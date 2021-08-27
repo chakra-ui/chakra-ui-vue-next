@@ -22,7 +22,7 @@
   "dependencies": {
     "@chakra-ui/c-icon": "1.0.0-alpha.5",
     "@chakra-ui/c-spinner": "1.0.0-alpha.5",
-    "@chakra-ui/utils": "^1.8.0",
+    "@chakra-ui/utils": "1.8.2",
     "@chakra-ui/vue-system": "0.1.0-alpha.5",
     "@chakra-ui/vue-utils": "0.1.0-alpha.5"
   },
@@ -31,5 +31,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "vue": "^3.1.4"
   }
 }
