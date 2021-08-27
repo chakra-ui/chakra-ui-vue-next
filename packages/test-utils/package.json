@@ -1,17 +1,15 @@
 {
   "name": "@chakra-ui/vue-test-utils",
   "version": "0.1.0-alpha.4",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "typings": "dist/types/index.d.ts",
+  "main": "dist/chakra-ui-vue-test-utils.cjs.js",
+  "module": "dist/chakra-ui-vue-test-utils.esm.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "./dist/chakra-ui-vue-test-utils.cjs.js",
+      "default": "./dist/chakra-ui-vue-test-utils.esm.js"
     }
   },
   "description": "Chakra UI Vue | TestUtils module",
@@ -19,12 +17,17 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./dist && concurrently yarn:build:*",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
-    "watch": "yarn:watch:*",
-    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
-    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
-    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-theme": "0.1.0-alpha.6",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/user-event": "^13.2.1",
+    "@testing-library/vue": "^5.8.2",
+    "jest-axe": "^5.0.1",
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

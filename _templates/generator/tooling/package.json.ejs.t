@@ -7,8 +7,6 @@ to: tooling/<%=h.changeCase.paramCase(name)%>/package.json
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "typings": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],

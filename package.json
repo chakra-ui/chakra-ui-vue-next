@@ -11,16 +11,18 @@
     "website"
   ],
   "scripts": {
-    "pkg": "manypkg run",
-    "pkgs:check": "manypkg check",
-    "pkgs:fix": "manypkg fix",
-    "postinstall": "yarn bootstrap",
+    "postinstall": "preconstruct dev",
+    "dev": "preconstruct dev",
+    "clean": "yarn workspaces run clean",
+    "prebuild": "yarn clean",
+    "build": "yarn preconstruct build",
+    "postbuild": "yarn analyze",
+    "start": "preconstruct watch",
     "csb:install": "yarn && yarn bootstrap",
     "bootstrap": "yarn run lerna bootstrap",
     "scaffold": "hygen generator",
     "release": "yarn changeset publish",
-    "build": "lerna run build --no-private --stream",
-    "dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
+    "playground:dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
     "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "cy:open": "cypress open-ct",
     "cy:run": "cypress run-ct --quiet",
@@ -33,7 +35,12 @@
     "docs:serve:legacy": "vitepress serve docs",
     "docs:dev": "yarn pkg @chakra-ui/vue-docs dev",
     "docs:generate": "yarn pkg @chakra-ui/vue-docs generate",
-    "docs:serve": "yarn pkg @chakra-ui/vue-docs serve"
+    "docs:serve": "yarn pkg @chakra-ui/vue-docs serve",
+    "pkg": "manypkg run",
+    "pkgs:check": "manypkg check",
+    "pkgs:fix": "manypkg fix",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
   "license": "MIT",
   "private": true,
@@ -57,6 +64,7 @@
     "@emotion/server": "^11.0.0",
     "@manypkg/cli": "^0.17.0",
     "@popperjs/core": "^2.8.4",
+    "@preconstruct/cli": "^2.1.1",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/user-event": "^12.6.2",
     "@testing-library/vue": "^6.3.4",
@@ -150,5 +158,16 @@
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.0.10",
     "vue3-perfect-scrollbar": "^1.5.5"
+  },
+  "devDependencies": {
+    "@size-limit/file": "^5.0.3",
+    "@size-limit/webpack": "^5.0.3",
+    "size-limit": "^5.0.3"
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*",
+      "tooling/*"
+    ]
   }
 }

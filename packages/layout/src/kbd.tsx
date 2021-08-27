@@ -9,7 +9,7 @@ import {
   ComponentWithProps,
   DeepPartial,
 } from '@chakra-ui/vue-system'
-import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
+import { computed, defineComponent, h, PropType } from 'vue'
 import { filterUndefined } from '@chakra-ui/utils'
 
 export interface KbdProps extends HTMLChakraProps<'kbd'>, ThemingProps<'Kbd'> {}
