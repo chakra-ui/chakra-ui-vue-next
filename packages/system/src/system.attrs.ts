@@ -37,11 +37,10 @@ export const extractStyleAttrs = <
     }
     const _isStyledProp = isStyleProp(_attr)
     if (_isStyledProp) {
-      // @ts-expect-error Not sure how to cast returned string into typeof key of U
       styles[_attr] = styleProps[prop]
     } else {
       // @ts-expect-error Not sure how to cast returned string into typeof key of U
-      attrs[prop] = styleProps[prop]
+      attrs[prop as keyof U] = styleProps[prop]
     }
   }
 

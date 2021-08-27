@@ -16,8 +16,6 @@ module.exports = {
     '@chakra-ui/vue-test-utils': '<rootDir>/packages/test-utils/src/index.ts',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  snapshotSerializers: [
-    '@chakra-ui/vue-test-utils/dist/cjs/snapshot-serializer.js',
-  ],
+  snapshotSerializers: ['@chakra-ui/vue-test-utils/src/snapshot-serializer.ts'],
   testMatch: ['**/**/*.test.(js|jsx|ts|tsx)'],
 }
