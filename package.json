@@ -23,7 +23,7 @@
     "scaffold": "hygen generator",
     "release": "yarn changeset publish",
     "playground:dev": "NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
-    "playground:build": "yarn install && yarn build && yarn bootstrap && NODE_ENV=production vite build playground --config ./vite.config.ts",
+    "playground:build": "yarn install && yarn build && NODE_ENV=production vite build playground --config ./vite.config.ts",
     "cy:open": "cypress open-ct",
     "cy:run": "cypress run-ct --quiet",
     "test:component": "yarn cy:run",
