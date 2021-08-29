@@ -1,5 +1,5 @@
 <template>
-  <c-form-control id="first-name" is-required w="400px">
+  <c-form-control id="name" is-required w="400px">
     <c-form-label> First name </c-form-label>
     <c-input placeholder="First Name" />
     <c-form-helper-text> Keep it very short and sweet! </c-form-helper-text>

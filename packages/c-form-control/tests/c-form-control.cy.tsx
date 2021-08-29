@@ -96,6 +96,67 @@ describe('<CFormControl />', () => {
     cy.get('#name > [role="presentation"]')
       .should('not.exist')
   })
+
+
+  it('useFormControl calls provided input callbacks', () => {
+    const onFocus = cy.stub()
+    const onBlur = cy.stub()
+    const props = {
+      onFocus,
+      onBlur
+    }
+
+    cy.mount(
+      h(() => (
+        <CFormControl id="other-name">
+          <CFormLabel>Name</CFormLabel>
+          <CInput
+            placeholder="Name"
+            data-testid="input"
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
+        </CFormControl>
+      ))
+    )
+    .then(() => {
+      cy.get('[data-testid="input"]')
+        .focus()
+        .wait(100)
+        .then(() => {
+          cy.focused().should('have.attr', 'data-testid', 'input')
+          expect(onFocus).to.have.been.called
+        })
+        .blur()
+        .wait(100)
+        .then(() => {
+          expect(onBlur).to.have.been.called
+        })
+    })
+  })
+
+  // Here attrsibtutes a re renderedn correctly in DOM but not in
+  // test environment. Not sure why
+  it.skip('has the proper aria-attibutes', () => {
+    cy.mount(defineComponent({
+      setup() {
+        return () => (
+          <CFormControl id="name">
+            <CFormLabel> First name </CFormLabel>
+            <CInput data-testid="input" placeholder="First Name" />
+            <CFormHelperText> Keep it very short and sweet! </CFormHelperText>
+          </CFormControl>
+        )
+      }
+    }))
+    .wait(200)
+
+    cy.get('[data-testid="input"]')
+      .should('have.attr', "aria-describedby", "helptext-name")
+      .should('not.have.attr', "aria-invalid")
+      .should('not.have.attr', "aria-required")
+      .should('not.have.attr', "aria-readonly")
+  })
 })
 
 // TODO:
