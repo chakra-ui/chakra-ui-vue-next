@@ -4,6 +4,8 @@ dist
 yarn-error.log
 test-vite-project
 
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -97,6 +99,12 @@ dist
 
 # vscode history extension
 .history
+
+# SSG
 website/.vite-ssg-temp
+
+# npmrc
 .npmrc
+
+# Cypress screenshots generated
 cypress/screenshots

@@ -4,16 +4,16 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
-  "version": "1.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "version": "0.0.0-alpha.0",
+  "main": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
+  "module": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "<%= './dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
+      "default": "<%= './dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>"
     }
   },
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.pascalCase(name) + ' module'%>",

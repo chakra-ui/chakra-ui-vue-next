@@ -9,25 +9,24 @@ The official working repository for V1 of Chakra UI Vue with Vue 3 support.
 yarn install
 ```
 
-### Build components
+### Watch components
 ```bash
-yarn build
-```
-
-### Bootstrap and link packages
-```bash
-yarn bootstrap
+yarn start
 ```
 
 ### Component playground (based on vite)
 ```bash
-yarn dev
+# In one background terminal (Only needs to be run once)
+yarn start
+
+# In another terminal
+yarn playground:dev
 ```
 
 ## Development Guide
 ### Major todos:
-- [ ] Documentation
-- [ ] Accessibility JS hooks (Documented in Roadmap)
+- [-] Documentation (WIP)
+- [-] Accessibility JS hooks (WIP, Documented in Roadmap)
 
 ### Creating a new commit message
 The commits follow the [conventional commit format](https://www.conventionalcommits.org/). Husky is setup to lint your commit messages to match this format. 

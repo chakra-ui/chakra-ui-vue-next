@@ -1,6 +1,7 @@
-import { UnionStringArray } from '@chakra-ui/utils'
+import { UnionStringArray, omit } from '@chakra-ui/utils'
 import { keyframes, injectGlobal } from '@emotion/css'
-import { PropType } from '@vue/runtime-core'
+import { PropType } from 'vue'
+import { ThemingProps } from './system.types'
 
 /**
  * Carefully selected html elements for chakra components.
@@ -79,6 +80,10 @@ export type DeepPartial<T> = {
 
 export type ToPropType<T> = {
   [P in keyof T]?: PropType<T[P]>
+}
+
+export function omitThemingProps<T extends ThemingProps>(props: T) {
+  return omit(props, ["styleConfig", "size", "variant", "colorScheme"])
 }
 
 export { keyframes, injectGlobal }

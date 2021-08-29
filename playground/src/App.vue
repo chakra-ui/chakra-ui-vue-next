@@ -6,14 +6,16 @@
         <sidebar :stories="routes" />
       </chakra.div>
     </perfect-scrollbar>
-    <chakra.main w="full" pos="relative" border-left="1px solid" border-color="gray.200" padding="4">
-      <router-view v-slot="{ Component, route }">
-        <!-- <transition name="fade" mode="out-in"> -->
-          <component :is="Component" />
-        <!-- </transition> -->
-      </router-view>
+    <c-center w="full" pos="relative" border-left="1px solid" border-color="gray.200" padding="4">
+      <c-square box-size="600px">
+        <router-view v-slot="{ Component, route }">
+          <!-- <transition name="fade" mode="out-in"> -->
+            <component :is="Component" />
+          <!-- </transition> -->
+        </router-view>
+      </c-square>
       <c-icon-button color="inherit" pos="absolute" @click="toggleColorMode" top="10" right="10" :aria-label="`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`" :icon="colorMode === 'light' ? 'moon' : 'sun'" />
-    </chakra.main>
+    </c-center>
   </chakra.section>
 </template>
 
