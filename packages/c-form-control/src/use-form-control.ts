@@ -144,7 +144,10 @@ export type CFormControlProviderContext = ComputedRef<Omit<
 const [
   FormControlProvider,
   useFormControlContext
-] = createContext<CFormControlProviderContext>()
+] = createContext<CFormControlProviderContext>({
+  strict: false,
+  name: 'FormControlContext'
+})
 
 export { FormControlProvider, useFormControlContext }
 

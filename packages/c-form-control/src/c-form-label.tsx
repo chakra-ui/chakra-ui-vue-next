@@ -30,11 +30,11 @@ export const CFormLabel = defineComponent({
           textAlign: 'start',
           ...styles.value
         }}
-        {...field.value.labelProps.value}
+        {...field?.value?.labelProps.value}
         {...attrs}
       >
         {slots?.default?.()}
-        {field.value?.isRequired?.value ? requiredIndicator.value : null}
+        {field?.value?.isRequired?.value ? requiredIndicator.value : null}
       </chakra.label>
     )
   }
