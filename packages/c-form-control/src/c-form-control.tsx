@@ -9,9 +9,8 @@
  */
 
 import { h, defineComponent, ComputedRef, computed, PropType, toRefs } from 'vue'
-import { chakra, ComponentWithProps, DeepPartial, DOMElements, useMultiStyleConfig, StylesProvider, omitThemingProps } from '@chakra-ui/vue-system'
+import { chakra, ComponentWithProps, DeepPartial, DOMElements, useMultiStyleConfig, StylesProvider, omitThemingProps, HTMLChakraProps, useStyles } from '@chakra-ui/vue-system'
 import { CFormControlProps, useFormControlProvider } from './use-form-control'
-import { mergeWith } from '@chakra-ui/utils'
 import { createContext } from '@chakra-ui/vue-utils'
 
 type CFormControlProviderContext = ComputedRef<Omit<
@@ -42,12 +41,17 @@ DeepPartial<CFormControlProps>
       type: [Object, String] as PropType<DOMElements>,
       default: 'div',
     },
+    isRequired: Boolean as PropType<CFormControlProps['isRequired']>,
+    isDisabled: Boolean as PropType<CFormControlProps['isDisabled']>,
+    isInvalid: Boolean as PropType<CFormControlProps['isInvalid']>,
+    isReadOnly: Boolean as PropType<CFormControlProps['isReadOnly']>,
+    label: String as PropType<CFormControlProps['label']>,
+    id: String as PropType<CFormControlProps['id']>,
   },
   setup(_props, { slots, attrs }) {
     const { as, ...props } = toRefs(_props)
     const ownProps = computed(() => props)
     const styles = useMultiStyleConfig('Form', props)
-
     const { rootProps, ..._context } = useFormControlProvider(ownProps.value)
 
     const context: CFormControlProviderContext = computed(() => _context)
@@ -56,9 +60,32 @@ DeepPartial<CFormControlProps>
     StylesProvider(styles)
 
     return () => (
-      <chakra.div as={as.value} {...rootProps.value} __css={styles.value.container} __label="form-control">
+      <chakra.div as={as.value} {...rootProps.value} __css={styles.value.container} __label="form" { ...attrs }>
         {slots}
       </chakra.div>
     )
   },
+})
+
+
+export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
+/**
+ * CFormHelperText
+ *
+ * Assistive component that conveys additional guidance
+ * about the field, such as how it will be used and what
+ * types in values should be provided.
+ */
+export const CFormHelperText: ComponentWithProps<DeepPartial<CHelpTextProps>> = defineComponent((props, { attrs, slots }) => {
+  const field = useFormControlContext()
+  const styles = useStyles()
+  const handleVNodeMounted = () => {
+    field.value.hasHelpText.value = true
+  }
+
+  return () => (
+    <chakra.div __label="form__helper-text" onVnodeBeforeMount={handleVNodeMounted} {...field.value.helperTextProps.value} __css={styles.value.helperText}>
+      {slots}
+    </chakra.div>
+  )
 })

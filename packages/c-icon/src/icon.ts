@@ -36,20 +36,22 @@ export interface IconProps
   size?: string
 }
 
-export const CIcon = defineComponent({
-  props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: 'svg',
-    },
-    name: {
-      type: [String] as PropType<IconProps['name']>,
-    },
-    size: {
-      type: [String] as PropType<IconProps['size']>,
-      default: '1em',
-    },
+export const iconProps = {
+  as: {
+    type: [Object, String] as PropType<DOMElements>,
+    default: 'svg',
   },
+  name: {
+    type: [String] as PropType<IconProps['name']>,
+  },
+  size: {
+    type: [String] as PropType<IconProps['size']>,
+    default: '1em',
+  },
+}
+
+export const CIcon = defineComponent({
+  props: iconProps,
   setup(props, { slots, attrs }) {
     const icons = inject<Record<string, any>>('$chakraIcons')
     const icon = computed(() => icons?.[props?.name as string] || fallbackIcon)

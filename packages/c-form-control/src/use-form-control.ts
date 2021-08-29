@@ -1,4 +1,4 @@
-import { computed, ToRefs, ref } from 'vue';
+import { computed, ToRefs, ref, watchEffect } from 'vue';
 import { useId, useIds } from '@chakra-ui/vue-composables'
 import { dataAttr } from '@chakra-ui/utils';
 import { HTMLChakraProps, ThemingProps } from '@chakra-ui/vue-system';
@@ -55,7 +55,7 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
   } = props
 
   // Generate all the required ids
-  const id = computed(() => idProp?.value || useId().value)
+  const id = computed(() => idProp?.value || useId('form').value)
   const [labelId, feedbackId, helpTextId] = useIds(id.value,
     'label',
     'feedback',
