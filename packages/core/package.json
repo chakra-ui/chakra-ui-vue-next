@@ -29,6 +29,7 @@
     "@chakra-ui/c-color-mode": "0.1.0-alpha.4",
     "@chakra-ui/c-flex": "1.0.0-alpha.5",
     "@chakra-ui/c-focus-lock": "0.1.0-alpha.3",
+    "@chakra-ui/c-form-control": "0.0.0-alpha.0",
     "@chakra-ui/c-icon": "1.0.0-alpha.5",
     "@chakra-ui/c-modal": "1.1.0-alpha.4",
     "@chakra-ui/c-motion": "0.1.0-alpha.4",

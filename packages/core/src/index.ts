@@ -108,6 +108,7 @@ export * from '@chakra-ui/c-code'
 // F
 export * from '@chakra-ui/c-flex'
 export * from '@chakra-ui/c-focus-lock'
+export * from '@chakra-ui/c-form-control'
 
 // I
 export * from '@chakra-ui/c-icon'

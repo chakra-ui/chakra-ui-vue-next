@@ -1,4 +1,5 @@
-import { ComputedRef, Ref } from 'vue'
+import { ComputedRef, Ref, VNodeProps } from 'vue'
+import { TemplateRef } from './dom'
 
 /**
  * Value may or may not be a `ref`.
@@ -8,3 +9,8 @@ import { ComputedRef, Ref } from 'vue'
  * ```
  */
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
+
+/** VNodeProps Object */
+export interface MergedVNodeProps extends VNodeProps {
+  ref: TemplateRef | ((el: TemplateRef | null) => void)
+}

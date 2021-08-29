@@ -5,9 +5,9 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.sentence(description) + ' component'%>",
-  "version": "1.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "version": "0.0.0-alpha.0",
+  "main": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
+  "module": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -16,12 +16,9 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "<%= './dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
+      "default": "<%= './dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>"
     }
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -31,22 +28,19 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
-  "scripts": {
-    "build": "rimraf ./dist && concurrently yarn:build:*",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
-    "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "watch": "concurrently yarn:watch:*",
-    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
-    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
-    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
+    "scripts": {
+    "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.9.0",
-    "@chakra-ui/vue-system": "*",
-    "@chakra-ui/vue-utils": "*"
+    "@chakra-ui/vue-system": "0.1.0-alpha.5"
+  },
+  "devDependencies": {
+    "vue": "^3.1.4"
   },
   "peerDependencies": {
-    "vue": ">=3.0.5"
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

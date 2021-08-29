@@ -70,14 +70,11 @@ start building, here's what you need to do:
 # 1. * Fixes all dependency resolutions in the respository*
 yarn pkgs:fix
 
-# 2. * Build core package with export from new component
-yarn core build
+# 2. Watch packages
+yarn start
 
-# 3. Start watching for changes in
-yarn pkg chakra-ui/COMPONENT_NAME watch
-
-# 4. Starts development server
-yarn dev
+# 3. In second terminal, Starts development environment
+yarn playground:dev
 ```
 
 
