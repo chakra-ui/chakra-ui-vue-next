@@ -7,6 +7,7 @@
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/website",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "vite",
     "build": "echo '⚡️ Building docs package stub'",
     "generate": "vite-ssg build",

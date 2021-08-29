@@ -4,7 +4,7 @@ import {
   DeepPartial,
   HTMLChakraProps,
 } from '@chakra-ui/vue-system'
-import { defineComponent, h } from '@vue/runtime-core'
+import { defineComponent, h } from 'vue'
 
 export interface SpacerProps extends HTMLChakraProps<'div'> {}
 

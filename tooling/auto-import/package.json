@@ -1,17 +1,15 @@
 {
   "name": "@chakra-ui/vue-auto-import",
   "version": "0.1.0-alpha.6",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "typings": "dist/types/index.d.ts",
+  "main": "dist/chakra-ui-vue-auto-import.cjs.js",
+  "module": "dist/chakra-ui-vue-auto-import.esm.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "./dist/chakra-ui-vue-auto-import.cjs.js",
+      "default": "./dist/chakra-ui-vue-auto-import.esm.js"
     }
   },
   "description": "Chakra UI Vue | VueAutoImport module",
@@ -19,19 +17,16 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./dist && concurrently yarn:build:*",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
-    "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "watch": "yarn:watch:*",
-    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
-    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
-    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
+    "clean": "rimraf dist"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
+    "@chakra-ui/vue-next": "1.0.0-alpha.7",
     "vite": "^2.2.4",
     "vite-plugin-components": "^0.8.3",
     "vue": "^3.0.11"

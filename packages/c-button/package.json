@@ -1,17 +1,15 @@
 {
   "name": "@chakra-ui/c-button",
   "version": "1.0.0-alpha.5",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "typings": "dist/types/index.d.ts",
+  "main": "dist/chakra-ui-c-button.cjs.js",
+  "module": "dist/chakra-ui-c-button.esm.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "./dist/chakra-ui-c-button.cjs.js",
+      "default": "./dist/chakra-ui-c-button.esm.js"
     }
   },
   "description": "Chakra UI Vue | CButton component",
@@ -19,21 +17,20 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./dist && concurrently yarn:build:*",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx,.tsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx,.tsx -d dist/cjs --source-maps",
-    "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "watch": "yarn:watch:*",
-    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx,.tsx -d dist/esm --source-maps --watch",
-    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx,.tsx -d dist/cjs --source-maps --watch",
-    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "@chakra-ui/c-icon": "1.0.0-alpha.5",
     "@chakra-ui/c-spinner": "1.0.0-alpha.5",
-    "@chakra-ui/utils": "^1.8.0",
+    "@chakra-ui/utils": "^1.8.2",
     "@chakra-ui/vue-system": "0.1.0-alpha.5",
     "@chakra-ui/vue-utils": "0.1.0-alpha.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "vue": "^3.1.4"

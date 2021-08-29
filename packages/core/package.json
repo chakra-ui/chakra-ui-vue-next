@@ -2,32 +2,22 @@
   "name": "@chakra-ui/vue-next",
   "version": "1.0.0-alpha.7",
   "description": "Vue 3 compatible version of Chakra UI Vue",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "typings": "dist/types/index.d.ts",
+  "main": "dist/chakra-ui-vue-next.cjs.js",
+  "module": "dist/chakra-ui-vue-next.esm.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "./dist/chakra-ui-vue-next.cjs.js",
+      "default": "./dist/chakra-ui-vue-next.esm.js"
     }
   },
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/core",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf ./dist && concurrently yarn:build:*",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
-    "build:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "postbuild": "cross-env yarn run ts-node ../../scripts/generate-global-types.ts",
-    "watch": "cross-env concurrently yarn:watch:*",
-    "watch:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps --watch",
-    "watch:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps --watch",
-    "watch:types": "cross-env tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch --incremental"
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "@chakra-ui/c-accordion": "0.1.0-alpha.5",
@@ -39,6 +29,7 @@
     "@chakra-ui/c-color-mode": "0.1.0-alpha.4",
     "@chakra-ui/c-flex": "1.0.0-alpha.5",
     "@chakra-ui/c-focus-lock": "0.1.0-alpha.3",
+    "@chakra-ui/c-form-control": "0.0.0-alpha.0",
     "@chakra-ui/c-icon": "1.0.0-alpha.5",
     "@chakra-ui/c-modal": "1.1.0-alpha.4",
     "@chakra-ui/c-motion": "0.1.0-alpha.4",
@@ -50,7 +41,7 @@
     "@chakra-ui/c-theme-provider": "1.0.0-alpha.5",
     "@chakra-ui/c-visually-hidden": "1.0.0-alpha.5",
     "@chakra-ui/styled-system": "^1.10.0",
-    "@chakra-ui/utils": "^1.8.0",
+    "@chakra-ui/utils": "^1.8.2",
     "@chakra-ui/vue-a11y": "0.1.0-alpha.4",
     "@chakra-ui/vue-composables": "0.1.0-alpha.4",
     "@chakra-ui/vue-layout": "0.1.0-alpha.6",
@@ -60,5 +51,11 @@
   },
   "devDependencies": {
     "vue": "^3.1.4"
+  },
+  "peerDependencies": {
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

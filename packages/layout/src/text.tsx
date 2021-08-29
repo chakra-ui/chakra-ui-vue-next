@@ -10,7 +10,7 @@ import {
   DeepPartial,
 } from '@chakra-ui/vue-system'
 import { SNAO, vueThemingProps } from '@chakra-ui/vue-utils'
-import { computed, defineComponent, h, PropType } from '@vue/runtime-core'
+import { computed, defineComponent, h, PropType } from 'vue'
 
 export interface TextProps extends HTMLChakraProps<'p'>, ThemingProps<'Text'> {
   /**
