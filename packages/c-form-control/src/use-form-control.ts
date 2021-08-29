@@ -1,7 +1,8 @@
-import { computed, ToRefs, ref, watchEffect } from 'vue';
+import { computed, ToRefs, ref, ComputedRef, watchEffect, VNodeProps } from 'vue';
 import { useId, useIds } from '@chakra-ui/vue-composables'
-import { dataAttr } from '@chakra-ui/utils';
+import { ariaAttr, dataAttr, callAllHandlers } from '@chakra-ui/utils';
 import { HTMLChakraProps, ThemingProps } from '@chakra-ui/vue-system';
+import { createContext } from '@chakra-ui/vue-utils';
 
 export interface FormControlOptions {
   /**
@@ -42,6 +43,10 @@ export interface FormControlContext extends FormControlOptions {
    * - The form helper text id: `form-helper-text-${id}`
    */
   id?: string
+  /**
+   * The custom `for` attribute passed on to the CFormLabel for it's corresponding field
+   */
+  for?: string
 }
 
 
@@ -51,7 +56,8 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
     isRequired,
     isInvalid,
     isDisabled,
-    isReadOnly
+    isReadOnly,
+    for: forProp
   } = props
 
   // Generate all the required ids
@@ -86,7 +92,8 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
     "data-disabled": dataAttr(isDisabled?.value),
     "data-invalid": dataAttr(isInvalid?.value),
     "data-readonly": dataAttr(isReadOnly?.value),
-    id: labelId.value
+    id: labelId.value,
+    for: forProp?.value ?? id.value
   }))
 
   const errorMessageProps = computed(() => ({
@@ -98,10 +105,9 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
     role: 'group'
   }))
 
-  const requiredIndicatorProps = computed(() => (props = {} as any) => ({
+  const requiredIndicatorProps = computed(() => ({
     role: 'presentation',
-    'aria-hidden': 'true',
-    defaultSlot: [props.children || '*']
+    'aria-hidden': true,
   }))
 
   return {
@@ -130,7 +136,114 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
   }
 }
 
+export type CFormControlProviderContext = ComputedRef<Omit<
+  ReturnType<typeof useFormControlProvider>,
+  "rootProps"
+>>
+
+const [
+  FormControlProvider,
+  useFormControlContext
+] = createContext<CFormControlProviderContext>()
+
+export { FormControlProvider, useFormControlContext }
+
 export interface CFormControlProps
   extends HTMLChakraProps<"div">,
     ThemingProps<"FormControl">,
     FormControlContext {}
+
+export interface UseFormControlProps<T extends VNodeProps>
+  extends FormControlOptions {
+  id?: string
+  onFocus?: (event: FocusEvent) => any
+  onBlur?: (event: FocusEvent) => any
+  disabled?: boolean
+  readOnly?: boolean
+  required?: boolean
+}
+  
+/**
+ * Vue Composable that provides the props that should be spread on to
+ * input fields (`input`, `select`, `textarea`, etc.).
+ *
+ * It provides a convenient way to control a form fields, validation
+ * and helper text.
+ */
+ export function useFormControl<T extends VNodeProps>(
+  props: ToRefs<UseFormControlProps<T>>,
+) {
+  const {
+    isDisabled,
+    isInvalid,
+    isReadOnly,
+    isRequired,
+    id,
+    "aria-describedby": ariaDescribedBy,
+    onBlur,
+    onFocus
+  } = useFormControlProps(props)
+
+  const formControlProps = computed(() => ({
+    id: id?.value,
+    "aria-describedby": ariaDescribedBy.value,
+    onBlur,
+    onFocus,
+    disabled: isDisabled?.value,
+    readOnly: isReadOnly?.value,
+    required: isRequired?.value,
+    "aria-invalid": ariaAttr(isInvalid?.value),
+    "aria-required": ariaAttr(isRequired?.value),
+    "aria-readonly": ariaAttr(isReadOnly?.value),
+  }))
+
+  return formControlProps
+}
+
+export function useFormControlProps<T extends VNodeProps>(
+  props: ToRefs<UseFormControlProps<T>>,
+) {
+  const field = useFormControlContext()
+
+  const {
+    id,
+    disabled,
+    readOnly,
+    required,
+    isRequired,
+    isInvalid,
+    isReadOnly,
+    isDisabled,
+    onFocus,
+    onBlur,
+    ...rest
+  } = props
+  
+  const labelIds = ref<string[]>(props["aria-describedby"]?.['value']
+    ? [props["aria-describedby"]?.['value']]
+    : []
+  )
+
+  watchEffect(() => {
+    // Error message must be described first in all scenarios.
+    if (field?.value.hasFeedbackText.value && field?.value?.isInvalid?.value) {
+      labelIds.value.push(field?.value?.feedbackId?.value)
+    }
+
+    if (field?.value?.hasHelpText?.value) {
+      labelIds.value.push(field.value.helpTextId.value)
+    }
+  })
+
+  return {
+    ...rest,
+    "aria-describedby": computed(() => labelIds.value.join(" ") || undefined),
+    id: id ?? field?.value.id,
+    isDisabled: disabled ?? isDisabled ?? field?.value?.isDisabled,
+    isReadOnly: readOnly ?? isReadOnly ?? field?.value?.isReadOnly,
+    isRequired: required ?? isRequired ?? field?.value?.isRequired,
+    isInvalid: isInvalid ?? field?.value?.isInvalid,
+    onFocus: callAllHandlers(field?.value?.onFocus, onFocus?.value),
+    onBlur: callAllHandlers(field?.value?.onBlur, onBlur?.value),
+  }
+}

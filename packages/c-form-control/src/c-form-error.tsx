@@ -1,7 +1,7 @@
 import { chakra, ComponentWithProps, DeepPartial, HTMLChakraProps, StylesProvider, ThemingProps, useMultiStyleConfig, useStyles } from '@chakra-ui/vue-system';
 import { defineComponent } from 'vue';
 import { vueThemingProps } from '@chakra-ui/vue-utils';
-import { useFormControlContext } from './c-form-control';
+import { useFormControlContext } from './use-form-control';
 import { CIcon, iconProps, IconProps } from '@chakra-ui/c-icon'
 
 export interface CFormErrorMessageProps

@@ -8,22 +8,9 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, ComputedRef, computed, PropType, toRefs } from 'vue'
+import { h, defineComponent, computed, PropType, toRefs } from 'vue'
 import { chakra, ComponentWithProps, DeepPartial, DOMElements, useMultiStyleConfig, StylesProvider, omitThemingProps, HTMLChakraProps, useStyles } from '@chakra-ui/vue-system'
-import { CFormControlProps, useFormControlProvider } from './use-form-control'
-import { createContext } from '@chakra-ui/vue-utils'
-
-type CFormControlProviderContext = ComputedRef<Omit<
-  ReturnType<typeof useFormControlProvider>,
-  "rootProps"
->>
-
-const [
-  FormControlProvider,
-  useFormControlContext
-] = createContext<CFormControlProviderContext>()
-
-export { useFormControlContext }
+import { CFormControlProps, CFormControlProviderContext, useFormControlProvider, FormControlProvider, useFormControlContext } from './use-form-control'
 
 /**
  * `CFormControl` provides context such as
