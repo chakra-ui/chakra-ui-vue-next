@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import ComponentsPlugin from 'vite-plugin-components'
+import Components from 'unplugin-vue-components/vite'
 import Pages from 'vite-plugin-pages'
 import { componentResolver } from '@chakra-ui/vue-auto-import'
 import path from 'path'
@@ -43,8 +43,8 @@ export default defineConfig({
         }
       },
     }),
-    ComponentsPlugin({
-      customComponentResolvers: [componentResolver],
+    Components({
+      resolvers: [componentResolver],
     }),
   ],
 })
