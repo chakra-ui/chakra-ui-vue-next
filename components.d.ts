@@ -175,6 +175,7 @@ declare module 'vue' {
     onClick?: () => any
     vSlots?: {
       [eleName: string]: JSX.Element
-    }
+    },
+    value?: unknown
   }
 }

@@ -20,6 +20,15 @@ import { CFormControlProps, CFormControlProviderContext, useFormControlProvider,
  * `select`, `textarea`, etc.
  */
 
+export const formControlProps = {
+  isRequired: Boolean as PropType<CFormControlProps['isRequired']>,
+  isDisabled: Boolean as PropType<CFormControlProps['isDisabled']>,
+  isInvalid: Boolean as PropType<CFormControlProps['isInvalid']>,
+  isReadOnly: Boolean as PropType<CFormControlProps['isReadOnly']>,
+  label: String as PropType<CFormControlProps['label']>,
+  id: String as PropType<CFormControlProps['id']>,
+}
+
 export const CFormControl: ComponentWithProps<
 DeepPartial<CFormControlProps>
 > = defineComponent({
@@ -28,12 +37,7 @@ DeepPartial<CFormControlProps>
       type: [Object, String] as PropType<DOMElements>,
       default: 'div',
     },
-    isRequired: Boolean as PropType<CFormControlProps['isRequired']>,
-    isDisabled: Boolean as PropType<CFormControlProps['isDisabled']>,
-    isInvalid: Boolean as PropType<CFormControlProps['isInvalid']>,
-    isReadOnly: Boolean as PropType<CFormControlProps['isReadOnly']>,
-    label: String as PropType<CFormControlProps['label']>,
-    id: String as PropType<CFormControlProps['id']>,
+    ...formControlProps
   },
   setup(_props, { slots, attrs }) {
     const { as, ...props } = toRefs(_props)

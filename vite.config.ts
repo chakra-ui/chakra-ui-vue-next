@@ -10,6 +10,9 @@ export default defineConfig({
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
   },
+  resolve: {
+    preserveSymlinks: false
+  },
   build: {
     target: 'modules',
   },

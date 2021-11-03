@@ -3,8 +3,6 @@ import { h, Fragment, defineComponent } from 'vue'
 import { CFormControl, CFormErrorIcon, CFormErrorMessage, CFormHelperText, CFormLabel, useFormControl } from '../src'
 import * as Examples from '../examples'
 import { CInput } from '../examples/components'
-import { vueThemingProps } from '@chakra-ui/vue-utils'
-import { chakra, omitThemingProps, useMultiStyleConfig } from '@chakra-ui/vue-system'
 
 describe('FormControl Examples', () => {
   Object.entries(Examples).map(([name, example]) => {
