@@ -2,7 +2,7 @@ const { startDevServer } = require('@cypress/vite-dev-server')
 
 module.exports = (on, config) => {
   on('dev-server:start', (options) => {
-    const viteConfig = require('../vite.config')
+    const viteConfig = require('../playground/vite.config')
     viteConfig.esbuild = viteConfig.default.esbuild || {}
     // viteConfig.esbuild.jsx = 'preserve'
     viteConfig.esbuild.jsxFactory = 'h'

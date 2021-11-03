@@ -1,6 +1,17 @@
 <template>
   <chakra.div>
-    <c-input @input="handleInput" v-model="input" />
+    <c-v-stack>
+      <chakra.div>value: {{ input }}</chakra.div>
+      <c-input @input="handleInput" v-model="input" />
+    </c-v-stack>
+    <c-v-stack>
+      <chakra.div>value: {{ input }}</chakra.div>
+      <c-input @input="handleInput" v-model="input" />
+    </c-v-stack>
+    <c-v-stack>
+      <chakra.div>value: {{ input }}</chakra.div>
+      <c-input @input="handleInput" v-model="input" />
+    </c-v-stack>
   </chakra.div>
 </template>
 

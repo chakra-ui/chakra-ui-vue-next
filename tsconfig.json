@@ -4,7 +4,7 @@
     "module": "esnext",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "resolveJsonModule": true,
     "lib": [ "es5", "esnext", "dom" ],
-    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "cypress"],
+    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "cypress", "components.d.ts"],
     "declaration": true,
     "declarationMap": true,
     "allowJs": true,
@@ -24,13 +24,13 @@
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
+    "components.d.ts",
     "packages",
     "playground/**/*.ts",
     "playground/**/*.d.ts",
     "playground/**/*.tsx",
     "playground/**/*.vue",
     "tests/index.d.ts",
-    "components.d.ts"
   ],
   "exclude": ["node_modules", "./@types", "dist", "packages/**/*.test.ts"],
   "ts-node": {

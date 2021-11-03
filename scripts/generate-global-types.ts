@@ -50,6 +50,8 @@ async function generateComponents() {
    import { VNodeChild, HTMLAttributes } from 'vue'
    
    export type JsxNode = VNodeChild | JSX.Element
+
+   type EventHandler = (...args: any[]) => void;
    
    export interface SlotDirective {
      [name: string]: () => JsxNode
@@ -76,7 +78,7 @@ async function generateComponents() {
   declare module 'vue' {
     /* Global component types for Volar auto-complete */
     export interface GlobalComponents {
-        ${code}
+      ${code}
     }
 
     /* Component custom props types for JSX and TSX auto complete */
@@ -88,6 +90,44 @@ async function generateComponents() {
         [eleName: string]: JSX.Element
       }
     }
+
+    interface ComponentCustomProps {
+      role?: string;
+      tabindex?: number | string;
+      value?: unknown
+      // should be removed after Vue supported component events typing
+      // see: https://github.com/vuejs/vue-next/issues/1553
+      //      https://github.com/vuejs/vue-next/issues/3029
+      onBlur?: EventHandler;
+      onOpen?: EventHandler;
+      onEdit?: EventHandler;
+      onLoad?: EventHandler;
+      onClose?: EventHandler;
+      onFocus?: EventHandler;
+      onInput?: EventHandler;
+      onClick?: EventHandler;
+      onPress?: EventHandler;
+      onCancel?: EventHandler;
+      onChange?: EventHandler;
+      onDelete?: EventHandler;
+      onScroll?: EventHandler;
+      onSubmit?: EventHandler;
+      onSelect?: EventHandler;
+      onConfirm?: EventHandler;
+      onPreview?: EventHandler;
+      onKeypress?: EventHandler;
+      onTouchend?: EventHandler;
+      onTouchmove?: EventHandler;
+      onTouchstart?: EventHandler;
+      onTouchcancel?: EventHandler;
+      onMouseenter?: EventHandler;
+      onMouseleave?: EventHandler;
+      onMousemove?: EventHandler;
+      onKeydown?: EventHandler;
+      onKeyup?: EventHandler;
+      onDeselect?: EventHandler;
+      onClear?: EventHandler;
+    }
   }
 
   `
@@ -96,10 +136,10 @@ async function generateComponents() {
   const projectTypesFilePath = resolve(__dirname, '../components.d.ts')
   const coreTypesFilePath = resolve(
     __dirname,
-    '../packages/core/dist/types/index.d.ts'
+    '../packages/core/dist/declarations/src/index.d.ts'
   )
-  writeFileSync(projectTypesFilePath, allTypes, 'utf-8')
-  appendFileSync(coreTypesFilePath, allTypes, 'utf-8')
+  writeFileSync(projectTypesFilePath, allTypes, 'utf8')
+  appendFileSync(coreTypesFilePath, allTypes, 'utf8')
 
   // Lint and Fix filea after writing types
   const eslint = new ESLint({ fix: true })

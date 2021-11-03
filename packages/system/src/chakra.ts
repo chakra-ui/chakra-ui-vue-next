@@ -1,3 +1,5 @@
+/// <reference types="../../../components" />
+
 import {
   Component,
   computed,
@@ -6,6 +8,7 @@ import {
   defineComponent,
   h,
   HTMLAttributes,
+  ComponentCustomProps,
   PropType,
   resolveComponent,
 } from 'vue'
@@ -283,7 +286,10 @@ export const resolveStyles = (
 export type ChakraFactoryProps = ChakraProps &
   StyleResolverProps &
   HTMLAttributes &
-  JSX.IntrinsicAttributes
+  ComponentCustomProps &
+  JSX.IntrinsicAttributes & {
+    // value?: unknown
+  }
 
 /**
  * @example

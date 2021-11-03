@@ -54,23 +54,19 @@ export const CInput = defineComponent((_props: CInputProps, { slots, emit, attrs
   const input = useFormControl(ownProps as ToRefs<CInputNativeProps>)
 
   const handleInput = (e: Event) => {
-    // @ts-expect-error
-    emit('update:modelValue', e?.currentTarget?.value)
-    // @ts-expect-error
-    emit('input', e, e?.currentTarget?.value)
-    // @ts-expect-error
-    emit('change', e, e?.currentTarget?.value)
+    emit('update:modelValue', (e?.currentTarget as HTMLInputElement)?.value)
+    emit('input', e, (e?.currentTarget as HTMLInputElement)?.value)
+    emit('change', e, (e?.currentTarget as HTMLInputElement)?.value)
   }
 
   return () => (
     <chakra.input
       {...input.value}
-      // TODO: Add value prop to intrinsic HTML Attributes
-      // @ts-ignore
       value={props.modelValue}
       onInput={handleInput}
       __css={styles.value.field}
       __label="input"
+      {...attrs}
     />
   )
 })
