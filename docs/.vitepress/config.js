@@ -40,7 +40,7 @@ function getSetupSidebar() {
       text: 'Introduction',
       children: [
         { text: 'Chakra UI Vue', link: '/' },
-        { text: 'Getting Started', link: '/guide/getting-started' }
+        { text: 'Getting Started', link: '/guides/getting-started' }
       ]
     },
     {
