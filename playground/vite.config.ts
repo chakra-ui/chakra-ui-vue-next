@@ -2,19 +2,13 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import Pages from 'vite-plugin-pages'
-import { componentResolver } from '@chakra-ui/vue-auto-import'
+import ChakraComponents from './build/components.json'
 import path from 'path'
 
 export default defineConfig({
   esbuild: {
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
-  },
-  resolve: {
-    preserveSymlinks: false
-  },
-  build: {
-    target: 'modules',
   },
   optimizeDeps: {
     exclude: ['@popperjs/core', '@vueuse/core', '@vueuse/motion'],
@@ -31,13 +25,10 @@ export default defineConfig({
       extensions: ['vue'],
       extendRoute(route, parent) {
         if (route.path === '/') {
-          // Index is unauthenticated.
           return route
         }
-
-        const [groupRaw] = route.name.split('-examples-')
+        const [groupRaw] = route.name!.split('-examples-')
         const [_, group] = groupRaw.split('c-')
-
         return {
           ...route,
           groupRaw,
@@ -47,7 +38,16 @@ export default defineConfig({
       },
     }),
     Components({
-      resolvers: [componentResolver],
+      resolvers: [
+        (name: string) => {
+          if (name in ChakraComponents) {
+            return {
+              importName: name,
+              path: `@chakra-ui/vue-next`,
+            }
+          }
+        }
+      ],
     }),
   ],
 })

@@ -37,9 +37,9 @@ async function generateComponents() {
   const allTypes = `
   /**
    * Typescript support for @${pkgName}${pkgVersion} auto-imported
-   * components using \`vite-plugin-components\`
+   * components using \`unplugin-vue-components,\`
    * 
-   * @see: https://github.com/antfu/vite-plugin-components#typescript
+   * @see: https://github.com/antfu/unplugin-vue-components/#typescript
    * 
    * This is a generated file. Do not edit it's contents.
    * 

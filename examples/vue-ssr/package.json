@@ -10,7 +10,7 @@
   "dependencies": {
     "@chakra-ui/vue-system": "^0.1.0-alpha.4",
     "@vueuse/head": "^0.6.0",
-    "vite-plugin-components": "^0.12.2",
+    "unplugin-vue-components": "^0.14.0",
     "vite-plugin-pages": "^0.14.9",
     "vite-ssr": "^0.10.6",
     "vue": "3",

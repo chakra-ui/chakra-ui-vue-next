@@ -170,12 +170,11 @@ declare module 'vue' {
 
   /* Component custom props types for JSX and TSX auto complete */
   export interface ComponentCustomProps
-    extends JsxComponentCustomProps,
-      ChakraProps {
+    extends JsxComponentCustomProps, ChakraProps {
     onClick?: () => any
     vSlots?: {
       [eleName: string]: JSX.Element
-    },
+    }
     value?: unknown
   }
 }

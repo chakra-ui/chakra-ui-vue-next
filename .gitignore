@@ -108,3 +108,4 @@ website/.vite-ssg-temp
 
 # Cypress screenshots generated
 cypress/screenshots
+playground/build/components.json

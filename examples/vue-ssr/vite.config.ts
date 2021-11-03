@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import viteSSR from 'vite-ssr/plugin.js'
 import Pages from 'vite-plugin-pages'
-import Components from 'vite-plugin-components'
+import Components from 'unplugin-vue-components'
 import { componentResolver } from '@chakra-ui/vue-auto-import'
 
 // https://vitejs.dev/config/
