@@ -20,7 +20,8 @@
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vite/client",
-      "vite-plugin-pages/client"
+      "vite-plugin-pages/client",
+      "unplugin-icons/types/vue",
     ],
   },
   "exclude": ["dist", "node_modules"]

@@ -75,9 +75,9 @@
 import { defineComponent } from 'vue'
 import { CFlex, CBox } from '@chakra-ui/vue-next'
 
-import IconAccessibilityAlt from '/@vite-icons/carbon/accessibility-alt'
-import ColorPalette from '/@vite-icons/carbon/color-palette'
-import Cube from '/@vite-icons/carbon/cube'
+import IconAccessibilityAlt from '~icons/carbon/accessibility-alt'
+import ColorPalette from '~icons/carbon/color-palette'
+import Cube from '~icons/carbon/cube'
 
 export default defineComponent({
   name: 'PilersHero',
