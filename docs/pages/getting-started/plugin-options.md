@@ -8,6 +8,14 @@ import ChakraUIVuePlugin, { extendTheme } from '@chakra-ui/vue-next'
 
 Vue.use(ChakraUIVuePlugin, {
   /**
+  * Automatically includes the CSS Reset <c-reset />
+  * This defaults to true (boolean)
+  * 
+  * @see
+  * - Getting Started - TODO: Link to docs CSS Reset
+  */
+  cssReset: true
+  /**
   * Extends the Chakra theme object with the values
   * provided in this option. Chakra UI recursively merges this
   * theme object and will overwrite defaults with extended theme
@@ -28,16 +36,16 @@ Vue.use(ChakraUIVuePlugin, {
   icons: {
     /**
      * The pack of the icons being used.
-     * This defaults to FontAwesome (fa).
+     * This defaults to FontAwesome (fa) or FeatherIcons (fe).
     */
-    iconPack: 'fa',
+    iconPack: 'fa' | 'fe',
     /**
      *The object of icon paths to be consumed.
      * For example:
      *  - faArrowUp
      *  - faArrowDown 
     */
-    iconSet: {},
+    library: {},
     /**
      * Custom SVG paths that can be added to the
      * Chakra application and can be accessed by Chakra.
