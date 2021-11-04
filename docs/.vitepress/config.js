@@ -41,7 +41,8 @@ function getSetupSidebar() {
       children: [
         { text: 'Chakra UI Vue', link: '/' },
         { text: 'Getting Started', link: '/pages/getting-started/getting-started' },
-        { text: 'Plugin Options', link: '/pages/getting-started/plugin-options' }
+        { text: 'Plugin Options', link: '/pages/getting-started/plugin-options' },
+        { text: 'Principles', link: '/pages/getting-started/principles' }
       ]
     },
     {
