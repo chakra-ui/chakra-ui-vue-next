@@ -114,8 +114,6 @@
     "cypress-plugin-tab": "^1.0.5",
     "dequal": "^2.0.2",
     "dom-focus-lock": "^1.0.4",
-    "esbuild": "0.13.12",
-    "esbuild-darwin-arm64": "^0.13.12",
     "esbuild-jest": "0.4.0",
     "esbuild-plugin-babel": "^0.2.3",
     "eslint": "^7.0.0",
