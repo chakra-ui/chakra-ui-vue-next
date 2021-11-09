@@ -168,5 +168,8 @@
       "packages/*",
       "tooling/*"
     ]
+  },
+  "devDependencies": {
+    "esbuild": "0.13.4"
   }
 }

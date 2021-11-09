@@ -28,7 +28,7 @@ describe('CInput tests', () => {
   it('should update value with v-model', () => {
     cy.mount(() => render({
       vModel: ref('hello'),
-      'data-id': 'input'
+      'data-testid': 'input'
     }))
 
     cy.wait(400)
