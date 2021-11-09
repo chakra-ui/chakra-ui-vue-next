@@ -1,6 +1,6 @@
 import borders from './borders'
 import breakpoints from './breakpoints'
-import colors from './colors'
+import colors, { ColorHues } from './colors'
 import radii from './radius'
 import shadows from './shadows'
 import sizes from './sizes'
@@ -23,5 +23,6 @@ const theme = {
 }
 
 export type Theme = typeof theme
+export type { ColorHues }
 
 export default theme

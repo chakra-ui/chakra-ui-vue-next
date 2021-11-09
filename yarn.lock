@@ -1935,6 +1935,11 @@
     date-fns "^1.27.2"
     figures "^1.7.0"
 
+"@cypress/mount-utils@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@cypress/mount-utils/-/mount-utils-1.0.2.tgz#afbc4f8c350b7cd86edc5ad0db0cbe1e0181edc8"
+  integrity sha512-Fn3fdTiyayHoy8Ol0RSu4MlBH2maQ2ZEXeEVKl/zHHXEQpld5HX3vdNLhK5YLij8cLynA4DxOT/nO9iEnIiOXw==
+
 "@cypress/request@^2.88.5":
   version "2.88.5"
   resolved "https://registry.npmjs.org/@cypress/request/-/request-2.88.5.tgz"
@@ -1983,12 +1988,13 @@
     debug "^4.3.2"
     get-port "^5.1.1"
 
-"@cypress/vue@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/@cypress/vue/-/vue-3.0.1.tgz"
-  integrity sha512-7aSdwbtvCJnKR7MDZdJs3TB718LNo44JXvIidrtcZacOSPXjahvkZ8nQCyLIt/owKBFFaV4dvSn267Lq4ZIbzQ==
+"@cypress/vue@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@cypress/vue/-/vue-3.0.3.tgz#4d5c8a52233fee2714697cbc37fdac33fd4fa29f"
+  integrity sha512-Im8xCQDt4Dr4mcCaweNGCF+O5gNMZAdMlzQlkbhkER9YnJEVD9+ZWecJOJLmUUJPBSj7AMyz7OX82yldPjUIrA==
   dependencies:
-    "@vue/test-utils" "^2.0.0-rc.4"
+    "@cypress/mount-utils" "1.0.2"
+    "@vue/test-utils" "^2.0.0-rc.10"
 
 "@cypress/xvfb@^1.2.4":
   version "1.2.4"
@@ -4562,7 +4568,12 @@
   resolved "https://registry.npmjs.org/@vue/test-utils/-/test-utils-2.0.0-rc.4.tgz"
   integrity sha512-DocrrFP28M7NO7y7iGiX9sf9n1AKEqkxXO5wedtp5FkHiAkc0xfmD4lvxgi4re5+xw7Zzb9U/vrhXKQZ0I4Q9g==
 
-"@vue/test-utils@^2.0.0-rc.4", "@vue/test-utils@^2.0.0-rc.6":
+"@vue/test-utils@^2.0.0-rc.10":
+  version "2.0.0-rc.16"
+  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.16.tgz#59380f02870f856ac002a29c02681d3f3fcbafeb"
+  integrity sha512-TubikDVkI2LuRKRPSLv3lYpbpvvucT2DIcGqfBVpvYs4W19u0EBTJEdmfwmSuLY7H1TyAr9Stur3PI1sWWvTGQ==
+
+"@vue/test-utils@^2.0.0-rc.6":
   version "2.0.0-rc.6"
   resolved "https://registry.npmjs.org/@vue/test-utils/-/test-utils-2.0.0-rc.6.tgz"
   integrity sha512-0cnQBVH589PwgqWpyv1fgCAz+9Ram/MsvN3ZEAEVXi1aPuhUa22EudGc0WezQ9PKwR+L40NrBmt3JBXE2tSRRQ==
@@ -8371,7 +8382,7 @@ esbuild@0.11.16:
   resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.11.16.tgz"
   integrity sha512-34ZWjo4ouvM5cDe7uRoM9GFuMyEmpH9fnVYmomvS1cq9ED9d/0ZG1r+p4P2VbX7ihjv36zA2SWTmP8Zmt/EANA==
 
-esbuild@^0.13.12, esbuild@^0.13.2:
+esbuild@0.13.12, esbuild@^0.13.2:
   version "0.13.12"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.13.12.tgz#9cac641594bf03cf34145258c093d743ebbde7ca"
   integrity sha512-vTKKUt+yoz61U/BbrnmlG9XIjwpdIxmHB8DlPR0AAW6OdS+nBQBci6LUHU2q9WbBobMEIQxxDpKbkmOGYvxsow==

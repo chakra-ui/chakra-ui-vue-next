@@ -2,7 +2,7 @@ const ChakraComponents = require('@chakra-ui/vue-next')
 const { writeFileSync } = require('fs')
 const { resolve } = require('path')
 
-async function main () {
+async function main() {
   const components = {}
   for (const prop in ChakraComponents) {
     if (prop.startsWith('C')) {
@@ -13,7 +13,7 @@ async function main () {
   writeFileSync(
     resolve(__dirname, '../build/components.json'),
     JSON.stringify(components, null, 2),
-    { encoding: 'utf8'}
+    { encoding: 'utf8' }
   )
 }
 
