@@ -50,7 +50,8 @@ function getSetupSidebar() {
       text: 'Features',
       children: [
         { text: 'Style Props', link: '/pages/features/style-props' },
-        { text: 'Gradient', link: '/pages/features/gradient' }
+        { text: 'Gradient', link: '/pages/features/gradient' },
+        { text: 'Responsive Styles', link: '/pages/features/responsive-styles' }
       ]
     },
     {
