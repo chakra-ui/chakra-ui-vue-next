@@ -101,11 +101,11 @@ the different breakpoints.
 <c-box
   w="100%"
   h="200px"
-  bgGradient={[
+  :bgGradient=[
     "linear(to-tr, teal.300, yellow.400)",
     "linear(to-t, blue.200, teal.500)",
     "linear(to-b, orange.100, purple.300)",
-  ]}
+  ]
 />
 ```
 
@@ -119,14 +119,12 @@ For example, on hover, add the gradient you wish to have.
 ```jsx
 <c-box
   as="button"
-  p={4}
+  p="4"
   color="white"
   fontWeight="bold"
   borderRadius="md"
   bgGradient="linear(to-r, teal.500, green.500)"
-  _hover={{
-    bgGradient: "linear(to-r, red.500, yellow.500)",
-  }}
+  _hover="bgGradient: "linear(to-r, red.500, yellow.500)"
 >
   Click here
 </c-box>
