@@ -3,6 +3,8 @@ title: Design Principles
 description: Principles that keep Chakra's components fairly consistent
 ---
 
+# Design Principles
+
 Chakra UI is established on principles that keep its components fairly
 consistent. Understanding these concepts will help you better contribute to
 Chakra UI.

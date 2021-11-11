@@ -1,3 +1,5 @@
+# Gradient
+
 Gradients are a way to have transition between two or more colors. You can add
 gradient support using any of the following style props.
 
