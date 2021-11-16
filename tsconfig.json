@@ -30,6 +30,7 @@
     "playground/**/*.tsx",
     "playground/**/*.vue",
     "tests/index.d.ts",
+    "tsx.d.ts",
     "components.d.ts"
   ],
   "exclude": ["node_modules", "./@types", "dist", "packages/**/*.test.ts"],

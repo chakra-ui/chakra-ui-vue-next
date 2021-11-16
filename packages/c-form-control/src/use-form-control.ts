@@ -1,8 +1,15 @@
-import { computed, ToRefs, ref, ComputedRef, watchEffect, VNodeProps } from 'vue';
+import {
+  computed,
+  ToRefs,
+  ref,
+  ComputedRef,
+  watchEffect,
+  VNodeProps,
+} from 'vue'
 import { useId, useIds } from '@chakra-ui/vue-composables'
-import { ariaAttr, dataAttr, callAllHandlers } from '@chakra-ui/utils';
-import { HTMLChakraProps, ThemingProps } from '@chakra-ui/vue-system';
-import { createContext } from '@chakra-ui/vue-utils';
+import { ariaAttr, dataAttr, callAllHandlers } from '@chakra-ui/utils'
+import { HTMLChakraProps, ThemingProps } from '@chakra-ui/vue-system'
+import { createContext } from '@chakra-ui/vue-utils'
 
 export interface FormControlOptions {
   /**
@@ -49,7 +56,6 @@ export interface FormControlContext extends FormControlOptions {
   for?: string
 }
 
-
 export function useFormControlProvider(props: ToRefs<FormControlContext>) {
   const {
     id: idProp,
@@ -57,12 +63,13 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
     isInvalid,
     isDisabled,
     isReadOnly,
-    for: forProp
+    for: forProp,
   } = props
 
   // Generate all the required ids
   const id = computed(() => idProp?.value || useId('form').value)
-  const [labelId, feedbackId, helpTextId] = useIds(id.value,
+  const [labelId, feedbackId, helpTextId] = useIds(
+    id.value,
     'label',
     'feedback',
     'helptext'
@@ -88,21 +95,21 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
   }))
 
   const labelProps = computed(() => ({
-    "data-focus": dataAttr(isFocused.value),
-    "data-disabled": dataAttr(isDisabled?.value),
-    "data-invalid": dataAttr(isInvalid?.value),
-    "data-readonly": dataAttr(isReadOnly?.value),
+    'data-focus': dataAttr(isFocused.value),
+    'data-disabled': dataAttr(isDisabled?.value),
+    'data-invalid': dataAttr(isInvalid?.value),
+    'data-readonly': dataAttr(isReadOnly?.value),
     id: labelId.value,
-    for: forProp?.value ?? id.value
+    for: forProp?.value ?? id.value,
   }))
 
   const errorMessageProps = computed(() => ({
     id: feedbackId.value,
-    'aria-live': 'polite'
+    'aria-live': 'polite',
   }))
 
   const rootProps = computed(() => ({
-    role: 'group'
+    role: 'group',
   }))
 
   const requiredIndicatorProps = computed(() => ({
@@ -132,28 +139,27 @@ export function useFormControlProvider(props: ToRefs<FormControlContext>) {
     labelProps,
     helperTextProps,
     errorMessageProps,
-    requiredIndicatorProps
+    requiredIndicatorProps,
   }
 }
 
-export type CFormControlProviderContext = ComputedRef<Omit<
-  ReturnType<typeof useFormControlProvider>,
-  "rootProps"
->>
+export type CFormControlProviderContext = ComputedRef<
+  Omit<ReturnType<typeof useFormControlProvider>, 'rootProps'>
+>
 
 const [
   FormControlProvider,
-  useFormControlContext
+  useFormControlContext,
 ] = createContext<CFormControlProviderContext>({
   strict: false,
-  name: 'FormControlContext'
+  name: 'FormControlContext',
 })
 
 export { FormControlProvider, useFormControlContext }
 
 export interface CFormControlProps
-  extends HTMLChakraProps<"div">,
-    ThemingProps<"FormControl">,
+  extends HTMLChakraProps<'div'>,
+    ThemingProps<'FormControl'>,
     FormControlContext {}
 
 export interface UseFormControlProps<T extends VNodeProps>
@@ -165,7 +171,7 @@ export interface UseFormControlProps<T extends VNodeProps>
   readOnly?: boolean
   required?: boolean
 }
-  
+
 /**
  * Vue Composable that provides the props that should be spread on to
  * input fields (`input`, `select`, `textarea`, etc.).
@@ -173,8 +179,8 @@ export interface UseFormControlProps<T extends VNodeProps>
  * It provides a convenient way to control a form fields, validation
  * and helper text.
  */
- export function useFormControl<T extends VNodeProps>(
-  props: ToRefs<UseFormControlProps<T>>,
+export function useFormControl<T extends VNodeProps>(
+  props: ToRefs<UseFormControlProps<T>>
 ) {
   const {
     isDisabled,
@@ -182,29 +188,29 @@ export interface UseFormControlProps<T extends VNodeProps>
     isReadOnly,
     isRequired,
     id,
-    "aria-describedby": ariaDescribedBy,
+    'aria-describedby': ariaDescribedBy,
     onBlur,
-    onFocus
+    onFocus,
   } = useFormControlProps(props)
 
   const formControlProps = computed(() => ({
     id: id?.value,
-    "aria-describedby": ariaDescribedBy.value,
+    'aria-describedby': ariaDescribedBy.value,
     onBlur,
     onFocus,
     disabled: isDisabled?.value,
     readOnly: isReadOnly?.value,
     required: isRequired?.value,
-    "aria-invalid": ariaAttr(isInvalid?.value),
-    "aria-required": ariaAttr(isRequired?.value),
-    "aria-readonly": ariaAttr(isReadOnly?.value),
+    'aria-invalid': ariaAttr(isInvalid?.value),
+    'aria-required': ariaAttr(isRequired?.value),
+    'aria-readonly': ariaAttr(isReadOnly?.value),
   }))
 
   return formControlProps
 }
 
 export function useFormControlProps<T extends VNodeProps>(
-  props: ToRefs<UseFormControlProps<T>>,
+  props: ToRefs<UseFormControlProps<T>>
 ) {
   const field = useFormControlContext()
 
@@ -221,10 +227,11 @@ export function useFormControlProps<T extends VNodeProps>(
     onBlur,
     ...rest
   } = props
-  
-  const labelIds = ref<string[]>(props["aria-describedby"]?.['value']
-    ? [props["aria-describedby"]?.['value']]
-    : []
+
+  const labelIds = ref<string[]>(
+    props['aria-describedby']?.['value']
+      ? [props['aria-describedby']?.['value']]
+      : []
   )
 
   watchEffect(() => {
@@ -240,7 +247,7 @@ export function useFormControlProps<T extends VNodeProps>(
 
   return {
     ...rest,
-    "aria-describedby": computed(() => labelIds.value.join(" ") || undefined),
+    'aria-describedby': computed(() => labelIds.value.join(' ') || undefined),
     id: id ?? field?.value.id,
     isDisabled: disabled ?? isDisabled ?? field?.value?.isDisabled,
     isReadOnly: readOnly ?? isReadOnly ?? field?.value?.isReadOnly,

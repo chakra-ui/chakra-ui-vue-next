@@ -1,14 +1,25 @@
-import { chakra, ComponentWithProps, DeepPartial, HTMLChakraProps, StylesProvider, ThemingProps, useMultiStyleConfig, useStyles } from '@chakra-ui/vue-system';
-import { defineComponent, h } from 'vue';
-import { vueThemingProps } from '@chakra-ui/vue-utils';
-import { useFormControlContext } from './use-form-control';
+import {
+  chakra,
+  ComponentWithProps,
+  DeepPartial,
+  HTMLChakraProps,
+  StylesProvider,
+  ThemingProps,
+  useMultiStyleConfig,
+  useStyles,
+} from '@chakra-ui/vue-system'
+import { defineComponent, h } from 'vue'
+import { vueThemingProps } from '@chakra-ui/vue-utils'
+import { useFormControlContext } from './use-form-control'
 import { CIcon, iconProps, IconProps } from '@chakra-ui/c-icon'
 
 export interface CFormErrorMessageProps
-  extends HTMLChakraProps<"div">,
-    ThemingProps<"FormErrorMessage"> {}
+  extends HTMLChakraProps<'div'>,
+    ThemingProps<'FormErrorMessage'> {}
 
-export const CFormErrorMessage: ComponentWithProps<DeepPartial<CFormErrorMessageProps>> = defineComponent({
+export const CFormErrorMessage: ComponentWithProps<
+  DeepPartial<CFormErrorMessageProps>
+> = defineComponent({
   name: 'CFormErrorMessage',
   props: {
     ...vueThemingProps,
@@ -24,7 +35,6 @@ export const CFormErrorMessage: ComponentWithProps<DeepPartial<CFormErrorMessage
     }
 
     return () => {
-
       if (!field?.value?.isInvalid?.value) return null
 
       return (
@@ -34,7 +44,7 @@ export const CFormErrorMessage: ComponentWithProps<DeepPartial<CFormErrorMessage
           __css={{
             display: 'flex',
             alignItems: 'center',
-            ...styles.value.text
+            ...styles.value.text,
           }}
           {...attrs}
         >
@@ -42,14 +52,16 @@ export const CFormErrorMessage: ComponentWithProps<DeepPartial<CFormErrorMessage
         </chakra.div>
       )
     }
-  }
+  },
 })
 
 /**
  * Used as the visual indicator that a field is invalid or
  * a field has incorrect values.
  */
-export const CFormErrorIcon: ComponentWithProps<DeepPartial<IconProps>> = defineComponent({
+export const CFormErrorIcon: ComponentWithProps<
+  DeepPartial<IconProps>
+> = defineComponent({
   name: 'CFormErrorIcon',
   props: iconProps,
   setup(props, { attrs }) {
@@ -57,13 +69,19 @@ export const CFormErrorIcon: ComponentWithProps<DeepPartial<IconProps>> = define
     const field = useFormControlContext()
 
     return () => {
-
       if (!field?.value?.isInvalid?.value) return null
-      
+
       return (
         // @ts-ignore
-        <CIcon aria-hidden __css={styles.value.icon} class="chakra-form__error-icon" {...props} { ...attrs} name="__error_icon" />
+        <CIcon
+          aria-hidden
+          __css={styles.value.icon}
+          class="chakra-form__error-icon"
+          {...props}
+          {...attrs}
+          name="__error_icon"
+        />
       )
     }
-  }
+  },
 })
