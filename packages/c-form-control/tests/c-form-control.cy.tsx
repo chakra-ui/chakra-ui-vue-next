@@ -27,18 +27,14 @@ describe('FormControl Examples', () => {
 
 const render = (props: any = {}) => {
   return cy.mount(
-    defineComponent({
-      setup(props) {
-        return () => (
-          <CFormControl id="name">
-            <CFormLabel>Name</CFormLabel>
-            <CInput placeholder="Name" />
-            <CFormHelperText>Enter your name please!</CFormHelperText>
-            <CFormErrorMessage>Your name is invalid</CFormErrorMessage>
-          </CFormControl>
-        )
-      },
-    })
+    h(() => (
+      <CFormControl id="name">
+        <CFormLabel>Name</CFormLabel>
+        <CInput placeholder="Name" />
+        <CFormHelperText>Enter your name please!</CFormHelperText>
+        <CFormErrorMessage>Your name is invalid</CFormErrorMessage>
+      </CFormControl>
+    ))
   )
 }
 
@@ -157,7 +153,8 @@ describe('<CFormControl />', () => {
           )
         },
       })
-    ).wait(200)
+    )
+      .wait(200)
 
     cy.get('[data-testid="input"]')
       .should('have.attr', 'aria-describedby', 'helptext-name')

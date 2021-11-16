@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import Pages from 'vite-plugin-pages'
-import { componentResolver } from '@chakra-ui/vue-auto-import'
+import ChakraComponenets from './dev/components.json'
 import path from 'path'
 
 export default defineConfig({
@@ -44,7 +44,16 @@ export default defineConfig({
       },
     }),
     Components({
-      resolvers: [componentResolver],
+      resolvers: [
+        (name: string) => {
+          if (name in ChakraComponenets) {
+            return {
+              importName: name,
+              path: `@chakra-ui/vue-next`,
+            }
+          }
+        },
+      ],
     }),
   ],
 })
