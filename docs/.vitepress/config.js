@@ -51,7 +51,8 @@ function getSetupSidebar() {
       children: [
         { text: 'Style Props', link: '/pages/features/style-props' },
         { text: 'Gradient', link: '/pages/features/gradient' },
-        { text: 'Responsive Styles', link: '/pages/features/responsive-styles' }
+        { text: 'Responsive Styles', link: '/pages/features/responsive-styles' },
+        { text: 'Chakra Factory', link: '/pages/features/chakra-factory' }
       ]
     },
     {
