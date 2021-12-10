@@ -2,11 +2,11 @@
   <chakra.div py="4">
     <chakra.div py="4">
       <chakra.div>Stack Default</chakra.div>
-      <c-h-stack spacing="4" divider>
+      <c-stack spacing="4" divider>
         <chakra.div w="40px" h="40px" bg="yellow.200"> 1 </chakra.div>
         <chakra.div w="40px" h="40px" bg="tomato"> 2 </chakra.div>
         <chakra.div w="40px" h="40px" bg="pink.100"> 3 </chakra.div>
-      </c-h-stack>
+      </c-stack>
     </chakra.div>
 
     <chakra.div py="4">

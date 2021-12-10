@@ -23,7 +23,7 @@
     "@chakra-ui/vue-theme": "0.1.0-alpha.5"
   },
   "devDependencies": {
-    "vue": "^3.2.21"
+    "vue": "^3.2.24"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

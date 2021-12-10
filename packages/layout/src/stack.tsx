@@ -66,9 +66,7 @@ interface StackOptions {
 
 export interface StackDividerProps extends HTMLChakraProps<'div'> {}
 
-export const CStackDivider: ComponentWithProps<
-  DeepPartial<StackDividerProps>
-> = defineComponent({
+export const CStackDivider: ComponentWithProps<StackDividerProps> = defineComponent({
   name: 'CStackDivider',
   inheritAttrs: false,
   setup(_, { attrs, slots }) {
@@ -144,9 +142,7 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack: ComponentWithProps<
-  DeepPartial<StackProps>
-> = defineComponent({
+export const CStack = defineComponent({
   name: 'CStack',
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -235,16 +231,14 @@ export const CHStack: ComponentWithProps<
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack: ComponentWithProps<
-  DeepPartial<StackProps>
-> = defineComponent({
+export const CVStack = defineComponent({
   name: 'CVStack',
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
       <CStack
         __label="stack-vertical"
-        align={'center'}
+        align="center"
         {...props}
         {...attrs}
         direction="column"

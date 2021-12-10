@@ -6,10 +6,10 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-11-09T11:33:47.844Z
+ * This file was generated on 2021-12-09T21:05:11.038Z
  */
 
-import { ChakraProps } from '@chakra-ui/vue-system'
+import { ChakraProps, chakra } from '@chakra-ui/vue-system'
 import { VNodeChild, HTMLAttributes } from 'vue'
 
 export type JsxNode = VNodeChild | JSX.Element
@@ -37,9 +37,14 @@ type JsxComponentCustomProps = {
     innerHTML?: JsxNode
   }
 
-declare module 'vue' {
+declare module '@vue/runtime-core' {
+  import { chakra } from '@chakra-ui/vue-next'
+  export { chakra }
+
   /* Global component types for Volar auto-complete */
   export interface GlobalComponents {
+    chakra: typeof import('@chakra-ui/vue-next')['chakra']
+
     CAlert: typeof import('@chakra-ui/vue-next')['CAlert']
     CAlertDescription: typeof import('@chakra-ui/vue-next')['CAlertDescription']
     CAlertIcon: typeof import('@chakra-ui/vue-next')['CAlertIcon']
@@ -223,3 +228,5 @@ declare module 'vue' {
     onClear?: EventHandler
   }
 }
+
+export {}

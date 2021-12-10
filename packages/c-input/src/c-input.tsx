@@ -8,10 +8,29 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, Fragment, PropType, toRefs, ToRefs, computed } from 'vue'
-import { chakra, DOMElements, HTMLChakraProps, ThemingProps, useMultiStyleConfig, omitThemingProps } from '@chakra-ui/vue-system'
-import { FormControlOptions, formControlProps, useFormControl } from '@chakra-ui/c-form-control'
-import { SAO } from '@chakra-ui/vue-utils'
+import {
+  h,
+  defineComponent,
+  Fragment,
+  PropType,
+  toRefs,
+  ToRefs,
+  computed,
+} from 'vue'
+import {
+  chakra,
+  DOMElements,
+  HTMLChakraProps,
+  ThemingProps,
+  useMultiStyleConfig,
+  omitThemingProps
+} from '@chakra-ui/vue-system'
+import {
+  FormControlOptions,
+  formControlProps,
+  useFormControl,
+} from '@chakra-ui/c-form-control'
+import { SAO, vueThemingProps } from '@chakra-ui/vue-utils'
 
 interface InputOptions {
   /**
@@ -36,52 +55,53 @@ interface InputOptions {
   isFullWidth?: boolean
 }
 
-type Omitted = "disabled" | "required" | "readOnly" | "size"
+type Omitted = 'disabled' | 'required' | 'readOnly' | 'size'
 
 interface CInputNativeProps extends InputOptions, FormControlOptions {}
 
 export interface CInputProps
-  extends Omit<HTMLChakraProps<"span">, Omitted>,
-  CInputNativeProps,
-    ThemingProps<"Input"> {
-      modelValue: string
+  extends Omit<HTMLChakraProps<'span'>, Omitted>,
+    CInputNativeProps,
+    ThemingProps<'Input'> {
+  modelValue: string
+}
+
+export const CInput = defineComponent({
+  name: 'CInput',
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: 'input',
+    },
+    modelValue: String as PropType<string>,
+    ...formControlProps,
+    focusBorderColor: SAO as PropType<CInputProps['focusBorderColor']>,
+    isFullWidth: [Boolean, Array] as PropType<CInputProps['isFullWidth']>,
+    errorBorderColor: SAO as PropType<CInputProps['errorBorderColor']>,
+    ...vueThemingProps
+  },
+  emits: ['update:modelValue', 'input', 'change'],
+  setup(_props, { slots, emit, attrs }) {
+    const { as, ...props } = _props
+    const styles = useMultiStyleConfig('Input', props)
+    const ownProps = computed(() => toRefs(omitThemingProps(props as ThemingProps<'Input'>)))
+    const input = useFormControl(ownProps as ToRefs<CInputNativeProps>)
+
+    const handleInput = (e: Event) => {
+      emit('update:modelValue', (e?.currentTarget as HTMLInputElement)?.value)
+      emit('input', e, (e?.currentTarget as HTMLInputElement)?.value)
+      emit('change', e, (e?.currentTarget as HTMLInputElement)?.value)
     }
 
-export const CInput = defineComponent((_props: CInputProps, { slots, emit, attrs }) => {
-  const { as , ...props } = _props
-  const styles = useMultiStyleConfig("Input", props)
-  const ownProps = computed(() => toRefs(omitThemingProps(props)))
-  const input = useFormControl(ownProps as ToRefs<CInputNativeProps>)
-
-  const handleInput = (e: Event) => {
-    emit('update:modelValue', (e?.currentTarget as HTMLInputElement)?.value)
-    emit('input', e, (e?.currentTarget as HTMLInputElement)?.value)
-    emit('change', e, (e?.currentTarget as HTMLInputElement)?.value)
+    return () => (
+      <chakra.input
+        {...input.value}
+        value={props.modelValue}
+        onInput={handleInput}
+        __css={styles.value.field}
+        __label="input"
+        {...attrs}
+      />
+    )
   }
-
-  return () => (
-    <chakra.input
-      {...input.value}
-      value={props.modelValue}
-      onInput={handleInput}
-      __css={styles.value.field}
-      __label="input"
-      {...attrs}
-    />
-  )
 })
-
-// @ts-ignore 
-CInput.name = "CInput",
-CInput.props = {
-  as: {
-    type: [Object, String] as PropType<DOMElements>,
-    default: 'input',
-  },
-  modelValue: [String] as PropType<string>,
-  ...formControlProps,
-  focusBorderColor: SAO as PropType<CInputProps['focusBorderColor']>,
-  isFullWidth: [Boolean, Array] as PropType<CInputProps['isFullWidth']>,
-  errorBorderColor: SAO as PropType<CInputProps['errorBorderColor']>,
-}
-CInput.emits = ['update:modelValue', 'input', 'change']

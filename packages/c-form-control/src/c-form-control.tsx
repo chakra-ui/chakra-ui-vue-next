@@ -9,8 +9,24 @@
  */
 
 import { h, defineComponent, computed, PropType, toRefs } from 'vue'
-import { chakra, ComponentWithProps, DeepPartial, DOMElements, useMultiStyleConfig, StylesProvider, omitThemingProps, HTMLChakraProps, useStyles } from '@chakra-ui/vue-system'
-import { CFormControlProps, CFormControlProviderContext, useFormControlProvider, FormControlProvider, useFormControlContext } from './use-form-control'
+import {
+  chakra,
+  ComponentWithProps,
+  DeepPartial,
+  DOMElements,
+  useMultiStyleConfig,
+  StylesProvider,
+  omitThemingProps,
+  HTMLChakraProps,
+  useStyles,
+} from '@chakra-ui/vue-system'
+import {
+  CFormControlProps,
+  CFormControlProviderContext,
+  useFormControlProvider,
+  FormControlProvider,
+  useFormControlContext,
+} from './use-form-control'
 
 /**
  * `CFormControl` provides context such as
@@ -30,14 +46,14 @@ export const formControlProps = {
 }
 
 export const CFormControl: ComponentWithProps<
-DeepPartial<CFormControlProps>
+  DeepPartial<CFormControlProps>
 > = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
       default: 'div',
     },
-    ...formControlProps
+    ...formControlProps,
   },
   setup(_props, { slots, attrs }) {
     const { as, ...props } = toRefs(_props)
@@ -51,15 +67,20 @@ DeepPartial<CFormControlProps>
     StylesProvider(styles)
 
     return () => (
-      <chakra.div as={as.value} {...rootProps.value} __css={styles.value.container} __label="form" { ...attrs }>
+      <chakra.div
+        as={as.value}
+        {...rootProps.value}
+        __css={styles.value.container}
+        __label="form"
+        {...attrs}
+      >
         {slots}
       </chakra.div>
     )
   },
 })
 
-
-export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
+export interface CHelpTextProps extends HTMLChakraProps<'div'> {}
 /**
  * CFormHelperText
  *
@@ -67,16 +88,23 @@ export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
  * about the field, such as how it will be used and what
  * types in values should be provided.
  */
-export const CFormHelperText: ComponentWithProps<DeepPartial<CHelpTextProps>> = defineComponent((props, { attrs, slots }) => {
-  const field = useFormControlContext()
-  const styles = useStyles()
-  const handleVNodeMounted = () => {
-    field.value.hasHelpText.value = true
-  }
+export const CFormHelperText: ComponentWithProps<DeepPartial<CHelpTextProps>> = defineComponent(
+  (props, { attrs, slots }) => {
+    const field = useFormControlContext()
+    const styles = useStyles()
+    const handleVNodeMounted = () => {
+      field.value.hasHelpText.value = true
+    }
 
-  return () => (
-    <chakra.div __label="form__helper-text" onVnodeBeforeMount={handleVNodeMounted} {...field.value.helperTextProps.value} __css={styles.value.helperText}>
-      {slots}
-    </chakra.div>
-  )
-})
+    return () => (
+      <chakra.div
+        __label="form__helper-text"
+        onVnodeBeforeMount={handleVNodeMounted}
+        {...field.value.helperTextProps.value}
+        __css={styles.value.helperText}
+      >
+        {slots}
+      </chakra.div>
+    )
+  }
+)

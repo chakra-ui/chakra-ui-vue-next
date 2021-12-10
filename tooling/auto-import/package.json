@@ -28,13 +28,11 @@
   "peerDependencies": {
     "@chakra-ui/vue-next": "1.0.0-alpha.7",
     "unplugin-vue-components": "^0.14.0",
-    "vite": "^2.6.13",
     "vue": "^3.0.11"
   },
   "devDependencies": {
     "@chakra-ui/vue-next": "1.0.0-alpha.7",
     "unplugin-vue-components": "^0.14.0",
-    "vite": "^2.6.13",
-    "vue": "^3.2.21"
+    "vue": "^3.2.24"
   }
 }

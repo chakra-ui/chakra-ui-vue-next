@@ -33,6 +33,6 @@
   "devDependencies": {
     "@chakra-ui/utils": "^1.8.2",
     "@chakra-ui/vue-system": "0.1.0-alpha.5",
-    "vue": "^3.2.21"
+    "vue": "^3.2.24"
   }
 }

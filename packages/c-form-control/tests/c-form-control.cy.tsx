@@ -1,31 +1,39 @@
 import { cy, expect } from 'local-cypress'
 import { h, Fragment, defineComponent } from 'vue'
-import { CFormControl, CFormErrorIcon, CFormErrorMessage, CFormHelperText, CFormLabel, useFormControl } from '../src'
+import {
+  CFormControl,
+  CFormErrorIcon,
+  CFormErrorMessage,
+  CFormHelperText,
+  CFormLabel,
+  useFormControl,
+} from '../src'
 import * as Examples from '../examples'
 import { CInput } from '../examples/components'
 
 describe('FormControl Examples', () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
-      cy.mount(h(() => <example.default></example.default>))
-        .checkA11y()
+      cy.mount(h(() => <example.default></example.default>)).checkA11y()
     })
   })
 })
 
 const render = (props: any = {}) => {
-  return cy.mount(defineComponent({
-    setup(props) {
-      return () => (
-        <CFormControl id="name">
-          <CFormLabel>Name</CFormLabel>
-          <CInput placeholder="Name" />
-          <CFormHelperText>Enter your name please!</CFormHelperText>
-          <CFormErrorMessage>Your name is invalid</CFormErrorMessage>
-        </CFormControl>
-      )
-    }
-  }))
+  return cy.mount(
+    defineComponent({
+      setup(props) {
+        return () => (
+          <CFormControl id="name">
+            <CFormLabel>Name</CFormLabel>
+            <CInput placeholder="Name" />
+            <CFormHelperText>Enter your name please!</CFormHelperText>
+            <CFormErrorMessage>Your name is invalid</CFormErrorMessage>
+          </CFormControl>
+        )
+      },
+    })
+  )
 }
 
 describe('<CFormControl />', () => {
@@ -33,7 +41,7 @@ describe('<CFormControl />', () => {
     cy.checkA11y()
   })
 
-  it("passes a11y test in when required", () => {
+  it('passes a11y test in when required', () => {
     cy.mount(
       h(() => (
         <CFormControl isRequired id="name">
@@ -45,8 +53,8 @@ describe('<CFormControl />', () => {
       ))
     ).checkA11y()
   })
-  
-  it("passes a11y test in when invalid", () => {
+
+  it('passes a11y test in when invalid', () => {
     cy.mount(
       h(() => (
         <CFormControl isInvalid id="name">
@@ -73,10 +81,8 @@ describe('<CFormControl />', () => {
         </CFormControl>
       ))
     )
-    cy.get('[data-testid="message"]')
-      .should('not.exist')
-    cy.get('[data-testid="icon"]')
-      .should('not.exist')
+    cy.get('[data-testid="message"]').should('not.exist')
+    cy.get('[data-testid="icon"]').should('not.exist')
   })
 
   it('only displays error icon and message when invalid - 2', () => {
@@ -91,17 +97,15 @@ describe('<CFormControl />', () => {
       ))
     )
 
-    cy.get('#name > [role="presentation"]')
-      .should('not.exist')
+    cy.get('#name > [role="presentation"]').should('not.exist')
   })
-
 
   it('useFormControl calls provided input callbacks', () => {
     const onFocus = cy.stub()
     const onBlur = cy.stub()
     const props = {
       onFocus,
-      onBlur
+      onBlur,
     }
 
     cy.mount(
@@ -116,8 +120,7 @@ describe('<CFormControl />', () => {
           />
         </CFormControl>
       ))
-    )
-    .then(() => {
+    ).then(() => {
       cy.get('[data-testid="input"]')
         .focus()
         .wait(100)
@@ -136,24 +139,25 @@ describe('<CFormControl />', () => {
   // Here attrsibtutes a re renderedn correctly in DOM but not in
   // test environment. Not sure why
   it.skip('has the proper aria-attibutes', () => {
-    cy.mount(defineComponent({
-      setup() {
-        return () => (
-          <CFormControl id="name">
-            <CFormLabel> First name </CFormLabel>
-            <CInput data-testid="input" placeholder="First Name" />
-            <CFormHelperText> Keep it very short and sweet! </CFormHelperText>
-          </CFormControl>
-        )
-      }
-    }))
-    .wait(200)
+    cy.mount(
+      defineComponent({
+        setup() {
+          return () => (
+            <CFormControl id="name">
+              <CFormLabel> First name </CFormLabel>
+              <CInput data-testid="input" placeholder="First Name" />
+              <CFormHelperText> Keep it very short and sweet! </CFormHelperText>
+            </CFormControl>
+          )
+        },
+      })
+    ).wait(200)
 
     cy.get('[data-testid="input"]')
-      .should('have.attr', "aria-describedby", "helptext-name")
-      .should('not.have.attr', "aria-invalid")
-      .should('not.have.attr', "aria-required")
-      .should('not.have.attr', "aria-readonly")
+      .should('have.attr', 'aria-describedby', 'helptext-name')
+      .should('not.have.attr', 'aria-invalid')
+      .should('not.have.attr', 'aria-required')
+      .should('not.have.attr', 'aria-readonly')
   })
 })
 

@@ -7,7 +7,13 @@ import {
 } from '@chakra-ui/styled-system'
 import { IntrinsicElementAttributes } from './dom.types'
 import { Dict } from '@chakra-ui/utils'
-import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue'
+import {
+  AllowedComponentProps,
+  ComponentCustomProps,
+  VNodeProps,
+  HTMLAttributes,
+  VNode,
+} from 'vue'
 import { DOMElements } from './system.utils'
 import { StyleResolverProps } from './chakra'
 
@@ -19,7 +25,12 @@ import { StyleResolverProps } from './chakra'
  */
 export type ComponentWithProps<P> = {
   new (): {
-    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps & P
+    $props: AllowedComponentProps &
+      ComponentCustomProps &
+      VNodeProps &
+      P & {
+        [key: string]: unknown
+      }
   }
 }
 
@@ -106,3 +117,17 @@ export type HTMLChakraProps<T extends As> = Omit<
     : 'ref' | keyof StyleProps
 > &
   ChakraProps & { as?: As }
+
+declare global {
+  namespace h.JSX {
+    interface Element extends VNode {}
+    interface ElementClass {
+      $props: {}
+    }
+    interface ElementAttributesProperty {
+      $props: {}
+    }
+
+    interface IntrinsicAttributes extends HTMLAttributes, ChakraProps {}
+  }
+}

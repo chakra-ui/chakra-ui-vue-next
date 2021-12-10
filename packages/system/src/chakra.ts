@@ -18,17 +18,14 @@ import {
   SystemProps,
   SystemStyleObject,
 } from '@chakra-ui/styled-system'
+
 import { cx, isFunction, isObject, memoizedGet as get } from '@chakra-ui/utils'
 import { css as _css, CSSObject } from '@emotion/css'
 import { extractStyleAttrs } from './system.attrs'
 import { domElements, DOMElements } from './system.utils'
 import { useTheme } from './composables/use-chakra'
 import { SNAO } from '@chakra-ui/vue-utils'
-import {
-  ChakraProps,
-  ComponentWithProps,
-  HTMLChakraProps,
-} from './system.types'
+import { ChakraProps, ComponentWithProps } from './system.types'
 
 export interface BaseStyleResolverProps {
   as?: ChakraTagOrComponent
@@ -289,6 +286,7 @@ export type ChakraFactoryProps = ChakraProps &
   ComponentCustomProps &
   JSX.IntrinsicAttributes & {
     // value?: unknown
+    [key: string]: any
   }
 
 /**

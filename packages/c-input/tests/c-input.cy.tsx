@@ -8,28 +8,27 @@ describe.skip('Input Examples', () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
       // @ts-ignore
-      cy.mount(h(() => <example.default></example.default>))
-        .checkA11y({
-          axeOptions: {
-            rules: {
-              label: { enabled: false },
-            },
+      cy.mount(h(() => <example.default></example.default>)).checkA11y({
+        axeOptions: {
+          rules: {
+            label: { enabled: false },
           },
-        })
+        },
+      })
     })
   })
 })
 
-const render = (props: any) => (
-  <CInput {...props} />
-)
+const render = (props: any) => <CInput {...props} />
 
 describe('CInput tests', () => {
   it('should update value with v-model', () => {
-    cy.mount(() => render({
-      vModel: ref('hello'),
-      'data-testid': 'input'
-    }))
+    cy.mount(() =>
+      render({
+        vModel: ref('hello'),
+        'data-testid': 'input',
+      })
+    )
 
     cy.wait(400)
       .get('[data-testid="input"]')

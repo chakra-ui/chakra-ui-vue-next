@@ -2,10 +2,10 @@ import { render, testA11y } from '../../test-utils/src'
 import { CInput } from '../src'
 
 const renderComponent = () =>
-    render({
-      components: { CInput },
-      template: `<CInput />`,
-    })
+  render({
+    components: { CInput },
+    template: `<CInput />`,
+  })
 
 describe('<CInput />', () => {
   it('should render properly', () => {
@@ -18,8 +18,8 @@ describe('<CInput />', () => {
       axeOptions: {
         rules: {
           label: { enabled: false },
-        }
-      }
+        },
+      },
     })
   })
 })

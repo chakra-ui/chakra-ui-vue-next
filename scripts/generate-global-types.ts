@@ -46,7 +46,7 @@ async function generateComponents() {
    * This file was generated on ${new Date().toISOString()}
    */
 
-   import { ChakraProps } from '@chakra-ui/vue-system'
+   import { ChakraProps, chakra } from '@chakra-ui/vue-system'
    import { VNodeChild, HTMLAttributes } from 'vue'
    
    export type JsxNode = VNodeChild | JSX.Element
@@ -74,10 +74,13 @@ async function generateComponents() {
        innerHTML?: JsxNode
      }
   
-  
-  declare module 'vue' {
+  declare module '@vue/runtime-core' {
+    import { chakra } from '@chakra-ui/vue-next'
+    export { chakra }
+
     /* Global component types for Volar auto-complete */
     export interface GlobalComponents {
+      chakra: typeof import('@chakra-ui/vue-next')['chakra']
       ${code}
     }
 
@@ -129,6 +132,9 @@ async function generateComponents() {
       onClear?: EventHandler;
     }
   }
+
+  export {}
+  
 
   `
 
