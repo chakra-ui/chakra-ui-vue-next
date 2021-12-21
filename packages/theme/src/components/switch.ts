@@ -1,21 +1,21 @@
-import { mode } from '@chakra-ui/vue-theme-tools'
+import { mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ['track', 'thumb']
+const parts = ["track", "thumb"]
 
 function baseStyleTrack(props: Record<string, any>) {
   const { colorScheme: c } = props
 
   return {
-    borderRadius: 'full',
-    p: '2px',
-    transition: 'all 120ms',
-    bg: mode('gray.300', 'whiteAlpha.400')(props),
+    borderRadius: "full",
+    p: "2px",
+    transition: "all 120ms",
+    bg: mode("gray.300", "whiteAlpha.400")(props),
     _focus: {
-      boxShadow: 'outline',
+      boxShadow: "outline",
     },
     _disabled: {
       opacity: 0.4,
-      cursor: 'not-allowed',
+      cursor: "not-allowed",
     },
     _checked: {
       bg: mode(`${c}.500`, `${c}.200`)(props),
@@ -24,10 +24,10 @@ function baseStyleTrack(props: Record<string, any>) {
 }
 
 const baseStyleThumb = {
-  bg: 'white',
-  transition: 'transform 250ms',
-  borderRadius: 'full',
-  transform: 'translateX(0)',
+  bg: "white",
+  transition: "transform 250ms",
+  borderRadius: "full",
+  transform: "translateX(0)",
 }
 
 const baseStyle = (props: Record<string, any>) => ({
@@ -37,42 +37,42 @@ const baseStyle = (props: Record<string, any>) => ({
 
 const sizes = {
   sm: {
-    track: { w: '1.375rem', h: '0.75rem' },
+    track: { w: "1.375rem", h: "0.75rem" },
     thumb: {
-      w: '0.75rem',
-      h: '0.75rem',
+      w: "0.75rem",
+      h: "0.75rem",
       _checked: {
-        transform: 'translateX(0.625rem)',
+        transform: "translateX(0.625rem)",
       },
     },
   },
 
   md: {
-    track: { w: '1.875rem', h: '1rem' },
+    track: { w: "1.875rem", h: "1rem" },
     thumb: {
-      w: '1rem',
-      h: '1rem',
+      w: "1rem",
+      h: "1rem",
       _checked: {
-        transform: 'translateX(0.875rem)',
+        transform: "translateX(0.875rem)",
       },
     },
   },
 
   lg: {
-    track: { w: '2.875rem', h: '1.5rem' },
+    track: { w: "2.875rem", h: "1.5rem" },
     thumb: {
-      w: '1.5rem',
-      h: '1.5rem',
+      w: "1.5rem",
+      h: "1.5rem",
       _checked: {
-        transform: 'translateX(1.375rem)',
+        transform: "translateX(1.375rem)",
       },
     },
   },
 }
 
 const defaultProps = {
-  size: 'md',
-  colorScheme: 'blue',
+  size: "md",
+  colorScheme: "blue",
 }
 
 export default {

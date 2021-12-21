@@ -28,6 +28,7 @@
     </chakra.div>
   </chakra.div>
 </template>
-<script setup>
-import { CHStack, CVStack } from '@chakra-ui/vue-layout'
+<script lang="ts" setup>
+import { chakra } from "@chakra-ui/vue-system"
+import { CHStack, CVStack } from "@chakra-ui/vue-layout"
 </script>

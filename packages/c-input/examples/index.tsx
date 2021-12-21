@@ -1,1 +1,1 @@
-export * as InputExample from './base-c-input.vue'
+export * as InputExample from "./base-c-input.vue"

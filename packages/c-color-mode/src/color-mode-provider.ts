@@ -1,6 +1,6 @@
-import { __DEV__ } from '@chakra-ui/utils'
-import { inject, isRef, ref, watchEffect } from 'vue'
-import { ColorModeRef } from './color-mode.utils'
+import { __DEV__ } from "@chakra-ui/utils"
+import { inject, isRef, ref, watchEffect } from "vue"
+import { ColorModeRef } from "./color-mode.utils"
 
 export type { ColorModeRef }
 
@@ -16,14 +16,14 @@ export type ColorModeContext = {
 
 /** Injects color mode into component instance */
 export const useColorMode = (): ColorModeContext => {
-  const _colorMode = inject('$chakraColorMode') as ColorModeRef
+  const _colorMode = inject("$chakraColorMode") as ColorModeRef
   const colorMode = isRef(_colorMode) ? _colorMode : ref(_colorMode)
 
   const toggleColorMode = () => {
-    if (colorMode.value === 'light') {
-      colorMode.value = 'dark'
+    if (colorMode.value === "light") {
+      colorMode.value = "dark"
     } else {
-      colorMode.value = 'light'
+      colorMode.value = "light"
     }
   }
 
@@ -53,7 +53,7 @@ export function useColorModeValue<TLight = unknown, TDark = unknown>(
   const modeValue = ref()
 
   watchEffect(() => {
-    modeValue.value = colorMode.value === 'dark' ? darkValue : lightValue
+    modeValue.value = colorMode.value === "dark" ? darkValue : lightValue
   })
 
   return modeValue

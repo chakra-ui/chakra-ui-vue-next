@@ -1,16 +1,16 @@
-import { vueThemingProps } from '@chakra-ui/vue-utils'
-import { ComponentWithProps, HTMLChakraProps } from '@chakra-ui/vue-system'
-import { h, defineComponent, PropType, computed } from 'vue'
+import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { ComponentWithProps, HTMLChakraProps } from "@chakra-ui/vue-system"
+import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   DOMElements,
   ThemingProps,
   useStyleConfig,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/utils'
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
 
-export interface LinkProps extends HTMLChakraProps<'a'>, ThemingProps<'Link'> {
+export interface LinkProps extends HTMLChakraProps<"a">, ThemingProps<"Link"> {
   /**
    *  If `true`, the link will open in new tab
    */
@@ -34,13 +34,13 @@ export interface LinkProps extends HTMLChakraProps<'a'>, ThemingProps<'Link'> {
 export const CLink: ComponentWithProps<
   DeepPartial<LinkProps>
 > = defineComponent({
-  name: 'CLink',
+  name: "CLink",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'a',
+      default: "a",
     },
-    isExternal: Boolean as PropType<LinkProps['isExternal']>,
+    isExternal: Boolean as PropType<LinkProps["isExternal"]>,
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
@@ -52,15 +52,15 @@ export const CLink: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig('Link', themingProps.value)
+    const styles = useStyleConfig("Link", themingProps.value)
 
     return () => (
       <chakra.a
         as={props.as}
         __label="link"
         // @ts-ignore Need to type "target" as Intrinsic HTML property
-        target={props.isExternal ? '_blank' : undefined}
-        rel={props.isExternal ? 'noopener noreferrer' : undefined}
+        target={props.isExternal ? "_blank" : undefined}
+        rel={props.isExternal ? "noopener noreferrer" : undefined}
         __css={styles.value}
         {...attrs}
       >

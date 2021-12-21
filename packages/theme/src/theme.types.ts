@@ -1,9 +1,9 @@
-import { ThemingProps } from '@chakra-ui/vue-system'
-import { Breakpoints, Styles } from '@chakra-ui/vue-theme-tools'
-import { Dict } from '@chakra-ui/utils'
-import { StyleObjectOrFn, SystemStyleObject } from '@chakra-ui/styled-system'
+import { ThemingProps } from "@chakra-ui/vue-system"
+import { Breakpoints, Styles } from "@chakra-ui/vue-theme-tools"
+import { Dict } from "@chakra-ui/utils"
+import { StyleObjectOrFn, SystemStyleObject } from "@chakra-ui/styled-system"
 
-export type ColorMode = 'light' | 'dark'
+export type ColorMode = "light" | "dark"
 
 export interface ColorModeOptions {
   initialColorMode?: ColorMode
@@ -43,17 +43,17 @@ export interface ColorHues {
 export type Colors = RecursiveObject<
   Record<string, Partial<ColorHues>> | string
 >
-export type ThemeDirection = 'ltr' | 'rtl'
+export type ThemeDirection = "ltr" | "rtl"
 
 export interface ComponentDefaultProps
-  extends Omit<ThemingProps, 'styleConfig'>,
+  extends Omit<ThemingProps, "styleConfig">,
     Dict {}
 
 export type ThemingPropsThunk<T> =
   | T
   | ((
       props: Dict &
-        Omit<ThemingProps, 'styleConfig'> & {
+        Omit<ThemingProps, "styleConfig"> & {
           colorMode: ColorMode
         }
     ) => T)

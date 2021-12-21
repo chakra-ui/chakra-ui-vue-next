@@ -20,7 +20,7 @@ export const innerVariants = {
     opacity: 1,
     transition: {
       scale: {
-        type: 'spring',
+        type: "spring",
         damping: 5,
         stiffness: 550,
       },

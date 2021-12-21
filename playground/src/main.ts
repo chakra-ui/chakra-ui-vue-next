@@ -42,15 +42,7 @@ const app = createApp(App)
         global: (props: any) => {
           return {
             body: {
-              // color: `${mode('pink.700', 'orange.50')(props)}`,
-              '.deleted': {
-                color: '#ff8383 !important',
-                fontStyle: 'normal !important',
-              },
-              '.inserted': {
-                color: '#b5f4a5 !important',
-                fontStyle: 'normal !important',
-              },
+              // color: mode('gray.700', 'whiteAlpha.900')(props),
             },
           }
         },

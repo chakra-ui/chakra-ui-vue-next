@@ -1,5 +1,5 @@
-import { h, Fragment, ref, defineComponent } from 'vue'
-import { cy, expect } from 'local-cypress'
+import { h, Fragment, ref, defineComponent } from "vue"
+import { cy, expect } from "local-cypress"
 import {
   CModal,
   CModalBody,
@@ -8,10 +8,10 @@ import {
   CModalHeader,
   CModalOverlay,
   CModalContent,
-} from '../src'
-import { CButton } from '../../c-button'
-import ReturnFocusOnCloseExample from '../examples/modal-return-focus.vue'
-import SimpleModalExample from '../examples/modal-simple.vue'
+} from "../src"
+import { CButton } from "../../c-button"
+import ReturnFocusOnCloseExample from "../examples/modal-return-focus.vue"
+import SimpleModalExample from "../examples/modal-simple.vue"
 
 const render = (props: any = {}) => {
   return cy.mount(
@@ -29,8 +29,8 @@ const render = (props: any = {}) => {
   )
 }
 
-describe('Modal', () => {
-  it('should not have any accessibility violations', () => {
+describe("Modal", () => {
+  it("should not have any accessibility violations", () => {
     const isOpen = ref(true)
     render()
       .then(() => {
@@ -39,20 +39,20 @@ describe('Modal', () => {
       .checkA11y()
   })
 
-  it('should should have aria attributes', () => {
+  it("should should have aria attributes", () => {
     render()
 
     let dialog: JQuery<HTMLElement>[0] | undefined
 
-    cy.get('[aria-modal=true]')
-      .should('exist')
+    cy.get("[aria-modal=true]")
+      .should("exist")
       .then((el) => {
         dialog = el[0]
         expect(dialog.querySelector('[data-testid="header"]')?.id).equal(
-          dialog.getAttribute('aria-labelledby')
+          dialog.getAttribute("aria-labelledby")
         )
         expect(dialog.querySelector('[data-testid="body"]')?.id).equal(
-          dialog.getAttribute('aria-describedby')
+          dialog.getAttribute("aria-describedby")
         )
       })
   })
@@ -60,7 +60,7 @@ describe('Modal', () => {
   it('should emit "close" event when closed', () => {
     const onClose = cy.stub()
     const props = {
-      'onUpdate:modelValue': onClose,
+      "onUpdate:modelValue": onClose,
     }
 
     cy.mount(
@@ -78,7 +78,7 @@ describe('Modal', () => {
     )
 
     cy.get('[data-testid="close-button"]')
-      .should('have.attr', 'aria-label', 'Close')
+      .should("have.attr", "aria-label", "Close")
       .click({ force: true })
       .wait(1000)
       .then(() => {
@@ -99,7 +99,7 @@ describe('Modal', () => {
    *
    * This should be treated as important however.
    */
-  it.skip('should set initial focus ref', () => {
+  it.skip("should set initial focus ref", () => {
     cy.mount(
       h(
         defineComponent({
@@ -128,7 +128,7 @@ describe('Modal', () => {
       )
     )
 
-    cy.get('[data-testid="initial-focus"]').should('have.focus')
+    cy.get('[data-testid="initial-focus"]').should("have.focus")
   })
 
   /**
@@ -144,7 +144,7 @@ describe('Modal', () => {
    *
    * This should be treated as important however.
    */
-  it.skip('should trap focus while open', () => {
+  it.skip("should trap focus while open", () => {
     cy.mount(
       h(() => (
         <CModal modelValue={true}>
@@ -167,8 +167,8 @@ describe('Modal', () => {
 
     cy.wait(1000)
       .get('[data-testid="close-button"]')
-      .should('have.focus')
-      .log('Trigger tab() 20 times')
+      .should("have.focus")
+      .log("Trigger tab() 20 times")
     new Array(20).forEach(() => {
       // @ts-expect-error Tab action
       cy.focused().tab()
@@ -178,38 +178,38 @@ describe('Modal', () => {
     })
   })
 
-  it('should return focus on close', () => {
+  it("should return focus on close", () => {
     cy.mount(h(() => <ReturnFocusOnCloseExample />))
 
-    cy.get('[data-testid=open-modal]').click()
+    cy.get("[data-testid=open-modal]").click()
 
-    cy.get('[aria-modal=true]').should('exist')
+    cy.get("[aria-modal=true]").should("exist")
 
-    cy.get('[data-testid=close-button]').click({ force: true })
+    cy.get("[data-testid=close-button]").click({ force: true })
 
-    cy.get('[data-testid=open-modal]').should('have.focus')
+    cy.get("[data-testid=open-modal]").should("have.focus")
   })
 
-  it('should focus finalFocusRef if provided onClose', () => {
+  it("should focus finalFocusRef if provided onClose", () => {
     cy.mount(h(() => <SimpleModalExample />))
 
-    cy.get('[data-testid=open-modal]').click()
+    cy.get("[data-testid=open-modal]").click()
 
-    cy.get('[aria-modal=true]').should('exist')
+    cy.get("[aria-modal=true]").should("exist")
 
-    cy.get('[data-testid=close-button]').click({ force: true })
+    cy.get("[data-testid=close-button]").click({ force: true })
 
-    cy.get('[data-testid=final-focus]').should('have.focus')
+    cy.get("[data-testid=final-focus]").should("have.focus")
   })
 
   it('should close modal when "esc" key is pressed', () => {
     cy.mount(h(() => <ReturnFocusOnCloseExample />))
 
-    cy.get('[data-testid=open-modal]').click()
+    cy.get("[data-testid=open-modal]").click()
 
-    cy.get('[aria-modal=true]')
-      .should('exist')
-      .type('{esc}', { force: true })
+    cy.get("[aria-modal=true]")
+      .should("exist")
+      .type("{esc}", { force: true })
       .then((el) => {
         expect(el[0]).not.to.exist
       })

@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed, h } from 'vue'
+import { defineComponent, PropType, computed, h } from "vue"
 import {
   chakra,
   useStyleConfig,
@@ -6,15 +6,15 @@ import {
   SystemStyleObject,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { dataAttr, filterUndefined, mergeWith } from '@chakra-ui/utils'
-import { useButtonGroup } from './button-group'
-import { CIcon } from '@chakra-ui/c-icon'
-import { CSpinner } from '@chakra-ui/c-spinner'
-import { ButtonProps, BUTTON_PROPS } from './button.utils'
+} from "@chakra-ui/vue-system"
+import { dataAttr, filterUndefined, mergeWith } from "@chakra-ui/utils"
+import { useButtonGroup } from "./button-group"
+import { CIcon } from "@chakra-ui/c-icon"
+import { CSpinner } from "@chakra-ui/c-spinner"
+import { ButtonProps, BUTTON_PROPS } from "./button.utils"
 
 const CButtonSpinner = defineComponent({
-  name: 'CButtonSpinner',
+  name: "CButtonSpinner",
   inheritAttrs: false,
   props: {
     label: Boolean as PropType<boolean>,
@@ -24,15 +24,15 @@ const CButtonSpinner = defineComponent({
   },
   setup(props, { attrs }) {
     const spinnerStyles = computed<SystemStyleObject>(() => ({
-      display: 'flex',
-      alignItems: 'center',
-      position: props.label ? 'relative' : 'absolute',
+      display: "flex",
+      alignItems: "center",
+      position: props.label ? "relative" : "absolute",
       marginEnd: props.label ? props.spacing : 0,
     }))
     return () => {
       return h(
-        chakra('div', {
-          label: 'button__spinner',
+        chakra("div", {
+          label: "button__spinner",
         }),
         {
           ...spinnerStyles.value,
@@ -40,9 +40,9 @@ const CButtonSpinner = defineComponent({
         },
         [
           h(CSpinner, {
-            color: 'currentColor',
-            width: '1em',
-            height: '1em',
+            color: "currentColor",
+            width: "1em",
+            height: "1em",
           }),
         ]
       )
@@ -56,7 +56,7 @@ const CButtonSpinner = defineComponent({
  * Button icon component
  */
 const CButtonIcon = defineComponent({
-  name: 'CButtonIcon',
+  name: "CButtonIcon",
   inheritAttrs: false,
   props: {
     icon: String as PropType<string>,
@@ -64,7 +64,7 @@ const CButtonIcon = defineComponent({
   setup(props, { attrs }) {
     return () =>
       h(CIcon, {
-        label: 'button__icon',
+        label: "button__icon",
         name: props.icon,
         ...attrs,
       })
@@ -79,7 +79,7 @@ const CButtonIcon = defineComponent({
  * an action, or performing a delete operation.
  */
 const CButton: ComponentWithProps<DeepPartial<ButtonProps>> = defineComponent({
-  name: 'CButton',
+  name: "CButton",
   props: BUTTON_PROPS,
   setup(props, { attrs, slots }) {
     const themingProps = computed<ThemingProps>(() =>
@@ -92,29 +92,29 @@ const CButton: ComponentWithProps<DeepPartial<ButtonProps>> = defineComponent({
     )
 
     const group = useButtonGroup()
-    const styles = useStyleConfig('Button', {
+    const styles = useStyleConfig("Button", {
       ...group?.value,
       ...themingProps.value,
     })
 
     const _focus = computed(() =>
-      mergeWith({}, styles.value?.['_focus'] ?? {}, {
+      mergeWith({}, styles.value?.["_focus"] ?? {}, {
         zIndex: 1,
       })
     )
 
     const buttonStyles = computed<SystemStyleObject>(() => ({
-      display: 'inline-flex',
-      appearance: 'none',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'all 250ms',
-      userSelect: 'none',
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      verticalAlign: 'middle',
-      outline: 'none',
-      width: props.isFullWidth ? '100%' : 'auto',
+      display: "inline-flex",
+      appearance: "none",
+      alignItems: "center",
+      justifyContent: "center",
+      transition: "all 250ms",
+      userSelect: "none",
+      position: "relative",
+      whiteSpace: "nowrap",
+      verticalAlign: "middle",
+      outline: "none",
+      width: props.isFullWidth ? "100%" : "auto",
       ...styles.value,
       ...(!!group?.value && { _focus: _focus.value }),
     }))
@@ -122,13 +122,13 @@ const CButton: ComponentWithProps<DeepPartial<ButtonProps>> = defineComponent({
     return () => {
       return h(
         chakra(props.as, {
-          label: 'button',
+          label: "button",
         }),
         {
           ...((props.isDisabled || props.isLoading) && {
             disabled: props.isDisabled || props.isLoading,
           }),
-          type: props.as === 'button' ? undefined : props.type,
+          type: props.as === "button" ? undefined : props.type,
           dataActive: dataAttr(props.isActive),
           dataLoading: dataAttr(props.isLoading),
           ...buttonStyles.value,
@@ -146,7 +146,7 @@ const CButton: ComponentWithProps<DeepPartial<ButtonProps>> = defineComponent({
             h(CButtonSpinner, {
               spacing: props.iconSpacing,
               label: props.loadingText,
-              __css: { fontSize: '1em', lineHeight: 'normal' },
+              __css: { fontSize: "1em", lineHeight: "normal" },
             }),
           props.isLoading
             ? props.loadingText ||

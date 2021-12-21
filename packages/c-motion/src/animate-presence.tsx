@@ -17,32 +17,32 @@ import {
   watch,
   cloneVNode,
   computed,
-} from 'vue'
+} from "vue"
 
-import type { DOMElements } from '@chakra-ui/vue-system'
-import { useRef } from '@chakra-ui/vue-utils'
-import { MotionVariants, useMotion } from '@vueuse/motion'
-import { warn, __DEV__ } from '@chakra-ui/utils'
-import { CMotionVariant, TransitionVariants } from './motion-utils'
+import type { DOMElements } from "@chakra-ui/vue-system"
+import { useRef } from "@chakra-ui/vue-utils"
+import { MotionVariants, useMotion } from "@vueuse/motion"
+import { warn, __DEV__ } from "@chakra-ui/utils"
+import { CMotionVariant, TransitionVariants } from "./motion-utils"
 
 /**
  * @todo Add usePrefersReducedMotion hook to disable animations in the browser
  */
 
 export const CAnimatePresence = defineComponent({
-  name: 'CAnimatePresence',
+  name: "CAnimatePresence",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
     type: {
       type: String as PropType<CMotionVariant>,
-      default: 'fade',
+      default: "fade",
     },
     variant: Object as PropType<MotionVariants>,
   },
-  emits: ['leave', 'beforeLeave'],
+  emits: ["leave", "beforeLeave"],
   setup(props, { slots, attrs, emit }) {
     const [targetRef, targetNode] = useRef()
     const motionInstance = ref()
@@ -55,7 +55,7 @@ export const CAnimatePresence = defineComponent({
       condition: !props.variant && !TransitionVariants[props.type],
       message:
         'The animate presence component expects either the "variant" or a value for "type" that is an existing preset' +
-        'Please check to make sure that these values are correct.',
+        "Please check to make sure that these values are correct.",
     })
 
     const variant = computed(
@@ -70,17 +70,17 @@ export const CAnimatePresence = defineComponent({
       },
       {
         immediate: true,
-        flush: 'post',
+        flush: "post",
       }
     )
 
     const onLeave = (el: Element, done?: VoidFunction) => {
       motionInstance.value.leave(done)
-      emit('leave', el, done)
+      emit("leave", el, done)
     }
 
     const onBeforeLeave = (el: Element, done?: VoidFunction) => {
-      emit('beforeLeave', el, done)
+      emit("beforeLeave", el, done)
     }
 
     return () => {
@@ -88,7 +88,7 @@ export const CAnimatePresence = defineComponent({
 
       const vNodes = slots
         ?.default?.()
-        .filter((vnode) => String(vnode.type) !== 'Symbol(Comment)')
+        .filter((vnode) => String(vnode.type) !== "Symbol(Comment)")
 
       children = vNodes?.length
         ? cloneVNode(vNodes[0], { ref: targetRef as any })

@@ -1,9 +1,9 @@
-import { isVNode, Comment, Slots } from 'vue'
-import { getValidChildren } from '@chakra-ui/vue-utils'
-import { isArray, isObject, isString } from '@chakra-ui/utils'
+import { isVNode, Comment, Slots } from "vue"
+import { getValidChildren } from "@chakra-ui/vue-utils"
+import { isArray, isObject, isString } from "@chakra-ui/utils"
 
 export interface Heading {
-  level: 'h2' | 'h3'
+  level: "h2" | "h3"
   text: string
   id: string
 }
@@ -11,7 +11,7 @@ export interface Heading {
 function isHeading(child: any) {
   // mdxType
   if (child.props?.as) {
-    return new Set(['h2', 'h3']).has(child.props.as)
+    return new Set(["h2", "h3"]).has(child.props.as)
   }
   return false
 }

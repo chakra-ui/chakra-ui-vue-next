@@ -1,4 +1,4 @@
-import { vueThemingProps } from '@chakra-ui/vue-utils'
+import { vueThemingProps } from "@chakra-ui/vue-utils"
 import {
   chakra,
   DOMElements,
@@ -7,22 +7,22 @@ import {
   HTMLChakraProps,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { computed, defineComponent, h, PropType } from 'vue'
-import { filterUndefined } from '@chakra-ui/utils'
+} from "@chakra-ui/vue-system"
+import { computed, defineComponent, h, PropType } from "vue"
+import { filterUndefined } from "@chakra-ui/utils"
 
 export interface HeadingProps
-  extends HTMLChakraProps<'h2'>,
-    ThemingProps<'Heading'> {}
+  extends HTMLChakraProps<"h2">,
+    ThemingProps<"Heading"> {}
 
 export const CHeading: ComponentWithProps<
   DeepPartial<HeadingProps>
 > = defineComponent({
-  name: 'CHeading',
+  name: "CHeading",
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
-      default: 'h2',
+      default: "h2",
     },
     ...vueThemingProps,
   },
@@ -35,7 +35,7 @@ export const CHeading: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig('Heading', themingProps.value)
+    const styles = useStyleConfig("Heading", themingProps.value)
 
     return () => (
       <chakra.h2

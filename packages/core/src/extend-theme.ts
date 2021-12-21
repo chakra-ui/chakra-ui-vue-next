@@ -1,6 +1,6 @@
-import defaultTheme, { Theme } from '@chakra-ui/vue-theme'
-import { isFunction, mergeWith } from '@chakra-ui/utils'
-import { ColorHues } from '@chakra-ui/vue-theme'
+import defaultTheme, { Theme } from "@chakra-ui/vue-theme"
+import { isFunction, mergeWith } from "@chakra-ui/utils"
+import { ColorHues } from "@chakra-ui/vue-theme"
 
 type ThemeExtensionTypeHints = {
   colors: Record<string, Partial<ColorHues> | Record<string, string> | string>

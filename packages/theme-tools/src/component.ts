@@ -1,5 +1,5 @@
-import { SystemStyleObject } from '@chakra-ui/vue-system'
-import { Dict, runIfFn } from '@chakra-ui/utils'
+import { SystemStyleObject } from "@chakra-ui/vue-system"
+import { Dict, runIfFn } from "@chakra-ui/utils"
 
 export interface StyleConfig {
   baseStyle?: SystemStyleObject
@@ -16,12 +16,12 @@ export interface MultiStyleConfig {
   baseStyle?: { [part: string]: SystemStyleObject }
   sizes?: { [size: string]: { [part: string]: SystemStyleObject } }
   variants?: { [variants: string]: { [part: string]: SystemStyleObject } }
-  defaultProps?: StyleConfig['defaultProps']
+  defaultProps?: StyleConfig["defaultProps"]
 }
 
 export interface GlobalStyleProps {
   colorScheme: string
-  colorMode: 'light' | 'dark'
+  colorMode: "light" | "dark"
   theme: Dict
 }
 
@@ -34,15 +34,15 @@ export { runIfFn }
 export type Styles = GlobalStyles
 
 export function mode(light: any, dark: any) {
-  return (props: Dict) => (props.colorMode === 'dark' ? dark : light)
+  return (props: Dict) => (props.colorMode === "dark" ? dark : light)
 }
 
 export function orient(options: {
-  orientation?: 'vertical' | 'horizontal'
+  orientation?: "vertical" | "horizontal"
   vertical: any
   horizontal: any
 }) {
   const { orientation, vertical, horizontal } = options
   if (!orientation) return {}
-  return orientation === 'vertical' ? vertical : horizontal
+  return orientation === "vertical" ? vertical : horizontal
 }

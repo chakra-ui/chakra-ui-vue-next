@@ -1,12 +1,12 @@
-import { Ref } from 'vue'
-import { isBrowser, noop } from '@chakra-ui/utils'
+import { Ref } from "vue"
+import { isBrowser, noop } from "@chakra-ui/utils"
 
 const classNames = {
-  light: 'chakra-ui-light',
-  dark: 'chakra-ui-dark',
+  light: "chakra-ui-light",
+  dark: "chakra-ui-dark",
 }
 
-export type ColorModeRef = Ref<'light' | 'dark'>
+export type ColorModeRef = Ref<"light" | "dark">
 
 /**
  * SSR: Graceful fallback for the `body` element
@@ -38,16 +38,16 @@ function getMediaQuery(query: string) {
 }
 
 export const queries = {
-  light: '(prefers-color-scheme: light)',
-  dark: '(prefers-color-scheme: dark)',
+  light: "(prefers-color-scheme: light)",
+  dark: "(prefers-color-scheme: dark)",
 }
 
 export const lightQuery = queries.light
 export const darkQuery = queries.dark
 
 export function getColorScheme(fallback?: ColorModeRef) {
-  const isDark = getMediaQuery(queries.dark) ?? fallback?.value === 'dark'
-  return isDark ? 'dark' : 'light'
+  const isDark = getMediaQuery(queries.dark) ?? fallback?.value === "dark"
+  return isDark ? "dark" : "light"
 }
 
 /**
@@ -55,14 +55,14 @@ export function getColorScheme(fallback?: ColorModeRef) {
  * once preference changes
  */
 export function addListener(fn: Function) {
-  if (!('matchMedia' in window)) {
+  if (!("matchMedia" in window)) {
     return noop
   }
 
   const mediaQueryList = window.matchMedia(queries.dark)
 
   const listener = () => {
-    fn(mediaQueryList.matches ? 'dark' : 'light')
+    fn(mediaQueryList.matches ? "dark" : "light")
   }
 
   listener()
@@ -76,12 +76,12 @@ export function addListener(fn: Function) {
 export const root = {
   get: () =>
     document.documentElement.style.getPropertyValue(
-      '--chakra-ui-color-mode'
-    ) as ColorModeRef['value'],
+      "--chakra-ui-color-mode"
+    ) as ColorModeRef["value"],
   set: (mode: ColorModeRef) => {
     if (isBrowser) {
       document.documentElement.style.setProperty(
-        '--chakra-ui-color-mode',
+        "--chakra-ui-color-mode",
         mode.value
       )
     }

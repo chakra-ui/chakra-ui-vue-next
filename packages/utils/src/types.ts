@@ -1,5 +1,5 @@
-import { ComputedRef, Ref, VNodeProps } from 'vue'
-import { TemplateRef } from './dom'
+import { ComputedRef, Ref, VNodeProps } from "vue"
+import { TemplateRef } from "./dom"
 
 /**
  * Value may or may not be a `ref`.

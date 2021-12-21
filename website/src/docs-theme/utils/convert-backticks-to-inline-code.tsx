@@ -1,5 +1,5 @@
-import { isObject } from '@chakra-ui/utils'
-import MdxInlineCode from '@/docs-theme/components/MDXComponents/MdxInlineCode.vue'
+import { isObject } from "@chakra-ui/utils"
+import MdxInlineCode from "@/docs-theme/components/MDXComponents/MdxInlineCode.vue"
 
 /**
  * Replace the code blocks wrapped in backticks
@@ -10,7 +10,7 @@ function toInlineCode(input: string) {
   return input
     .split(/(`\w+`)/)
     .map((chunk) =>
-      chunk.startsWith('`') && chunk.endsWith('`') ? (
+      chunk.startsWith("`") && chunk.endsWith("`") ? (
         <MdxInlineCode key={chunk}>{chunk.slice(1, -1)}</MdxInlineCode>
       ) : (
         chunk
@@ -19,6 +19,6 @@ function toInlineCode(input: string) {
 }
 
 export function convertBackticksToInlineCode(input?: string) {
-  if (!input) return ''
+  if (!input) return ""
   return isObject(input) ? input : toInlineCode(input)
 }

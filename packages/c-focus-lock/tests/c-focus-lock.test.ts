@@ -1,6 +1,6 @@
-import { reactive } from 'vue'
-import { render, screen, userEvent, waitMs } from '../../test-utils/src'
-import { CFocusLock, useFocusLock } from '../src'
+import { reactive } from "vue"
+import { render, screen, userEvent, waitMs } from "../../test-utils/src"
+import { CFocusLock, useFocusLock } from "../src"
 
 const onActivateMock = jest.fn()
 const onDeactivateMock = jest.fn()
@@ -38,18 +38,18 @@ const renderComponent = (props?: any) => {
   return render(base)
 }
 
-it('should focus first focusable child when mounted', async () => {
+it("should focus first focusable child when mounted", async () => {
   renderComponent()
 
   /** We delay so that focus lock has time to activate */
   await waitMs(500)
 
-  const input = screen.getByTestId('input')
+  const input = screen.getByTestId("input")
   expect(input).toHaveFocus()
   expect(onActivateMock).toHaveBeenCalledTimes(1)
 })
 
-it('should focus first focusable child when after tab cycle is complete', async () => {
+it("should focus first focusable child when after tab cycle is complete", async () => {
   renderComponent()
 
   /** We delay so that focus lock has time to activate */
@@ -59,12 +59,12 @@ it('should focus first focusable child when after tab cycle is complete', async 
   await userEvent.tab()
   await userEvent.tab()
 
-  const input = screen.getByTestId('input')
+  const input = screen.getByTestId("input")
   expect(input).toHaveFocus()
   expect(onActivateMock).toHaveBeenCalledTimes(1)
 })
 
-it('should focus initialFocus element when initialFocus element is provided', async () => {
+it("should focus initialFocus element when initialFocus element is provided", async () => {
   renderComponent({
     template: `
       <div :ref="lock" data-testid="focus-lock-container">
@@ -92,12 +92,12 @@ it('should focus initialFocus element when initialFocus element is provided', as
   /** We delay so that focus lock has time to activate */
   await waitMs(500)
 
-  const button = screen.getByTestId('initial-focus-element')
+  const button = screen.getByTestId("initial-focus-element")
   expect(button).toHaveFocus()
   expect(onActivateMock).toHaveBeenCalledTimes(1)
 })
 
-it('should deactivate focus-lock when clickOutsideDeactivates=`true` and click event happens outside focus lock', async () => {
+it("should deactivate focus-lock when clickOutsideDeactivates=`true` and click event happens outside focus lock", async () => {
   renderComponent({
     template: `
       <div :ref="lock" data-testid="focus-lock-container">
@@ -128,8 +128,8 @@ it('should deactivate focus-lock when clickOutsideDeactivates=`true` and click e
   /** We delay so that focus lock has time to activate */
   await waitMs(500)
 
-  const initialFocus = screen.getByTestId('initial-focus-element')
-  const outsideButton = screen.getByTestId('click-outside-focus-trap')
+  const initialFocus = screen.getByTestId("initial-focus-element")
+  const outsideButton = screen.getByTestId("click-outside-focus-trap")
 
   expect(initialFocus).toHaveFocus()
   expect(outsideButton).not.toHaveFocus()
@@ -144,7 +144,7 @@ it('should deactivate focus-lock when clickOutsideDeactivates=`true` and click e
   expect(onDeactivateMock).toHaveBeenCalled()
 })
 
-it('should render properly', () => {
+it("should render properly", () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })

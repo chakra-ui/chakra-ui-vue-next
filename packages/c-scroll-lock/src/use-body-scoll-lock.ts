@@ -2,9 +2,9 @@ import {
   enableBodyScroll,
   disableBodyScroll,
   BodyScrollOptions,
-} from 'body-scroll-lock'
-import { Ref, watch } from 'vue'
-import { useRef } from '@chakra-ui/vue-utils'
+} from "body-scroll-lock"
+import { Ref, watch } from "vue"
+import { useRef } from "@chakra-ui/vue-utils"
 
 /**
  * Enables body scroll locking
@@ -30,7 +30,7 @@ export function useBodyScrollLock(
     },
     {
       immediate: true,
-      flush: 'post',
+      flush: "post",
     }
   )
   return {

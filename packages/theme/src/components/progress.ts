@@ -1,15 +1,15 @@
-import { generateStripe, getColor, mode } from '@chakra-ui/vue-theme-tools'
+import { generateStripe, getColor, mode } from "@chakra-ui/vue-theme-tools"
 
 type Dict = Record<string, any>
 
-const parts = ['track', 'filledTrack', 'panel']
+const parts = ["track", "filledTrack", "panel"]
 
 function filledStyle(props: Dict) {
   const { colorScheme: c, theme: t, isIndeterminate, hasStripe } = props
 
   const stripeStyle = mode(
     generateStripe(),
-    generateStripe('1rem', 'rgba(0,0,0,0.1)')
+    generateStripe("1rem", "rgba(0,0,0,0.1)")
   )(props)
 
   const bgColor = mode(`${c}.500`, `${c}.200`)(props)
@@ -30,10 +30,10 @@ function filledStyle(props: Dict) {
 }
 
 const baseStyleLabel = {
-  lineHeight: '1',
-  fontSize: '0.25em',
-  fontWeight: 'bold',
-  color: 'white',
+  lineHeight: "1",
+  fontSize: "0.25em",
+  fontWeight: "bold",
+  color: "white",
 }
 
 function baseStyleTrack(props: Dict) {
@@ -44,7 +44,7 @@ function baseStyleTrack(props: Dict) {
 
 function baseStyleFilledTrack(props: Dict) {
   return {
-    transition: 'all 0.3s',
+    transition: "all 0.3s",
     ...filledStyle(props),
   }
 }
@@ -59,22 +59,22 @@ const baseStyle = (props: Dict) => {
 
 const sizes = {
   xs: {
-    track: { h: '0.25rem' },
+    track: { h: "0.25rem" },
   },
   sm: {
-    track: { h: '0.5rem' },
+    track: { h: "0.5rem" },
   },
   md: {
-    track: { h: '0.75rem' },
+    track: { h: "0.75rem" },
   },
   lg: {
-    track: { h: '1rem' },
+    track: { h: "1rem" },
   },
 }
 
 const defaultProps = {
-  size: 'md',
-  colorScheme: 'blue',
+  size: "md",
+  colorScheme: "blue",
 }
 
 export default {

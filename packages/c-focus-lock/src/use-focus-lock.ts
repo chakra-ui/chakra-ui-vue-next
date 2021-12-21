@@ -1,12 +1,12 @@
-import { MaybeElementRef, useRef } from '@chakra-ui/vue-utils'
+import { MaybeElementRef, useRef } from "@chakra-ui/vue-utils"
 import {
   AnyFunction,
   focus,
   getAllFocusable,
   getFirstFocusable,
-} from '@chakra-ui/utils'
-import { watch, ref, Ref, UnwrapRef, onBeforeUnmount, nextTick } from 'vue'
-import { createFocusTrap } from 'focus-trap'
+} from "@chakra-ui/utils"
+import { watch, ref, Ref, UnwrapRef, onBeforeUnmount, nextTick } from "vue"
+import { createFocusTrap } from "focus-trap"
 
 import type {
   ActivateOptions,
@@ -14,7 +14,7 @@ import type {
   FocusTarget,
   FocusTrap,
   Options,
-} from 'focus-trap'
+} from "focus-trap"
 
 export interface UseFocusLockOptions extends Options {
   /**
@@ -161,7 +161,7 @@ export function useFocusLock(
         if (immediate) activate()
       })
     },
-    { flush: 'post', immediate: true }
+    { flush: "post", immediate: true }
   )
 
   // Cleanup on unmount

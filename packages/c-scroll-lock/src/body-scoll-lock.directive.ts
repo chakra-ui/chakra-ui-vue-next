@@ -1,5 +1,5 @@
-import { Directive, DirectiveBinding } from 'vue'
-import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock'
+import { Directive, DirectiveBinding } from "vue"
+import { enableBodyScroll, disableBodyScroll } from "body-scroll-lock"
 
 export const BodyScrollLockDirective: Directive = {
   mounted(el: HTMLElement, binding: DirectiveBinding<{ value: boolean }>) {

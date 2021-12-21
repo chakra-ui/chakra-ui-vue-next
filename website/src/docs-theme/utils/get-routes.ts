@@ -1,17 +1,17 @@
-import docsSidebar from '@/config/docs-sidebar.json'
-import guidesSidebar from '@/config/guides-sidebar.json'
-import blogSidebar from '@/config/blog-sidebar.json'
+import docsSidebar from "@/config/docs-sidebar.json"
+import guidesSidebar from "@/config/guides-sidebar.json"
+import blogSidebar from "@/config/blog-sidebar.json"
 
 export function getRoutes(slug: string) {
   // for home page, use docs sidebat
-  if (slug === '/') return docsSidebar.routes
+  if (slug === "/") return docsSidebar.routes
 
   const configMap = {
-    '/resources': docsSidebar,
-    '/changelog': docsSidebar,
-    '/guides': guidesSidebar,
-    '/blog': blogSidebar,
-    '/docs': docsSidebar,
+    "/resources": docsSidebar,
+    "/changelog": docsSidebar,
+    "/guides": guidesSidebar,
+    "/blog": blogSidebar,
+    "/docs": docsSidebar,
   }
 
   const [_path, sidebar] =

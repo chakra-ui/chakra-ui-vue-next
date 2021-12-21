@@ -1,14 +1,14 @@
-import { render, screen } from '../../test-utils/src'
-import { defineComponent, h } from 'vue'
-import { chakra } from '../src'
+import { render, screen } from "../../test-utils/src"
+import { defineComponent, h } from "vue"
+import { chakra } from "../src"
 
-describe('chakra() works', () => {
+describe("chakra() works", () => {
   const renderComponent = (options?: Record<string, any>) =>
     render({
       components: {
         chakra: defineComponent({
           setup(_, { slots }) {
-            return () => h(chakra('span', {}), {}, slots)
+            return () => h(chakra("span", {}), {}, slots)
           },
         }),
       },
@@ -16,22 +16,22 @@ describe('chakra() works', () => {
       ...options,
     })
 
-  it('should be render properly', () => {
+  it("should be render properly", () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should be render default slot', () => {
+  it("should be render default slot", () => {
     renderComponent()
-    expect(screen.getByText('child-element')).toBeInTheDocument()
+    expect(screen.getByText("child-element")).toBeInTheDocument()
   })
 })
 
-describe('as prop', () => {
+describe("as prop", () => {
   const FakeRouterLink = defineComponent({
-    props: ['to'],
+    props: ["to"],
     setup(props, { slots }) {
-      return () => h('a', { href: props.to }, { default: () => slots })
+      return () => h("a", { href: props.to }, { default: () => slots })
     },
   })
   it('render dom elements like as="h1"', () => {
@@ -39,7 +39,7 @@ describe('as prop', () => {
       components: {
         chakra: defineComponent({
           setup(_, { slots }) {
-            return () => h(chakra('h1', {}), {}, slots)
+            return () => h(chakra("h1", {}), {}, slots)
           },
         }),
       },
@@ -47,7 +47,7 @@ describe('as prop', () => {
     })
 
     expect(asFragment()).toMatchSnapshot()
-    expect(container.querySelector('h1')).toBeInTheDocument()
+    expect(container.querySelector("h1")).toBeInTheDocument()
   })
 
   it('resolve global vue components like as="router-link"', () => {
@@ -55,7 +55,7 @@ describe('as prop', () => {
       {
         components: {
           chakra: defineComponent({
-            props: ['as'],
+            props: ["as"],
             setup(props, { slots, attrs }) {
               return () => h(chakra(props.as), {}, slots)
             },
@@ -73,7 +73,7 @@ describe('as prop', () => {
       }
     )
 
-    expect(container.querySelector('a')).toBeInTheDocument()
+    expect(container.querySelector("a")).toBeInTheDocument()
     expect(asFragment()).toMatchSnapshot()
   })
 
@@ -84,7 +84,7 @@ describe('as prop', () => {
           setup(_, { slots }) {
             return () =>
               h(
-                chakra(FakeRouterLink, { to: 'https://vue.chakra-ui.com/' }),
+                chakra(FakeRouterLink, { to: "https://vue.chakra-ui.com/" }),
                 {},
                 slots
               )
@@ -94,7 +94,7 @@ describe('as prop', () => {
       template: `<chakra>as RouterLink</chakra>`,
     })
 
-    expect(container.querySelector('a')).toBeInTheDocument()
+    expect(container.querySelector("a")).toBeInTheDocument()
     expect(asFragment()).toMatchSnapshot()
   })
 })

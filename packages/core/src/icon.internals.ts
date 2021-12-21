@@ -21,7 +21,7 @@ const icons: Record<string, InternalIcon> = {
     `,
   },
   phone: {
-    viewBox: '0 0 14 14',
+    viewBox: "0 0 14 14",
     path: `
     <path
       fill="currentColor"
@@ -37,7 +37,7 @@ const icons: Record<string, InternalIcon> = {
     />
     `,
   },
-  'warning-alt': {
+  "warning-alt": {
     path: `
       <path
         fill="currentColor"
@@ -50,9 +50,9 @@ const icons: Record<string, InternalIcon> = {
         <polygon points="5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039" />
       </g>
     `,
-    viewBox: '0 0 14 14',
+    viewBox: "0 0 14 14",
   },
-  'check-circle': {
+  "check-circle": {
     path: `
       <path
         fill="currentColor"
@@ -66,8 +66,8 @@ const icons: Record<string, InternalIcon> = {
         d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
       />`,
   },
-  'question-outline': {
-    viewBox: '0 0 24 24',
+  "question-outline": {
+    viewBox: "0 0 24 24",
     path: `
     <g stroke="currentColor" strokeWidth="1.5">
       <path
@@ -91,49 +91,49 @@ const icons: Record<string, InternalIcon> = {
         d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
       />`,
   },
-  'chevron-right': {
+  "chevron-right": {
     path: `
     <path
       fill="currentColor"
       d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
     />`,
   },
-  'chevron-left': {
+  "chevron-left": {
     path: `
       <path
         fill="currentColor"
         d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
       />`,
   },
-  'chevron-down': {
+  "chevron-down": {
     path: `
     <path
       fill="currentColor"
       d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
     />`,
   },
-  'chevron-up': {
+  "chevron-up": {
     path: `
     <path
       fill="currentColor"
       d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
     />`,
   },
-  'arrow-forward': {
+  "arrow-forward": {
     path: `
     <path
       fill="currentColor"
       d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
     />`,
   },
-  'arrow-up': {
+  "arrow-up": {
     path: `
     <path
       fill="currentColor"
       d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
     />`,
   },
-  'arrow-down': {
+  "arrow-down": {
     path: `
       <path
         fill="currentColor"
@@ -191,7 +191,7 @@ const icons: Record<string, InternalIcon> = {
       d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
     />`,
   },
-  'small-close': {
+  "small-close": {
     path: `
       <path
         d="M9.41 8l2.29-2.29c.19-.18.3-.43.3-.71a1.003 1.003 0 0 0-1.71-.71L8 6.59l-2.29-2.3a1.003 1.003 0 0 0-1.42 1.42L6.59 8 4.3 10.29c-.19.18-.3.43-.3.71a1.003 1.003 0 0 0 1.71.71L8 9.41l2.29 2.29c.18.19.43.3.71.3a1.003 1.003 0 0 0 .71-1.71L9.41 8z"
@@ -199,9 +199,9 @@ const icons: Record<string, InternalIcon> = {
         fill="currentColor"
       />
     `,
-    viewBox: '0 0 16 16',
+    viewBox: "0 0 16 16",
   },
-  'triangle-up': {
+  "triangle-up": {
     path: `
       <path
         fill="currentColor"
@@ -209,7 +209,7 @@ const icons: Record<string, InternalIcon> = {
       />
     `,
   },
-  'triangle-down': {
+  "triangle-down": {
     path: `
       <path
         fill="currentColor"

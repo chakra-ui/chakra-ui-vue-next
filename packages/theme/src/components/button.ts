@@ -1,22 +1,22 @@
-import { mode, transparentize } from '@chakra-ui/vue-theme-tools'
+import { mode, transparentize } from "@chakra-ui/vue-theme-tools"
 
 type Dict = Record<string, any>
 
 const baseStyle = {
-  lineHeight: '1.2',
-  borderRadius: 'md',
-  fontWeight: 'semibold',
+  lineHeight: "1.2",
+  borderRadius: "md",
+  fontWeight: "semibold",
   _focus: {
-    boxShadow: 'outline',
+    boxShadow: "outline",
   },
   _disabled: {
     opacity: 0.4,
-    cursor: 'not-allowed',
-    boxShadow: 'none',
+    cursor: "not-allowed",
+    boxShadow: "none",
   },
   _hover: {
     _disabled: {
-      bg: 'initial',
+      bg: "initial",
     },
   },
 }
@@ -24,7 +24,7 @@ const baseStyle = {
 function variantGhost(props: Dict) {
   const { colorScheme: c, theme } = props
 
-  if (c === 'gray') {
+  if (c === "gray") {
     return {
       color: mode(`inherit`, `whiteAlpha.900`)(props),
       _hover: {
@@ -39,7 +39,7 @@ function variantGhost(props: Dict) {
 
   return {
     color: mode(`${c}.600`, `${c}.200`)(props),
-    bg: 'transparent',
+    bg: "transparent",
     _hover: {
       bg: mode(`${c}.50`, darkHoverBg)(props),
     },
@@ -53,8 +53,8 @@ function variantOutline(props: Dict) {
   const { colorScheme: c } = props
   const borderColor = mode(`gray.200`, `whiteAlpha.300`)(props)
   return {
-    border: '1px solid',
-    borderColor: c === 'gray' ? borderColor : 'currentColor',
+    border: "1px solid",
+    borderColor: c === "gray" ? borderColor : "currentColor",
     ...variantGhost(props),
   }
 }
@@ -69,23 +69,23 @@ type AccessibleColor = {
 /** Accessible color overrides for less accessible colors. */
 const accessibleColorMap: { [key: string]: AccessibleColor } = {
   yellow: {
-    bg: 'yellow.400',
-    color: 'black',
-    hoverBg: 'yellow.500',
-    activeBg: 'yellow.600',
+    bg: "yellow.400",
+    color: "black",
+    hoverBg: "yellow.500",
+    activeBg: "yellow.600",
   },
   cyan: {
-    bg: 'cyan.400',
-    color: 'black',
-    hoverBg: 'cyan.500',
-    activeBg: 'cyan.600',
+    bg: "cyan.400",
+    color: "black",
+    hoverBg: "cyan.500",
+    activeBg: "cyan.600",
   },
 }
 
 function variantSolid(props: Dict) {
   const { colorScheme: c } = props
 
-  if (c === 'gray') {
+  if (c === "gray") {
     const bg = mode(`gray.100`, `whiteAlpha.200`)(props)
 
     return {
@@ -102,7 +102,7 @@ function variantSolid(props: Dict) {
 
   const {
     bg = `${c}.500`,
-    color = 'white',
+    color = "white",
     hoverBg = `${c}.600`,
     activeBg = `${c}.700`,
   } = accessibleColorMap[c] || {}
@@ -126,14 +126,14 @@ function variantLink(props: Dict) {
   const { colorScheme: c } = props
   return {
     padding: 0,
-    height: 'auto',
-    lineHeight: 'normal',
-    verticalAlign: 'baseline',
+    height: "auto",
+    lineHeight: "normal",
+    verticalAlign: "baseline",
     color: mode(`${c}.500`, `${c}.200`)(props),
     _hover: {
-      textDecoration: 'underline',
+      textDecoration: "underline",
       _disabled: {
-        textDecoration: 'none',
+        textDecoration: "none",
       },
     },
     _active: {
@@ -143,10 +143,10 @@ function variantLink(props: Dict) {
 }
 
 const variantUnstyled = {
-  bg: 'none',
-  color: 'inherit',
-  display: 'inline',
-  lineHeight: 'inherit',
+  bg: "none",
+  color: "inherit",
+  display: "inline",
+  lineHeight: "inherit",
   m: 0,
   p: 0,
 }
@@ -163,33 +163,33 @@ const sizes = {
   lg: {
     h: 12,
     minW: 12,
-    fontSize: 'lg',
+    fontSize: "lg",
     px: 6,
   },
   md: {
     h: 10,
     minW: 10,
-    fontSize: 'md',
+    fontSize: "md",
     px: 4,
   },
   sm: {
     h: 8,
     minW: 8,
-    fontSize: 'sm',
+    fontSize: "sm",
     px: 3,
   },
   xs: {
     h: 6,
     minW: 6,
-    fontSize: 'xs',
+    fontSize: "xs",
     px: 2,
   },
 }
 
 const defaultProps = {
-  variant: 'solid',
-  size: 'md',
-  colorScheme: 'gray',
+  variant: "solid",
+  size: "md",
+  colorScheme: "gray",
 }
 
 export default {

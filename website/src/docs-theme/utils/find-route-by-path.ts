@@ -1,4 +1,4 @@
-import { RouteItem } from './get-route-context'
+import { RouteItem } from "./get-route-context"
 
 export function removeFromLast(path: string, key: string) {
   const index = path.lastIndexOf(key)
@@ -8,7 +8,7 @@ export function removeFromLast(path: string, key: string) {
 // @ts-ignore
 export function findRouteByPath(path: string, routes: RouteItem[]): RouteItem {
   for (const route of routes) {
-    if (route.path && removeFromLast(route.path, '.') === path) {
+    if (route.path && removeFromLast(route.path, ".") === path) {
       return route
     }
 

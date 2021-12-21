@@ -1,1 +1,1 @@
-export { default as CPortal } from './portal'
+export { default as CPortal } from "./portal"

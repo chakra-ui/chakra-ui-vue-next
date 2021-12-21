@@ -11,21 +11,22 @@ import {
   ComponentCustomProps,
   PropType,
   resolveComponent,
-} from 'vue'
+} from "vue"
 import {
   css,
   ResponsiveValue,
   SystemProps,
   SystemStyleObject,
-} from '@chakra-ui/styled-system'
+} from "@chakra-ui/styled-system"
 
-import { cx, isFunction, isObject, memoizedGet as get } from '@chakra-ui/utils'
-import { css as _css, CSSObject } from '@emotion/css'
-import { extractStyleAttrs } from './system.attrs'
-import { domElements, DOMElements } from './system.utils'
-import { useTheme } from './composables/use-chakra'
-import { SNAO } from '@chakra-ui/vue-utils'
-import { ChakraProps, ComponentWithProps } from './system.types'
+import { cx, isFunction, isObject, memoizedGet as get } from "@chakra-ui/utils"
+import { css as _css, CSSObject } from "@emotion/css"
+import { extractStyleAttrs } from "./system.attrs"
+import { domElements, DOMElements } from "./system.utils"
+import { useTheme } from "./composables/use-chakra"
+import { SNAO } from "@chakra-ui/vue-utils"
+import { ChakraProps, ComponentWithProps } from "./system.types"
+import { formElements, InputTypes } from "./chakra.forms"
 
 export interface BaseStyleResolverProps {
   as?: ChakraTagOrComponent
@@ -63,16 +64,33 @@ interface ChakraFactoryOptions extends StyleResolverProps {}
 
 const chakraProps = {
   as: [String, Object] as PropType<ChakraTagOrComponent>,
-  __css: Object as PropType<StyleResolverProps['__css']>,
-  sx: Object as PropType<StyleResolverProps['sx']>,
-  css: Object as PropType<StyleResolverProps['css']>,
-  noOfLines: SNAO as PropType<StyleResolverProps['noOfLines']>,
-  baseStyle: Object as PropType<StyleResolverProps['baseStyle']>,
-  isTruncated: Boolean as PropType<StyleResolverProps['isTruncated']>,
-  layerStyle: String as PropType<StyleResolverProps['layerStyle']>,
-  textStyle: String as PropType<StyleResolverProps['textStyle']>,
-  apply: String as PropType<StyleResolverProps['apply']>,
-  label: String as PropType<StyleResolverOptions['label']>,
+  __css: Object as PropType<StyleResolverProps["__css"]>,
+  sx: Object as PropType<StyleResolverProps["sx"]>,
+  css: Object as PropType<StyleResolverProps["css"]>,
+  noOfLines: SNAO as PropType<StyleResolverProps["noOfLines"]>,
+  baseStyle: Object as PropType<StyleResolverProps["baseStyle"]>,
+  isTruncated: Boolean as PropType<StyleResolverProps["isTruncated"]>,
+  layerStyle: String as PropType<StyleResolverProps["layerStyle"]>,
+  textStyle: String as PropType<StyleResolverProps["textStyle"]>,
+  apply: String as PropType<StyleResolverProps["apply"]>,
+  label: String as PropType<StyleResolverOptions["label"]>,
+  modelValue: SNAO as PropType<string | boolean | object>,
+  /**
+   * @warning
+   * @internal
+   * This internal is an internal ChakraFactoryFunction prop that
+   * is used to determine how events are handled on Chakra Factory
+   * componnts.
+   *
+   * For example, if a factory component is considered to be raw (i.e. `__chakraIsRaw: true`),
+   * then, we do not pass v-model event listeners onto the component. This means that
+   * `v-model` will not work in the template context.
+   *
+   * You can see how this prop is used in the `c-input` component.
+   *
+   * THIS PROP IS A NON-DOCUMENTED PROP, AND IS ONLY TO BE USED FOR INTERNAL DEVELOPMENT.
+   */
+  __chakraIsRaw: Boolean as PropType<boolean>,
 }
 
 export type ChakraBaseComponentProps = typeof chakraProps
@@ -133,11 +151,18 @@ export type ChakraTagOrComponent =
  */
 // @ts-expect-error
 export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
+  const inputHandlers = formElements[typeof tag === "string" ? tag : ""]
+  const _props = (inputHandlers && inputHandlers.props) || {}
+  const handleValueChange = inputHandlers && inputHandlers.handleValueChange
+
   return defineComponent({
     name: `chakra-factory-${String(tag)}`,
     inheritAttrs: false,
-    props: chakraProps,
-    setup(props, { slots, attrs }) {
+    props: {
+      ...chakraProps,
+      ..._props,
+    },
+    setup(props, { slots, emit, attrs }) {
       return () => {
         const { class: inheritedClass, __label, ...rest } = attrs
         const {
@@ -196,7 +221,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
 
         const componentLabel = label || __label
         const className = _css(resolvedComponentStyles)
-        const _componentName = componentLabel ? `chakra-${componentLabel}` : ''
+        const _componentName = componentLabel ? `chakra-${componentLabel}` : ""
 
         let componentOrTag = props.as || tag
 
@@ -214,6 +239,9 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
           {
             class: cx(inheritedClass, _componentName, className),
             ...elementAttributes,
+            ...(!props.__chakraIsRaw &&
+              handleValueChange &&
+              handleValueChange(props, attrs.type as InputTypes)(emit)),
           },
           slots
         )
@@ -245,17 +273,17 @@ export const resolveStyles = (
   let truncateStyle: any = {}
   if (noOfLines != null) {
     truncateStyle = {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      display: '-webkit-box',
-      WebkitBoxOrient: 'vertical',
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      WebkitBoxOrient: "vertical",
       WebkitLineClamp: noOfLines,
     }
   } else if (isTruncated) {
     truncateStyle = {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
     }
   }
 

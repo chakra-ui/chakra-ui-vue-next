@@ -1,7 +1,7 @@
-const parts = ['label', 'number', 'icon', 'helpText']
+const parts = ["label", "number", "icon", "helpText"]
 
 const baseStyleLabel = {
-  fontWeight: 'medium',
+  fontWeight: "medium",
 }
 
 const baseStyleHelpText = {
@@ -10,15 +10,15 @@ const baseStyleHelpText = {
 }
 
 const baseStyleNumber = {
-  verticalAlign: 'baseline',
-  fontWeight: 'semibold',
+  verticalAlign: "baseline",
+  fontWeight: "semibold",
 }
 
 const baseStyleIcon = {
   mr: 1,
-  w: '14px',
-  h: '14px',
-  verticalAlign: 'middle',
+  w: "14px",
+  h: "14px",
+  verticalAlign: "middle",
 }
 
 const baseStyle = {
@@ -30,14 +30,14 @@ const baseStyle = {
 
 const sizes = {
   md: {
-    label: { fontSize: 'sm' },
-    helpText: { fontSize: 'sm' },
-    number: { fontSize: '2xl' },
+    label: { fontSize: "sm" },
+    helpText: { fontSize: "sm" },
+    number: { fontSize: "2xl" },
   },
 }
 
 const defaultProps = {
-  size: 'md',
+  size: "md",
 }
 
 export default {

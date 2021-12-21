@@ -8,10 +8,10 @@ import {
   ref,
   onUnmounted,
   warn,
-} from 'vue'
-import { createPortalTarget, ensureTarget, unmountTarget } from './portal.utils'
+} from "vue"
+import { createPortalTarget, ensureTarget, unmountTarget } from "./portal.utils"
 
-export interface CPortalProps extends Omit<TeleportProps, 'to'> {
+export interface CPortalProps extends Omit<TeleportProps, "to"> {
   /**
    * The target element to which to mount the portal
    */
@@ -33,11 +33,11 @@ export interface CPortalProps extends Omit<TeleportProps, 'to'> {
  * it will generate a target and append to the document body
  */
 const CPortal = defineComponent({
-  name: 'CPortal',
+  name: "CPortal",
   props: {
-    to: String as PropType<CPortalProps['to']>,
-    disabled: Boolean as PropType<CPortalProps['disabled']>,
-    label: String as PropType<CPortalProps['label']>,
+    to: String as PropType<CPortalProps["to"]>,
+    disabled: Boolean as PropType<CPortalProps["disabled"]>,
+    label: String as PropType<CPortalProps["label"]>,
   },
   setup(props, { slots, attrs }) {
     const target = ref<string | null>(null)

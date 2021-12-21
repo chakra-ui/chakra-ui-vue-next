@@ -1,7 +1,7 @@
-import { chakra } from '@chakra-ui/vue-system'
-import { useRef } from '@chakra-ui/vue-utils'
-import { useId } from '@chakra-ui/vue-composables'
-import { MotionDirective, MotionVariants, useMotions } from '@vueuse/motion'
+import { chakra } from "@chakra-ui/vue-system"
+import { useRef } from "@chakra-ui/vue-utils"
+import { useId } from "@chakra-ui/vue-composables"
+import { MotionDirective, MotionVariants, useMotions } from "@vueuse/motion"
 import {
   h,
   defineComponent,
@@ -11,9 +11,9 @@ import {
   watch,
   withDirectives,
   onMounted,
-} from 'vue'
-import { TransitionEasings, TransitionVariants } from './motion-utils'
-import { warn } from '@chakra-ui/utils'
+} from "vue"
+import { TransitionEasings, TransitionVariants } from "./motion-utils"
+import { warn } from "@chakra-ui/utils"
 
 export interface CollapseOptions {
   /**
@@ -51,33 +51,33 @@ export interface CollapseOptions {
  */
 
 export const CCollapse = defineComponent({
-  name: 'CCollapse',
+  name: "CCollapse",
   props: {
     isOpen: {
-      type: Boolean as PropType<CollapseOptions['isOpen']>,
+      type: Boolean as PropType<CollapseOptions["isOpen"]>,
       default: true,
     },
     animateOpacity: {
-      type: Boolean as PropType<CollapseOptions['animateOpacity']>,
+      type: Boolean as PropType<CollapseOptions["animateOpacity"]>,
       default: true,
     },
     startingHeight: {
-      type: Number as PropType<CollapseOptions['startingHeight']>,
+      type: Number as PropType<CollapseOptions["startingHeight"]>,
       default: 0,
     },
     endingHeight: {
-      type: [String, Number] as PropType<CollapseOptions['endingHeight']>,
-      default: 'auto',
+      type: [String, Number] as PropType<CollapseOptions["endingHeight"]>,
+      default: "auto",
     },
     unmountOnExit: {
-      type: Boolean as PropType<CollapseOptions['unmountOnExit']>,
+      type: Boolean as PropType<CollapseOptions["unmountOnExit"]>,
       default: true,
     },
   },
-  emits: ['entered', 'left'],
+  emits: ["entered", "left"],
   setup(props, { slots, attrs, emit }) {
     const [targetRef, targetNode] = useRef()
-    const transitionId = useId('collapse-transition')
+    const transitionId = useId("collapse-transition")
     const preTransitionHeight = ref(0)
     const collapsedHeight = computed(() => {
       return preTransitionHeight.value || props.endingHeight
@@ -85,7 +85,7 @@ export const CCollapse = defineComponent({
 
     const variant = computed<MotionVariants>(() => ({
       leave: {
-        overflow: 'hidden',
+        overflow: "hidden",
         height: props.startingHeight,
         ...(props.animateOpacity && { opacity: 0 }),
         transition: {
@@ -94,7 +94,7 @@ export const CCollapse = defineComponent({
         },
       },
       enter: {
-        overflow: 'hidden',
+        overflow: "hidden",
         height: collapsedHeight.value,
         ...(props.animateOpacity && { opacity: 1 }),
         transition: {
@@ -103,7 +103,7 @@ export const CCollapse = defineComponent({
         },
       },
       initial: {
-        overflow: 'hidden',
+        overflow: "hidden",
         height: props.startingHeight,
         ...(props.animateOpacity && { opacity: 0 }),
         transition: {
@@ -134,14 +134,14 @@ export const CCollapse = defineComponent({
     const enter = (done: VoidFunction) => {
       const el = targetNode.value!
       if (el) {
-        el.style.visibility = 'hidden'
+        el.style.visibility = "hidden"
         // @ts-ignore
         el.style.height = props.endingHeight
         const { height } = getComputedStyle(el)
         // @ts-ignore
         el.style.height = props.startingHeight
 
-        el.style.visibility = 'visible'
+        el.style.visibility = "visible"
         const motions = useMotions()
         const instance = motions[transitionId.value]
         instance
@@ -165,10 +165,10 @@ export const CCollapse = defineComponent({
     )
 
     const onDoneEnter = () => {
-      emit('entered')
+      emit("entered")
     }
     const onDoneLeft = () => {
-      emit('left')
+      emit("left")
     }
 
     /**
@@ -191,7 +191,7 @@ export const CCollapse = defineComponent({
     return () => {
       const children = slots
         ?.default?.()
-        .filter((vnode) => String(vnode.type) !== 'Symbol(Comment)')
+        .filter((vnode) => String(vnode.type) !== "Symbol(Comment)")
 
       return withDirectives(
         <chakra.div {...attrs} ref={targetRef}>

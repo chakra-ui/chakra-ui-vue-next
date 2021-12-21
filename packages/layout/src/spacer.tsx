@@ -3,10 +3,10 @@ import {
   ComponentWithProps,
   DeepPartial,
   HTMLChakraProps,
-} from '@chakra-ui/vue-system'
-import { defineComponent, h } from 'vue'
+} from "@chakra-ui/vue-system"
+import { defineComponent, h } from "vue"
 
-export interface SpacerProps extends HTMLChakraProps<'div'> {}
+export interface SpacerProps extends HTMLChakraProps<"div"> {}
 
 /**
  * A flexible flex spacer that expands along the major axis of its containing flex layout.
@@ -17,13 +17,13 @@ export interface SpacerProps extends HTMLChakraProps<'div'> {}
 export const CSpacer: ComponentWithProps<
   DeepPartial<SpacerProps>
 > = defineComponent({
-  name: 'CSpacer',
+  name: "CSpacer",
   setup(_, { slots }) {
     return () => {
       return (
         <chakra.div
           __label="spacer"
-          baseStyle={{ flex: 1, justifySelf: 'stretch', alignSelf: 'stretch' }}
+          baseStyle={{ flex: 1, justifySelf: "stretch", alignSelf: "stretch" }}
         >
           {slots}
         </chakra.div>

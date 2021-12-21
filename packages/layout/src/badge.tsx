@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed } from 'vue'
+import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   DOMElements,
@@ -7,13 +7,13 @@ import {
   useStyleConfig,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/utils'
-import { vueThemingProps } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface BadgeProps
-  extends HTMLChakraProps<'span'>,
-    Partial<ThemingProps<'Badge'>> {}
+  extends HTMLChakraProps<"span">,
+    Partial<ThemingProps<"Badge">> {}
 
 /**
  * Vue component used to display notifications, messages, or
@@ -24,11 +24,11 @@ export interface BadgeProps
 export const CBadge: ComponentWithProps<
   DeepPartial<BadgeProps>
 > = defineComponent({
-  name: 'CBadge',
+  name: "CBadge",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
     ...vueThemingProps,
   },
@@ -41,16 +41,16 @@ export const CBadge: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig('Badge', themingProps.value)
+    const styles = useStyleConfig("Badge", themingProps.value)
     return () => {
       return (
         <chakra.div
           as={props.as}
           __label="badge"
           __css={{
-            display: 'inline-block',
-            whiteSpace: 'nowrap',
-            verticalAlign: 'middle',
+            display: "inline-block",
+            whiteSpace: "nowrap",
+            verticalAlign: "middle",
             ...styles.value,
           }}
           {...attrs}

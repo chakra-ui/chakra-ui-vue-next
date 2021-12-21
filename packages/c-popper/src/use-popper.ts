@@ -1,10 +1,10 @@
-import { filterUndefined } from '@chakra-ui/utils'
-import { Placement } from '@popperjs/core/lib/enums'
+import { filterUndefined } from "@chakra-ui/utils"
+import { Placement } from "@popperjs/core/lib/enums"
 import {
   Instance,
   Modifier,
   VirtualElement,
-} from '@popperjs/core/lib/popper-lite'
+} from "@popperjs/core/lib/popper-lite"
 import {
   nextTick,
   onBeforeUpdate,
@@ -12,20 +12,20 @@ import {
   onUnmounted,
   ref,
   watch,
-} from 'vue'
-import { createPopperFn, CreatePopperOptions } from './create-popper'
+} from "vue"
+import { createPopperFn, CreatePopperOptions } from "./create-popper"
 
 export type { Placement }
 
 export interface UsePopperOptions extends CreatePopperOptions {
-  strategy?: 'absolute' | 'fixed'
+  strategy?: "absolute" | "fixed"
   placement?: Placement
   modifiers?: Array<Modifier<any, any>>
 }
 
 const defaultProps: UsePopperOptions = {
-  placement: 'bottom',
-  strategy: 'absolute',
+  placement: "bottom",
+  strategy: "absolute",
   flip: true,
   gutter: 8,
   arrowPadding: 8,
@@ -82,7 +82,7 @@ export function usePopper(props: UsePopperOptions = {}) {
     nextTick().then(() => {
       unsubscribe = watch(() => [reference, popper], setup, {
         immediate: true,
-        flush: 'post',
+        flush: "post",
       })
     })
   })

@@ -1,21 +1,21 @@
-import { Component, Fragment, Suspense, Teleport } from 'vue'
+import { Component, Fragment, Suspense, Teleport } from "vue"
 import {
   SystemProps,
   ResponsiveValue,
   StyleProps,
   ThemeTypings,
-} from '@chakra-ui/styled-system'
-import { IntrinsicElementAttributes } from './dom.types'
-import { Dict } from '@chakra-ui/utils'
+} from "@chakra-ui/styled-system"
+import { IntrinsicElementAttributes } from "./dom.types"
+import { Dict } from "@chakra-ui/utils"
 import {
   AllowedComponentProps,
   ComponentCustomProps,
   VNodeProps,
   HTMLAttributes,
   VNode,
-} from 'vue'
-import { DOMElements } from './system.utils'
-import { StyleResolverProps } from './chakra'
+} from "vue"
+import { DOMElements } from "./system.utils"
+import { StyleResolverProps } from "./chakra"
 
 /**
  * Export component with custom type
@@ -44,14 +44,14 @@ export type Tag =
   | Component
 
 export interface ThemingProps<ThemeComponent extends string = string> {
-  variant?: ThemeComponent extends keyof ThemeTypings['components']
-    ? ThemeTypings['components'][ThemeComponent]['variants'] | (string & {})
+  variant?: ThemeComponent extends keyof ThemeTypings["components"]
+    ? ThemeTypings["components"][ThemeComponent]["variants"] | (string & {})
     : string
-  size?: ThemeComponent extends keyof ThemeTypings['components']
-    ? ThemeTypings['components'][ThemeComponent]['sizes'] | (string & {})
+  size?: ThemeComponent extends keyof ThemeTypings["components"]
+    ? ThemeTypings["components"][ThemeComponent]["sizes"] | (string & {})
     : string
-  colorScheme?: ThemeTypings['colorSchemes'] | (string & {})
-  orientation?: 'vertical' | 'horizontal'
+  colorScheme?: ThemeTypings["colorSchemes"] | (string & {})
+  orientation?: "vertical" | "horizontal"
   styleConfig?: Dict
 }
 
@@ -112,9 +112,9 @@ export type PropsOf<T extends As> = T & {
 
 export type HTMLChakraProps<T extends As> = Omit<
   PropsOf<T>,
-  T extends 'svg'
-    ? 'ref' | 'children' | keyof StyleProps
-    : 'ref' | keyof StyleProps
+  T extends "svg"
+    ? "ref" | "children" | keyof StyleProps
+    : "ref" | keyof StyleProps
 > &
   ChakraProps & { as?: As }
 
@@ -128,6 +128,8 @@ declare global {
       $props: {}
     }
 
-    interface IntrinsicAttributes extends HTMLAttributes, ChakraProps {}
+    interface IntrinsicAttributes
+      extends Omit<HTMLAttributes, "color">,
+        ChakraProps {}
   }
 }

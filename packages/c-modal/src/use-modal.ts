@@ -11,18 +11,18 @@ import {
   VNodeProps,
   watch,
   watchEffect,
-} from 'vue'
-import { useIds } from '@chakra-ui/vue-composables'
-import { FocusLockProps, useFocusLock } from '@chakra-ui/c-focus-lock'
+} from "vue"
+import { useIds } from "@chakra-ui/vue-composables"
+import { FocusLockProps, useFocusLock } from "@chakra-ui/c-focus-lock"
 import {
   MaybeElementRef,
   useRef,
   getSelector,
   TemplateRef,
-} from '@chakra-ui/vue-utils'
-import { hideOthers, Undo } from '@chakra-ui/vue-a11y'
-import { focus, FocusableElement, isFunction } from '@chakra-ui/utils'
-import { useBodyScrollLock } from '@chakra-ui/c-scroll-lock'
+} from "@chakra-ui/vue-utils"
+import { hideOthers, Undo } from "@chakra-ui/vue-a11y"
+import { focus, FocusableElement, isFunction } from "@chakra-ui/utils"
+import { useBodyScrollLock } from "@chakra-ui/c-scroll-lock"
 
 export interface UseModalOptions {
   /**
@@ -46,11 +46,11 @@ export interface UseModalOptions {
   /**
    * The initial element to be focused when the focus lock is opened
    */
-  initialFocusRef?: Ref<FocusLockProps['initialFocusRef']>
+  initialFocusRef?: Ref<FocusLockProps["initialFocusRef"]>
   /**
    * The initial element to be focused when the focus lock is opened
    */
-  finalFocusRef?: Ref<FocusLockProps['finalFocusRef']>
+  finalFocusRef?: Ref<FocusLockProps["finalFocusRef"]>
   /**
    * If `true`, the modal will close when the `Esc` key is pressed
    * @default true
@@ -109,7 +109,7 @@ export function useModal(options: UseModalOptions) {
       )
         ? finalFocusRef.value?.()
         : finalFocusRef.value
-      if (typeof resolvedFinalFocusRef === 'string') {
+      if (typeof resolvedFinalFocusRef === "string") {
         finalFocus = document.querySelector<FocusableElement & Element>(
           resolvedFinalFocusRef
         )
@@ -124,12 +124,12 @@ export function useModal(options: UseModalOptions) {
     let initialFocus
     if (initialFocusRef?.value) {
       let resolvedInitialFocusRef: MaybeElementRef =
-        typeof initialFocusRef?.value === 'function'
+        typeof initialFocusRef?.value === "function"
           ? initialFocusRef?.value()
           : initialFocusRef?.value
 
       resolvedInitialFocusRef = unref(resolvedInitialFocusRef)
-      if (typeof resolvedInitialFocusRef === 'string') {
+      if (typeof resolvedInitialFocusRef === "string") {
         initialFocus = document.querySelector<FocusableElement & Element>(
           resolvedInitialFocusRef
         )
@@ -235,16 +235,16 @@ export function useModal(options: UseModalOptions) {
    */
   const dialogProps = computed<(context: any) => MergedVNodeProps>(
     () => ({ emit }) => ({
-      role: 'dialog',
+      role: "dialog",
       ref: dialogRef,
       id: dialogId.value,
       tabIndex: -1,
-      'aria-modal': true,
-      'aria-labelledby': hasHeader.value ? headerId.value : null,
-      'aria-describedby': hasBody.value ? bodyId.value : null,
+      "aria-modal": true,
+      "aria-labelledby": hasHeader.value ? headerId.value : null,
+      "aria-describedby": hasBody.value ? bodyId.value : null,
       onClick(event: MouseEvent) {
         event.stopPropagation()
-        emit('click', event)
+        emit("click", event)
       },
     })
   )
@@ -260,7 +260,7 @@ export function useModal(options: UseModalOptions) {
   }
 
   const onKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+    if (event.key === "Escape") {
       event.stopPropagation()
 
       if (closeOnEsc?.value) {
@@ -276,17 +276,17 @@ export function useModal(options: UseModalOptions) {
     () => ({ emit }) => ({
       ref: overlayRef as any,
       onClick: (event: MouseEvent) => {
-        instance?.emit('update:modelValue', !modelValue.value)
-        instance?.emit('closeModal')
+        instance?.emit("update:modelValue", !modelValue.value)
+        instance?.emit("closeModal")
         handleOverlayClick(event)
       },
       onKeydown: (event: KeyboardEvent) => {
-        emit('keydown', event)
+        emit("keydown", event)
         onKeyDown(event)
       },
       onMousedown: (event: MouseEvent) => {
         mouseDownTarget.value = event.target
-        emit('mousedown', event)
+        emit("mousedown", event)
       },
     })
   )
@@ -315,7 +315,7 @@ export function useModal(options: UseModalOptions) {
 
 export type UseModalReturn = Omit<
   ToRefs<ReturnType<typeof useModal>>,
-  'dialogRef' | 'overlayRef' | 'closeModal'
+  "dialogRef" | "overlayRef" | "closeModal"
 >
 
 /**
@@ -343,7 +343,7 @@ export function useAriaHidden(
       }
     },
     {
-      flush: 'post',
+      flush: "post",
     }
   )
 }
@@ -360,11 +360,11 @@ export function useReturnFocusSelector(shouldTrack: Ref<boolean>) {
   }
 
   onBeforeMount(() => {
-    document.addEventListener('focusin', trackFocus)
+    document.addEventListener("focusin", trackFocus)
   })
 
   onBeforeUnmount(() => {
-    document.removeEventListener('focusin', trackFocus)
+    document.removeEventListener("focusin", trackFocus)
     lastFocused.value = null
     lastFocusedSelector.value = undefined
   })

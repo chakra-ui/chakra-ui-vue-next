@@ -1,11 +1,11 @@
-import { MotionVariants } from '@vueuse/motion'
+import { MotionVariants } from "@vueuse/motion"
 
 export type DialogMotionPreset =
-  | 'slideInBottom'
-  | 'slideInRight'
-  | 'scale'
-  | 'fade'
-  | 'none'
+  | "slideInBottom"
+  | "slideInRight"
+  | "scale"
+  | "fade"
+  | "none"
 
 export type DialogMotionPresets = Record<DialogMotionPreset, MotionVariants>
 

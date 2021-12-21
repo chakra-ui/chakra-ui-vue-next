@@ -1,22 +1,22 @@
-import * as Examples from '../examples'
-import { h, Fragment } from 'vue'
-import { CPortal } from '../src'
+import * as Examples from "../examples"
+import { h, Fragment } from "vue"
+import { CPortal } from "../src"
 
 const style = {
-  width: '300px',
-  height: '300px',
-  position: 'absolute',
-  bottom: '40px',
-  right: '40px',
-  border: '2px solid salmon',
+  width: "300px",
+  height: "300px",
+  position: "absolute",
+  bottom: "40px",
+  right: "40px",
+  border: "2px solid salmon",
 } as const
 
-describe('<Portal />', () => {
+describe("<Portal />", () => {
   afterEach(() => {
     cy.checkA11y()
   })
 
-  describe('Portal Examples', () => {
+  describe("Portal Examples", () => {
     Object.entries(Examples).map(([name, example]) => {
       it(`renders ${name} successfully`, () => {
         cy.mount(example.default).then(({ parentElement }) => {
@@ -26,29 +26,29 @@ describe('<Portal />', () => {
     })
   })
 
-  it('should not render anything if no children exist', () => {
+  it("should not render anything if no children exist", () => {
     cy.mount(<CPortal />)
-      .its('parentElement')
-      .should('not.have.descendants')
+      .its("parentElement")
+      .should("not.have.descendants")
   })
 
-  it('should create default target for default children', () => {
+  it("should create default target for default children", () => {
     cy.mount(
       <CPortal>
         <div data-testid="provided-content">Child Content</div>
       </CPortal>
     )
-      .get('[data-testid=provided-content]')
-      .should('exist')
-      .and('contain.text', 'Child Content')
+      .get("[data-testid=provided-content]")
+      .should("exist")
+      .and("contain.text", "Child Content")
   })
 
-  it('should render children to the provided portal target', () => {
-    const targetId = 'somewhere-else'
+  it("should render children to the provided portal target", () => {
+    const targetId = "somewhere-else"
     const childText = `Now we're thinking with portals`
-    const portalSelector = 'actual-portal'
+    const portalSelector = "actual-portal"
 
-    const target = document.createElement('div')
+    const target = document.createElement("div")
     target.id = targetId
     Object.assign(target.style, style)
     document.body.appendChild(target)
@@ -56,15 +56,15 @@ describe('<Portal />', () => {
     cy.mount(
       <>
         <CPortal data-testid={portalSelector} to={`#${targetId}`}>
-          {' '}
-          {childText}{' '}
+          {" "}
+          {childText}{" "}
         </CPortal>
         {/* <div id={targetId} style={style} /> */}
       </>
     )
       .get(`#${targetId}`)
-      .should('contain.text', childText)
+      .should("contain.text", childText)
       .get(`[data-testid=${portalSelector}]`)
-      .should('not.exist')
+      .should("not.exist")
   })
 })

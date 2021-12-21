@@ -1,4 +1,4 @@
-import { mergeWith } from '@chakra-ui/utils'
+import { mergeWith } from "@chakra-ui/utils"
 
 interface InternalIcon {
   [key: string]:
@@ -30,9 +30,9 @@ const parseIcon = (iconObject: any): InternalIcon => {
     const [w, h, content, svg, path, , attrs] = icon
     return {
       [`${iconObject.iconName}`]: {
-        path: iconObject.prefix.startsWith('fa')
+        path: iconObject.prefix.startsWith("fa")
           ? `<path d="${path}" fill="currentColor" />`
-          : iconObject.prefix.startsWith('fe')
+          : iconObject.prefix.startsWith("fe")
           ? content
           : svg,
         viewBox: `0 0 ${w} ${h}`,

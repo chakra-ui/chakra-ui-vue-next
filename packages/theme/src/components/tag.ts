@@ -1,15 +1,15 @@
-import Badge from './badge'
+import Badge from "./badge"
 
-const parts = ['container', 'label', 'closeButton']
+const parts = ["container", "label", "closeButton"]
 
 type Dict = Record<string, any>
 
 const baseStyleContainer = {
-  fontWeight: 'medium',
+  fontWeight: "medium",
   lineHeight: 1.2,
   outline: 0,
   _focus: {
-    boxShadow: 'outline',
+    boxShadow: "outline",
   },
 }
 
@@ -18,19 +18,19 @@ const baseStyleLabel = {
 }
 
 const baseStyleCloseButton = {
-  fontSize: '18px',
-  w: '1.25rem',
-  h: '1.25rem',
-  borderRadius: 'sm',
-  ml: '0.375rem',
-  mr: '-1',
+  fontSize: "18px",
+  w: "1.25rem",
+  h: "1.25rem",
+  borderRadius: "sm",
+  ml: "0.375rem",
+  mr: "-1",
   opacity: 0.5,
   _disabled: {
     opacity: 0.4,
   },
   _focus: {
-    boxShadow: 'outline',
-    bg: 'rgba(0, 0, 0, 0.14)',
+    boxShadow: "outline",
+    bg: "rgba(0, 0, 0, 0.14)",
   },
   _hover: { opacity: 0.8 },
   _active: { opacity: 1 },
@@ -45,19 +45,19 @@ const baseStyle = {
 const sizes = {
   sm: {
     container: {
-      minH: '1.25rem',
-      minW: '1.25rem',
-      fontSize: 'xs',
+      minH: "1.25rem",
+      minW: "1.25rem",
+      fontSize: "xs",
       px: 1,
-      borderRadius: 'sm',
+      borderRadius: "sm",
     },
   },
   md: {
     container: {
-      minH: '1.5rem',
-      minW: '1.5rem',
-      fontSize: 'sm',
-      borderRadius: 'md',
+      minH: "1.5rem",
+      minW: "1.5rem",
+      fontSize: "sm",
+      borderRadius: "md",
       px: 2,
     },
   },
@@ -65,8 +65,8 @@ const sizes = {
     container: {
       minH: 8,
       minW: 8,
-      fontSize: 'md',
-      borderRadius: 'md',
+      fontSize: "md",
+      borderRadius: "md",
       px: 3,
     },
   },
@@ -85,9 +85,9 @@ const variants = {
 }
 
 const defaultProps = {
-  size: 'md',
-  variant: 'subtle',
-  colorScheme: 'gray',
+  size: "md",
+  variant: "subtle",
+  colorScheme: "gray",
 }
 
 export default {

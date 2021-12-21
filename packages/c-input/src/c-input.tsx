@@ -16,21 +16,21 @@ import {
   toRefs,
   ToRefs,
   computed,
-} from 'vue'
+} from "vue"
 import {
   chakra,
   DOMElements,
   HTMLChakraProps,
   ThemingProps,
   useMultiStyleConfig,
-  omitThemingProps
-} from '@chakra-ui/vue-system'
+  omitThemingProps,
+} from "@chakra-ui/vue-system"
 import {
   FormControlOptions,
   formControlProps,
   useFormControl,
-} from '@chakra-ui/c-form-control'
-import { SAO, vueThemingProps } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/c-form-control"
+import { SAO, vueThemingProps } from "@chakra-ui/vue-utils"
 
 interface InputOptions {
   /**
@@ -55,46 +55,49 @@ interface InputOptions {
   isFullWidth?: boolean
 }
 
-type Omitted = 'disabled' | 'required' | 'readOnly' | 'size'
+type Omitted = "disabled" | "required" | "readOnly" | "size"
 
 interface CInputNativeProps extends InputOptions, FormControlOptions {}
 
 export interface CInputProps
-  extends Omit<HTMLChakraProps<'span'>, Omitted>,
+  extends Omit<HTMLChakraProps<"span">, Omitted>,
     CInputNativeProps,
-    ThemingProps<'Input'> {
+    ThemingProps<"Input"> {
   modelValue: string
 }
 
 export const CInput = defineComponent({
-  name: 'CInput',
+  name: "CInput",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'input',
+      default: "input",
     },
     modelValue: String as PropType<string>,
     ...formControlProps,
-    focusBorderColor: SAO as PropType<CInputProps['focusBorderColor']>,
-    isFullWidth: [Boolean, Array] as PropType<CInputProps['isFullWidth']>,
-    errorBorderColor: SAO as PropType<CInputProps['errorBorderColor']>,
-    ...vueThemingProps
+    focusBorderColor: SAO as PropType<CInputProps["focusBorderColor"]>,
+    isFullWidth: [Boolean, Array] as PropType<CInputProps["isFullWidth"]>,
+    errorBorderColor: SAO as PropType<CInputProps["errorBorderColor"]>,
+    ...vueThemingProps,
   },
-  emits: ['update:modelValue', 'input', 'change'],
+  emits: ["update:modelValue", "input", "change"],
   setup(_props, { slots, emit, attrs }) {
     const { as, ...props } = _props
-    const styles = useMultiStyleConfig('Input', props)
-    const ownProps = computed(() => toRefs(omitThemingProps(props as ThemingProps<'Input'>)))
-    const input = useFormControl(ownProps as ToRefs<CInputNativeProps>)
+    const styles = useMultiStyleConfig("Input", props)
+    const ownProps = computed(() =>
+      toRefs(omitThemingProps(props as ThemingProps<"Input">))
+    )
+    const input = useFormControl(ownProps.value as ToRefs<CInputNativeProps>)
 
     const handleInput = (e: Event) => {
-      emit('update:modelValue', (e?.currentTarget as HTMLInputElement)?.value)
-      emit('input', e, (e?.currentTarget as HTMLInputElement)?.value)
-      emit('change', e, (e?.currentTarget as HTMLInputElement)?.value)
+      emit("update:modelValue", (e?.currentTarget as HTMLInputElement)?.value)
+      emit("input", e, (e?.currentTarget as HTMLInputElement)?.value)
+      emit("change", e, (e?.currentTarget as HTMLInputElement)?.value)
     }
 
     return () => (
       <chakra.input
+        __chakraIsRaw
         {...input.value}
         value={props.modelValue}
         onInput={handleInput}
@@ -103,5 +106,7 @@ export const CInput = defineComponent({
         {...attrs}
       />
     )
-  }
+  },
 })
+
+CInput.id = "CInput"

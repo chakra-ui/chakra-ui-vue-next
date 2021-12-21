@@ -1,18 +1,18 @@
-import { ResponsiveValue, SystemProps } from '@chakra-ui/vue-system'
-import { mapResponsive } from '@chakra-ui/utils'
+import { ResponsiveValue, SystemProps } from "@chakra-ui/vue-system"
+import { mapResponsive } from "@chakra-ui/utils"
 
 export type StackDirection = ResponsiveValue<
-  'row' | 'column' | 'row-reverse' | 'column-reverse'
+  "row" | "column" | "row-reverse" | "column-reverse"
 >
 
 /**
  * If we ever run into SSR issues with this, check this post to find a fix for it:
  * @see https://medium.com/@emmenko/patching-lobotomized-owl-selector-for-emotion-ssr-5a582a3c424c
  */
-export const selector = '& > *:not(style) ~ *:not(style)'
+export const selector = "& > *:not(style) ~ *:not(style)"
 
 interface Options {
-  spacing: SystemProps['margin']
+  spacing: SystemProps["margin"]
   direction: StackDirection
 }
 
@@ -27,13 +27,13 @@ export function getStackStyles(options: Options) {
       marginStart: 0,
     },
     row: { marginTop: 0, marginEnd: 0, marginBottom: 0, marginStart: spacing },
-    'column-reverse': {
+    "column-reverse": {
       marginTop: 0,
       marginEnd: 0,
       marginBottom: spacing,
       marginStart: 0,
     },
-    'row-reverse': {
+    "row-reverse": {
       marginTop: 0,
       marginEnd: spacing,
       marginBottom: 0,
@@ -55,29 +55,29 @@ export function getDividerStyles(options: Options) {
       my: spacing,
       mx: 0,
       borderLeftWidth: 0,
-      borderBottomWidth: '1px',
+      borderBottomWidth: "1px",
     },
-    'column-reverse': {
+    "column-reverse": {
       my: spacing,
       mx: 0,
       borderLeftWidth: 0,
-      borderBottomWidth: '1px',
+      borderBottomWidth: "1px",
     },
     row: {
       mx: spacing,
       my: 0,
-      borderLeftWidth: '1px',
+      borderLeftWidth: "1px",
       borderBottomWidth: 0,
     },
-    'row-reverse': {
+    "row-reverse": {
       mx: spacing,
       my: 0,
-      borderLeftWidth: '1px',
+      borderLeftWidth: "1px",
       borderBottomWidth: 0,
     },
   }
 
   return {
-    '&': mapResponsive(direction, (value) => dividerStyles[value]),
+    "&": mapResponsive(direction, (value) => dividerStyles[value]),
   }
 }

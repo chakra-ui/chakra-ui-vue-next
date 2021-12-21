@@ -2,13 +2,13 @@
  * This file should be replaced with cypress-axe
  * once that package becomes esm-compatible
  */
-import axeCore from 'axe-core'
+import axeCore from "axe-core"
 
 axeCore.configure({
-  rules: [{ id: 'color-contrast', enabled: false }],
+  rules: [{ id: "color-contrast", enabled: false }],
 })
 
-Cypress.Commands.add('checkA11y', () => {
+Cypress.Commands.add("checkA11y", () => {
   // @ts-ignore
   expect().to.be.accessible
 })
@@ -17,10 +17,10 @@ Cypress.Commands.add('checkA11y', () => {
  * Register the mocha assertion for `.accessible`
  */
 const isAccessible = (_chai, utils) => {
-  _chai.Assertion.addProperty('accessible', function () {
+  _chai.Assertion.addProperty("accessible", function () {
     let _this = this
 
-    return cy.get('#__cy_root', { log: false }).then(async ($root) => {
+    return cy.get("#__cy_root", { log: false }).then(async ($root) => {
       const result = await axeCore.run($root[0])
       console.log(`A11y results: `, result)
       const { passes, violations } = result

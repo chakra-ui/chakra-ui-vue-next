@@ -1,8 +1,8 @@
-import components from './components'
-import foundations, { ColorHues } from './foundations'
-import styles from './styles'
+import components from "./components"
+import foundations, { ColorHues } from "./foundations"
+import styles from "./styles"
 
-export type ColorMode = 'light' | 'dark'
+export type ColorMode = "light" | "dark"
 
 export interface ColorModeOptions {
   initialColorMode?: ColorMode
@@ -14,7 +14,7 @@ export interface ColorModeOptions {
  */
 const config: ColorModeOptions = {
   useSystemColorMode: false,
-  initialColorMode: 'light',
+  initialColorMode: "light",
 }
 
 export const theme = {
