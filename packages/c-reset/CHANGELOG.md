@@ -1,5 +1,20 @@
 # @chakra-ui/c-reset
 
+## 1.0.0-alpha.6
+
+### Minor Changes
+
+- [#108](https://github.com/chakra-ui/chakra-ui-vue-next/pull/108) [`a7df008`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/a7df008af57158fbd9240645d4177cf862ca764d) Thanks [@codebender828](https://github.com/codebender828)! - Create form control and input components
+
+* [#91](https://github.com/chakra-ui/chakra-ui-vue-next/pull/91) [`64ec694`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/64ec694a67bf0932ad8d7569cf4347cd1da48513) Thanks [@codebender828](https://github.com/codebender828)! - Create `CFormControl` component
+
+### Patch Changes
+
+- [#86](https://github.com/chakra-ui/chakra-ui-vue-next/pull/86) [`f0b2c6d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/f0b2c6df978b77f227bc55154248ed1d3634e5e1) Thanks [@carwack](https://github.com/carwack)! - remove console.logs
+
+- Updated dependencies [[`a7df008`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/a7df008af57158fbd9240645d4177cf862ca764d), [`64ec694`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/64ec694a67bf0932ad8d7569cf4347cd1da48513)]:
+  - @chakra-ui/vue-system@0.1.0-alpha.6
+
 ## 1.0.0-alpha.5
 
 ### Minor Changes

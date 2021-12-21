@@ -32,14 +32,20 @@
     "@chakra-ui/c-scroll-lock": "0.0.1-alpha.0",
     "@chakra-ui/vue-a11y": "0.1.0-alpha.1",
     "@chakra-ui/vue-composables": "0.1.0-alpha.1",
-    "@chakra-ui/c-breadcrumb": "1.0.0-alpha.4"
+    "@chakra-ui/c-breadcrumb": "1.0.0-alpha.4",
+    "@chakra-ui/c-form-control": "0.0.0-alpha.0",
+    "@chakra-ui/c-input": "0.0.0-alpha.0"
   },
   "changesets": [
+    "bright-geese-tickle",
     "chilly-tables-care",
+    "dry-mayflies-deny",
     "dull-masks-build",
     "empty-dragons-wait",
+    "honest-bears-tell",
     "khaki-hounds-hunt",
     "kind-tools-camp",
+    "metal-tables-poke",
     "neat-rules-cry",
     "old-insects-exist",
     "orange-camels-doubt",
