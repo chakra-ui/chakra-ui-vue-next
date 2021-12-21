@@ -1,11 +1,11 @@
-import App from './App.vue'
-import viteSSR from 'vite-ssr'
-import { createHead } from '@vueuse/head'
-import routes from 'virtual:generated-pages'
-import Chakra, { chakra } from '@chakra-ui/vue-next'
-import { hydrate } from '@emotion/css'
-import { domElements } from '@chakra-ui/vue-system'
-import { extractCritical } from '@emotion/server'
+import App from "./App.vue"
+import viteSSR from "vite-ssr"
+import { createHead } from "@vueuse/head"
+import routes from "virtual:generated-pages"
+import Chakra, { chakra } from "@chakra-ui/vue-next"
+import { hydrate } from "@emotion/css"
+import { domElements } from "@chakra-ui/vue-system"
+import { extractCritical } from "@emotion/server"
 
 /**
  *
@@ -16,12 +16,12 @@ import { extractCritical } from '@emotion/server'
 const injectCritical = (html: string, ids: string[], css: string) =>
   html
     .replace(
-      '</title>\n',
+      "</title>\n",
       `</title>\n<script>window.$emotionSSRIds=${JSON.stringify(
         ids
       )}</script>\n`
     )
-    .replace('</head>\n', `<style>${css}</style>\n</head>\n`)
+    .replace("</head>\n", `<style>${css}</style>\n</head>\n`)
 
 export default viteSSR(App, { routes }, ({ app, isClient }) => {
   /* custom logic */

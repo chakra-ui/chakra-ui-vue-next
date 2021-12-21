@@ -1,4 +1,4 @@
-const style = document.createElement('style')
+const style = document.createElement("style")
 
 // TODO: Import a shared css file that playground/App.vue uses
 // Should be as simple as `import '../../playground/App.vue?style`

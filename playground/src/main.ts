@@ -6,7 +6,8 @@ import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
 import router from './router'
-// import { mode } from '@chakra-ui/vue-theme-tools'
+
+console.log({ router })
 
 const app = createApp(App)
   .use(router)
@@ -41,15 +42,7 @@ const app = createApp(App)
         global: (props: any) => {
           return {
             body: {
-              // color: `${mode('pink.700', 'orange.50')(props)}`,
-              '.deleted': {
-                color: '#ff8383 !important',
-                fontStyle: 'normal !important',
-              },
-              '.inserted': {
-                color: '#b5f4a5 !important',
-                fontStyle: 'normal !important',
-              },
+              // color: mode('gray.700', 'whiteAlpha.900')(props),
             },
           }
         },

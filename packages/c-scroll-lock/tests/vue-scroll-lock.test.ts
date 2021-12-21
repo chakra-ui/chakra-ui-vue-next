@@ -1,5 +1,5 @@
-import { render } from '@chakra-ui/vue-test-utils/src'
-import { CScrollLock } from '../src'
+import { render } from "@chakra-ui/vue-test-utils/src"
+import { CScrollLock } from "../src"
 
 const renderComponent = (props?: {}) =>
   render({
@@ -24,12 +24,12 @@ const renderComponent = (props?: {}) =>
     ...props,
   })
 
-it('should render properly', () => {
+it("should render properly", () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should block body', () => {
+it("should block body", () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })

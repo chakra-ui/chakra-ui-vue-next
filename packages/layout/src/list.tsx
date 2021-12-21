@@ -1,4 +1,4 @@
-import { CIcon } from '@chakra-ui/c-icon'
+import { CIcon } from "@chakra-ui/c-icon"
 import {
   HTMLChakraProps,
   SystemProps,
@@ -8,32 +8,32 @@ import {
   StylesProvider,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { h, defineComponent, PropType, computed } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
-import { getValidChildren, SNAO, SAO } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/vue-system"
+import { h, defineComponent, PropType, computed } from "vue"
+import { chakra, DOMElements } from "@chakra-ui/vue-system"
+import { getValidChildren, SNAO, SAO } from "@chakra-ui/vue-utils"
 
 interface ListOptions {
   /**
    * Short hand prop for `listStyleType`
    * @type SystemProps["listStyleType"]
    */
-  styleType?: SystemProps['listStyleType']
+  styleType?: SystemProps["listStyleType"]
   /**
    * Short hand prop for `listStylePosition`
    * @type SystemProps["listStylePosition"]
    */
-  stylePosition?: SystemProps['listStylePosition']
+  stylePosition?: SystemProps["listStylePosition"]
   /**
    * The space between each list item
    * @type SystemProps["margin"]
    */
-  spacing?: SystemProps['margin']
+  spacing?: SystemProps["margin"]
 }
 
 export interface ListProps
-  extends HTMLChakraProps<'ul'>,
-    ThemingProps<'List'>,
+  extends HTMLChakraProps<"ul">,
+    ThemingProps<"List">,
     ListOptions {}
 
 /**
@@ -44,23 +44,23 @@ export interface ListProps
 export const CList: ComponentWithProps<
   DeepPartial<ListProps>
 > = defineComponent({
-  name: 'CList',
+  name: "CList",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'ul',
+      default: "ul",
     },
     styleType: {
-      type: SAO as PropType<ListProps['listStyleType']>,
-      default: 'none',
+      type: SAO as PropType<ListProps["listStyleType"]>,
+      default: "none",
     },
-    stylePosition: SAO as PropType<ListProps['listStylePosition']>,
-    spacing: SNAO as PropType<ListProps['margin']>,
+    stylePosition: SAO as PropType<ListProps["listStylePosition"]>,
+    spacing: SNAO as PropType<ListProps["margin"]>,
   },
   setup(props, { slots, attrs }) {
-    const styles = useMultiStyleConfig('List', props)
+    const styles = useMultiStyleConfig("List", props)
     StylesProvider(styles)
-    const selector = '& > *:not(style) ~ *:not(style)'
+    const selector = "& > *:not(style) ~ *:not(style)"
 
     const spacingStyle = computed(() =>
       props.spacing ? { [selector]: { mt: props.spacing } } : {}
@@ -92,7 +92,7 @@ export const CList: ComponentWithProps<
 export const COrderedList: ComponentWithProps<
   DeepPartial<ListProps>
 > = defineComponent({
-  name: 'COrderedList',
+  name: "COrderedList",
   setup(props, { slots, attrs }) {
     return () => (
       // @ts-ignore
@@ -106,7 +106,7 @@ export const COrderedList: ComponentWithProps<
 export const CUnorderedList: ComponentWithProps<
   DeepPartial<ListProps>
 > = defineComponent({
-  name: 'CUnorderedList',
+  name: "CUnorderedList",
   setup(props, { slots, attrs }) {
     return () => (
       // @ts-ignore
@@ -118,9 +118,9 @@ export const CUnorderedList: ComponentWithProps<
 })
 
 export const CListItem: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<'li'>>
+  DeepPartial<HTMLChakraProps<"li">>
 > = defineComponent({
-  name: 'CListItem',
+  name: "CListItem",
   setup(_, { slots, attrs }) {
     const styles = useStyles()
     return () => {
@@ -134,9 +134,9 @@ export const CListItem: ComponentWithProps<
 })
 
 export const CListIcon: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<'svg'>>
+  DeepPartial<HTMLChakraProps<"svg">>
 > = defineComponent({
-  name: 'CListIcon',
+  name: "CListIcon",
   setup(_, { slots, attrs }) {
     const styles = useStyles()
     return () => {

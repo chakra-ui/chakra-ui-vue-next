@@ -1,40 +1,40 @@
-import { mode } from '@chakra-ui/vue-theme-tools'
+import { mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ['popper', 'content', 'header', 'body', 'footer', 'arrow']
+const parts = ["popper", "content", "header", "body", "footer", "arrow"]
 
 type Dict = Record<string, any>
 
 const baseStylePopper = {
-  w: '100%',
-  maxW: 'xs',
+  w: "100%",
+  maxW: "xs",
   zIndex: 10,
 }
 
 function baseStyleContent(props: Dict) {
   return {
-    bg: mode('white', 'gray.700')(props),
-    border: '1px solid',
-    borderColor: 'inherit',
-    borderRadius: 'md',
-    boxShadow: 'sm',
-    zIndex: 'inherit',
+    bg: mode("white", "gray.700")(props),
+    border: "1px solid",
+    borderColor: "inherit",
+    borderRadius: "md",
+    boxShadow: "sm",
+    zIndex: "inherit",
     _focus: {
       outline: 0,
-      boxShadow: 'outline',
+      boxShadow: "outline",
     },
   }
 }
 
 function baseStyleArrow(props: Dict) {
   return {
-    bg: mode('white', 'gray.700')(props),
+    bg: mode("white", "gray.700")(props),
   }
 }
 
 const baseStyleHeader = {
   px: 3,
   py: 2,
-  borderBottomWidth: '1px',
+  borderBottomWidth: "1px",
 }
 
 const baseStyleBody = {
@@ -45,7 +45,7 @@ const baseStyleBody = {
 const baseStyleFooter = {
   px: 3,
   py: 2,
-  borderTopWidth: '1px',
+  borderTopWidth: "1px",
 }
 
 const baseStyle = (props: Dict) => {

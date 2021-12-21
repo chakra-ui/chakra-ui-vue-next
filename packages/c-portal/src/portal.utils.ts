@@ -1,12 +1,12 @@
-import { isBrowser, warn, __DEV__ } from '@chakra-ui/utils'
+import { isBrowser, warn, __DEV__ } from "@chakra-ui/utils"
 
 let __portal_id__: number = 0
 
-export const createPortalTarget = (name: string = 'default') => {
+export const createPortalTarget = (name: string = "default") => {
   const portalId = `chakra__${name}__portal__${__portal_id__}`
   let target = document.getElementById(portalId)
   if (!target) {
-    target = document.createElement('div')
+    target = document.createElement("div")
     target.id = `chakra__${name}__portal__${__portal_id__++}`
     /**
      * @todo
@@ -17,9 +17,9 @@ export const createPortalTarget = (name: string = 'default') => {
      * So this is a bit of a hack to ensure that teh element
      * doesn't cause the page to jank
      */
-    target.style.width = '0'
-    target.style.height = '0'
-    target.style.overflow = 'hidden'
+    target.style.width = "0"
+    target.style.height = "0"
+    target.style.overflow = "hidden"
     document.body.appendChild(target)
     return target
   }
@@ -48,7 +48,7 @@ export function unmountTarget(targetSelector: string) {
   } catch {
     warn({
       condition: !targetNode,
-      message: 'Unable to unmount portal target instance',
+      message: "Unable to unmount portal target instance",
     })
   }
 }

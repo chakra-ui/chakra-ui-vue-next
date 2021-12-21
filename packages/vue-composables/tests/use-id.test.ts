@@ -1,8 +1,8 @@
-import { render, screen, waitMs } from '@chakra-ui/vue-test-utils/src'
-import { nextTick, onMounted, ref } from 'vue'
-import { useId, useIds } from '../src'
+import { render, screen, waitMs } from "@chakra-ui/vue-test-utils/src"
+import { nextTick, onMounted, ref } from "vue"
+import { useId, useIds } from "../src"
 
-it('should create ids and patch once onMounted', async () => {
+it("should create ids and patch once onMounted", async () => {
   render({
     template: `
     <template>
@@ -13,7 +13,7 @@ it('should create ids and patch once onMounted', async () => {
     </template>
     `,
     setup() {
-      const elementId = useId(undefined, 'element')
+      const elementId = useId(undefined, "element")
       const count = ref(0)
 
       onMounted(() => {
@@ -29,17 +29,17 @@ it('should create ids and patch once onMounted', async () => {
 
   await nextTick()
 
-  const el1 = screen.getByTestId('first-id-element')
-  expect(el1.id).toEqual('element-1')
+  const el1 = screen.getByTestId("first-id-element")
+  expect(el1.id).toEqual("element-1")
 
   // To ensure that the patch is invoked once
   // Allow for value of count to be changed
   await waitMs(100)
 
-  expect(el1.id).toEqual('element-1')
+  expect(el1.id).toEqual("element-1")
 })
 
-it('`useIds` should create compound ids and patch once onMounted', async () => {
+it("`useIds` should create compound ids and patch once onMounted", async () => {
   render({
     template: `
     <template>
@@ -54,9 +54,9 @@ it('`useIds` should create compound ids and patch once onMounted', async () => {
     setup() {
       const [modalId, headerId, bodyId] = useIds(
         undefined,
-        'chakra-modal',
-        'chakra-modal--header',
-        'chakra-modal--body'
+        "chakra-modal",
+        "chakra-modal--header",
+        "chakra-modal--body"
       )
       const count = ref(0)
 
@@ -75,14 +75,14 @@ it('`useIds` should create compound ids and patch once onMounted', async () => {
 
   await nextTick()
 
-  const compoundEl1 = screen.getByTestId('compound-element-1')
-  const compoundEl2 = screen.getByTestId('compound-element-2')
-  const compoundEl3 = screen.getByTestId('compound-element-3')
+  const compoundEl1 = screen.getByTestId("compound-element-1")
+  const compoundEl2 = screen.getByTestId("compound-element-2")
+  const compoundEl3 = screen.getByTestId("compound-element-3")
 
   const assert = () => {
-    expect(compoundEl1.id).toEqual('chakra-modal-2')
-    expect(compoundEl2.id).toEqual('chakra-modal--header-2')
-    expect(compoundEl3.id).toEqual('chakra-modal--body-2')
+    expect(compoundEl1.id).toEqual("chakra-modal-2")
+    expect(compoundEl2.id).toEqual("chakra-modal--header-2")
+    expect(compoundEl3.id).toEqual("chakra-modal--body-2")
   }
   assert()
 

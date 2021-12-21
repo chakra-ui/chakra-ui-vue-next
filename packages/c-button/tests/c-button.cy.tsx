@@ -1,5 +1,5 @@
-import { Button } from '../examples'
-import { h } from 'vue'
+import { Button } from "../examples"
+import { h } from "vue"
 
 Object.entries(Button).map(([name, example]) => {
   it(`renders ${name} successfully`, () => {

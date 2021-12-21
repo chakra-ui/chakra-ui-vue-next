@@ -14,17 +14,17 @@
  * and my suspicion is that it is happening inside the library
  */
 
-import { defineComponent, PropType, computed, cloneVNode, VNode } from 'vue'
+import { defineComponent, PropType, computed, cloneVNode, VNode } from "vue"
 import {
   focus,
   FocusableElement,
   isFunction,
   warn,
   __DEV__,
-} from '@chakra-ui/utils'
-import { useFocusLock } from './use-focus-lock'
-import type { UseFocusLockOptions } from './use-focus-lock'
-import type { FocusTarget } from 'focus-trap'
+} from "@chakra-ui/utils"
+import { useFocusLock } from "./use-focus-lock"
+import type { UseFocusLockOptions } from "./use-focus-lock"
+import type { FocusTarget } from "focus-trap"
 
 type RefProp =
   | (() => HTMLElement | string | object | undefined | unknown)
@@ -47,29 +47,29 @@ export interface FocusLockProps extends UseFocusLockOptions {
 }
 
 export const CFocusLock = defineComponent({
-  name: 'CFocusLock',
-  emits: ['activate', 'deactivate'],
+  name: "CFocusLock",
+  emits: ["activate", "deactivate"],
   props: {
     finalFocusRef: [String, Object, Function] as PropType<
-      FocusLockProps['finalFocusRef']
+      FocusLockProps["finalFocusRef"]
     >,
     initialFocusRef: [String, Object, Function] as PropType<
-      FocusLockProps['initialFocusRef']
+      FocusLockProps["initialFocusRef"]
     >,
     autoFocus: {
-      type: Boolean as PropType<FocusLockProps['autoFocus']>,
+      type: Boolean as PropType<FocusLockProps["autoFocus"]>,
       default: true,
     },
     escapeDeactivates: {
-      type: Boolean as PropType<FocusLockProps['escapeDeactivates']>,
+      type: Boolean as PropType<FocusLockProps["escapeDeactivates"]>,
       default: false,
     },
     clickOutsideDeactivates: {
-      type: Boolean as PropType<FocusLockProps['clickOutsideDeactivates']>,
+      type: Boolean as PropType<FocusLockProps["clickOutsideDeactivates"]>,
       default: false,
     },
     allowOutsideClick: {
-      type: Boolean as PropType<FocusLockProps['allowOutsideClick']>,
+      type: Boolean as PropType<FocusLockProps["allowOutsideClick"]>,
       default: false,
     },
     restoreFocus: {
@@ -84,7 +84,7 @@ export const CFocusLock = defineComponent({
         const finalFocusRef = isFunction(props.finalFocusRef)
           ? props.finalFocusRef?.()
           : props.finalFocusRef
-        if (typeof finalFocusRef === 'string') {
+        if (typeof finalFocusRef === "string") {
           finalFocus = document.querySelector<FocusableElement & Element>(
             finalFocusRef
           )
@@ -102,11 +102,11 @@ export const CFocusLock = defineComponent({
     const { lock } = useFocusLock({
       ...props,
       onActivate() {
-        emit('activate')
+        emit("activate")
       },
       onDeactivate() {
         setTimeout(() => {
-          emit('deactivate')
+          emit("deactivate")
           if (finalFocusElement.value) {
             focus(finalFocusElement.value)
           }
@@ -133,7 +133,7 @@ export const CFocusLock = defineComponent({
       return cloneVNode(firstChild, {
         ref: lock,
         ...attrs,
-        'data-chakra-focus-lock': '',
+        "data-chakra-focus-lock": "",
       })
     }
   },

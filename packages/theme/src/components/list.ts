@@ -1,13 +1,13 @@
-const parts = ['container', 'item', 'icon']
+const parts = ["container", "item", "icon"]
 
 const baseStyleContainer = {}
 
 const baseStyleItem = {}
 
 const baseStyleIcon = {
-  marginEnd: '0.5rem',
-  display: 'inline',
-  verticalAlign: 'text-bottom',
+  marginEnd: "0.5rem",
+  display: "inline",
+  verticalAlign: "text-bottom",
 }
 
 const baseStyle = {

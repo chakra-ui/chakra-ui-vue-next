@@ -1,21 +1,21 @@
-import { mode } from '@chakra-ui/vue-theme-tools'
+import { mode } from "@chakra-ui/vue-theme-tools"
 
 type Dict = Record<string, any>
 
-const parts = ['text', 'icon']
+const parts = ["text", "icon"]
 
 function baseStyleText(props: Dict) {
   return {
-    color: mode('red.500', 'red.300')(props),
+    color: mode("red.500", "red.300")(props),
     mt: 2,
-    fontSize: 'sm',
+    fontSize: "sm",
   }
 }
 
 function baseStyleIcon(props: Dict) {
   return {
-    marginEnd: '0.5em',
-    color: mode('red.500', 'red.300')(props),
+    marginEnd: "0.5em",
+    color: mode("red.500", "red.300")(props),
   }
 }
 

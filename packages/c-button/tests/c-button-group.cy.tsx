@@ -1,6 +1,6 @@
-import { h } from 'vue'
-import { CButtonGroup, CButton } from '../src'
-import { ButtonGroup } from '../examples'
+import { h } from "vue"
+import { CButtonGroup, CButton } from "../src"
+import { ButtonGroup } from "../examples"
 
 afterEach(() => {
   cy.checkA11y()
@@ -12,7 +12,7 @@ Object.entries(ButtonGroup).map(([name, example]) => {
   })
 })
 
-it.only('with a color scheme', () => {
+it.only("with a color scheme", () => {
   cy.mount(
     h(() => (
       <CButtonGroup>

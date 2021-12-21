@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed, ComputedRef } from 'vue'
+import { h, defineComponent, PropType, computed, ComputedRef } from "vue"
 import {
   chakra,
   ThemingProps,
@@ -7,40 +7,40 @@ import {
   StylesProvider,
   DOMElements,
   SystemStyleObject,
-} from '@chakra-ui/vue-system'
-import { createContext } from '@chakra-ui/vue-utils'
-import { CIcon } from '@chakra-ui/c-icon'
+} from "@chakra-ui/vue-system"
+import { createContext } from "@chakra-ui/vue-utils"
+import { CIcon } from "@chakra-ui/c-icon"
 
 const STATUSES = {
   info: {
-    colorScheme: 'blue',
-    icon: 'info',
+    colorScheme: "blue",
+    icon: "info",
   },
   success: {
-    colorScheme: 'green',
-    icon: 'check-circle',
+    colorScheme: "green",
+    icon: "check-circle",
   },
   warning: {
-    colorScheme: 'orange',
-    icon: 'warning-alt',
+    colorScheme: "orange",
+    icon: "warning-alt",
   },
   error: {
-    colorScheme: 'red',
-    icon: 'warning',
+    colorScheme: "red",
+    icon: "warning",
   },
 }
 
 type AlertStatus = keyof typeof STATUSES
-export type AlertVariant = 'solid' | 'subtle' | 'left-accent' | 'top-accent'
+export type AlertVariant = "solid" | "subtle" | "left-accent" | "top-accent"
 
 interface AlertContext {
   status: ComputedRef<AlertStatus>
 }
 
 const [AlertProvider, useAlertContext] = createContext<AlertContext>({
-  name: 'AlertContext',
+  name: "AlertContext",
   errorMessage:
-    'useAlertContext: `context` is undefined. Seems you forgot to wrap alert components in `<c-alert />`',
+    "useAlertContext: `context` is undefined. Seems you forgot to wrap alert components in `<c-alert />`",
 })
 
 /**
@@ -50,15 +50,15 @@ const [AlertProvider, useAlertContext] = createContext<AlertContext>({
  * It also provides state and context to it's compound components
  */
 export const CAlert = defineComponent({
-  name: 'CAlert',
+  name: "CAlert",
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
     status: {
       type: [String] as PropType<AlertStatus>,
-      default: 'info',
+      default: "info",
     },
     colorScheme: {
       type: [String] as PropType<string>,
@@ -68,7 +68,7 @@ export const CAlert = defineComponent({
     },
     variant: {
       type: [String] as PropType<AlertVariant>,
-      default: 'solid',
+      default: "solid",
     },
   },
   setup(props, { slots, attrs }) {
@@ -82,23 +82,23 @@ export const CAlert = defineComponent({
     }))
 
     AlertProvider({ status: computed(() => props.status) })
-    const styles = useMultiStyleConfig('Alert', themingProps.value)
+    const styles = useMultiStyleConfig("Alert", themingProps.value)
     StylesProvider(styles)
 
     const alertStyles = computed<SystemStyleObject>(() => ({
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      position: 'relative',
-      overflow: 'hidden',
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      position: "relative",
+      overflow: "hidden",
       ...styles.value.container,
     }))
 
     return () => {
       return h(
-        chakra(props.as, { label: 'alert' }),
+        chakra(props.as, { label: "alert" }),
         {
-          role: 'alert',
+          role: "alert",
           ...alertStyles.value,
           ...attrs,
         },
@@ -114,13 +114,13 @@ export const CAlert = defineComponent({
  * The title component for alerts
  */
 export const CAlertTitle = defineComponent({
-  name: 'CAlertTitle',
+  name: "CAlertTitle",
   setup(_, { attrs, slots }) {
     return () => {
       const styles = useStyles()
 
       return h(
-        chakra('div', { label: 'alert__title' }),
+        chakra("div", { label: "alert__title" }),
         {
           ...styles.value.title,
           ...attrs,
@@ -137,12 +137,12 @@ export const CAlertTitle = defineComponent({
  * The description component for alerts
  */
 export const CAlertDescription = defineComponent({
-  name: 'CAlertDescription',
+  name: "CAlertDescription",
   setup(_, { attrs, slots }) {
     const styles = useStyles()
     return () => {
       return h(
-        chakra('div', { label: 'alert__description' }),
+        chakra("div", { label: "alert__description" }),
         {
           ...styles.value.description,
           ...attrs,
@@ -159,7 +159,7 @@ export const CAlertDescription = defineComponent({
  * The Icon component for alerts
  */
 export const CAlertIcon = defineComponent({
-  name: 'CAlertIcon',
+  name: "CAlertIcon",
   props: {
     icon: {
       type: [String] as PropType<string>,
@@ -173,7 +173,7 @@ export const CAlertIcon = defineComponent({
 
     return () => {
       return h(CIcon, {
-        class: 'alert__icon',
+        class: "alert__icon",
         name: alertIcon.value,
         ...styles.value.icon,
         ...attrs,

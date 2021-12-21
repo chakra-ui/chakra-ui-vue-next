@@ -1,5 +1,5 @@
-import { h, Fragment, ref } from 'vue'
-import { cy, expect } from 'local-cypress'
+import { h, Fragment, ref } from "vue"
+import { cy, expect } from "local-cypress"
 import {
   CAlertDialog,
   CAlertDialogBody,
@@ -8,8 +8,8 @@ import {
   CAlertDialogHeader,
   CAlertDialogOverlay,
   CAlertDialogContent,
-} from '../src'
-import { CButton } from '@chakra-ui/c-button'
+} from "../src"
+import { CButton } from "@chakra-ui/c-button"
 
 const render = (props: any = {}) => {
   return cy.mount(
@@ -29,8 +29,8 @@ const render = (props: any = {}) => {
   )
 }
 
-describe('AlertDialog', () => {
-  it('should not have any accessibility violations', () => {
+describe("AlertDialog", () => {
+  it("should not have any accessibility violations", () => {
     const isOpen = ref(true)
     render()
       .then(() => {
@@ -39,20 +39,20 @@ describe('AlertDialog', () => {
       .checkA11y()
   })
 
-  it('should should have aria attributes', () => {
+  it("should should have aria attributes", () => {
     render()
 
     let dialog: JQuery<HTMLElement>[0] | undefined
 
-    cy.get('[role=alertdialog]')
-      .should('exist')
+    cy.get("[role=alertdialog]")
+      .should("exist")
       .then((el) => {
         dialog = el[0]
         expect(dialog.querySelector('[data-testid="header"]')?.id).equal(
-          dialog.getAttribute('aria-labelledby')
+          dialog.getAttribute("aria-labelledby")
         )
         expect(dialog.querySelector('[data-testid="body"]')?.id).equal(
-          dialog.getAttribute('aria-describedby')
+          dialog.getAttribute("aria-describedby")
         )
       })
   })
@@ -60,7 +60,7 @@ describe('AlertDialog', () => {
   it('should emit "close" event when closed', () => {
     const onClose = cy.stub()
     const props = {
-      'onUpdate:modelValue': onClose as any,
+      "onUpdate:modelValue": onClose as any,
     }
 
     cy.mount(
@@ -80,7 +80,7 @@ describe('AlertDialog', () => {
     )
 
     cy.get('[data-testid="close-button"]')
-      .should('have.attr', 'aria-label', 'Close')
+      .should("have.attr", "aria-label", "Close")
       .click({ force: true })
       .wait(1000)
       .then(() => {
@@ -101,7 +101,7 @@ describe('AlertDialog', () => {
    *
    * This should be treated as important however.
    */
-  it.skip('should trap focus while open', () => {
+  it.skip("should trap focus while open", () => {
     cy.mount(
       h(() => (
         <CAlertDialog modelValue={true}>
@@ -124,9 +124,9 @@ describe('AlertDialog', () => {
       ))
     )
 
-    cy.get('[data-testid="close-button"]').should('have.focus')
+    cy.get('[data-testid="close-button"]').should("have.focus")
 
-    cy.log('Trigger tab() 20 times')
+    cy.log("Trigger tab() 20 times")
     new Array(20).forEach(() => {
       // @ts-expect-error Tab action
       cy.focused().tab()

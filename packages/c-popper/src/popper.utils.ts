@@ -1,22 +1,22 @@
-import type { CSSProperties } from 'vue'
-import { Placement } from '@popperjs/core'
+import type { CSSProperties } from "vue"
+import { Placement } from "@popperjs/core"
 
 export function getBoxShadow(placement: Placement, color?: string) {
   if (!color) return undefined
 
-  if (placement.includes('top')) {
+  if (placement.includes("top")) {
     return `2px 2px 2px 0 ${color}`
   }
 
-  if (placement.includes('bottom')) {
+  if (placement.includes("bottom")) {
     return `-1px -1px 1px 0 ${color}`
   }
 
-  if (placement.includes('right')) {
+  if (placement.includes("right")) {
     return `-1px 1px 1px 0 ${color}`
   }
 
-  if (placement.includes('left')) {
+  if (placement.includes("left")) {
     return `1px -1px 1px 0 ${color}`
   }
 
@@ -24,21 +24,21 @@ export function getBoxShadow(placement: Placement, color?: string) {
 }
 
 const transformEnum = {
-  top: 'bottom center',
-  'top-start': 'bottom left',
-  'top-end': 'bottom right',
+  top: "bottom center",
+  "top-start": "bottom left",
+  "top-end": "bottom right",
 
-  bottom: 'top center',
-  'bottom-start': 'top left',
-  'bottom-end': 'top right',
+  bottom: "top center",
+  "bottom-start": "top left",
+  "bottom-end": "top right",
 
-  left: 'right center',
-  'left-start': 'right top',
-  'left-end': 'right bottom',
+  left: "right center",
+  "left-start": "right top",
+  "left-end": "right bottom",
 
-  right: 'left center',
-  'right-start': 'left top',
-  'right-end': 'left bottom',
+  right: "left center",
+  "right-start": "left top",
+  "right-end": "left bottom",
 }
 
 export const toTransformOrigin = (placement: Placement) =>
@@ -62,10 +62,10 @@ export const getArrowStyles = (options: GetArrowStyleOptions) => {
 
   const offsetAdjust = -(arrowSize / 2)
 
-  if (placement.startsWith('top')) styles.bottom = offsetAdjust
-  if (placement.startsWith('bottom')) styles.top = offsetAdjust
-  if (placement.startsWith('left')) styles.right = offsetAdjust
-  if (placement.startsWith('right')) styles.left = offsetAdjust
+  if (placement.startsWith("top")) styles.bottom = offsetAdjust
+  if (placement.startsWith("bottom")) styles.top = offsetAdjust
+  if (placement.startsWith("left")) styles.right = offsetAdjust
+  if (placement.startsWith("right")) styles.left = offsetAdjust
 
   return styles
 }

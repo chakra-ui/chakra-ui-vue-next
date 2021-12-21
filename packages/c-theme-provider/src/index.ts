@@ -6,11 +6,11 @@ import {
   provide,
   inject,
   computed,
-} from 'vue'
-import { Theme } from '@chakra-ui/vue-theme'
+} from "vue"
+import { Theme } from "@chakra-ui/vue-theme"
 
 const CThemeProvider = defineComponent({
-  name: 'CThemeProvider',
+  name: "CThemeProvider",
   props: {
     value: {
       type: [Object] as PropType<Theme>,
@@ -18,9 +18,9 @@ const CThemeProvider = defineComponent({
     },
   },
   setup(props, { slots }) {
-    const pluginTheme = inject('$chakraTheme')
+    const pluginTheme = inject("$chakraTheme")
     const applicationTheme = computed(() => props.value || pluginTheme)
-    provide('$chakraTheme', applicationTheme.value)
+    provide("$chakraTheme", applicationTheme.value)
     return () => h(Fragment, slots.default?.({ $chakraTheme: props.value }))
   },
 })

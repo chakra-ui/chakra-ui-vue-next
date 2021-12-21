@@ -1,6 +1,6 @@
-import { defineComponent, nextTick } from 'vue'
-import { render, userEvent } from '../../test-utils/src'
-import { useColorMode } from '../src'
+import { defineComponent, nextTick } from "vue"
+import { render, userEvent } from "../../test-utils/src"
+import { useColorMode } from "../src"
 
 const renderComponent = (props?: any) => {
   const base = defineComponent({
@@ -22,17 +22,17 @@ const renderComponent = (props?: any) => {
   return render(base)
 }
 
-it('should toggle colormode', async () => {
+it("should toggle colormode", async () => {
   const { getByTestId, asFragment } = renderComponent()
-  expect(getByTestId('colormode').textContent).toBe('light')
+  expect(getByTestId("colormode").textContent).toBe("light")
 
-  await userEvent.click(getByTestId('toggle'))
+  await userEvent.click(getByTestId("toggle"))
   await nextTick()
-  expect(getByTestId('colormode').textContent).toBe('dark')
+  expect(getByTestId("colormode").textContent).toBe("dark")
 
-  await userEvent.click(getByTestId('toggle'))
+  await userEvent.click(getByTestId("toggle"))
   await nextTick()
-  expect(getByTestId('colormode').textContent).toBe('light')
+  expect(getByTestId("colormode").textContent).toBe("light")
 
   expect(asFragment()).toMatchSnapshot()
 })

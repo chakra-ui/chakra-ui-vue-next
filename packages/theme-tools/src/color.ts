@@ -1,5 +1,5 @@
-import Color from 'tinycolor2'
-import { memoizedGet as get, Dict, isEmptyObject } from '@chakra-ui/utils'
+import Color from "tinycolor2"
+import { memoizedGet as get, Dict, isEmptyObject } from "@chakra-ui/utils"
 
 /**
  * Get the color raw value from theme
@@ -20,7 +20,7 @@ export const getColor = (theme: Dict, color: string, fallback?: string) => {
 export const tone = (color: string) => (theme: Dict) => {
   const hex = getColor(theme, color)
   const isDark = Color(hex).isDark()
-  return isDark ? 'dark' : 'light'
+  return isDark ? "dark" : "light"
 }
 
 /**
@@ -28,14 +28,14 @@ export const tone = (color: string) => (theme: Dict) => {
  * @param color - the color in hex, rgb, or hsl
  */
 export const isDark = (color: string) => (theme: Dict) =>
-  tone(color)(theme) === 'dark'
+  tone(color)(theme) === "dark"
 
 /**
  * Determines if a color tone is "light"
  * @param color - the color in hex, rgb, or hsl
  */
 export const isLight = (color: string) => (theme: Dict) =>
-  tone(color)(theme) === 'light'
+  tone(color)(theme) === "light"
 
 /**
  * Make a color transparent
@@ -56,7 +56,7 @@ export const transparentize = (color: string, opacity: number) => (
  */
 export const whiten = (color: string, amount: number) => (theme: Dict) => {
   const raw = getColor(theme, color)
-  return Color.mix(raw, '#fff', amount).toHexString()
+  return Color.mix(raw, "#fff", amount).toHexString()
 }
 
 /**
@@ -66,7 +66,7 @@ export const whiten = (color: string, amount: number) => (theme: Dict) => {
  */
 export const blacken = (color: string, amount: number) => (theme: Dict) => {
   const raw = getColor(theme, color)
-  return Color.mix(raw, '#000', amount).toHexString()
+  return Color.mix(raw, "#000", amount).toHexString()
 }
 
 /**
@@ -119,8 +119,8 @@ export const complementary = (color: string) => (theme: Dict) =>
   Color(getColor(theme, color)).complement().toHexString()
 
 export function generateStripe(
-  size = '1rem',
-  color = 'rgba(255, 255, 255, 0.15)'
+  size = "1rem",
+  color = "rgba(255, 255, 255, 0.15)"
 ) {
   return {
     backgroundImage: `linear-gradient(
@@ -178,7 +178,7 @@ function randomColorFromString(str: string) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash)
     hash = hash & hash
   }
-  let color = '#'
+  let color = "#"
   for (let j = 0; j < 3; j += 1) {
     const value = (hash >> (j * 8)) & 255
     color += `00${value.toString(16)}`.substr(-2)

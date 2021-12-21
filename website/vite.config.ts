@@ -1,32 +1,32 @@
-import { UserConfig } from 'vite'
-import path from 'path'
-import Vue from '@vitejs/plugin-vue'
-import { extractCritical } from '@emotion/server'
-import Pages from 'vite-plugin-pages'
-import Icons from 'unplugin-icons/vite'
-import Components from 'unplugin-vue-components/vite'
-import VueMdx from 'vite-plugin-mdx-vue'
-import { componentResolver } from '@chakra-ui/vue-auto-import'
-import { MdxComponents } from './src/docs-theme/components/MdxComponents'
-import Layouts from 'vite-plugin-vue-layouts'
-import VueJsx from '@vitejs/plugin-vue-jsx'
-import remarkGfm from 'remark-gfm'
+import { defineConfig } from "vite"
+import path from "path"
+import Vue from "@vitejs/plugin-vue"
+import { extractCritical } from "@emotion/server"
+import Pages from "vite-plugin-pages"
+import Icons from "unplugin-icons/vite"
+import Components from "unplugin-vue-components/vite"
+import VueMdx from "vite-plugin-mdx-vue"
+import { componentResolver } from "@chakra-ui/vue-auto-import"
+import { MdxComponents } from "./src/docs-theme/components/MdxComponents"
+import Layouts from "vite-plugin-vue-layouts"
+import VueJsx from "@vitejs/plugin-vue-jsx"
+import remarkGfm from "remark-gfm"
 // @ts-ignore
-import remarkAutolinkHeadings from 'remark-autolink-headings'
+import remarkAutolinkHeadings from "remark-autolink-headings"
 // @ts-ignore
-import remarkSlug from 'remark-slug'
-import { remarkMdxCodeMeta } from 'remark-mdx-code-meta'
+import remarkSlug from "remark-slug"
+import { remarkMdxCodeMeta } from "remark-mdx-code-meta"
 
 const getEditPageUrl = (resourcePath: string) => {
   const EDIT_PAGE_PATH =
-    'https://github.com/chakra-ui/chakra-ui-vue-next/edit/develop/website/'
+    "https://github.com/chakra-ui/chakra-ui-vue-next/edit/develop/website/"
   const editUrl = EDIT_PAGE_PATH + resourcePath
   return editUrl
 }
 
 const getPageSlug = (resourcePath: string) => {
   const { dir, name } = path.parse(resourcePath)
-  const dirPath = dir.replace('src/pages', '')
+  const dirPath = dir.replace("src/pages", "")
   const fullPath = path.join(...[dirPath, name])
   return fullPath
 }
@@ -40,26 +40,32 @@ const getPageSlug = (resourcePath: string) => {
 const injectCritical = (html: string, ids: string[], css: string) =>
   html
     .replace(
-      '</title>\n',
+      "</title>\n",
       `</title>\n<script>window.$emotionSSRIds=${JSON.stringify(
         ids
       )}</script>\n`
     )
-    .replace('</head>\n', `<style>${css}</style>\n</head>\n`)
+    .replace("</head>\n", `<style>${css}</style>\n</head>\n`)
+
+console.log(`${path.resolve(__dirname)}`)
 
 // https://vitejs.dev/config/
-const config: UserConfig = {
+export default defineConfig({
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.esm-browser.js', // for vue-live editor
-      '@': `${path.resolve(__dirname, 'src')}`,
+      vue: "vue/dist/vue.esm-browser.js", // for vue-live editor
+      "@": `${path.resolve(__dirname, "src")}`,
     },
+  },
+  root: `${path.resolve(__dirname)}`,
+  build: {
+    outDir: `${path.resolve(__dirname, "dist")}`,
   },
   plugins: [
     Vue({ include: [/\.vue$/, /\.mdx$/] }),
     VueJsx(),
     VueMdx({
-      wrapperComponent: 'mdx-layout-wrapper',
+      wrapperComponent: "mdx-layout-wrapper",
       mdxComponents: MdxComponents,
       xdmOptions: (vFile, options) => {
         // our plugins
@@ -90,16 +96,16 @@ const config: UserConfig = {
       },
     }),
     Pages({
-      extensions: ['vue', 'mdx'],
+      extensions: ["vue", "mdx"],
     }),
     Layouts({
-      layoutsDir: 'src/layouts',
+      layoutsDir: "src/layouts",
     }),
     Components({
       // directories
-      dirs: ['src/components', 'src/docs-theme'],
+      dirs: ["src/components", "src/docs-theme"],
       // allow auto load markdown components under `dirs` (above)
-      extensions: ['vue', 'mdx', 'tsx'],
+      extensions: ["vue", "mdx", "tsx"],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.mdx$/],
       // import chakra-ui components
@@ -108,15 +114,13 @@ const config: UserConfig = {
     Icons(),
   ],
   ssgOptions: {
-    script: 'async',
-    formatting: 'prettify',
-    onPageRendered: (_, html) => {
+    script: "async",
+    formatting: "prettify",
+    onPageRendered: (_: any, html: any) => {
       /** Extract critical styles */
       const { ids, css } = extractCritical(html)
       /** Append ssr ids to rendered HTML for hydration */
       return injectCritical(html, ids, css)
     },
   },
-}
-
-export default config
+})

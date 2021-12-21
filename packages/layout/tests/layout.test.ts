@@ -27,11 +27,11 @@ import {
   CText,
   CWrap,
   CWrapItem,
-} from '../src'
-import { CFlex } from '@chakra-ui/vue-next'
-import { render, testA11y } from '../../test-utils/src'
+} from "../src"
+import { CFlex } from "@chakra-ui/vue-next"
+import { render, testA11y } from "../../test-utils/src"
 
-describe('<CLink />', () => {
+describe("<CLink />", () => {
   const renderComponent = () =>
     render({
       components: { CLink },
@@ -40,16 +40,16 @@ describe('<CLink />', () => {
       `,
     })
 
-  it('should render properly', () => {
+  it("should render properly", () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('a11y test', async () => {
+  it("a11y test", async () => {
     await testA11y(renderComponent())
   })
 })
-describe('<CLinkBox /> <CLinkOverlay />', () => {
+describe("<CLinkBox /> <CLinkOverlay />", () => {
   const renderComponent = () =>
     render({
       components: { CHeading, CLink, CLinkBox, CLinkOverlay },
@@ -67,30 +67,30 @@ describe('<CLinkBox /> <CLinkOverlay />', () => {
       `,
     })
 
-  it('should render properly', () => {
+  it("should render properly", () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CBadge />', () => {
+describe("<CBadge />", () => {
   const renderComponent = () =>
     render({
       components: { CBadge },
       template: `<CBadge>this is a badge</CBadge>`,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('a11y test', async () => {
+  it("a11y test", async () => {
     await testA11y(renderComponent())
   })
 })
 
-describe('<CStack />', () => {
+describe("<CStack />", () => {
   const renderComponent = () =>
     render({
       components: { CHStack, CVStack, CStack },
@@ -101,17 +101,17 @@ describe('<CStack />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('a11y test', async () => {
+  it("a11y test", async () => {
     await testA11y(renderComponent())
   })
 })
 
-describe('<CAspectRatio />', () => {
+describe("<CAspectRatio />", () => {
   const renderComponent = () =>
     render({
       components: { CAspectRatio },
@@ -122,17 +122,17 @@ describe('<CAspectRatio />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('a11y test', async () => {
+  it("a11y test", async () => {
     await testA11y(renderComponent())
   })
 })
 
-describe('<CBox />', () => {
+describe("<CBox />", () => {
   const renderComponent = () =>
     render({
       components: { CBox },
@@ -146,13 +146,13 @@ describe('<CBox />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CSquare /> & <CCircle />', () => {
+describe("<CSquare /> & <CCircle />", () => {
   const renderComponent = () =>
     render({
       components: { CSquare, CCircle },
@@ -166,13 +166,13 @@ describe('<CSquare /> & <CCircle />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CCenter />', () => {
+describe("<CCenter />", () => {
   const renderComponent = () =>
     render({
       components: { CCenter },
@@ -183,13 +183,13 @@ describe('<CCenter />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CContainer />', () => {
+describe("<CContainer />", () => {
   const renderComponent = () =>
     render({
       components: { CContainer },
@@ -200,13 +200,13 @@ describe('<CContainer />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CDivider />', () => {
+describe("<CDivider />", () => {
   const renderComponent = () =>
     render({
       components: { CDivider, CCenter },
@@ -222,17 +222,17 @@ describe('<CDivider />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('a11y test', async () => {
+  it("a11y test", async () => {
     await testA11y(renderComponent())
   })
 })
 
-describe('<CGrid /> & <CGridItem />', () => {
+describe("<CGrid /> & <CGridItem />", () => {
   const renderComponent = () =>
     render({
       components: { CBox, CGrid, CGridItem },
@@ -258,13 +258,13 @@ describe('<CGrid /> & <CGridItem />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CHeading />', () => {
+describe("<CHeading />", () => {
   const renderComponent = () =>
     render({
       components: { CStack, CHeading },
@@ -282,13 +282,13 @@ describe('<CHeading />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CKbd />', () => {
+describe("<CKbd />", () => {
   const renderComponent = () =>
     render({
       components: { CKbd },
@@ -297,13 +297,13 @@ describe('<CKbd />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon /> ', () => {
+describe("<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon /> ", () => {
   const renderComponent = () =>
     render({
       components: { CList, CListItem, COrderedList, CUnorderedList, CListIcon },
@@ -329,13 +329,13 @@ describe('<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CSimpleGrid />', () => {
+describe("<CSimpleGrid />", () => {
   const renderComponent = () =>
     render({
       components: { CSimpleGrid, CBox },
@@ -355,13 +355,13 @@ describe('<CSimpleGrid />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CSpacer />', () => {
+describe("<CSpacer />", () => {
   const renderComponent = () =>
     render({
       components: { CFlex, CSpacer, CBox },
@@ -374,13 +374,13 @@ describe('<CSpacer />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CText />', () => {
+describe("<CText />", () => {
   const renderComponent = () =>
     render({
       components: { CText },
@@ -401,13 +401,13 @@ describe('<CText />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })
 })
 
-describe('<CWrap /> & <CWrapItem />', () => {
+describe("<CWrap /> & <CWrapItem />", () => {
   const renderComponent = () =>
     render({
       components: { CWrap, CWrapItem, CCenter },
@@ -429,7 +429,7 @@ describe('<CWrap /> & <CWrapItem />', () => {
       `,
     })
 
-  it('should render properly', async () => {
+  it("should render properly", async () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })

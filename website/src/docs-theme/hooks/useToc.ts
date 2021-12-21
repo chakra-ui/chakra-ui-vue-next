@@ -1,10 +1,10 @@
-import { nextTick, ref } from '@vue/runtime-core'
+import { nextTick, ref } from "@vue/runtime-core"
 import {
   useWindowScroll,
   debouncedWatch,
   tryOnMounted,
   tryOnUnmounted,
-} from '@vueuse/core'
+} from "@vueuse/core"
 
 interface TocOptions {
   /**
@@ -22,7 +22,7 @@ interface TocOptions {
 }
 
 export const useToc = ({
-  contentSelector = '#content',
+  contentSelector = "#content",
   scrollTopOffset = 100,
 }: TocOptions = {}) => {
   let pageOffset = 0
@@ -68,7 +68,7 @@ export const useToc = ({
             (scrollTop >= getAnchorTop(anchor) &&
               (!nextAnchor || scrollTop < getAnchorTop(nextAnchor)))
           if (isActive) {
-            const id = anchor.getAttribute('id')
+            const id = anchor.getAttribute("id")
             // set active toc id
             activeTocId.value = id
             return

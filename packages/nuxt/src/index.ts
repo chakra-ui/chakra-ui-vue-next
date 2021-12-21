@@ -1,10 +1,10 @@
-import { h, defineComponent, PropType } from 'vue'
+import { h, defineComponent, PropType } from "vue"
 
 const ChakraNuxtModule = defineComponent({
   props: {
     as: {
       type: String as PropType<string>,
-      default: 'div',
+      default: "div",
     },
   },
   render() {

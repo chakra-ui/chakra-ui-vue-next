@@ -1,8 +1,8 @@
-import { computed, ComputedRef } from 'vue'
-import { SystemStyleObject } from '@chakra-ui/styled-system'
-import { ThemingProps } from '../system.types'
-import { filterUndefined, get, mergeWith, runIfFn } from '@chakra-ui/utils'
-import { useChakra } from './use-chakra'
+import { computed, ComputedRef } from "vue"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
+import { ThemingProps } from "../system.types"
+import { filterUndefined, get, mergeWith, runIfFn } from "@chakra-ui/utils"
+import { useChakra } from "./use-chakra"
 
 export function useStyleConfig(
   themeKey: string,

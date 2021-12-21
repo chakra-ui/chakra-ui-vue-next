@@ -8,4 +8,4 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-export * from './aria-hidden'
+export * from "./aria-hidden"

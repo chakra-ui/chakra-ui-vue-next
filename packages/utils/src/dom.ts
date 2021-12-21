@@ -6,9 +6,9 @@ import {
   ref,
   unref,
   UnwrapRef,
-} from 'vue'
-import { debounce } from './timers'
-import { MaybeRef } from './types'
+} from "vue"
+import { debounce } from "./timers"
+import { MaybeRef } from "./types"
 
 /**
  * Interface for node provided by template ref

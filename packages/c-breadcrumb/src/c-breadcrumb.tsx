@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, PropType, computed, cloneVNode, h, VNode } from 'vue'
+import { defineComponent, PropType, computed, cloneVNode, h, VNode } from "vue"
 import {
   chakra,
   HTMLChakraProps,
@@ -18,11 +18,16 @@ import {
   useMultiStyleConfig,
   useStyles,
   SystemStyleObject,
-  ChakraProps
-} from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/utils'
-import { getValidChildren, isObjectComponent, SNA, SNAO } from '@chakra-ui/vue-utils'
-import { DOMElements } from '@chakra-ui/vue-system'
+  ChakraProps,
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
+import {
+  getValidChildren,
+  isObjectComponent,
+  SNA,
+  SNAO,
+} from "@chakra-ui/vue-utils"
+import { DOMElements } from "@chakra-ui/vue-system"
 
 /**
  * CBreadcrumb (root)
@@ -38,14 +43,13 @@ export interface BreadcrumbOptions {
    * The left and right margin applied to the separator
    * @type SystemProps["mx"]
    */
-  spacing?: SystemProps['mx']
+  spacing?: SystemProps["mx"]
 }
 
 export interface BreadcrumbProps
   extends ChakraProps,
     BreadcrumbOptions,
-    ThemingProps<'Breadcrumb'> {}
-
+    ThemingProps<"Breadcrumb"> {}
 
 /**
  * CBreadcrumb is used to render a breadcrumb navigation landmark.
@@ -64,37 +68,39 @@ export const CBreadcrumb = defineComponent(
       })
     )
 
-    const styles = useMultiStyleConfig('Breadcrumb', themingProps.value)
+    const styles = useMultiStyleConfig("Breadcrumb", themingProps.value)
     StylesProvider(styles)
 
     const separator = computed(() => {
       if (slots.separator) {
-        return slots?.separator?.() 
+        return slots?.separator?.()
       } else {
-        return typeof props.separator === 'string'
+        return typeof props.separator === "string"
           ? props.separator
           : isObjectComponent(props.separator!)
-            // TODO:
+          ? // TODO:
             // Add support for
             // object components. ATM,
             // This computed property will only
             // work for functional components provided as
             // separators
-            ? h(() => props.separator!)
-            : h(props.separator!)
-        }
+            h(() => props.separator!)
+          : h(props.separator!)
       }
-    )
+    })
 
     return () => {
       const validChildren = getValidChildren(slots)
       const count = validChildren.length
 
-      const children = validChildren.map((vnode: VNode<unknown, unknown, BreadcrumbOptions>, index: number) => cloneVNode(vnode, {
-        separator: separator.value,
-        spacing: props.spacing,
-        isLastChild: count === index + 1,
-      }))
+      const children = validChildren.map(
+        (vnode: VNode<unknown, unknown, BreadcrumbOptions>, index: number) =>
+          cloneVNode(vnode, {
+            separator: separator.value,
+            spacing: props.spacing,
+            isLastChild: count === index + 1,
+          })
+      )
 
       return (
         <chakra.nav
@@ -104,9 +110,7 @@ export const CBreadcrumb = defineComponent(
           __css={styles.value.container}
           {...attrs}
         >
-          <chakra.ol __label="breadcrumb__list">
-            {() => children}
-          </chakra.ol>
+          <chakra.ol __label="breadcrumb__list">{() => children}</chakra.ol>
         </chakra.nav>
       )
     }
@@ -114,22 +118,21 @@ export const CBreadcrumb = defineComponent(
 )
 
 // @ts-ignore "name" property is typically read-only for functional components
-CBreadcrumb.name = 'CBreadcrumb'
+CBreadcrumb.name = "CBreadcrumb"
 CBreadcrumb.props = {
   separator: {
-    type: SNAO as PropType<BreadcrumbOptions['separator']>,
-    default: '/'
+    type: SNAO as PropType<BreadcrumbOptions["separator"]>,
+    default: "/",
   },
   spacing: {
-    type: SNA as PropType<BreadcrumbOptions['spacing']>,
-    default: '0.5rem'
+    type: SNA as PropType<BreadcrumbOptions["spacing"]>,
+    default: "0.5rem",
   },
   as: {
     type: [String, Object] as PropType<DOMElements | object | string>,
-    default: 'nav',
+    default: "nav",
   },
 }
-
 
 /**
  * CBreadcrumbSeparator
@@ -146,34 +149,34 @@ export interface BreadcrumbSeparatorProps extends HTMLChakraProps<"div"> {
  * The `CBreadcrumbSeparator` component is the separator for
  * each breacrumb item.
  */
-export const CBreadcrumbSeparator = defineComponent((props: BreadcrumbSeparatorProps, { attrs, slots }) => {
-  const styles = useStyles()
-  const separatorStyles = computed<SystemStyleObject>(() => ({
-    display: 'flex',
-    mx: props.spacing,
-    ...styles.value.separator,
-  }))
+export const CBreadcrumbSeparator = defineComponent(
+  (props: BreadcrumbSeparatorProps, { attrs, slots }) => {
+    const styles = useStyles()
+    const separatorStyles = computed<SystemStyleObject>(() => ({
+      display: "flex",
+      mx: props.spacing,
+      ...styles.value.separator,
+    }))
 
-  return () => (
-    <chakra.span
-      role="presentation"
-      __label="breadcrumb__separator"
-      {...attrs}
-      __css={separatorStyles.value}
-    >
-      {slots}
-    </chakra.span>
-  )
-})
+    return () => (
+      <chakra.span
+        role="presentation"
+        __label="breadcrumb__separator"
+        {...attrs}
+        __css={separatorStyles.value}
+      >
+        {slots}
+      </chakra.span>
+    )
+  }
+)
 
 CBreadcrumbSeparator.props = {
   spacing: CBreadcrumb.props.spacing,
 }
 
-
 // @ts-ignore "name" property is typically read-only for functional components
-CBreadcrumbSeparator.name = 'CBreadcrumbSeparator'
-
+CBreadcrumbSeparator.name = "CBreadcrumbSeparator"
 
 /**
  * CBreadcrumbItem
@@ -188,51 +191,55 @@ export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
     ChakraProps {}
 
-export const CBreadcrumbItem = defineComponent((props: BreadcrumbItemProps, { attrs, slots }) => {
-  const styles = useStyles()
-  const itemStyles = computed<SystemStyleObject>(() => ({
-    display: "inline-flex",
-    alignItems: "center",
-    ...styles.value.item,
-  }))
+export const CBreadcrumbItem = defineComponent(
+  (props: BreadcrumbItemProps, { attrs, slots }) => {
+    const styles = useStyles()
+    const itemStyles = computed<SystemStyleObject>(() => ({
+      display: "inline-flex",
+      alignItems: "center",
+      ...styles.value.item,
+    }))
 
-  return () => {
-    const validChildren = getValidChildren(slots)
-    const children = validChildren.map((vnode: VNode<unknown, unknown, BreadcrumbItemOptions>) => {
-      // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
-      if (vnode.type.name === 'CBreadcrumbLink') {
-        return cloneVNode(vnode, {
-          isCurrentPage: props.isCurrentPage,
-        })
-      }
+    return () => {
+      const validChildren = getValidChildren(slots)
+      const children = validChildren.map(
+        (vnode: VNode<unknown, unknown, BreadcrumbItemOptions>) => {
+          // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
+          if (vnode.type.name === "CBreadcrumbLink") {
+            return cloneVNode(vnode, {
+              isCurrentPage: props.isCurrentPage,
+            })
+          }
 
-      // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
-      if (vnode.type.name === 'CBreadcrumbSeparator') {
-        return cloneVNode(vnode, {
-          spacing: props.spacing,
-          children: vnode.children || { default: () => props.separator },
-        })
-      }
+          // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
+          if (vnode.type.name === "CBreadcrumbSeparator") {
+            return cloneVNode(vnode, {
+              spacing: props.spacing,
+              children: vnode.children || { default: () => props.separator },
+            })
+          }
 
-      return vnode
-    })
+          return vnode
+        }
+      )
 
-    return (
-      <chakra.li __label="breadcrumb__list-item" __css={itemStyles.value}>
-        {children}
-        {!props.isLastChild && (
-          // @ts-expect-error
-          <CBreadcrumbSeparator spacing={props.spacing}>
-            {() => props.separator}
-          </CBreadcrumbSeparator>
-        )}
-      </chakra.li>
-    )
+      return (
+        <chakra.li __label="breadcrumb__list-item" __css={itemStyles.value}>
+          {children}
+          {!props.isLastChild && (
+            // @ts-expect-error
+            <CBreadcrumbSeparator spacing={props.spacing}>
+              {() => props.separator}
+            </CBreadcrumbSeparator>
+          )}
+        </chakra.li>
+      )
+    }
   }
-})
+)
 
 // @ts-ignore "name" property is typically read-only for functional components
-CBreadcrumbItem.name = 'CBreadcrumbItem'
+CBreadcrumbItem.name = "CBreadcrumbItem"
 CBreadcrumbItem.props = {
   ...CBreadcrumb.props,
   isLastChild: Boolean as PropType<boolean>,
@@ -244,7 +251,7 @@ CBreadcrumbItem.props = {
  */
 
 export interface BreadcrumbLinkProps extends ChakraProps {
-  isCurrentPage?: boolean,
+  isCurrentPage?: boolean
   href?: string
 }
 
@@ -254,28 +261,41 @@ export interface BreadcrumbLinkProps extends ChakraProps {
  * It renders a `span` when it matches the current link. Otherwise,
  * it renders an anchor tag.
  */
-export const CBreadcrumbLink = defineComponent((props: BreadcrumbLinkProps, { attrs, slots }) => {
-  const styles = useStyles()
-  
-  return () => {
-    if (props.isCurrentPage) {
+export const CBreadcrumbLink = defineComponent(
+  (props: BreadcrumbLinkProps, { attrs, slots }) => {
+    const styles = useStyles()
+
+    return () => {
+      if (props.isCurrentPage) {
+        return (
+          <chakra.span
+            __label="breadcrumb__link"
+            aria-current="page"
+            __css={styles.value.link}
+            as={props.as}
+            {...attrs}
+          >
+            {slots}
+          </chakra.span>
+        )
+      }
+
       return (
-        <chakra.span __label="breadcrumb__link" aria-current="page" __css={styles.value.link} as={props.as} {...attrs}>
+        <chakra.a
+          __label="breadcrumb__link"
+          as={props.as}
+          __css={styles.value.link}
+          {...attrs}
+        >
           {slots}
-        </chakra.span>
+        </chakra.a>
       )
     }
-
-    return (
-      <chakra.a __label="breadcrumb__link" as={props.as} __css={styles.value.link} {...attrs}>
-        {slots}
-      </chakra.a>
-    )
   }
-})
+)
 
 // @ts-ignore "name" property is typically read-only for functional components
-CBreadcrumbLink.name = 'CBreadcrumbLink'
+CBreadcrumbLink.name = "CBreadcrumbLink"
 CBreadcrumbLink.props = {
   isCurrentPage: Boolean as PropType<boolean>,
 }

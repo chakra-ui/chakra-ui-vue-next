@@ -5,8 +5,8 @@ import {
   computed,
   inject,
   SVGAttributes,
-} from 'vue'
-import { chakra, ChakraProps, DOMElements } from '@chakra-ui/vue-system'
+} from "vue"
+import { chakra, ChakraProps, DOMElements } from "@chakra-ui/vue-system"
 
 const fallbackIcon = {
   path: `
@@ -24,7 +24,7 @@ const fallbackIcon = {
       <circle fill="none" strokeMiterlimit="10" cx="12" cy="12" r="11.25" />
     </g>
   `,
-  viewBox: '0 0 24 24',
+  viewBox: "0 0 24 24",
 }
 
 export interface IconProps
@@ -39,29 +39,29 @@ export interface IconProps
 export const iconProps = {
   as: {
     type: [Object, String] as PropType<DOMElements>,
-    default: 'svg',
+    default: "svg",
   },
   name: {
-    type: [String] as PropType<IconProps['name']>,
+    type: [String] as PropType<IconProps["name"]>,
   },
   size: {
-    type: [String] as PropType<IconProps['size']>,
-    default: '1em',
+    type: [String] as PropType<IconProps["size"]>,
+    default: "1em",
   },
 }
 
 export const CIcon = defineComponent({
   props: iconProps,
   setup(props, { slots, attrs }) {
-    const icons = inject<Record<string, any>>('$chakraIcons')
+    const icons = inject<Record<string, any>>("$chakraIcons")
     const icon = computed(() => icons?.[props?.name as string] || fallbackIcon)
     const vnodeProps = computed(() => ({
       w: props.size,
       h: props.size,
-      display: 'inline-block',
-      lineHeight: '1em',
+      display: "inline-block",
+      lineHeight: "1em",
       flexShrink: 0,
-      color: 'currentColor',
+      color: "currentColor",
       innerHTML: icon.value.path,
       focusable: false,
       viewBox: icon.value.viewBox || fallbackIcon.viewBox,
@@ -69,7 +69,7 @@ export const CIcon = defineComponent({
 
     return () =>
       h(
-        chakra(props.as, { label: 'icon' }),
+        chakra(props.as, { label: "icon" }),
         { ...(icon.value.attrs || {}), ...vnodeProps.value, ...attrs },
         slots
       )

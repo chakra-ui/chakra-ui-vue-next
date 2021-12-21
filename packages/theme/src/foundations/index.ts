@@ -1,13 +1,13 @@
-import borders from './borders'
-import breakpoints from './breakpoints'
-import colors from './colors'
-import radii from './radius'
-import shadows from './shadows'
-import sizes from './sizes'
-import { spacing } from './spacing'
-import transition from './transition'
-import typography from './typography'
-import zIndices from './z-index'
+import borders from "./borders"
+import breakpoints from "./breakpoints"
+import colors, { ColorHues } from "./colors"
+import radii from "./radius"
+import shadows from "./shadows"
+import sizes from "./sizes"
+import { spacing } from "./spacing"
+import transition from "./transition"
+import typography from "./typography"
+import zIndices from "./z-index"
 
 const theme = {
   breakpoints,
@@ -23,5 +23,6 @@ const theme = {
 }
 
 export type Theme = typeof theme
+export type { ColorHues }
 
 export default theme

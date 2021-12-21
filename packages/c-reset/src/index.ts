@@ -1,5 +1,5 @@
-import { defineComponent } from 'vue'
-import { injectGlobal } from '@chakra-ui/vue-system'
+import { defineComponent } from "vue"
+import { injectGlobal } from "@chakra-ui/vue-system"
 
 export const cssResetStyles = `
 html {

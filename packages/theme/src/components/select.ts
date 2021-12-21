@@ -1,25 +1,25 @@
-import { mode } from '@chakra-ui/vue-theme-tools'
-import Input from './input'
+import { mode } from "@chakra-ui/vue-theme-tools"
+import Input from "./input"
 
 const { sizes, defaultProps, variants } = Input
 
-const parts = ['field', 'icon']
+const parts = ["field", "icon"]
 
 function baseStyleField(props: Record<string, any>) {
   return {
     ...Input.baseStyle.field,
-    appearance: 'none',
-    paddingBottom: '1px',
-    lineHeight: 'normal',
-    '> option': {
-      bg: mode('white', 'gray.700')(props),
+    appearance: "none",
+    paddingBottom: "1px",
+    lineHeight: "normal",
+    "> option": {
+      bg: mode("white", "gray.700")(props),
     },
   }
 }
 
 const baseStyleInput = {
-  color: 'currentColor',
-  fontSize: '1.25rem',
+  color: "currentColor",
+  fontSize: "1.25rem",
   _disabled: { opacity: 0.5 },
 }
 

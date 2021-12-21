@@ -1,10 +1,19 @@
-import { chakra } from '@chakra-ui/vue-system'
-import { useRef } from '@chakra-ui/vue-utils'
-import { useId } from '@chakra-ui/vue-composables'
-import { MotionDirective, MotionVariants, useMotions } from '@vueuse/motion'
-import { h, defineComponent, PropType, computed, ref, watch, withDirectives, onMounted } from 'vue'
-import { TransitionEasings, TransitionVariants } from './motion-utils'
-import { warn } from '@chakra-ui/utils'
+import { chakra } from "@chakra-ui/vue-system"
+import { useRef } from "@chakra-ui/vue-utils"
+import { useId } from "@chakra-ui/vue-composables"
+import { MotionDirective, MotionVariants, useMotions } from "@vueuse/motion"
+import {
+  h,
+  defineComponent,
+  PropType,
+  computed,
+  ref,
+  watch,
+  withDirectives,
+  onMounted,
+} from "vue"
+import { TransitionEasings, TransitionVariants } from "./motion-utils"
+import { warn } from "@chakra-ui/utils"
 
 export interface CollapseOptions {
   /**
@@ -26,14 +35,13 @@ export interface CollapseOptions {
    * The current disclosure state of the CColapse component
    * @default true
    */
-  isOpen: boolean,
+  isOpen: boolean
   /**
    * Unmounts it's children after the leave transition
    * @default true
    */
   unmountOnExit: boolean
 }
-
 
 /**
  * CCollapse
@@ -43,33 +51,33 @@ export interface CollapseOptions {
  */
 
 export const CCollapse = defineComponent({
-  name: 'CCollapse',
+  name: "CCollapse",
   props: {
     isOpen: {
-      type: Boolean as PropType<CollapseOptions['isOpen']>,
-      default: true
+      type: Boolean as PropType<CollapseOptions["isOpen"]>,
+      default: true,
     },
     animateOpacity: {
-      type: Boolean as PropType<CollapseOptions['animateOpacity']>,
-      default: true
+      type: Boolean as PropType<CollapseOptions["animateOpacity"]>,
+      default: true,
     },
     startingHeight: {
-      type: Number as PropType<CollapseOptions['startingHeight']>,
-      default: 0
+      type: Number as PropType<CollapseOptions["startingHeight"]>,
+      default: 0,
     },
     endingHeight: {
-      type: [String, Number] as PropType<CollapseOptions['endingHeight']>,
-      default: 'auto'
+      type: [String, Number] as PropType<CollapseOptions["endingHeight"]>,
+      default: "auto",
     },
     unmountOnExit: {
-      type: Boolean as PropType<CollapseOptions['unmountOnExit']>,
-      default: true
+      type: Boolean as PropType<CollapseOptions["unmountOnExit"]>,
+      default: true,
     },
   },
-  emits: ['entered', 'left'],
+  emits: ["entered", "left"],
   setup(props, { slots, attrs, emit }) {
     const [targetRef, targetNode] = useRef()
-    const transitionId = useId('collapse-transition')
+    const transitionId = useId("collapse-transition")
     const preTransitionHeight = ref(0)
     const collapsedHeight = computed(() => {
       return preTransitionHeight.value || props.endingHeight
@@ -77,31 +85,31 @@ export const CCollapse = defineComponent({
 
     const variant = computed<MotionVariants>(() => ({
       leave: {
-        overflow: 'hidden',
+        overflow: "hidden",
         height: props.startingHeight,
-        ...props.animateOpacity && ({ opacity: 0 }),
+        ...(props.animateOpacity && { opacity: 0 }),
         transition: {
           duration: 200,
-          ease: TransitionEasings.easeInOut
-        }
+          ease: TransitionEasings.easeInOut,
+        },
       },
       enter: {
-        overflow: 'hidden',
+        overflow: "hidden",
         height: collapsedHeight.value,
-        ...props.animateOpacity && ({ opacity: 1 }),
+        ...(props.animateOpacity && { opacity: 1 }),
         transition: {
           duration: 300,
-          ease: TransitionEasings.easeInOut
-        }
+          ease: TransitionEasings.easeInOut,
+        },
       },
       initial: {
-        overflow: 'hidden',
+        overflow: "hidden",
         height: props.startingHeight,
-        ...props.animateOpacity && ({ opacity: 0 }),
+        ...(props.animateOpacity && { opacity: 0 }),
         transition: {
           duration: 200,
-          ease: TransitionEasings.easeInOut
-        }
+          ease: TransitionEasings.easeInOut,
+        },
       },
     }))
 
@@ -114,7 +122,7 @@ export const CCollapse = defineComponent({
     const leave = (done: VoidFunction) => {
       const el = targetNode.value!
       const { height } = getComputedStyle(el)
-      
+
       requestAnimationFrame(() => {
         const motions = useMotions()
         const instance = motions[transitionId.value]
@@ -126,43 +134,48 @@ export const CCollapse = defineComponent({
     const enter = (done: VoidFunction) => {
       const el = targetNode.value!
       if (el) {
-        el.style.visibility = 'hidden'
+        el.style.visibility = "hidden"
         // @ts-ignore
         el.style.height = props.endingHeight
         const { height } = getComputedStyle(el)
         // @ts-ignore
         el.style.height = props.startingHeight
 
-        el.style.visibility = 'visible'
+        el.style.visibility = "visible"
         const motions = useMotions()
         const instance = motions[transitionId.value]
-        instance?.apply({
-          ...variant.value.enter,
-          height: parseFloat(height),
-        })?.then(done)
+        instance
+          ?.apply({
+            ...variant.value.enter,
+            height: parseFloat(height),
+          })
+          ?.then(done)
       }
     }
 
-    watch(() => props.isOpen!, (newVal) => {
-      if (!newVal && targetNode.value!) {
-        leave(onDoneLeft)
-      } else {
-        enter(onDoneEnter)
+    watch(
+      () => props.isOpen!,
+      (newVal) => {
+        if (!newVal && targetNode.value!) {
+          leave(onDoneLeft)
+        } else {
+          enter(onDoneEnter)
+        }
       }
-    })
+    )
 
     const onDoneEnter = () => {
-      emit('entered')
+      emit("entered")
     }
     const onDoneLeft = () => {
-      emit('left')
+      emit("left")
     }
 
     /**
      * We first invoke
      * the transition to make sure it's registered
      * inside the `useMotion` plugin.
-     * 
+     *
      * Visually this does nothing, but it applies
      * the transition and stores it so we can access
      * it using the `useMotions` hook.
@@ -178,20 +191,13 @@ export const CCollapse = defineComponent({
     return () => {
       const children = slots
         ?.default?.()
-        .filter((vnode) => String(vnode.type) !== 'Symbol(Comment)')
+        .filter((vnode) => String(vnode.type) !== "Symbol(Comment)")
 
-      return (
-        withDirectives(
-          <chakra.div {...attrs} ref={targetRef}>
-            {() => children}
-          </chakra.div>,
-          [
-            [
-              MotionDirective(variant.value),
-              transitionId.value
-            ]
-          ]
-        )
+      return withDirectives(
+        <chakra.div {...attrs} ref={targetRef}>
+          {() => children}
+        </chakra.div>,
+        [[MotionDirective(variant.value), transitionId.value]]
       )
     }
   },

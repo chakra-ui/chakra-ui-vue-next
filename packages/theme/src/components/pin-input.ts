@@ -1,30 +1,30 @@
-import Input from './input'
+import Input from "./input"
 
 type Dict = Record<string, any>
 
 const baseStyle = {
   ...Input.baseStyle.field,
-  textAlign: 'center',
+  textAlign: "center",
 }
 
 const sizes = {
   lg: {
-    fontSize: 'lg',
+    fontSize: "lg",
     w: 12,
     h: 12,
-    borderRadius: 'md',
+    borderRadius: "md",
   },
   md: {
-    fontSize: 'md',
+    fontSize: "md",
     w: 10,
     h: 10,
-    borderRadius: 'md',
+    borderRadius: "md",
   },
   sm: {
-    fontSize: 'sm',
+    fontSize: "sm",
     w: 8,
     h: 8,
-    borderRadius: 'sm',
+    borderRadius: "sm",
   },
 }
 

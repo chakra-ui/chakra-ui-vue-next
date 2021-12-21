@@ -1,56 +1,56 @@
-import theme from '@chakra-ui/vue-theme'
-import { resolveStyles } from '../src'
+import theme from "@chakra-ui/vue-theme"
+import { resolveStyles } from "../src"
 
 const customTheme: any = {
   ...theme,
   layerStyles: {
     v1: {
-      color: 'red.300',
-      bg: 'tomato',
+      color: "red.300",
+      bg: "tomato",
     },
   },
   textStyles: {
     caps: {
-      textTransform: 'uppercase',
-      letterSpacing: 'wide',
-      fontSize: 'lg',
+      textTransform: "uppercase",
+      letterSpacing: "wide",
+      fontSize: "lg",
     },
     lower: {
-      textTransform: 'lowercase',
-      letterSpacing: '0.2px',
-      fontSize: 'sm',
+      textTransform: "lowercase",
+      letterSpacing: "0.2px",
+      fontSize: "sm",
     },
   },
 }
 
-it('should resolve styles correctly', () => {
+it("should resolve styles correctly", () => {
   const result = resolveStyles({
     theme: customTheme,
-    layerStyle: 'v1',
+    layerStyle: "v1",
     noOfLines: [3, 4],
     __css: {
       px: 4,
-      color: 'green.300',
+      color: "green.300",
     },
     css: {
       paddingLeft: 40,
     },
-    color: 'pink.300',
+    color: "pink.300",
     px: 5,
-    textTransform: 'capitalize',
-    apply: { base: 'textStyles.caps', sm: 'textStyles.lower' },
+    textTransform: "capitalize",
+    apply: { base: "textStyles.caps", sm: "textStyles.lower" },
     sx: {
-      letterSpacing: '2px',
+      letterSpacing: "2px",
     },
-    letterSpacing: ['8px', '50px'],
+    letterSpacing: ["8px", "50px"],
     fontSize: [10, 23],
-    backgroundPosition: 'top left',
+    backgroundPosition: "top left",
     _hover: {
-      bg: 'green.300',
+      bg: "green.300",
       fontSize: [12, 26],
       _before: {
-        content: '',
-        display: 'block',
+        content: "",
+        display: "block",
       },
     },
   })
@@ -96,16 +96,16 @@ it('should resolve styles correctly', () => {
   `)
 })
 
-it('should override padding correctly', () => {
+it("should override padding correctly", () => {
   const result = resolveStyles({
     theme: customTheme,
     __css: {
       paddingX: 4,
-      color: 'green.300',
+      color: "green.300",
     },
     paddingRight: 3,
-    mr: '5',
-    bg: 'pinkish',
+    mr: "5",
+    bg: "pinkish",
   })
 
   expect(result).toMatchInlineSnapshot(`

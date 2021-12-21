@@ -1,14 +1,14 @@
-import { computed, Plugin, ref, UnwrapRef } from 'vue'
-import defaultTheme from '@chakra-ui/vue-theme'
-import type { ColorModeRef } from '@chakra-ui/c-color-mode'
-import { toCSSVar, WithCSSVar } from '@chakra-ui/styled-system'
-import { chakra, injectGlobal, css } from '@chakra-ui/vue-system'
-import internalIcons from './icon.internals'
-import { extendTheme, ThemeOverride } from './extend-theme'
-import { MergedIcons, parseIcons } from './parse-icons'
-import { injectResetStyles, injectThemeGlobalStyles } from './helpers/css-reset'
-import { mode } from '@chakra-ui/vue-theme-tools'
-import { ChakraPluginOptions } from './helpers/plugin.types'
+import { computed, Plugin, ref, UnwrapRef } from "vue"
+import defaultTheme from "@chakra-ui/vue-theme"
+import type { ColorModeRef } from "@chakra-ui/c-color-mode"
+import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
+import { chakra, injectGlobal } from "@chakra-ui/vue-system"
+import internalIcons from "./icon.internals"
+import { extendTheme, ThemeOverride } from "./extend-theme"
+import { MergedIcons, parseIcons } from "./parse-icons"
+import { injectResetStyles, injectThemeGlobalStyles } from "./helpers/css-reset"
+import { mode } from "@chakra-ui/vue-theme-tools"
+import { ChakraPluginOptions } from "./helpers/plugin.types"
 
 /**
  * Helper function to extend Chakra plugin with options
@@ -32,18 +32,18 @@ const ChakraUIVuePlugin: Plugin = {
 
     // Inject Chakra CSS variables
     injectGlobal({
-      ':root': computedTheme.value.__cssVars,
+      ":root": computedTheme.value.__cssVars,
     })
 
     // Initialize colormode
     const colorMode: UnwrapRef<ColorModeRef> =
-      theme.config?.initialColorMode || 'light'
+      theme.config?.initialColorMode || "light"
 
     // Provide initial colormode
     app.config.globalProperties.$initialColorMode = colorMode
 
     const colorModeRef = ref(colorMode) as ColorModeRef
-    app.provide<ColorModeRef>('$chakraColorMode', colorModeRef)
+    app.provide<ColorModeRef>("$chakraColorMode", colorModeRef)
 
     if (options.cssReset) {
       injectResetStyles()
@@ -56,7 +56,7 @@ const ChakraUIVuePlugin: Plugin = {
 
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme.value
-    app.provide('$chakraTheme', computedTheme.value as ThemeOverride)
+    app.provide("$chakraTheme", computedTheme.value as ThemeOverride)
 
     libraryIcons = parseIcons(libraryIcons)
 
@@ -67,7 +67,7 @@ const ChakraUIVuePlugin: Plugin = {
       ...extendedIcons,
     }
 
-    app.provide('$chakraIcons', mergedIcons)
+    app.provide("$chakraIcons", mergedIcons)
 
     // Set color mode property
     app.config.globalProperties.$mode = mode
@@ -93,53 +93,54 @@ export { chakra }
  */
 
 // A
-export * from '@chakra-ui/c-accordion'
-export * from '@chakra-ui/c-alert'
+export * from "@chakra-ui/c-accordion"
+export * from "@chakra-ui/c-alert"
 
 // B
-export * from '@chakra-ui/c-breadcrumb'
-export * from '@chakra-ui/c-button'
+export * from "@chakra-ui/c-breadcrumb"
+export * from "@chakra-ui/c-button"
 
 // C
-export * from '@chakra-ui/c-color-mode'
-export * from '@chakra-ui/c-close-button'
-export * from '@chakra-ui/c-code'
+export * from "@chakra-ui/c-color-mode"
+export * from "@chakra-ui/c-close-button"
+export * from "@chakra-ui/c-code"
 
 // F
-export * from '@chakra-ui/c-flex'
-export * from '@chakra-ui/c-focus-lock'
-export * from '@chakra-ui/c-form-control'
+export * from "@chakra-ui/c-flex"
+export * from "@chakra-ui/c-focus-lock"
+export * from "@chakra-ui/c-form-control"
 
 // I
-export * from '@chakra-ui/c-icon'
+export * from "@chakra-ui/c-icon"
+export * from "@chakra-ui/c-input"
 
 // L
-export * from '@chakra-ui/vue-layout'
+export * from "@chakra-ui/vue-layout"
 
 // M
-export * from '@chakra-ui/c-modal'
-export * from '@chakra-ui/c-motion'
+export * from "@chakra-ui/c-modal"
+export * from "@chakra-ui/c-motion"
 
 // P
-export * from '@chakra-ui/c-popper'
-export * from '@chakra-ui/c-portal'
+export * from "@chakra-ui/c-popper"
+export * from "@chakra-ui/c-portal"
 
 // R
-export * from '@chakra-ui/c-reset'
+export * from "@chakra-ui/c-reset"
 
 // S
-export * from '@chakra-ui/c-spinner'
-export * from '@chakra-ui/c-scroll-lock'
+export * from "@chakra-ui/c-spinner"
+export * from "@chakra-ui/c-scroll-lock"
 
 // T
-export * from '@chakra-ui/c-theme-provider'
+export * from "@chakra-ui/c-theme-provider"
 
 // V
-export * from '@chakra-ui/c-visually-hidden'
+export * from "@chakra-ui/c-visually-hidden"
 
 // OTHERS
-export * from '@chakra-ui/vue-composables'
-export * from '@chakra-ui/vue-a11y'
+export * from "@chakra-ui/vue-composables"
+export * from "@chakra-ui/vue-a11y"
 
 /**
  *

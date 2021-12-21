@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed } from 'vue'
+import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   DOMElements,
@@ -7,13 +7,13 @@ import {
   HTMLChakraProps,
   DeepPartial,
   ComponentWithProps,
-} from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/utils'
-import { vueThemingProps } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface ContainerProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'Container'> {
+  extends HTMLChakraProps<"div">,
+    ThemingProps<"Container"> {
   /**
    * If `true`, container will center its children
    * regardless of their width.
@@ -32,14 +32,14 @@ export interface ContainerProps
 export const CContainer: ComponentWithProps<
   DeepPartial<ContainerProps>
 > = defineComponent({
-  name: 'CContainer',
+  name: "CContainer",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
     centerContent: {
-      type: [Boolean] as PropType<ContainerProps['centerContent']>,
+      type: [Boolean] as PropType<ContainerProps["centerContent"]>,
     },
     ...vueThemingProps,
   },
@@ -52,7 +52,7 @@ export const CContainer: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig('Container', themingProps.value)
+    const styles = useStyleConfig("Container", themingProps.value)
 
     return () => (
       <chakra.div
@@ -60,9 +60,9 @@ export const CContainer: ComponentWithProps<
         __css={{
           ...styles.value,
           ...(props.centerContent && {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }),
         }}
         {...attrs}

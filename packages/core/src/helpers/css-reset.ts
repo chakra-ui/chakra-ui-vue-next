@@ -1,10 +1,9 @@
-import { injectGlobal } from '@chakra-ui/vue-system'
-import { cssResetStyles } from '@chakra-ui/c-reset'
-import { ThemeOverride } from '../extend-theme'
-import { get, runIfFn } from '@chakra-ui/utils'
-import { css } from '@chakra-ui/styled-system'
-import { ColorModeRef } from '@chakra-ui/c-color-mode'
-import { computed, ref, watch } from 'vue'
+import { injectGlobal, css } from "@chakra-ui/vue-system"
+import { cssResetStyles } from "@chakra-ui/c-reset"
+import { ThemeOverride } from "../extend-theme"
+import { get, runIfFn } from "@chakra-ui/utils"
+import { ColorModeRef } from "@chakra-ui/c-color-mode"
+import { computed, ref, watch } from "vue"
 
 /** Injects CSS reset styles */
 export function injectResetStyles() {
@@ -16,7 +15,7 @@ export function injectThemeGlobalStyles(
   theme: ThemeOverride,
   colorMode: ColorModeRef
 ) {
-  const styleObjectOrFn = get(theme, 'styles.global')
+  const styleObjectOrFn = get(theme, "styles.global")
   const globalStyles = computed(() =>
     runIfFn(styleObjectOrFn, {
       theme,
@@ -29,6 +28,7 @@ export function injectThemeGlobalStyles(
     colorMode,
     () => {
       const styles = css(globalStyles.value)(theme)
+      injectGlobal(styles)
     },
     {
       immediate: true,

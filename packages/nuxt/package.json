@@ -26,6 +26,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.1.4"
+    "vue": "^3.2.24"
   }
 }

@@ -17,23 +17,23 @@ interface IChildNode extends ChildNode {
  * https://stackoverflow.com/questions/22515835/javascript-find-selector-of-an-element
  */
 export function getSelector(node: HTMLElement) {
-  const id = node.getAttribute('id')
+  const id = node.getAttribute("id")
 
-  if (id) return '#' + id
+  if (id) return "#" + id
 
-  let path = ''
+  let path = ""
 
   while (node) {
     let name = node.localName
     const parent = node.parentNode
 
     if (!parent) {
-      path = name + ' > ' + path
+      path = name + " > " + path
       continue
     }
 
-    if (node.getAttribute('id')) {
-      path = '#' + node.getAttribute('id') + ' > ' + path
+    if (node.getAttribute("id")) {
+      path = "#" + node.getAttribute("id") + " > " + path
       break
     }
 
@@ -52,11 +52,11 @@ export function getSelector(node: HTMLElement) {
     // children of that type use nth-of-type
     if (sameTagSiblings.length > 1) {
       const index = sameTagSiblings.indexOf(node)
-      name += ':nth-of-type(' + (index + 1) + ')'
+      name += ":nth-of-type(" + (index + 1) + ")"
     }
 
     if (path) {
-      path = name + ' > ' + path
+      path = name + " > " + path
     } else {
       path = name
     }

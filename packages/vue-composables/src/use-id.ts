@@ -33,7 +33,7 @@
  *
  */
 
-import { computed, onBeforeMount, onMounted, ref } from 'vue'
+import { computed, onBeforeMount, onMounted, ref } from "vue"
 
 let serverHandoffComplete = false
 let _id = 0

@@ -1,8 +1,8 @@
-import * as Examples from '../examples'
-import { h } from 'vue'
-import { CAlert, CAlertDescription, CAlertIcon, CAlertTitle } from '../src'
+import * as Examples from "../examples"
+import { h } from "vue"
+import { CAlert, CAlertDescription, CAlertIcon, CAlertTitle } from "../src"
 
-describe('Alert Examples', () => {
+describe("Alert Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
       cy.mount(h(() => <example.default></example.default>)).checkA11y()
@@ -10,11 +10,11 @@ describe('Alert Examples', () => {
   })
 })
 
-it('contains the correct role', () => {
-  cy.mount(Examples.BaseAlert.default).get('[role=alert]').should('exist')
+it("contains the correct role", () => {
+  cy.mount(Examples.BaseAlert.default).get("[role=alert]").should("exist")
 })
 
-it('renders its children', () => {
+it("renders its children", () => {
   cy.mount(
     h(() => (
       <CAlert data-testid="alert" variant="left-accent" status="info" mb="3">
@@ -24,8 +24,8 @@ it('renders its children', () => {
       </CAlert>
     ))
   )
-    .get('[data-testid=alert]')
-    .should('contain', 'Info alert')
-    .and('contain', 'Something just happened')
-    .and('descendants', 'svg')
+    .get("[data-testid=alert]")
+    .should("contain", "Info alert")
+    .and("contain", "Something just happened")
+    .and("descendants", "svg")
 })

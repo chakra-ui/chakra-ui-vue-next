@@ -1,1 +1,1 @@
-export * as BaseVisuallyHidden from './base-visually-hidden.vue'
+export * as BaseVisuallyHidden from "./base-visually-hidden.vue"
