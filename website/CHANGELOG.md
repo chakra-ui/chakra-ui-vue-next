@@ -1,5 +1,15 @@
 # @chakra-ui/vue-docs
 
+## 0.1.0-alpha.6
+
+### Minor Changes
+
+- [#108](https://github.com/chakra-ui/chakra-ui-vue-next/pull/108) [`a7df008`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/a7df008af57158fbd9240645d4177cf862ca764d) Thanks [@codebender828](https://github.com/codebender828)! - Create form control and input components
+
+* [#91](https://github.com/chakra-ui/chakra-ui-vue-next/pull/91) [`64ec694`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/64ec694a67bf0932ad8d7569cf4347cd1da48513) Thanks [@codebender828](https://github.com/codebender828)! - Create `CFormControl` component
+
+- [#96](https://github.com/chakra-ui/chakra-ui-vue-next/pull/96) [`dc6a51c`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/dc6a51cce02116f37172ce1c54cf36793b6e2fc9) Thanks [@carwack](https://github.com/carwack)! - Update dependecy packages unplugin-icons and unplugin-vue-components
+
 ## 0.1.0-alpha.5
 
 ### Minor Changes
