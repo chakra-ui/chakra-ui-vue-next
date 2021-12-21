@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-12-21T13:56:02.197Z
+ * This file was generated on 2021-12-21T17:13:01.320Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -63,6 +63,11 @@ declare module "@vue/runtime-core" {
     CRequiredIndicator: typeof import("@chakra-ui/vue-next")["CRequiredIndicator"]
     CInput: typeof import("@chakra-ui/vue-next")["CInput"]
     CInputAddon: typeof import("@chakra-ui/vue-next")["CInputAddon"]
+    CInputGroup: typeof import("@chakra-ui/vue-next")["CInputGroup"]
+    CInputLeftAddon: typeof import("@chakra-ui/vue-next")["CInputLeftAddon"]
+    CInputLeftElement: typeof import("@chakra-ui/vue-next")["CInputLeftElement"]
+    CInputRightAddon: typeof import("@chakra-ui/vue-next")["CInputRightAddon"]
+    CInputRightElement: typeof import("@chakra-ui/vue-next")["CInputRightElement"]
     CAspectRatio: typeof import("@chakra-ui/vue-next")["CAspectRatio"]
     CBadge: typeof import("@chakra-ui/vue-next")["CBadge"]
     CBox: typeof import("@chakra-ui/vue-next")["CBox"]

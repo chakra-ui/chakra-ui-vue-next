@@ -1,26 +1,41 @@
-import { filterUndefined } from '@chakra-ui/utils';
-import { chakra, HTMLChakraProps, omitThemingProps, StylesProvider, ThemingProps, useMultiStyleConfig } from '@chakra-ui/vue-system';
-import { getValidChildren, vueThemingProps } from '@chakra-ui/vue-utils';
-import { computed, h, Fragment, defineComponent, mergeProps, VNode, cloneVNode } from 'vue';
+import { filterUndefined } from "@chakra-ui/utils"
+import {
+  chakra,
+  HTMLChakraProps,
+  omitThemingProps,
+  StylesProvider,
+  ThemingProps,
+  useMultiStyleConfig,
+} from "@chakra-ui/vue-system"
+import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
+import {
+  computed,
+  h,
+  Fragment,
+  defineComponent,
+  mergeProps,
+  VNode,
+  cloneVNode,
+} from "vue"
 
 export interface CInputGroupProps
   extends HTMLChakraProps<"div">,
     ThemingProps<"Input"> {}
 
 export const CInputGroup = defineComponent({
-  name: 'CInputGroup',
+  name: "CInputGroup",
   props: {
-    ...vueThemingProps
+    ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
     const styleAttrs = computed(() => mergeProps(attrs, props))
-    const styles = useMultiStyleConfig('Input', styleAttrs.value);
+    const styles = useMultiStyleConfig("Input", styleAttrs.value)
     const input = computed(() => styles.value?.field)
     const unthemedProps = computed(() => omitThemingProps(styleAttrs.value))
 
     StylesProvider(styles)
 
-    return () =>  {
+    return () => {
       const groupStyles = {} as CInputGroupProps
       const validChildren = getValidChildren(slots)
       validChildren.forEach((vnode) => {
@@ -51,17 +66,18 @@ export const CInputGroup = defineComponent({
           variant: vnode.props?.size || props.variant,
         })
 
-
         // @ts-ignore
         return vnode.type?.name !== "CInput"
           ? cloneVNode(vnode, theming)
-          : cloneVNode(vnode, Object.assign(
-            theming,
-            groupStyles,
-            // vnode.props
-          ))
+          : cloneVNode(
+              vnode,
+              Object.assign(
+                theming,
+                groupStyles
+                // vnode.props
+              )
+            )
       })
-      
 
       return (
         <chakra.div
@@ -77,5 +93,5 @@ export const CInputGroup = defineComponent({
         </chakra.div>
       )
     }
-  }
+  },
 })

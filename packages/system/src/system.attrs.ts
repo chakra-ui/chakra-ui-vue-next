@@ -1,9 +1,5 @@
 import camelCase from "lodash.camelcase"
-import {
-  propNames,
-  StyleObjectOrFn,
-  isStyleProp,
-} from "@chakra-ui/styled-system"
+import { StyleObjectOrFn, isStyleProp } from "@chakra-ui/styled-system"
 import { HTMLAttributes } from "vue"
 
 export type StyleAndHTMLAttibutes = StyleObjectOrFn &

@@ -69,10 +69,6 @@ export interface CInputProps
 export const CInput = defineComponent({
   name: "CInput",
   props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: "input",
-    },
     modelValue: String as PropType<string>,
     ...formControlProps,
     focusBorderColor: SAO as PropType<CInputProps["focusBorderColor"]>,
@@ -81,8 +77,7 @@ export const CInput = defineComponent({
     ...vueThemingProps,
   },
   emits: ["update:modelValue", "input", "change"],
-  setup(_props, { slots, emit, attrs }) {
-    const { as, ...props } = _props
+  setup(props, { emit, attrs }) {
     const styles = useMultiStyleConfig("Input", props)
     const ownProps = computed(() =>
       toRefs(omitThemingProps(props as ThemingProps<"Input">))

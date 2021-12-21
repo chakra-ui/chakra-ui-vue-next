@@ -1,6 +1,6 @@
-import { defineComponent, h, PropType, computed } from 'vue'
+import { defineComponent, h, PropType, computed } from "vue"
 import { chakra, HTMLChakraProps, useStyles } from "@chakra-ui/vue-system"
-import { warn } from '@chakra-ui/utils'
+import { warn } from "@chakra-ui/utils"
 
 type Placement = "left" | "right"
 
@@ -27,7 +27,7 @@ const CStyledAddon = chakra("div", {
   },
 })
 
-export interface CInputAddonProps extends HTMLChakraProps<'div'> {
+export interface CInputAddonProps extends HTMLChakraProps<"div"> {
   placement?: Placement
 }
 
@@ -37,24 +37,24 @@ export interface CInputAddonProps extends HTMLChakraProps<'div'> {
  * Element to append or prepend to an input
  */
 export const CInputAddon = defineComponent({
-  name: 'CInputAddon',
+  name: "CInputAddon",
   props: {
     placement: {
       type: String as PropType<Placement>,
-      default: 'left'
+      default: "left",
     },
   },
   setup(props, { slots, attrs }) {
     try {
-    const placementStyles = computed(() => placements[props.placement])
+      const placementStyles = computed(() => placements[props.placement])
       const styles = useStyles()
       return () => (
         <CStyledAddon
           __css={{
-          ...styles.value.addon,
-          ...placementStyles.value
-        }}
-        {...attrs}
+            ...styles.value.addon,
+            ...placementStyles.value,
+          }}
+          {...attrs}
         >
           {slots}
         </CStyledAddon>
@@ -62,12 +62,13 @@ export const CInputAddon = defineComponent({
     } catch (error: any) {
       warn({
         condition: !!error,
-        message: "`CInputAddon` can only be used inside the `CInputGroup` component.",
+        message:
+          "`CInputAddon` can only be used inside the `CInputGroup` component.",
       })
       console.error(error)
       return () => null
     }
-  }
+  },
 })
 
 /**
@@ -76,14 +77,14 @@ export const CInputAddon = defineComponent({
  * Element to prepend to the left of an input
  */
 export const CInputLeftAddon = defineComponent({
-  name: 'CInputLeftAddon',
+  name: "CInputLeftAddon",
   setup(_, { slots, attrs }) {
     return () => (
       <CInputAddon placement="left" __label="input__left-addon" {...attrs}>
         {slots}
       </CInputAddon>
     )
-  }
+  },
 })
 
 CInputLeftAddon.id = "CInputLeftAddon"
@@ -94,14 +95,14 @@ CInputLeftAddon.id = "CInputLeftAddon"
  * Element to append to the right of an input
  */
 export const CInputRightAddon = defineComponent({
-  name: 'CInputRightAddon',
+  name: "CInputRightAddon",
   setup(_, { slots, attrs }) {
     return () => (
       <CInputAddon placement="right" __label="input__right-addon" {...attrs}>
         {slots}
       </CInputAddon>
     )
-  }
+  },
 })
 
 CInputRightAddon.id = "CInputRightAddon"

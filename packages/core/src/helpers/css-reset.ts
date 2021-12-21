@@ -1,8 +1,7 @@
-import { injectGlobal } from "@chakra-ui/vue-system"
+import { injectGlobal, css } from "@chakra-ui/vue-system"
 import { cssResetStyles } from "@chakra-ui/c-reset"
 import { ThemeOverride } from "../extend-theme"
 import { get, runIfFn } from "@chakra-ui/utils"
-import { css } from "@chakra-ui/styled-system"
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { computed, ref, watch } from "vue"
 

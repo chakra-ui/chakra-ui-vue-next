@@ -1,4 +1,9 @@
-import { CInput, CInputGroup, CInputLeftElement, CInputRightElement } from "../src"
+import {
+  CInput,
+  CInputGroup,
+  CInputLeftElement,
+  CInputRightElement,
+} from "../src"
 import { Component, defineComponent, h } from "vue"
 import { render, screen, testA11y } from "../../test-utils/src"
 
@@ -56,5 +61,5 @@ describe("<CInput />", () => {
   it("Read-only input renders correctly", () => {
     render(() => <CInput isReadOnly />)
     expect(screen.getByRole("textbox")).toHaveAttribute("aria-readonly", "true")
-  })  
+  })
 })

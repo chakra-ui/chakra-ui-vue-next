@@ -1,4 +1,4 @@
-import { UserConfig } from "vite"
+import { defineConfig } from "vite"
 import path from "path"
 import Vue from "@vitejs/plugin-vue"
 import { extractCritical } from "@emotion/server"
@@ -47,13 +47,19 @@ const injectCritical = (html: string, ids: string[], css: string) =>
     )
     .replace("</head>\n", `<style>${css}</style>\n</head>\n`)
 
+console.log(`${path.resolve(__dirname)}`)
+
 // https://vitejs.dev/config/
-const config: UserConfig = {
+export default defineConfig({
   resolve: {
     alias: {
       vue: "vue/dist/vue.esm-browser.js", // for vue-live editor
       "@": `${path.resolve(__dirname, "src")}`,
     },
+  },
+  root: `${path.resolve(__dirname)}`,
+  build: {
+    outDir: `${path.resolve(__dirname, "dist")}`,
   },
   plugins: [
     Vue({ include: [/\.vue$/, /\.mdx$/] }),
@@ -110,13 +116,11 @@ const config: UserConfig = {
   ssgOptions: {
     script: "async",
     formatting: "prettify",
-    onPageRendered: (_, html) => {
+    onPageRendered: (_: any, html: any) => {
       /** Extract critical styles */
       const { ids, css } = extractCritical(html)
       /** Append ssr ids to rendered HTML for hydration */
       return injectCritical(html, ids, css)
     },
   },
-}
-
-export default config
+})
