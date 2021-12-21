@@ -1,5 +1,18 @@
 # @chakra-ui/vue-layout
 
+## 0.1.0-alpha.8
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/c-icon@1.0.0-alpha.7
+  - @chakra-ui/vue-system@0.1.0-alpha.7
+  - @chakra-ui/vue-utils@0.1.0-alpha.7
+
 ## 0.1.0-alpha.7
 
 ### Minor Changes

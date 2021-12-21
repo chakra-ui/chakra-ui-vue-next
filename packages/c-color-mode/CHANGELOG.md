@@ -1,5 +1,11 @@
 # @chakra-ui/c-color-mode
 
+## 0.1.0-alpha.6
+
+### Minor Changes
+
+- chore: parity release
+
 ## 0.1.0-alpha.5
 
 ### Minor Changes

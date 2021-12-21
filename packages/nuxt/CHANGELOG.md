@@ -1,5 +1,11 @@
 # @chakra-ui/nuxt-next
 
+## 0.1.0-alpha.4
+
+### Minor Changes
+
+- chore: parity release
+
 ## 0.1.0-alpha.3
 
 ### Minor Changes

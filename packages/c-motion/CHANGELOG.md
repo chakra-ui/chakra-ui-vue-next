@@ -1,5 +1,18 @@
 # @chakra-ui/c-motion
 
+## 0.1.0-alpha.6
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.7
+  - @chakra-ui/vue-utils@0.1.0-alpha.7
+  - @chakra-ui/vue-composables@0.1.0-alpha.6
+
 ## 0.1.0-alpha.5
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @chakra-ui/vue-theme
 
+## 1.0.0-alpha.7
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.7
+  - @chakra-ui/vue-theme-tools@0.1.0-alpha.7
+
 ## 1.0.0-alpha.6
 
 ### Minor Changes

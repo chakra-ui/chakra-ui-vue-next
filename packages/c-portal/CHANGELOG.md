@@ -1,5 +1,11 @@
 # @chakra-ui/c-portal
 
+## 0.1.0-alpha.7
+
+### Minor Changes
+
+- chore: parity release
+
 ## 0.1.0-alpha.6
 
 ### Minor Changes

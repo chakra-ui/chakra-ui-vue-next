@@ -1,5 +1,17 @@
 # @chakra-ui/vue-system
 
+## 0.1.0-alpha.7
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/c-color-mode@0.1.0-alpha.6
+  - @chakra-ui/vue-utils@0.1.0-alpha.7
+
 ## 0.1.0-alpha.6
 
 ### Minor Changes

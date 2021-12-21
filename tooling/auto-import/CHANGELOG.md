@@ -1,5 +1,16 @@
 # @chakra-ui/vue-auto-import
 
+## 1.0.0-alpha.8
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-next@1.0.0-alpha.9
+
 ## 1.0.0-alpha.7
 
 ### Minor Changes

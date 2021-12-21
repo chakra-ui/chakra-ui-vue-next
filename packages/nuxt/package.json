@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "main": "dist/chakra-ui-nuxt-next.cjs.js",
   "module": "dist/chakra-ui-nuxt-next.esm.js",
