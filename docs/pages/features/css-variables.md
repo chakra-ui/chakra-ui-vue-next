@@ -1,7 +1,4 @@
----
-title: 'CSS Variables'
-description: Working with color mode (light and dark mode) in Chakra UI
----
+# CSS Variables
 
 Chakra UI now converts theme tokens (colors, font sizes, etc) to CSS Custom
 Properties (also known as "CSS variables").
@@ -10,7 +7,7 @@ CSS variables are now supported in all modern browsers, and we think they are
 useful to:
 
 - avoid prop interpolations;
-- avoid classname regeneration from
+- avoid class name regeneration from
   [emotion](https://emotion.sh/docs/introduction);
 - reduce runtime evaluation of token values in Theme context;
 - use theme token outside Chakra's component (embedded forms, markdown content,
