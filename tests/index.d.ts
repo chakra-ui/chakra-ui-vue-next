@@ -2,13 +2,13 @@
 /// <reference types="local-cypress" />
 /// <reference types="cypress-plugin-tab" />
 
-import { ChakraProps, HTMLChakraProps } from '@chakra-ui/vue-system'
-import { mount } from '@cypress/vue'
+import { ChakraProps, HTMLChakraProps } from "@chakra-ui/vue-system"
+import { mount } from "@cypress/vue"
 
 type ReturnedChainableMount = Chainable<ReturnType<typeof mount>>
 
-declare module '*.vue' {
-  import { Component } from 'vue'
+declare module "*.vue" {
+  import { Component } from "vue"
   const component: Component
   export default component
 }

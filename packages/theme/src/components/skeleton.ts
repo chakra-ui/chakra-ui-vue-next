@@ -1,5 +1,5 @@
-import { keyframes } from '@chakra-ui/vue-system'
-import { getColor, mode } from '@chakra-ui/vue-theme-tools'
+import { keyframes } from "@chakra-ui/vue-system"
+import { getColor, mode } from "@chakra-ui/vue-theme-tools"
 
 const fade = (startColor: string, endColor: string) =>
   keyframes({
@@ -8,8 +8,8 @@ const fade = (startColor: string, endColor: string) =>
   })
 
 const baseStyle = (props: Record<string, any>) => {
-  const defaultStartColor = mode('gray.100', 'gray.800')(props)
-  const defaultEndColor = mode('gray.400', 'gray.600')(props)
+  const defaultStartColor = mode("gray.100", "gray.800")(props)
+  const defaultEndColor = mode("gray.400", "gray.600")(props)
 
   const {
     startColor = defaultStartColor,
@@ -23,7 +23,7 @@ const baseStyle = (props: Record<string, any>) => {
 
   return {
     opacity: 0.7,
-    borderRadius: '2px',
+    borderRadius: "2px",
     borderColor: start,
     background: end,
     animation: `${speed}s linear infinite alternate ${fade(start, end)}`,

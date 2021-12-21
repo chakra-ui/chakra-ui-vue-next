@@ -1,19 +1,19 @@
-import { ThemeProviderProps } from '@chakra-ui/vue-next/src'
-import { render, screen } from '../../test-utils/src'
-import { defineComponent, h, inject } from 'vue'
-import CThemeProvider from '../src'
+import { ThemeProviderProps } from "@chakra-ui/vue-next/src"
+import { render, screen } from "../../test-utils/src"
+import { defineComponent, h, inject } from "vue"
+import CThemeProvider from "../src"
 
 let blueString: string
 
 const ChildComponent = defineComponent({
   setup() {
-    const theme = inject<ThemeProviderProps>('$chakraTheme')
+    const theme = inject<ThemeProviderProps>("$chakraTheme")
     blueString = JSON.stringify(theme?.colors?.blue)
-    return () => h('div', blueString)
+    return () => h("div", blueString)
   },
 })
 
-it('should render default slot', () => {
+it("should render default slot", () => {
   const { asFragment } = render({
     components: { CThemeProvider, ChildComponent },
     template: `
@@ -23,10 +23,10 @@ it('should render default slot', () => {
     `,
   })
   expect(asFragment()).toMatchSnapshot()
-  expect(screen.getByTestId('child').innerHTML).toEqual('Test child element')
+  expect(screen.getByTestId("child").innerHTML).toEqual("Test child element")
 })
 
-it('should provide theme object', () => {
+it("should provide theme object", () => {
   const { asFragment } = render({
     components: { CThemeProvider, ChildComponent },
     template: `

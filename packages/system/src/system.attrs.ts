@@ -1,10 +1,6 @@
-import camelCase from 'lodash.camelcase'
-import {
-  propNames,
-  StyleObjectOrFn,
-  isStyleProp,
-} from '@chakra-ui/styled-system'
-import { HTMLAttributes } from 'vue'
+import camelCase from "lodash.camelcase"
+import { StyleObjectOrFn, isStyleProp } from "@chakra-ui/styled-system"
+import { HTMLAttributes } from "vue"
 
 export type StyleAndHTMLAttibutes = StyleObjectOrFn &
   Record<string, string | number | boolean | unknown> &
@@ -32,7 +28,7 @@ export const extractStyleAttrs = <
     if (camelCaseCache[prop]) {
       _attr = camelCaseCache[prop]
     } else {
-      _attr = `${prop.startsWith('_') ? '_' : ''}${camelCase(prop)}`
+      _attr = `${prop.startsWith("_") ? "_" : ""}${camelCase(prop)}`
       camelCaseCache[prop] = _attr
     }
     const _isStyledProp = isStyleProp(_attr)

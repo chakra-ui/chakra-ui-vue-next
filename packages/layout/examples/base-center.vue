@@ -14,13 +14,7 @@
     </c-box>
     <c-box>
       <c-box>Circle</c-box>
-      <c-circle
-        :center-content="true"
-        size="40px"
-        bg="teal.700"
-        color="white"
-        display=""
-      >
+      <c-circle :center-content="true" size="40px" bg="teal.700" color="white">
         <c-icon name="phone"></c-icon>
       </c-circle>
     </c-box>
@@ -28,7 +22,7 @@
       <c-link to="/"> Test router link </c-link>
     </c-box>
     <c-box>
-      <c-kbd color-scheme="cyan"> Test router link </c-kbd>
+      <c-kbd color-scheme="cyan"> Test keyboard shortcut </c-kbd>
     </c-box>
   </c-v-stack>
 </template>

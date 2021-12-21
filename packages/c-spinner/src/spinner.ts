@@ -1,20 +1,20 @@
-import { vueThemingProps } from '@chakra-ui/vue-utils'
-import { h, defineComponent, PropType, computed } from 'vue'
+import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   keyframes,
   DOMElements,
   ThemingProps,
   useStyleConfig,
-} from '@chakra-ui/vue-system'
-import { CVisuallyHidden } from '@chakra-ui/c-visually-hidden'
+} from "@chakra-ui/vue-system"
+import { CVisuallyHidden } from "@chakra-ui/c-visually-hidden"
 
 const spin = keyframes({
-  '0%': {
-    transform: 'rotate(0deg)',
+  "0%": {
+    transform: "rotate(0deg)",
   },
-  '100%': {
-    transform: 'rotate(360deg)',
+  "100%": {
+    transform: "rotate(360deg)",
   },
 })
 
@@ -55,25 +55,25 @@ export interface SpinnerProps extends SpinnerOptions, ThemingProps {}
 const props = {
   as: {
     type: [Object, String] as PropType<DOMElements>,
-    default: 'div',
+    default: "div",
   },
   emptyColor: {
-    type: String as PropType<SpinnerProps['emptyColor']>,
-    default: 'transparent',
+    type: String as PropType<SpinnerProps["emptyColor"]>,
+    default: "transparent",
   },
   thickness: {
-    type: String as PropType<SpinnerProps['thickness']>,
-    default: '2px',
+    type: String as PropType<SpinnerProps["thickness"]>,
+    default: "2px",
   },
   speed: {
-    type: String as PropType<SpinnerProps['speed']>,
-    default: '0.45s',
+    type: String as PropType<SpinnerProps["speed"]>,
+    default: "0.45s",
   },
   color: {
-    type: String as PropType<SpinnerProps['color']>,
+    type: String as PropType<SpinnerProps["color"]>,
   },
   label: {
-    type: String as PropType<SpinnerProps['label']>,
+    type: String as PropType<SpinnerProps["label"]>,
   },
   ...vueThemingProps,
 }
@@ -89,12 +89,12 @@ const CSpinner = defineComponent({
     }))
 
     return () => {
-      const styles = useStyleConfig('Spinner', { ...themingProps.value })
+      const styles = useStyleConfig("Spinner", { ...themingProps.value })
       const spinnerStyles = {
-        display: 'inline-block',
-        borderColor: 'currentColor',
-        borderStyle: 'solid',
-        borderRadius: '99999px',
+        display: "inline-block",
+        borderColor: "currentColor",
+        borderStyle: "solid",
+        borderRadius: "99999px",
         borderWidth: props.thickness,
         borderBottomColor: props.emptyColor,
         borderLeftColor: props.emptyColor,
@@ -105,7 +105,7 @@ const CSpinner = defineComponent({
 
       return h(
         chakra(props.as, {
-          label: 'spinner',
+          label: "spinner",
           __css: spinnerStyles,
         }),
         {

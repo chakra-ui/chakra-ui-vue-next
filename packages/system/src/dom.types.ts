@@ -50,7 +50,7 @@ import {
   FormHTMLAttributes,
   HTMLAttributes,
   HtmlHTMLAttributes,
-} from 'vue'
+} from "vue"
 
 // why its not exported from vue
 export interface IntrinsicElementAttributes {

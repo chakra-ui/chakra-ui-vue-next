@@ -1,4 +1,4 @@
-import { MotionVariants, Transition } from '@vueuse/motion'
+import { MotionVariants, Transition } from "@vueuse/motion"
 
 type CMotionVariants = {
   [key: string]: MotionVariants
@@ -37,105 +37,105 @@ export const TransitionVariants: CMotionVariants = {
     leave: { opacity: 0, transition: TransitionDefaults.leave },
   },
   pushLeft: {
-    initial: { translateX: '-30%' },
-    enter: { translateX: '100%', transition: TransitionDefaults.enter },
-    leave: { translateX: '-30%', transition: TransitionDefaults.leave },
+    initial: { translateX: "-30%" },
+    enter: { translateX: "100%", transition: TransitionDefaults.enter },
+    leave: { translateX: "-30%", transition: TransitionDefaults.leave },
   },
   pushRight: {
-    initial: { translateX: '30%' },
-    enter: { translateX: '-100%', transition: TransitionDefaults.enter },
-    leave: { translateX: '30%', transition: TransitionDefaults.leave },
+    initial: { translateX: "30%" },
+    enter: { translateX: "-100%", transition: TransitionDefaults.enter },
+    leave: { translateX: "30%", transition: TransitionDefaults.leave },
   },
   pushUp: {
-    initial: { translateY: '-30%' },
-    enter: { translateY: '100%', transition: TransitionDefaults.enter },
-    leave: { translateY: '-30%', transition: TransitionDefaults.leave },
+    initial: { translateY: "-30%" },
+    enter: { translateY: "100%", transition: TransitionDefaults.enter },
+    leave: { translateY: "-30%", transition: TransitionDefaults.leave },
   },
   pushDown: {
-    initial: { translateY: '30%' },
-    enter: { translateY: '-100%', transition: TransitionDefaults.enter },
-    leave: { translateY: '30%', transition: TransitionDefaults.leave },
+    initial: { translateY: "30%" },
+    enter: { translateY: "-100%", transition: TransitionDefaults.enter },
+    leave: { translateY: "30%", transition: TransitionDefaults.leave },
   },
   slideLeft: {
-    position: { left: 0, top: 0, bottom: 0, width: '100%' },
-    initial: { translateX: '-100%', opacity: 0 },
+    position: { left: 0, top: 0, bottom: 0, width: "100%" },
+    initial: { translateX: "-100%", opacity: 0 },
     enter: {
-      translateX: '0%',
+      translateX: "0%",
       transition: TransitionDefaults.enter,
       opacity: 1,
     },
     leave: {
-      translateX: '-100%',
+      translateX: "-100%",
       transition: TransitionDefaults.leave,
       opacity: 0,
     },
   },
   slideRight: {
-    position: { right: 0, top: 0, bottom: 0, width: '100%' },
+    position: { right: 0, top: 0, bottom: 0, width: "100%" },
     initial: {
-      translateX: '100%',
+      translateX: "100%",
       opacity: 0,
     },
     enter: {
-      translateX: '0%',
+      translateX: "0%",
       transition: TransitionDefaults.enter,
       opacity: 1,
     },
     leave: {
-      translateX: '100%',
+      translateX: "100%",
       transition: TransitionDefaults.leave,
       opacity: 0,
     },
   },
   slideUp: {
-    position: { top: 0, left: 0, right: 0, maxWidth: '100vw' },
+    position: { top: 0, left: 0, right: 0, maxWidth: "100vw" },
     initial: {
-      translateY: '-100%',
+      translateY: "-100%",
       opacity: 0,
     },
     enter: {
-      translateY: '0%',
+      translateY: "0%",
       transition: TransitionDefaults.enter,
       opacity: 1,
     },
     leave: {
-      translateY: '-100%',
+      translateY: "-100%",
       transition: TransitionDefaults.leave,
       opacity: 0,
     },
   },
   slideDown: {
-    position: { bottom: 0, left: 0, right: 0, maxWidth: '100vw' },
+    position: { bottom: 0, left: 0, right: 0, maxWidth: "100vw" },
     initial: {
-      translateY: '100%',
+      translateY: "100%",
       opacity: 0,
     },
     enter: {
-      translateY: '0%',
+      translateY: "0%",
       transition: TransitionDefaults.enter,
       opacity: 1,
     },
     leave: {
-      translateY: '100%',
+      translateY: "100%",
       transition: TransitionDefaults.leave,
       opacity: 0,
     },
   },
 }
 
-export type SlideDirection = 'top' | 'left' | 'bottom' | 'right'
+export type SlideDirection = "top" | "left" | "bottom" | "right"
 
 /** Determines the direction of a given transition */
 export function slideTransition(options?: { direction?: SlideDirection }) {
-  const side = options?.direction ?? 'right'
+  const side = options?.direction ?? "right"
   switch (side) {
-    case 'right':
+    case "right":
       return TransitionVariants.slideRight
-    case 'left':
+    case "left":
       return TransitionVariants.slideLeft
-    case 'bottom':
+    case "bottom":
       return TransitionVariants.slideDown
-    case 'top':
+    case "top":
       return TransitionVariants.slideUp
     default:
       return TransitionVariants.slideRight
@@ -145,16 +145,16 @@ export function slideTransition(options?: { direction?: SlideDirection }) {
 /** Converts the placement to a transition variant */
 export function placementToVariant(placement: SlideDirection) {
   switch (placement) {
-    case 'right':
-      return 'slideRight'
-    case 'left':
-      return 'slideLeft'
-    case 'bottom':
-      return 'slideDown'
-    case 'top':
-      return 'slideUp'
+    case "right":
+      return "slideRight"
+    case "left":
+      return "slideLeft"
+    case "bottom":
+      return "slideDown"
+    case "top":
+      return "slideUp"
     default:
-      return 'slideRight'
+      return "slideRight"
   }
 }
 

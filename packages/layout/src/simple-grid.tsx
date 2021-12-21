@@ -2,18 +2,18 @@ import {
   ComponentWithProps,
   DeepPartial,
   ResponsiveValue,
-} from '@chakra-ui/vue-system'
-import { h, defineComponent, PropType, computed } from 'vue'
-import { DOMElements } from '@chakra-ui/vue-system'
-import { SNAO } from '@chakra-ui/vue-utils'
-import { CGrid, GridProps } from './grid'
-import { isNull, isNumber, mapResponsive } from '@chakra-ui/utils'
+} from "@chakra-ui/vue-system"
+import { h, defineComponent, PropType, computed } from "vue"
+import { DOMElements } from "@chakra-ui/vue-system"
+import { SNAO } from "@chakra-ui/vue-utils"
+import { CGrid, GridProps } from "./grid"
+import { isNull, isNumber, mapResponsive } from "@chakra-ui/utils"
 
 interface SimpleGridOptions {
   /**
    * The width at which child elements will break into columns. Pass a number for pixel values or a string for any other valid CSS length.
    */
-  minChildWidth?: GridProps['minWidth']
+  minChildWidth?: GridProps["minWidth"]
   /**
    * The number of columns
    */
@@ -21,15 +21,15 @@ interface SimpleGridOptions {
   /**
    * The gap between the grid items
    */
-  spacing?: GridProps['gridGap']
+  spacing?: GridProps["gridGap"]
   /**
    * The column gap between the grid items
    */
-  spacingX?: GridProps['gridGap']
+  spacingX?: GridProps["gridGap"]
   /**
    * The row gap between the grid items
    */
-  spacingY?: GridProps['gridGap']
+  spacingY?: GridProps["gridGap"]
 }
 
 export interface SimpleGridProps extends GridProps, SimpleGridOptions {}
@@ -45,17 +45,17 @@ export interface SimpleGridProps extends GridProps, SimpleGridOptions {}
 export const CSimpleGrid: ComponentWithProps<
   DeepPartial<SimpleGridProps>
 > = defineComponent({
-  name: 'CSimpleGrid',
+  name: "CSimpleGrid",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'ul',
+      default: "ul",
     },
-    minChildWidth: SNAO as PropType<SimpleGridProps['minWidth']>,
-    columns: SNAO as PropType<SimpleGridProps['columns']>,
-    spacing: SNAO as PropType<SimpleGridProps['gridGap']>,
-    spacingX: SNAO as PropType<SimpleGridProps['gridGap']>,
-    spacingY: SNAO as PropType<SimpleGridProps['gridGap']>,
+    minChildWidth: SNAO as PropType<SimpleGridProps["minWidth"]>,
+    columns: SNAO as PropType<SimpleGridProps["columns"]>,
+    spacing: SNAO as PropType<SimpleGridProps["gridGap"]>,
+    spacingX: SNAO as PropType<SimpleGridProps["gridGap"]>,
+    spacingY: SNAO as PropType<SimpleGridProps["gridGap"]>,
   },
   setup(props, { slots, attrs }) {
     const templateColumns = computed(() =>

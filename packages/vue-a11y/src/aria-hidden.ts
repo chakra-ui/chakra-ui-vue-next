@@ -14,7 +14,7 @@
 export type Undo = () => void
 
 const getDefaultParent = (originalTarget: Element | Element[]) => {
-  if (typeof document === 'undefined') {
+  if (typeof document === "undefined") {
     return null
   }
 
@@ -32,7 +32,7 @@ let lockCount = 0
 export const hideOthers = (
   originalTarget: Element | Element[],
   parentNode = getDefaultParent(originalTarget),
-  markerName = 'chakra-aria-hidden'
+  markerName = "chakra-aria-hidden"
 ): Undo => {
   const targets = Array.isArray(originalTarget)
     ? originalTarget
@@ -51,12 +51,12 @@ export const hideOthers = (
 
     Array.prototype.forEach.call(parent.children, (node: Element) => {
       if (
-        targets.some((target) => 'contains' in node && node.contains(target))
+        targets.some((target) => "contains" in node && node.contains(target))
       ) {
         deep(node)
       } else {
-        const attr = node.getAttribute('aria-hidden')
-        const alreadyHidden = attr !== null && attr !== 'false'
+        const attr = node.getAttribute("aria-hidden")
+        const alreadyHidden = attr !== null && attr !== "false"
         const counterValue = (counterMap.get(node) || 0) + 1
         const markerValue = (markerCounter.get(node) || 0) + 1
 
@@ -69,11 +69,11 @@ export const hideOthers = (
         }
 
         if (markerValue === 1) {
-          node.setAttribute(markerName, 'true')
+          node.setAttribute(markerName, "true")
         }
 
         if (!alreadyHidden) {
-          node.setAttribute('aria-hidden', 'true')
+          node.setAttribute("aria-hidden", "true")
         }
       }
     })
@@ -97,7 +97,7 @@ export const hideOthers = (
 
       if (!counterValue) {
         if (!uncontrolledNodes.has(node)) {
-          node.removeAttribute('aria-hidden')
+          node.removeAttribute("aria-hidden")
         }
         uncontrolledNodes.delete(node)
       }

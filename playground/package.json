@@ -1,0 +1,26 @@
+{
+  "name": "chidori-playground",
+  "private": true,
+  "version": "0.0.9",
+  "scripts": {
+    "predev": "node ./scripts/dev.js",
+    "dev": "vite",
+    "prebuild": "node ./scripts/dev.js",
+    "build": "vite build",
+    "serve": "vite preview",
+    "clean": "echo 'clean'"
+  },
+  "dependencies": {
+    "consola": "^2.15.3",
+    "esbuild": "^0.13.12",
+    "vite": "^2.6.13",
+    "vite-plugin-pages": "^0.18.2",
+    "vue": "^3.2.21"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.10.2",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.13"
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/playground"
+}

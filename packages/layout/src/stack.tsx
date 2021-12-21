@@ -1,4 +1,4 @@
-import { SystemProps } from '@chakra-ui/styled-system'
+import { SystemProps } from "@chakra-ui/styled-system"
 import {
   h,
   defineComponent,
@@ -7,43 +7,43 @@ import {
   computed,
   Fragment,
   createVNode,
-} from 'vue'
+} from "vue"
 import {
   chakra,
   DOMElements,
   DeepPartial,
   HTMLChakraProps,
   ComponentWithProps,
-} from '@chakra-ui/vue-system'
+} from "@chakra-ui/vue-system"
 import {
   getDividerStyles,
   getStackStyles,
   selector,
   StackDirection,
-} from './stack.utils'
-import { getValidChildren, SNAO, SAO } from '@chakra-ui/vue-utils'
+} from "./stack.utils"
+import { getValidChildren, SNAO, SAO } from "@chakra-ui/vue-utils"
 
 interface StackOptions {
   /**
    * Shorthand for `alignItems` style prop
    * @type SystemStyleObject["alignItems"]
    */
-  align?: SystemProps['alignItems']
+  align?: SystemProps["alignItems"]
   /**
    * Shorthand for `justifyContent` style prop
    * @type SystemStyleObject["justifyContent"]
    */
-  justify?: SystemProps['justifyContent']
+  justify?: SystemProps["justifyContent"]
   /**
    * Shorthand for `flexWrap` style prop
    * @type SystemStyleObject["flexWrap"]
    */
-  wrap?: SystemProps['flexWrap']
+  wrap?: SystemProps["flexWrap"]
   /**
    * The space between each stack item
    * @type SystemStyleObject["margin"]
    */
-  spacing?: SystemProps['margin']
+  spacing?: SystemProps["margin"]
   /**
    * The direction to stack the items.
    */
@@ -64,36 +64,36 @@ interface StackOptions {
   isInline?: boolean
 }
 
-export interface StackDividerProps extends HTMLChakraProps<'div'> {}
+export interface StackDividerProps extends HTMLChakraProps<"div"> {}
 
-export const CStackDivider: ComponentWithProps<
-  DeepPartial<StackDividerProps>
-> = defineComponent({
-  name: 'CStackDivider',
-  inheritAttrs: false,
-  setup(_, { attrs, slots }) {
-    return () => {
-      return (
-        <chakra.div
-          __label="stack__divider"
-          borderWidth={0}
-          alignSelf={'stretch'}
-          borderColor="inherit"
-          width="auto"
-          height="auto"
-          {...attrs}
-        >
-          {slots?.default?.()}
-        </chakra.div>
-      )
-    }
-  },
-})
+export const CStackDivider: ComponentWithProps<StackDividerProps> = defineComponent(
+  {
+    name: "CStackDivider",
+    inheritAttrs: false,
+    setup(_, { attrs, slots }) {
+      return () => {
+        return (
+          <chakra.div
+            __label="stack__divider"
+            borderWidth={0}
+            alignSelf={"stretch"}
+            borderColor="inherit"
+            width="auto"
+            height="auto"
+            {...attrs}
+          >
+            {slots?.default?.()}
+          </chakra.div>
+        )
+      }
+    },
+  }
+)
 
 export const CStackItem: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<'div'>>
+  DeepPartial<HTMLChakraProps<"div">>
 > = defineComponent({
-  name: 'CStackItem',
+  name: "CStackItem",
   setup(_, { attrs, slots }) {
     return () => {
       return (
@@ -111,26 +111,26 @@ export const CStackItem: ComponentWithProps<
   },
 })
 
-export interface StackProps extends HTMLChakraProps<'div'>, StackOptions {}
+export interface StackProps extends HTMLChakraProps<"div">, StackOptions {}
 
 const stackProps = {
   as: {
     type: [Object, String] as PropType<DOMElements>,
-    default: 'div',
+    default: "div",
   },
-  align: SAO as PropType<StackProps['align']>,
-  justify: SAO as PropType<StackProps['justify']>,
-  wrap: SAO as PropType<StackProps['wrap']>,
+  align: SAO as PropType<StackProps["align"]>,
+  justify: SAO as PropType<StackProps["justify"]>,
+  wrap: SAO as PropType<StackProps["wrap"]>,
   spacing: {
-    type: SNAO as PropType<StackProps['spacing']>,
-    default: '0.5rem',
+    type: SNAO as PropType<StackProps["spacing"]>,
+    default: "0.5rem",
   },
-  direction: SAO as PropType<StackProps['direction']>,
+  direction: SAO as PropType<StackProps["direction"]>,
 
   // todo: divider
-  divider: [Object, Boolean] as PropType<StackProps['divider']>,
-  shouldWrapChildren: [Boolean] as PropType<StackProps['shouldWrapChildren']>,
-  isInline: [Boolean] as PropType<StackProps['isInline']>,
+  divider: [Object, Boolean] as PropType<StackProps["divider"]>,
+  shouldWrapChildren: [Boolean] as PropType<StackProps["shouldWrapChildren"]>,
+  isInline: [Boolean] as PropType<StackProps["isInline"]>,
 }
 
 /**
@@ -144,14 +144,12 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack: ComponentWithProps<
-  DeepPartial<StackProps>
-> = defineComponent({
-  name: 'CStack',
+export const CStack = defineComponent({
+  name: "CStack",
   props: stackProps,
   setup(props, { slots, attrs }) {
     const direction = computed(() =>
-      props.isInline ? 'row' : props.direction ?? 'column'
+      props.isInline ? "row" : props.direction ?? "column"
     )
 
     const styles = computed(() =>
@@ -181,7 +179,7 @@ export const CStack: ComponentWithProps<
 
             // todo: temporary divider
             const clonedDivider = createVNode(CStackDivider, {
-              borderColor: 'blue.200',
+              borderColor: "blue.200",
               __css: dividerStyle.value,
             })
 
@@ -192,8 +190,8 @@ export const CStack: ComponentWithProps<
 
       return (
         <chakra.div
-          __label={attrs.label ? (attrs.label as string) : 'stack'}
-          display={'flex'}
+          __label={attrs.label ? (attrs.label as string) : "stack"}
+          display={"flex"}
           alignItems={props.align}
           justifyContent={props.justify}
           flexDirection={styles.value.flexDirection}
@@ -213,7 +211,7 @@ export const CStack: ComponentWithProps<
 export const CHStack: ComponentWithProps<
   DeepPartial<StackProps>
 > = defineComponent({
-  name: 'CHStack',
+  name: "CHStack",
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => {
@@ -235,16 +233,14 @@ export const CHStack: ComponentWithProps<
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack: ComponentWithProps<
-  DeepPartial<StackProps>
-> = defineComponent({
-  name: 'CVStack',
+export const CVStack = defineComponent({
+  name: "CVStack",
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
       <CStack
         __label="stack-vertical"
-        align={'center'}
+        align="center"
         {...props}
         {...attrs}
         direction="column"

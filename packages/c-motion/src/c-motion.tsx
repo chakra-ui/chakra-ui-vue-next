@@ -16,11 +16,11 @@ import {
   ref,
   watch,
   cloneVNode,
-} from 'vue'
-import type { DOMElements } from '@chakra-ui/vue-system'
-import { useRef } from '@chakra-ui/vue-utils'
-import { MotionVariants, useMotion } from '@vueuse/motion'
-import { __DEV__ } from '@chakra-ui/utils'
+} from "vue"
+import type { DOMElements } from "@chakra-ui/vue-system"
+import { useRef } from "@chakra-ui/vue-utils"
+import { MotionVariants, useMotion } from "@vueuse/motion"
+import { __DEV__ } from "@chakra-ui/utils"
 
 type CMotionVariants = {
   [key: string]: MotionVariants
@@ -58,15 +58,15 @@ export const variants: CMotionVariants = {
 type CMotionVariant = keyof CMotionVariants
 
 export const CMotion = defineComponent({
-  name: 'CMotion',
+  name: "CMotion",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
     type: {
       type: String as PropType<keyof CMotionVariants>,
-      default: 'fade',
+      default: "fade",
     },
   },
   setup(props, { slots, attrs }) {
@@ -80,7 +80,7 @@ export const CMotion = defineComponent({
       },
       {
         immediate: true,
-        flush: 'post',
+        flush: "post",
       }
     )
 
@@ -92,7 +92,7 @@ export const CMotion = defineComponent({
 
       const vNodes = slots
         ?.default?.()
-        .filter((vnode) => String(vnode.type) !== 'Symbol(Comment)')
+        .filter((vnode) => String(vnode.type) !== "Symbol(Comment)")
 
       children = vNodes?.length
         ? cloneVNode(vNodes[0], { ref: targetRef as any })

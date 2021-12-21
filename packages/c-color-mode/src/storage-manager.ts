@@ -1,15 +1,15 @@
-import { __DEV__ } from '@chakra-ui/utils'
-import { ColorModeRef } from './color-mode.utils'
+import { __DEV__ } from "@chakra-ui/utils"
+import { ColorModeRef } from "./color-mode.utils"
 
-const hasSupport = () => typeof Storage !== 'undefined'
-export const storageKey = 'chakra-ui-color-mode'
+const hasSupport = () => typeof Storage !== "undefined"
+export const storageKey = "chakra-ui-color-mode"
 
-type MaybeColorMode = ColorModeRef['value'] | undefined
+type MaybeColorMode = ColorModeRef["value"] | undefined
 
 export interface StorageManager {
-  get(init?: ColorModeRef['value']): MaybeColorMode
-  set(value: ColorModeRef['value']): void
-  type: 'cookie' | 'localStorage'
+  get(init?: ColorModeRef["value"]): MaybeColorMode
+  set(value: ColorModeRef["value"]): void
+  type: "cookie" | "localStorage"
 }
 
 /**
@@ -38,18 +38,18 @@ export const localStorageManager: StorageManager = {
       }
     }
   },
-  type: 'localStorage',
+  type: "localStorage",
 }
 
 /**
  * Simple object to handle read-write to cookies
  */
-export const cookieStorageManager = (cookies = ''): StorageManager => ({
+export const cookieStorageManager = (cookies = ""): StorageManager => ({
   get(init?) {
     const match = cookies.match(new RegExp(`(^| )${storageKey}=([^;]+)`))
 
     if (match) {
-      return match[2] as ColorModeRef['value']
+      return match[2] as ColorModeRef["value"]
     }
 
     return init
@@ -57,5 +57,5 @@ export const cookieStorageManager = (cookies = ''): StorageManager => ({
   set(value) {
     document.cookie = `${storageKey}=${value}; max-age=31536000; path=/`
   },
-  type: 'cookie',
+  type: "cookie",
 })

@@ -1,13 +1,13 @@
 <template>
-  <!-- <c-reset /> -->
-  <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :__css="rootStyles">
+  <c-reset />
+  <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :sx="rootStyles">
     <perfect-scrollbar>
       <chakra.div pb="12">
         <sidebar :stories="routes" />
       </chakra.div>
     </perfect-scrollbar>
     <c-center w="full" pos="relative" border-left="1px solid" border-color="gray.200" padding="4">
-      <c-square box-size="600px">
+      <c-square box-size="800px">
         <router-view v-slot="{ Component, route }">
           <!-- <transition name="fade" mode="out-in"> -->
             <component :is="Component" />
@@ -71,6 +71,8 @@ export default defineComponent({
 })
 </script>
 
+<style src="vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css"></style>
+
 <style>
 html, body {
   margin: 0;
@@ -107,5 +109,3 @@ a {
   width: 275px;
 }
 </style>
-
-<style src="vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css"/>

@@ -1,40 +1,40 @@
-import { getColor, mode } from '@chakra-ui/vue-theme-tools'
+import { getColor, mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ['field', 'addon']
+const parts = ["field", "addon"]
 
 const baseStyle = {
   field: {
-    width: '100%',
+    width: "100%",
     outline: 0,
-    position: 'relative',
-    appearance: 'none',
-    transition: 'all 0.2s',
+    position: "relative",
+    appearance: "none",
+    transition: "all 0.2s",
   },
 }
 
 const size = {
   lg: {
-    fontSize: 'lg',
+    fontSize: "lg",
     pl: 4,
     pr: 4,
     h: 12,
-    borderRadius: 'md',
+    borderRadius: "md",
   },
 
   md: {
-    fontSize: 'md',
+    fontSize: "md",
     pl: 4,
     pr: 4,
     h: 10,
-    borderRadius: 'md',
+    borderRadius: "md",
   },
 
   sm: {
-    fontSize: 'sm',
+    fontSize: "sm",
     pl: 3,
     pr: 3,
     h: 8,
-    borderRadius: 'sm',
+    borderRadius: "sm",
   },
 }
 
@@ -56,8 +56,8 @@ const sizes = {
 function getDefaults(props: Record<string, any>) {
   const { focusBorderColor: fc, errorBorderColor: ec } = props
   return {
-    focusBorderColor: fc || mode('blue.500', 'blue.300')(props),
-    errorBorderColor: ec || mode('red.500', 'red.300')(props),
+    focusBorderColor: fc || mode("blue.500", "blue.300")(props),
+    errorBorderColor: ec || mode("red.500", "red.300")(props),
   }
 }
 
@@ -67,19 +67,19 @@ function variantOutline(props: Record<string, any>) {
 
   return {
     field: {
-      border: '1px solid',
-      borderColor: 'inherit',
-      bg: 'inherit',
+      border: "1px solid",
+      borderColor: "inherit",
+      bg: "inherit",
       _hover: {
-        borderColor: mode('gray.300', 'whiteAlpha.400')(props),
+        borderColor: mode("gray.300", "whiteAlpha.400")(props),
       },
       _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
+        boxShadow: "none !important",
+        userSelect: "all",
       },
       _disabled: {
         opacity: 0.4,
-        cursor: 'not-allowed',
+        cursor: "not-allowed",
       },
       _focus: {
         zIndex: 1,
@@ -92,9 +92,9 @@ function variantOutline(props: Record<string, any>) {
       },
     },
     addon: {
-      border: '1px solid',
-      borderColor: mode('inherit', 'whiteAlpha.50')(props),
-      bg: mode('gray.100', 'whiteAlpha.300')(props),
+      border: "1px solid",
+      borderColor: mode("inherit", "whiteAlpha.50")(props),
+      bg: mode("gray.100", "whiteAlpha.300")(props),
     },
   }
 }
@@ -105,22 +105,22 @@ function variantFilled(props: Record<string, any>) {
 
   return {
     field: {
-      border: '2px solid',
-      borderColor: 'transparent',
-      bg: mode('gray.100', 'whiteAlpha.50')(props),
+      border: "2px solid",
+      borderColor: "transparent",
+      bg: mode("gray.100", "whiteAlpha.50")(props),
       _hover: {
-        bg: mode('gray.200', 'whiteAlpha.100')(props),
+        bg: mode("gray.200", "whiteAlpha.100")(props),
       },
       _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
+        boxShadow: "none !important",
+        userSelect: "all",
       },
       _disabled: {
         opacity: 0.4,
-        cursor: 'not-allowed',
+        cursor: "not-allowed",
       },
       _focus: {
-        bg: 'transparent',
+        bg: "transparent",
         borderColor: getColor(theme, fc),
       },
       _invalid: {
@@ -128,9 +128,9 @@ function variantFilled(props: Record<string, any>) {
       },
     },
     addon: {
-      border: '2px solid',
-      borderColor: 'transparent',
-      bg: mode('gray.100', 'whiteAlpha.50')(props),
+      border: "2px solid",
+      borderColor: "transparent",
+      bg: mode("gray.100", "whiteAlpha.50")(props),
     },
   }
 }
@@ -141,15 +141,15 @@ function variantFlushed(props: Record<string, any>) {
 
   return {
     field: {
-      borderBottom: '1px solid',
-      borderColor: 'inherit',
+      borderBottom: "1px solid",
+      borderColor: "inherit",
       borderRadius: 0,
       pl: 0,
       pr: 0,
-      bg: 'transparent',
+      bg: "transparent",
       _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
+        boxShadow: "none !important",
+        userSelect: "all",
       },
       _focus: {
         borderColor: getColor(theme, fc),
@@ -160,27 +160,27 @@ function variantFlushed(props: Record<string, any>) {
       },
     },
     addon: {
-      borderBottom: '2px solid',
-      borderColor: 'inherit',
+      borderBottom: "2px solid",
+      borderColor: "inherit",
       borderRadius: 0,
       paddingX: 0,
-      bg: 'transparent',
+      bg: "transparent",
     },
   }
 }
 
 const variantUnstyled = {
   field: {
-    bg: 'transparent',
+    bg: "transparent",
     pl: 0,
     pr: 0,
-    height: 'auto',
+    height: "auto",
   },
   addon: {
-    bg: 'transparent',
+    bg: "transparent",
     pl: 0,
     pr: 0,
-    height: 'auto',
+    height: "auto",
   },
 }
 
@@ -192,8 +192,8 @@ const variants = {
 }
 
 const defaultProps = {
-  size: 'md',
-  variant: 'outline',
+  size: "md",
+  variant: "outline",
 }
 
 export default {

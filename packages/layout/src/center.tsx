@@ -1,13 +1,13 @@
-import { defineComponent, h, PropType } from 'vue'
+import { defineComponent, h, PropType } from "vue"
 import {
   chakra,
   ComponentWithProps,
   DeepPartial,
   DOMElements,
   HTMLChakraProps,
-} from '@chakra-ui/vue-system'
+} from "@chakra-ui/vue-system"
 
-export interface CCenterProps extends HTMLChakraProps<'div'> {}
+export interface CCenterProps extends HTMLChakraProps<"div"> {}
 
 /**
  * Vue component used to horizontally and vertically center its child.
@@ -18,11 +18,11 @@ export interface CCenterProps extends HTMLChakraProps<'div'> {}
 export const CCenter: ComponentWithProps<
   DeepPartial<CCenterProps>
 > = defineComponent({
-  name: 'CCenter',
+  name: "CCenter",
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
   },
   setup(props, { slots, attrs }) {
@@ -31,9 +31,9 @@ export const CCenter: ComponentWithProps<
         <chakra.div
           __label="center"
           __css={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
           {...props}
           {...attrs}

@@ -1,6 +1,6 @@
-import { ColorModeRef } from '@chakra-ui/c-color-mode'
-import { UnwrapRef } from 'vue-demi'
-import { ThemeOverride } from '../extend-theme'
+import { ColorModeRef } from "@chakra-ui/c-color-mode"
+import { UnwrapRef } from "vue-demi"
+import { ThemeOverride } from "../extend-theme"
 
 interface ExtendIconsPath {
   path: string
@@ -8,7 +8,7 @@ interface ExtendIconsPath {
 }
 
 interface IconsOptions {
-  pack?: 'fa' | 'fe'
+  pack?: "fa" | "fe"
   library?: {}
   extend?: Record<string, ExtendIconsPath>
 }

@@ -1,9 +1,8 @@
-import components from './components'
-import foundations from './foundations'
-import styles from './styles'
+import components from "./components"
+import foundations, { ColorHues } from "./foundations"
+import styles from "./styles"
 
-export type ColorMode = 'light' | 'dark'
-import { Colors } from './foundations/colors'
+export type ColorMode = "light" | "dark"
 
 export interface ColorModeOptions {
   initialColorMode?: ColorMode
@@ -15,7 +14,7 @@ export interface ColorModeOptions {
  */
 const config: ColorModeOptions = {
   useSystemColorMode: false,
-  initialColorMode: 'light',
+  initialColorMode: "light",
 }
 
 export const theme = {
@@ -26,9 +25,6 @@ export const theme = {
 }
 
 export type Theme = typeof theme
-export type ComponentThemeConfig = Partial<typeof theme.components>
-export type ChakraComponentName = keyof ComponentThemeConfig
+export type { ColorHues }
 
 export default theme
-
-export type ChakraColors = Colors

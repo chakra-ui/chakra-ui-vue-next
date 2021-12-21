@@ -32,7 +32,7 @@
     "@popperjs/core": "^2.8.4"
   },
   "devDependencies": {
-    "vue": "^3.1.4"
+    "vue": "^3.2.24"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

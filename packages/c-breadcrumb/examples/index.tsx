@@ -1,1 +1,1 @@
-export * as SimpleBreadcrumb from './simple-breadcrumb.vue'
+export * as SimpleBreadcrumb from "./simple-breadcrumb.vue"

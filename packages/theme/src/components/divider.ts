@@ -1,14 +1,14 @@
 const baseStyle = {
   opacity: 0.6,
-  borderColor: 'inherit',
+  borderColor: "inherit",
 }
 
 const variantSolid = {
-  borderStyle: 'solid',
+  borderStyle: "solid",
 }
 
 const variantDashed = {
-  borderStyle: 'dashed',
+  borderStyle: "dashed",
 }
 
 const variants = {
@@ -17,7 +17,7 @@ const variants = {
 }
 
 const defaultProps = {
-  variant: 'solid',
+  variant: "solid",
 }
 
 export default {

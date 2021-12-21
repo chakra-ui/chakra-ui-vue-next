@@ -1,12 +1,12 @@
-import Input from './input'
+import Input from "./input"
 
 type Dict = Record<string, any>
 
 const baseStyle = {
   ...Input.baseStyle.field,
-  paddingY: '8px',
-  minHeight: '80px',
-  lineHeight: 'short',
+  paddingY: "8px",
+  minHeight: "80px",
+  lineHeight: "short",
 }
 
 const variants = {
@@ -23,8 +23,8 @@ const sizes = {
 }
 
 const defaultProps = {
-  size: 'md',
-  variant: 'outline',
+  size: "md",
+  variant: "outline",
 }
 
 export default {

@@ -1,4 +1,4 @@
-import { filterUndefined } from '@chakra-ui/utils'
+import { filterUndefined } from "@chakra-ui/utils"
 import {
   chakra,
   HTMLChakraProps,
@@ -8,26 +8,26 @@ import {
   DOMElements,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { SNAO, vueThemingProps } from '@chakra-ui/vue-utils'
-import { computed, defineComponent, h, PropType } from 'vue'
+} from "@chakra-ui/vue-system"
+import { SNAO, vueThemingProps } from "@chakra-ui/vue-utils"
+import { computed, defineComponent, h, PropType } from "vue"
 
-export interface TextProps extends HTMLChakraProps<'p'>, ThemingProps<'Text'> {
+export interface TextProps extends HTMLChakraProps<"p">, ThemingProps<"Text"> {
   /**
    * The CSS `text-align` property
    * @type SystemProps["textAlign"]
    */
-  align?: SystemProps['textAlign']
+  align?: SystemProps["textAlign"]
   /**
    * The CSS `text-decoration` property
    * @type SystemProps["textDecoration"]
    */
-  decoration?: SystemProps['textDecoration']
+  decoration?: SystemProps["textDecoration"]
   /**
    * The CSS `text-transform` property
    * @type SystemProps["textTransform"]
    */
-  casing?: SystemProps['textTransform']
+  casing?: SystemProps["textTransform"]
 }
 
 /**
@@ -38,15 +38,15 @@ export interface TextProps extends HTMLChakraProps<'p'>, ThemingProps<'Text'> {
 export const CText: ComponentWithProps<
   DeepPartial<TextProps>
 > = defineComponent({
-  name: 'CText',
+  name: "CText",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'p',
+      default: "p",
     },
-    align: SNAO as PropType<TextProps['textAlign']>,
-    decoration: SNAO as PropType<TextProps['textDecoration']>,
-    casing: SNAO as PropType<TextProps['textTransform']>,
+    align: SNAO as PropType<TextProps["textAlign"]>,
+    decoration: SNAO as PropType<TextProps["textDecoration"]>,
+    casing: SNAO as PropType<TextProps["textTransform"]>,
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
@@ -58,7 +58,7 @@ export const CText: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig('Text', themingProps.value)
+    const styles = useStyleConfig("Text", themingProps.value)
 
     const aliasedProps = computed(() =>
       filterUndefined({

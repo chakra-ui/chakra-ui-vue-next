@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, PropType } from 'vue'
+import { computed, defineComponent, h, PropType } from "vue"
 import {
   chakra,
   DOMElements,
@@ -6,9 +6,9 @@ import {
   HTMLChakraProps,
   DeepPartial,
   ComponentWithProps,
-} from '@chakra-ui/vue-system'
+} from "@chakra-ui/vue-system"
 
-export interface BoxProps extends HTMLChakraProps<'div'> {}
+export interface BoxProps extends HTMLChakraProps<"div"> {}
 
 /**
  * Box is the most abstract component on top of which other chakra
@@ -17,11 +17,11 @@ export interface BoxProps extends HTMLChakraProps<'div'> {}
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
 export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
-  name: 'CBox',
+  name: "CBox",
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
   },
   setup(props, { slots, attrs }) {
@@ -37,13 +37,13 @@ export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
  * As a constraint, you can't pass size related props
  * Only `size` would be allowed
  */
-type Omitted = 'size' | 'boxSize' | 'width' | 'height' | 'w' | 'h'
+type Omitted = "size" | "boxSize" | "width" | "height" | "w" | "h"
 
 export interface SquareProps extends Omit<BoxProps, Omitted> {
   /**
    * The size (width and height) of the square
    */
-  size?: BoxProps['width']
+  size?: BoxProps["width"]
   /**
    * If `true`, the content will be centered in the square
    */
@@ -58,18 +58,18 @@ export interface SquareProps extends Omit<BoxProps, Omitted> {
 export const CSquare: ComponentWithProps<
   DeepPartial<SquareProps>
 > = defineComponent({
-  name: 'CSquare',
+  name: "CSquare",
   props: {
-    size: [Object, String, Number] as PropType<SquareProps['size']>,
+    size: [Object, String, Number] as PropType<SquareProps["size"]>,
     centerContent: {
-      type: [Boolean] as PropType<SquareProps['centerContent']>,
+      type: [Boolean] as PropType<SquareProps["centerContent"]>,
       default: true,
     },
   },
   setup(props, { slots, attrs }) {
     const styles = computed<SystemStyleObject>(() =>
       props.centerContent
-        ? { display: 'flex', alignItems: 'center', justifyContent: 'center' }
+        ? { display: "flex", alignItems: "center", justifyContent: "center" }
         : {}
     )
     return () => (
@@ -97,7 +97,7 @@ export const CSquare: ComponentWithProps<
 export const CCircle: ComponentWithProps<
   DeepPartial<SquareProps>
 > = defineComponent({
-  name: 'CCircle',
+  name: "CCircle",
   setup(_, { slots, attrs }) {
     return () => (
       <CSquare __label="circle" borderRadius="9999px" {...attrs}>

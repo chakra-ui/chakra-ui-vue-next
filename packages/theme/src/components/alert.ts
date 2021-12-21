@@ -1,8 +1,8 @@
-import { getColor, mode, transparentize } from '@chakra-ui/vue-theme-tools'
+import { getColor, mode, transparentize } from "@chakra-ui/vue-theme-tools"
 
 type Dict = Record<string, any>
 
-const parts = ['container', 'title', 'icon']
+const parts = ["container", "title", "icon"]
 
 const baseStyle = {
   container: {
@@ -10,7 +10,7 @@ const baseStyle = {
     py: 3,
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     lineHeight: 6,
     mr: 2,
   },
@@ -44,7 +44,7 @@ function variantLeftAccent(props: Dict) {
   return {
     container: {
       pl: 3,
-      borderLeft: '4px solid',
+      borderLeft: "4px solid",
       borderColor: mode(`${c}.500`, `${c}.200`)(props),
       bg: getBg(props),
     },
@@ -59,7 +59,7 @@ function variantTopAccent(props: Dict) {
   return {
     container: {
       pt: 2,
-      borderTop: '4px solid',
+      borderTop: "4px solid",
       borderColor: mode(`${c}.500`, `${c}.200`)(props),
       bg: getBg(props),
     },
@@ -81,13 +81,13 @@ function variantSolid(props: Dict) {
 
 const variants = {
   subtle: variantSubtle,
-  'left-accent': variantLeftAccent,
-  'top-accent': variantTopAccent,
+  "left-accent": variantLeftAccent,
+  "top-accent": variantTopAccent,
   solid: variantSolid,
 }
 
 const defaultProps = {
-  variant: 'subtle',
+  variant: "subtle",
 }
 
 export default {

@@ -1,1 +1,1 @@
-export * as SimplePortal from './simple-portal.vue'
+export * as SimplePortal from "./simple-portal.vue"

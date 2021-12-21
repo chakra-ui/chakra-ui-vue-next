@@ -1,5 +1,5 @@
-import { h, defineComponent, PropType, reactive } from 'vue'
-import type CSS from 'csstype'
+import { h, defineComponent, PropType, reactive } from "vue"
+import type CSS from "csstype"
 import {
   chakra,
   DOMElements,
@@ -7,7 +7,7 @@ import {
   SystemStyleObject,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
+} from "@chakra-ui/vue-system"
 
 export interface FlexProps {
   /**
@@ -15,66 +15,66 @@ export interface FlexProps {
    * @type SystemStyleObject["alignItems"]
    * SystemStyleObject because prop can be String, Array or Object
    */
-  align?: SystemStyleObject['alignItems']
+  align?: SystemStyleObject["alignItems"]
 
   /**
    * Shorthand for `justifyContent` style prop
    * @type SystemStyleObject["justifyContent"]
    */
-  justify?: SystemStyleObject['justifyContent']
+  justify?: SystemStyleObject["justifyContent"]
 
   /**
    * Shorthand for `flexWrap` style prop
    * @type SystemStyleObject["flexWrap"]
    */
-  wrap?: SystemStyleObject['flexWrap']
+  wrap?: SystemStyleObject["flexWrap"]
 
   /**
    * Shorthand for `flexDirection` style prop
    * @type SystemStyleObject["flexDirection"]
    */
-  direction?: SystemStyleObject['flexDirection']
+  direction?: SystemStyleObject["flexDirection"]
 
   /**
    * Shorthand for `flexBasis` style prop
    * @type SystemStyleObject["flexBasis"]
    */
-  basis?: SystemStyleObject['flexBasis']
+  basis?: SystemStyleObject["flexBasis"]
 
   /**
    * Shorthand for `flexGrow` style prop
    * @type SystemStyleObject["flexGrow"]
    */
-  grow?: SystemStyleObject['flexGrow']
+  grow?: SystemStyleObject["flexGrow"]
 
   /**
    * Shorthand for `flexShrink` style prop
    * @type SystemStyleObject["flexShrink"]
    */
-  shrink?: SystemStyleObject['flexShrink']
+  shrink?: SystemStyleObject["flexShrink"]
 }
 
 const CFlex: ComponentWithProps<DeepPartial<FlexProps>> = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+      default: "div",
     },
-    align: [Object, String, Array] as PropType<FlexProps['align']>,
-    justify: [Object, String, Array] as PropType<FlexProps['justify']>,
-    wrap: [Object, String, Array] as PropType<FlexProps['wrap']>,
+    align: [Object, String, Array] as PropType<FlexProps["align"]>,
+    justify: [Object, String, Array] as PropType<FlexProps["justify"]>,
+    wrap: [Object, String, Array] as PropType<FlexProps["wrap"]>,
     direction: {
-      type: [Object, String, Array] as PropType<FlexProps['direction']>,
-      default: 'row',
+      type: [Object, String, Array] as PropType<FlexProps["direction"]>,
+      default: "row",
     },
-    basis: [Object, String, Array] as PropType<FlexProps['basis']>,
-    grow: [Object, String, Array] as PropType<FlexProps['grow']>,
-    shrink: [Object, String, Array] as PropType<FlexProps['shrink']>,
-    size: String as PropType<ThemingProps['size']>,
+    basis: [Object, String, Array] as PropType<FlexProps["basis"]>,
+    grow: [Object, String, Array] as PropType<FlexProps["grow"]>,
+    shrink: [Object, String, Array] as PropType<FlexProps["shrink"]>,
+    size: String as PropType<ThemingProps["size"]>,
   },
   setup(props, { slots, attrs }) {
     const styles = reactive({
-      display: 'flex',
+      display: "flex",
       flexDirection: props.direction,
       alignItems: props.align,
       justifyContent: props.justify,

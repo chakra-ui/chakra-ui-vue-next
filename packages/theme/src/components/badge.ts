@@ -1,11 +1,11 @@
-import { getColor, mode, transparentize } from '@chakra-ui/vue-theme-tools'
+import { getColor, mode, transparentize } from "@chakra-ui/vue-theme-tools"
 
 const baseStyle = {
   px: 1,
-  textTransform: 'uppercase',
-  fontSize: 'xs',
-  borderRadius: 'sm',
-  fontWeight: 'bold',
+  textTransform: "uppercase",
+  fontSize: "xs",
+  borderRadius: "sm",
+  fontWeight: "bold",
 }
 
 function variantSolid(props: Record<string, any>) {
@@ -45,8 +45,8 @@ const variants = {
 }
 
 const defaultProps = {
-  variant: 'subtle',
-  colorScheme: 'gray',
+  variant: "subtle",
+  colorScheme: "gray",
 }
 
 export default {

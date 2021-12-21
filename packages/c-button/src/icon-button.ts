@@ -1,8 +1,8 @@
-import { h, ComponentObjectPropsOptions, defineComponent, PropType } from 'vue'
-import CButton from './button'
-import { BUTTON_PROPS, ButtonProps } from './button.utils'
-import { CIcon } from '@chakra-ui/c-icon'
-import { ComponentWithProps, DeepPartial } from '@chakra-ui/vue-system'
+import { h, ComponentObjectPropsOptions, defineComponent, PropType } from "vue"
+import CButton from "./button"
+import { BUTTON_PROPS, ButtonProps } from "./button.utils"
+import { CIcon } from "@chakra-ui/c-icon"
+import { ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
 
 const IconButtonProps: ComponentObjectPropsOptions = {
   ...BUTTON_PROPS,
@@ -28,7 +28,7 @@ export interface CIconButtonProps extends ButtonProps {
 const CIconButton: ComponentWithProps<
   DeepPartial<CIconButtonProps>
 > = defineComponent({
-  name: 'CIconButton',
+  name: "CIconButton",
   props: IconButtonProps,
   setup(props, { attrs }) {
     if (!props.ariaLabel) {
@@ -41,8 +41,8 @@ const CIconButton: ComponentWithProps<
         CButton,
         {
           padding: 0,
-          rounded: props.isRound ? 'rounded' : 'md',
-          'aria-label': props.ariaLabel,
+          rounded: props.isRound ? "rounded" : "md",
+          "aria-label": props.ariaLabel,
           ...attrs,
           ...props,
         },

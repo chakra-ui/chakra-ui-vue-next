@@ -1,19 +1,19 @@
-import { ComponentOptions } from '@vue/runtime-core'
-import theme from '@chakra-ui/vue-theme'
-import '@testing-library/jest-dom'
-import '@testing-library/jest-dom/extend-expect'
-import * as vtl from '@testing-library/vue'
-import userEvent from '@testing-library/user-event'
-import { Component, defineComponent, h, provide } from 'vue'
-import { toHaveNoViolations, axe } from 'jest-axe'
-import { RunOptions } from 'axe-core'
+import { ComponentOptions } from "@vue/runtime-core"
+import theme from "@chakra-ui/vue-theme"
+import "@testing-library/jest-dom"
+import "@testing-library/jest-dom/extend-expect"
+import * as vtl from "@testing-library/vue"
+import userEvent from "@testing-library/user-event"
+import { Component, defineComponent, h, provide } from "vue"
+import { toHaveNoViolations, axe } from "jest-axe"
+import { RunOptions } from "axe-core"
 
 expect.extend(toHaveNoViolations)
 
 const useDefaultProviders = () => {
-  provide('$chakraTheme', theme)
-  provide('$chakraColorMode', 'light')
-  provide('$chakraIcons', {})
+  provide("$chakraTheme", theme)
+  provide("$chakraColorMode", "light")
+  provide("$chakraIcons", {})
 }
 
 export type TestRenderProps = {
@@ -33,7 +33,7 @@ export const render = (
 ): RenderResult => {
   const utils = vtl.render(
     defineComponent({
-      name: 'ChakraUIVueTestContainer',
+      name: "ChakraUIVueTestContainer",
       setup(_, { slots }) {
         useDefaultProviders()
         return () => h(component as any, slots)
@@ -45,11 +45,11 @@ export const render = (
   return {
     ...utils,
     asFragment: (innerHTML = utils.container.innerHTML) => {
-      if (typeof document.createRange === 'function') {
+      if (typeof document.createRange === "function") {
         return document.createRange().createContextualFragment(innerHTML)
       }
 
-      const template = document.createElement('template')
+      const template = document.createElement("template")
       template.innerHTML = innerHTML
       return template.content
     },
@@ -80,7 +80,7 @@ function waitMs(ms = 0) {
  */
 export function getElementStyles(selector: string) {
   const _selector = new RegExp(selector)
-  let styles = ''
+  let styles = ""
   let i
   let j
   const sel = _selector
@@ -123,7 +123,7 @@ export const testA11y = async (
   { axeOptions }: A11yOptions = {}
 ) => {
   let template = ui as Element
-  if ('container' in ui) {
+  if ("container" in ui) {
     template = ui.container
   }
   const results = await axe(template, axeOptions)
@@ -131,6 +131,6 @@ export const testA11y = async (
   expect(results).toHaveNoViolations()
 }
 
-export * from '@testing-library/vue'
+export * from "@testing-library/vue"
 export { userEvent, waitMs, useDefaultProviders }
 export { axe }

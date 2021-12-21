@@ -1,7 +1,7 @@
-import { render, waitMs, screen } from '../../test-utils/src'
-import { hideOthers } from '../src'
-import { useRef } from '@chakra-ui/vue-utils'
-import { nextTick, ref, onMounted } from 'vue'
+import { render, waitMs, screen } from "../../test-utils/src"
+import { hideOthers } from "../src"
+import { useRef } from "@chakra-ui/vue-utils"
+import { nextTick, ref, onMounted } from "vue"
 
 const renderComponent = (props?: any) => {
   const base = {
@@ -36,35 +36,35 @@ const renderComponent = (props?: any) => {
 }
 
 function assert(active: boolean = true) {
-  const ariaContainer = screen.getByTestId('aria-container')
-  const outsideAriaContainer = screen.getByTestId('outside-aria-container')
+  const ariaContainer = screen.getByTestId("aria-container")
+  const outsideAriaContainer = screen.getByTestId("outside-aria-container")
 
   if (active) {
-    expect(ariaContainer).not.toHaveAttribute('aria-hidden', 'true')
-    expect(outsideAriaContainer).toHaveAttribute('aria-hidden', 'true')
-    expect(outsideAriaContainer).toHaveAttribute('chakra-aria-hidden', 'true')
+    expect(ariaContainer).not.toHaveAttribute("aria-hidden", "true")
+    expect(outsideAriaContainer).toHaveAttribute("aria-hidden", "true")
+    expect(outsideAriaContainer).toHaveAttribute("chakra-aria-hidden", "true")
   } else {
-    expect(ariaContainer).not.toHaveAttribute('aria-hidden', 'true')
-    expect(outsideAriaContainer).not.toHaveAttribute('aria-hidden', 'true')
+    expect(ariaContainer).not.toHaveAttribute("aria-hidden", "true")
+    expect(outsideAriaContainer).not.toHaveAttribute("aria-hidden", "true")
     expect(outsideAriaContainer).not.toHaveAttribute(
-      'chakra-aria-hidden',
-      'true'
+      "chakra-aria-hidden",
+      "true"
     )
   }
 }
 
-it('should render properly', () => {
+it("should render properly", () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should match aria-hidden snapshot', async () => {
+it("should match aria-hidden snapshot", async () => {
   renderComponent()
   await waitMs(300)
   expect(document.body.innerHTML).toMatchSnapshot()
 })
 
-it('should apply aria-hidden attribute to other elements except target', async () => {
+it("should apply aria-hidden attribute to other elements except target", async () => {
   renderComponent()
   await waitMs(300)
 
@@ -72,5 +72,5 @@ it('should apply aria-hidden attribute to other elements except target', async (
 })
 
 it.todo(
-  'should remove aria-hidden attributes form other elements except target when job is undone'
+  "should remove aria-hidden attributes form other elements except target when job is undone"
 )

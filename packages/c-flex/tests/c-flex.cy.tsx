@@ -1,8 +1,8 @@
-import * as Examples from '../examples'
-import { h } from 'vue'
+import * as Examples from "../examples"
+import { h } from "vue"
 
-describe('Flex Examples', () => {
-  it('works', () => {
+describe("Flex Examples", () => {
+  it("works", () => {
     expect(true).to.be.true
   })
 

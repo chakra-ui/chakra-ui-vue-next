@@ -8,14 +8,14 @@ import {
   popperOffsets,
   computeStyles,
   applyStyles,
-} from '@popperjs/core'
+} from "@popperjs/core"
 import {
   innerArrow,
   matchWidth,
   positionArrow,
   transformOrigin,
-} from './modifiers'
-import { getEventListenerOptions } from './utils'
+} from "./modifiers"
+import { getEventListenerOptions } from "./utils"
 
 /* -------------------------------------------------------------------------------------------------
   We're initializing our own `createPopper` function with our opinionated defaults to
@@ -37,7 +37,7 @@ export interface CreatePopperOptions {
   preventOverflow?: boolean
   flip?: boolean
   matchWidth?: boolean
-  boundary?: 'clippingParents' | 'scrollParent' | HTMLElement
+  boundary?: "clippingParents" | "scrollParent" | HTMLElement
   // eslint-disable-next-line @typescript-eslint/member-delimiter-style
   eventListeners?: boolean | { scroll?: boolean; resize?: boolean }
   arrowPadding?: number
@@ -46,8 +46,8 @@ export interface CreatePopperOptions {
 export function createPopperFn(options: CreatePopperOptions) {
   return popperGenerator({
     defaultOptions: {
-      placement: 'bottom',
-      strategy: 'absolute',
+      placement: "bottom",
+      strategy: "absolute",
       modifiers: [],
     },
     defaultModifiers: [
@@ -82,7 +82,7 @@ export function createPopperFn(options: CreatePopperOptions) {
         ...preventOverflow,
         enabled: !!options.preventOverflow,
         options: {
-          boundary: options.boundary || 'clippingParents',
+          boundary: options.boundary || "clippingParents",
         },
       },
       {

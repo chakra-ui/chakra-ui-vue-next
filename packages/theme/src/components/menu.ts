@@ -1,25 +1,25 @@
-import { mode } from '@chakra-ui/vue-theme-tools'
+import { mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ['item', 'command', 'list', 'button', 'groupTitle', 'divider']
+const parts = ["item", "command", "list", "button", "groupTitle", "divider"]
 
 function baseStyleList(props: Record<string, any>) {
   return {
     bg: mode(`#fff`, `gray.700`)(props),
     boxShadow: mode(`sm`, `dark-lg`)(props),
-    color: 'inherit',
-    minW: '3xs',
-    py: '2',
+    color: "inherit",
+    minW: "3xs",
+    py: "2",
     zIndex: 1,
-    borderRadius: 'md',
-    borderWidth: '1px',
+    borderRadius: "md",
+    borderWidth: "1px",
   }
 }
 
 function baseStyleItem(props: Record<string, any>) {
   return {
-    py: '0.4rem',
-    px: '0.8rem',
-    transition: 'background 50ms ease-in 0s',
+    py: "0.4rem",
+    px: "0.8rem",
+    transition: "background 50ms ease-in 0s",
     _focus: {
       bg: mode(`gray.100`, `whiteAlpha.100`)(props),
     },
@@ -31,7 +31,7 @@ function baseStyleItem(props: Record<string, any>) {
     },
     _disabled: {
       opacity: 0.4,
-      cursor: 'not-allowed',
+      cursor: "not-allowed",
     },
   }
 }
@@ -39,8 +39,8 @@ function baseStyleItem(props: Record<string, any>) {
 const baseStyleGroupTitle = {
   mx: 4,
   my: 2,
-  fontWeight: 'semibold',
-  fontSize: 'sm',
+  fontWeight: "semibold",
+  fontSize: "sm",
 }
 
 const baseStyleCommand = {
@@ -49,9 +49,9 @@ const baseStyleCommand = {
 
 const baseStyleDivider = {
   border: 0,
-  borderBottom: '1px solid',
-  borderColor: 'inherit',
-  my: '0.5rem',
+  borderBottom: "1px solid",
+  borderColor: "inherit",
+  my: "0.5rem",
   opacity: 0.6,
 }
 

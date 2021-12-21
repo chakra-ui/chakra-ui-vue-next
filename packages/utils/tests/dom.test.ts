@@ -1,10 +1,10 @@
-import { render, waitMs, screen } from '@chakra-ui/vue-test-utils/src'
-import { defineComponent, h, nextTick, onMounted } from 'vue'
-import { useRef } from '../src/dom'
+import { render, waitMs, screen } from "@chakra-ui/vue-test-utils/src"
+import { defineComponent, h, nextTick, onMounted } from "vue"
+import { useRef } from "../src/dom"
 
 const ExampleComponent = defineComponent({
   setup(_, { slots }) {
-    return () => h('button', {}, () => slots?.default?.())
+    return () => h("button", {}, () => slots?.default?.())
   },
 })
 
@@ -38,18 +38,18 @@ const renderComponent = () =>
 let _containerEl: HTMLElement | null
 let _componentEl: HTMLElement | null
 
-it('`useDOMRef` should bind components to template elements', async () => {
+it("`useDOMRef` should bind components to template elements", async () => {
   renderComponent()
 
   await waitMs(500)
-  expect(screen.getByTestId('divElement')).toBe(_containerEl)
-  expect(screen.getByTestId('buttonComponent')).toBe(_componentEl)
+  expect(screen.getByTestId("divElement")).toBe(_containerEl)
+  expect(screen.getByTestId("buttonComponent")).toBe(_componentEl)
 })
 
-it('`useDOMRef` should bind components to render function elements', async () => {
+it("`useDOMRef` should bind components to render function elements", async () => {
   renderComponent()
 
   await waitMs(500)
-  expect(screen.getByTestId('divElement')).toBe(_containerEl)
-  expect(screen.getByTestId('buttonComponent')).toBe(_componentEl)
+  expect(screen.getByTestId("divElement")).toBe(_containerEl)
+  expect(screen.getByTestId("buttonComponent")).toBe(_componentEl)
 })

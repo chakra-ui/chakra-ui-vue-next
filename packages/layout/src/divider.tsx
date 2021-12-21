@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, computed } from 'vue'
+import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   ThemingProps,
@@ -6,14 +6,14 @@ import {
   HTMLChakraProps,
   ComponentWithProps,
   DeepPartial,
-} from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/utils'
-import { vueThemingProps } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface DividerProps
-  extends HTMLChakraProps<'div'>,
-    ThemingProps<'Container'> {
-  orientation?: 'horizontal' | 'vertical'
+  extends HTMLChakraProps<"div">,
+    ThemingProps<"Container"> {
+  orientation?: "horizontal" | "vertical"
 }
 
 /**
@@ -25,11 +25,11 @@ export interface DividerProps
 export const CDivider: ComponentWithProps<
   DeepPartial<DividerProps>
 > = defineComponent({
-  name: 'CDivider',
+  name: "CDivider",
   props: {
     orientation: {
-      type: [String] as PropType<DividerProps['orientation']>,
-      default: 'horizontal',
+      type: [String] as PropType<DividerProps["orientation"]>,
+      default: "horizontal",
     },
     ...vueThemingProps,
   },
@@ -44,7 +44,7 @@ export const CDivider: ComponentWithProps<
       })
     )
 
-    const styles = useStyleConfig('Divider', themingProps.value)
+    const styles = useStyleConfig("Divider", themingProps.value)
 
     const {
       borderLeftWidth,
@@ -61,13 +61,13 @@ export const CDivider: ComponentWithProps<
       const dividerStyles = {
         vertical: {
           borderLeftWidth:
-            borderLeftWidth || borderRightWidth || borderWidth || '1px',
-          height: '100%',
+            borderLeftWidth || borderRightWidth || borderWidth || "1px",
+          height: "100%",
         },
         horizontal: {
           borderBottomWidth:
-            borderBottomWidth || borderTopWidth || borderWidth || '1px',
-          width: '100%',
+            borderBottomWidth || borderTopWidth || borderWidth || "1px",
+          width: "100%",
         },
       }
       return dividerStyles[props.orientation!]

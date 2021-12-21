@@ -1,18 +1,18 @@
-import { vueThemingProps } from '@chakra-ui/vue-utils'
-import { h, defineComponent, PropType, computed } from 'vue'
+import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   DOMElements,
   ThemingProps,
   useStyleConfig,
-} from '@chakra-ui/vue-system'
-import { filterUndefined } from '@chakra-ui/utils'
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
 
 const CCode = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
-      default: 'code',
+      default: "code",
     },
     ...vueThemingProps,
   },
@@ -26,17 +26,17 @@ const CCode = defineComponent({
           styleConfig: props.styleConfig,
         })
       )
-      const styles = useStyleConfig('Code', themingProps.value)
+      const styles = useStyleConfig("Code", themingProps.value)
 
       return h(
         chakra(props.as, {
           __css: {
-            display: 'inline-block',
-            verticalAlign: 'middle',
-            fontSize: 'sm',
-            px: '0.2em',
-            fontFamily: 'mono',
-            rounded: 'sm',
+            display: "inline-block",
+            verticalAlign: "middle",
+            fontSize: "sm",
+            px: "0.2em",
+            fontFamily: "mono",
+            rounded: "sm",
             ...styles.value,
           },
         }),

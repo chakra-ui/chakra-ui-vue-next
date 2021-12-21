@@ -1,4 +1,4 @@
-import { Placement } from '@popperjs/core'
+import { Placement } from "@popperjs/core"
 
 const toVar = (value: string, fallback?: string) => ({
   var: value,
@@ -6,41 +6,41 @@ const toVar = (value: string, fallback?: string) => ({
 })
 
 export const popperCSSVars = {
-  arrowShadowColor: toVar('--popper-arrow-shadow-color'),
-  arrowSize: toVar('--popper-arrow-size', '8px'),
-  arrowSizeHalf: toVar('--popper-arrow-size-half'),
-  arrowBg: toVar('--popper-arrow-bg'),
-  transformOrigin: toVar('--popper-transform-origin'),
-  arrowOffset: toVar('--popper-arrow-offset'),
+  arrowShadowColor: toVar("--popper-arrow-shadow-color"),
+  arrowSize: toVar("--popper-arrow-size", "8px"),
+  arrowSizeHalf: toVar("--popper-arrow-size-half"),
+  arrowBg: toVar("--popper-arrow-bg"),
+  transformOrigin: toVar("--popper-transform-origin"),
+  arrowOffset: toVar("--popper-arrow-offset"),
 } as const
 
 export function getBoxShadow(placement: Placement) {
-  if (placement.includes('top'))
+  if (placement.includes("top"))
     return `1px 1px 1px 0 var(--popper-arrow-shadow-color)`
-  if (placement.includes('bottom'))
+  if (placement.includes("bottom"))
     return `-1px -1px 1px 0 var(--popper-arrow-shadow-color)`
-  if (placement.includes('right'))
+  if (placement.includes("right"))
     return `-1px 1px 1px 0 var(--popper-arrow-shadow-color)`
-  if (placement.includes('left'))
+  if (placement.includes("left"))
     return `1px -1px 1px 0 var(--popper-arrow-shadow-color)`
 }
 
 const transforms = {
-  top: 'bottom center',
-  'top-start': 'bottom left',
-  'top-end': 'bottom right',
+  top: "bottom center",
+  "top-start": "bottom left",
+  "top-end": "bottom right",
 
-  bottom: 'top center',
-  'bottom-start': 'top left',
-  'bottom-end': 'top right',
+  bottom: "top center",
+  "bottom-start": "top left",
+  "bottom-end": "top right",
 
-  left: 'right center',
-  'left-start': 'right top',
-  'left-end': 'right bottom',
+  left: "right center",
+  "left-start": "right top",
+  "left-end": "right bottom",
 
-  right: 'left center',
-  'right-start': 'left top',
-  'right-end': 'left bottom',
+  right: "left center",
+  "right-start": "left top",
+  "right-end": "left bottom",
 }
 
 export const toTransformOrigin = (placement: Placement) => transforms[placement]
@@ -57,7 +57,7 @@ export function getEventListenerOptions(
     enabled?: boolean
     options?: typeof defaultEventListeners
   }
-  if (typeof value === 'object') {
+  if (typeof value === "object") {
     eventListeners = {
       enabled: true,
       options: Object.assign(defaultEventListeners, value),

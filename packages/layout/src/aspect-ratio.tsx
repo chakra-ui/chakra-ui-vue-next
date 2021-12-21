@@ -1,12 +1,12 @@
-import { mapResponsive } from '@chakra-ui/utils'
+import { mapResponsive } from "@chakra-ui/utils"
 import {
   chakra,
   HTMLChakraProps,
   ResponsiveValue,
   DeepPartial,
   ComponentWithProps,
-} from '@chakra-ui/vue-system'
-import { defineComponent, h, PropType } from 'vue'
+} from "@chakra-ui/vue-system"
+import { defineComponent, h, PropType } from "vue"
 
 interface AspectRatioOptions {
   /**
@@ -18,7 +18,7 @@ interface AspectRatioOptions {
 }
 
 export interface AspectRatioProps
-  extends HTMLChakraProps<'div'>,
+  extends HTMLChakraProps<"div">,
     AspectRatioOptions {}
 
 /**
@@ -30,10 +30,10 @@ export interface AspectRatioProps
 export const CAspectRatio: ComponentWithProps<
   DeepPartial<AspectRatioProps>
 > = defineComponent({
-  name: 'CAspectRatio',
+  name: "CAspectRatio",
   props: {
     ratio: {
-      type: [Number] as PropType<AspectRatioProps['ratio']>,
+      type: [Number] as PropType<AspectRatioProps["ratio"]>,
       default: 4 / 3,
     },
   },
@@ -45,25 +45,25 @@ export const CAspectRatio: ComponentWithProps<
         _before={{
           height: 0,
           content: `""`,
-          display: 'block',
+          display: "block",
           paddingBottom: mapResponsive(props.ratio, (r) => `${(1 / r) * 100}%`),
         }}
         __css={{
-          '& > *:not(style)': {
-            overflow: 'hidden',
-            position: 'absolute',
-            top: '0',
-            right: '0',
-            bottom: '0',
-            left: '0',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100%',
-            height: '100%',
+          "& > *:not(style)": {
+            overflow: "hidden",
+            position: "absolute",
+            top: "0",
+            right: "0",
+            bottom: "0",
+            left: "0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: "100%",
           },
-          '& > img, & > video': {
-            objectFit: 'cover',
+          "& > img, & > video": {
+            objectFit: "cover",
           },
         }}
         {...attrs}

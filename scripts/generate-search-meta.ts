@@ -1,17 +1,17 @@
-import { parseMarkdownFile, fileToPath, removePrefix } from '@docusaurus/utils'
-import path from 'path'
+import { parseMarkdownFile, fileToPath, removePrefix } from "@docusaurus/utils"
+import path from "path"
 //@ts-ignore
-import toc from 'markdown-toc'
-import { v4 as uuid } from 'uuid'
-import shell from 'shelljs'
-import fs from 'graceful-fs'
-import prettier from 'prettier'
+import toc from "markdown-toc"
+import { v4 as uuid } from "uuid"
+import shell from "shelljs"
+import fs from "graceful-fs"
+import prettier from "prettier"
 
 interface ResultType {
   content: string
   id: string
   url: string
-  type: 'lvl1' | 'lvl2' | 'lvl3'
+  type: "lvl1" | "lvl2" | "lvl3"
   hierarchy: {
     lvl1: string | null
     lvl2?: string | null
@@ -27,23 +27,23 @@ interface TOCResultItem {
   seen: number
 }
 
-const websiteRoot = 'website/src/pages'
+const websiteRoot = "website/src/pages"
 
 async function getMDXMeta(file: string) {
   const { content, frontMatter } = await parseMarkdownFile(file)
   const tableOfContent = toc(content)
   const json = tableOfContent.json as TOCResultItem[]
   const slug = fileToPath(file)
-    .replace(`/${websiteRoot}`, '')
-    .replace(process.cwd(), '')
+    .replace(`/${websiteRoot}`, "")
+    .replace(process.cwd(), "")
 
   const result: ResultType[] = []
 
   result.push({
     content: frontMatter.title as string,
     id: uuid(),
-    type: 'lvl1',
-    url: removePrefix(slug, '/'),
+    type: "lvl1",
+    url: removePrefix(slug, "/"),
     hierarchy: {
       lvl1: frontMatter.title as string,
     },
@@ -54,7 +54,7 @@ async function getMDXMeta(file: string) {
       content: item.content,
       id: uuid(),
       type: `lvl${item.lvl}` as any,
-      url: `${removePrefix(slug, '/')}#${item.slug}`,
+      url: `${removePrefix(slug, "/")}#${item.slug}`,
       hierarchy: {
         lvl1: frontMatter.title as string,
         lvl2: item.lvl === 2 ? item.content : json[index - 1]?.content ?? null,
@@ -70,9 +70,9 @@ async function getSearchMeta() {
   let json: any = []
 
   const files = shell
-    .ls('-R', websiteRoot)
+    .ls("-R", websiteRoot)
     .map((file) => path.join(process.cwd(), websiteRoot, file))
-    .filter((file) => file.endsWith('.mdx'))
+    .filter((file) => file.endsWith(".mdx"))
 
   files.forEach(async (file) => {
     let result: any[] = []
@@ -84,14 +84,14 @@ async function getSearchMeta() {
     }
   })
 
-  json = prettier.format(JSON.stringify(json), { parser: 'json' })
+  json = prettier.format(JSON.stringify(json), { parser: "json" })
   const outPath = path.join(
     process.cwd(),
-    'website/src/config',
-    'search-meta.json'
+    "website/src/config",
+    "search-meta.json"
   )
   fs.writeFileSync(outPath, json)
-  console.log('Search meta is ready ✅')
+  console.log("Search meta is ready ✅")
 }
 
 getSearchMeta()
