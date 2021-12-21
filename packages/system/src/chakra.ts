@@ -19,8 +19,8 @@ import {
   SystemStyleObject,
 } from "@chakra-ui/styled-system"
 
-import { cx, isFunction, isObject, memoizedGet as get } from "@chakra-ui/utils"
-import { css as _css, CSSObject } from "@emotion/css"
+import { isFunction, isObject, memoizedGet as get } from "@chakra-ui/utils"
+import { cx, css as _css, CSSObject } from "@emotion/css"
 import { extractStyleAttrs } from "./system.attrs"
 import { domElements, DOMElements } from "./system.utils"
 import { useTheme } from "./composables/use-chakra"
@@ -237,7 +237,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
         return h(
           (componentOrTag as any) || props.as,
           {
-            class: cx(inheritedClass, _componentName, className),
+            class: cx(inheritedClass as string, _componentName, className),
             ...elementAttributes,
             ...(!props.__chakraIsRaw &&
               handleValueChange &&
