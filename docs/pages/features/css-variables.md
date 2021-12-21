@@ -57,7 +57,7 @@ CSS variables that look like:
 ```
 
 > Note: **The generated custom properties are prefixed with `chakra-*`** to
-> avoid conflicts with third party CSS.
+> avoid conflicts with third-party CSS.
 
 ## Consuming CSS Variables
 
@@ -103,28 +103,12 @@ or wrap the component in `<c-box/>` and style it with convenience.
 </c-box>
 ```
 
-## Attaching the CSS variables
-
-By default, Chakra attaches the generated CSS variables to the `:root` element.
-
-> The :root pseudo-class represents the top level of the HTML document.
-
-To change the root element that Chakra attaches the CSS variables to, pass the
-`cssVarsRoot` prop to `ChakraProvider` and set its value to the CSS selector of
-the element you want.
-
-```jsx live=false
-<ChakraProvider cssVarsRoot='#app'>
-  <App />
-</ChakraProvider>
-```
-
 ## Creating scoped, theme-aware CSS variables
 
 > This is experimental and might be removed in future versions
 
-When using the `sx` prop or the `chakra(...)` factory, you can create variables
-that reference theme tokens. This makes it possible to change property values
+When using the `sx` prop or components created with the `chakra` factory, 
+you can create variables that reference theme tokens. This makes it possible to change property values
 based on breakpoint, or light/dark mode with ease.
 
 ```jsx live=false
