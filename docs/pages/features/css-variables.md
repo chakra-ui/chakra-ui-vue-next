@@ -28,7 +28,7 @@ default theme) to CSS variables internally so you don't have to.
 
 Given a theme object that looks like this:
 
-```jsx live=false
+```js
 const theme = {
   fontSizes: {
     lg: '18px',
@@ -61,7 +61,7 @@ CSS variables that look like:
 When using Chakra's components, we manage the conversion of theme tokens to
 their respective CSS variable.
 
-```jsx live=false
+```vue
 // You type this
 <c-box color="gray.100" />
 
@@ -78,7 +78,7 @@ their respective CSS variable.
 In certain scenarios, you might need to style components that are not managed by
 Chakra. In this case, you can use the raw CSS variable values.
 
-```jsx live=false
+```vue
 // let's say you have an embedded form
 <FormiumForm />
 ```
@@ -94,7 +94,7 @@ You can write custom CSS to style the components
 
 or wrap the component in `<c-box/>` and style it with convenience.
 
-```jsx live=false
+```vue
 <c-box :sx="{ '.formium': { bg: 'gray.50', color: 'gray.700' } }">
   <FormiumForm />
 </c-box>
@@ -108,7 +108,7 @@ When using the `sx` prop or components created with the `chakra` factory,
 you can create variables that reference theme tokens. This makes it possible to change property values
 based on breakpoint, or light/dark mode with ease.
 
-```jsx live=false
+```vue
 <c-box
   :sx="{
     // "colors.gray.100" is shorthand for `var(--chakra-colors-gray.100)`

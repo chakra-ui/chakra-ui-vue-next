@@ -1,6 +1,6 @@
 # Text and Layer Styles
 
-In most projects you might find yourself repeating specific text properties
+In most projects, you might find yourself repeating specific text properties
 (font size, font weight, line height) or layer properties (bg, color, shadow).
 This can be painful as your project grows in size.
 
@@ -11,7 +11,7 @@ consistent.
 
 Layer Styles allow you to save a combination of styling attributes to re-use in
 other components. Once created, pass the `layerStyle` prop to any component and
-chakra will resolve the styles accordingly.
+Chakra will resolve the styles accordingly.
 
 Properties defined in a layer style
 
@@ -21,7 +21,7 @@ Properties defined in a layer style
 - Box shadow
 - Opacity
 
-```jsx live=false
+```vue
 // 1. Import `extendTheme`
 import { extendTheme } from '@chakra-ui/vue-next'
 
@@ -79,7 +79,7 @@ Properties defined in a text style
 - Text decoration (strikethrough and underline)
 - Text transform (uppercase, lowercase, and capitalization)
 
-```jsx live=false
+```vue
 // 1. Import `extendTheme`
 import { extendTheme } from '@chakra-ui/vue-next'
 

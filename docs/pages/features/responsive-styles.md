@@ -31,7 +31,7 @@ is the recommended method.
 
 Let's say you have a `Box` with the following properties:
 
-```jsx live=false
+```vue
 <c-box bg="red.200" w="400px">
   This is a box
 </c-box>
@@ -40,7 +40,7 @@ Let's say you have a `Box` with the following properties:
 To make the `width` or `w` responsive using the array syntax, here's what you
 need to do:
 
-```jsx live=false
+```vue
 <c-box bg="red.200" :w=[300, 400, 500]>
   This is a box
 </c-box>
@@ -82,14 +82,14 @@ undefined alias key will define the base, non-responsive value.
 
 Let's say you have a `Text` that looks like this:
 
-```jsx live=false
+```vue
 <c-text fontSize="40px">This is a text</c-text>
 ```
 
 To make the `fontSize` responsive using the object syntax, here's what you need
 to do:
 
-```jsx live=false
+```vue
 <c-text :fontSize={ base: "24px", md: "40px", lg: "56px" }>
   This is responsive text
 </c-text>
@@ -109,8 +109,8 @@ Here's how to interpret this syntax:
 This works for every style prop in the theme specification, which means you can
 change the style of most properties at a given breakpoint.
 
-```jsx live=false
-<>
+```vue
+<template>
   <c-box
     :height={
       base: "100%", // 0-48em
@@ -133,7 +133,7 @@ change the style of most properties at a given breakpoint.
   <c-box bg="papayawhip" :p=[2, 4, 6, 8]>
     Padding
   </c-box>
-</>
+</template>
 ```
 
 ## Under the hood
@@ -141,7 +141,7 @@ change the style of most properties at a given breakpoint.
 This shortcut is an alternative to writing media queries out by hand. Given the
 following:
 
-```jsx live=false
+```vue
 <c-box :width=[1, 1 / 2, 1 / 4] />
 or
 <c-box :width="['100%', 0.5, 0.25]" />
@@ -199,7 +199,7 @@ To define custom breakpoints, install `@chakra-ui/theme-tools`, and use the
 > Note: Ensure the css unit of your breakpoints are the same. Use all `px` or
 > all `em`, don't mix them.
 
-```jsx live=false
+```vue
 // 1. Import the utilities
 import { extendTheme } from "@chakra-ui/vue-next"
 import { createBreakpoints } from "@chakra-ui/theme-tools"

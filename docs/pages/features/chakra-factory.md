@@ -1,6 +1,6 @@
 # Chakra Factory
 
-Chakra factory serves as an **object of chakra enabled JSX elements**, and also
+Chakra factory serves as an **object of chakra enabled HTML elements**, and also
 **a function that can be used to enable custom component** to receive chakra's
 style props.
 
@@ -14,7 +14,7 @@ Create base HTML elements with theme-aware style props using `chakra.<element>`
 notation. For example, if you want a plain HTML button with the ability to pass
 chakra styles, you can write `<chakra.button />`.
 
-```jsx
+```vue
 <chakra.button
   px="3"
   py="2"
@@ -31,16 +31,16 @@ syntax is available for common HTML elements. See the reference for the full
 [list of elements](https://github.com/chakra-ui/chakra-ui/blob/main/packages/system/src/system.utils.ts#L9)
 supported.
 
-```jsx
+```vue
 <chakra.h1 fontSize="lg"> Heading </chakra.h1>
 ```
 
 ## Chakra factory function
 
-This is a function that converts **non-chakra components** or **jsx element** to
+This is a function that converts **non-chakra components** or **HTML element** to
 chakra-enabled components so you can pass style props to them.
 
-Consider a package called `my-awesome-components`, let's use the chakra factory
+Consider a component called `my-awesome-component`, let's use the chakra factory
 function to make it possible to pass style props.
 
 The function will infer the prop types from the wrapped component and also add
@@ -67,7 +67,7 @@ chakra style props.
 In some instances, you might need to attach specific styles to the component
 wrapped in the chakra factory
 
-```jsx
+```vue
 const ChakraAwesomeComponent = chakra(awesomeComponent, {
   baseStyle: {
     bg: "papayawhip",
@@ -76,9 +76,9 @@ const ChakraAwesomeComponent = chakra(awesomeComponent, {
 })
 ```
 
-You can also use the chakra factory on jsx-elements as well.
+You can also use the chakra factory on HTML elements as well.
 
-```jsx
+```vue
 const Card = chakra("div", {
   baseStyle: {
     shadow: "lg",
@@ -95,7 +95,7 @@ with theme-aware style props using `chakra.<element>` notation.
 In your `main.ts` file make sure to import the chakra object from the '@chakra-ui/vue-next' package. 
 Use a forEach() function to loop over all the dom elements and push them through the factory function (chakra()).
 
-```jsx
+```vue
 import { createApp } from 'vue'
 import App from './App.vue'
 import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'

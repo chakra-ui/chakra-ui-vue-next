@@ -50,7 +50,7 @@ Let's create a basic gradient from `green.200` to `pink.500`
 
 You can use both theme-aware color tokens or raw CSS color values.
 
-```jsx
+```vue
 <c-box w="100%" h="200px" bgGradient="linear(to-l, #7928CA, #FF0080)" />
 ```
 
@@ -59,7 +59,7 @@ You can use both theme-aware color tokens or raw CSS color values.
 By adding more color-stop points on the gradient line, you can create a highly
 customized transition between multiple colors.
 
-```jsx
+```vue
 <c-box
   w="100%"
   h="200px"
@@ -70,7 +70,7 @@ customized transition between multiple colors.
 Following the CSS gradient specification, you can also define the distribution
 of the color stops
 
-```jsx
+```vue
 <c-box
   w="100%"
   h="200px"
@@ -83,7 +83,7 @@ of the color stops
 To add a text gradient, pass the `bgGradient` following the API and `bgClip`
 prop to `text`.
 
-```jsx
+```vue
 <c-text
   bgGradient="linear(to-l, #7928CA, #FF0080)"
   bgClip="text"
@@ -99,7 +99,7 @@ prop to `text`.
 You can control the responsiveness of gradients by specifying the gradients at
 the different breakpoints.
 
-```jsx
+```vue
 <c-box
   w="100%"
   h="200px"
@@ -118,7 +118,7 @@ You can change the gradient of an element based on common CSS pseudo attributes
 
 For example, on hover, add the gradient you wish to have.
 
-```jsx
+```vue
 <c-box
   as="button"
   p="4"
