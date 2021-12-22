@@ -10,7 +10,17 @@ import { TemplateRef } from "./dom"
  */
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
+/**
+ * May be a simple ref (nor computed ref)
+ */
+export type MaybeBaseRef<T> = T | Ref<T>
+
 /** VNodeProps Object */
 export interface MergedVNodeProps extends VNodeProps {
   ref: TemplateRef | ((el: TemplateRef | null) => void)
 }
+
+/**
+ * Any function
+ */
+export type Fn = () => void
