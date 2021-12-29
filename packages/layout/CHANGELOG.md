@@ -1,5 +1,16 @@
 # @chakra-ui/vue-layout
 
+## 0.1.0-alpha.9
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/c-icon@1.0.0-alpha.8
+  - @chakra-ui/vue-system@0.1.0-alpha.8
+  - @chakra-ui/vue-utils@0.1.0-alpha.8
+
 ## 0.1.0-alpha.8
 
 ### Minor Changes

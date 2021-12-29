@@ -1,5 +1,14 @@
 # @chakra-ui/c-theme-provider
 
+## 1.0.0-alpha.8
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/vue-theme@1.0.0-alpha.8
+
 ## 1.0.0-alpha.7
 
 ### Minor Changes

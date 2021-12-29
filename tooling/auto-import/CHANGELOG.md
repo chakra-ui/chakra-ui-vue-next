@@ -1,5 +1,14 @@
 # @chakra-ui/vue-auto-import
 
+## 1.0.0-alpha.9
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/vue-next@1.0.0-alpha.10
+
 ## 1.0.0-alpha.8
 
 ### Minor Changes

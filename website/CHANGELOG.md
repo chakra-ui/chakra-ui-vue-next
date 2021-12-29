@@ -1,5 +1,11 @@
 # @chakra-ui/vue-docs
 
+## 0.1.0-alpha.8
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
 ## 0.1.0-alpha.7
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @chakra-ui/c-input
 
+## 0.0.0-alpha.3
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/c-form-control@0.0.0-alpha.3
+  - @chakra-ui/vue-system@0.1.0-alpha.8
+  - @chakra-ui/vue-utils@0.1.0-alpha.8
+
 ## 0.0.0-alpha.2
 
 ### Minor Changes

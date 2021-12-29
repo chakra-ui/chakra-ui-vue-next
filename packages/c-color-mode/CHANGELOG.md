@@ -1,5 +1,11 @@
 # @chakra-ui/c-color-mode
 
+## 0.1.0-alpha.7
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
 ## 0.1.0-alpha.6
 
 ### Minor Changes
