@@ -47,8 +47,8 @@
   </c-box>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import type { Heading } from '@/docs-theme/utils/get-headings'
+import { defineProps } from "vue"
+import type { Heading } from "@/docs-theme/utils/get-headings"
 
 // @ts-ignore
 const props = defineProps<{

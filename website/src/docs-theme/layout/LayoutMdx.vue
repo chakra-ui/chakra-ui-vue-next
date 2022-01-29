@@ -16,16 +16,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { getHeadings } from '@/docs-theme/utils/get-headings'
-import { getRoutes } from '@/docs-theme/utils/get-routes'
-import { useRoute } from 'vue-router'
-import { getRouteContext } from '@/docs-theme/utils/get-route-context'
+import { defineComponent, PropType } from "vue"
+import { getHeadings } from "@/docs-theme/utils/get-headings"
+import { getRoutes } from "@/docs-theme/utils/get-routes"
+import { useRoute } from "vue-router"
+import { getRouteContext } from "@/docs-theme/utils/get-route-context"
 
 import {
   findRouteByPath,
   removeFromLast,
-} from '@/docs-theme/utils/find-route-by-path'
+} from "@/docs-theme/utils/find-route-by-path"
 
 export default defineComponent({
   props: {
@@ -43,7 +43,7 @@ export default defineComponent({
     const headings = getHeadings(slots)
 
     const route = findRouteByPath(
-      removeFromLast(props.frontmatter.slug, '#'),
+      removeFromLast(props.frontmatter.slug, "#"),
       routes
     )
 

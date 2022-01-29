@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Getting Started Foo
 ---
 
 # Project setup with Vite
@@ -32,9 +32,9 @@ yarn add @chakra-ui-vue
 
 ### Locally for now
 
-For now I've to use Yarn link. 
+For now I've to use Yarn link.
 
-In the Chakra UI Vue Next packages you run: 
+In the Chakra UI Vue Next packages you run:
 
 ```bash
 yarn build && yarn link
@@ -52,26 +52,26 @@ yarn link "@chakra-ui/c-button"
 
 ## Usage
 
-Before you can use Chakra, you have to add it to the Vue.js instance. This will be done in your `main.ts` file. 
+Before you can use Chakra, you have to add it to the Vue.js instance. This will be done in your `main.ts` file.
 
 ```tsx
-import { createApp } from 'vue'
-import App from './App.vue'
-import ChakraUIVuePlugin from '@chakra-ui/vue-next'
-import { domElements } from '@chakra-ui/vue-system'
+import { createApp } from "vue"
+import App from "./App.vue"
+import ChakraUIVuePlugin from "@chakra-ui/vue-next"
+import { domElements } from "@chakra-ui/vue-system"
 
 const app = createApp(App).use(ChakraUIVuePlugin)
-app.mount('#app')
+app.mount("#app")
 ```
 
 If you wish to use the Chakra Factory ([https://chakra-ui.com/docs/features/chakra-factory](https://chakra-ui.com/docs/features/chakra-factory)) to create base html elements with theme-aware style props using `chakra.<element>` notation.
 Make sure import the `chakra object` from `'@chakra-ui/vue-next'` and to add the following forEach function.
 
 ```tsx
-import { createApp } from 'vue'
-import App from './App.vue'
-import ChakraUIVuePlugin, { chakra } from '@chakra-ui/vue-next'
-import { domElements } from '@chakra-ui/vue-system'
+import { createApp } from "vue"
+import App from "./App.vue"
+import ChakraUIVuePlugin, { chakra } from "@chakra-ui/vue-next"
+import { domElements } from "@chakra-ui/vue-system"
 
 const app = createApp(App).use(ChakraUIVuePlugin)
 
@@ -79,7 +79,7 @@ domElements.forEach((tag) => {
   app.component(`chakra.${tag}`, chakra(tag))
 })
 
-app.mount('#app')
+app.mount("#app")
 ```
 
 ## Chakra in components
@@ -90,14 +90,14 @@ When you can use a Chakra UI Vue component in your components, you will first ha
 import { CButton } from "@chakra-ui/vue-next"
 ```
 
-Next, you have to add it to the components option. 
+Next, you have to add it to the components option.
 
 ```tsx
 export default defineComponent({
-  name: 'YOUR COMPONENT NAME',
+  name: "YOUR COMPONENT NAME",
   components: {
-    CButton
-  }
+    CButton,
+  },
 })
 ```
 
@@ -137,9 +137,9 @@ Inside your `main.ts` file you can import the icons you wish to use and add thos
 const app = createApp(App).use(ChakraUIVuePlugin, {
   icons: {
     library: {
-      feGithub
-    }
-  }
+      feGithub,
+    },
+  },
 })
 ```
 
@@ -148,7 +148,7 @@ Since the `feather-icons-paths` package doesn't have provide any `types` you've 
 If you are using `Volar` inside the `shims-vue.d.ts` you can declare the module.
 
 ```tsx
-declare module 'feather-icons-paths'
+declare module "feather-icons-paths"
 ```
 
 ### Usage

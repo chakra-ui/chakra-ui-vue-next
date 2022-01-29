@@ -6,15 +6,16 @@ import Pages from "vite-plugin-pages"
 import Icons from "unplugin-icons/vite"
 import Components from "unplugin-vue-components/vite"
 import VueMdx from "vite-plugin-mdx-vue"
-import { componentResolver } from "@chakra-ui/vue-auto-import"
 import { MdxComponents } from "./src/docs-theme/components/MdxComponents"
 import Layouts from "vite-plugin-vue-layouts"
 import VueJsx from "@vitejs/plugin-vue-jsx"
 import remarkGfm from "remark-gfm"
 // @ts-ignore
 import remarkAutolinkHeadings from "remark-autolink-headings"
+
 // @ts-ignore
 import remarkSlug from "remark-slug"
+import ChakraComponents from "../playground/build/components.json"
 import { remarkMdxCodeMeta } from "remark-mdx-code-meta"
 
 const getEditPageUrl = (resourcePath: string) => {
@@ -109,7 +110,16 @@ export default defineConfig({
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.mdx$/],
       // import chakra-ui components
-      resolvers: [componentResolver],
+      resolvers: [
+        (name: string) => {
+          if (name in ChakraComponents) {
+            return {
+              importName: name,
+              path: `@chakra-ui/vue-next`,
+            }
+          }
+        },
+      ],
     }),
     Icons(),
   ],

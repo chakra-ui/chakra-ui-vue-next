@@ -1,6 +1,8 @@
 const ChakraComponents = require("@chakra-ui/vue-next")
-const { writeFileSync } = require("fs")
+const { writeFileSync, existsSync, mkdirSync } = require("fs")
 const { resolve } = require("path")
+
+const BUILD_DIR = resolve(__dirname, "../build/")
 
 async function main() {
   const components = {}
@@ -8,6 +10,10 @@ async function main() {
     if (prop.startsWith("C")) {
       components[prop] = ChakraComponents[prop]
     }
+  }
+
+  if (!existsSync(BUILD_DIR)) {
+    mkdirSync(BUILD_DIR)
   }
 
   writeFileSync(
