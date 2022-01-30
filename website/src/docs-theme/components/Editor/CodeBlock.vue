@@ -1,7 +1,8 @@
 <script lang="tsx">
-import { defineComponent, renderSlot, SetupContext } from 'vue'
-import { BoxProps } from '@chakra-ui/vue-next'
-import { DeepPartial } from '@chakra-ui/vue-system'
+import { computed, defineComponent, renderSlot, SetupContext } from "vue"
+import { BoxProps } from "@chakra-ui/vue-next"
+import { DeepPartial } from "@chakra-ui/vue-system"
+import { useClipboard } from "@chakra-ui/vue-composables"
 
 export const CopyButton = (props: any, { slots }: SetupContext) => {
   return (
@@ -9,7 +10,7 @@ export const CopyButton = (props: any, { slots }: SetupContext) => {
       size="sm"
       position="absolute"
       textTransform="uppercase"
-      colorScheme="teal"
+      colorScheme="emerald"
       fontSize="xs"
       height="24px"
       top={0}
@@ -17,7 +18,7 @@ export const CopyButton = (props: any, { slots }: SetupContext) => {
       right="1.25em"
       {...props}
     >
-      {renderSlot(slots, 'default')}
+      {renderSlot(slots, "default")}
     </c-button>
   )
 }
@@ -62,7 +63,9 @@ export default defineComponent({
     language: String,
     live: { type: [Boolean, String], default: false },
   },
-  setup(props, { slots }) {
+  setup(props) {
+    const source = computed(() => props.code as string)
+    const { copy } = useClipboard({ source })
     return () => {
       return (
         // live
@@ -71,7 +74,9 @@ export default defineComponent({
           {!props.live && (
             <CodeContainer overflow="hidden" pt="3">
               <code-highlight code={props.code} language={props.language} />
-              <CopyButton top="4">COPY</CopyButton>
+              <CopyButton top="4" onClick={() => copy()}>
+                COPY
+              </CopyButton>
             </CodeContainer>
           )}
         </c-box>

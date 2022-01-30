@@ -2,7 +2,7 @@ import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
 import Components from "unplugin-vue-components/vite"
 import Pages from "vite-plugin-pages"
-// import Layouts from 'vite-plugin-vue-layouts'
+import Layouts from "vite-plugin-vue-layouts"
 import ChakraComponents from "./playground/build/components.json"
 import path from "path"
 
@@ -40,6 +40,9 @@ export default defineConfig({
           group,
         }
       },
+    }),
+    Layouts({
+      layoutsDir: "/layouts",
     }),
     Components({
       resolvers: [

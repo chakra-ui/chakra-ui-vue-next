@@ -1,7 +1,7 @@
 <script lang="tsx">
-import { LinkProps } from '@chakra-ui/vue-layout'
-import { defineComponent, PropType } from 'vue'
-import { useColorModeValue } from '@chakra-ui/c-color-mode'
+import { LinkProps } from "@chakra-ui/vue-layout"
+import { defineComponent, PropType } from "vue"
+import { useColorModeValue } from "@chakra-ui/c-color-mode"
 
 type ComponentLinkProps = LinkProps & {
   icon: string
@@ -12,10 +12,10 @@ type ComponentLinkProps = LinkProps & {
 
 export default defineComponent({
   props: {
-    icon: String as PropType<ComponentLinkProps['icon']>,
-    url: String as PropType<ComponentLinkProps['url']>,
-    iconSize: String as PropType<ComponentLinkProps['iconSize']>,
-    iconColor: String as PropType<ComponentLinkProps['iconColor']>,
+    icon: String as PropType<ComponentLinkProps["icon"]>,
+    url: String as PropType<ComponentLinkProps["url"]>,
+    iconSize: String as PropType<ComponentLinkProps["iconSize"]>,
+    iconColor: String as PropType<ComponentLinkProps["iconColor"]>,
   },
   setup(props, { slots }) {
     return () => {
@@ -29,11 +29,11 @@ export default defineComponent({
           minH="32px"
           borderWidth="1px"
           borderRadius="md"
-          color={useColorModeValue('gray.600', 'whiteAlpha.700').value}
+          color={useColorModeValue("gray.600", "whiteAlpha.700").value}
           _hover={{
-            color: useColorModeValue('gray.700', 'whiteAlpha.900').value,
-            boxShadow: 'sm',
-            transform: 'translateY(-1px)',
+            color: useColorModeValue("gray.700", "whiteAlpha.900").value,
+            boxShadow: "sm",
+            transform: "translateY(-1px)",
           }}
         >
           <c-h-stack>

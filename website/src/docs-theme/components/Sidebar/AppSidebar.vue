@@ -5,7 +5,7 @@ import {
   GuidesIcon,
   TeamIcon,
   ResourcesIcon,
-} from './SidebarIcons.vue'
+} from "./SidebarIcons.vue"
 import {
   defineComponent,
   Fragment,
@@ -14,12 +14,12 @@ import {
   SetupContext,
   Ref,
   ref,
-} from 'vue'
-import { useColorModeValue } from '@chakra-ui/c-color-mode'
-import { useRoute } from 'vue-router'
-import { RouteItem, Routes } from '@/docs-theme/utils/get-route-context'
-import { convertBackticksToInlineCode } from '@/docs-theme/utils/convert-backticks-to-inline-code'
-import { sortBy } from 'lodash'
+} from "vue"
+import { useColorModeValue } from "@chakra-ui/c-color-mode"
+import { useRoute } from "vue-router"
+import { RouteItem, Routes } from "@/docs-theme/utils/get-route-context"
+import { convertBackticksToInlineCode } from "@/docs-theme/utils/convert-backticks-to-inline-code"
+import { sortBy } from "lodash"
 
 type MainNavLinkProps = {
   icon?: any
@@ -31,9 +31,9 @@ const MainNavLink = (
   { slots }: SetupContext
 ) => {
   const { path } = useRoute()
-  const [, group] = href!.split('/')
+  const [, group] = href!.split("/")
   const active = path.includes(group)
-  const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900')
+  const linkColor = useColorModeValue("gray.900", "whiteAlpha.900")
 
   return (
     <router-link to={href} passHref>
@@ -44,13 +44,13 @@ const MainNavLink = (
         fontWeight="semibold"
         transitionProperty="colors"
         transitionDuration="200ms"
-        color={active ? linkColor.value : 'gray.500'}
+        color={active ? linkColor.value : "gray.500"}
         _hover={{ color: linkColor.value }}
       >
         <c-center w="6" h="6" bg="emerald.400" rounded="base" mr="3">
           {icon}
         </c-center>
-        {renderSlot(slots, 'default')}
+        {renderSlot(slots, "default")}
       </c-flex>
     </router-link>
   )
@@ -59,28 +59,28 @@ const MainNavLink = (
 const mainNavLinks = [
   {
     icon: <DocsIcon />,
-    href: '/docs/getting-started',
-    label: 'Docs',
+    href: "/docs/getting-started",
+    label: "Docs",
   },
   {
     icon: <GuidesIcon />,
-    href: '/guides/integrations/with-cra',
-    label: 'Guides',
+    href: "/guides/integrations/with-cra",
+    label: "Guides",
   },
   {
     icon: <ResourcesIcon />,
-    href: '/resources',
-    label: 'Resources',
+    href: "/resources",
+    label: "Resources",
   },
   {
     icon: <TeamIcon />,
-    href: '/team',
-    label: 'Team',
+    href: "/team",
+    label: "Team",
   },
   {
     icon: <BlogIcon />,
-    href: '/blog',
-    label: 'Blog',
+    href: "/blog",
+    label: "Blog",
   },
 ]
 
@@ -105,8 +105,8 @@ export type SidebarContentProps = Routes & {
 
 export const SidebarContent = defineComponent({
   props: {
-    routes: Object as PropType<SidebarContentProps['routes']>,
-    pathname: String as PropType<SidebarContentProps['pathname']>,
+    routes: Object as PropType<SidebarContentProps["routes"]>,
+    pathname: String as PropType<SidebarContentProps["pathname"]>,
     contentRef: Object as PropType<Ref>,
   },
   setup(props) {
@@ -124,7 +124,7 @@ export const SidebarContent = defineComponent({
                     my="1.25rem"
                     textTransform="uppercase"
                     letterSpacing="wider"
-                    color={useColorModeValue('gray.700', 'inherit')}
+                    color={useColorModeValue("gray.700", "inherit")}
                   >
                     {lvl1.title}
                   </c-box>
@@ -202,7 +202,7 @@ export default defineComponent({
   setup(props) {
     const { path } = useRoute()
     const contentRef = ref()
-    const headerHeight = '4.5rem' // we pull down the sidebar as header height (72px)
+    const headerHeight = "4.5rem" // we pull down the sidebar as header height (72px)
     return () => {
       return (
         <c-box
@@ -211,7 +211,7 @@ export default defineComponent({
           aria-label="Main Navigation"
           pos="sticky"
           sx={{
-            overscrollBehavior: 'contain',
+            overscrollBehavior: "contain",
           }}
           top={headerHeight}
           w="280px"
@@ -223,7 +223,7 @@ export default defineComponent({
           overflowY="auto"
           class="sidebar-content"
           flexShrink={0}
-          display={{ base: 'none', md: 'block' }}
+          display={{ base: "none", md: "block" }}
         >
           <MainNavLinkGroup mb="10" />
           <SidebarContent

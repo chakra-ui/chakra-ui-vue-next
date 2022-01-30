@@ -78,9 +78,9 @@ export default defineConfig({
         ]
 
         // extend default plugins instead of replace (since we want to keep frontmatter plugin etc.)
-        options.remarkPlugins = options.remarkPlugins?.concat(
-          customRemarkPlugins
-        )
+        options.remarkPlugins =
+          // @ts-ignore
+          options.remarkPlugins?.concat(customRemarkPlugins)
         return options
       },
       extendFrontmatter: {

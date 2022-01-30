@@ -3,9 +3,7 @@
     <template #sidebar>
       <app-sidebar :routes="routes" />
     </template>
-    <template>
-      <slot name="default" />
-    </template>
+    <slot />
     <template #pagination>
       <app-pagination
         :previous="routeContext.prevRoute"
