@@ -3,7 +3,7 @@ import {
   SystemCSSProperties,
   SystemStyleObject,
 } from "@chakra-ui/styled-system"
-import { chakra, ThemingProps } from "@chakra-ui/vue-system"
+import { chakra, ThemingProps, ComponentWithProps } from "@chakra-ui/vue-system"
 import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface ButtonGroupProps extends ThemingProps {
@@ -47,8 +47,7 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
-// @ts-ignore
-const CButtonGroup = defineComponent({
+const CButtonGroup: ComponentWithProps<ButtonGroupProps> = defineComponent({
   name: "CButtonGroup",
   props,
   setup(props, { attrs, slots }) {
