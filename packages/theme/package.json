@@ -31,7 +31,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@chakra-ui/utils": "^1.8.2",
+    "@chakra-ui/utils": "^1.9.1",
     "@chakra-ui/vue-system": "0.1.0-alpha.8",
     "vue": "^3.2.29"
   }

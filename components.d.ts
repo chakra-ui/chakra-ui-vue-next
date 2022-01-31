@@ -37,6 +37,8 @@ type JsxComponentCustomProps = {
     innerHTML?: JsxNode
   }
 
+declare var chakra: typeof import("@chakra-ui/vue-next")["chakra"]
+
 declare module "@vue/runtime-core" {
   import { chakra } from "@chakra-ui/vue-next"
 

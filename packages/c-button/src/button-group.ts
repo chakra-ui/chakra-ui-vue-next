@@ -47,11 +47,13 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
+// @ts-ignore
 const CButtonGroup = defineComponent({
   name: "CButtonGroup",
   props,
   setup(props, { attrs, slots }) {
     ButtonGroupProvider(
+      // @ts-ignore
       computed(() => ({
         size: props.size,
         colorScheme: props.colorScheme,

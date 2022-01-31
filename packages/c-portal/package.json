@@ -28,7 +28,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^1.8.2"
+    "@chakra-ui/utils": "^1.9.1"
   },
   "devDependencies": {
     "vue": "^3.2.29"
