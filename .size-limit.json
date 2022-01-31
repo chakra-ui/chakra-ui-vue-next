@@ -1,7 +1,7 @@
 [
   {
     "path": "packages/core/dist/chakra-ui-vue-next.cjs.prod.js",
-    "limit": "85 KB",
+    "limit": "86 KB",
     "ignore": [
       "vue",
       "@emotion/css"

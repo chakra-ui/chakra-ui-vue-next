@@ -1,8 +1,5 @@
 import { computed, ComputedRef, defineComponent, h, PropType } from "vue"
-import {
-  SystemCSSProperties,
-  SystemStyleObject,
-} from "@chakra-ui/styled-system"
+import { SystemProps, SystemStyleObject } from "@chakra-ui/styled-system"
 import { chakra, ThemingProps, ComponentWithProps } from "@chakra-ui/vue-system"
 import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
 
@@ -21,7 +18,7 @@ export interface ButtonGroupProps extends ThemingProps {
    * @default '0.5rem'
    * @type SystemProps["marginRight"]
    */
-  spacing?: SystemCSSProperties["marginRight"]
+  spacing?: SystemProps["marginRight"]
 }
 
 const props = {
