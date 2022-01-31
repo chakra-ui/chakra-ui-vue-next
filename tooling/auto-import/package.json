@@ -33,6 +33,6 @@
   "devDependencies": {
     "@chakra-ui/vue-next": "1.0.0-alpha.10",
     "unplugin-vue-components": "^0.14.0",
-    "vue": "^3.2.24"
+    "vue": "^3.2.29"
   }
 }

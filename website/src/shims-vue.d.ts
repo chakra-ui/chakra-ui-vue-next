@@ -4,5 +4,4 @@ declare module "*.vue" {
   export default component
 }
 
-declare module "feather-icons-paths"
 declare module "pages-generated"

@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, PropType, computed, cloneVNode, h, VNode } from "vue"
+import { defineComponent, PropType, computed, cloneVNode, h, VNode, DefineComponent } from "vue"
 import {
   chakra,
   HTMLChakraProps,
@@ -57,7 +57,7 @@ export interface BreadcrumbProps
  *
  * @see Docs https://next.vue.chakra-ui.com/breadcrumb
  */
-export const CBreadcrumb = defineComponent(
+export const CBreadcrumb: DefineComponent<BreadcrumbProps> = defineComponent(
   (props: BreadcrumbProps, { attrs, slots }) => {
     const themingProps = computed<ThemingProps>(() =>
       filterUndefined({
@@ -149,8 +149,11 @@ export interface BreadcrumbSeparatorProps extends HTMLChakraProps<"div"> {
  * The `CBreadcrumbSeparator` component is the separator for
  * each breacrumb item.
  */
-export const CBreadcrumbSeparator = defineComponent(
-  (props: BreadcrumbSeparatorProps, { attrs, slots }) => {
+export const CBreadcrumbSeparator = defineComponent({
+  props: {
+    spacing: CBreadcrumb.props.spacing,
+  },
+  setup(props, { attrs, slots }) {
     const styles = useStyles()
     const separatorStyles = computed<SystemStyleObject>(() => ({
       display: "flex",
@@ -169,11 +172,7 @@ export const CBreadcrumbSeparator = defineComponent(
       </chakra.span>
     )
   }
-)
-
-CBreadcrumbSeparator.props = {
-  spacing: CBreadcrumb.props.spacing,
-}
+})
 
 // @ts-ignore "name" property is typically read-only for functional components
 CBreadcrumbSeparator.name = "CBreadcrumbSeparator"
@@ -191,7 +190,7 @@ export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
     ChakraProps {}
 
-export const CBreadcrumbItem = defineComponent(
+export const CBreadcrumbItem: DefineComponent<BreadcrumbItemProps> = defineComponent(
   (props: BreadcrumbItemProps, { attrs, slots }) => {
     const styles = useStyles()
     const itemStyles = computed<SystemStyleObject>(() => ({
@@ -227,7 +226,6 @@ export const CBreadcrumbItem = defineComponent(
         <chakra.li __label="breadcrumb__list-item" __css={itemStyles.value}>
           {children}
           {!props.isLastChild && (
-            // @ts-expect-error
             <CBreadcrumbSeparator spacing={props.spacing}>
               {() => props.separator}
             </CBreadcrumbSeparator>
@@ -261,7 +259,7 @@ export interface BreadcrumbLinkProps extends ChakraProps {
  * It renders a `span` when it matches the current link. Otherwise,
  * it renders an anchor tag.
  */
-export const CBreadcrumbLink = defineComponent(
+export const CBreadcrumbLink: DefineComponent<BreadcrumbLinkProps> = defineComponent(
   (props: BreadcrumbLinkProps, { attrs, slots }) => {
     const styles = useStyles()
 

@@ -1,9 +1,6 @@
 import { computed, ComputedRef, defineComponent, h, PropType } from "vue"
-import {
-  SystemCSSProperties,
-  SystemStyleObject,
-} from "@chakra-ui/styled-system"
-import { chakra, ThemingProps } from "@chakra-ui/vue-system"
+import { SystemProps, SystemStyleObject } from "@chakra-ui/styled-system"
+import { chakra, ThemingProps, ComponentWithProps } from "@chakra-ui/vue-system"
 import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface ButtonGroupProps extends ThemingProps {
@@ -21,7 +18,7 @@ export interface ButtonGroupProps extends ThemingProps {
    * @default '0.5rem'
    * @type SystemProps["marginRight"]
    */
-  spacing?: SystemCSSProperties["marginRight"]
+  spacing?: SystemProps["marginRight"]
 }
 
 const props = {
@@ -47,11 +44,12 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
-const CButtonGroup = defineComponent({
+const CButtonGroup: ComponentWithProps<ButtonGroupProps> = defineComponent({
   name: "CButtonGroup",
   props,
   setup(props, { attrs, slots }) {
     ButtonGroupProvider(
+      // @ts-ignore
       computed(() => ({
         size: props.size,
         colorScheme: props.colorScheme,

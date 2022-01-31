@@ -3,7 +3,7 @@
 exports[`<CInput /> should render properly 1`] = `
 <DocumentFragment>
   <input
-    class="chakra-input css-1c5wzdr"
+    class="chakra-input css-lsrr6s"
   />
 </DocumentFragment>
 `;

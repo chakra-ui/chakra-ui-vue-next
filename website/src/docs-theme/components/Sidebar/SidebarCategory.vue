@@ -1,6 +1,6 @@
 <script lang="tsx">
-import { defineComponent, PropType, reactive, ref, Ref, renderSlot } from 'vue'
-import { useColorModeValue, BoxProps } from '@chakra-ui/vue-next'
+import { defineComponent, PropType, reactive, ref, Ref, renderSlot } from "vue"
+import { useColorModeValue, BoxProps } from "@chakra-ui/vue-next"
 
 interface SidebarCategoryProps extends BoxProps {
   isMobile?: boolean
@@ -17,11 +17,11 @@ interface SidebarState {
 
 export default defineComponent({
   props: {
-    contentRef: Object as PropType<SidebarCategoryProps['contentRef']>,
-    selected: Boolean as PropType<SidebarCategoryProps['selected']>,
-    opened: Boolean as PropType<SidebarCategoryProps['opened']>,
-    title: String as PropType<SidebarCategoryProps['title']>,
-    isMobile: Boolean as PropType<SidebarCategoryProps['isMobile']>,
+    contentRef: Object as PropType<SidebarCategoryProps["contentRef"]>,
+    selected: Boolean as PropType<SidebarCategoryProps["selected"]>,
+    opened: Boolean as PropType<SidebarCategoryProps["opened"]>,
+    title: String as PropType<SidebarCategoryProps["title"]>,
+    isMobile: Boolean as PropType<SidebarCategoryProps["isMobile"]>,
   },
   setup(props, { slots }) {
     const sidebarCategoryRef = ref(null)
@@ -44,12 +44,12 @@ export default defineComponent({
             alignItems="center"
             justifyContent="space-between"
             userSelect="none"
-            color={useColorModeValue('gray.500', 'inherit')}
+            color={useColorModeValue("gray.500", "inherit")}
           >
             {props.title}
           </c-box>
           <c-box role="group" hidden={!sidebarState.toggle} mt="4" mx="-3">
-            {renderSlot(slots, 'default')}
+            {renderSlot(slots, "default")}
           </c-box>
         </c-box>
       )

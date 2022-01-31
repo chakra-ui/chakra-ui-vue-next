@@ -1,10 +1,10 @@
 <script lang="tsx">
-import { defineComponent } from 'vue'
-import { useColorModeValue } from '@chakra-ui/c-color-mode'
+import { defineComponent } from "vue"
+import { useColorModeValue } from "@chakra-ui/c-color-mode"
 export default {}
 
 // const ACTION_KEY_DEFAULT = ['Ctrl', 'Control']
-const ACTION_KEY_APPLE = ['⌘', 'Command']
+const ACTION_KEY_APPLE = ["⌘", "Command"]
 
 export const SearchButton = defineComponent({
   setup() {
@@ -18,15 +18,15 @@ export const SearchButton = defineComponent({
           mx="6"
           lineHeight="1.2"
           w="100%"
-          bg={useColorModeValue('white', 'gray.700').value}
+          bg={useColorModeValue("white", "gray.700").value}
           whiteSpace="nowrap"
-          display={{ base: 'none', sm: 'flex' }}
+          display={{ base: "none", sm: "flex" }}
           alignItems="center"
           color="gray.400"
           py="3"
           px="4"
           outline="0"
-          _focus={{ shadow: 'outline' }}
+          _focus={{ shadow: "outline" }}
           shadow="base"
           rounded="md"
           aria-label="Search the docs"

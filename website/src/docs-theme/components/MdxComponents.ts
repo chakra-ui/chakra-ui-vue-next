@@ -13,38 +13,36 @@ import { trim } from "lodash"
  * h('c-box',{ my:'2em', borderRadius: 'sm' }, renderSlot(context.slots, 'default'))
  */
 
-const LinkedHeading = (as: string, apply: string) => (
-  props: any,
-  context: SetupContext
-) => {
-  console.log(" RENDERING HEADING", props, context)
-  return h(
-    "MdxHeading",
-    { ...props, as, apply },
-    renderSlot(context.slots, "default")
-  )
-}
+const LinkedHeading =
+  (as: string, apply: string) => (props: any, context: SetupContext) => {
+    return h(
+      "MdxHeading",
+      { ...props, as, apply },
+      renderSlot(context.slots, "default")
+    )
+  }
 
-const MdxChakra = (
-  {
-    as,
-    apply,
-    customProps,
-  }: {
-    as: string
-    apply?: string
-    customProps?: any
-  } = { as: "div" }
-) => (props: any, context: SetupContext) =>
-  h(
-    "MdxChakra",
-    { ...props, as, apply, ...customProps },
-    renderSlot(context.slots, "default")
-  )
+const MdxChakra =
+  (
+    {
+      as,
+      apply,
+      customProps,
+    }: {
+      as: string
+      apply?: string
+      customProps?: any
+    } = { as: "div" }
+  ) =>
+  (props: any, context: SetupContext) =>
+    h(
+      "MdxChakra",
+      { ...props, as, apply, ...customProps },
+      renderSlot(context.slots, "default")
+    )
 
 export const MdxComponents = {
   h1: (props: any, context: SetupContext) => {
-    console.log(" RENDERING HEADER", props, context)
     return h(
       "chakra.h1",
       { apply: "mdx.h1", ...props },
