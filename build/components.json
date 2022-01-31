@@ -33,6 +33,9 @@
       }
     }
   },
+  "CAlertTitle": {
+    "name": "CAlertTitle"
+  },
   "CAlertDescription": {
     "name": "CAlertDescription"
   },
@@ -45,9 +48,6 @@
         ]
       }
     }
-  },
-  "CAlertTitle": {
-    "name": "CAlertTitle"
   },
   "CBreadcrumb": {
     "name": "CBreadcrumb",
@@ -77,6 +77,19 @@
         "default": "nav"
       }
     }
+  },
+  "CBreadcrumbSeparator": {
+    "props": {
+      "spacing": {
+        "type": [
+          null,
+          null,
+          null
+        ],
+        "default": "0.5rem"
+      }
+    },
+    "name": "CBreadcrumbSeparator"
   },
   "CBreadcrumbItem": {
     "name": "CBreadcrumbItem",
@@ -110,19 +123,6 @@
   "CBreadcrumbLink": {
     "name": "CBreadcrumbLink",
     "props": {}
-  },
-  "CBreadcrumbSeparator": {
-    "name": "CBreadcrumbSeparator",
-    "props": {
-      "spacing": {
-        "type": [
-          null,
-          null,
-          null
-        ],
-        "default": "0.5rem"
-      }
-    }
   },
   "CButton": {
     "name": "CButton",
@@ -311,6 +311,10 @@
   "CFormHelperText": {
     "name": ""
   },
+  "CFormErrorMessage": {
+    "name": "CFormErrorMessage",
+    "props": {}
+  },
   "CFormErrorIcon": {
     "name": "CFormErrorIcon",
     "props": {
@@ -333,10 +337,6 @@
         "default": "1em"
       }
     }
-  },
-  "CFormErrorMessage": {
-    "name": "CFormErrorMessage",
-    "props": {}
   },
   "CFormLabel": {
     "name": "CFormLabel",
@@ -455,9 +455,6 @@
       }
     }
   },
-  "CCircle": {
-    "name": "CCircle"
-  },
   "CSquare": {
     "name": "CSquare",
     "props": {
@@ -473,6 +470,9 @@
         "default": true
       }
     }
+  },
+  "CCircle": {
+    "name": "CCircle"
   },
   "CCenter": {
     "name": "CCenter",
@@ -670,18 +670,6 @@
       }
     }
   },
-  "CLinkBox": {
-    "name": "CLinkBox",
-    "props": {
-      "as": {
-        "type": [
-          null,
-          null
-        ],
-        "default": "div"
-      }
-    }
-  },
   "CLinkOverlay": {
     "name": "CLinkOverlay",
     "props": {
@@ -691,6 +679,18 @@
           null
         ],
         "default": "a"
+      }
+    }
+  },
+  "CLinkBox": {
+    "name": "CLinkBox",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "div"
       }
     }
   },
@@ -725,17 +725,17 @@
       ]
     }
   },
-  "CListIcon": {
-    "name": "CListIcon"
-  },
-  "CListItem": {
-    "name": "CListItem"
-  },
   "COrderedList": {
     "name": "COrderedList"
   },
   "CUnorderedList": {
     "name": "CUnorderedList"
+  },
+  "CListItem": {
+    "name": "CListItem"
+  },
+  "CListIcon": {
+    "name": "CListIcon"
   },
   "CKbd": {
     "name": "CKbd",
@@ -794,56 +794,12 @@
   "CSpacer": {
     "name": "CSpacer"
   },
-  "CHStack": {
-    "name": "CHStack",
-    "props": {
-      "as": {
-        "type": [
-          null,
-          null
-        ],
-        "default": "div"
-      },
-      "align": [
-        null,
-        null,
-        null
-      ],
-      "justify": [
-        null,
-        null,
-        null
-      ],
-      "wrap": [
-        null,
-        null,
-        null
-      ],
-      "spacing": {
-        "type": [
-          null,
-          null,
-          null,
-          null
-        ],
-        "default": "0.5rem"
-      },
-      "direction": [
-        null,
-        null,
-        null
-      ],
-      "divider": [
-        null,
-        null
-      ],
-      "shouldWrapChildren": [
-        null
-      ],
-      "isInline": [
-        null
-      ]
-    }
+  "CStackDivider": {
+    "name": "CStackDivider",
+    "inheritAttrs": false
+  },
+  "CStackItem": {
+    "name": "CStackItem"
   },
   "CStack": {
     "name": "CStack",
@@ -896,12 +852,56 @@
       ]
     }
   },
-  "CStackDivider": {
-    "name": "CStackDivider",
-    "inheritAttrs": false
-  },
-  "CStackItem": {
-    "name": "CStackItem"
+  "CHStack": {
+    "name": "CHStack",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "div"
+      },
+      "align": [
+        null,
+        null,
+        null
+      ],
+      "justify": [
+        null,
+        null,
+        null
+      ],
+      "wrap": [
+        null,
+        null,
+        null
+      ],
+      "spacing": {
+        "type": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "default": "0.5rem"
+      },
+      "direction": [
+        null,
+        null,
+        null
+      ],
+      "divider": [
+        null,
+        null
+      ],
+      "shouldWrapChildren": [
+        null
+      ],
+      "isInline": [
+        null
+      ]
+    }
   },
   "CVStack": {
     "name": "CVStack",
@@ -1080,15 +1080,6 @@
       "closeModal"
     ]
   },
-  "CModalBody": {
-    "name": "CModalBody"
-  },
-  "CModalCloseButton": {
-    "name": "CModalCloseButton",
-    "emits": [
-      "click"
-    ]
-  },
   "CModalContent": {
     "name": "CModalContent",
     "inheritAttrs": false,
@@ -1098,13 +1089,40 @@
       "keydown"
     ]
   },
-  "CModalFooter": {
-    "name": "CModalFooter"
+  "CModalOverlay": {
+    "name": "CModalOverlay"
   },
   "CModalHeader": {
     "name": "CModalHeader"
   },
-  "CModalOverlay": {
+  "CModalBody": {
+    "name": "CModalBody"
+  },
+  "CModalFooter": {
+    "name": "CModalFooter"
+  },
+  "CModalCloseButton": {
+    "name": "CModalCloseButton",
+    "emits": [
+      "click"
+    ]
+  },
+  "CDrawerBody": {
+    "name": "CModalBody"
+  },
+  "CDrawerCloseButton": {
+    "name": "CModalCloseButton",
+    "emits": [
+      "click"
+    ]
+  },
+  "CDrawerFooter": {
+    "name": "CModalFooter"
+  },
+  "CDrawerHeader": {
+    "name": "CModalHeader"
+  },
+  "CDrawerOverlay": {
     "name": "CModalOverlay"
   },
   "CDrawer": {
@@ -1164,15 +1182,6 @@
       "escape"
     ]
   },
-  "CDrawerBody": {
-    "name": "CModalBody"
-  },
-  "CDrawerCloseButton": {
-    "name": "CModalCloseButton",
-    "emits": [
-      "click"
-    ]
-  },
   "CDrawerContent": {
     "name": "CDrawerContent",
     "inheritAttrs": false,
@@ -1182,13 +1191,22 @@
       "keydown"
     ]
   },
-  "CDrawerFooter": {
+  "CAlertDialogBody": {
+    "name": "CModalBody"
+  },
+  "CAlertDialogCloseButton": {
+    "name": "CModalCloseButton",
+    "emits": [
+      "click"
+    ]
+  },
+  "CAlertDialogFooter": {
     "name": "CModalFooter"
   },
-  "CDrawerHeader": {
+  "CAlertDialogHeader": {
     "name": "CModalHeader"
   },
-  "CDrawerOverlay": {
+  "CAlertDialogOverlay": {
     "name": "CModalOverlay"
   },
   "CAlertDialog": {
@@ -1249,27 +1267,9 @@
       "escape"
     ]
   },
-  "CAlertDialogBody": {
-    "name": "CModalBody"
-  },
-  "CAlertDialogCloseButton": {
-    "name": "CModalCloseButton",
-    "emits": [
-      "click"
-    ]
-  },
   "CAlertDialogContent": {
     "name": "CAlertDialogContent",
     "inheritAttrs": false
-  },
-  "CAlertDialogFooter": {
-    "name": "CModalFooter"
-  },
-  "CAlertDialogHeader": {
-    "name": "CModalHeader"
-  },
-  "CAlertDialogOverlay": {
-    "name": "CModalOverlay"
   },
   "CMotion": {
     "name": "CMotion",

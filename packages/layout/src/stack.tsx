@@ -113,10 +113,7 @@ const stackProps = {
     type: [Object, String] as PropType<DOMElements>,
     default: "div",
   },
-  align: {
-    type: SAO as PropType<StackProps["align"]>,
-    default: "center"
-  },
+  align: SAO as PropType<StackProps["align"]>,
   justify: SAO as PropType<StackProps["justify"]>,
   wrap: SAO as PropType<StackProps["wrap"]>,
   spacing: {
