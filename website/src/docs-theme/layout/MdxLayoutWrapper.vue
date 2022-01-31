@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps } from "vue"
+import { computed, defineProps, useSlots } from "vue"
 import { chakra } from "@chakra-ui/vue-next"
 import { useRoute } from "vue-router"
 import { useHead } from "@vueuse/head"
@@ -40,6 +40,8 @@ const layoutComponent = computed(() => {
   if (!layout) return layoutMap.default
   return layout[1]
 })
+const slots = useSlots()
+console.log("slots", slots?.default?.())
 
 const bg = useColorModeValue("white", "gray.800")
 const color = useColorModeValue("gray.700", "whiteAlpha.900")
