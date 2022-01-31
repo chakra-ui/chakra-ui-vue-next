@@ -43,8 +43,8 @@ const layoutComponent = computed(() => {
 const slots = useSlots()
 console.log("slots", slots?.default?.())
 
-const bg = useColorModeValue("white", "gray.800")
-const color = useColorModeValue("gray.700", "whiteAlpha.900")
+const bg = useColorModeValue("white", "blackAlpha.700")
+const color = useColorModeValue("gray.900", "whiteAlpha.900")
 useHead({
   title: props.frontmatter.title,
 })

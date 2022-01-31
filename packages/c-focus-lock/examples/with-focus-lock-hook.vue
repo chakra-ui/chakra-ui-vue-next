@@ -55,19 +55,20 @@
 </template>
 
 <script setup lang="ts">
-import { useFocusLock } from '../src/use-focus-lock'
-import { defineComponent, nextTick, onBeforeMount, ref } from 'vue'
+import { chakra } from "@chakra-ui/vue-next"
+import { useFocusLock } from "../src/use-focus-lock"
+import { ref } from "vue"
 
 const isLocked = ref(false)
 
-if (!document.getElementById('new-target')) {
-  const target = document.createElement('div')
-  target.style.display = 'inline-block'
-  target.style.position = 'absolute'
-  target.style.top = '50px'
-  target.style.left = '250px'
+if (!document.getElementById("new-target")) {
+  const target = document.createElement("div")
+  target.style.display = "inline-block"
+  target.style.position = "absolute"
+  target.style.top = "50px"
+  target.style.left = "250px"
 
-  target.id = 'new-target'
+  target.id = "new-target"
   document.body.appendChild(target)
 }
 

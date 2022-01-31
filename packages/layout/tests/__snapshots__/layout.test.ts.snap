@@ -118,7 +118,7 @@ exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
 exports[`<CHeading /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-stack css-wulyol"
+    class="chakra-stack css-17kdbol"
   >
     <h1
       class="chakra-heading css-cule"
@@ -437,7 +437,7 @@ exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 exports[`<CStack /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-stack css-owjkmg"
+    class="chakra-stack css-n21gh5"
   >
     <div>
       1
@@ -447,7 +447,7 @@ exports[`<CStack /> should render properly 1`] = `
     </div>
   </div>
   <div
-    class="chakra-stack-horizontal css-84zodg"
+    class="chakra-stack-horizontal css-x9juev"
   >
     <div>
       1
@@ -457,7 +457,7 @@ exports[`<CStack /> should render properly 1`] = `
     </div>
   </div>
   <div
-    class="chakra-stack-vertical css-owjkmg"
+    class="chakra-stack-vertical css-n21gh5"
   >
     <div>
       1

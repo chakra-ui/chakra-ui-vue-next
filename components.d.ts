@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-01-31T09:55:33.544Z
+ * This file was generated on 2022-01-31T09:57:50.931Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -37,15 +37,13 @@ type JsxComponentCustomProps = {
     innerHTML?: JsxNode
   }
 
-declare var chakra: typeof import("@chakra-ui/vue-next")["chakra"]
-
 declare module "@vue/runtime-core" {
   import { chakra } from "@chakra-ui/vue-next"
   export { chakra }
 
   /* Global component types for Volar auto-complete */
   export interface GlobalComponents {
-    chakra: typeof import("@chakra-ui/vue-next")["chakra"]
+    // chakra: typeof import("@chakra-ui/vue-next")["chakra"]
 
     CAlert: typeof import("@chakra-ui/vue-next")["CAlert"]
     CAlertDescription: typeof import("@chakra-ui/vue-next")["CAlertDescription"]
