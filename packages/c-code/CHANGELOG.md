@@ -1,5 +1,27 @@
 # @chakra-ui/c-code
 
+## 1.0.0-alpha.8
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.8
+  - @chakra-ui/vue-utils@0.1.0-alpha.8
+
+## 1.0.0-alpha.7
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.7
+  - @chakra-ui/vue-utils@0.1.0-alpha.7
+
 ## 1.0.0-alpha.6
 
 ### Minor Changes

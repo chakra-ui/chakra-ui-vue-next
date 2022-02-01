@@ -34,14 +34,40 @@
         v-for="heading in headings || []"
         :key="heading.id"
         :title="heading.text"
-        :ml="heading.level === 'h3' ? '4' : undefined"
+        :pl="heading.level === 'h3' ? 4 : 2"
+        rounded="md"
+        transition="all 0.2s ease-in-out"
+        position="relative"
+        z-index="0"
+        :sx="
+          isActiveId(heading.id)
+            ? {
+                bg: mode('blackAlpha.50', 'whiteAlpha.50'),
+                '&::before': {
+                  content: `''`,
+                  position: 'absolute',
+                  top: '50%',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 10,
+                  h: '80%',
+                  w: '3px',
+                  borderRadius: '9999px',
+                  bg: mode('blackAlpha.700', 'whiteAlpha.700'),
+                  transform: 'translate(50%, -50%)',
+                },
+              }
+            : {
+                bg: 'transparent',
+              }
+        "
       >
         <chakra.a
           py="1"
           display="block"
-          :fontWeight="heading.id === activeId ? 'bold' : 'medium'"
+          :fontWeight="isActiveId(heading.id) ? 'bold' : 'medium'"
           :href="`#${heading.id}`"
-          :aria-current="heading.id === activeId ? 'location' : undefined"
+          :aria-current="isActiveId(heading.id) ? 'location' : undefined"
           :color="useColorModeValue('gray.600', 'gray.400').value"
           :_hover="{
             color: useColorModeValue('gray.900', 'gray.200').value,
@@ -54,20 +80,22 @@
   </CBox>
 </template>
 <script setup lang="ts">
-import { defineProps, onMounted } from 'vue'
-import { useColorModeValue } from '@chakra-ui/vue-next'
-import type { Heading } from '@/docs-theme/utils/get-headings'
-import { useToc } from '../hooks/useToc'
-import { useRoute } from 'vue-router'
-import { tryOnMounted } from '@vueuse/core'
+import { computed, defineProps } from "vue"
+import { chakra, useColorModeValue } from "@chakra-ui/vue-next"
+import { mode } from "@chakra-ui/vue-theme-tools"
+import type { Heading } from "@/docs-theme/utils/get-headings"
+import { useToc } from "../hooks/useToc"
+import { useRoute } from "vue-router"
+import { tryOnMounted } from "@vueuse/core"
 
 // @ts-ignore
-const props = defineProps<{
+defineProps<{
   headings?: Array<Heading>
 }>()
 const { hash } = useRoute()
 const { activeTocId: activeId, scrollToHash } = useToc()
 
+const isActiveId = computed(() => (id: string) => id === activeId.value)
 tryOnMounted(() => {
   scrollToHash(hash)
 })

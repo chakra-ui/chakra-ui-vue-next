@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-accordion",
-  "version": "0.1.0-alpha.6",
+  "version": "0.1.0-alpha.8",
   "main": "dist/chakra-ui-c-accordion.cjs.js",
   "module": "dist/chakra-ui-c-accordion.esm.js",
   "files": [
@@ -20,7 +20,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.6"
+    "@chakra-ui/vue-system": "0.1.0-alpha.8"
   },
   "peerDependencies": {
     "vue": ">=3.0.5"
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.2.24"
+    "vue": "^3.2.29"
   }
 }

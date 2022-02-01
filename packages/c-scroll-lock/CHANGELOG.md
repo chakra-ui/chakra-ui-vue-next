@@ -1,5 +1,27 @@
 # @chakra-ui/c-scroll-lock
 
+## 0.1.0-alpha.6
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.8
+  - @chakra-ui/vue-utils@0.1.0-alpha.8
+
+## 0.1.0-alpha.5
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.7
+  - @chakra-ui/vue-utils@0.1.0-alpha.7
+
 ## 0.1.0-alpha.4
 
 ### Minor Changes

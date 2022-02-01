@@ -1,12 +1,12 @@
 /**
- * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.7 auto-imported
+ * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.10 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2021-12-21T17:13:01.320Z
+ * This file was generated on 2022-01-31T09:57:50.931Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -43,7 +43,7 @@ declare module "@vue/runtime-core" {
 
   /* Global component types for Volar auto-complete */
   export interface GlobalComponents {
-    chakra: typeof import("@chakra-ui/vue-next")["chakra"]
+    // chakra: typeof import("@chakra-ui/vue-next")["chakra"]
 
     CAlert: typeof import("@chakra-ui/vue-next")["CAlert"]
     CAlertDescription: typeof import("@chakra-ui/vue-next")["CAlertDescription"]

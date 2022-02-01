@@ -13,7 +13,7 @@
       >Other button</c-button
     >
     <!-- eslint-disable-next-line -->
-    <c-modal v-model="isOpen" :initial-focus-ref="() => $refs.initialFocus" :blockScrollOnMount="false" :final-focus-ref="() => $refs.finalFocus">
+    <c-modal v-model="isOpen" :initial-focus-ref="() => $refs.initialFocus" :final-focus-ref="() => $refs.finalFocus">
       <c-modal-overlay />
       <c-modal-content>
         <c-modal-header>Modal header</c-modal-header>
@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 const isOpen = ref(false)
 const finalFocus = ref()
 const initialFocus = ref()

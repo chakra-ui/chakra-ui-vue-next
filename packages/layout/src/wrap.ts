@@ -5,6 +5,7 @@ import {
   SystemProps,
   DOMElements,
   tokenToCSSVar,
+  ComponentWithProps,
 } from "@chakra-ui/vue-system"
 import { getValidChildren, SNAO } from "@chakra-ui/vue-utils"
 import { computed, defineComponent, h, PropType } from "vue"
@@ -41,7 +42,7 @@ export interface WrapProps extends HTMLChakraProps<"div"> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/typography/text
  */
-export const CWrap = defineComponent({
+export const CWrap: ComponentWithProps<WrapProps> = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,

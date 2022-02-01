@@ -7,7 +7,7 @@
     <c-portal to="#new-target">
       <c-motion type="fade">
         <chakra.div
-          :ref="lock"
+          ref="_target"
           p="4"
           border="4px dashed"
           rounded="lg"
@@ -24,9 +24,7 @@
           ></c-close-button>
           <chakra.p mb="2">Inside focus trap</chakra.p>
           <c-button color-scheme="teal"> Login </c-button>
-          <c-button color-scheme="yellow" :ref="initialFocus" mx="2"
-            >Initial focus!</c-button
-          >
+          <c-button color-scheme="yellow" mx="2">Initial focus!</c-button>
           <c-button left-icon="user" color-scheme="red"
             >Delete account</c-button
           >
@@ -49,48 +47,56 @@
       <c-button @click="activate" ml="3" color-scheme="blue">Enable</c-button>
     </chakra.div>
     <chakra.pre font-weight="bold">
-      Focus lock enabled: {{ hasFocus }}
+      Focus lock enabled: {{ isLocked }}
     </chakra.pre>
   </chakra.div>
 </template>
 
 <script setup lang="ts">
-import { useFocusLock } from '../src/use-focus-lock'
-import { defineComponent, nextTick, onBeforeMount, ref } from 'vue'
+import { chakra } from "@chakra-ui/vue-next"
+import { ref, watch, watchEffect } from "vue"
+import { useFocusTrap } from "../src/use-focus-trap"
+import { unrefElement } from "@chakra-ui/vue-utils"
 
 const isLocked = ref(false)
 
-if (!document.getElementById('new-target')) {
-  const target = document.createElement('div')
-  target.style.display = 'inline-block'
-  target.style.position = 'absolute'
-  target.style.top = '50px'
-  target.style.left = '250px'
+if (!document.getElementById("new-target")) {
+  const target = document.createElement("div")
+  target.style.display = "inline-block"
+  target.style.position = "absolute"
+  target.style.top = "50px"
+  target.style.left = "250px"
 
-  target.id = 'new-target'
+  target.id = "new-target"
   document.body.appendChild(target)
 }
 
-const {
-  hasFocus,
-  lock,
-  activate: lockactivate,
-  deactivate: lockdeactivate,
-  initialFocus,
-} = useFocusLock({
-  escapeDeactivates: false,
-  delayInitialFocus: true,
-  immediate: true,
-})
+const _target = ref()
+const containers = ref<Set<HTMLElement>>(new Set())
+
+watchEffect(
+  (onInvalidate) => {
+    let el: HTMLElement
+    if (_target.value) {
+      el = unrefElement(_target)
+      containers.value.add(el)
+    }
+
+    console.log("Adding containers", containers.value)
+
+    onInvalidate(() => {
+      containers.value.delete(el)
+    })
+  },
+  { flush: "post" }
+)
+useFocusTrap(containers, ref(true))
 
 const activate = async () => {
   isLocked.value = true
-  // setTimeout(lockactivate)
-  setTimeout(lockactivate)
 }
 
 const deactivate = () => {
-  lockdeactivate()
   isLocked.value = false
 }
 </script>

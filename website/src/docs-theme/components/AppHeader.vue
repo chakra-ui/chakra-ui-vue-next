@@ -10,6 +10,7 @@
     right="0"
     width="full"
     :bg="bg"
+    backdrop-filter="saturate(120%) blur(5px)"
   >
     <chakra.div height="4.5rem" mx="auto" maxW="8xl">
       <!-- content -->
@@ -101,18 +102,18 @@
 </template>
 
 <script setup lang="ts">
-import { SearchButton } from './AlgoliaSearch.vue'
-import { MobileNavButton } from './MobileNav.vue'
-import { VersionSwitcher } from './VersionSwitcher.vue'
-import { useColorMode, useColorModeValue } from '@chakra-ui/vue-next'
-import { useWindowScroll } from '@vueuse/core'
-import { computed, onMounted, ref } from 'vue'
-import siteConfig from '@/config/site-config'
+import { SearchButton } from "./AlgoliaSearch.vue"
+import { MobileNavButton } from "./MobileNav.vue"
+import { VersionSwitcher } from "./VersionSwitcher.vue"
+import { chakra, useColorMode, useColorModeValue } from "@chakra-ui/vue-next"
+import { useWindowScroll } from "@vueuse/core"
+import { computed, onMounted, ref } from "vue"
+import siteConfig from "@/config/site-config"
 
 const { toggleColorMode } = useColorMode()
-const text = useColorModeValue('dark', 'light')
-const switchIcon = useColorModeValue('moon', 'sun')
-const bg = useColorModeValue('white', 'gray.800')
+const text = useColorModeValue("dark", "light")
+const switchIcon = useColorModeValue("moon", "sun")
+const bg = useColorModeValue("white", "gray.800")
 
 const isOpen = ref(false)
 
@@ -127,6 +128,6 @@ onMounted(() => {
 })
 
 const headerShadow = computed(() => {
-  return y.value > height.value ? 'sm' : undefined
+  return y.value > height.value ? "sm" : undefined
 })
 </script>

@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.5",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "main": "dist/chakra-ui-nuxt-next.cjs.js",
   "module": "dist/chakra-ui-nuxt-next.esm.js",
@@ -26,6 +26,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.2.24"
+    "vue": "^3.2.29"
   }
 }

@@ -3,6 +3,8 @@ title: Design Principles
 description: Principles that keep Chakra's components fairly consistent
 ---
 
+# Design Principles
+
 Chakra UI is established on principles that keep its components fairly
 consistent. Understanding these concepts will help you better contribute to
 Chakra UI.
@@ -26,7 +28,7 @@ us always be on that path.
   over, and the correct `aria-*` attributes.
 
 - **Dark Mode:** Make components dark mode compatible. Use `useColorMode` hook
-  to handle styling. [Learn more about dark mode](/docs/features/color-mode).
+  to handle styling. [Learn more about dark mode](#).
 
 - **Naming Props:** We all know naming is the hardest thing in this industry.
   Generally, ensure a prop name is indicative of what it does. Boolean props

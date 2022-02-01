@@ -10,6 +10,7 @@ import {
   warn,
 } from "vue"
 import { createPortalTarget, ensureTarget, unmountTarget } from "./portal.utils"
+import { useStackProvider } from "@chakra-ui/vue-composables"
 
 export interface CPortalProps extends Omit<TeleportProps, "to"> {
   /**
@@ -56,6 +57,8 @@ const CPortal = defineComponent({
         unmountTarget(target.value!)
       }
     })
+
+    useStackProvider()
 
     return () => {
       return h(

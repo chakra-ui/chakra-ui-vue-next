@@ -1,4 +1,4 @@
-import { SystemCSSProperties } from "@chakra-ui/styled-system"
+import { SystemProps } from "@chakra-ui/styled-system"
 import { vueThemingProps, BaseThemedComponentProps } from "@chakra-ui/vue-utils"
 import { PropType } from "vue"
 
@@ -13,7 +13,7 @@ export interface ButtonProps extends BaseThemedComponentProps {
   type?: ButtonTypes
   leftIcon?: string
   rightIcon?: string
-  iconSpacing?: SystemCSSProperties["marginRight"]
+  iconSpacing?: SystemProps["marginRight"]
 }
 
 export const BUTTON_PROPS = {
@@ -32,8 +32,6 @@ export const BUTTON_PROPS = {
   leftIcon: String as PropType<ButtonProps["leftIcon"]>,
   rightIcon: String as PropType<ButtonProps["rightIcon"]>,
   ...vueThemingProps,
-
-  /** Not sure if the SystemCSSProperties is the right prop type for this */
   iconSpacing: {
     type: [String, Number, Array] as PropType<ButtonProps["iconSpacing"]>,
     default: "0.5rem",

@@ -24,12 +24,16 @@
   </c-box>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import { CopyButton, EditableNotice, CodeContainer } from './CodeBlock.vue'
+import { defineProps } from "vue"
+import { CopyButton, EditableNotice, CodeContainer } from "./CodeBlock.vue"
 
-// this props are required to surpress the warning (`Extraneous non-props attributes`...)
-// @ts-ignore
-// prettier-ignore
-const props = defineProps<{ code: string, language: string, prismLang: string, requires: any, dataScope:any, components:any }>()
+defineProps<{
+  code: string
+  language: string
+  prismLang: string
+  requires: any
+  dataScope: any
+  components: any
+}>()
 </script>
 <style></style>

@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-form-control",
   "description": "Chakra UI Vue | Form control component is used to manage form controls such input fields checkbox and radio buttons it provides components and context that make your form fields accessible by default component",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.3",
   "main": "dist/chakra-ui-c-form-control.cjs.js",
   "module": "dist/chakra-ui-c-form-control.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,14 +25,14 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "^1.0.0-alpha.6",
-    "@chakra-ui/utils": "^1.8.2",
-    "@chakra-ui/vue-composables": "^0.1.0-alpha.5",
-    "@chakra-ui/vue-system": "0.1.0-alpha.6",
-    "@chakra-ui/vue-utils": "^0.1.0-alpha.6"
+    "@chakra-ui/c-icon": "^1.0.0-alpha.8",
+    "@chakra-ui/utils": "^1.9.1",
+    "@chakra-ui/vue-composables": "^0.1.0-alpha.7",
+    "@chakra-ui/vue-system": "0.1.0-alpha.8",
+    "@chakra-ui/vue-utils": "^0.1.0-alpha.8"
   },
   "devDependencies": {
-    "vue": "^3.2.24"
+    "vue": "^3.2.29"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

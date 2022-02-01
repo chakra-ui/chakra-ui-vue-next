@@ -89,7 +89,7 @@ export const CInputGroup = defineComponent({
           }}
           {...unthemedProps.value}
         >
-          {clones}
+          {() => clones}
         </chakra.div>
       )
     }

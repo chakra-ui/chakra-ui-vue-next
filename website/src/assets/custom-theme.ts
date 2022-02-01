@@ -5,6 +5,7 @@ export default extendTheme({
   colors: {
     emerald: {
       DEFAULT: "#30855F",
+      default: "#30855F",
       "50": "#B6E5D0",
       "100": "#A3DEC4",
       "200": "#7ED0AB",

@@ -1,5 +1,41 @@
 # @chakra-ui/c-modal
 
+## 1.1.0-alpha.7
+
+### Patch Changes
+
+- lz "chore: upgrade to latest version. Fixes build error"
+
+- Updated dependencies []:
+  - @chakra-ui/c-close-button@0.1.0-alpha.8
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.6
+  - @chakra-ui/c-motion@0.1.0-alpha.7
+  - @chakra-ui/c-portal@0.1.0-alpha.8
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.6
+  - @chakra-ui/vue-system@0.1.0-alpha.8
+  - @chakra-ui/vue-utils@0.1.0-alpha.8
+  - @chakra-ui/vue-a11y@0.1.0-alpha.7
+  - @chakra-ui/vue-composables@0.1.0-alpha.7
+
+## 1.1.0-alpha.6
+
+### Minor Changes
+
+- chore: parity release
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/c-close-button@0.1.0-alpha.7
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.5
+  - @chakra-ui/c-motion@0.1.0-alpha.6
+  - @chakra-ui/c-portal@0.1.0-alpha.7
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.5
+  - @chakra-ui/vue-system@0.1.0-alpha.7
+  - @chakra-ui/vue-utils@0.1.0-alpha.7
+  - @chakra-ui/vue-a11y@0.1.0-alpha.6
+  - @chakra-ui/vue-composables@0.1.0-alpha.6
+
 ## 1.1.0-alpha.5
 
 ### Minor Changes

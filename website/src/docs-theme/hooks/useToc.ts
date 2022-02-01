@@ -1,4 +1,4 @@
-import { nextTick, ref } from "@vue/runtime-core"
+import { nextTick, ref } from "vue"
 import {
   useWindowScroll,
   debouncedWatch,
@@ -39,14 +39,14 @@ export const useToc = ({
     activeTocId.value = hash.substring(1) // without #
   }
 
+  let stop: Function | null = null
+
   tryOnMounted(async () => {
     const appElement = document.body
     pageOffset = appElement.offsetTop
 
     const getAnchorTop = (anchor: HTMLElement) =>
       anchor.offsetTop - pageOffset - 15 - scrollTopOffset
-
-    let stop: Function | null = null
 
     const { y } = useWindowScroll()
     const anchors = Array.from(
@@ -75,7 +75,7 @@ export const useToc = ({
           }
         }
       },
-      { debounce: 20 }
+      { debounce: 10 }
     )
   })
   tryOnUnmounted(() => {
