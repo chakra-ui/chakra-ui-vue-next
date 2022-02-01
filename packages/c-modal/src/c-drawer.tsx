@@ -7,8 +7,6 @@ import {
   unref,
   withDirectives,
   watch,
-  ref,
-  Ref,
   watchEffect,
 } from 'vue'
 import {
@@ -127,6 +125,7 @@ export const CDrawerContent: ComponentWithProps<
       dialogContainerProps: rawDialogContainerProps,
       dialogProps: rawDialogProps,
       modelValue,
+      blockScrollOnMount
     } = unref(useModalContext())
     const transitionId = useId('drawer-transition')
 
@@ -156,6 +155,27 @@ export const CDrawerContent: ComponentWithProps<
       outline: 0,
       ...styles.value.dialog,
     }))
+
+        // Scroll lock
+    watchEffect((onInvalidate: VoidFunction) => {
+      if (!blockScrollOnMount.value) return
+      if (modelValue.value !== true) return
+
+      let overflow = document.documentElement.style.overflow
+      let paddingRight = document.documentElement.style.paddingRight
+
+      let scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth
+
+      document.documentElement.style.overflow = "hidden"
+      document.documentElement.style.paddingRight = `${scrollbarWidth}px`
+
+      onInvalidate(() => {
+        document.documentElement.style.overflow = overflow
+        document.documentElement.style.paddingRight = paddingRight
+        console.log("invalidating", document.documentElement.style.overflow)
+      })
+    })
 
     /** Handles exit transition */
     const leave = (done: VoidFunction) => {
