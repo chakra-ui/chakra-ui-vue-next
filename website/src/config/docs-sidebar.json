@@ -13,6 +13,10 @@
           "path": "/docs/migration"
         },
         {
+          "title": "Plugin Options",
+          "path": "/docs/plugin-options"
+        },
+        {
           "title": "Design Principles",
           "path": "/docs/principles"
         },
