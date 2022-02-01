@@ -1,5 +1,14 @@
 # @chakra-ui/c-icon
 
+## 1.0.0-alpha.9
+
+### Patch Changes
+
+- [#122](https://github.com/chakra-ui/chakra-ui-vue-next/pull/122) [`2963735`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/29637355d6e37257e7ce43c10851049aba229359) Thanks [@codebender828](https://github.com/codebender828)! - Rewrite focus trap logic
+
+- Updated dependencies [[`2963735`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/29637355d6e37257e7ce43c10851049aba229359)]:
+  - @chakra-ui/vue-system@0.1.0-alpha.9
+
 ## 1.0.0-alpha.8
 
 ### Patch Changes
