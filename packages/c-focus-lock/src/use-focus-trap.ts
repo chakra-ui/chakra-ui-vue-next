@@ -7,6 +7,8 @@ import {
   // Types
   Ref,
   ComputedRef,
+  onBeforeMount,
+  onBeforeUnmount,
 } from "vue"
 
 import {
@@ -15,6 +17,7 @@ import {
   focusElement,
   focusIn,
   FocusResult,
+  getSelector,
   Keys,
 } from "@chakra-ui/vue-utils"
 import { useWindowEvent } from "@chakra-ui/vue-composables"
@@ -134,4 +137,30 @@ export function useFocusTrap(
     },
     true
   )
+}
+
+export function useReturnFocusSelector(shouldTrack: Ref<boolean>) {
+  const lastFocused = ref<EventTarget | null>(null)
+  const lastFocusedSelector = ref<string | undefined>()
+
+  const trackFocus = (event: Event) => {
+    if (!shouldTrack.value) {
+      lastFocusedSelector.value = getSelector(event.target as HTMLElement)
+    }
+  }
+
+  onBeforeMount(() => {
+    document.addEventListener("focusin", trackFocus)
+  })
+
+  onBeforeUnmount(() => {
+    document.removeEventListener("focusin", trackFocus)
+    lastFocused.value = null
+    lastFocusedSelector.value = undefined
+  })
+
+  return {
+    lastFocused,
+    lastFocusedSelector,
+  }
 }

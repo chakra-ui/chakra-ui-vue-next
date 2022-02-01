@@ -50,7 +50,13 @@ export function focusIn(container: HTMLElement | HTMLElement[], focus: Focus) {
         if (position & Node.DOCUMENT_POSITION_PRECEDING) return 1
         return 0
       })
-    : getAllFocusable(container).filter((el) => el !== container)
+    : (() => {
+        const focusables = getAllFocusable(container).filter(
+          (el) => el !== container
+        )
+        console.log({ focusables })
+        return focusables
+      })()
   let active = document.activeElement as HTMLElement
 
   let direction = (() => {

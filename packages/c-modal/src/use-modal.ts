@@ -16,6 +16,7 @@ import { useIds } from "@chakra-ui/vue-composables"
 import {
   FocusLockProps,
   useFocusLock,
+  useReturnFocusSelector,
   useFocusTrap,
 } from "@chakra-ui/c-focus-lock"
 import {
@@ -330,31 +331,4 @@ export function useAriaHidden(
       flush: "post",
     }
   )
-}
-
-/** Tracks last focused element selector before Modal/dialog is opened */
-export function useReturnFocusSelector(shouldTrack: Ref<boolean>) {
-  const lastFocused = ref<EventTarget | null>(null)
-  const lastFocusedSelector = ref<string | undefined>()
-
-  const trackFocus = (event: Event) => {
-    if (!shouldTrack.value) {
-      lastFocusedSelector.value = getSelector(event.target as HTMLElement)
-    }
-  }
-
-  onBeforeMount(() => {
-    document.addEventListener("focusin", trackFocus)
-  })
-
-  onBeforeUnmount(() => {
-    document.removeEventListener("focusin", trackFocus)
-    lastFocused.value = null
-    lastFocusedSelector.value = undefined
-  })
-
-  return {
-    lastFocused,
-    lastFocusedSelector,
-  }
 }

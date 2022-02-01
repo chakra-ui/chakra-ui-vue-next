@@ -16,6 +16,7 @@ import {
   toRefs,
   ToRefs,
   computed,
+  reactive,
 } from "vue"
 import {
   chakra,
@@ -80,7 +81,7 @@ export const CInput = defineComponent({
   setup(props, { emit, attrs }) {
     const styles = useMultiStyleConfig("Input", props)
     const ownProps = computed(() =>
-      toRefs(omitThemingProps(props as ThemingProps<"Input">))
+      toRefs(reactive(omitThemingProps(props as ThemingProps<"Input">)))
     )
     const input = useFormControl(ownProps.value as ToRefs<CInputNativeProps>)
 

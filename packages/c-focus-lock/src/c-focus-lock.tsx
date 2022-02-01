@@ -14,7 +14,18 @@
  * and my suspicion is that it is happening inside the library
  */
 
-import { defineComponent, PropType, computed, cloneVNode, VNode } from "vue"
+import {
+  defineComponent,
+  PropType,
+  computed,
+  cloneVNode,
+  VNode,
+  ref,
+  unref,
+  h,
+  watchEffect,
+  onUnmounted,
+} from "vue"
 import {
   focus,
   FocusableElement,
@@ -25,6 +36,13 @@ import {
 import { useFocusLock } from "./use-focus-lock"
 import type { UseFocusLockOptions } from "./use-focus-lock"
 import type { FocusTarget } from "focus-trap"
+import { useFocusTrap, useReturnFocusSelector } from "./use-focus-trap"
+import {
+  MaybeElementRef,
+  unrefElement,
+  VueComponentInstance,
+} from "@chakra-ui/vue-utils"
+import { chakra } from '@chakra-ui/vue-system'
 
 type RefProp =
   | (() => HTMLElement | string | object | undefined | unknown)
@@ -78,46 +96,61 @@ export const CFocusLock = defineComponent({
     },
   },
   setup(props, { attrs, slots, emit }) {
-    const finalFocusElement = computed(() => {
-      let finalFocus
-      if (props.finalFocusRef) {
-        const finalFocusRef = isFunction(props.finalFocusRef)
-          ? props.finalFocusRef?.()
-          : props.finalFocusRef
-        if (typeof finalFocusRef === "string") {
-          finalFocus = document.querySelector<FocusableElement & Element>(
-            finalFocusRef
+    const target = ref<HTMLElement | VueComponentInstance>()
+    const initialFocusElement = computed<HTMLElement>(() => {
+      let initialFocus
+      if (props.initialFocusRef) {
+        let resolvedInitialFocusRef: MaybeElementRef =
+          typeof props.initialFocusRef === "function"
+            ? props.initialFocusRef()
+            : props.initialFocusRef
+
+        resolvedInitialFocusRef = unref(resolvedInitialFocusRef)
+        if (typeof resolvedInitialFocusRef === "string") {
+          initialFocus = document.querySelector<FocusableElement & Element>(
+            resolvedInitialFocusRef
           )
         } else {
-          // @ts-expect-error
-          finalFocus = finalFocusRef?.$el || finalFocusRef
+          initialFocus = resolvedInitialFocusRef?.$el || resolvedInitialFocusRef
         }
       }
-      return finalFocus
+      return initialFocus
     })
 
-    /**
-     * Basic state for focus lock component.
-     */
-    const { lock } = useFocusLock({
-      ...props,
-      onActivate() {
-        emit("activate")
-      },
-      onDeactivate() {
-        setTimeout(() => {
-          emit("deactivate")
-          if (finalFocusElement.value) {
-            focus(finalFocusElement.value)
-          }
+    const enabled = ref(true)
+    function activate() {
+      enabled.value = true
+    }
+    function deactivate() {
+      enabled.value = false
+    }
+    const hasFocus = computed(() => enabled.value === true)
+
+    const containers = ref<Set<HTMLElement>>(new Set())
+    watchEffect(
+      (onInvalidate) => {
+        let el: HTMLElement
+        if (target.value) {
+          el = unrefElement(target)
+          containers.value.add(el)
+        }
+
+        onInvalidate(() => {
+          containers.value.delete(el)
         })
       },
-      initialFocus: props.initialFocusRef as FocusTarget,
-      // Should only return focus to original element
-      // when the final focus element is not set
-      returnFocusOnDeactivate: !!!finalFocusElement.value,
-      immediate: props.autoFocus,
-    })
+      { flush: "post" }
+    )
+
+    useReturnFocusSelector(enabled)
+
+    useFocusTrap(
+      containers,
+      enabled,
+      computed(() => ({
+        initialFocus: initialFocusElement.value,
+      }))
+    )
 
     return () => {
       const [firstChild] = slots.default?.({}) as VNode[]
@@ -130,11 +163,16 @@ export const CFocusLock = defineComponent({
         return
       }
 
-      return cloneVNode(firstChild, {
-        ref: lock,
+      return h(cloneVNode(firstChild, {
+        ref: target,
         ...attrs,
         "data-chakra-focus-lock": "",
-      })
+      }), {}, () => slots?.default?.({
+        enabled,
+        hasFocus,
+        activate,
+        deactivate
+      }))
     }
   },
 })
