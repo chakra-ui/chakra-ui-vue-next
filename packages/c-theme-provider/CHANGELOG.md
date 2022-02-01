@@ -1,5 +1,14 @@
 # @chakra-ui/c-theme-provider
 
+## 1.0.0-alpha.10
+
+### Patch Changes
+
+- ci: fix core build package
+
+- Updated dependencies []:
+  - @chakra-ui/vue-theme@1.0.0-alpha.10
+
 ## 1.0.0-alpha.9
 
 ### Patch Changes

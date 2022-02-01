@@ -1,5 +1,11 @@
 # @chakra-ui/nuxt-next
 
+## 0.1.0-alpha.7
+
+### Patch Changes
+
+- ci: fix core build package
+
 ## 0.1.0-alpha.6
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @chakra-ui/c-spinner
 
+## 1.0.0-alpha.10
+
+### Patch Changes
+
+- ci: fix core build package
+
+- Updated dependencies []:
+  - @chakra-ui/c-visually-hidden@1.0.0-alpha.10
+  - @chakra-ui/vue-system@0.1.0-alpha.10
+  - @chakra-ui/vue-theme@1.0.0-alpha.10
+  - @chakra-ui/vue-utils@0.1.0-alpha.10
+
 ## 1.0.0-alpha.9
 
 ### Patch Changes

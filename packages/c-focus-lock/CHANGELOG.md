@@ -1,5 +1,16 @@
 # @chakra-ui/c-focus-lock
 
+## 0.1.0-alpha.8
+
+### Patch Changes
+
+- ci: fix core build package
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.10
+  - @chakra-ui/vue-utils@0.1.0-alpha.10
+  - @chakra-ui/vue-composables@0.1.0-alpha.9
+
 ## 0.1.0-alpha.7
 
 ### Patch Changes

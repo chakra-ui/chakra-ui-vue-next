@@ -1,5 +1,11 @@
 # @chakra-ui/vue-utils
 
+## 0.1.0-alpha.10
+
+### Patch Changes
+
+- ci: fix core build package
+
 ## 0.1.0-alpha.9
 
 ### Patch Changes

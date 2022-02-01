@@ -1,5 +1,14 @@
 # @chakra-ui/vue-test-utils
 
+## 0.1.0-alpha.9
+
+### Patch Changes
+
+- ci: fix core build package
+
+- Updated dependencies []:
+  - @chakra-ui/vue-theme@1.0.0-alpha.10
+
 ## 0.1.0-alpha.8
 
 ### Patch Changes

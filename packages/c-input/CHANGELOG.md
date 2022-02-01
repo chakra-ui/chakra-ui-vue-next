@@ -1,5 +1,16 @@
 # @chakra-ui/c-input
 
+## 0.0.0-alpha.5
+
+### Patch Changes
+
+- ci: fix core build package
+
+- Updated dependencies []:
+  - @chakra-ui/c-form-control@0.0.0-alpha.5
+  - @chakra-ui/vue-system@0.1.0-alpha.10
+  - @chakra-ui/vue-utils@0.1.0-alpha.10
+
 ## 0.0.0-alpha.4
 
 ### Patch Changes

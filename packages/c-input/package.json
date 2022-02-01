@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-input",
   "description": "Chakra UI Vue | Input component is a component that is used to get user input in a text field component",
-  "version": "0.0.0-alpha.4",
+  "version": "0.0.0-alpha.5",
   "main": "dist/chakra-ui-c-input.cjs.js",
   "module": "dist/chakra-ui-c-input.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,10 +25,10 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-form-control": "^0.0.0-alpha.4",
+    "@chakra-ui/c-form-control": "^0.0.0-alpha.5",
     "@chakra-ui/utils": "^1.9.1",
-    "@chakra-ui/vue-system": "0.1.0-alpha.9",
-    "@chakra-ui/vue-utils": "^0.1.0-alpha.9"
+    "@chakra-ui/vue-system": "0.1.0-alpha.10",
+    "@chakra-ui/vue-utils": "^0.1.0-alpha.10"
   },
   "devDependencies": {
     "vue": "^3.2.29"

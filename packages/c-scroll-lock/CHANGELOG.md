@@ -1,5 +1,15 @@
 # @chakra-ui/c-scroll-lock
 
+## 0.1.0-alpha.8
+
+### Patch Changes
+
+- ci: fix core build package
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.10
+  - @chakra-ui/vue-utils@0.1.0-alpha.10
+
 ## 0.1.0-alpha.7
 
 ### Patch Changes
