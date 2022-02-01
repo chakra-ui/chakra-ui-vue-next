@@ -22,7 +22,7 @@ import {
   watch,
   unref,
   withDirectives,
-  Component,
+  watchEffect,
   onErrorCaptured,
   Ref,
 } from "vue"
@@ -46,7 +46,7 @@ import { useModal, UseModalOptions, UseModalReturn } from "./use-modal"
 import { DialogMotionPreset, dialogMotionPresets } from "./modal-transitions"
 import { Dict } from "@chakra-ui/utils"
 import { useId } from "@chakra-ui/vue-composables"
-import { CPortalProps } from "@chakra-ui/c-portal/dist/types/portal"
+import { CPortalProps } from "@chakra-ui/c-portal"
 
 type ScrollBehavior = "inside" | "outside"
 
@@ -163,15 +163,13 @@ interface CModalContext extends IUseModalOptions, UseModalReturn {
 
 type CModalReactiveContext = ComputedRef<CModalContext>
 
-const [
-  ModalContextProvider,
-  useModalContext,
-] = createContext<CModalReactiveContext>({
-  strict: true,
-  name: "ModalContext",
-  errorMessage:
-    "useModalContext: `context` is undefined. Seems you forgot to wrap modal components in `<CModal />`",
-})
+const [ModalContextProvider, useModalContext] =
+  createContext<CModalReactiveContext>({
+    strict: true,
+    name: "ModalContext",
+    errorMessage:
+      "useModalContext: `context` is undefined. Seems you forgot to wrap modal components in `<CModal />`",
+  })
 
 export { ModalContextProvider, useModalContext }
 
@@ -298,12 +296,8 @@ export const CModalContent: ComponentWithProps<
   inheritAttrs: false,
   emits: ["click", "mousedown", "keydown"],
   setup(_, { attrs, slots, emit }) {
-    const {
-      dialogContainerProps,
-      dialogProps,
-      modelValue,
-      motionPreset,
-    } = unref(useModalContext())
+    const { dialogContainerProps, dialogProps, blockScrollOnMount, modelValue, motionPreset } =
+      unref(useModalContext())
     const styles = useStyles()
     const transitionId = useId("modal-content")
 
@@ -320,6 +314,27 @@ export const CModalContent: ComponentWithProps<
       if (!newVal) {
         leave(() => null)
       }
+    })
+
+    // Scroll lock
+    watchEffect((onInvalidate: VoidFunction) => {
+      if (!blockScrollOnMount.value) return
+      if (modelValue.value !== true) return
+
+      let overflow = document.documentElement.style.overflow
+      let paddingRight = document.documentElement.style.paddingRight
+
+      let scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth
+
+      document.documentElement.style.overflow = "hidden"
+      document.documentElement.style.paddingRight = `${scrollbarWidth}px`
+
+      onInvalidate(() => {
+        document.documentElement.style.overflow = overflow
+        document.documentElement.style.paddingRight = paddingRight
+        console.log("invalidating", document.documentElement.style.overflow)
+      })
     })
 
     const dialogContainerStyles = computed<SystemStyleObject>(() => ({

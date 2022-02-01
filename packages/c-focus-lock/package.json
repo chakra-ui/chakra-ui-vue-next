@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^1.9.1",
+    "@chakra-ui/vue-composables": "0.1.0-alpha.7",
     "@chakra-ui/vue-system": "0.1.0-alpha.8",
     "@chakra-ui/vue-utils": "0.1.0-alpha.8",
     "focus-trap": "^6.3.0"

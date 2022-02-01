@@ -1,7 +1,7 @@
 <template>
   <prism-editor
     class="code-higlighter"
-    v-model="code"
+    :model-value="code"
     :highlight="highlighter"
     readonly
   ></prism-editor>

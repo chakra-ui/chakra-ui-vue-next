@@ -4,7 +4,7 @@ import {
   CInputLeftElement,
   CInputRightElement,
 } from "../src"
-import { Component, defineComponent, h } from "vue"
+import { Component, h } from "vue"
 import { render, screen, testA11y } from "../../test-utils/src"
 
 const renderComponent = (options: Component = {}) =>

@@ -34,5 +34,8 @@
   },
   "devDependencies": {
     "vue": "^3.2.29"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.29"
   }
 }

@@ -120,3 +120,11 @@ export function useDebouncedRef<T = unknown>(
 }
 
 export type DebouncedRef = Ref<unknown>
+
+export function contains(containers: Set<HTMLElement>, element: HTMLElement) {
+  for (let container of containers) {
+    if (container.contains(element)) return true
+  }
+
+  return false
+}
