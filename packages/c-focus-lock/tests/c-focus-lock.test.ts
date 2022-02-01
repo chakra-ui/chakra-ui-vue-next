@@ -68,7 +68,7 @@ it("should focus first focusable child when after tab cycle is complete", async 
   expect(input).toHaveFocus()
 })
 
-it("should focus initialFocus element when initialFocus element is provided", async () => {
+it.skip("should focus initialFocus element when initialFocus element is provided", async () => {
   renderComponent({
     template: `
       <div ref="target" data-testid="focus-lock-container">
