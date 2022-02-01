@@ -16,8 +16,9 @@
   >
     <c-flex align="center" h="full">
       <c-stack spacing="6">
-        <chakra.div>
-          <chakra.h1
+        <c-box>
+          <c-heading
+            as="h1"
             maxW="16ch"
             :fontSize="{ base: '2.25rem', sm: '3rem', lg: '4rem' }"
             fontFamily="heading"
@@ -26,10 +27,10 @@
             lineHeight="1.2"
           >
             Build accessible Vue apps
-            <chakra.span color="emerald.600" px="5px">with speed</chakra.span>
-          </chakra.h1>
-        </chakra.div>
-        <chakra.p
+            <c-box as="span" color="emerald.600" px="5px">with speed</c-box>
+          </c-heading>
+        </c-box>
+        <c-text
           :maxW="{ base: '560px', lg: '650px' }"
           opacity="0.7"
           :fontSize="{ base: 'lg', lg: 'xl' }"
@@ -37,12 +38,12 @@
           Chakra UI Vue Next is a simple modular and accessible component
           library that gives you the building blocks to build Vue applications
           with speed.
-        </chakra.p>
-        <CFlex
+        </c-text>
+        <c-flex
           flex-dir="row"
           :justify-content="{ base: 'center', sm: 'flex-start' }"
         >
-          <CButton
+          <c-button
             as="router-link"
             text-decoration="none"
             to="/docs/getting-started"
@@ -52,8 +53,8 @@
             :flex="{ base: '1', sm: 'none' }"
           >
             Get started
-          </CButton>
-          <CButton
+          </c-button>
+          <c-button
             as="a"
             text-decoration="none"
             target="_blank"
@@ -68,8 +69,8 @@
             :flex="{ base: '1', sm: 'none' }"
           >
             Github
-          </CButton>
-        </CFlex>
+          </c-button>
+        </c-flex>
         <c-text font-weight="bold" vertical-align="center">
           👋 &nbsp; V1 (Chidori) is currently in experimental alpha.
           <c-link
@@ -115,16 +116,14 @@
 </template>
 
 <script lang="ts">
-// import { PrismEditor } from 'vue-prism-editor'
-import { defineComponent } from 'vue'
-import { CButton, CFlex } from '@chakra-ui/vue-next'
+import { defineComponent } from "vue"
+import { CButton, CFlex } from "@chakra-ui/vue-next"
 
 export default defineComponent({
-  name: 'Hero',
+  name: "Hero",
   components: {
     CButton,
     CFlex,
-    // PrismEditor,
   },
   setup() {
     const installCode = `yarn add @chakra-ui/vue-next`
