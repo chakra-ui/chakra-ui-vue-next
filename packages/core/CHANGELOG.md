@@ -1,5 +1,12 @@
 # @chakra-ui/vue-next
 
+## 1.0.0-alpha.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/c-modal@1.1.0-alpha.10
+
 ## 1.0.0-alpha.12
 
 ### Patch Changes

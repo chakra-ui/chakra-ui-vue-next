@@ -169,7 +169,6 @@ export const CDrawerContent: ComponentWithProps<DrawerContentProps> = defineComp
       onInvalidate(() => {
         document.documentElement.style.overflow = overflow
         document.documentElement.style.paddingRight = paddingRight
-        console.log("invalidating", document.documentElement.style.overflow)
       })
     })
 
