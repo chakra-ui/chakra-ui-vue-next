@@ -1,7 +1,7 @@
 <template>&nbsp;</template>
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted } from "vue"
 onMounted(() => {
-  location.href = '/docs/getting-started'
+  location.href = "/docs/getting-started"
 })
 </script>
