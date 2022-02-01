@@ -15,7 +15,6 @@ import {
 import { useIds } from "@chakra-ui/vue-composables"
 import {
   FocusLockProps,
-  useFocusLock,
   useReturnFocusSelector,
   useFocusTrap,
 } from "@chakra-ui/c-focus-lock"

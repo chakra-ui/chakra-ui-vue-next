@@ -33,9 +33,6 @@ import {
   warn,
   __DEV__,
 } from "@chakra-ui/utils"
-import { useFocusLock } from "./use-focus-lock"
-import type { UseFocusLockOptions } from "./use-focus-lock"
-import type { FocusTarget } from "focus-trap"
 import { useFocusTrap, useReturnFocusSelector } from "./use-focus-trap"
 import {
   MaybeElementRef,
@@ -48,7 +45,7 @@ type RefProp =
   | (() => HTMLElement | string | object | undefined | unknown)
   | string
 
-export interface FocusLockProps extends UseFocusLockOptions {
+export interface FocusLockProps {
   /**
    * Element to which to send focus when focus trap has been deacivated
    */
@@ -79,15 +76,15 @@ export const CFocusLock = defineComponent({
       default: true,
     },
     escapeDeactivates: {
-      type: Boolean as PropType<FocusLockProps["escapeDeactivates"]>,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     clickOutsideDeactivates: {
-      type: Boolean as PropType<FocusLockProps["clickOutsideDeactivates"]>,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     allowOutsideClick: {
-      type: Boolean as PropType<FocusLockProps["allowOutsideClick"]>,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     restoreFocus: {
