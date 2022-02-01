@@ -1,4 +1,4 @@
-import { MaybeElementRef, useRef } from "@chakra-ui/vue-utils"
+import { MaybeElementRef, unrefElement, useRef } from "@chakra-ui/vue-utils"
 import {
   AnyFunction,
   focus,
@@ -77,7 +77,7 @@ export interface UseFocusLockReturn {
   /**
    * Node ref getter for focus lock element
    */
-  lock: (el: UnwrapRef<MaybeElementRef>) => void
+  lock: Ref
 }
 
 /**
@@ -91,7 +91,8 @@ export function useFocusLock(
 ): UseFocusLockReturn {
   let trap: undefined | FocusTrap
 
-  const [lock, lockEl] = useRef()
+  // const [lock, lockEl] = useRef()
+  const lock = ref(null)
   const [initialFocus, initialFocusEl] = useRef()
   const [content, contentEl] = useRef()
 
@@ -120,7 +121,7 @@ export function useFocusLock(
   }
 
   watch(
-    lockEl,
+    () => unrefElement(lock),
     (el) => {
       nextTick().then(() => {
         if (!el) return

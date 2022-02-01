@@ -4,22 +4,25 @@ description: How to install and set up Chakra UI in your project
 version: 1.0+
 ---
 
-
 # Installation
 
-Inside your React project directory, install Chakra UI by running either of the
+Inside your Vue project directory, install Chakra UI Vue by running either of the
 following:
 
 ```bash
-npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+npm i @chakra-ui/vue-next @emotion/css
 ```
 
 ```bash
-yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+yarn add @chakra-ui/vue-next @emotion/css
 ```
 
-> For `create-react-app` installation instructions, check this
-> [CRA templates guide](/guides/integrations/with-cra).
+```bash
+pnpm add @chakra-ui/vue-next @emotion/css
+```
+
+> For `create-vue-app` installation instructions, check this
+> [CVA templates guide](/guides/integrations/with-cva).
 
 ## Set up Provider
 
@@ -50,18 +53,10 @@ function App({ Component }) {
 
 ```html live
 <c-stack spacing="4" direction="row" align="center">
-  <c-button color-scheme="teal" size="xs">
-    Button
-  </c-button>
-  <c-button color-scheme="teal" size="sm">
-    Button
-  </c-Button>
-  <c-button color-scheme="teal"  size="md">
-    Button
-  </c-button>
-  <c-button color-scheme="teal"  size="lg">
-    Button
-  </c-button>
+  <c-button color-scheme="emerald" size="xs"> Button </c-button>
+  <c-button color-scheme="emerald" size="sm"> Button </c-button>
+  <c-button color-scheme="emerald" size="md"> Button </c-button>
+  <c-button color-scheme="emerald" size="lg"> Button </c-button>
 </c-stack>
 ```
 
@@ -71,7 +66,15 @@ todo
 
 <c-box mt={3}>
   <c-aspect-ratio ratio={16 / 8.84}>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/wI2vqXsjsIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/wI2vqXsjsIo"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
   </c-aspect-ratio>
 </c-box>
 
@@ -79,8 +82,7 @@ todo
 
 <br />
 
-<ComponentLinks theme={{ componentName: "close-button" }} github={{ package: "close-button" }} npm={{ package: "@chakra-ui/close-button" }} storybook={{ url: 'url' }} />
----
+## <ComponentLinks theme={{ componentName: "close-button" }} github={{ package: "close-button" }} npm={{ package: "@chakra-ui/close-button" }} storybook={{ url: 'url' }} />
 
 ### Carbon Ad
 
@@ -98,14 +100,14 @@ inlinecode: `inline-code`
 
 ### code
 
-
 ```js
-console.log('hello world')
+console.log("hello world")
 ```
 
 ---
 
 ### c-kbd
+
 <br />
 
 <c-kbd>CTRL</c-kbd>
@@ -129,7 +131,6 @@ The initial color mode your application should start with. <CBr /> Can be either
 
 ### table
 
-
 | Name             | Type             | Default               | Description                                         |
 | ---------------- | ---------------- | --------------------- | --------------------------------------------------- |
 | resetCSS         | `boolean`        | `true`                | automatically includes `<CSSReset />`               |
@@ -137,8 +138,7 @@ The initial color mode your application should start with. <CBr /> Can be either
 | colorModeManager | `StorageManager` | `localStorageManager` | manager to persist a users color mode preference in |
 | portalZIndex     | `number`         | `undefined`           | common z-index to use for `Portal`                  |
 
-
-----
+---
 
 ### blockquote
 
@@ -149,12 +149,11 @@ The initial color mode your application should start with. <CBr /> Can be either
 
 ### list
 
- - light
- - dark
+- light
+- dark
 
 ### links
 
 [a link](https://google.com)
-
 
 <c-box pb="20" />

@@ -1,5 +1,5 @@
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
-import { UnwrapRef } from "vue-demi"
+import { UnwrapRef } from "vue"
 import { ThemeOverride } from "../extend-theme"
 
 interface ExtendIconsPath {

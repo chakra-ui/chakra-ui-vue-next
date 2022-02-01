@@ -1,26 +1,26 @@
 const BABEL_ENV = process.env.BABEL_ENV
-const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === 'cjs'
-const isESM = BABEL_ENV !== undefined && BABEL_ENV === 'esm'
+const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === "cjs"
+const isESM = BABEL_ENV !== undefined && BABEL_ENV === "esm"
 
-const __TEST__ = process.env.NODE_ENV === 'test'
+const __TEST__ = process.env.NODE_ENV === "test"
 
 const baseConfig = function (api) {
   api.cache(true)
 
   const presets = [
     [
-      '@babel/env',
+      "@babel/env",
       {
         loose: true,
-        modules: isCommonJS ? 'commonjs' : false,
+        modules: isCommonJS ? "commonjs" : false,
         targets: {
           esmodules: isESM ? true : undefined,
         },
       },
     ],
-    '@babel/preset-typescript',
+    "@babel/preset-typescript",
   ]
-  const plugins = ['@vue/babel-plugin-jsx']
+  const plugins = ["@vue/babel-plugin-jsx"]
 
   return {
     presets,
@@ -33,13 +33,13 @@ const testConfig = {
     test: {
       presets: [
         [
-          '@babel/preset-env',
+          "@babel/preset-env",
           {
-            targets: { node: 'current' },
+            targets: { node: "current" },
           },
         ],
       ],
-      plugins: ['@vue/babel-plugin-jsx'],
+      plugins: ["@vue/babel-plugin-jsx"],
     },
   },
 }

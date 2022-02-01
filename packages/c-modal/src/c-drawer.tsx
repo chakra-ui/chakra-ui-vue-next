@@ -152,9 +152,9 @@ export const CDrawerContent: ComponentWithProps<DrawerContentProps> = defineComp
       ...styles.value.dialog,
     }))
 
-        // Scroll lock
-    watchEffect((onInvalidate: VoidFunction) => {
-      if (!blockScrollOnMount.value) return
+    // Scroll lock
+    watchEffect((onInvalidate) => {
+      if (!blockScrollOnMount!.value) return
       if (modelValue.value !== true) return
 
       let overflow = document.documentElement.style.overflow

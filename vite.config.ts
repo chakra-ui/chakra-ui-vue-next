@@ -1,37 +1,38 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import Pages from 'vite-plugin-pages'
-import ChakraComponents from './playground/build/components.json'
-import path from 'path'
+import { defineConfig } from "vite"
+import vue from "@vitejs/plugin-vue"
+import Components from "unplugin-vue-components/vite"
+import Pages from "vite-plugin-pages"
+import Layouts from "vite-plugin-vue-layouts"
+import ChakraComponents from "./playground/build/components.json"
+import path from "path"
 
 export default defineConfig({
   esbuild: {
-    jsxFactory: 'h',
-    jsxFragment: 'Fragment',
+    jsxFactory: "h",
+    jsxFragment: "Fragment",
   },
   optimizeDeps: {
-    exclude: ['@popperjs/core', '@vueuse/core', '@vueuse/motion'],
+    exclude: ["@popperjs/core", "@vueuse/core", "@vueuse/motion"],
   },
   build: {
-    target: 'modules',
+    target: "modules",
   },
   server: {
     watch: {
-      ignored: ['**/*snapshots*'],
+      ignored: ["**/*snapshots*"],
     },
   },
   plugins: [
     vue(),
     Pages({
-      pagesDir: path.relative(__dirname, '../packages'),
-      extensions: ['vue'],
+      pagesDir: path.relative(__dirname, "../packages"),
+      extensions: ["vue"],
       extendRoute(route, parent) {
-        if (route.path === '/') {
+        if (route.path === "/") {
           return route
         }
-        const [groupRaw] = route.name!.split('-examples-')
-        const [_, group] = groupRaw.split('c-')
+        const [groupRaw] = route.name!.split("-examples-")
+        const [_, group] = groupRaw.split("c-")
         return {
           ...route,
           groupRaw,
@@ -39,6 +40,9 @@ export default defineConfig({
           group,
         }
       },
+    }),
+    Layouts({
+      layoutsDir: "/layouts",
     }),
     Components({
       resolvers: [

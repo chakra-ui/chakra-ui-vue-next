@@ -1,5 +1,5 @@
 <script lang="tsx">
-import { defineComponent, renderSlot, SetupContext } from 'vue'
+import { defineComponent, renderSlot, SetupContext } from "vue"
 
 type PaginationLinkProps = {
   href?: string
@@ -22,7 +22,7 @@ const PaginationLink = (
         href={href}
         onClick={navigate}
         _hover={{
-          textDecor: 'none',
+          textDecor: "none",
         }}
         flex="1"
         borderRadius="md"
@@ -32,7 +32,7 @@ const PaginationLink = (
           {label}
         </c-text>
         <c-text mt="1" fontSize="lg" fontWeight="bold" color="emerald.400">
-          {renderSlot(slots, 'default')}
+          {renderSlot(slots, "default")}
         </c-text>
       </c-link>
     )}

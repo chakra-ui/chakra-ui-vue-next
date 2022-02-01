@@ -35,6 +35,7 @@ const app = createApp(App)
       },
       shadows: {
         outline: `0 0 0 4px rgba(47, 133, 90, 0.62)`,
+        inset: `inset 0 2px 0 0 rgb(255 255 255 / 10%)`,
         search:
           '0 0 0 1px rgba(16,22,26,.1), 0 4px 8px rgba(16,22,26,.2), 0 18px 46px 6px rgba(16,22,26,.2)',
       },
@@ -47,6 +48,13 @@ const app = createApp(App)
           }
         },
       },
+      components: {
+        Button: {
+          baseStyle: {
+            shadow: 'inset'
+          }
+        }
+      }
     })
   })
   .use(PerfectScrollbar)

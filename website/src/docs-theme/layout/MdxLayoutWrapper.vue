@@ -15,20 +15,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps } from 'vue'
-import { useRoute } from 'vue-router'
-import { useHead } from '@vueuse/head'
-import { useColorModeValue } from '@chakra-ui/c-color-mode'
+import { computed, defineProps, useSlots } from "vue"
+import { chakra } from "@chakra-ui/vue-next"
+import { useRoute } from "vue-router"
+import { useHead } from "@vueuse/head"
+import { useColorModeValue } from "@chakra-ui/c-color-mode"
 const { path } = useRoute()
 
 const props = defineProps<{ frontmatter: { title: string } }>()
 
 const layoutMap = {
-  blog: 'layout-mdx',
-  guides: 'layout-mdx',
-  docs: 'layout-mdx',
-  changelog: 'layout-mdx',
-  default: 'page-container',
+  blog: "layout-mdx",
+  guides: "layout-mdx",
+  docs: "layout-mdx",
+  changelog: "layout-mdx",
+  default: "page-container",
 }
 
 // convert to dynamic import? maybe.
@@ -39,9 +40,11 @@ const layoutComponent = computed(() => {
   if (!layout) return layoutMap.default
   return layout[1]
 })
+const slots = useSlots()
+console.log("slots", slots?.default?.())
 
-const bg = useColorModeValue('white', 'gray.800')
-const color = useColorModeValue('gray.700', 'whiteAlpha.900')
+const bg = useColorModeValue("white", "blackAlpha.700")
+const color = useColorModeValue("gray.900", "whiteAlpha.900")
 useHead({
   title: props.frontmatter.title,
 })

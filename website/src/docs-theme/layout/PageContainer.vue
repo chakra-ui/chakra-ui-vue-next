@@ -20,7 +20,7 @@
                 <chakra.h1> {{ frontmatter.title }}</chakra.h1>
                 <c-badge
                   v-if="frontmatter.version"
-                  color-scheme="teal"
+                  color-scheme="emerald"
                   letter-spacing="wider"
                   >v{{ frontmatter.version }}</c-badge
                 >
@@ -47,11 +47,11 @@
   </c-box>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue'
-import type { Heading } from '@/docs-theme/utils/get-headings'
+import { chakra } from "@chakra-ui/vue-next"
+import { defineProps } from "vue"
+import type { Heading } from "@/docs-theme/utils/get-headings"
 
-// @ts-ignore
-const props = defineProps<{
+defineProps<{
   frontmatter: {
     slug?: string
     title: string

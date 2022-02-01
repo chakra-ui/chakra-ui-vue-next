@@ -49,7 +49,13 @@ function getSetupSidebar() {
     {
       text: 'Features',
       children: [
-        { text: 'Style Props', link: '/pages/features/style-props' }
+        { text: 'Style Props', link: '/pages/features/style-props' },
+        { text: 'Gradient', link: '/pages/features/gradient' },
+        { text: 'Color Mode', link: '/pages/features/color-mode' },
+        { text: 'CSS Variables', link: '/pages/features/css-variables' },
+        { text: 'Responsive Styles', link: '/pages/features/responsive-styles' },
+        { text: 'Chakra Factory', link: '/pages/features/chakra-factory' },
+        { text: 'Text & Layer Styles', link: '/pages/features/text-and-layer-styles' }
       ]
     },
     {
