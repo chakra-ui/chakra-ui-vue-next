@@ -63,9 +63,7 @@ const [
   useDrawerContext,
 ] = createContext<CDrawerContext>()
 
-export const CDrawer: ComponentWithProps<
-  DeepPartial<DrawerProps>
-> = defineComponent({
+export const CDrawer: ComponentWithProps<DrawerProps> = defineComponent({
   name: 'CDrawer',
   props: {
     ...modalProps,
@@ -114,9 +112,7 @@ export const CDrawer: ComponentWithProps<
 
 export interface DrawerContentProps extends HTMLChakraProps<'section'> {}
 
-export const CDrawerContent: ComponentWithProps<
-  DeepPartial<DrawerContentProps>
-> = defineComponent({
+export const CDrawerContent: ComponentWithProps<DrawerContentProps> = defineComponent({
   name: 'CDrawerContent',
   inheritAttrs: false,
   emits: ['click', 'mousedown', 'keydown'],
