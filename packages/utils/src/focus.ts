@@ -54,7 +54,6 @@ export function focusIn(container: HTMLElement | HTMLElement[], focus: Focus) {
         const focusables = getAllFocusable(container).filter(
           (el) => el !== container
         )
-        console.log({ focusables })
         return focusables
       })()
   let active = document.activeElement as HTMLElement
