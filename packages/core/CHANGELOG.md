@@ -1,5 +1,40 @@
 # @chakra-ui/vue-next
 
+## 1.0.0-alpha.11
+
+### Patch Changes
+
+- [#122](https://github.com/chakra-ui/chakra-ui-vue-next/pull/122) [`2963735`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/29637355d6e37257e7ce43c10851049aba229359) Thanks [@codebender828](https://github.com/codebender828)! - Rewrite focus trap logic
+
+- Updated dependencies [[`2963735`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/29637355d6e37257e7ce43c10851049aba229359)]:
+  - @chakra-ui/c-accordion@0.1.0-alpha.9
+  - @chakra-ui/c-alert@1.0.0-alpha.9
+  - @chakra-ui/c-breadcrumb@1.0.0-alpha.9
+  - @chakra-ui/c-button@1.0.0-alpha.9
+  - @chakra-ui/c-close-button@0.1.0-alpha.9
+  - @chakra-ui/c-code@1.0.0-alpha.9
+  - @chakra-ui/c-color-mode@0.1.0-alpha.8
+  - @chakra-ui/c-flex@1.0.0-alpha.9
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.7
+  - @chakra-ui/c-form-control@0.0.0-alpha.4
+  - @chakra-ui/c-icon@1.0.0-alpha.9
+  - @chakra-ui/c-input@0.0.0-alpha.4
+  - @chakra-ui/c-modal@1.1.0-alpha.8
+  - @chakra-ui/c-motion@0.1.0-alpha.8
+  - @chakra-ui/c-popper@0.1.0-alpha.9
+  - @chakra-ui/c-portal@0.1.0-alpha.9
+  - @chakra-ui/c-reset@1.0.0-alpha.9
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.7
+  - @chakra-ui/c-spinner@1.0.0-alpha.9
+  - @chakra-ui/c-theme-provider@1.0.0-alpha.9
+  - @chakra-ui/c-visually-hidden@1.0.0-alpha.9
+  - @chakra-ui/vue-layout@0.1.0-alpha.10
+  - @chakra-ui/vue-system@0.1.0-alpha.9
+  - @chakra-ui/vue-theme@1.0.0-alpha.9
+  - @chakra-ui/vue-theme-tools@0.1.0-alpha.9
+  - @chakra-ui/vue-a11y@0.1.0-alpha.8
+  - @chakra-ui/vue-composables@0.1.0-alpha.8
+
 ## 1.0.0-alpha.10
 
 ### Patch Changes
