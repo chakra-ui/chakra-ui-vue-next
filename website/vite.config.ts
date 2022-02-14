@@ -5,13 +5,15 @@ import { extractCritical } from "@emotion/server"
 import Pages from "vite-plugin-pages"
 import Icons from "unplugin-icons/vite"
 import Components from "unplugin-vue-components/vite"
-import VueMdx from "vite-plugin-mdx-vue"
+import mdx from "@mdx-js/rollup"
 import { MdxComponents } from "./src/docs-theme/components/MdxComponents"
 import Layouts from "vite-plugin-vue-layouts"
 import VueJsx from "@vitejs/plugin-vue-jsx"
 import remarkGfm from "remark-gfm"
 // @ts-ignore
 import remarkAutolinkHeadings from "remark-autolink-headings"
+
+import { babel } from "@rollup/plugin-babel"
 
 // @ts-ignore
 import remarkSlug from "remark-slug"
@@ -63,44 +65,58 @@ export default defineConfig({
     outDir: `${path.resolve(__dirname, "dist")}`,
   },
   plugins: [
-    Vue({ include: [/\.vue$/, /\.mdx$/] }),
-    VueJsx(),
-    VueMdx({
-      wrapperComponent: "mdx-layout-wrapper",
-      mdxComponents: MdxComponents,
-      xdmOptions: (vFile, options) => {
-        // our plugins
-        const customRemarkPlugins = [
-          remarkGfm,
-          remarkAutolinkHeadings,
-          remarkSlug,
-          remarkMdxCodeMeta,
-        ]
-
-        // extend default plugins instead of replace (since we want to keep frontmatter plugin etc.)
-        options.remarkPlugins =
-          // @ts-ignore
-          options.remarkPlugins?.concat(customRemarkPlugins)
-        return options
-      },
-      extendFrontmatter: {
-        process: (_mdxContent, frontmatter) => {
-          const editUrl = getEditPageUrl(frontmatter.__resourcePath)
-          const slug = getPageSlug(frontmatter.__resourcePath)
-
-          return {
-            ...frontmatter,
-            editUrl,
-            slug,
-          }
-        },
-      },
+    Vue(),
+    mdx({
+      jsx: true,
+      remarkPlugins: [
+        remarkGfm,
+        remarkAutolinkHeadings,
+        remarkSlug,
+        remarkMdxCodeMeta,
+      ],
     }),
+    VueJsx(),
+    babel({
+      // Also run on what used to be `.mdx` (but is now JS):
+      extensions: [".js", ".jsx", ".cjs", ".mjs", ".md", ".mdx"],
+      plugins: ["@vue/babel-plugin-jsx"],
+    }),
+    // VueMdx({
+    //   wrapperComponent: "mdx-layout-wrapper",
+    //   mdxComponents: MdxComponents,
+    //   xdmOptions: (vFile, options) => {
+    //     // our plugins
+    //     const customRemarkPlugins = [
+    //       remarkGfm,
+    //       remarkAutolinkHeadings,
+    //       remarkSlug,
+    //       remarkMdxCodeMeta,
+    //     ]
+
+    //     // extend default plugins instead of replace (since we want to keep frontmatter plugin etc.)
+    //     options.remarkPlugins =
+    //       // @ts-ignore
+    //       options.remarkPlugins?.concat(customRemarkPlugins)
+    //     return options
+    //   },
+    //   extendFrontmatter: {
+    //     process: (_mdxContent, frontmatter) => {
+    //       const editUrl = getEditPageUrl(frontmatter.__resourcePath)
+    //       const slug = getPageSlug(frontmatter.__resourcePath)
+
+    //       return {
+    //         ...frontmatter,
+    //         editUrl,
+    //         slug,
+    //       }
+    //     },
+    //   },
+    // }),
     Pages({
       extensions: ["vue", "mdx"],
     }),
     Layouts({
-      layoutsDir: "src/layouts",
+      layoutsDirs: "src/layouts",
     }),
     Components({
       // directories
