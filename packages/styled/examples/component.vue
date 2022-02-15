@@ -46,12 +46,6 @@ const H1 = styled.h1(
   (props) => ({ flex: props.flex }),
   { display: "flex" }
 )
-const H1 = styled.h1((props) => {
-  return {
-    fontSize: props.fontSize,
-    ...props,
-  }
-})
 
 const Header1 = styled.h1`
   font-size: ${fontSize};
