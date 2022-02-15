@@ -37,7 +37,7 @@ export default defineConfig({
           ...route,
           groupRaw,
           groupPath: `/${group}`,
-          group,
+          group: group || _,
         }
       },
     }),

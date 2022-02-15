@@ -2,7 +2,6 @@ import { ref, watchEffect, Ref, ComputedRef } from "vue"
 
 // TODO: Figure out a good way to attachTo document.body in the tests without automagically inserting a div with data-v-app
 let CHILDREN_SELECTOR =
-  // @ts-expect-error
   typeof process !== "undefined" ?? process.env.NODE_ENV === "test"
     ? '[data-v-app=""] > *'
     : "body > *"

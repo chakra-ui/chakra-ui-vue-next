@@ -17,7 +17,7 @@ export interface CreateContextOptions {
   name?: string
 }
 
-type CreateContextReturn<T> = [(opts: T) => void, () => T]
+type CreateContextReturn<T> = [(opts: T) => void, (fallback?: T) => T]
 
 /**
  * Creates a named context, provider, and hook.
@@ -37,8 +37,8 @@ export function createContext<ContextType>(options: CreateContextOptions = {}) {
     provide<ContextType>(contextSymbol, payload)
   }
 
-  function useContext() {
-    const context = inject(contextSymbol, null)
+  function useContext(fallback: ContextType | null = null) {
+    const context = inject(contextSymbol, fallback)
 
     if (!context && strict) {
       throw new Error(errorMessage)

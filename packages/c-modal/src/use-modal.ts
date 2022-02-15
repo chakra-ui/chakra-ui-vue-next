@@ -1,12 +1,9 @@
 import {
   computed,
   getCurrentInstance,
-  onBeforeMount,
-  onBeforeUnmount,
   ref,
   Ref,
   ToRefs,
-  toRefs,
   unref,
   VNodeProps,
   watch,
@@ -24,7 +21,7 @@ import {
   getSelector,
   TemplateRef,
 } from "@chakra-ui/vue-utils"
-import { hideOthers, Undo, useInertOthers } from "@chakra-ui/vue-a11y"
+import { useInertOthers } from "@chakra-ui/vue-a11y"
 import { focus, FocusableElement, isFunction } from "@chakra-ui/utils"
 
 export interface UseModalOptions {
@@ -99,8 +96,7 @@ export function useModal(options: UseModalOptions) {
     initialFocusRef,
     finalFocusRef,
     useInert,
-    blockScrollOnMount,
-  } = toRefs(options)
+  } = options
 
   const instance = getCurrentInstance()
 
@@ -301,33 +297,3 @@ export type UseModalReturn = Omit<
   ToRefs<ReturnType<typeof useModal>>,
   "dialogRef" | "overlayRef" | "closeModal"
 >
-
-/**
- * Modal hook to polyfill `aria-modal`.
- *
- * It applies `aria-hidden` to elements behind the modal
- * to indicate that they're `inert`.
- *
- * @param ref ref of the node to be excluded from aria-hidden
- * @param shouldHide whether `aria-hidden` should be applied
- */
-export function useAriaHidden(
-  node: Ref<HTMLElement | undefined | null>,
-  shouldHide: Ref<boolean>
-) {
-  let undo: Undo | null = null
-
-  watchEffect(
-    () => {
-      // await nextTick()
-      if (shouldHide.value && node.value) {
-        undo = hideOthers(node.value)
-      } else {
-        undo?.()
-      }
-    },
-    {
-      flush: "post",
-    }
-  )
-}
