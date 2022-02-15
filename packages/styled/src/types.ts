@@ -22,6 +22,7 @@ export type StyledComponent<Props> = (
   __emotion_base: any
   __emotion_styles: any
   __emotion_forwardProp: any
+  withComponent: CreateStyled
 }
 
 export type StyledTagOrComponent =
@@ -40,6 +41,7 @@ export type PrivateStyledComponent<Props> = StyledComponent<Props> & {
   __emotion_base: any
   __emotion_styles: any
   __emotion_forwardProp: any
+  withComponent: CreateStyled
 }
 
 export type CreateStyledComponent = <Props>(

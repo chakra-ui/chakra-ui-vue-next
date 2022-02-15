@@ -1,12 +1,11 @@
 import clsx from 'clsx'
-import { canUseDOM } from '@chakra-ui/vue-utils'
-import { Interpolation, serializeStyles } from '@emotion/serialize'
+import { CSSInterpolation, Interpolation, serializeStyles } from '@emotion/serialize'
 import { getRegisteredStyles, insertStyles, SerializedStyles } from '@emotion/utils'
 import { defaultCache, __unusafe_useEmotionCache } from './cache'
 import { useEmotionTheme } from './theming'
 import { CreateStyled, PrivateStyledComponent, StyledOptions } from './types'
 import camelCase from 'lodash.camelcase'
-import { mergeProps, SetupContext } from 'vue'
+import { mergeProps, SetupContext, h, Fragment } from 'vue'
 
 const ILLEGAL_ESCAPE_SEQUENCE_ERROR = `You have illegal escape sequence in your template literal, most likely inside content's property value.
 Because you write your CSS inside a JavaScript string you actually have to do double escaping, so for example "content: '\\00d7';" should become "content: '\\\\00d7';".
@@ -199,6 +198,6 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
   }
 }
 
-export function css(...args: Array<Interpolation<any>>): SerializedStyles {
+export function css(...args: Array<CSSInterpolation | TemplateStringsArray>): SerializedStyles {
   return serializeStyles(args, {})
 }

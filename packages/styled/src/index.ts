@@ -7,6 +7,7 @@ export * from "./cache"
 const styled = createStyled.bind()
 
 tags.forEach((tagName) => {
+  // @ts-ignore
   styled[tagName] = styled(tagName)
 })
 
