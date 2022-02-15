@@ -26,6 +26,10 @@
     "@emotion/serialize": "^1.0.2",
     "@emotion/utils": "^1.0.0",
     "@emotion/weak-memoize": "^0.2.5",
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "lodash.camelcase": "^4.3.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.31"
   }
 }

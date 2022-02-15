@@ -39,13 +39,13 @@ const TextComponent = styled.h1`
 const fontSize = "20px"
 const Heading1 = styled.h1({ fontSize })
 
-// const H1 = styled.h1(
-//   (props) => ({
-//     color: props.color,
-//   }),
-//   (props) => ({ flex: props.flex }),
-//   { display: "flex" }
-// )
+const H1 = styled.h1(
+  (props) => ({
+    color: props.color,
+  }),
+  (props) => ({ flex: props.flex }),
+  { display: "flex" }
+)
 const H1 = styled.h1((props) => {
   return {
     fontSize: props.fontSize,
