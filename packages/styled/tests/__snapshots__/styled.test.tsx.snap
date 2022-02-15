@@ -242,7 +242,7 @@ exports[`styled higher order component 1`] = `
   .emotion-0 {
   font-size: 20px;
   background-color: #7fc8d6;
-  background-color: '#343a40';
+  background-color: #343a40;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;

@@ -371,7 +371,7 @@ describe.only("styled", () => {
     const flexColumn = Component => {
       const NewComponent = styled(Component)`
         ${squirtleBlueBackground};
-        background-color: '#343a40';
+        background-color: #343a40;
         flex-direction: column;
       `
 
