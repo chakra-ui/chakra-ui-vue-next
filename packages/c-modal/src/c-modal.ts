@@ -322,8 +322,8 @@ export const CModalContent: ComponentWithProps<
     })
 
     // Scroll lock
-    watchEffect((onInvalidate: VoidFunction) => {
-      if (!blockScrollOnMount.value) return
+    watchEffect((onInvalidate) => {
+      if (!blockScrollOnMount!.value) return
       if (modelValue.value !== true) return
 
       let overflow = document.documentElement.style.overflow
