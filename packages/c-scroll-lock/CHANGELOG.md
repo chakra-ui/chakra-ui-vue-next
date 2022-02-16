@@ -1,5 +1,13 @@
 # @chakra-ui/c-scroll-lock
 
+## 0.1.0-alpha.9
+
+### Patch Changes
+
+- Updated dependencies [[`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71)]:
+  - @chakra-ui/vue-utils@0.1.0-alpha.11
+  - @chakra-ui/vue-system@0.1.0-alpha.11
+
 ## 0.1.0-alpha.8
 
 ### Patch Changes

@@ -34,7 +34,8 @@
     "@chakra-ui/vue-composables": "0.1.0-alpha.1",
     "@chakra-ui/c-breadcrumb": "1.0.0-alpha.4",
     "@chakra-ui/c-form-control": "0.0.0-alpha.0",
-    "@chakra-ui/c-input": "0.0.0-alpha.0"
+    "@chakra-ui/c-input": "0.0.0-alpha.0",
+    "@chakra-ui/vue-styled": "0.0.0-alpha.0"
   },
   "changesets": [
     "bright-geese-tickle",
@@ -61,6 +62,7 @@
     "sweet-lamps-brake",
     "ten-pandas-run",
     "tricky-olives-live",
+    "twelve-poems-scream",
     "two-moles-worry",
     "wild-chairs-applaud"
   ]

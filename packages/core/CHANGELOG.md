@@ -1,5 +1,40 @@
 # @chakra-ui/vue-next
 
+## 1.0.0-alpha.14
+
+### Minor Changes
+
+- [#126](https://github.com/chakra-ui/chakra-ui-vue-next/pull/126) [`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71) Thanks [@codebender828](https://github.com/codebender828)! - Create @chakra-ui/vue-styled package"
+
+### Patch Changes
+
+- Updated dependencies [[`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71)]:
+  - @chakra-ui/c-modal@1.1.0-alpha.11
+  - @chakra-ui/c-portal@0.1.0-alpha.11
+  - @chakra-ui/vue-a11y@0.1.0-alpha.10
+  - @chakra-ui/c-alert@1.0.0-alpha.11
+  - @chakra-ui/c-breadcrumb@1.0.0-alpha.11
+  - @chakra-ui/c-button@1.0.0-alpha.11
+  - @chakra-ui/c-close-button@0.1.0-alpha.11
+  - @chakra-ui/c-code@1.0.0-alpha.11
+  - @chakra-ui/c-flex@1.0.0-alpha.11
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.9
+  - @chakra-ui/c-motion@0.1.0-alpha.10
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.9
+  - @chakra-ui/c-spinner@1.0.0-alpha.11
+  - @chakra-ui/vue-layout@0.1.0-alpha.12
+  - @chakra-ui/vue-system@0.1.0-alpha.11
+  - @chakra-ui/vue-composables@0.1.0-alpha.10
+  - @chakra-ui/c-accordion@0.1.0-alpha.11
+  - @chakra-ui/c-form-control@0.0.0-alpha.6
+  - @chakra-ui/c-icon@1.0.0-alpha.11
+  - @chakra-ui/c-input@0.0.0-alpha.6
+  - @chakra-ui/c-reset@1.0.0-alpha.11
+  - @chakra-ui/c-visually-hidden@1.0.0-alpha.11
+  - @chakra-ui/vue-theme@1.0.0-alpha.11
+  - @chakra-ui/vue-theme-tools@0.1.0-alpha.11
+  - @chakra-ui/c-theme-provider@1.0.0-alpha.11
+
 ## 1.0.0-alpha.13
 
 ### Patch Changes
