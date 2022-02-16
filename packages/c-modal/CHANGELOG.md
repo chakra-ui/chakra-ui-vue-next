@@ -1,5 +1,24 @@
 # @chakra-ui/c-modal
 
+## 1.1.0-alpha.11
+
+### Minor Changes
+
+- [#126](https://github.com/chakra-ui/chakra-ui-vue-next/pull/126) [`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71) Thanks [@codebender828](https://github.com/codebender828)! - Create @chakra-ui/vue-styled package"
+
+### Patch Changes
+
+- Updated dependencies [[`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71)]:
+  - @chakra-ui/c-portal@0.1.0-alpha.11
+  - @chakra-ui/vue-utils@0.1.0-alpha.11
+  - @chakra-ui/vue-a11y@0.1.0-alpha.10
+  - @chakra-ui/c-close-button@0.1.0-alpha.11
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.9
+  - @chakra-ui/c-motion@0.1.0-alpha.10
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.9
+  - @chakra-ui/vue-system@0.1.0-alpha.11
+  - @chakra-ui/vue-composables@0.1.0-alpha.10
+
 ## 1.1.0-alpha.10
 
 ### Patch Changes

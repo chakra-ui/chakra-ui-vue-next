@@ -1,5 +1,15 @@
 # @chakra-ui/c-button
 
+## 1.0.0-alpha.11
+
+### Patch Changes
+
+- Updated dependencies [[`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71)]:
+  - @chakra-ui/vue-utils@0.1.0-alpha.11
+  - @chakra-ui/c-spinner@1.0.0-alpha.11
+  - @chakra-ui/vue-system@0.1.0-alpha.11
+  - @chakra-ui/c-icon@1.0.0-alpha.11
+
 ## 1.0.0-alpha.10
 
 ### Patch Changes

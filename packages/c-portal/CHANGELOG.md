@@ -1,5 +1,16 @@
 # @chakra-ui/c-portal
 
+## 0.1.0-alpha.11
+
+### Minor Changes
+
+- [#126](https://github.com/chakra-ui/chakra-ui-vue-next/pull/126) [`46e414d`](https://github.com/chakra-ui/chakra-ui-vue-next/commit/46e414d1bb1a9a0b322beeedd8c9c3eb2811cb71) Thanks [@codebender828](https://github.com/codebender828)! - Create @chakra-ui/vue-styled package"
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-composables@0.1.0-alpha.10
+
 ## 0.1.0-alpha.10
 
 ### Patch Changes
