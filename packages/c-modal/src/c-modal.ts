@@ -296,8 +296,13 @@ export const CModalContent: ComponentWithProps<
   inheritAttrs: false,
   emits: ["click", "mousedown", "keydown"],
   setup(_, { attrs, slots, emit }) {
-    const { dialogContainerProps, dialogProps, blockScrollOnMount, modelValue, motionPreset } =
-      unref(useModalContext())
+    const {
+      dialogContainerProps,
+      dialogProps,
+      blockScrollOnMount,
+      modelValue,
+      motionPreset,
+    } = unref(useModalContext())
     const styles = useStyles()
     const transitionId = useId("modal-content")
 
@@ -317,8 +322,8 @@ export const CModalContent: ComponentWithProps<
     })
 
     // Scroll lock
-    watchEffect((onInvalidate: VoidFunction) => {
-      if (!blockScrollOnMount.value) return
+    watchEffect((onInvalidate) => {
+      if (!blockScrollOnMount!.value) return
       if (modelValue.value !== true) return
 
       let overflow = document.documentElement.style.overflow
@@ -333,7 +338,6 @@ export const CModalContent: ComponentWithProps<
       onInvalidate(() => {
         document.documentElement.style.overflow = overflow
         document.documentElement.style.paddingRight = paddingRight
-        console.log("invalidating", document.documentElement.style.overflow)
       })
     })
 

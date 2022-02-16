@@ -1,5 +1,11 @@
 # @chakra-ui/c-modal
 
+## 1.1.0-alpha.10
+
+### Patch Changes
+
+- chore: remove unused logs
+
 ## 1.1.0-alpha.9
 
 ### Patch Changes

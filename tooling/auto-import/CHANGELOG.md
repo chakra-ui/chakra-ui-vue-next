@@ -1,5 +1,12 @@
 # @chakra-ui/vue-auto-import
 
+## 1.0.0-alpha.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @chakra-ui/vue-next@1.0.0-alpha.13
+
 ## 1.0.0-alpha.11
 
 ### Patch Changes
