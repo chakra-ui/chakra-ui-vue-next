@@ -1,5 +1,11 @@
 # @chakra-ui/vue-utils
 
+## 0.1.0-alpha.12
+
+### Patch Changes
+
+- fix deployment build
+
 ## 0.1.0-alpha.11
 
 ### Minor Changes

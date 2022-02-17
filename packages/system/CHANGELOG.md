@@ -1,5 +1,15 @@
 # @chakra-ui/vue-system
 
+## 0.1.0-alpha.12
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/c-color-mode@0.1.0-alpha.10
+  - @chakra-ui/vue-utils@0.1.0-alpha.12
+
 ## 0.1.0-alpha.11
 
 ### Patch Changes

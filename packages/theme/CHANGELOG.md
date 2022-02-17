@@ -1,5 +1,15 @@
 # @chakra-ui/vue-theme
 
+## 1.0.0-alpha.12
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.12
+  - @chakra-ui/vue-theme-tools@0.1.0-alpha.12
+
 ## 1.0.0-alpha.11
 
 ### Patch Changes

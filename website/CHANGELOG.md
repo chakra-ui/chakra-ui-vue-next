@@ -1,5 +1,11 @@
 # @chakra-ui/vue-docs
 
+## 0.1.0-alpha.11
+
+### Patch Changes
+
+- fix deployment build
+
 ## 0.1.0-alpha.10
 
 ### Patch Changes

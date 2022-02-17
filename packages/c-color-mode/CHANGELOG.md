@@ -1,5 +1,11 @@
 # @chakra-ui/c-color-mode
 
+## 0.1.0-alpha.10
+
+### Patch Changes
+
+- fix deployment build
+
 ## 0.1.0-alpha.9
 
 ### Patch Changes

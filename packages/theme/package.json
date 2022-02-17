@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-theme",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-alpha.12",
   "main": "dist/chakra-ui-vue-theme.cjs.js",
   "module": "dist/chakra-ui-vue-theme.esm.js",
   "files": [
@@ -20,11 +20,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.11"
+    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.12"
   },
   "peerDependencies": {
     "@chakra-ui/utils": "^1.8.2",
-    "@chakra-ui/vue-system": "0.1.0-alpha.11",
+    "@chakra-ui/vue-system": "0.1.0-alpha.12",
     "vue": "^3.1.4"
   },
   "publishConfig": {
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@chakra-ui/utils": "^1.9.1",
-    "@chakra-ui/vue-system": "0.1.0-alpha.11",
+    "@chakra-ui/vue-system": "0.1.0-alpha.12",
     "vue": "^3.2.29"
   }
 }

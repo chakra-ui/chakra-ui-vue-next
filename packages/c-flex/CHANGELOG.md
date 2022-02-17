@@ -1,5 +1,15 @@
 # @chakra-ui/c-flex
 
+## 1.0.0-alpha.12
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.12
+  - @chakra-ui/vue-utils@0.1.0-alpha.12
+
 ## 1.0.0-alpha.11
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @chakra-ui/c-motion
 
+## 0.1.0-alpha.11
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/vue-system@0.1.0-alpha.12
+  - @chakra-ui/vue-utils@0.1.0-alpha.12
+  - @chakra-ui/vue-composables@0.1.0-alpha.11
+
 ## 0.1.0-alpha.10
 
 ### Patch Changes

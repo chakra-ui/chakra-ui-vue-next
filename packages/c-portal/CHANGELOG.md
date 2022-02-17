@@ -1,5 +1,14 @@
 # @chakra-ui/c-portal
 
+## 0.1.0-alpha.12
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/vue-composables@0.1.0-alpha.11
+
 ## 0.1.0-alpha.11
 
 ### Minor Changes

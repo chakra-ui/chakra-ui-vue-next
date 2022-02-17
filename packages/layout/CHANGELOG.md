@@ -1,5 +1,16 @@
 # @chakra-ui/vue-layout
 
+## 0.1.0-alpha.13
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/c-icon@1.0.0-alpha.12
+  - @chakra-ui/vue-system@0.1.0-alpha.12
+  - @chakra-ui/vue-utils@0.1.0-alpha.12
+
 ## 0.1.0-alpha.12
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @chakra-ui/c-modal
 
+## 1.1.0-alpha.12
+
+### Patch Changes
+
+- fix deployment build
+
+- Updated dependencies []:
+  - @chakra-ui/c-close-button@0.1.0-alpha.12
+  - @chakra-ui/c-focus-lock@0.1.0-alpha.10
+  - @chakra-ui/c-motion@0.1.0-alpha.11
+  - @chakra-ui/c-portal@0.1.0-alpha.12
+  - @chakra-ui/c-scroll-lock@0.1.0-alpha.10
+  - @chakra-ui/vue-system@0.1.0-alpha.12
+  - @chakra-ui/vue-utils@0.1.0-alpha.12
+  - @chakra-ui/vue-a11y@0.1.0-alpha.11
+  - @chakra-ui/vue-composables@0.1.0-alpha.11
+
 ## 1.1.0-alpha.11
 
 ### Minor Changes
