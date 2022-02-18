@@ -1,5 +1,21 @@
 import { h, renderSlot, SetupContext } from "vue"
 import { trim } from "lodash"
+import MDXLayoutWrapper from "../layout/MDXLayoutWrapper.vue"
+
+import {
+  MdxBlockquote,
+  MdxChakra,
+  MdxHeading,
+  MdxInlineCode,
+  MdxPre,
+  MdxTable,
+  MdxTd,
+  MdxTh,
+} from "./MDXComponents/index"
+
+import CarbonAd from "./CarbonAd.vue"
+import ComponentLinks from "./ComponentLinks.vue"
+
 /**
  * MDX Components
  *
@@ -16,13 +32,13 @@ import { trim } from "lodash"
 const LinkedHeading =
   (as: string, apply: string) => (props: any, context: SetupContext) => {
     return h(
-      "MdxHeading",
+      MdxHeading,
       { ...props, as, apply },
       renderSlot(context.slots, "default")
     )
   }
 
-const MdxChakra =
+const _MdxChakra =
   (
     {
       as,
@@ -36,13 +52,16 @@ const MdxChakra =
   ) =>
   (props: any, context: SetupContext) =>
     h(
-      "MdxChakra",
+      MdxChakra,
       { ...props, as, apply, ...customProps },
       renderSlot(context.slots, "default")
     )
 
 export const MdxComponents = {
-  h1: (props: any, context: SetupContext) => {
+  // wrapper: () => {
+  //   MDXLayoutWrapper
+  // },
+  h1: () => (props: any, context: SetupContext) => {
     return h(
       "chakra.h1",
       { apply: "mdx.h1", ...props },
@@ -65,7 +84,7 @@ export const MdxComponents = {
       renderSlot(context.slots, "default")
     ),
   code: (props: { className: string }, context: SetupContext) => {
-    return h("MdxInlineCode", props, context.slots)
+    return h(MdxInlineCode, props, context.slots)
   },
   pre: (props: { live?: boolean }, context: any) => {
     // props comes from remark-mdx-code-meta automatically
@@ -80,7 +99,7 @@ export const MdxComponents = {
     const [_, language] = realProps?.className?.split("-")
 
     const comp = h(
-      "MdxPre",
+      MdxPre,
       { ...props, ...realProps, language, code },
       // no need for slot
       { default: "" }
@@ -89,22 +108,22 @@ export const MdxComponents = {
   },
   kbd: "CKbd",
   // todo: use <Cbr /> instead of <br reset />
-  CBr: ({ reset, ...props }: { reset: Boolean }, context: SetupContext) => {
-    return h("c-box", {
-      ...props,
-      as: "div", // failed to resolve component 'br'?
-      height: reset ? undefined : "24px",
-    })
-  },
-  table: "MdxTable",
-  th: "MdxTh",
-  td: "MdxTd",
-  a: MdxChakra({ as: "a", apply: "mdx.a" }),
-  p: MdxChakra({ as: "p", apply: "mdx.p" }),
-  ul: MdxChakra({ as: "ul", apply: "mdx.ul" }),
-  ol: MdxChakra({ as: "ol", apply: "mdx.ul" }),
-  li: MdxChakra({ as: "li", customProps: { pb: "4px" } }),
-  blockquote: "MdxBlockquote",
-  CarbonAd: "CarbonAd",
-  ComponentLinks: "ComponentLinks",
+  // CBr: ({ reset, ...props }: { reset: Boolean }, context: SetupContext) => {
+  //   return h("c-box", {
+  //     ...props,
+  //     as: "div", // failed to resolve component 'br'?
+  //     height: reset ? undefined : "24px",
+  //   })
+  // },
+  table: MdxTable,
+  th: MdxTh,
+  td: MdxTd,
+  a: _MdxChakra({ as: "a", apply: "mdx.a" }),
+  p: _MdxChakra({ as: "span", apply: "mdx.p" }),
+  ul: _MdxChakra({ as: "ul", apply: "mdx.ul" }),
+  ol: _MdxChakra({ as: "ol", apply: "mdx.ul" }),
+  li: _MdxChakra({ as: "li", customProps: { pb: "4px" } }),
+  blockquote: MdxBlockquote,
+  CarbonAd: CarbonAd,
+  ComponentLinks: ComponentLinks,
 }

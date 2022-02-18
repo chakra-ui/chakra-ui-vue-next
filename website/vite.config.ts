@@ -19,6 +19,8 @@ import { babel } from "@rollup/plugin-babel"
 import remarkSlug from "remark-slug"
 import ChakraComponents from "../playground/build/components.json"
 import { remarkMdxCodeMeta } from "remark-mdx-code-meta"
+import remarkFrontmatter from "remark-frontmatter"
+import { remarkMdxFrontmatter } from "remark-mdx-frontmatter"
 
 const getEditPageUrl = (resourcePath: string) => {
   const EDIT_PAGE_PATH =
@@ -68,11 +70,14 @@ export default defineConfig({
     Vue(),
     mdx({
       jsx: true,
+      providerImportSource: "@mdx-js/vue",
       remarkPlugins: [
         remarkGfm,
         remarkAutolinkHeadings,
         remarkSlug,
         remarkMdxCodeMeta,
+        remarkFrontmatter,
+        remarkMdxFrontmatter,
       ],
     }),
     VueJsx(),
