@@ -36,7 +36,7 @@ export const render = (
       name: "ChakraUIVueTestContainer",
       setup(_, { slots }) {
         useDefaultProviders()
-        return () => h(component as any, slots)
+        return () => h(component as any, {}, slots)
       },
     }),
     ...rest

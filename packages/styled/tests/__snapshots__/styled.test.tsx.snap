@@ -75,6 +75,32 @@ exports[`styled call expression 1`] = `
 </DocumentFragment>
 `;
 
+exports[`styled component selectors 1`] = `
+<DocumentFragment>
+  <!---->
+  .emotion-0 {
+  color: green;
+}
+
+.emotion-0 .emotion-2 {
+  color: yellow;
+}
+
+.emotion-1 {
+  color: hotpink;
+}
+
+<div
+    class="emotion-0"
+  >
+    <!---->
+    <div
+      class="emotion-1 emotion-2"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`styled composing components 1`] = `
 <DocumentFragment>
   <!---->
@@ -547,6 +573,56 @@ exports[`styled random object expression 1`] = `
   >
     hello world
   </h1>
+</DocumentFragment>
+`;
+
+exports[`styled same component rendered multiple times 1`] = `
+<DocumentFragment>
+  <!---->
+  .emotion-0 {
+  color: green;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`styled same component rendered multiple times 2`] = `
+<DocumentFragment>
+  <!---->
+  .emotion-0 {
+  color: green;
+}
+
+<div
+    class="emotion-0"
+  >
+    <!---->
+    <div
+      class="emotion-0"
+    />
+    <!---->
+    <div
+      class="emotion-0"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`styled theming 1`] = `
+<DocumentFragment>
+  <!---->
+  .emotion-0 {
+  color: hotpink;
+}
+
+<div
+    class="emotion-0"
+  >
+    this should be hotpink
+  </div>
 </DocumentFragment>
 `;
 

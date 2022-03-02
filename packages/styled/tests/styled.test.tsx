@@ -1,5 +1,5 @@
 import styled from "../src"
-import { h, Fragment } from "vue"
+import { h, Fragment, defineComponent } from "vue"
 import { render } from "../../test-utils/src"
 import { createSerializer } from "@emotion/jest"
 import { css } from '../src/styled'
@@ -530,21 +530,21 @@ describe.only("styled", () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it.todo("Finalize unit tests for theme provider from the Styled Factory Function")
-  it.skip('theming', () => {
+  it('theming', () => {
     const Div = styled.div`
       color: ${props => props.theme.primary};
     `
 
-    const { asFragment } = render(() => {
+    const { asFragment } = render(defineComponent(() => {
       EmotionThemeProvider({
         primary: 'hotpink'
       })
 
-      return (
+      return () => (
         <Div>this should be hotpink</Div>
       )
     })
+  )
 
     expect(asFragment()).toMatchSnapshot()
   })
@@ -564,5 +564,51 @@ describe.only("styled", () => {
     ))
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  it("same component rendered multiple times", () => {
+    const SomeComponent = styled.div`
+      color: green;
+    `
+    const { asFragment } = render(() => (
+      <SomeComponent />
+    ))
+    const tree = asFragment()
+    expect(tree).toMatchSnapshot()
+    expect(render(() => (
+      <SomeComponent />
+    )).asFragment()).toEqual(render(() => (
+      <SomeComponent />
+    )).asFragment())
+
+    expect(render(() => (
+      <SomeComponent>
+        <SomeComponent />
+        <SomeComponent />
+      </SomeComponent>
+    )).asFragment()).toMatchSnapshot()
+  })
+
+  it("component selectors", () => {
+    let Target = styled('div', {
+      // if anyone is looking this
+      // please don't do this.
+      // use the babel plugin/macro.
+      target: 'e322f2d3tbrgf2e0'
+    })`
+      color: hotpink;
+    `
+
+    let SomeComponent = styled.div`
+      color: green;
+      ${Target.toString()} {
+        color: yellow;
+      }
+    `
+    expect(render(() => (
+      <SomeComponent>
+        <Target />
+      </SomeComponent>
+    )).asFragment()).toMatchSnapshot()
   })
 })

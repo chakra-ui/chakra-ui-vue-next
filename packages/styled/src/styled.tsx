@@ -69,7 +69,6 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
       const cache = __unusafe_useEmotionCache(defaultCache)
       const { as, ...restAttrs } = attrs || {}
 
-
       let mergedProps = { ...props, ...restAttrs }
 
       let className = attrs.staticClass ? `${attrs.staticClass} ` : ''
@@ -86,6 +85,7 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
           mergedProps[attr] = props[key]
         }
       }
+
       if (props.theme == null) {
         mergedProps.theme = useEmotionTheme(undefined)
       }
@@ -102,7 +102,7 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
           clsx(attrs.class as string)
         )
       }
-  
+
       const serialized = serializeStyles(
         styles.concat(classInterpolations),
         cache.registered,
