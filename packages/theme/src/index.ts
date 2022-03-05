@@ -7,6 +7,7 @@ export type ColorMode = "light" | "dark"
 export interface ColorModeOptions {
   initialColorMode?: ColorMode
   useSystemColorMode?: boolean
+  cssVarPrefix?: string
 }
 
 /**
@@ -15,6 +16,7 @@ export interface ColorModeOptions {
 const config: ColorModeOptions = {
   useSystemColorMode: false,
   initialColorMode: "light",
+  cssVarPrefix: "chakra",
 }
 
 export const theme = {
