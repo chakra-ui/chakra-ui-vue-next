@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-03-03T13:59:03.450Z
+ * This file was generated on 2022-03-05T09:54:15.061Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -191,7 +191,6 @@ declare module "@vue/runtime-core" {
   /* Component custom props types for JSX and TSX auto complete */
   export interface ComponentCustomProps
     extends JsxComponentCustomProps,
-      ComponentCustomProps,
       ChakraProps {
     vSlots?: {
       [eleName: string]: JSX.Element

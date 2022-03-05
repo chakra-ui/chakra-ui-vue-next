@@ -1268,6 +1268,30 @@
     framesync "5.3.0"
     lodash.mergewith "4.6.2"
 
+"@chakra-ui/vue-styled@^0.0.0-alpha.2":
+  version "0.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/vue-styled/-/vue-styled-0.0.0-alpha.2.tgz#046aeff8f521d4da0bc33964f6728f64a0784b3d"
+  integrity sha512-iB6+hl60knaASd4HuV7HcHcZ2GUMAcyN9eFjtbpRCxdhMQWDVbvMZM0AWNsgi2F5ReRmUsvwwqyMaF5T6+V0aQ==
+  dependencies:
+    "@chakra-ui/vue-utils" "0.1.0-alpha.12"
+    "@emotion/cache" "^11.7.1"
+    "@emotion/css" "^11.7.1"
+    "@emotion/serialize" "^1.0.2"
+    "@emotion/utils" "^1.0.0"
+    "@emotion/weak-memoize" "^0.2.5"
+    clsx "^1.1.1"
+    lodash.camelcase "^4.3.0"
+
+"@chakra-ui/vue-utils@0.1.0-alpha.12":
+  version "0.1.0-alpha.12"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/vue-utils/-/vue-utils-0.1.0-alpha.12.tgz#d0cd4de1688d07452d82e7055891a9fefbbe0f11"
+  integrity sha512-nANxYyZbA3lbSlGVZJNLb1T6O8nlSa6tgk9N31xvCzKvttFgDp/KOXxodDQaK+YwwpzU1qrSHzy6IDf6VKP/wQ==
+  dependencies:
+    "@chakra-ui/utils" "^1.9.1"
+    css-box-model "1.2.1"
+    lodash.mergewith "^4.6.2"
+    object-assign "^4.1.1"
+
 "@changesets/apply-release-plan@^5.0.4":
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-5.0.4.tgz#fefffecf73b59dbee7ae905b3c6a2e64c489f0cb"
@@ -1847,6 +1871,11 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-1.0.0.tgz#abe06a83160b10570816c913990245813a2fd6af"
   integrity sha512-mQC2b3XLDs6QCW+pDQDiyO/EdGZYOygE8s5N5rrzjSI4M3IejPE/JPndCBwRT9z982aqQNi6beWs1UeayrQxxA==
+
+"@emotion/utils@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-1.1.0.tgz#86b0b297f3f1a0f2bdb08eeac9a2f49afd40d0cf"
+  integrity sha512-iRLa/Y4Rs5H/f2nimczYmS5kFJEbpiVvgN3XVfZ022IYhuNA1IRSHEizcof88LtCTXtl9S2Cxt32KgaXEu72JQ==
 
 "@emotion/weak-memoize@^0.2.5":
   version "0.2.5"

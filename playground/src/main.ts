@@ -11,6 +11,7 @@ import PerfectScrollbar from "vue3-perfect-scrollbar"
 import { MotionPlugin } from "@vueuse/motion"
 import App from "./App.vue"
 import router from "./router"
+import { mode } from "@chakra-ui/vue-theme-tools"
 
 console.log({ router })
 
@@ -34,7 +35,7 @@ const app = createApp(App)
         },
       },
       emotionCacheOptions: {
-        key: "css",
+        key: "chakra",
       },
       extendTheme: extendTheme({
         config: {},
@@ -52,7 +53,14 @@ const app = createApp(App)
           global: (props: any) => {
             return {
               body: {
-                // color: mode('gray.700', 'whiteAlpha.900')(props),
+                bg: mode("white", "gray.800")(props),
+                color: mode("blackAlpha.800", "whiteAlpha.800")(props),
+                "a.router-link-active": {
+                  color: mode("teal.500", "teal.200")(props),
+                  fontSize: mode("0.9rem", "0.9rem")(props),
+                  fontWeight: mode("bold", "bold")(props),
+                  textDecoration: mode("underline", "underline")(props),
+                },
               },
             }
           },

@@ -26,7 +26,7 @@
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
-    "components.d.ts",
+    "./components.d.ts",
     "packages",
     "playground/**/*.ts",
     "playground/**/*.d.ts",
