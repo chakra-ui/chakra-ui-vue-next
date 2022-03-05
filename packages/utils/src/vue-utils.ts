@@ -17,7 +17,7 @@ export interface CreateContextOptions {
   name?: string
 }
 
-type CreateContextReturn<T> = [(opts: T) => void, (fallback?: T) => T]
+type CreateContextReturn<T> = [(opts: T) => void, (fallback?: T) => T, Symbol]
 
 /**
  * Creates a named context, provider, and hook.
@@ -47,7 +47,7 @@ export function createContext<ContextType>(options: CreateContextOptions = {}) {
     return context
   }
 
-  return [Provider, useContext] as CreateContextReturn<ContextType>
+  return [Provider, useContext, contextSymbol] as CreateContextReturn<ContextType>
 }
 
 /**

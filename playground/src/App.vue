@@ -20,10 +20,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, watchEffect } from 'vue'
 import { CReset, CIconButton, useColorMode } from '@chakra-ui/vue-next'
+import { useTheme } from "@chakra-ui/vue-system"
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
+
 
 export default defineComponent({
   components: { Sidebar, CReset, CIconButton },

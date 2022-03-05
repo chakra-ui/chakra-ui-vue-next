@@ -1,6 +1,7 @@
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { UnwrapRef } from "vue"
 import { ThemeOverride } from "../extend-theme"
+import { Options } from "@emotion/cache"
 
 interface ExtendIconsPath {
   path: string
@@ -17,4 +18,5 @@ export interface ChakraPluginOptions {
   extendTheme?: ThemeOverride
   icons?: IconsOptions
   defaultColorMode?: UnwrapRef<ColorModeRef>
+  emotionCacheOptions?: Options
 }

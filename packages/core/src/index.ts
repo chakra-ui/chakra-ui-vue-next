@@ -3,6 +3,11 @@ import defaultTheme from "@chakra-ui/vue-theme"
 import type { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
+import {
+  EmotionThemeContextSymbol,
+  EmotionCacheInjectionSymbol,
+} from "@chakra-ui/vue-styled"
+import createCache from "@emotion/cache"
 import internalIcons from "./icon.internals"
 import { extendTheme, ThemeOverride } from "./extend-theme"
 import { MergedIcons, parseIcons } from "./parse-icons"
@@ -11,10 +16,17 @@ import { mode } from "@chakra-ui/vue-theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
 
 /**
+ * 1. Support passing cache options from plugin
+ * 2. Provide emotion theme directly from plugin
+ * 3.
+ */
+
+/**
  * Helper function to extend Chakra plugin with options
  * It just returns its arguments with typescript types added
  */
-export function chakraOptions(
+
+export function extendChakra(
   options: ChakraPluginOptions = { cssReset: true }
 ) {
   return options
@@ -56,7 +68,15 @@ const ChakraUIVuePlugin: Plugin = {
 
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme.value
+    app.config.globalProperties.$chakraTheme = computedTheme.value
+    app.provide(EmotionThemeContextSymbol, computedTheme.value)
     app.provide("$chakraTheme", computedTheme.value as ThemeOverride)
+
+    // Provide emotion cache
+    if (options.emotionCacheOptions) {
+      const emotionCache = createCache(options.emotionCacheOptions)
+      app.provide(EmotionCacheInjectionSymbol, emotionCache)
+    }
 
     libraryIcons = parseIcons(libraryIcons)
 

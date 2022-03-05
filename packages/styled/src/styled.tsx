@@ -1,11 +1,13 @@
 import clsx from 'clsx'
-import { CSSInterpolation, Interpolation, serializeStyles } from '@emotion/serialize'
+import { mergeProps, SetupContext, h, Fragment } from 'vue'
+import { CSSInterpolation, serializeStyles } from '@emotion/serialize'
+import { extractStyleAttrs } from '@chakra-ui/vue-utils'
 import { getRegisteredStyles, insertStyles, SerializedStyles } from '@emotion/utils'
+import camelCase from 'lodash.camelcase'
+import { CreateStyled, PrivateStyledComponent, StyledOptions } from './types'
 import { defaultCache, __unusafe_useEmotionCache } from './cache'
 import { useEmotionTheme } from './theming'
-import { CreateStyled, PrivateStyledComponent, StyledOptions } from './types'
-import camelCase from 'lodash.camelcase'
-import { mergeProps, SetupContext, h, Fragment } from 'vue'
+import memoize from 'lodash.memoize'
 
 const ILLEGAL_ESCAPE_SEQUENCE_ERROR = `You have illegal escape sequence in your template literal, most likely inside content's property value.
 Because you write your CSS inside a JavaScript string you actually have to do double escaping, so for example "content: '\\00d7';" should become "content: '\\\\00d7';".
@@ -16,6 +18,8 @@ let isBrowser = typeof document !== 'undefined'
 
 const Noop = () => null
 const camelCaseCache: any = {}
+
+const _camelCase = memoize((key) => camelCase(key))
 
 // @ts-ignore
 export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) => {
@@ -33,7 +37,7 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
   let identifierName: string
   let targetClassName: string
   if (options !== undefined) {
-    identifierName = options.label as string
+    identifierName = options.__label as string
     targetClassName = options.target as string
   }
 
@@ -71,7 +75,7 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
 
       let mergedProps = { ...props, ...restAttrs }
 
-      let className = attrs.staticClass ? `${attrs.staticClass} ` : ''
+      let className = options?.__label ? `${cache.key}-${options?.__label || typeof tag === 'string' ? tag : 'element'} ` :  ``
       const FinalTag = as || baseTag
       const classInterpolations = [] as string[]
 
@@ -80,7 +84,7 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
         if (camelCaseCache[key]) {
           mergedProps[key] = camelCaseCache[key]
         } else {
-          const attr = camelCase(key)
+          const attr = _camelCase(key)
           camelCaseCache[attr] = props[key]
           mergedProps[attr] = props[key]
         }
@@ -120,11 +124,14 @@ export const createStyled: CreateStyled = (tag: any, options?: StyledOptions) =>
           className += ` ${targetClassName}`
         }
 
+
+      const { attrs: htmlAttrs } = extractStyleAttrs(mergedProps)
       const vnodeProps = {
-        ...attrs,
-        ...restAttrs,
+        ...htmlAttrs,
         class: className,
       }
+      // @ts-expect-error
+      delete vnodeProps?.theme
 
       const StyledElement = (
         <FinalTag {...vnodeProps}>

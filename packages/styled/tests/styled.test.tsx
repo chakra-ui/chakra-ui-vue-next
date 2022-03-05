@@ -86,7 +86,6 @@ describe.only("styled", () => {
     })
 
     const { asFragment } = render(() => {
-      // @ts-expect-error
       return <H2 fontSize={20} flex={1}>
       hello world
     </H2>

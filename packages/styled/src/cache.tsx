@@ -11,7 +11,7 @@ import {
   SetupContext
 } from "vue"
 
-const [EmotionCacheProvider, useEmotionCache] = createContext<EmotionCache>({
+const [EmotionCacheProvider, useEmotionCache, EmotionCacheInjectionSymbol] = createContext<EmotionCache>({
   strict: false,
   name: "EmotionCacheContext",
 })
@@ -50,4 +50,4 @@ if (canUseDOM()) {
   }
 }
 
-export { withEmotionCache, EmotionCacheProvider }
+export { withEmotionCache, EmotionCacheProvider, EmotionCacheInjectionSymbol }
