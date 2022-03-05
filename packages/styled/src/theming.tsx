@@ -17,6 +17,7 @@ let createCacheWithTheme = /* #__PURE__ */ weakMemoize(outerTheme => {
 function EmotionThemeProvider (theme: object | ((Obj: object) => Object)) {
   let _theme = useEmotionTheme()
   if (theme !== _theme) {
+    // @ts-ignore
     _theme = createCacheWithTheme(_theme)(theme)
   }
   _EmotionThemeProvider(_theme)

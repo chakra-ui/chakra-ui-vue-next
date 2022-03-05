@@ -155,7 +155,6 @@ exports[`styled composition 2`] = `
 
 <h1
     class="legacy__class emotion-0"
-    scale="2"
   >
     hello world final
   </h1>
@@ -203,7 +202,6 @@ exports[`styled function in expression 1`] = `
 
 <h1
     class="legacy__class emotion-0"
-    scale="2"
   >
     hello world
   </h1>
@@ -226,8 +224,6 @@ exports[`styled glamorous style api & composition 1`] = `
 
 <h1
     class="emotion-0"
-    flex="1"
-    fontsize="20"
   >
     hello world
   </h1>
@@ -255,7 +251,6 @@ exports[`styled handles more than 10 dynamic properties 1`] = `
 
 <h1
     class="legacy__class emotion-0"
-    theme="[object Object]"
   >
     hello world
   </h1>
@@ -490,7 +485,6 @@ exports[`styled objects 1`] = `
 
 <h1
     class="emotion-0"
-    display="flex"
   >
     hello world
   </h1>
@@ -522,16 +516,16 @@ exports[`styled prop filtering 1`] = `
 <a
     a="true"
     aria-label="some label"
+    arialabel="some label"
     b="true"
     class="emotion-0"
     cool="true"
     data-wow="value"
+    datawow="value"
     filtering="true"
     href="link"
     is="true"
-    m="3"
     prop="true"
-    pt="4"
     wow="true"
   >
     hello world
