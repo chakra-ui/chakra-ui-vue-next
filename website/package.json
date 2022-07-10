@@ -32,7 +32,7 @@
     "@vue/server-renderer": "^3.2.29",
     "@vueuse/head": "^0.7.4",
     "markdown-it-prism": "^2.1.6",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "remark-autolink-headings": "^6.0.1",
     "remark-frontmatter": "^3.0.0",
     "remark-gfm": "^1.0.0",
