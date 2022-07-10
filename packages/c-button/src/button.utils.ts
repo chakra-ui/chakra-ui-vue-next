@@ -12,6 +12,7 @@ export interface ButtonProps extends BaseThemedComponentProps {
   type?: ButtonTypes
   leftIcon?: string
   rightIcon?: string
+  spinnerPlacement?: "start" | "end"
   iconSpacing?: SystemProps["marginRight"]
 }
 
