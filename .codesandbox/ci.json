@@ -32,5 +32,5 @@
     "packages/vue-composables"
   ],
   "sandboxes": ["chakra-ui-vue-v1-jcidb"],
-  "node": "17"
+  "node": "16.14"
 }
