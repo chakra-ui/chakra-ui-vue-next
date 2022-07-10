@@ -42,7 +42,7 @@
     "@chakra-ui/c-theme-provider": "1.0.0-alpha.10",
     "@chakra-ui/c-visually-hidden": "1.0.0-alpha.10",
     "@chakra-ui/styled-system": "^1.18.1",
-    "@chakra-ui/utils": "^1.9.1",
+    "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-a11y": "0.1.0-alpha.9",
     "@chakra-ui/vue-composables": "0.1.0-alpha.9",
     "@chakra-ui/vue-layout": "0.1.0-alpha.11",
