@@ -127,6 +127,7 @@ export const testA11y = async (
   if ("container" in ui) {
     template = ui.container
   }
+  /** @ts-ignore */
   const results = await axe(template, axeOptions)
 
   expect(results).toHaveNoViolations()
