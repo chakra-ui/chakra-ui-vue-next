@@ -33,7 +33,7 @@
     "@chakra-ui/c-motion": "0.1.0-alpha.9",
     "@chakra-ui/c-portal": "0.1.0-alpha.10",
     "@chakra-ui/c-scroll-lock": "0.1.0-alpha.8",
-    "@chakra-ui/styled-system": "^1.16.0",
+    "@chakra-ui/styled-system": "^1.18.1",
     "@chakra-ui/utils": "^1.9.1",
     "@chakra-ui/vue-a11y": "0.1.0-alpha.9",
     "@chakra-ui/vue-composables": "0.1.0-alpha.9",

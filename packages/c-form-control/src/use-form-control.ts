@@ -147,13 +147,11 @@ export type CFormControlProviderContext = ComputedRef<
   Omit<ReturnType<typeof useFormControlProvider>, "rootProps">
 >
 
-const [
-  FormControlProvider,
-  useFormControlContext,
-] = createContext<CFormControlProviderContext>({
-  strict: false,
-  name: "FormControlContext",
-})
+const [FormControlProvider, useFormControlContext] =
+  createContext<CFormControlProviderContext>({
+    strict: false,
+    name: "FormControlContext",
+  })
 
 export { FormControlProvider, useFormControlContext }
 

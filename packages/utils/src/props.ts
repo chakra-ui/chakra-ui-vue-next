@@ -17,5 +17,5 @@ export interface BaseThemedComponentProps
     ThemingProps,
     "colorScheme" | "variant" | "size" | "styleConfig"
   > {
-  as: DOMElements | "router-link" | "nuxt-link"
+  as?: DOMElements | "router-link" | "nuxt-link"
 }

@@ -1,12 +1,20 @@
-import { mode, transparentize } from "@chakra-ui/vue-theme-tools"
+import {
+  mode,
+  transparentize,
+  SystemStyleFunction,
+  StyleFunctionProps,
+} from "@chakra-ui/vue-theme-tools"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 
 type Dict = Record<string, any>
 
-const baseStyle = {
+const baseStyle: SystemStyleObject = {
   lineHeight: "1.2",
   borderRadius: "md",
   fontWeight: "semibold",
-  _focus: {
+  transitionProperty: "common",
+  transitionDuration: "normal",
+  _focusVisible: {
     boxShadow: "outline",
   },
   _disabled: {
@@ -21,7 +29,7 @@ const baseStyle = {
   },
 }
 
-function variantGhost(props: Dict) {
+const variantGhost: SystemStyleFunction = (props: StyleFunctionProps) => {
   const { colorScheme: c, theme } = props
 
   if (c === "gray") {
@@ -49,12 +57,15 @@ function variantGhost(props: Dict) {
   }
 }
 
-function variantOutline(props: Dict) {
+const variantOutline: SystemStyleFunction = (props: StyleFunctionProps) => {
   const { colorScheme: c } = props
   const borderColor = mode(`gray.200`, `whiteAlpha.300`)(props)
   return {
     border: "1px solid",
     borderColor: c === "gray" ? borderColor : "currentColor",
+    ".chakra-button__group[data-attached] > &:not(:last-of-type)": {
+      marginEnd: "-1px",
+    },
     ...variantGhost(props),
   }
 }
@@ -82,7 +93,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
   },
 }
 
-function variantSolid(props: Dict) {
+const variantSolid: SystemStyleFunction = (props: StyleFunctionProps) => {
   const { colorScheme: c } = props
 
   if (c === "gray") {
@@ -105,7 +116,7 @@ function variantSolid(props: Dict) {
     color = "white",
     hoverBg = `${c}.600`,
     activeBg = `${c}.700`,
-  } = accessibleColorMap[c] || {}
+  } = accessibleColorMap[c] ?? {}
 
   const background = mode(bg, `${c}.200`)(props)
 
@@ -122,7 +133,7 @@ function variantSolid(props: Dict) {
   }
 }
 
-function variantLink(props: Dict) {
+const variantLink: SystemStyleFunction = (props: StyleFunctionProps) => {
   const { colorScheme: c } = props
   return {
     padding: 0,
@@ -142,7 +153,7 @@ function variantLink(props: Dict) {
   }
 }
 
-const variantUnstyled = {
+const variantUnstyled: SystemStyleObject = {
   bg: "none",
   color: "inherit",
   display: "inline",
@@ -159,7 +170,7 @@ const variants = {
   unstyled: variantUnstyled,
 }
 
-const sizes = {
+const sizes: Record<string, SystemStyleObject> = {
   lg: {
     h: 12,
     minW: 12,

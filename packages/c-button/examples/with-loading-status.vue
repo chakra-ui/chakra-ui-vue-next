@@ -5,6 +5,7 @@
       :is-loading="isLoading"
       @click="doTask"
       color-scheme="teal"
+      size="sm"
     >
       Simple loading
     </c-button>
@@ -16,7 +17,8 @@
       :is-loading="isLoading"
       @click="doTask"
       loading-text="Working..."
-      color-scheme="teal"
+      color-scheme="purple"
+      size="lg"
     >
       Loading text button
     </c-button>
@@ -24,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from "vue"
 
 export default defineComponent({
   setup() {
@@ -37,7 +39,7 @@ export default defineComponent({
         isLoading.value = false
         console.log({ isLoading: isLoading.value })
         clearTimeout(loadingTimeout)
-      }, 2000)
+      }, 60000)
     }
 
     return {

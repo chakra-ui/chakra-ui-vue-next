@@ -46,3 +46,15 @@ export function orient(options: {
   if (!orientation) return {}
   return orientation === "vertical" ? vertical : horizontal
 }
+
+export type StyleFunctionProps = {
+  colorScheme: string
+  colorMode: "light" | "dark"
+  orientation?: "horizontal" | "vertical"
+  theme: Dict
+  [key: string]: any
+}
+
+export type SystemStyleFunction = (
+  props: StyleFunctionProps
+) => SystemStyleObject
