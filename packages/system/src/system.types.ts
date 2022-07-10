@@ -28,6 +28,7 @@ export type ComponentWithProps<P> = {
     $props: AllowedComponentProps &
       ComponentCustomProps &
       VNodeProps &
+      { props?: Record<keyof P, any> } &
       P & {
         [key: string]: unknown
       }

@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@chakra-ui/c-icon": "^1.0.0-alpha.10",
-    "@chakra-ui/utils": "^1.9.1",
+    "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-composables": "^0.1.0-alpha.9",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@chakra-ui/vue-utils": "^0.1.0-alpha.10"

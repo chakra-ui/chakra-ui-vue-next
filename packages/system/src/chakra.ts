@@ -1,5 +1,3 @@
-/// <reference types="../../../components" />
-
 import {
   Component,
   computed,
@@ -14,19 +12,29 @@ import {
 } from "vue"
 import {
   css,
+  isStyleProp,
   ResponsiveValue,
   SystemProps,
   SystemStyleObject,
 } from "@chakra-ui/styled-system"
+import _styled, { useEmotionTheme } from "@chakra-ui/vue-styled"
 
-import { isFunction, isObject, memoizedGet as get } from "@chakra-ui/utils"
+import {
+  isFunction,
+  objectFilter,
+  isObject,
+  memoizedGet as get,
+  runIfFn,
+  filterUndefined,
+  Dict,
+} from "@chakra-ui/utils"
 import { cx, css as _css, CSSObject } from "@emotion/css"
-import { extractStyleAttrs } from "./system.attrs"
 import { domElements, DOMElements } from "./system.utils"
 import { useTheme } from "./composables/use-chakra"
-import { SNAO } from "@chakra-ui/vue-utils"
-import { ChakraProps, ComponentWithProps } from "./system.types"
+import { SNAO, extractStyleAttrs } from "@chakra-ui/vue-utils"
+import { As, ChakraProps, ComponentWithProps } from "./system.types"
 import { formElements, InputTypes } from "./chakra.forms"
+import { FunctionInterpolation } from "@emotion/serialize"
 
 export interface BaseStyleResolverProps {
   as?: ChakraTagOrComponent
@@ -38,7 +46,9 @@ export interface BaseStyleResolverProps {
   apply?: ResponsiveValue<string>
   componentName?: String
   label?: string
-  baseStyle?: SystemStyleObject
+  baseStyle?:
+    | SystemStyleObject
+    | ((props: StyleResolverProps) => SystemStyleObject)
   /**
    * User provided styles from component/chakra API
    */
@@ -49,6 +59,7 @@ export interface BaseStyleResolverProps {
    * preserve the component's label class
    */
   __label?: string
+  theme?: Dict<any>
 }
 
 export interface StyleResolverProps
@@ -80,7 +91,7 @@ const chakraProps = {
    * @internal
    * This internal is an internal ChakraFactoryFunction prop that
    * is used to determine how events are handled on Chakra Factory
-   * componnts.
+   * components.
    *
    * For example, if a factory component is considered to be raw (i.e. `__chakraIsRaw: true`),
    * then, we do not pass v-model event listeners onto the component. This means that
@@ -163,6 +174,22 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
       ..._props,
     },
     setup(props, { slots, emit, attrs }) {
+      const theme = useTheme()
+
+      const layerStyle$ = computed(
+        () => props.layerStyle || options?.layerStyle
+      )
+      const textStyle$ = computed(() => props.textStyle || options?.textStyle)
+      const baseStyle$ = computed(() => props.baseStyle || options?.baseStyle)
+      const noOfLines$ = computed(() => props.noOfLines || options?.noOfLines)
+      const isTruncated$ = computed(
+        () => props.isTruncated || options?.isTruncated
+      )
+      const __css$ = computed(() => props.__css || options?.__css)
+      const css$ = computed(() => props.css || options?.css)
+      const sx$ = computed(() => props.sx || options?.sx)
+      const apply$ = computed(() => props.apply || options?.apply)
+
       return () => {
         const { class: inheritedClass, __label, ...rest } = attrs
         const {
@@ -189,22 +216,6 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
           ...rest,
         })
 
-        const theme = useTheme()
-
-        const layerStyle$ = computed(
-          () => props.layerStyle || options?.layerStyle
-        )
-        const textStyle$ = computed(() => props.textStyle || options?.textStyle)
-        const baseStyle$ = computed(() => props.baseStyle || options?.baseStyle)
-        const noOfLines$ = computed(() => props.noOfLines || options?.noOfLines)
-        const isTruncated$ = computed(
-          () => props.isTruncated || options?.isTruncated
-        )
-        const __css$ = computed(() => props.__css || options?.__css)
-        const css$ = computed(() => props.css || options?.css)
-        const sx$ = computed(() => props.sx || options?.sx)
-        const apply$ = computed(() => props.apply || options?.apply)
-
         const resolvedComponentStyles = resolveStyles({
           __css: __css$.value,
           baseStyle: baseStyle$.value,
@@ -220,8 +231,8 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
         })
 
         const componentLabel = label || __label
-        const className = _css(resolvedComponentStyles)
         const _componentName = componentLabel ? `chakra-${componentLabel}` : ""
+        const className = _css(resolvedComponentStyles)
 
         let componentOrTag = props.as || tag
 
@@ -249,6 +260,69 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
     },
   })
 }
+
+// return h(
+//   _styled((componentOrTag as any) || props.as)({
+//     ...resolvedComponentStyles,
+//     ...elementAttributes,
+//   }) as unknown as DefineComponent<ChakraProps>,
+//   slots
+// )
+interface GetStyleObject {
+  (options: {
+    baseStyle?:
+      | SystemStyleObject
+      | ((props: StyleResolverProps) => SystemStyleObject)
+  }): FunctionInterpolation<StyleResolverProps>
+}
+
+export const toCSSObject: GetStyleObject = (options) => (props) => {
+  const { theme, css: cssProp, __css, sx, ...rest } = props
+  const styleProps = objectFilter(rest, (_, prop) => isStyleProp(prop))
+  const finalStyles = resolveStyles(
+    Object.assign(options, { theme }, styleProps)
+  )
+  const computedCSS = css(finalStyles)(props.theme)
+
+  return cssProp ? [computedCSS, cssProp] : computedCSS
+}
+
+interface StyledOptions extends StyleResolverOptions {
+  label?: string
+  baseStyle?:
+    | SystemStyleObject
+    | ((props: StyleResolverProps) => SystemStyleObject)
+}
+
+export function styled<T extends As, P = {}>(
+  component: T,
+  options: StyledOptions
+) {
+  const { baseStyle, ...styledOptions } = options ?? {}
+
+  const styleObject = toCSSObject(options)
+  return _styled(component as ChakraTagOrComponent, styledOptions)(styleObject)
+}
+
+export type ChakraComponent<P = ChakraProps> = ComponentWithProps<As & P>
+
+type ChakraFactory = {
+  <T extends ChakraTagOrComponent, P = {}>(
+    component: T,
+    options?: StyledOptions
+  ): ChakraComponent<P>
+}
+
+export type HTMLChakraComponents<P> = {
+  [Tag in DOMElements]: ChakraComponent<P>
+}
+
+export const _chakra = styled as unknown as ChakraFactory &
+  HTMLChakraComponents<ChakraProps>
+
+domElements.forEach((tag) => {
+  chakra[tag] = chakra(tag)
+})
 
 export const resolveStyles = (
   resolvers = {} as StyleResolverOptions
@@ -334,4 +408,8 @@ type IChakraFactory = {
 
 domElements.forEach((tag) => {
   chakra[tag] = chakra(tag, {})
+})
+
+domElements.forEach((tag) => {
+  _chakra[tag] = _chakra(tag, {})
 })

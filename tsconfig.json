@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2015",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
+    "target": "ES2015",                     /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
     "module": "esnext",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "resolveJsonModule": true,
     "preserveSymlinks": true,
@@ -26,7 +26,7 @@
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
-    "components.d.ts",
+    "./components.d.ts",
     "packages",
     "playground/**/*.ts",
     "playground/**/*.d.ts",

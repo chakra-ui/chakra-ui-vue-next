@@ -8,7 +8,7 @@ import {
 import { StyledElementTags } from "./tags"
 
 export type StyledOptions = {
-  label?: string
+  __label?: string
   target?: string
 }
 

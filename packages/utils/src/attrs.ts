@@ -1,6 +1,7 @@
 import camelCase from "lodash.camelcase"
 import { StyleObjectOrFn, isStyleProp } from "@chakra-ui/styled-system"
 import { HTMLAttributes } from "vue"
+import memoize from "lodash.memoize"
 
 export type StyleAndHTMLAttibutes = StyleObjectOrFn &
   Record<string, string | number | boolean | unknown> &
@@ -12,6 +13,7 @@ interface ExtractedStyleAttrs {
 }
 
 const camelCaseCache: any = {}
+const _isStyledProp = memoize((attr) => isStyleProp(attr))
 
 /** Extracts CSS style properties and HTML attributes from merged component attributs */
 export const extractStyleAttrs = <
@@ -31,8 +33,10 @@ export const extractStyleAttrs = <
       _attr = `${prop.startsWith("_") ? "_" : ""}${camelCase(prop)}`
       camelCaseCache[prop] = _attr
     }
-    const _isStyledProp = isStyleProp(_attr)
-    if (_isStyledProp) {
+
+    if (_isStyledProp(_attr)) {
+      styles[_attr] = styleProps[prop]
+    } else if (_isStyledProp(prop)) {
       styles[_attr] = styleProps[prop]
     } else {
       // @ts-expect-error Not sure how to cast returned string into typeof key of U

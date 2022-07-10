@@ -3,7 +3,7 @@
     <c-button-group
       shadow="xl"
       variant="outline"
-      :color-scheme="'purple'"
+      color-scheme="purple"
       is-attached
     >
       <c-button variant="solid">Save</c-button>

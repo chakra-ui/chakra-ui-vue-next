@@ -1,6 +1,6 @@
 <template>
   <c-reset />
-  <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit" :sx="rootStyles">
+  <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit">
     <perfect-scrollbar>
       <chakra.div pb="12">
         <sidebar :stories="routes" />
@@ -20,10 +20,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, watchEffect } from 'vue'
 import { CReset, CIconButton, useColorMode } from '@chakra-ui/vue-next'
+import { useTheme } from "@chakra-ui/vue-system"
 import Sidebar from './components/Sidebar.vue'
 import { routes } from './router'
+
 
 export default defineComponent({
   components: { Sidebar, CReset, CIconButton },
@@ -31,11 +33,10 @@ export default defineComponent({
     const { colorMode, toggleColorMode } = useColorMode()
 
     const rootStyles = computed(() => {
-
       const styles = {
         light: {
           bg: 'white',
-          // color: 'blackAlpha.800',
+          color: 'blackAlpha.800',
           'a.router-link-active': {
             color: 'teal.500',
             fontSize: '0.9rem',
@@ -45,12 +46,12 @@ export default defineComponent({
         },
         dark: {
           bg: 'gray.800',
-          // color: 'whiteAlpha.800',
+          color: 'whiteAlpha.800',
           'a.router-link-active': {
             color: 'teal.200',
             fontSize: '0.9rem',
             fontWeight: 'bold',
-            textDecoration: 'underline'
+            textDecoration: 'underline',
           }
         },
       }
@@ -59,6 +60,10 @@ export default defineComponent({
         transition: 'all 0.2s ease-in',
         ...styles[colorMode.value]
       }
+    })
+
+    watchEffect(() => {
+      console.log("rootStyles", rootStyles.value)
     })
 
     return {

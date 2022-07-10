@@ -3,6 +3,11 @@ import defaultTheme from "@chakra-ui/vue-theme"
 import type { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
+import {
+  EmotionThemeContextSymbol,
+  EmotionCacheInjectionSymbol,
+} from "@chakra-ui/vue-styled"
+import createCache, { EmotionCache } from "@emotion/cache"
 import internalIcons from "./icon.internals"
 import { extendTheme, ThemeOverride } from "./extend-theme"
 import { MergedIcons, parseIcons } from "./parse-icons"
@@ -11,10 +16,17 @@ import { mode } from "@chakra-ui/vue-theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
 
 /**
+ * 1. Support passing cache options from plugin
+ * 2. Provide emotion theme directly from plugin
+ * 3.
+ */
+
+/**
  * Helper function to extend Chakra plugin with options
  * It just returns its arguments with typescript types added
  */
-export function chakraOptions(
+
+export function extendChakra(
   options: ChakraPluginOptions = { cssReset: true }
 ) {
   return options
@@ -48,15 +60,32 @@ const ChakraUIVuePlugin: Plugin = {
     if (options.cssReset) {
       injectResetStyles()
     }
-    // Inject `styles.global` in document
-    injectThemeGlobalStyles(computedTheme.value, colorModeRef)
 
     let libraryIcons = options.icons?.library || {}
     let extendedIcons = options.icons?.extend || {}
 
     // Bind theme to application global properties and provide to application
     app.config.globalProperties.$chakraTheme = computedTheme.value
+    app.config.globalProperties.$chakraTheme = computedTheme.value
+    app.provide(EmotionThemeContextSymbol, computedTheme.value)
     app.provide("$chakraTheme", computedTheme.value as ThemeOverride)
+
+    let emotionCache: EmotionCache | null = null
+    // Provide emotion cache
+    if (options.emotionCacheOptions) {
+      emotionCache = createCache(options.emotionCacheOptions)
+      app.provide(EmotionCacheInjectionSymbol, emotionCache)
+    }
+
+    if (!emotionCache) {
+      emotionCache = createCache({
+        key: "chakra",
+        nonce: `chakra-global-cache-${Date.now()}`,
+      })
+    }
+
+    // Inject `styles.global` in document
+    injectThemeGlobalStyles(computedTheme.value, emotionCache, colorModeRef)
 
     libraryIcons = parseIcons(libraryIcons)
 

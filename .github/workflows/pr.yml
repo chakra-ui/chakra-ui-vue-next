@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [16]
     steps:
     - name: Get Yarn cache path
       id: yarn-cache
@@ -63,10 +63,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Setup Node.js 14.x
+    - name: Setup Node.js 16.x
       uses: actions/setup-node@master
       with:
-        node-version: 14.x
+        node-version: 16.x
 
     - name: Load Yarn cache
       uses: actions/cache@v2
