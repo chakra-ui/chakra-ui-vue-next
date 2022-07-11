@@ -1,34 +1,40 @@
+import { tagAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleInterpolation,
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/theme-tools"
 import Badge from "./badge"
 
-const parts = ["container", "label", "closeButton"]
-
-type Dict = Record<string, any>
-
-const baseStyleContainer = {
+const baseStyleContainer: SystemStyleObject = {
   fontWeight: "medium",
   lineHeight: 1.2,
   outline: 0,
-  _focus: {
+  borderRadius: "md",
+  _focusVisible: {
     boxShadow: "outline",
   },
 }
 
-const baseStyleLabel = {
+const baseStyleLabel: SystemStyleObject = {
   lineHeight: 1.2,
+  overflow: "visible",
 }
 
-const baseStyleCloseButton = {
+const baseStyleCloseButton: SystemStyleObject = {
   fontSize: "18px",
   w: "1.25rem",
   h: "1.25rem",
-  borderRadius: "sm",
-  ml: "0.375rem",
-  mr: "-1",
+  transitionProperty: "common",
+  transitionDuration: "normal",
+  borderRadius: "full",
+  marginStart: "0.375rem",
+  marginEnd: "-1",
   opacity: 0.5,
   _disabled: {
     opacity: 0.4,
   },
-  _focus: {
+  _focusVisible: {
     boxShadow: "outline",
     bg: "rgba(0, 0, 0, 0.14)",
   },
@@ -36,20 +42,23 @@ const baseStyleCloseButton = {
   _active: { opacity: 1 },
 }
 
-const baseStyle = {
+const baseStyle: PartsStyleObject<typeof parts> = {
   container: baseStyleContainer,
   label: baseStyleLabel,
   closeButton: baseStyleCloseButton,
 }
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   sm: {
     container: {
       minH: "1.25rem",
       minW: "1.25rem",
       fontSize: "xs",
-      px: 1,
-      borderRadius: "sm",
+      px: 2,
+    },
+    closeButton: {
+      marginEnd: "-2px",
+      marginStart: "0.35rem",
     },
   },
   md: {
@@ -57,7 +66,6 @@ const sizes = {
       minH: "1.5rem",
       minW: "1.5rem",
       fontSize: "sm",
-      borderRadius: "md",
       px: 2,
     },
   },
@@ -66,20 +74,19 @@ const sizes = {
       minH: 8,
       minW: 8,
       fontSize: "md",
-      borderRadius: "md",
       px: 3,
     },
   },
 }
 
-const variants = {
-  subtle: (props: Dict) => ({
+const variants: Record<string, PartsStyleInterpolation<typeof parts>> = {
+  subtle: (props) => ({
     container: Badge.variants.subtle(props),
   }),
-  solid: (props: Dict) => ({
+  solid: (props) => ({
     container: Badge.variants.solid(props),
   }),
-  outline: (props: Dict) => ({
+  outline: (props) => ({
     container: Badge.variants.outline(props),
   }),
 }
@@ -91,7 +98,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   variants,
   baseStyle,
   sizes,

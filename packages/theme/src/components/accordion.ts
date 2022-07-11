@@ -1,6 +1,8 @@
-import { SystemStyleObject } from "@chakra-ui/styled-system"
-import { PartsStyleObject } from "@chakra-ui/vue-theme-tools"
 import { accordionAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/theme-tools"
 
 const baseStyleContainer: SystemStyleObject = {
   borderTopWidth: "1px",

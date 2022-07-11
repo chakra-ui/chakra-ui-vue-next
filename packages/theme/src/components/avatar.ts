@@ -1,9 +1,13 @@
+import { avatarAnatomy as parts } from "@chakra-ui/vue-anatomy"
 import { isDark, mode, randomColor } from "@chakra-ui/vue-theme-tools"
+import type {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleFunction,
+} from "@chakra-ui/vue-theme-tools"
 import themeSizes from "../foundations/sizes"
 
-const parts = ["container", "excessLabel", "badge", "label"]
-
-function baseStyleBadge(props: Record<string, any>) {
+const baseStyleBadge: SystemStyleFunction = (props) => {
   return {
     transform: "translate(25%, 25%)",
     borderRadius: "full",
@@ -12,13 +16,13 @@ function baseStyleBadge(props: Record<string, any>) {
   }
 }
 
-function baseStyleExcessLabel(props: Record<string, any>) {
+const baseStyleExcessLabel: SystemStyleFunction = (props) => {
   return {
     bg: mode("gray.200", "whiteAlpha.400")(props),
   }
 }
 
-function baseStyleContainer(props: Record<string, any>) {
+const baseStyleContainer: SystemStyleFunction = (props) => {
   const { name, theme } = props
   const bg = name ? randomColor({ string: name }) : "gray.400"
   const isBgDark = isDark(bg)(theme)
@@ -36,15 +40,16 @@ function baseStyleContainer(props: Record<string, any>) {
   }
 }
 
-const baseStyle = (props: Record<string, any>) => ({
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   badge: baseStyleBadge(props),
   excessLabel: baseStyleExcessLabel(props),
   container: baseStyleContainer(props),
 })
 
-function getSize(size: string) {
-  // @ts-ignore
-  const themeSize = themeSizes[size]
+function getSize(
+  size: keyof typeof themeSizes | "100%"
+): PartsStyleObject<typeof parts> {
+  const themeSize = size !== "100%" ? themeSizes[size] : undefined
   return {
     container: {
       width: size,
@@ -63,13 +68,13 @@ function getSize(size: string) {
 }
 
 const sizes = {
-  "2xs": getSize("4"),
-  xs: getSize("6"),
-  sm: getSize("8"),
-  md: getSize("12"),
-  lg: getSize("16"),
-  xl: getSize("24"),
-  "2xl": getSize("32"),
+  "2xs": getSize(4),
+  xs: getSize(6),
+  sm: getSize(8),
+  md: getSize(12),
+  lg: getSize(16),
+  xl: getSize(24),
+  "2xl": getSize(32),
   full: getSize("100%"),
 }
 
@@ -78,7 +83,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   sizes,
   defaultProps,

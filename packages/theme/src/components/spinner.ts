@@ -1,23 +1,27 @@
-const sizes = {
+import { cssVar, SystemStyleObject } from "@chakra-ui/vue-theme-tools"
+
+const $size = cssVar("spinner-size")
+
+const baseStyle: SystemStyleObject = {
+  width: [$size.reference],
+  height: [$size.reference],
+}
+
+const sizes: Record<string, SystemStyleObject> = {
   xs: {
-    w: "0.75rem",
-    h: "0.75rem",
+    [$size.variable]: "0.75rem",
   },
   sm: {
-    w: "1rem",
-    h: "1rem",
+    [$size.variable]: "1rem",
   },
   md: {
-    w: "1.5rem",
-    h: "1.5rem",
+    [$size.variable]: "1.5rem",
   },
   lg: {
-    w: "2rem",
-    h: "2rem",
+    [$size.variable]: "2rem",
   },
   xl: {
-    w: "3rem",
-    h: "3rem",
+    [$size.variable]: "3rem",
   },
 }
 
@@ -26,6 +30,7 @@ const defaultProps = {
 }
 
 export default {
+  baseStyle,
   sizes,
   defaultProps,
 }

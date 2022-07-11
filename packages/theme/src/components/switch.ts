@@ -1,16 +1,32 @@
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { switchAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleFunction,
+  SystemStyleObject,
+} from "@chakra-ui/vue-theme-tools"
+import { calc, cssVar, mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ["track", "thumb"]
+const $width = cssVar("switch-track-width")
+const $height = cssVar("switch-track-height")
 
-function baseStyleTrack(props: Record<string, any>) {
+const $diff = cssVar("switch-track-diff")
+const diffValue = calc.subtract($width, $height)
+
+const $translateX = cssVar("switch-thumb-x")
+
+const baseStyleTrack: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props
 
   return {
     borderRadius: "full",
     p: "2px",
-    transition: "all 120ms",
+    width: [$width.reference],
+    height: [$height.reference],
+    transitionProperty: "common",
+    transitionDuration: "fast",
     bg: mode("gray.300", "whiteAlpha.400")(props),
-    _focus: {
+    _focusVisible: {
       boxShadow: "outline",
     },
     _disabled: {
@@ -23,49 +39,47 @@ function baseStyleTrack(props: Record<string, any>) {
   }
 }
 
-const baseStyleThumb = {
+const baseStyleThumb: SystemStyleObject = {
   bg: "white",
-  transition: "transform 250ms",
-  borderRadius: "full",
-  transform: "translateX(0)",
+  transitionProperty: "transform",
+  transitionDuration: "normal",
+  borderRadius: "inherit",
+  width: [$height.reference],
+  height: [$height.reference],
+  _checked: {
+    transform: `translateX(${$translateX.reference})`,
+  },
 }
 
-const baseStyle = (props: Record<string, any>) => ({
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  container: {
+    [$diff.variable]: diffValue,
+    [$translateX.variable]: $diff.reference,
+    _rtl: {
+      [$translateX.variable]: calc($diff).negate().toString(),
+    },
+  },
   track: baseStyleTrack(props),
   thumb: baseStyleThumb,
 })
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   sm: {
-    track: { w: "1.375rem", h: "0.75rem" },
-    thumb: {
-      w: "0.75rem",
-      h: "0.75rem",
-      _checked: {
-        transform: "translateX(0.625rem)",
-      },
+    container: {
+      [$width.variable]: "1.375rem",
+      [$height.variable]: "0.75rem",
     },
   },
-
   md: {
-    track: { w: "1.875rem", h: "1rem" },
-    thumb: {
-      w: "1rem",
-      h: "1rem",
-      _checked: {
-        transform: "translateX(0.875rem)",
-      },
+    container: {
+      [$width.variable]: "1.875rem",
+      [$height.variable]: "1rem",
     },
   },
-
   lg: {
-    track: { w: "2.875rem", h: "1.5rem" },
-    thumb: {
-      w: "1.5rem",
-      h: "1.5rem",
-      _checked: {
-        transform: "translateX(1.375rem)",
-      },
+    container: {
+      [$width.variable]: "2.875rem",
+      [$height.variable]: "1.5rem",
     },
   },
 }
@@ -76,7 +90,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   sizes,
   defaultProps,

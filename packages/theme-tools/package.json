@@ -20,6 +20,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^3.4.1",
     "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@types/tinycolor2": "^1.4.2",
