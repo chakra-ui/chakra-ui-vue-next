@@ -104,8 +104,6 @@ export const CAccordion: ComponentWithProps<CAccordionProps> = defineComponent({
       ...attrs,
     })
 
-    console.log("styles", styles.value)
-
     AccordionProvider(apiRef)
     StylesProvider(styles)
 
@@ -213,9 +211,6 @@ export const CAccordionPanel = defineComponent({
     const state = computed(() => api.value.getItemState({ value: id.value }))
 
     const isOpen = computed(() => state.value.isOpen)
-    watchEffect(() => {
-      console.log("isOpen", id.value, isOpen.value)
-    })
 
     return () => {
       const contentProps = api.value.getContentProps({

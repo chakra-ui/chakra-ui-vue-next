@@ -20,12 +20,13 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@chakra-ui/vue-anatomy": "0.0.0-alpha.0",
     "@chakra-ui/vue-theme-tools": "0.1.0-alpha.10"
   },
   "peerDependencies": {
-    "@chakra-ui/utils": "^1.8.2",
+    "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "vue": "^3.1.4"
+    "vue": "^3.2.29"
   },
   "publishConfig": {
     "access": "public"
