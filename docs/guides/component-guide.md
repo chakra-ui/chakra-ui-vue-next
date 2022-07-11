@@ -51,7 +51,7 @@ start building, here's what you need to do:
   
 - Before you can play around with your new component in the playground you will have to export your component from the `@chakra-ui/vue-next` package in the  `core` directory under `packages`.
 
-  * Inside the `index.ts` file, you will have to add `export * from '@chakra-ui/COMPONENT_NAME'`. 
+  * Inside the `index.tsx` file, you will have to add `export * from '@chakra-ui/COMPONENT_NAME'`. 
 
   * Your component also needs to be added as a dependency inside the `package.json` of the `@chakra-ui/vue-next` package as following: 
     ```jsx
