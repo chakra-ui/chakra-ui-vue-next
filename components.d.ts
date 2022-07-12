@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-07-11T16:46:54.692Z
+ * This file was generated on 2022-07-12T10:47:00.309Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -49,6 +49,7 @@ declare module "@vue/runtime-core" {
 
     CAccordion: typeof import("@chakra-ui/vue-next")["CAccordion"]
     CAccordionButton: typeof import("@chakra-ui/vue-next")["CAccordionButton"]
+    CAccordionIcon: typeof import("@chakra-ui/vue-next")["CAccordionIcon"]
     CAccordionItem: typeof import("@chakra-ui/vue-next")["CAccordionItem"]
     CAccordionPanel: typeof import("@chakra-ui/vue-next")["CAccordionPanel"]
     CBreadcrumb: typeof import("@chakra-ui/vue-next")["CBreadcrumb"]

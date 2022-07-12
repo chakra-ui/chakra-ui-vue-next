@@ -131,32 +131,32 @@ exports[`<CHeading /> should render properly 1`] = `
        (3xl) In love with Vue & Vite & Nuxt
     </h2>
     <h2
-      class="chakra-heading css-s9ysow"
+      class="chakra-heading css-1dpg06m"
     >
       (2xl) In love with Vue & Vite & Nuxt
     </h2>
     <h2
-      class="chakra-heading css-1c36ahl"
+      class="chakra-heading css-ueokap"
     >
        (xl) In love with Vue & Vite & Nuxt 
     </h2>
     <h3
-      class="chakra-heading css-1uips0z"
+      class="chakra-heading css-1q5o9wg"
     >
        (lg) In love with Vue & Vite & Nuxt 
     </h3>
     <h4
-      class="chakra-heading css-1on2b54"
+      class="chakra-heading css-528rta"
     >
        (md) In love with Vue & Vite & Nuxt 
     </h4>
     <h5
-      class="chakra-heading css-15q9syl"
+      class="chakra-heading css-s5h6tf"
     >
        (sm) In love with Vue & Vite & Nuxt 
     </h5>
     <h6
-      class="chakra-heading css-7754ep"
+      class="chakra-heading css-ngsgu1"
     >
        (xs) In love with Vue & Vite & Nuxt 
     </h6>
@@ -185,12 +185,12 @@ exports[`<CKbd /> should render properly 1`] = `
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
-    class="chakra-link css-ih1tun"
+    class="chakra-link css-1nmidd8"
   >
     CLink
   </a>
   <a
-    class="chakra-link css-ih1tun"
+    class="chakra-link css-1nmidd8"
     rel="noopener noreferrer"
     target="_blank"
   >
@@ -205,7 +205,7 @@ exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
     class="chakra-linkbox css-10n1vic"
   >
     <h2
-      class="chakra-heading css-wvce4s"
+      class="chakra-heading css-1bhhtxl"
     >
       <a
         class="chakra-linkbox__overlay css-1hnz6hu"
@@ -220,7 +220,7 @@ exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
        As a side note, using quotation marks around an attribute value is required only if this value is not a valid identifier. 
     </p>
     <a
-      class="chakra-link css-ih1tun"
+      class="chakra-link css-1nmidd8"
       href="https://google.com"
       rel="noopener noreferrer"
       target="_blank"

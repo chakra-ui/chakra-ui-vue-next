@@ -63,6 +63,8 @@ export const CIcon: ComponentWithProps<DeepPartial<IconProps>> =
       const icon = computed(
         () => icons?.[props.value?.name as string] || fallbackIcon
       )
+
+      const hasDefaultSlot = computed(() => slots?.default?.()?.length)
       const vnodeProps = computed(() => ({
         w: props.value.size,
         h: props.value.size,
@@ -70,7 +72,9 @@ export const CIcon: ComponentWithProps<DeepPartial<IconProps>> =
         lineHeight: "1em",
         flexShrink: 0,
         color: "currentColor",
-        innerHTML: icon.value.path,
+        ...(!hasDefaultSlot.value && {
+          innerHTML: icon.value.path,
+        }),
         focusable: false,
         viewBox: icon.value.viewBox || fallbackIcon.viewBox,
       }))
