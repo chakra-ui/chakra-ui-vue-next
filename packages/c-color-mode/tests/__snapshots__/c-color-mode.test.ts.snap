@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should toggle colormode 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      data-testid="colormode"
+    >
+      light
+    </div>
+    <button
+      data-testid="toggle"
+    >
+      Toggle color mode
+    </button>
+  </div>
+</DocumentFragment>
+`;

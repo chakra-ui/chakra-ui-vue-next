@@ -13,7 +13,7 @@ module.exports = {
   transformIgnorePatterns: ["/node_modules/(?!@popperjs/.*|lodash.)"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
-    "@chakra-ui/vue-test-utils": "<rootDir>/packages/test-utils/src/index.tsx",
+    "@chakra-ui/vue-test-utils": "<rootDir>/packages/test-utils",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   snapshotSerializers: ["@chakra-ui/vue-test-utils/src/snapshot-serializer.ts"],
