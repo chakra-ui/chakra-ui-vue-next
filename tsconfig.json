@@ -5,7 +5,7 @@
     "resolveJsonModule": true,
     "preserveSymlinks": true,
     "lib": [ "es5", "esnext", "dom" ],
-    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "cypress", "components.d.ts"],
+    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "vitest/globals", "cypress", "components.d.ts"],
     "declaration": true,
     "declarationMap": true,
     "allowJs": true,
