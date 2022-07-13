@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@chakra-ui/c-color-mode": "0.1.0-alpha.9",
-    "@chakra-ui/styled-system": "^1.18.1",
+    "@chakra-ui/styled-system": "^2.2.2",
     "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-styled": "0.0.0-alpha.0",
     "@chakra-ui/vue-utils": "0.1.0-alpha.10",
