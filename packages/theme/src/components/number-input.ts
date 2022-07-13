@@ -1,20 +1,36 @@
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { numberInputAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleFunction,
+  SystemStyleObject,
+} from "@chakra-ui/vue-theme-tools"
+import { calc, cssVar, mode } from "@chakra-ui/vue-theme-tools"
+import typography from "../foundations/typography"
 import Input from "./input"
-
-const parts = ["field", "stepper", "stepperGroup"]
 
 const { variants, defaultProps } = Input
 
-const baseStyleField = Input.baseStyle?.field
+const $stepperWidth = cssVar("number-input-stepper-width")
 
-const baseStyleStepperGroup = {
-  width: "24px",
+const $inputPadding = cssVar("number-input-input-padding")
+const inputPaddingValue = calc($stepperWidth).add("0.5rem").toString()
+
+const baseStyleRoot: SystemStyleObject = {
+  [$stepperWidth.variable]: "24px",
+  [$inputPadding.variable]: inputPaddingValue,
 }
 
-function baseStyleStepper(props: Record<string, any>) {
+const baseStyleField: SystemStyleObject = Input.baseStyle?.field ?? {}
+
+const baseStyleStepperGroup: SystemStyleObject = {
+  width: [$stepperWidth.reference],
+}
+
+const baseStyleStepper: SystemStyleFunction = (props) => {
   return {
-    borderLeft: "1px solid",
-    borderColor: mode("inherit", "whiteAlpha.300")(props),
+    borderStart: "1px solid",
+    borderStartColor: mode("inherit", "whiteAlpha.300")(props),
     color: mode("inherit", "whiteAlpha.800")(props),
     _active: {
       bg: mode("gray.200", "whiteAlpha.300")(props),
@@ -26,32 +42,41 @@ function baseStyleStepper(props: Record<string, any>) {
   }
 }
 
-const baseStyle = (props: Record<string, any>) => {
-  return {
-    field: baseStyleField,
-    stepperGroup: baseStyleStepperGroup,
-    stepper: baseStyleStepper(props),
-  }
-}
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  root: baseStyleRoot,
+  field: baseStyleField,
+  stepperGroup: baseStyleStepperGroup,
+  stepper: baseStyleStepper(props),
+})
 
-function getSize(size: "sm" | "md" | "lg") {
-  const sizeStyle = Input.sizes?.[size]
+type FontSize = keyof typeof typography.fontSizes
 
-  const radius = {
+function getSize(size: FontSize): PartsStyleObject<typeof parts> {
+  const sizeStyle = Input.sizes[size]
+
+  const radius: Partial<Record<FontSize, string>> = {
     lg: "md",
     md: "md",
     sm: "sm",
+    xs: "sm",
   }
 
+  const _fontSize = (sizeStyle.field?.fontSize ?? "md") as FontSize
+  const fontSize = typography.fontSizes[_fontSize]
+
   return {
-    field: sizeStyle?.field,
+    field: {
+      ...sizeStyle.field,
+      paddingInlineEnd: $inputPadding.reference,
+      verticalAlign: "top",
+    },
     stepper: {
-      fontSize: size === "lg" ? "14px" : "10px",
+      fontSize: calc(fontSize).multiply(0.75).toString(),
       _first: {
-        borderTopRightRadius: radius[size],
+        borderTopEndRadius: radius[size],
       },
       _last: {
-        borderBottomRightRadius: radius[size],
+        borderBottomEndRadius: radius[size],
         mt: "-1px",
         borderTopWidth: 1,
       },
@@ -60,13 +85,14 @@ function getSize(size: "sm" | "md" | "lg") {
 }
 
 const sizes = {
+  xs: getSize("xs"),
   sm: getSize("sm"),
   md: getSize("md"),
   lg: getSize("lg"),
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   sizes,
   variants,

@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-07-10T15:52:25.222Z
+ * This file was generated on 2022-07-12T10:47:00.309Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -47,10 +47,11 @@ declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     chakra: typeof import("@chakra-ui/vue-next")["chakra"]
 
-    CAlert: typeof import("@chakra-ui/vue-next")["CAlert"]
-    CAlertDescription: typeof import("@chakra-ui/vue-next")["CAlertDescription"]
-    CAlertIcon: typeof import("@chakra-ui/vue-next")["CAlertIcon"]
-    CAlertTitle: typeof import("@chakra-ui/vue-next")["CAlertTitle"]
+    CAccordion: typeof import("@chakra-ui/vue-next")["CAccordion"]
+    CAccordionButton: typeof import("@chakra-ui/vue-next")["CAccordionButton"]
+    CAccordionIcon: typeof import("@chakra-ui/vue-next")["CAccordionIcon"]
+    CAccordionItem: typeof import("@chakra-ui/vue-next")["CAccordionItem"]
+    CAccordionPanel: typeof import("@chakra-ui/vue-next")["CAccordionPanel"]
     CBreadcrumb: typeof import("@chakra-ui/vue-next")["CBreadcrumb"]
     CBreadcrumbItem: typeof import("@chakra-ui/vue-next")["CBreadcrumbItem"]
     CBreadcrumbLink: typeof import("@chakra-ui/vue-next")["CBreadcrumbLink"]

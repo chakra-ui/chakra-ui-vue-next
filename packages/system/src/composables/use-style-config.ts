@@ -3,21 +3,22 @@ import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { ThemingProps } from "../system.types"
 import { filterUndefined, get, mergeWith, runIfFn } from "@chakra-ui/utils"
 import { useChakra } from "./use-chakra"
+import type { Theme } from "@chakra-ui/vue-theme"
 
-export function useStyleConfig(
-  themeKey: string,
+export function useStyleConfig<Component extends keyof Theme["components"]>(
+  themeKey: Component,
   themingProps: ThemingProps,
   options: { isMultiPart: true }
 ): ComputedRef<Record<string, SystemStyleObject>>
 
-export function useStyleConfig(
-  themeKey: string,
+export function useStyleConfig<Component extends keyof Theme["components"]>(
+  themeKey: Component,
   themingProps?: ThemingProps,
   options?: { isMultiPart?: boolean }
 ): ComputedRef<SystemStyleObject>
 
-export function useStyleConfig(
-  themeKey: any,
+export function useStyleConfig<Component extends keyof Theme["components"]>(
+  themeKey: Component,
   themingProps: any,
   options: any = {}
 ) {
@@ -54,10 +55,12 @@ export function useStyleConfig(
       })
     }
 
-    return styles
+    return styles as Theme["components"][Component]
   })
 }
 
-export function useMultiStyleConfig(themeKey: string, themingProps: any) {
+export function useMultiStyleConfig<
+  Component extends keyof Theme["components"]
+>(themeKey: Component, themingProps: any) {
   return useStyleConfig(themeKey, themingProps, { isMultiPart: true })
 }

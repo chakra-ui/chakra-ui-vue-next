@@ -1,12 +1,8 @@
-import {
-  mode,
-  transparentize,
+import { mode, transparentize } from "@chakra-ui/vue-theme-tools"
+import type {
+  SystemStyleObject,
   SystemStyleFunction,
-  StyleFunctionProps,
 } from "@chakra-ui/vue-theme-tools"
-import { SystemStyleObject } from "@chakra-ui/styled-system"
-
-type Dict = Record<string, any>
 
 const baseStyle: SystemStyleObject = {
   lineHeight: "1.2",
@@ -29,7 +25,7 @@ const baseStyle: SystemStyleObject = {
   },
 }
 
-const variantGhost: SystemStyleFunction = (props: StyleFunctionProps) => {
+const variantGhost: SystemStyleFunction = (props) => {
   const { colorScheme: c, theme } = props
 
   if (c === "gray") {
@@ -57,7 +53,7 @@ const variantGhost: SystemStyleFunction = (props: StyleFunctionProps) => {
   }
 }
 
-const variantOutline: SystemStyleFunction = (props: StyleFunctionProps) => {
+const variantOutline: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props
   const borderColor = mode(`gray.200`, `whiteAlpha.300`)(props)
   return {
@@ -93,7 +89,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
   },
 }
 
-const variantSolid: SystemStyleFunction = (props: StyleFunctionProps) => {
+const variantSolid: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props
 
   if (c === "gray") {
@@ -133,7 +129,7 @@ const variantSolid: SystemStyleFunction = (props: StyleFunctionProps) => {
   }
 }
 
-const variantLink: SystemStyleFunction = (props: StyleFunctionProps) => {
+const variantLink: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props
   return {
     padding: 0,

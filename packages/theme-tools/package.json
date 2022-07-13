@@ -22,6 +22,7 @@
   "dependencies": {
     "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
+    "@ctrl/tinycolor": "^3.4.1",
     "@types/tinycolor2": "^1.4.2",
     "tinycolor2": "^1.4.2"
   },

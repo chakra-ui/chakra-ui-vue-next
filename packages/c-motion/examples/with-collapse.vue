@@ -31,8 +31,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useToggle } from '@vueuse/core'
-import { CCollapse } from '../src'
+import { useToggle } from "@vueuse/core"
+import { CCollapse } from "../src"
 
 const [open, toggle] = useToggle(false)
 </script>

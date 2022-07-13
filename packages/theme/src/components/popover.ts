@@ -1,65 +1,78 @@
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { popoverAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleFunction,
+  SystemStyleFunction,
+  SystemStyleObject,
+} from "@chakra-ui/vue-theme-tools"
+import { cssVar, mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ["popper", "content", "header", "body", "footer", "arrow"]
+const $popperBg = cssVar("popper-bg")
 
-type Dict = Record<string, any>
+const $arrowBg = cssVar("popper-arrow-bg")
+const $arrowShadowColor = cssVar("popper-arrow-shadow-color")
 
-const baseStylePopper = {
-  w: "100%",
-  maxW: "xs",
+const baseStylePopper: SystemStyleObject = {
   zIndex: 10,
 }
 
-function baseStyleContent(props: Dict) {
+const baseStyleContent: SystemStyleFunction = (props) => {
+  const bg = mode("white", "gray.700")(props)
+  const shadowColor = mode("gray.200", "whiteAlpha.300")(props)
+
   return {
-    bg: mode("white", "gray.700")(props),
+    [$popperBg.variable]: `colors.${bg}`,
+    bg: $popperBg.reference,
+    [$arrowBg.variable]: $popperBg.reference,
+    [$arrowShadowColor.variable]: `colors.${shadowColor}`,
+    width: "xs",
     border: "1px solid",
     borderColor: "inherit",
     borderRadius: "md",
     boxShadow: "sm",
     zIndex: "inherit",
-    _focus: {
+    _focusVisible: {
       outline: 0,
       boxShadow: "outline",
     },
   }
 }
 
-function baseStyleArrow(props: Dict) {
-  return {
-    bg: mode("white", "gray.700")(props),
-  }
-}
-
-const baseStyleHeader = {
+const baseStyleHeader: SystemStyleObject = {
   px: 3,
   py: 2,
   borderBottomWidth: "1px",
 }
 
-const baseStyleBody = {
+const baseStyleBody: SystemStyleObject = {
   px: 3,
   py: 2,
 }
 
-const baseStyleFooter = {
+const baseStyleFooter: SystemStyleObject = {
   px: 3,
   py: 2,
   borderTopWidth: "1px",
 }
 
-const baseStyle = (props: Dict) => {
-  return {
-    popper: baseStylePopper,
-    content: baseStyleContent(props),
-    header: baseStyleHeader,
-    body: baseStyleBody,
-    footer: baseStyleFooter,
-    arrow: baseStyleArrow(props),
-  }
+const baseStyleCloseButton: SystemStyleObject = {
+  position: "absolute",
+  borderRadius: "md",
+  top: 1,
+  insetEnd: 2,
+  padding: 2,
 }
 
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  popper: baseStylePopper,
+  content: baseStyleContent(props),
+  header: baseStyleHeader,
+  body: baseStyleBody,
+  footer: baseStyleFooter,
+  arrow: {},
+  closeButton: baseStyleCloseButton,
+})
+
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
 }

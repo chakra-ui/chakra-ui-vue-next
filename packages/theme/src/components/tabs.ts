@@ -1,75 +1,93 @@
+import { tabsAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleFunction,
+  PartsStyleInterpolation,
+  PartsStyleObject,
+  SystemStyleFunction,
+  SystemStyleObject,
+} from "@chakra-ui/vue-theme-tools"
 import { getColor, mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ["tablist", "tab", "tabpanel", "indicator"]
+const baseStyleRoot: SystemStyleFunction = (props) => {
+  const { orientation } = props
+  return {
+    display: orientation === "vertical" ? "flex" : "block",
+  }
+}
 
-type Dict = Record<string, any>
-
-function baseStyleTab(props: Dict) {
+const baseStyleTab: SystemStyleFunction = (props) => {
   const { isFitted } = props
 
   return {
     flex: isFitted ? 1 : undefined,
-    transition: "all 0.2s",
-    _focus: {
+    transitionProperty: "common",
+    transitionDuration: "normal",
+    _focusVisible: {
       zIndex: 1,
       boxShadow: "outline",
+    },
+    _disabled: {
+      cursor: "not-allowed",
+      opacity: 0.4,
     },
   }
 }
 
-function baseStyleTablist(props: Dict) {
+const baseStyleTablist: SystemStyleFunction = (props) => {
   const { align = "start", orientation } = props
 
-  const alignments = {
+  const alignments: Record<string, string> = {
     end: "flex-end",
     center: "center",
     start: "flex-start",
   }
 
   return {
-    // @ts-ignore
     justifyContent: alignments[align],
     flexDirection: orientation === "vertical" ? "column" : "row",
   }
 }
 
-const baseStyleTabpanel = { p: 4 }
-
-const baseStyle = (props: Dict) => {
-  return {
-    tab: baseStyleTab(props),
-    tablist: baseStyleTablist(props),
-    tabpanel: baseStyleTabpanel,
-  }
+const baseStyleTabpanel: SystemStyleObject = {
+  p: 4,
 }
 
-const sizes = {
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  root: baseStyleRoot(props),
+  tab: baseStyleTab(props),
+  tablist: baseStyleTablist(props),
+  tabpanel: baseStyleTabpanel,
+})
+
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   sm: {
     tab: {
-      py: "0.25rem",
-      px: "1rem",
-      fontSize: "0.85rem",
+      py: 1,
+      px: 4,
+      fontSize: "sm",
     },
   },
   md: {
     tab: {
-      fontSize: "1rem",
-      py: "0.5rem",
-      px: "1rem",
+      fontSize: "md",
+      py: 2,
+      px: 4,
     },
   },
   lg: {
     tab: {
-      fontSize: "1.15rem",
-      py: "0.75rem",
-      px: "1rem",
+      fontSize: "lg",
+      py: 3,
+      px: 4,
     },
   },
 }
 
-function variantLine(props: Dict) {
+const variantLine: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c, orientation } = props
-  const borderProp = orientation === "vertical" ? "borderLeft" : "borderBottom"
+  const isVertical = orientation === "vertical"
+  const borderProp = orientation === "vertical" ? "borderStart" : "borderBottom"
+  const marginProp = isVertical ? "marginStart" : "marginBottom"
 
   return {
     tablist: {
@@ -79,7 +97,7 @@ function variantLine(props: Dict) {
     tab: {
       [borderProp]: "2px solid",
       borderColor: "transparent",
-      mb: "-2px",
+      [marginProp]: "-2px",
       _selected: {
         color: mode(`${c}.600`, `${c}.300`)(props),
         borderColor: "currentColor",
@@ -88,14 +106,13 @@ function variantLine(props: Dict) {
         bg: mode("gray.200", "whiteAlpha.300")(props),
       },
       _disabled: {
-        opacity: 0.4,
-        cursor: "not-allowed",
+        _active: { bg: "none" },
       },
     },
   }
 }
 
-function variantEnclosed(props: Dict) {
+const variantEnclosed: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     tab: {
@@ -117,7 +134,7 @@ function variantEnclosed(props: Dict) {
   }
 }
 
-function variantEnclosedColored(props: Dict) {
+const variantEnclosedColored: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     tab: {
@@ -126,10 +143,10 @@ function variantEnclosedColored(props: Dict) {
       bg: mode(`gray.50`, `whiteAlpha.50`)(props),
       mb: "-1px",
       _notLast: {
-        mr: "-1px",
+        marginEnd: "-1px",
       },
       _selected: {
-        bg: mode(`#fff`, "gray.800")(props),
+        bg: mode("#fff", "gray.800")(props),
         color: mode(`${c}.600`, `${c}.300`)(props),
         borderColor: "inherit",
         borderTopColor: "currentColor",
@@ -144,7 +161,7 @@ function variantEnclosedColored(props: Dict) {
   }
 }
 
-function variantSoftRounded(props: Dict) {
+const variantSoftRounded: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c, theme } = props
   return {
     tab: {
@@ -159,7 +176,7 @@ function variantSoftRounded(props: Dict) {
   }
 }
 
-function variantSolidRounded(props: Dict) {
+const variantSolidRounded: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     tab: {
@@ -174,9 +191,9 @@ function variantSolidRounded(props: Dict) {
   }
 }
 
-const variantUnstyled = {}
+const variantUnstyled: PartsStyleObject<typeof parts> = {}
 
-const variants = {
+const variants: Record<string, PartsStyleInterpolation<typeof parts>> = {
   line: variantLine,
   enclosed: variantEnclosed,
   "enclosed-colored": variantEnclosedColored,
@@ -192,7 +209,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   sizes,
   variants,

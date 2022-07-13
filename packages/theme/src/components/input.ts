@@ -1,44 +1,54 @@
+import { inputAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/vue-theme-tools"
 import { getColor, mode } from "@chakra-ui/vue-theme-tools"
 
-const parts = ["field", "addon"]
-
-const baseStyle = {
+const baseStyle: PartsStyleObject<typeof parts> = {
   field: {
     width: "100%",
+    minWidth: 0,
     outline: 0,
     position: "relative",
     appearance: "none",
-    transition: "all 0.2s",
+    transitionProperty: "common",
+    transitionDuration: "normal",
   },
 }
 
-const size = {
+const size: Record<string, SystemStyleObject> = {
   lg: {
     fontSize: "lg",
-    pl: 4,
-    pr: 4,
+    px: 4,
     h: 12,
     borderRadius: "md",
   },
 
   md: {
     fontSize: "md",
-    pl: 4,
-    pr: 4,
+    px: 4,
     h: 10,
     borderRadius: "md",
   },
 
   sm: {
     fontSize: "sm",
-    pl: 3,
-    pr: 3,
+    px: 3,
     h: 8,
+    borderRadius: "sm",
+  },
+
+  xs: {
+    fontSize: "xs",
+    px: 2,
+    h: 6,
     borderRadius: "sm",
   },
 }
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   lg: {
     field: size.lg,
     addon: size.lg,
@@ -51,6 +61,10 @@ const sizes = {
     field: size.sm,
     addon: size.sm,
   },
+  xs: {
+    field: size.xs,
+    addon: size.xs,
+  },
 }
 
 function getDefaults(props: Record<string, any>) {
@@ -61,7 +75,7 @@ function getDefaults(props: Record<string, any>) {
   }
 }
 
-function variantOutline(props: Record<string, any>) {
+const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
   const { theme } = props
   const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props)
 
@@ -81,14 +95,14 @@ function variantOutline(props: Record<string, any>) {
         opacity: 0.4,
         cursor: "not-allowed",
       },
-      _focus: {
-        zIndex: 1,
-        borderColor: getColor(theme, fc),
-        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-      },
       _invalid: {
         borderColor: getColor(theme, ec),
         boxShadow: `0 0 0 1px ${getColor(theme, ec)}`,
+      },
+      _focusVisible: {
+        zIndex: 1,
+        borderColor: getColor(theme, fc),
+        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
       },
     },
     addon: {
@@ -99,7 +113,7 @@ function variantOutline(props: Record<string, any>) {
   }
 }
 
-function variantFilled(props: Record<string, any>) {
+const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
   const { theme } = props
   const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props)
 
@@ -119,12 +133,12 @@ function variantFilled(props: Record<string, any>) {
         opacity: 0.4,
         cursor: "not-allowed",
       },
-      _focus: {
-        bg: "transparent",
-        borderColor: getColor(theme, fc),
-      },
       _invalid: {
         borderColor: getColor(theme, ec),
+      },
+      _focusVisible: {
+        bg: "transparent",
+        borderColor: getColor(theme, fc),
       },
     },
     addon: {
@@ -135,7 +149,7 @@ function variantFilled(props: Record<string, any>) {
   }
 }
 
-function variantFlushed(props: Record<string, any>) {
+const variantFlushed: PartsStyleFunction<typeof parts> = (props) => {
   const { theme } = props
   const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props)
 
@@ -144,42 +158,40 @@ function variantFlushed(props: Record<string, any>) {
       borderBottom: "1px solid",
       borderColor: "inherit",
       borderRadius: 0,
-      pl: 0,
-      pr: 0,
+      px: 0,
       bg: "transparent",
       _readOnly: {
         boxShadow: "none !important",
         userSelect: "all",
       },
-      _focus: {
-        borderColor: getColor(theme, fc),
-        boxShadow: `0px 1px 0px 0px ${getColor(theme, fc)}`,
-      },
       _invalid: {
         borderColor: getColor(theme, ec),
+        boxShadow: `0px 1px 0px 0px ${getColor(theme, ec)}`,
+      },
+      _focusVisible: {
+        borderColor: getColor(theme, fc),
+        boxShadow: `0px 1px 0px 0px ${getColor(theme, fc)}`,
       },
     },
     addon: {
       borderBottom: "2px solid",
       borderColor: "inherit",
       borderRadius: 0,
-      paddingX: 0,
+      px: 0,
       bg: "transparent",
     },
   }
 }
 
-const variantUnstyled = {
+const variantUnstyled: PartsStyleObject<typeof parts> = {
   field: {
     bg: "transparent",
-    pl: 0,
-    pr: 0,
+    px: 0,
     height: "auto",
   },
   addon: {
     bg: "transparent",
-    pl: 0,
-    pr: 0,
+    px: 0,
     height: "auto",
   },
 }
@@ -197,7 +209,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   sizes,
   variants,

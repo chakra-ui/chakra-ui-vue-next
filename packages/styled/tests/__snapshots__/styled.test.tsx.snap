@@ -605,21 +605,6 @@ exports[`styled same component rendered multiple times 2`] = `
 </DocumentFragment>
 `;
 
-exports[`styled theming 1`] = `
-<DocumentFragment>
-  <!---->
-  .emotion-0 {
-  color: hotpink;
-}
-
-<div
-    class="emotion-0"
-  >
-    this should be hotpink
-  </div>
-</DocumentFragment>
-`;
-
 exports[`styled throws if undefined is passed as the component 1`] = `
 "You are trying to create a styled element with an undefined component.
 You may have forgotten to import it."

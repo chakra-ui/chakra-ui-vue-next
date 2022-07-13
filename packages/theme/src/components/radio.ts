@@ -1,15 +1,19 @@
+import { radioAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleFunction,
+} from "@chakra-ui/theme-tools"
 import Checkbox from "./checkbox"
 
-const parts = ["control", "label"]
-
-function baseStyleControl(props: Record<string, any>) {
-  const { control } = Checkbox.baseStyle(props)
+const baseStyleControl: SystemStyleFunction = (props) => {
+  const { control = {} } = Checkbox.baseStyle(props)
 
   return {
     ...control,
     borderRadius: "full",
     _checked: {
-      ...control["_checked"],
+      ...(control as any)["_checked"],
       _before: {
         content: `""`,
         display: "inline-block",
@@ -23,14 +27,13 @@ function baseStyleControl(props: Record<string, any>) {
   }
 }
 
-const baseStyle = (props: Record<string, any>) => {
-  return {
-    label: Checkbox.baseStyle(props).label,
-    control: baseStyleControl(props),
-  }
-}
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  label: Checkbox.baseStyle(props).label,
+  container: Checkbox.baseStyle(props).container,
+  control: baseStyleControl(props),
+})
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   md: {
     control: { w: 4, h: 4 },
     label: { fontSize: "md" },
@@ -51,7 +54,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   sizes,
   defaultProps,

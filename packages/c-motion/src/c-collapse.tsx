@@ -138,6 +138,7 @@ export const CCollapse = defineComponent({
         // @ts-ignore
         el.style.height = props.endingHeight
         const { height } = getComputedStyle(el)
+        // debugger
         // @ts-ignore
         el.style.height = props.startingHeight
 
