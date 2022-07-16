@@ -14,11 +14,15 @@ import { PrismEditor } from "vue-prism-editor"
 import "vue-prism-editor/dist/prismeditor.min.css"
 
 // @ts-ignore
-import { highlight, languages } from "prismjs/components/prism-core"
-import "prismjs/components/prism-clike"
-import "prismjs/components/prism-javascript"
-import "prismjs/components/prism-bash"
-import "prismjs/components/prism-jsx"
+import Prism from "prismjs"
+const loadLanguages = require("prismjs/components/")
+loadLanguages(["clike", "javascript", "bash", "jsx"])
+// import "prismjs/components/prism-clike"
+// import "prismjs/components/prism-javascript"
+// import "prismjs/components/prism-bash"
+// import "prismjs/components/prism-jsx"
+
+const { highlight, language } = Prism
 
 // @ts-ignore
 // prettier-ignore
