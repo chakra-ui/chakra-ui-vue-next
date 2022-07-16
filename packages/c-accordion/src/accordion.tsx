@@ -3,12 +3,12 @@ import {
   defineComponent,
   PropType,
   computed,
-  watchEffect,
   ComputedRef,
-  provide,
-  inject,
+  ref,
+  onMounted,
   Fragment,
-  cloneVNode,
+  onBeforeMount,
+  watchEffect,
 } from "vue"
 import * as accordion from "@zag-js/accordion"
 import { normalizeProps, useMachine, useSetup } from "@zag-js/vue"
@@ -21,15 +21,16 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   useStyles,
+  DeepPartial,
 } from "@chakra-ui/vue-system"
-import { useIds } from "@chakra-ui/vue-composables"
+import { useIds, useId } from "@chakra-ui/vue-composables"
 import { createContext, genId, vueThemingProps } from "@chakra-ui/vue-utils"
 import { filterUndefined, mergeWith } from "@chakra-ui/utils"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
-import { getValidChildren } from "@chakra-ui/vue-utils"
+import { CCollapse } from "@chakra-ui/c-motion"
 import { CIcon } from "@chakra-ui/c-icon"
 
-export type ExpandedIndex = number | number[]
+export type ExpandedValues = string | string[]
 
 export interface CAccordionProps
   extends HTMLChakraProps<"div">,
@@ -45,122 +46,142 @@ export interface CAccordionProps
   /**
    * The index(es) of the expanded accordion item
    */
-  index?: ExpandedIndex
+  index?: ExpandedValues
   /**
    * The initial index(es) of the expanded accordion item
    */
-  defaultIndex?: ExpandedIndex
+  defaultOpen?: ExpandedValues
 
   /**
    * If `true`, height animation and transitions will be disabled.
    */
-  reduceMotion?: boolean
+  reduceMotion: boolean
 }
 
-const [AccordionProvider, useAccordion] = createContext<
-  ComputedRef<ReturnType<typeof accordion.connect>>
->({
+export interface CAccordionContext {
+  api: ComputedRef<ReturnType<typeof accordion.connect>>
+  reduceMotion: ComputedRef<boolean>
+}
+
+const [AccordionProvider, useAccordion] = createContext<CAccordionContext>({
   name: "AccordionContext",
   strict: true,
 })
 
-export const CAccordion: ComponentWithProps<CAccordionProps> = defineComponent({
-  name: "CAccordion",
-  props: {
-    as: {
-      type: [String] as PropType<DOMElements>,
-      default: "div",
+export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
+  defineComponent({
+    name: "CAccordion",
+    props: {
+      as: {
+        type: [String] as PropType<DOMElements>,
+        default: "div",
+      },
+      allowMultiple: Boolean as PropType<CAccordionProps["allowMultiple"]>,
+      allowToggle: Boolean as PropType<CAccordionProps["allowToggle"]>,
+      index: Number as PropType<CAccordionProps["index"]>,
+      defaultIndex: Number as PropType<CAccordionProps["defaultIndex"]>,
+      reduceMotion: {
+        type: Boolean as PropType<CAccordionProps["reduceMotion"]>,
+        default: false,
+      },
+      ...vueThemingProps,
     },
-    allowMultiple: Boolean as PropType<CAccordionProps["allowMultiple"]>,
-    allowToggle: Boolean as PropType<CAccordionProps["allowToggle"]>,
-    index: Number as PropType<CAccordionProps["index"]>,
-    defaultIndex: Number as PropType<CAccordionProps["defaultIndex"]>,
-    reduceMotion: Boolean as PropType<CAccordionProps["reduceMotion"]>,
-    ...vueThemingProps,
-  },
-  setup(_props, { slots, attrs }) {
-    const id = computed<string>(() => (attrs.id as string) || genId())
-    const [rootId, buttonId, panelId] = useIds(
-      id.value,
-      "root",
-      "button",
-      "panel"
-    )
-    const context = computed(() => ({
-      multiple: _props.allowMultiple,
-      collapsible: _props.allowToggle,
-    }))
-    const [state, send] = useMachine(accordion.machine(context.value))
-    const apiRef = computed(() =>
-      accordion.connect(state.value, send, normalizeProps)
-    )
-
-    const props = computed<CAccordionProps>(() => mergeWith({}, _props, attrs))
-    const themingProps = computed<ThemingProps>(() =>
-      filterUndefined({
-        colorScheme: props.value.colorScheme,
-        variant: props.value.variant,
-        size: props.value.size,
-        styleConfig: props.value.styleConfig,
-      })
-    )
-
-    const styles = useMultiStyleConfig("Accordion", {
-      ...props.value,
-      ...themingProps.value,
-      ...attrs,
-    })
-
-    const reduceMotion = computed(() => props.value.reduceMotion)
-
-    provide("AccordionContext", { reduceMotion })
-
-    AccordionProvider(apiRef)
-    StylesProvider(styles)
-
-    const ref = useSetup({ send, id: id.value })
-
-    return () => {
-      const api = apiRef.value
-      console.log("state", state.value)
-      return (
-        <chakra.div
-          sx={{
-            "> div": styles.value.root,
-          }}
-        >
-          {() => (
-            <>
-              <div ref={ref} {...api.rootProps}>
-                {slots}
-              </div>
-            </>
-          )}
-        </chakra.div>
+    setup(_props, { slots, attrs }) {
+      const uid = ref(genId())
+      const context = computed(() => ({
+        multiple: _props.allowMultiple,
+        collapsible: _props.allowToggle,
+      }))
+      const [state, send] = useMachine(accordion.machine(context.value))
+      const apiRef = computed(() =>
+        accordion.connect(state.value, send, normalizeProps)
       )
-    }
-  },
-})
+
+      const props = computed<CAccordionProps>(() =>
+        mergeWith({}, _props, attrs)
+      )
+      const themingProps = computed<ThemingProps>(() =>
+        filterUndefined({
+          colorScheme: props.value.colorScheme,
+          variant: props.value.variant,
+          size: props.value.size,
+          styleConfig: props.value.styleConfig,
+        })
+      )
+
+      const styles = useMultiStyleConfig("Accordion", {
+        ...props.value,
+        ...themingProps.value,
+        ...attrs,
+      })
+
+      const reduceMotion = computed(() => props.value.reduceMotion)
+
+      AccordionProvider({
+        api: apiRef,
+        reduceMotion,
+      })
+      StylesProvider(styles)
+
+      const accordionRef = useSetup({ send, id: uid.value })
+
+      return () => {
+        const api = apiRef.value
+        return (
+          <chakra.div
+            sx={{
+              "> div": styles.value.root,
+            }}
+          >
+            {() => (
+              <>
+                <div ref={accordionRef} {...api.rootProps}>
+                  {slots}
+                </div>
+              </>
+            )}
+          </chakra.div>
+        )
+      }
+    },
+  })
 
 export interface CAccordionItemProps extends HTMLChakraProps<"div"> {
   disabled?: boolean
 }
 
+export interface CAccordionItemContext {
+  id: ComputedRef<string>
+  isOpen: ComputedRef<boolean>
+  isDisabled: ComputedRef<boolean | undefined>
+}
+
+const [AccordionItemProvider, useAccordionItem] =
+  createContext<CAccordionItemContext>({
+    name: "AccordionItemContext",
+    strict: true,
+  })
 export const CAccordionItem: ComponentWithProps<CAccordionItemProps> =
   defineComponent({
     name: "CAccordionItem",
     props: {
       disabled: Boolean as PropType<boolean>,
+      value: String as PropType<string>,
     },
     setup(props, { slots, attrs }) {
-      const id = computed(() => (attrs.id as string) || genId())
-      const api = useAccordion()
-      const state = computed(() => api.value.getItemState({ value: id.value }))
+      const _uid = useId(undefined, "accordion-item")
+      const id = computed(() => (attrs.id as string) || _uid.value)
+      const { api } = useAccordion()
+      const itemValue = computed(() => id.value)
+      const state = computed(() =>
+        api.value.getItemState({ value: itemValue.value })
+      )
+
       const isOpen = computed(() => state.value.isOpen)
       const isDisabled = computed(() => props.disabled)
 
-      provide("AccordionItemContext", {
-        id: computed(() => id.value),
+      AccordionItemProvider({
+        id,
         isOpen,
         isDisabled,
       })
@@ -176,7 +197,7 @@ export const CAccordionItem: ComponentWithProps<CAccordionItemProps> =
         <chakra.div
           __css={containerStyles.value}
           {...api.value.getItemProps({
-            value: id.value,
+            value: itemValue.value,
             disabled: props.disabled,
           })}
           {...attrs}
@@ -197,9 +218,9 @@ export const CAccordionButton: ComponentWithProps<CAccordionButtonProps> =
       disabled: Boolean as PropType<boolean>,
     },
     setup(props, { slots, attrs }) {
-      const { id } = inject("AccordionItemContext")! as any
+      const { id } = useAccordionItem()
 
-      const api = useAccordion()
+      const { api } = useAccordion()
       const styles = useStyles()
       const buttonStyles = computed<SystemStyleObject>(() => ({
         display: "flex",
@@ -234,19 +255,27 @@ export const CAccordionPanel: ComponentWithProps<CAccordionPanelProps> =
       disabled: Boolean as PropType<boolean>,
     },
     setup(props, { slots, attrs }) {
-      const { id } = inject("AccordionItemContext")! as any
-      const api = useAccordion()
+      const { id, isOpen } = useAccordionItem()
+      const { api } = useAccordion()
       const styles = useStyles()
 
       return () => {
-        const contentProps = api.value.getContentProps({
+        const { hidden, ...contentProps } = api.value.getContentProps({
           value: id.value,
           disabled: props.disabled,
         })
         return (
-          <chakra.div {...contentProps} __css={styles.value.panel} {...attrs}>
-            {slots}
-          </chakra.div>
+          <CCollapse isOpen={isOpen.value}>
+            {() => (
+              <chakra.div
+                {...contentProps}
+                __css={styles.value.panel}
+                {...attrs}
+              >
+                {slots}
+              </chakra.div>
+            )}
+          </CCollapse>
         )
       }
     },
@@ -257,9 +286,8 @@ export const CAccordionIcon: ComponentWithProps<CAccordionIconProps> =
   defineComponent({
     name: "CAccordionIcon",
     setup(props, { slots, attrs }) {
-      const { isOpen, isDisabled } = inject("AccordionItemContext")! as any
-      const { reduceMotion } = inject("AccordionContext")! as any
-      const api = useAccordion()
+      const { isOpen, isDisabled } = useAccordionItem()
+      const { reduceMotion } = useAccordion()
       const styles = useStyles()
 
       const iconStyles = computed<SystemStyleObject>(() => ({
@@ -270,20 +298,22 @@ export const CAccordionIcon: ComponentWithProps<CAccordionIconProps> =
         ...styles.value.icon,
       }))
 
-      return () => {
-        return (
-          <CIcon
-            viewBox="0 0 24 24"
-            aria-hidden
-            __css={iconStyles.value}
-            {...attrs}
-          >
-            <path
-              fill="currentColor"
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </CIcon>
-        )
-      }
+      return () => (
+        <CIcon
+          viewBox="0 0 24 24"
+          aria-hidden
+          __css={iconStyles.value}
+          {...attrs}
+        >
+          {() => (
+            <>
+              <path
+                fill="currentColor"
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </>
+          )}
+        </CIcon>
+      )
     },
   })

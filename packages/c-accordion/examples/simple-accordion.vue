@@ -39,10 +39,25 @@ import {
   CAccordionButton,
   CAccordionPanel,
 } from "@chakra-ui/c-accordion"
+import { useId, useIds } from "@chakra-ui/vue-composables"
+import { watchEffect } from "vue"
 
 const data = [
   { title: "Watercraft", content: "Sample accordion content" },
   { title: "Automobiles", content: "Sample accordion content" },
   { title: "Aircrafts", content: "Sample accordion content" },
 ]
+
+const id = useId()
+const idWithName = useId("with-name")
+const ids = useIds("accordion", "button", "panel", "item")
+
+watchEffect(() => {
+  console.log("id", id.value)
+  console.log("idWithName", idWithName.value)
+  console.log(
+    "ids",
+    ids.map((id) => id.value)
+  )
+})
 </script>

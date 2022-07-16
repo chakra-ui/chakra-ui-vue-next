@@ -11,9 +11,11 @@ import {
   watch,
   withDirectives,
   onMounted,
+  watchEffect,
 } from "vue"
 import { TransitionEasings, TransitionVariants } from "./motion-utils"
 import { warn } from "@chakra-ui/utils"
+import { genId } from "@chakra-ui/vue-utils"
 
 export interface CollapseOptions {
   /**
@@ -73,11 +75,16 @@ export const CCollapse = defineComponent({
       type: Boolean as PropType<CollapseOptions["unmountOnExit"]>,
       default: true,
     },
+    transitionId: {
+      type: String,
+    },
   },
   emits: ["entered", "left"],
   setup(props, { slots, attrs, emit }) {
     const [targetRef, targetNode] = useRef()
-    const transitionId = useId("collapse-transition")
+    const transitionId = computed(
+      () => `c-collapse-${props.transitionId || genId()}`
+    )
     const preTransitionHeight = ref(0)
     const collapsedHeight = computed(() => {
       return preTransitionHeight.value || props.endingHeight

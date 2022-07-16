@@ -1,35 +1,43 @@
-import { h, defineComponent, PropType, computed, ComputedRef } from "vue"
+import {
+  h,
+  defineComponent,
+  PropType,
+  computed,
+  ComputedRef,
+  Fragment,
+} from "vue"
 import {
   chakra,
   ThemingProps,
   useMultiStyleConfig,
-  useStyles,
-  StylesProvider,
+  createStylesContext,
   DOMElements,
   SystemStyleObject,
 } from "@chakra-ui/vue-system"
-import { createContext } from "@chakra-ui/vue-utils"
-import { CIcon } from "@chakra-ui/c-icon"
+import { createContext, getValidChildren } from "@chakra-ui/vue-utils"
+import { CCheckIcon, CErrorIcon, CInfoIcon, CWarningIcon } from "./icons"
 
 const STATUSES = {
   info: {
     colorScheme: "blue",
-    icon: "info",
+    icon: CInfoIcon,
   },
   success: {
     colorScheme: "green",
-    icon: "check-circle",
+    icon: CCheckIcon,
   },
   warning: {
     colorScheme: "orange",
-    icon: "warning-alt",
+    icon: CWarningIcon,
   },
   error: {
     colorScheme: "red",
-    icon: "warning",
+    icon: CErrorIcon,
   },
+  loading: { icon: CInfoIcon, colorScheme: "blue" },
 }
 
+const [StylesProvider, useStyles] = createStylesContext("Alert")
 type AlertStatus = keyof typeof STATUSES
 export type AlertVariant = "solid" | "subtle" | "left-accent" | "top-accent"
 
@@ -95,14 +103,15 @@ export const CAlert = defineComponent({
     }))
 
     return () => {
-      return h(
-        chakra(props.as, { label: "alert" }),
-        {
-          role: "alert",
-          ...alertStyles.value,
-          ...attrs,
-        },
-        slots
+      return (
+        <chakra.div
+          role="alert"
+          __label="alert"
+          __css={alertStyles.value}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
     }
   },
@@ -119,19 +128,20 @@ export const CAlertTitle = defineComponent({
     return () => {
       const styles = useStyles()
 
-      return h(
-        chakra("div", { label: "alert__title" }),
-        {
-          ...styles.value.title,
-          ...attrs,
-        },
-        slots
+      return (
+        <chakra.div
+          __label="alert__title"
+          __css={styles.value.title}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
     }
   },
 })
 
-/**
+/**«
  * CAlertDescription component
  *
  * The description component for alerts
@@ -141,13 +151,14 @@ export const CAlertDescription = defineComponent({
   setup(_, { attrs, slots }) {
     const styles = useStyles()
     return () => {
-      return h(
-        chakra("div", { label: "alert__description" }),
-        {
-          ...styles.value.description,
-          ...attrs,
-        },
-        slots
+      return (
+        <chakra.div
+          __label="alert__description"
+          __css={styles.value.description}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
     }
   },
@@ -160,24 +171,30 @@ export const CAlertDescription = defineComponent({
  */
 export const CAlertIcon = defineComponent({
   name: "CAlertIcon",
-  props: {
-    icon: {
-      type: [String] as PropType<string>,
-    },
-  },
-  setup(props, { attrs }) {
+  setup(_, { attrs, slots }) {
     const styles = useStyles()
     const { status } = useAlertContext()
-    const { icon } = STATUSES[status.value]
-    const alertIcon = computed(() => props.icon || icon)
+    const { icon: BaseIcon } = STATUSES[status.value]
+    const css = computed(() =>
+      status.value === "loading" ? styles.value.spinner : styles.value.icon
+    )
 
     return () => {
-      return h(CIcon, {
-        class: "alert__icon",
-        name: alertIcon.value,
-        ...styles.value.icon,
-        ...attrs,
-      })
+      const validChildren = getValidChildren(slots)
+      return (
+        <chakra.span
+          display="inherit"
+          __label="alert__icon"
+          {...attrs}
+          __css={css.value}
+        >
+          {() => (
+            <>{validChildren.length ? slots : <BaseIcon h="100%" w="100%" />}</>
+          )}
+        </chakra.span>
+      )
+
+      // return <icon {...styles.value.icon} {...attrs}></icon>
     }
   },
 })

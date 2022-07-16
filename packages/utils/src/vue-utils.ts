@@ -1,4 +1,5 @@
-import { isFunction, isObject } from "@chakra-ui/utils"
+import { isFunction, isObject, Dict } from "@chakra-ui/utils"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { inject, InjectionKey, provide, isVNode, Slots, VNode } from "vue"
 
 export interface CreateContextOptions {
@@ -47,7 +48,11 @@ export function createContext<ContextType>(options: CreateContextOptions = {}) {
     return context
   }
 
-  return [Provider, useContext, contextSymbol] as CreateContextReturn<ContextType>
+  return [
+    Provider,
+    useContext,
+    contextSymbol,
+  ] as CreateContextReturn<ContextType>
 }
 
 /**

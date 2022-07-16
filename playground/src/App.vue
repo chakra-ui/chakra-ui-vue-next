@@ -1,6 +1,6 @@
 <template>
   <c-reset />
-  <chakra.section d="flex" transition="all 0.2s" height="inherit" w="inherit">
+  <chakra.section display="flex" transition="all 0.2s" height="inherit" w="inherit">
     <perfect-scrollbar>
       <chakra.div pb="12">
         <sidebar :stories="routes" />

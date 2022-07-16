@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-07-12T10:47:00.309Z
+ * This file was generated on 2022-07-16T13:14:29.609Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -52,6 +52,10 @@ declare module "@vue/runtime-core" {
     CAccordionIcon: typeof import("@chakra-ui/vue-next")["CAccordionIcon"]
     CAccordionItem: typeof import("@chakra-ui/vue-next")["CAccordionItem"]
     CAccordionPanel: typeof import("@chakra-ui/vue-next")["CAccordionPanel"]
+    CAlert: typeof import("@chakra-ui/vue-next")["CAlert"]
+    CAlertDescription: typeof import("@chakra-ui/vue-next")["CAlertDescription"]
+    CAlertIcon: typeof import("@chakra-ui/vue-next")["CAlertIcon"]
+    CAlertTitle: typeof import("@chakra-ui/vue-next")["CAlertTitle"]
     CBreadcrumb: typeof import("@chakra-ui/vue-next")["CBreadcrumb"]
     CBreadcrumbItem: typeof import("@chakra-ui/vue-next")["CBreadcrumbItem"]
     CBreadcrumbLink: typeof import("@chakra-ui/vue-next")["CBreadcrumbLink"]
@@ -64,6 +68,7 @@ declare module "@vue/runtime-core" {
     CFormErrorMessage: typeof import("@chakra-ui/vue-next")["CFormErrorMessage"]
     CFormLabel: typeof import("@chakra-ui/vue-next")["CFormLabel"]
     CRequiredIndicator: typeof import("@chakra-ui/vue-next")["CRequiredIndicator"]
+    CIcon: typeof import("@chakra-ui/vue-next")["CIcon"]
     CInput: typeof import("@chakra-ui/vue-next")["CInput"]
     CInputAddon: typeof import("@chakra-ui/vue-next")["CInputAddon"]
     CInputGroup: typeof import("@chakra-ui/vue-next")["CInputGroup"]

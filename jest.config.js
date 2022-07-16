@@ -10,6 +10,7 @@ module.exports = {
       },
     ],
   },
+  setupFiles: ["./jest.setup.ts"],
   transformIgnorePatterns: ["/node_modules/(?!@popperjs/.*|lodash.)"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",

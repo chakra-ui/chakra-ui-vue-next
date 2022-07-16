@@ -5,6 +5,7 @@ import {
   inject,
   SVGAttributes,
   PropType,
+  Fragment,
 } from "vue"
 import {
   chakra,
@@ -13,7 +14,7 @@ import {
   DeepPartial,
   DOMElements,
 } from "@chakra-ui/vue-system"
-import { SNAO } from "@chakra-ui/vue-utils"
+import { SNAO, camelCase } from "@chakra-ui/vue-utils"
 import { mergeWith } from "@chakra-ui/utils"
 
 const fallbackIcon = {
@@ -50,13 +51,16 @@ export const iconProps = {
   size: "1em",
 }
 
+const _iconProps = {
+  as: SNAO as PropType<IconProps["as"]>,
+  size: SNAO as PropType<IconProps["size"]>,
+  name: String as PropType<IconProps["name"]>,
+}
+
 export const CIcon: ComponentWithProps<DeepPartial<IconProps>> =
   defineComponent({
-    props: {
-      as: SNAO as PropType<IconProps["as"]>,
-      size: SNAO as PropType<IconProps["size"]>,
-      name: String as PropType<IconProps["name"]>,
-    },
+    name: "CIcon",
+    props: _iconProps,
     setup(_props, { slots, attrs }) {
       const props = computed<IconProps>(() => mergeWith({}, iconProps, _props))
       const icons = inject<Record<string, any>>("$chakraIcons")
@@ -92,3 +96,19 @@ export const CIcon: ComponentWithProps<DeepPartial<IconProps>> =
       )
     },
   })
+
+export function createIconComponent(name: string) {
+  const componentName = camelCase(name)
+  const iconComponent = defineComponent(
+    (props: IconProps, { slots, attrs }) => {
+      return () => (
+        <CIcon name={name} {...props} {...attrs}>
+          {slots}
+        </CIcon>
+      )
+    }
+  )
+
+  iconComponent.name = componentName
+  return iconComponent
+}
