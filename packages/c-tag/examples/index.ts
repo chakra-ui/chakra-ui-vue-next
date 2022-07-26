@@ -1,0 +1,6 @@
+export * as BaseTag from "./base-tag.vue"
+export * as TagVariants from "./tag-variants.vue"
+export * as WithCloseButton from "./with-close-button.vue"
+export * as WithDisabledCloseButton from "./with-disabled-close-button.vue"
+export * as WithIcons from "./with-icons.vue"
+export * as WithLabel from "./with-label.vue"

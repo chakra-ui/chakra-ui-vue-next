@@ -163,6 +163,7 @@ export * from "@chakra-ui/c-scroll-lock"
 
 // T
 export * from "@chakra-ui/c-theme-provider"
+export * from "@chakra-ui/c-tag"
 
 // V
 export * from "@chakra-ui/c-visually-hidden"

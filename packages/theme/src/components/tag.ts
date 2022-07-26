@@ -11,6 +11,10 @@ const baseStyleContainer: SystemStyleObject = {
   lineHeight: 1.2,
   outline: 0,
   borderRadius: "md",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  maxW: "100%",
   _focusVisible: {
     boxShadow: "outline",
   },
@@ -22,7 +26,7 @@ const baseStyleLabel: SystemStyleObject = {
 }
 
 const baseStyleCloseButton: SystemStyleObject = {
-  fontSize: "18px",
+  fontSize: "inherit",
   w: "1.25rem",
   h: "1.25rem",
   transitionProperty: "common",
@@ -33,6 +37,11 @@ const baseStyleCloseButton: SystemStyleObject = {
   opacity: 0.5,
   _disabled: {
     opacity: 0.4,
+    cursor: "not-allowed",
+    _hover: {
+      opacity: 0.4,
+    },
+    _active: { opacity: 0.4 },
   },
   _focusVisible: {
     boxShadow: "outline",
@@ -51,7 +60,7 @@ const baseStyle: PartsStyleObject<typeof parts> = {
 const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   sm: {
     container: {
-      minH: "1.25rem",
+      h: "1.25rem",
       minW: "1.25rem",
       fontSize: "xs",
       px: 2,
@@ -63,7 +72,7 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   },
   md: {
     container: {
-      minH: "1.5rem",
+      h: "1.5rem",
       minW: "1.5rem",
       fontSize: "sm",
       px: 2,
@@ -71,7 +80,7 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   },
   lg: {
     container: {
-      minH: 8,
+      h: 8,
       minW: 8,
       fontSize: "md",
       px: 3,
