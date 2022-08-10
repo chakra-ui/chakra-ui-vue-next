@@ -14,27 +14,38 @@
   </c-form-control>
 </template>
 
-<script lang="tsx" setup>
-import { h, defineComponent, computed, toRefs } from 'vue'
+<script lang="tsx">
+import { h, defineComponent, computed, toRefs } from "vue"
 import {
   chakra,
   useMultiStyleConfig,
   omitThemingProps,
-} from '@chakra-ui/vue-system'
-import { useFormControl } from '@chakra-ui/c-form-control'
-import { vueThemingProps } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/vue-system"
+import { filterUndefined } from "@chakra-ui/utils"
+import { useFormControl } from "@chakra-ui/c-form-control"
+import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
 
 const CSelect = defineComponent({
-  props: vueThemingProps,
-  setup(props, { slots }) {
-    const styles = useMultiStyleConfig('Select', props)
+  props: { ...vueThemingProps },
+  setup(props, { slots, attrs }) {
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useMultiStyleConfig("Select", themingProps.value)
     const _props = computed(() => toRefs(omitThemingProps(props)))
     const inputProps = useFormControl(_props.value)
     return () => (
       <chakra.select __css={styles.value.field} {...inputProps.value}>
-        {slots}
+        {() => getValidChildren(slots)}
       </chakra.select>
     )
   },
 })
+
+export default CSelect
 </script>

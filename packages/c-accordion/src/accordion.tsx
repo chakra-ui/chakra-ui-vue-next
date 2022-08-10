@@ -1,15 +1,4 @@
-import {
-  h,
-  defineComponent,
-  PropType,
-  computed,
-  ComputedRef,
-  ref,
-  onMounted,
-  Fragment,
-  onBeforeMount,
-  watchEffect,
-} from "vue"
+import { h, defineComponent, PropType, computed, ComputedRef, ref } from "vue"
 import * as accordion from "@zag-js/accordion"
 import { normalizeProps, useMachine, useSetup } from "@zag-js/vue"
 import {
@@ -24,7 +13,13 @@ import {
   DeepPartial,
 } from "@chakra-ui/vue-system"
 import { useIds, useId } from "@chakra-ui/vue-composables"
-import { createContext, genId, vueThemingProps } from "@chakra-ui/vue-utils"
+import {
+  createContext,
+  genId,
+  SNAO,
+  getValidChildren,
+  vueThemingProps,
+} from "@chakra-ui/vue-utils"
 import { filterUndefined, mergeWith } from "@chakra-ui/utils"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { CCollapse } from "@chakra-ui/c-motion"
@@ -47,6 +42,7 @@ export interface CAccordionProps
    * The index(es) of the expanded accordion item
    */
   index?: ExpandedValues
+  defaultIndex?: ExpandedValues
   /**
    * The initial index(es) of the expanded accordion item
    */
@@ -78,8 +74,8 @@ export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
       },
       allowMultiple: Boolean as PropType<CAccordionProps["allowMultiple"]>,
       allowToggle: Boolean as PropType<CAccordionProps["allowToggle"]>,
-      index: Number as PropType<CAccordionProps["index"]>,
-      defaultIndex: Number as PropType<CAccordionProps["defaultIndex"]>,
+      index: SNAO as PropType<CAccordionProps["index"]>,
+      defaultIndex: SNAO as PropType<CAccordionProps["defaultIndex"]>,
       reduceMotion: {
         type: Boolean as PropType<CAccordionProps["reduceMotion"]>,
         default: false,
@@ -134,11 +130,9 @@ export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
             }}
           >
             {() => (
-              <>
-                <div ref={accordionRef} {...api.rootProps}>
-                  {slots}
-                </div>
-              </>
+              <div ref={accordionRef} {...api.rootProps}>
+                {getValidChildren(slots)}
+              </div>
             )}
           </chakra.div>
         )
@@ -202,7 +196,7 @@ export const CAccordionItem: ComponentWithProps<CAccordionItemProps> =
           })}
           {...attrs}
         >
-          {slots}
+          {getValidChildren(slots)}
         </chakra.div>
       )
     },
@@ -239,7 +233,7 @@ export const CAccordionButton: ComponentWithProps<CAccordionButtonProps> =
           __css={buttonStyles.value}
           {...attrs}
         >
-          {slots}
+          {getValidChildren(slots)}
         </chakra.button>
       )
     },
@@ -266,15 +260,9 @@ export const CAccordionPanel: ComponentWithProps<CAccordionPanelProps> =
         })
         return (
           <CCollapse isOpen={isOpen.value}>
-            {() => (
-              <chakra.div
-                {...contentProps}
-                __css={styles.value.panel}
-                {...attrs}
-              >
-                {slots}
-              </chakra.div>
-            )}
+            <chakra.div {...contentProps} __css={styles.value.panel} {...attrs}>
+              {getValidChildren(slots)}
+            </chakra.div>
           </CCollapse>
         )
       }
@@ -305,14 +293,10 @@ export const CAccordionIcon: ComponentWithProps<CAccordionIconProps> =
           __css={iconStyles.value}
           {...attrs}
         >
-          {() => (
-            <>
-              <path
-                fill="currentColor"
-                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-              />
-            </>
-          )}
+          <path
+            fill="currentColor"
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
         </CIcon>
       )
     },
