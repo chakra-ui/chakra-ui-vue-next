@@ -1,5 +1,6 @@
 {
   "recommendations": [
-    "johnsoncodehk.volar"
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin"
   ]
 }
