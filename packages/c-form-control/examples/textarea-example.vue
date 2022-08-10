@@ -10,7 +10,7 @@
   </c-form-control>
 </template>
 
-<script lang="tsx" setup>
+<script lang="tsx">
 import { h, defineComponent, computed, toRefs } from "vue"
 import {
   chakra,
@@ -29,4 +29,5 @@ const CTextarea = defineComponent({
     return () => <chakra.textarea __css={styles.value} {...inputProps.value} />
   },
 })
+export default CTextarea
 </script>
