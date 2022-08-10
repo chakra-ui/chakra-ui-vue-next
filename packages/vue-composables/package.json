@@ -28,8 +28,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.16.0",
-    "@chakra-ui/utils": "^1.9.1",
+    "@chakra-ui/styled-system": "^2.2.2",
+    "@chakra-ui/utils": "^2.0.3",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@chakra-ui/vue-utils": "0.1.0-alpha.10"
   },

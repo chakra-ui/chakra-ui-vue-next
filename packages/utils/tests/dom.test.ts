@@ -1,4 +1,4 @@
-import { render, waitMs, screen } from "@chakra-ui/vue-test-utils/src"
+import { render, waitMs, screen } from "@chakra-ui/vue-test-utils"
 import { defineComponent, h, nextTick, onMounted } from "vue"
 import { useRef } from "../src/dom"
 

@@ -1,4 +1,10 @@
-import Color from "tinycolor2"
+import {
+  TinyColor,
+  readability,
+  isReadable,
+  random,
+  WCAG2Parms,
+} from "@ctrl/tinycolor"
 import { memoizedGet as get, Dict, isEmptyObject } from "@chakra-ui/utils"
 
 /**
@@ -6,26 +12,32 @@ import { memoizedGet as get, Dict, isEmptyObject } from "@chakra-ui/utils"
  * @param theme - the theme object
  * @param color - the color path ("green.200")
  * @param fallback - the fallback color
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const getColor = (theme: Dict, color: string, fallback?: string) => {
   const hex = get(theme, `colors.${color}`, color)
-  const isValid = Color(hex).isValid()
+  const { isValid } = new TinyColor(hex)
   return isValid ? hex : fallback
 }
 
 /**
  * Determines if the tone of given color is "light" or "dark"
  * @param color - the color in hex, rgb, or hsl
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const tone = (color: string) => (theme: Dict) => {
   const hex = getColor(theme, color)
-  const isDark = Color(hex).isDark()
+  const isDark = new TinyColor(hex).isDark()
   return isDark ? "dark" : "light"
 }
 
 /**
  * Determines if a color tone is "dark"
  * @param color - the color in hex, rgb, or hsl
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const isDark = (color: string) => (theme: Dict) =>
   tone(color)(theme) === "dark"
@@ -33,6 +45,8 @@ export const isDark = (color: string) => (theme: Dict) =>
 /**
  * Determines if a color tone is "light"
  * @param color - the color in hex, rgb, or hsl
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const isLight = (color: string) => (theme: Dict) =>
   tone(color)(theme) === "light"
@@ -40,52 +54,61 @@ export const isLight = (color: string) => (theme: Dict) =>
 /**
  * Make a color transparent
  * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount white to add
+ * @param opacity - the amount of opacity the color should have (0-1)
+ *
+ * @deprecated This will be removed in the next major release.
  */
-export const transparentize = (color: string, opacity: number) => (
-  theme: Dict
-) => {
-  const raw = getColor(theme, color)
-  return Color(raw).setAlpha(opacity).toRgbString()
-}
+export const transparentize =
+  (color: string, opacity: number) => (theme: Dict) => {
+    const raw = getColor(theme, color)
+    return new TinyColor(raw).setAlpha(opacity).toRgbString()
+  }
 
 /**
  * Add white to a color
  * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount white to add (0-1)
+ * @param amount - the amount white to add (0-100)
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const whiten = (color: string, amount: number) => (theme: Dict) => {
   const raw = getColor(theme, color)
-  return Color.mix(raw, "#fff", amount).toHexString()
+  return new TinyColor(raw).mix("#fff", amount).toHexString()
 }
 
 /**
  * Add black to a color
  * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount black to add (0-1)
+ * @param amount - the amount black to add (0-100)
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const blacken = (color: string, amount: number) => (theme: Dict) => {
   const raw = getColor(theme, color)
-  return Color.mix(raw, "#000", amount).toHexString()
+  return new TinyColor(raw).mix("#000", amount).toHexString()
 }
 
 /**
  * Darken a specified color
  * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount to darken (0-1)
+ * @param amount - the amount to darken (0-100)
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const darken = (color: string, amount: number) => (theme: Dict) => {
   const raw = getColor(theme, color)
-  return Color(raw).darken(amount).toHexString()
+  return new TinyColor(raw).darken(amount).toHexString()
 }
 
 /**
  * Lighten a specified color
  * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount to lighten (0-1)
+ * @param amount - the amount to lighten (0-100)
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const lighten = (color: string, amount: number) => (theme: Dict) =>
-  Color(getColor(theme, color)).lighten(amount).toHexString()
+  new TinyColor(getColor(theme, color)).lighten(amount).toHexString()
 
 /**
  * Checks the contract ratio of between 2 colors,
@@ -93,30 +116,32 @@ export const lighten = (color: string, amount: number) => (theme: Dict) =>
  *
  * @param fg - the foreground or text color
  * @param bg - the background color
+ *
+ * @deprecated This will be removed in the next major release.
  */
 export const contrast = (fg: string, bg: string) => (theme: Dict) =>
-  Color.readability(getColor(theme, bg), getColor(theme, fg))
+  readability(getColor(theme, bg), getColor(theme, fg))
 
 /**
  * Checks if a color meets the Web Content Accessibility
- * Guidelines (Version 2.0) for constract ratio.
+ * Guidelines (Version 2.0) for contrast ratio.
  *
- * @param fg - the foreground or text color
- * @param bg - the background color
+ * @param textColor - the foreground or text color
+ * @param bgColor - the background color
+ * @param options
+ *
+ * @deprecated This will be removed in the next major release.
  */
-export const isAccessible = (
-  textColor: string,
-  bgColor: string,
-  options?: Color.WCAG2Options
-) => (theme: Dict) =>
-  Color.isReadable(
-    getColor(theme, bgColor),
-    getColor(theme, textColor),
-    options
-  )
+export const isAccessible =
+  (textColor: string, bgColor: string, options?: WCAG2Parms) => (theme: Dict) =>
+    isReadable(getColor(theme, bgColor), getColor(theme, textColor), options)
 
+/**
+ *
+ * @deprecated This will be removed in the next major release.
+ */
 export const complementary = (color: string) => (theme: Dict) =>
-  Color(getColor(theme, color)).complement().toHexString()
+  new TinyColor(getColor(theme, color)).complement().toHexString()
 
 export function generateStripe(
   size = "1rem",
@@ -150,7 +175,7 @@ interface RandomColorOptions {
 }
 
 export function randomColor(opts?: RandomColorOptions) {
-  const fallback = Color.random().toHexString()
+  const fallback = random().toHexString()
 
   if (!opts || isEmptyObject(opts)) {
     return fallback

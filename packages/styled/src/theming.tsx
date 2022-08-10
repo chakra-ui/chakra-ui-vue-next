@@ -1,25 +1,32 @@
-import weakMemoize from '@emotion/weak-memoize'
-import { createContext } from '@chakra-ui/vue-utils';
+import weakMemoize from "@emotion/weak-memoize"
+import { createContext } from "@chakra-ui/vue-utils"
 import { getTheme } from "./utils"
-import { ComputedRef } from 'vue';
+import { ComputedRef } from "vue"
 
-const [_EmotionThemeProvider, useEmotionTheme] = createContext<object>({
-  strict: false,
-  name: "EmotionThemeContext",
-})
+const [_EmotionThemeProvider, useEmotionTheme, EmotionThemeContextSymbol] =
+  createContext<object>({
+    strict: false,
+    name: "EmotionThemeContext",
+  })
 
-let createCacheWithTheme = /* #__PURE__ */ weakMemoize(outerTheme => {
-  return weakMemoize(theme => {
+let createCacheWithTheme = /* #__PURE__ */ weakMemoize((outerTheme) => {
+  return weakMemoize((theme) => {
     return getTheme(outerTheme, theme)
   })
 })
 
-function EmotionThemeProvider (theme: object | ((Obj: object) => Object)) {
-  let _theme = useEmotionTheme({})
+function EmotionThemeProvider(theme: object | ((Obj: object) => Object)) {
+  let _theme = useEmotionTheme()
   if (theme !== _theme) {
+    // @ts-ignore weak map typing not fulfilled properly
     _theme = createCacheWithTheme(_theme)(theme)
   }
   _EmotionThemeProvider(_theme)
 }
 
-export { createCacheWithTheme as createThemeCache, EmotionThemeProvider, useEmotionTheme }
+export {
+  createCacheWithTheme as createThemeCache,
+  EmotionThemeProvider,
+  useEmotionTheme,
+  EmotionThemeContextSymbol,
+}

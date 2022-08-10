@@ -1,25 +1,18 @@
+import { formAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleFunction,
+  SystemStyleFunction,
+} from "@chakra-ui/vue-theme-tools"
 import { mode } from "@chakra-ui/vue-theme-tools"
 
-type Dict = Record<string, any>
-
-const parts = ["errorText", "errorIcon", "requiredIndicator", "helperText"]
-
-function baseStyleErrorText(props: Dict) {
+const baseStyleRequiredIndicator: SystemStyleFunction = (props) => {
   return {
-    color: mode("red.500", "red.300")(props),
-    mt: 2,
-    fontSize: "sm",
-  }
-}
-
-function baseStyleRequiredIndicator(props: Dict) {
-  return {
-    ml: 1,
+    marginStart: 1,
     color: mode("red.500", "red.300")(props),
   }
 }
 
-function baseStyleHelperText(props: Dict) {
+const baseStyleHelperText: SystemStyleFunction = (props) => {
   return {
     mt: 2,
     color: mode("gray.500", "whiteAlpha.600")(props),
@@ -28,21 +21,13 @@ function baseStyleHelperText(props: Dict) {
   }
 }
 
-function baseStyleErrorIcon(props: Dict) {
-  return {
-    mr: "0.5em",
-    color: mode("red.500", "red.300")(props),
-  }
-}
-
-const baseStyle = (props: Dict) => ({
-  errorText: baseStyleErrorText(props),
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  container: { width: "100%", position: "relative" },
   requiredIndicator: baseStyleRequiredIndicator(props),
   helperText: baseStyleHelperText(props),
-  errorIcon: baseStyleErrorIcon(props),
 })
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
 }

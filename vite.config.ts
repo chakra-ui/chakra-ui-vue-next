@@ -7,6 +7,10 @@ import ChakraComponents from "./playground/build/components.json"
 import path from "path"
 
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: "happy-dom",
+  },
   esbuild: {
     jsxFactory: "h",
     jsxFragment: "Fragment",
@@ -20,6 +24,14 @@ export default defineConfig({
   server: {
     watch: {
       ignored: ["**/*snapshots*"],
+    },
+  },
+  resolve: {
+    alias: {
+      "@chakra-ui/vue-test-utils": path.resolve(
+        __dirname,
+        "./packages/test-utils"
+      ),
     },
   },
   plugins: [

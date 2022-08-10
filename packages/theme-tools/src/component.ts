@@ -1,10 +1,14 @@
 import { SystemStyleObject } from "@chakra-ui/vue-system"
 import { Dict, runIfFn } from "@chakra-ui/utils"
 
+/* -----------------------------------------------------------------------------
+ * Style Configuration definition for components
+ * -----------------------------------------------------------------------------*/
+
 export interface StyleConfig {
-  baseStyle?: SystemStyleObject
-  sizes?: { [size: string]: SystemStyleObject }
-  variants?: { [variant: string]: SystemStyleObject }
+  baseStyle?: SystemStyleObject | SystemStyleFunction
+  sizes?: { [size: string]: SystemStyleObject | SystemStyleFunction }
+  variants?: { [variant: string]: SystemStyleObject | SystemStyleFunction }
   defaultProps?: {
     size?: string
     variant?: string
@@ -12,35 +16,77 @@ export interface StyleConfig {
   }
 }
 
-export interface MultiStyleConfig {
-  baseStyle?: { [part: string]: SystemStyleObject }
-  sizes?: { [size: string]: { [part: string]: SystemStyleObject } }
-  variants?: { [variants: string]: { [part: string]: SystemStyleObject } }
+// minimal representation of the anatomy object
+type Anatomy = { __type: string }
+
+export interface MultiStyleConfig<T extends Anatomy = Anatomy> {
+  baseStyle?: PartsStyleObject<T> | PartsStyleFunction<T>
+  sizes?: { [size: string]: PartsStyleObject<T> | PartsStyleFunction<T> }
+  variants?: { [variant: string]: PartsStyleObject<T> | PartsStyleFunction<T> }
   defaultProps?: StyleConfig["defaultProps"]
 }
 
-export interface GlobalStyleProps {
+/* -----------------------------------------------------------------------------
+ * Style Functions used in the theme
+   - Single part components: use SystemStyleObject or SystemStyleFunction
+   - Multi part components: use PartsStyleObject or PartsStyleFunction
+ * -----------------------------------------------------------------------------*/
+
+export type { SystemStyleObject }
+
+export type StyleFunctionProps = {
   colorScheme: string
   colorMode: "light" | "dark"
+  orientation?: "horizontal" | "vertical"
   theme: Dict
+  [key: string]: any
 }
 
+export type SystemStyleFunction = (
+  props: StyleFunctionProps
+) => SystemStyleObject
+
+export type SystemStyleInterpolation = SystemStyleObject | SystemStyleFunction
+
+export type PartsStyleObject<T extends Anatomy = Anatomy> = Partial<
+  Record<T["__type"], SystemStyleObject>
+>
+
+export type PartsStyleFunction<T extends Anatomy = Anatomy> = (
+  props: StyleFunctionProps
+) => PartsStyleObject<T>
+
+export type PartsStyleInterpolation<T extends Anatomy = Anatomy> =
+  | PartsStyleObject<T>
+  | PartsStyleFunction<T>
+
+/* -----------------------------------------------------------------------------
+ * Global Style object definitions
+ * -----------------------------------------------------------------------------*/
+
+export type GlobalStyleProps = StyleFunctionProps
+
 export type GlobalStyles = {
-  global?: SystemStyleObject | ((props: GlobalStyleProps) => SystemStyleObject)
+  global?: SystemStyleInterpolation
+}
+
+export type JSXElementStyles = {
+  [K in keyof JSX.IntrinsicElements]?: SystemStyleObject
 }
 
 export { runIfFn }
 
-export type Styles = GlobalStyles
+export type Styles = GlobalStyles & JSXElementStyles
 
-export function mode(light: any, dark: any) {
-  return (props: Dict) => (props.colorMode === "dark" ? dark : light)
+export function mode<T>(light: T, dark: T) {
+  return (props: Dict | StyleFunctionProps) =>
+    props.colorMode === "dark" ? dark : light
 }
 
 export function orient(options: {
   orientation?: "vertical" | "horizontal"
-  vertical: any
-  horizontal: any
+  vertical: SystemStyleObject
+  horizontal: SystemStyleObject
 }) {
   const { orientation, vertical, horizontal } = options
   if (!orientation) return {}

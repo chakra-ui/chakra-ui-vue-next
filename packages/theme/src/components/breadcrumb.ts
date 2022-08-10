@@ -1,7 +1,13 @@
-const parts = ["link", "separator"]
+import { breadcrumbAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/theme-tools"
 
-const baseStyleLink = {
-  transition: "all 0.15s ease-out",
+const baseStyleLink: SystemStyleObject = {
+  transitionProperty: "common",
+  transitionDuration: "fast",
+  transitionTimingFunction: "ease-out",
   cursor: "pointer",
   textDecoration: "none",
   outline: "none",
@@ -9,16 +15,16 @@ const baseStyleLink = {
   _hover: {
     textDecoration: "underline",
   },
-  _focus: {
+  _focusVisible: {
     boxShadow: "outline",
   },
 }
 
-const baseStyle = {
+const baseStyle: PartsStyleObject<typeof parts> = {
   link: baseStyleLink,
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
 }

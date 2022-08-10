@@ -1,7 +1,3 @@
 <template>
-  <c-alert> HELLO ALERT </c-alert>
+  <c-alert> Base Alert </c-alert>
 </template>
-
-<script lang="ts" setup>
-import { CDivider } from '../../layout/src'
-</script>

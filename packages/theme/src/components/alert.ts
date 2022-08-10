@@ -1,10 +1,12 @@
+import { alertAnatomy as parts } from "@chakra-ui/vue-anatomy"
 import { getColor, mode, transparentize } from "@chakra-ui/vue-theme-tools"
+import type {
+  PartsStyleObject,
+  PartsStyleFunction,
+  StyleFunctionProps,
+} from "@chakra-ui/vue-theme-tools"
 
-type Dict = Record<string, any>
-
-const parts = ["container", "title", "icon"]
-
-const baseStyle = {
+const baseStyle: PartsStyleObject<typeof parts> = {
   container: {
     px: 4,
     py: 3,
@@ -12,64 +14,80 @@ const baseStyle = {
   title: {
     fontWeight: "bold",
     lineHeight: 6,
-    mr: 2,
+    marginEnd: 2,
   },
   description: {
     lineHeight: 6,
   },
   icon: {
-    mr: 3,
+    flexShrink: 0,
+    marginEnd: 3,
     w: 5,
     h: 6,
   },
+  spinner: {
+    flexShrink: 0,
+    marginEnd: 3,
+    w: 5,
+    h: 5,
+  },
 }
 
-function getBg(props: Dict) {
+function getBg(props: StyleFunctionProps): string {
   const { theme, colorScheme: c } = props
   const lightBg = getColor(theme, `${c}.100`, c)
   const darkBg = transparentize(`${c}.200`, 0.16)(theme)
   return mode(lightBg, darkBg)(props)
 }
 
-function variantSubtle(props: Dict) {
+const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     container: { bg: getBg(props) },
     icon: { color: mode(`${c}.500`, `${c}.200`)(props) },
-  }
-}
-
-function variantLeftAccent(props: Dict) {
-  const { colorScheme: c } = props
-  return {
-    container: {
-      pl: 3,
-      borderLeft: "4px solid",
-      borderColor: mode(`${c}.500`, `${c}.200`)(props),
-      bg: getBg(props),
-    },
-    icon: {
+    spinner: {
       color: mode(`${c}.500`, `${c}.200`)(props),
     },
   }
 }
 
-function variantTopAccent(props: Dict) {
+const variantLeftAccent: PartsStyleFunction<typeof parts> = (props) => {
+  const { colorScheme: c } = props
+  return {
+    container: {
+      paddingStart: 3,
+      borderStartWidth: "4px",
+      borderStartColor: mode(`${c}.500`, `${c}.200`)(props),
+      bg: getBg(props),
+    },
+    icon: {
+      color: mode(`${c}.500`, `${c}.200`)(props),
+    },
+    spinner: {
+      color: mode(`${c}.500`, `${c}.200`)(props),
+    },
+  }
+}
+
+const variantTopAccent: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     container: {
       pt: 2,
-      borderTop: "4px solid",
-      borderColor: mode(`${c}.500`, `${c}.200`)(props),
+      borderTopWidth: "4px",
+      borderTopColor: mode(`${c}.500`, `${c}.200`)(props),
       bg: getBg(props),
     },
     icon: {
       color: mode(`${c}.500`, `${c}.200`)(props),
     },
+    spinner: {
+      color: mode(`${c}.500`, `${c}.200`)(props),
+    },
   }
 }
 
-function variantSolid(props: Dict) {
+const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
   return {
     container: {
@@ -88,10 +106,11 @@ const variants = {
 
 const defaultProps = {
   variant: "subtle",
+  colorScheme: "blue",
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   variants,
   defaultProps,

@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CAccordion /> component should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-rcmwhh"
+  >
+    <div
+      data-part="root"
+      id="accordion:"
+    >
+      <div
+        class="css-17mg6aq"
+        data-part="item"
+        id="accordion::item:accordion-item-undefined"
+      >
+        <button
+          aria-controls="accordion::content:accordion-item-undefined"
+          aria-disabled="false"
+          aria-expanded="false"
+          class="css-1d10sx1"
+          data-ownedby="accordion:"
+          data-part="trigger"
+          id="accordion::trigger:accordion-item-undefined"
+          type="button"
+        >
+          <c-v-stack
+            align="flex-start"
+            w="full"
+          >
+            <chakra.p
+              font-weight="bold"
+            >
+               Chakra UI 
+            </chakra.p>
+            <chakra.p
+              font-size="0.8em"
+            >
+              Yatches, Boats and Dinghies
+            </chakra.p>
+          </c-v-stack>
+          <svg
+            aria-hidden="true"
+            class="chakra-icon css-iyv31w"
+            element="c-accordion-item"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="css-0"
+          style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
+        >
+          <div
+            aria-labelledby="accordion::trigger:accordion-item-undefined"
+            class="css-13d8nyx"
+            data-part="content"
+            id="accordion::content:accordion-item-undefined"
+            role="region"
+          >
+             Sample accordion content 
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-17mg6aq"
+        data-part="item"
+        id="accordion::item:accordion-item-1"
+      >
+        <button
+          aria-controls="accordion::content:accordion-item-1"
+          aria-disabled="false"
+          aria-expanded="false"
+          class="css-1d10sx1"
+          data-ownedby="accordion:"
+          data-part="trigger"
+          id="accordion::trigger:accordion-item-1"
+          type="button"
+        >
+          <c-v-stack
+            align="flex-start"
+            w="full"
+          >
+            <chakra.p
+              font-weight="bold"
+            >
+               Mirror World 
+            </chakra.p>
+            <chakra.p
+              font-size="0.8em"
+            >
+              Yatches, Boats and Dinghies
+            </chakra.p>
+          </c-v-stack>
+          <svg
+            aria-hidden="true"
+            class="chakra-icon css-iyv31w"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="css-0"
+          style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
+        >
+          <div
+            aria-labelledby="accordion::trigger:accordion-item-1"
+            class="css-13d8nyx"
+            data-part="content"
+            id="accordion::content:accordion-item-1"
+            role="region"
+          >
+             Sample accordion content 
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-17mg6aq"
+        data-part="item"
+        id="accordion::item:accordion-item-2"
+      >
+        <button
+          aria-controls="accordion::content:accordion-item-2"
+          aria-disabled="false"
+          aria-expanded="false"
+          class="css-1d10sx1"
+          data-ownedby="accordion:"
+          data-part="trigger"
+          id="accordion::trigger:accordion-item-2"
+          type="button"
+        >
+          <c-v-stack
+            align="flex-start"
+            w="full"
+          >
+            <chakra.p
+              font-weight="bold"
+            >
+               Xtellar 
+            </chakra.p>
+            <chakra.p
+              font-size="0.8em"
+            >
+              Yatches, Boats and Dinghies
+            </chakra.p>
+          </c-v-stack>
+          <svg
+            aria-hidden="true"
+            class="chakra-icon css-iyv31w"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="css-0"
+          style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
+        >
+          <div
+            aria-labelledby="accordion::trigger:accordion-item-2"
+            class="css-13d8nyx"
+            data-part="content"
+            id="accordion::content:accordion-item-2"
+            role="region"
+          >
+             Sample accordion content 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<CAccordion /> component should toggle the accordion on click 1`] = `
+<DocumentFragment>
+  <div
+    class="css-rcmwhh"
+  >
+    <div
+      data-part="root"
+      id="accordion:"
+    >
+      <div
+        class="css-17mg6aq"
+        data-part="item"
+        id="accordion::item:accordion-item-4"
+      >
+        <h2>
+          <button
+            aria-controls="accordion::content:accordion-item-4"
+            aria-disabled="false"
+            aria-expanded="false"
+            class="css-1d10sx1"
+            data-ownedby="accordion:"
+            data-part="trigger"
+            id="accordion::trigger:accordion-item-4"
+            type="button"
+          >
+            Trigger
+          </button>
+        </h2>
+        <div
+          class="css-0"
+          style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
+        >
+          <div
+            aria-labelledby="accordion::trigger:accordion-item-4"
+            class="css-13d8nyx"
+            data-part="content"
+            id="accordion::content:accordion-item-4"
+            role="region"
+          >
+            Panel
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

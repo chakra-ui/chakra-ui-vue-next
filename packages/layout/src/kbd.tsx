@@ -1,11 +1,10 @@
-import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { vueThemingProps, extractStyleAttrs } from "@chakra-ui/vue-utils"
 import {
   chakra,
   DOMElements,
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
-  extractStyleAttrs,
   ComponentWithProps,
   DeepPartial,
 } from "@chakra-ui/vue-system"

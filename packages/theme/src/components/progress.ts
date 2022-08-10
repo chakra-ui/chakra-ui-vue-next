@@ -1,10 +1,18 @@
-import { generateStripe, getColor, mode } from "@chakra-ui/vue-theme-tools"
+import { progressAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import {
+  generateStripe,
+  getColor,
+  mode,
+  PartsStyleFunction,
+  PartsStyleObject,
+  StyleFunctionProps,
+} from "@chakra-ui/vue-theme-tools"
+import type {
+  SystemStyleObject,
+  SystemStyleFunction,
+} from "@chakra-ui/vue-theme-tools"
 
-type Dict = Record<string, any>
-
-const parts = ["track", "filledTrack", "panel"]
-
-function filledStyle(props: Dict) {
+function filledStyle(props: StyleFunctionProps): SystemStyleObject {
   const { colorScheme: c, theme: t, isIndeterminate, hasStripe } = props
 
   const stripeStyle = mode(
@@ -29,35 +37,34 @@ function filledStyle(props: Dict) {
   }
 }
 
-const baseStyleLabel = {
+const baseStyleLabel: SystemStyleObject = {
   lineHeight: "1",
   fontSize: "0.25em",
   fontWeight: "bold",
   color: "white",
 }
 
-function baseStyleTrack(props: Dict) {
+const baseStyleTrack: SystemStyleFunction = (props) => {
   return {
-    bg: mode(`gray.100`, `whiteAlpha.300`)(props),
+    bg: mode("gray.100", "whiteAlpha.300")(props),
   }
 }
 
-function baseStyleFilledTrack(props: Dict) {
+const baseStyleFilledTrack: SystemStyleFunction = (props) => {
   return {
-    transition: "all 0.3s",
+    transitionProperty: "common",
+    transitionDuration: "slow",
     ...filledStyle(props),
   }
 }
 
-const baseStyle = (props: Dict) => {
-  return {
-    label: baseStyleLabel,
-    filledTrack: baseStyleFilledTrack(props),
-    track: baseStyleTrack(props),
-  }
-}
+const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+  label: baseStyleLabel,
+  filledTrack: baseStyleFilledTrack(props),
+  track: baseStyleTrack(props),
+})
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   xs: {
     track: { h: "0.25rem" },
   },
@@ -78,7 +85,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   sizes,
   baseStyle,
   defaultProps,

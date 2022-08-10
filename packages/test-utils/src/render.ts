@@ -1,5 +1,5 @@
-import { ComponentOptions } from "@vue/runtime-core"
 import theme from "@chakra-ui/vue-theme"
+import { EmotionThemeContextSymbol } from "@chakra-ui/vue-styled"
 import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/extend-expect"
 import * as vtl from "@testing-library/vue"
@@ -14,6 +14,7 @@ const useDefaultProviders = () => {
   provide("$chakraTheme", theme)
   provide("$chakraColorMode", "light")
   provide("$chakraIcons", {})
+  provide(EmotionThemeContextSymbol, theme)
 }
 
 export type TestRenderProps = {
@@ -36,7 +37,7 @@ export const render = (
       name: "ChakraUIVueTestContainer",
       setup(_, { slots }) {
         useDefaultProviders()
-        return () => h(component as any, slots)
+        return () => h(component as any, {}, slots)
       },
     }),
     ...rest
@@ -126,6 +127,7 @@ export const testA11y = async (
   if ("container" in ui) {
     template = ui.container
   }
+  /** @ts-ignore */
   const results = await axe(template, axeOptions)
 
   expect(results).toHaveNoViolations()

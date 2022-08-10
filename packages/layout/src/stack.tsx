@@ -65,44 +65,42 @@ interface StackOptions {
 
 export interface StackDividerProps extends HTMLChakraProps<"div"> {}
 
-export const CStackDivider = defineComponent(
-  {
-    name: "CStackDivider",
-    inheritAttrs: false,
-    setup(_, { attrs, slots }) {
-      return () => {
-        return (
-          <chakra.div
-            __label="stack__divider"
-            borderWidth={0}
-            alignSelf={"stretch"}
-            borderColor="inherit"
-            width="auto"
-            height="auto"
-            {...attrs}
-          >
-            {slots?.default?.()}
-          </chakra.div>
-        )
-      }
-    },
-  }
-)
-
-export const CStackItem = defineComponent({
-  name: "CStackItem",
+export const CStackDivider = defineComponent({
+  name: "CStackDivider",
+  inheritAttrs: false,
   setup(_, { attrs, slots }) {
-    return () => (
+    return () => {
+      return (
         <chakra.div
-          __label="stack__item"
-          display="inline-block"
-          flex="0 0 auto"
-          minWidth="0"
+          __label="stack__divider"
+          borderWidth={0}
+          alignSelf={"stretch"}
+          borderColor="inherit"
+          width="auto"
+          height="auto"
           {...attrs}
         >
           {slots?.default?.()}
         </chakra.div>
       )
+    }
+  },
+})
+
+export const CStackItem = defineComponent({
+  name: "CStackItem",
+  setup(_, { attrs, slots }) {
+    return () => (
+      <chakra.div
+        __label="stack__item"
+        display="inline-block"
+        flex="0 0 auto"
+        minWidth="0"
+        {...attrs}
+      >
+        {slots?.default?.()}
+      </chakra.div>
+    )
   },
 })
 
@@ -209,15 +207,10 @@ export const CHStack: ComponentWithProps<StackProps> = defineComponent({
   setup(props, { attrs, slots }) {
     return () => (
       // @ts-expect-error Stack typed API
-        <CStack
-          __label="stack-horizontal"
-          {...props}
-          {...attrs}
-          direction="row"
-        >
-          {slots}
-        </CStack>
-      )
+      <CStack __label="stack-horizontal" {...props} {...attrs} direction="row">
+        {slots}
+      </CStack>
+    )
   },
 })
 
@@ -230,12 +223,7 @@ export const CVStack: ComponentWithProps<StackProps> = defineComponent({
   setup(props, { attrs, slots }) {
     return () => (
       // @ts-expect-error Stack typed API
-      <CStack
-        __label="stack-vertical"
-        {...props}
-        {...attrs}
-        direction="column"
-      >
+      <CStack __label="stack-vertical" {...props} {...attrs} direction="column">
         {slots}
       </CStack>
     )

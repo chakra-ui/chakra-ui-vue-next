@@ -1,4 +1,4 @@
-import { render } from "@chakra-ui/vue-test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 import { CScrollLock } from "../src"
 
 const renderComponent = (props?: {}) =>

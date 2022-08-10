@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@chakra-ui/utils"
+      - dependency-name: "@chakra-ui/styled-system"
+    target-branch: "develop"
+    commit-message:
+      # Prefix all commit messages with "npm"
+      prefix: "chakra-ui:core"

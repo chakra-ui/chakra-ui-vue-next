@@ -1,10 +1,13 @@
+import { tableAnatomy as parts } from "@chakra-ui/vue-anatomy"
+
 import { mode } from "@chakra-ui/vue-theme-tools"
+import type {
+  PartsStyleFunction,
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/vue-theme-tools"
 
-const parts = ["table", "thead", "tbody", "tr", "th", "td", "caption"]
-
-type Dict = Record<string, any>
-
-const baseStyle = {
+const baseStyle: PartsStyleObject<typeof parts> = {
   table: {
     fontVariantNumeric: "lining-nums tabular-nums",
     borderCollapse: "collapse",
@@ -15,10 +18,10 @@ const baseStyle = {
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: "wider",
-    textAlign: "left",
+    textAlign: "start",
   },
   td: {
-    textAlign: "left",
+    textAlign: "start",
   },
   caption: {
     mt: 4,
@@ -28,18 +31,18 @@ const baseStyle = {
   },
 }
 
-const numericStyles = {
+const numericStyles: SystemStyleObject = {
   "&[data-is-numeric=true]": {
-    textAlign: "right",
+    textAlign: "end",
   },
 }
 
-const simpleVariant = (props: Dict) => {
+const variantSimple: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
 
   return {
     th: {
-      color: mode(`gray.600`, `gray.400`)(props),
+      color: mode("gray.600", "gray.400")(props),
       borderBottom: "1px",
       borderColor: mode(`${c}.100`, `${c}.700`)(props),
       ...numericStyles,
@@ -50,7 +53,7 @@ const simpleVariant = (props: Dict) => {
       ...numericStyles,
     },
     caption: {
-      color: mode(`gray.600`, `gray.100`)(props),
+      color: mode("gray.600", "gray.100")(props),
     },
     tfoot: {
       tr: {
@@ -62,12 +65,12 @@ const simpleVariant = (props: Dict) => {
   }
 }
 
-const stripedVariant = (props: Dict) => {
+const variantStripe: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c } = props
 
   return {
     th: {
-      color: mode(`gray.600`, `gray.400`)(props),
+      color: mode("gray.600", "gray.400")(props),
       borderBottom: "1px",
       borderColor: mode(`${c}.100`, `${c}.700`)(props),
       ...numericStyles,
@@ -78,7 +81,7 @@ const stripedVariant = (props: Dict) => {
       ...numericStyles,
     },
     caption: {
-      color: mode(`gray.600`, `gray.100`)(props),
+      color: mode("gray.600", "gray.100")(props),
     },
     tbody: {
       tr: {
@@ -104,12 +107,12 @@ const stripedVariant = (props: Dict) => {
 }
 
 const variants = {
-  simple: simpleVariant,
-  striped: stripedVariant,
+  simple: variantSimple,
+  striped: variantStripe,
   unstyled: {},
 }
 
-const sizes = {
+const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   sm: {
     th: {
       px: "4",
@@ -174,7 +177,7 @@ const defaultProps = {
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
   variants,
   sizes,

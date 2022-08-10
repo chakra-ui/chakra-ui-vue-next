@@ -1,6 +1,10 @@
-const parts = ["container", "button", "panel"]
+import { accordionAnatomy as parts } from "@chakra-ui/vue-anatomy"
+import type {
+  PartsStyleObject,
+  SystemStyleObject,
+} from "@chakra-ui/theme-tools"
 
-const baseStyleContainer = {
+const baseStyleContainer: SystemStyleObject = {
   borderTopWidth: "1px",
   borderColor: "inherit",
   _last: {
@@ -8,9 +12,11 @@ const baseStyleContainer = {
   },
 }
 
-const baseStyleButton = {
+const baseStyleButton: SystemStyleObject = {
+  transitionProperty: "common",
+  transitionDuration: "normal",
   fontSize: "1rem",
-  _focus: {
+  _focusVisible: {
     boxShadow: "outline",
   },
   _hover: {
@@ -24,19 +30,25 @@ const baseStyleButton = {
   py: 2,
 }
 
-const baseStylePanel = {
+const baseStylePanel: SystemStyleObject = {
   pt: 2,
   px: 4,
   pb: 5,
 }
 
-const baseStyle = {
+const baseStyleIcon: SystemStyleObject = {
+  fontSize: "1.25em",
+}
+
+const baseStyle: PartsStyleObject<typeof parts> = {
+  root: {},
   container: baseStyleContainer,
   button: baseStyleButton,
   panel: baseStylePanel,
+  icon: baseStyleIcon,
 }
 
 export default {
-  parts,
+  parts: parts.keys,
   baseStyle,
 }

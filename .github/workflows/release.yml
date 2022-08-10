@@ -26,10 +26,10 @@ jobs:
         # so that Changesets can generate changelogs with the correct commits
         fetch-depth: 0
 
-    - name: Use Node.js 14.x
+    - name: Use Node.js 16.x
       uses: actions/setup-node@master
       with:
-        node-version: 14
+        node-version: 16
 
     - name: Load Yarn cache
       uses: actions/cache@v2
