@@ -1,4 +1,4 @@
-import CAccordion from "../src"
+import { CAccordion } from "../src"
 import { h } from "vue"
 
 it("should render properly", () => {
