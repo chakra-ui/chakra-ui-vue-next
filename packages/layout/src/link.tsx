@@ -52,7 +52,7 @@ export const CLink: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig("Link", themingProps.value)
+    const styles = useStyleConfig("Link", themingProps)
 
     return () => (
       <chakra.a

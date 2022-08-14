@@ -46,7 +46,7 @@ export const CTagLabel: ComponentWithProps<CTagLabelProps> = defineComponent({
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useMultiStyleConfig("Tag", themingProps.value)
+    const styles = useMultiStyleConfig("Tag", themingProps)
 
     return () => (
       <chakra.span __css={styles.value.label} noOfLines={1} {...attrs}>
@@ -98,7 +98,7 @@ export const CTagCloseButton: ComponentWithProps<CTagCloseButtonProps> =
         })
       )
 
-      const styles = useMultiStyleConfig("Tag", themingProps.value)
+      const styles = useMultiStyleConfig("Tag", themingProps)
 
       const buttonStyles: SystemStyleObject = {
         display: "flex",
@@ -135,7 +135,7 @@ export const CTag: ComponentWithProps<CTagProps> = defineComponent({
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useMultiStyleConfig("Tag", themingProps.value)
+    const styles = useMultiStyleConfig("Tag", themingProps)
     const tagContainerStyles = computed<SystemStyleObject>(() => ({
       ...styles.value.container,
       bg: props.variantColor ?? styles.value.container.bg,

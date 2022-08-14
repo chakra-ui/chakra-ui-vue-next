@@ -68,7 +68,7 @@ export const CCloseButton = defineComponent({
         flexShrink: 0,
       }
 
-      const styles = useStyleConfig("CloseButton", themingProps.value)
+      const styles = useStyleConfig("CloseButton", themingProps)
 
       return h(
         chakra(props.as, {

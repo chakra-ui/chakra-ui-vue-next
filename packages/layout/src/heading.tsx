@@ -35,7 +35,7 @@ export const CHeading: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig("Heading", themingProps.value)
+    const styles = useStyleConfig("Heading", themingProps)
 
     return () => (
       <chakra.h2

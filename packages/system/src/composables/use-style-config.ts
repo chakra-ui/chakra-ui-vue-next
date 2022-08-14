@@ -1,4 +1,4 @@
-import { computed, ComputedRef } from "vue"
+import { computed, ComputedRef, Ref } from "vue"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { ThemingProps } from "../system.types"
 import { filterUndefined, get, mergeWith, runIfFn } from "@chakra-ui/utils"
@@ -11,9 +11,22 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
   options: { isMultiPart: true }
 ): ComputedRef<Record<string, SystemStyleObject>>
 
+
+export function useStyleConfig<Component extends keyof Theme["components"]>(
+  themeKey: Component,
+  themingProps: Ref<ThemingProps>,
+  options: { isMultiPart: true }
+): ComputedRef<Record<string, SystemStyleObject>>
+
 export function useStyleConfig<Component extends keyof Theme["components"]>(
   themeKey: Component,
   themingProps?: ThemingProps,
+  options?: { isMultiPart?: boolean }
+): ComputedRef<SystemStyleObject>
+
+export function useStyleConfig<Component extends keyof Theme["components"]>(
+  themeKey: Component,
+  themingProps?: Ref<ThemingProps>,
   options?: { isMultiPart?: boolean }
 ): ComputedRef<SystemStyleObject>
 
@@ -23,7 +36,7 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
   options: any = {}
 ) {
   return computed(() => {
-    const { styleConfig: styleConfigProp, ...rest } = themingProps
+    const { styleConfig: styleConfigProp, ...rest } = themingProps.value || themingProps
     const { theme, colorMode } = useChakra()
     const themeStyleConfig = get(theme, `components.${themeKey}`)
 

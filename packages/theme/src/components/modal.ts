@@ -120,5 +120,6 @@ const defaultProps = {
 export default {
   parts: parts.keys,
   baseStyle,
+  sizes,
   defaultProps,
 }

@@ -105,11 +105,7 @@ export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
         })
       )
 
-      const styles = useMultiStyleConfig("Accordion", {
-        ...props.value,
-        ...themingProps.value,
-        ...attrs,
-      })
+      const styles = useMultiStyleConfig("Accordion", themingProps)
 
       const reduceMotion = computed(() => props.value.reduceMotion)
 
@@ -233,7 +229,7 @@ export const CAccordionButton: ComponentWithProps<CAccordionButtonProps> =
           __css={buttonStyles.value}
           {...attrs}
         >
-          {getValidChildren(slots)}
+          {() => getValidChildren(slots)}
         </chakra.button>
       )
     },

@@ -81,7 +81,7 @@ export const CAlert = defineComponent({
   },
   setup(props, { slots, attrs }) {
     const colorScheme = computed<string>(
-      () => props.colorScheme || STATUSES[props.status].colorScheme
+      () => props.colorScheme || STATUSES[props?.status]?.colorScheme
     )
 
     const themingProps = computed<ThemingProps>(() => ({
@@ -90,7 +90,7 @@ export const CAlert = defineComponent({
     }))
 
     AlertProvider({ status: computed(() => props.status) })
-    const styles = useMultiStyleConfig("Alert", themingProps.value)
+    const styles = useMultiStyleConfig("Alert", themingProps)
     StylesProvider(styles)
 
     const alertStyles = computed<SystemStyleObject>(() => ({
@@ -110,7 +110,7 @@ export const CAlert = defineComponent({
           __css={alertStyles.value}
           {...attrs}
         >
-          {slots}
+          {() => getValidChildren(slots)}
         </chakra.div>
       )
     }
@@ -125,8 +125,9 @@ export const CAlert = defineComponent({
 export const CAlertTitle = defineComponent({
   name: "CAlertTitle",
   setup(_, { attrs, slots }) {
+    const styles = useStyles()
+
     return () => {
-      const styles = useStyles()
 
       return (
         <chakra.div
@@ -157,7 +158,7 @@ export const CAlertDescription = defineComponent({
           __css={styles.value.description}
           {...attrs}
         >
-          {slots}
+          {() => getValidChildren(slots)}
         </chakra.div>
       )
     }

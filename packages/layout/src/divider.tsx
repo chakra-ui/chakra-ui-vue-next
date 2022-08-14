@@ -44,7 +44,7 @@ export const CDivider: ComponentWithProps<
       })
     )
 
-    const styles = useStyleConfig("Divider", themingProps.value)
+    const styles = useStyleConfig("Divider", themingProps)
 
     const {
       borderLeftWidth,
