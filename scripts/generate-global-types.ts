@@ -163,3 +163,5 @@ try {
 } catch (error) {
   console.error("Error: writing types\n", error)
 }
+
+export {}
