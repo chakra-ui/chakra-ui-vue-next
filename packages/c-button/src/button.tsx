@@ -21,7 +21,7 @@ import { CIcon, IconProps } from "@chakra-ui/c-icon"
 import { CSpinner } from "@chakra-ui/c-spinner"
 import { ButtonProps, defaultButtonProps } from "./button.utils"
 import { SystemProps } from "@chakra-ui/styled-system"
-import { SNAO, vueThemingProps } from "@chakra-ui/vue-utils"
+import { SNAO, vueThemingProps, getValidChildren } from "@chakra-ui/vue-utils"
 
 export interface CButtonSpinnerProps extends HTMLChakraProps<"div"> {
   label?: string
@@ -153,7 +153,7 @@ export const CButton: ComponentWithProps<DeepPartial<CButtonProps>> =
       ...vueThemingProps,
     },
     setup(_props, { attrs, slots }) {
-      const props = computed<ButtonProps>(() =>
+      const props = computed(() =>
         mergeWith({}, defaultButtonProps, _props, attrs)
       )
       const themingProps = computed<ThemingProps>(() =>
@@ -166,11 +166,10 @@ export const CButton: ComponentWithProps<DeepPartial<CButtonProps>> =
       )
 
       const group = useButtonGroup()
-      const styles = useStyleConfig("Button", {
-        ...group?.value,
-        ...themingProps.value,
-        ...attrs,
-      })
+      const styles = useStyleConfig(
+        "Button",
+        computed(() => ({ ...group?.value, ...themingProps.value }))
+      )
 
       const _focus = computed<SystemStyleObject>(() =>
         mergeWith({}, styles.value?.["_focus"] ?? {}, {
@@ -242,7 +241,7 @@ export const CButton: ComponentWithProps<DeepPartial<CButtonProps>> =
                     rightIcon={props.value.rightIcon}
                     iconSpacing={props.value.iconSpacing}
                   >
-                    {slots}
+                    {() => getValidChildren(slots)}
                   </CButtonContent>
                 )}
                 {props.value.isLoading &&

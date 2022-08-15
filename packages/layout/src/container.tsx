@@ -52,7 +52,7 @@ export const CContainer: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig("Container", themingProps.value)
+    const styles = useStyleConfig("Container", themingProps)
 
     return () => (
       <chakra.div

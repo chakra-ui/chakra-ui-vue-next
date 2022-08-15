@@ -29,7 +29,7 @@ export const CInputGroup = defineComponent({
   },
   setup(props, { slots, attrs }) {
     const styleAttrs = computed(() => mergeProps(attrs, props))
-    const styles = useMultiStyleConfig("Input", styleAttrs.value)
+    const styles = useMultiStyleConfig("Input", styleAttrs)
     const input = computed(() => styles.value?.field)
     const unthemedProps = computed(() => omitThemingProps(styleAttrs.value))
 

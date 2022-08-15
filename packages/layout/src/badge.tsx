@@ -41,7 +41,7 @@ export const CBadge: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig("Badge", themingProps.value)
+    const styles = useStyleConfig("Badge", themingProps)
     return () => {
       return (
         <chakra.div

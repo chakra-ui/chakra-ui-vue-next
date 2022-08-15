@@ -58,7 +58,7 @@ export const CText: ComponentWithProps<
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig("Text", themingProps.value)
+    const styles = useStyleConfig("Text", themingProps)
 
     const aliasedProps = computed(() =>
       filterUndefined({
