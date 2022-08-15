@@ -113,7 +113,7 @@ const CSpinner: ComponentWithProps<DeepPartial<CSpinnerProps>> =
         size: props.value.size,
         styleConfig: props.value.styleConfig,
       }))
-      const styles = useStyleConfig("Spinner", { ...themingProps.value })
+      const styles = useStyleConfig("Spinner", themingProps)
       const spinnerStyles = computed<SystemStyleObject>(() => ({
         display: "inline-block",
         borderColor: "currentColor",

@@ -26,6 +26,7 @@ import {
   isObjectComponent,
   SNA,
   SNAO,
+  vueThemingProps,
 } from "@chakra-ui/vue-utils"
 import { DOMElements } from "@chakra-ui/vue-system"
 
@@ -68,7 +69,7 @@ export const CBreadcrumb: DefineComponent<BreadcrumbProps> = defineComponent(
       })
     )
 
-    const styles = useMultiStyleConfig("Breadcrumb", themingProps.value)
+    const styles = useMultiStyleConfig("Breadcrumb", themingProps)
     StylesProvider(styles)
 
     const separator = computed(() => {
@@ -132,6 +133,7 @@ CBreadcrumb.props = {
     type: [String, Object] as PropType<DOMElements | object | string>,
     default: "nav",
   },
+  ...vueThemingProps,
 }
 
 /**

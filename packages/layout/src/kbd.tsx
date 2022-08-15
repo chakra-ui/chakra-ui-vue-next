@@ -43,7 +43,7 @@ export const CKbd: ComponentWithProps<DeepPartial<KbdProps>> = defineComponent({
         styleConfig: props.styleConfig,
       })
     )
-    const styles = useStyleConfig("Kbd", themingProps.value)
+    const styles = useStyleConfig("Kbd", themingProps)
 
     return () => (
       <chakra.kbd

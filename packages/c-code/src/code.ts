@@ -17,17 +17,17 @@ const CCode = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    return () => {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
-      const styles = useStyleConfig("Code", themingProps.value)
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig("Code", themingProps)
 
+    return () => {
       return h(
         chakra(props.as, {
           __css: {
