@@ -82,8 +82,4 @@ export type ToPropType<T> = {
   [P in keyof T]?: PropType<T[P]>
 }
 
-export function omitThemingProps<T extends ThemingProps>(props: T) {
-  return omit(props, ["styleConfig", "size", "variant", "colorScheme"])
-}
-
 export { keyframes, injectGlobal }

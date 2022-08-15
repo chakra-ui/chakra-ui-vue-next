@@ -45,40 +45,39 @@ export const formControlProps = {
   id: String as PropType<CFormControlProps["id"]>,
 }
 
-export const CFormControl: ComponentWithProps<
-  DeepPartial<CFormControlProps>
-> = defineComponent({
-  props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: "div",
+export const CFormControl: ComponentWithProps<DeepPartial<CFormControlProps>> =
+  defineComponent({
+    props: {
+      as: {
+        type: [Object, String] as PropType<DOMElements>,
+        default: "div",
+      },
+      ...formControlProps,
     },
-    ...formControlProps,
-  },
-  setup(_props, { slots, attrs }) {
-    const { as, ...props } = toRefs(_props)
-    const ownProps = computed(() => props)
-    const styles = useMultiStyleConfig("Form", props)
-    const { rootProps, ..._context } = useFormControlProvider(ownProps.value)
+    setup(_props, { slots, attrs }) {
+      const { as, ...props } = toRefs(_props)
+      const ownProps = computed(() => props)
+      const styles = useMultiStyleConfig("Form", props)
+      const { rootProps, ..._context } = useFormControlProvider(ownProps.value)
 
-    const context: CFormControlProviderContext = computed(() => _context)
+      const context: CFormControlProviderContext = computed(() => _context)
 
-    FormControlProvider(context)
-    StylesProvider(styles)
+      FormControlProvider(context)
+      StylesProvider(styles)
 
-    return () => (
-      <chakra.div
-        as={as.value}
-        {...rootProps.value}
-        __css={styles.value.container}
-        __label="form"
-        {...attrs}
-      >
-        {slots}
-      </chakra.div>
-    )
-  },
-})
+      return () => (
+        <chakra.div
+          as={as.value}
+          {...rootProps.value}
+          __css={styles.value.container}
+          __label="form"
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
+      )
+    },
+  })
 
 export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
 /**
@@ -88,23 +87,22 @@ export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
  * about the field, such as how it will be used and what
  * types in values should be provided.
  */
-export const CFormHelperText: ComponentWithProps<
-  DeepPartial<CHelpTextProps>
-> = defineComponent((props, { attrs, slots }) => {
-  const field = useFormControlContext()
-  const styles = useStyles()
-  const handleVNodeMounted = () => {
-    field.value.hasHelpText.value = true
-  }
+export const CFormHelperText: ComponentWithProps<DeepPartial<CHelpTextProps>> =
+  defineComponent((props, { attrs, slots }) => {
+    const field = useFormControlContext()
+    const styles = useStyles()
+    const handleVNodeMounted = () => {
+      field.value.hasHelpText.value = true
+    }
 
-  return () => (
-    <chakra.div
-      __label="form__helper-text"
-      onVnodeBeforeMount={handleVNodeMounted}
-      {...field.value.helperTextProps.value}
-      __css={styles.value.helperText}
-    >
-      {slots}
-    </chakra.div>
-  )
-})
+    return () => (
+      <chakra.div
+        __label="form__helper-text"
+        onVnodeBeforeMount={handleVNodeMounted}
+        {...field.value.helperTextProps.value}
+        __css={styles.value.helperText}
+      >
+        {slots}
+      </chakra.div>
+    )
+  })

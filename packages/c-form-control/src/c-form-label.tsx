@@ -2,9 +2,7 @@ import { defineComponent, computed, h } from "vue"
 import {
   chakra,
   ComponentWithProps,
-  DeepPartial,
   HTMLChakraProps,
-  omitThemingProps,
   ThemingProps,
   useStyleConfig,
   useStyles,
@@ -21,7 +19,6 @@ export const CFormLabel = defineComponent({
   props: vueThemingProps,
   setup(props, { attrs, slots }) {
     const styles = useStyleConfig("FormLabel", props)
-    const _props = omitThemingProps(props)
     const field = useFormControlContext()
     const requiredIndicator = computed(() => {
       if (slots.indicator) {
@@ -55,8 +52,8 @@ export interface CRequiredIndicatorProps extends HTMLChakraProps<"span"> {}
  * Used to show a "required" text or an asterisks (*) to indicate that
  * a field is required.
  */
-export const CRequiredIndicator: ComponentWithProps<CRequiredIndicatorProps> = defineComponent(
-  {
+export const CRequiredIndicator: ComponentWithProps<CRequiredIndicatorProps> =
+  defineComponent({
     name: "CRequiredIndicator",
     setup(_, { attrs }) {
       const field = useFormControlContext()
@@ -75,5 +72,4 @@ export const CRequiredIndicator: ComponentWithProps<CRequiredIndicatorProps> = d
         </chakra.span>
       )
     },
-  }
-)
+  })

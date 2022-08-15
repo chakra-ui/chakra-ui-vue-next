@@ -5,7 +5,7 @@ import { get, runIfFn } from "@chakra-ui/utils"
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { serializeStyles } from "@emotion/serialize"
 import { StyleSheet } from "@emotion/sheet"
-import { computed, getCurrentInstance, ref, watch, watchEffect } from "vue"
+import { computed, ref, watch, watchEffect } from "vue"
 import createCache, { EmotionCache } from "@emotion/cache"
 import { insertStyles, SerializedStyles } from "@emotion/utils"
 
@@ -40,10 +40,7 @@ export function injectThemeGlobalStyles(
     serializeStyles([_globalStyles.value], cache.registered, theme)
   )
 
-  const id = ref(0)
   const sheetRef = ref<[sheet: StyleSheet, hydrating: boolean]>()
-
-  console.log(cache)
 
   watch(
     () => cache,
@@ -105,6 +102,7 @@ export function injectThemeGlobalStyles(
       sheet.flush()
     }
 
+    /* @ts-expect-error Sheet type not correctly assigned*/
     cache.insert(``, serializedStyles.value, sheet, false)
   })
 }
