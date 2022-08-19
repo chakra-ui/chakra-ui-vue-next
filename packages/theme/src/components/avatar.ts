@@ -9,10 +9,13 @@ import themeSizes from "../foundations/sizes"
 
 const baseStyleBadge: SystemStyleFunction = (props) => {
   return {
-    transform: "translate(25%, 25%)",
     borderRadius: "full",
     border: "0.2em solid",
     borderColor: mode("white", "gray.800")(props),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
   }
 }
 
@@ -29,14 +32,16 @@ const baseStyleContainer: SystemStyleFunction = (props) => {
 
   let color = "white"
   if (!isBgDark) color = "gray.800"
-
-  const borderColor = mode("white", "gray.800")(props)
+  const outlineColor = mode("white", "gray.800")(props)
 
   return {
     bg,
     color,
-    borderColor,
+    outline: "2px solid",
+    outlineColor,
+    borderRadius: "full",
     verticalAlign: "top",
+    position: "relative",
   }
 }
 
@@ -63,6 +68,10 @@ function getSize(
     label: {
       fontSize: `calc(${themeSize ?? size} / 2.5)`,
       lineHeight: size !== "100%" ? themeSize ?? size : undefined,
+    },
+    badge: {
+      width: `calc(${themeSize ?? size} / 2.5)`,
+      height: `calc(${themeSize ?? size} / 2.5)`,
     },
   }
 }

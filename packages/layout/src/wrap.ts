@@ -7,7 +7,7 @@ import {
   tokenToCSSVar,
   ComponentWithProps,
 } from "@chakra-ui/vue-system"
-import { getValidChildren, SNAO } from "@chakra-ui/vue-utils"
+import { getValidChildren, SNAO, vueThemingProps } from "@chakra-ui/vue-utils"
 import { computed, defineComponent, h, PropType } from "vue"
 
 export interface WrapProps extends HTMLChakraProps<"div"> {
@@ -37,6 +37,14 @@ export interface WrapProps extends HTMLChakraProps<"div"> {
   shouldWrapChildren?: boolean
 }
 
+export const CWrapProps = {
+  spacing: SNAO as PropType<WrapProps["spacing"]>,
+  justify: SNAO as PropType<WrapProps["justify"]>,
+  align: SNAO as PropType<WrapProps["align"]>,
+  direction: SNAO as PropType<WrapProps["direction"]>,
+  shouldWrapChildren: SNAO as PropType<WrapProps["shouldWrapChildren"]>,
+}
+
 /**
  * Used to render texts or paragraphs.
  *
@@ -48,11 +56,7 @@ export const CWrap: ComponentWithProps<WrapProps> = defineComponent({
       type: [Object, String] as PropType<DOMElements>,
       default: "div",
     },
-    spacing: SNAO as PropType<WrapProps["spacing"]>,
-    justify: SNAO as PropType<WrapProps["justify"]>,
-    align: SNAO as PropType<WrapProps["align"]>,
-    direction: SNAO as PropType<WrapProps["direction"]>,
-    shouldWrapChildren: SNAO as PropType<WrapProps["shouldWrapChildren"]>,
+    ...CWrapProps,
   },
   setup(props, { slots, attrs }) {
     const styles = computed(() => ({
