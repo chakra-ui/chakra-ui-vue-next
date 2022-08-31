@@ -11,7 +11,6 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
   options: { isMultiPart: true }
 ): ComputedRef<Record<string, SystemStyleObject>>
 
-
 export function useStyleConfig<Component extends keyof Theme["components"]>(
   themeKey: Component,
   themingProps: Ref<ThemingProps>,
@@ -36,7 +35,8 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
   options: any = {}
 ) {
   return computed(() => {
-    const { styleConfig: styleConfigProp, ...rest } = themingProps.value || themingProps
+    const { styleConfig: styleConfigProp, ...rest } =
+      themingProps.value || themingProps
     const { theme, colorMode } = useChakra()
     const themeStyleConfig = get(theme, `components.${themeKey}`)
 

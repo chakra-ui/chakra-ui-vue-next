@@ -42,43 +42,42 @@ export interface SimpleGridProps extends GridProps, SimpleGridOptions {}
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/simple-grid
  */
-export const CSimpleGrid: ComponentWithProps<
-  DeepPartial<SimpleGridProps>
-> = defineComponent({
-  name: "CSimpleGrid",
-  props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: "ul",
+export const CSimpleGrid: ComponentWithProps<DeepPartial<SimpleGridProps>> =
+  defineComponent({
+    name: "CSimpleGrid",
+    props: {
+      as: {
+        type: [Object, String] as PropType<DOMElements>,
+        default: "ul",
+      },
+      minChildWidth: SNAO as PropType<SimpleGridProps["minWidth"]>,
+      columns: SNAO as PropType<SimpleGridProps["columns"]>,
+      spacing: SNAO as PropType<SimpleGridProps["gridGap"]>,
+      spacingX: SNAO as PropType<SimpleGridProps["gridGap"]>,
+      spacingY: SNAO as PropType<SimpleGridProps["gridGap"]>,
     },
-    minChildWidth: SNAO as PropType<SimpleGridProps["minWidth"]>,
-    columns: SNAO as PropType<SimpleGridProps["columns"]>,
-    spacing: SNAO as PropType<SimpleGridProps["gridGap"]>,
-    spacingX: SNAO as PropType<SimpleGridProps["gridGap"]>,
-    spacingY: SNAO as PropType<SimpleGridProps["gridGap"]>,
-  },
-  setup(props, { slots, attrs }) {
-    const templateColumns = computed(() =>
-      props.minChildWidth
-        ? widthToColumns(props.minChildWidth)
-        : countToColumns(props.columns)
-    )
+    setup(props, { slots, attrs }) {
+      const templateColumns = computed(() =>
+        props.minChildWidth
+          ? widthToColumns(props.minChildWidth)
+          : countToColumns(props.columns)
+      )
 
-    return () => (
-      <CGrid
-        as={props.as}
-        __label="simple-grid"
-        gap={props.spacing}
-        columnGap={props.spacingX}
-        rowGap={props.spacingY}
-        templateColumns={templateColumns.value}
-        {...attrs}
-      >
-        {slots}
-      </CGrid>
-    )
-  },
-})
+      return () => (
+        <CGrid
+          as={props.as}
+          __label="simple-grid"
+          gap={props.spacing}
+          columnGap={props.spacingX}
+          rowGap={props.spacingY}
+          templateColumns={templateColumns.value}
+          {...attrs}
+        >
+          {slots}
+        </CGrid>
+      )
+    },
+  })
 
 function toPx(n: string | number) {
   return isNumber(n) ? `${n}px` : n

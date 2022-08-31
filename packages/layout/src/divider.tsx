@@ -22,71 +22,70 @@ export interface DividerProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/divider
  */
-export const CDivider: ComponentWithProps<
-  DeepPartial<DividerProps>
-> = defineComponent({
-  name: "CDivider",
-  props: {
-    orientation: {
-      type: [String] as PropType<DividerProps["orientation"]>,
-      default: "horizontal",
+export const CDivider: ComponentWithProps<DeepPartial<DividerProps>> =
+  defineComponent({
+    name: "CDivider",
+    props: {
+      orientation: {
+        type: [String] as PropType<DividerProps["orientation"]>,
+        default: "horizontal",
+      },
+      ...vueThemingProps,
     },
-    ...vueThemingProps,
-  },
-  setup(props, { slots, attrs }) {
-    const themingProps = computed<ThemingProps>(() =>
-      filterUndefined({
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        size: props.size,
-        styleConfig: props.styleConfig,
-        orientation: props.orientation,
+    setup(props, { slots, attrs }) {
+      const themingProps = computed<ThemingProps>(() =>
+        filterUndefined({
+          colorScheme: props.colorScheme,
+          variant: props.variant,
+          size: props.size,
+          styleConfig: props.styleConfig,
+          orientation: props.orientation,
+        })
+      )
+
+      const styles = useStyleConfig("Divider", themingProps)
+
+      const {
+        borderLeftWidth,
+        borderBottomWidth,
+        borderTopWidth,
+        borderRightWidth,
+        borderWidth,
+        borderStyle,
+        borderColor,
+        ...stylesRest
+      } = styles.value
+
+      const dividerStyle = computed(() => {
+        const dividerStyles = {
+          vertical: {
+            borderLeftWidth:
+              borderLeftWidth || borderRightWidth || borderWidth || "1px",
+            height: "100%",
+          },
+          horizontal: {
+            borderBottomWidth:
+              borderBottomWidth || borderTopWidth || borderWidth || "1px",
+            width: "100%",
+          },
+        }
+        return dividerStyles[props.orientation!]
       })
-    )
 
-    const styles = useStyleConfig("Divider", themingProps)
-
-    const {
-      borderLeftWidth,
-      borderBottomWidth,
-      borderTopWidth,
-      borderRightWidth,
-      borderWidth,
-      borderStyle,
-      borderColor,
-      ...stylesRest
-    } = styles.value
-
-    const dividerStyle = computed(() => {
-      const dividerStyles = {
-        vertical: {
-          borderLeftWidth:
-            borderLeftWidth || borderRightWidth || borderWidth || "1px",
-          height: "100%",
-        },
-        horizontal: {
-          borderBottomWidth:
-            borderBottomWidth || borderTopWidth || borderWidth || "1px",
-          width: "100%",
-        },
-      }
-      return dividerStyles[props.orientation!]
-    })
-
-    return () => (
-      <chakra.hr
-        aria-orientation={props.orientation}
-        __css={{
-          ...stylesRest,
-          border: 0,
-          borderColor,
-          borderStyle,
-          ...dividerStyle.value,
-        }}
-        __label="divider"
-      >
-        {slots.default?.()}
-      </chakra.hr>
-    )
-  },
-})
+      return () => (
+        <chakra.hr
+          aria-orientation={props.orientation}
+          __css={{
+            ...stylesRest,
+            border: 0,
+            borderColor,
+            borderStyle,
+            ...dividerStyle.value,
+          }}
+          __label="divider"
+        >
+          {slots.default?.()}
+        </chakra.hr>
+      )
+    },
+  })

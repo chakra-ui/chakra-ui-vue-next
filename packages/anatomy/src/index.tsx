@@ -1,4 +1,4 @@
-import { anatomy } from '@chakra-ui/vue-theme-tools';
+import { anatomy } from "@chakra-ui/vue-theme-tools"
 
 /**
  * Hey! Welcome to @chakra-ui/vue-next Anatomy
@@ -18,7 +18,9 @@ import { anatomy } from '@chakra-ui/vue-theme-tools';
  * - Icon: the expanded/collapsed icon
  */
 
-var accordionAnatomy = anatomy("accordion").parts("root", "container", "button", "panel").extend("icon");
+var accordionAnatomy = anatomy("accordion")
+  .parts("root", "container", "button", "panel")
+  .extend("icon")
 /**
  * **Alert anatomy**
  * - Title: the alert's title
@@ -26,7 +28,9 @@ var accordionAnatomy = anatomy("accordion").parts("root", "container", "button",
  * - Icon: the alert's icon
  */
 
-var alertAnatomy = anatomy("alert").parts("title", "description", "container").extend("icon", "spinner");
+var alertAnatomy = anatomy("alert")
+  .parts("title", "description", "container")
+  .extend("icon", "spinner")
 /**
  * **Avatar anatomy**
  * - Container: the container for the avatar
@@ -36,7 +40,9 @@ var alertAnatomy = anatomy("alert").parts("title", "description", "container").e
  * - Group: the container for the avatar group
  */
 
-var avatarAnatomy = anatomy("avatar").parts("label", "badge", "container").extend("excessLabel", "group");
+var avatarAnatomy = anatomy("avatar")
+  .parts("label", "badge", "container")
+  .extend("excessLabel", "group")
 /**
  * **Breadcrumb anatomy**
  * - Item: the container for a breadcrumb item
@@ -45,29 +51,79 @@ var avatarAnatomy = anatomy("avatar").parts("label", "badge", "container").exten
  * - Separator: the separator between breadcrumb items
  */
 
-var breadcrumbAnatomy = anatomy("breadcrumb").parts("link", "item", "container").extend("separator");
-var buttonAnatomy = anatomy("button").parts();
-var checkboxAnatomy = anatomy("checkbox").parts("control", "icon", "container").extend("label");
-var circularProgressAnatomy = anatomy("progress").parts("track", "filledTrack").extend("label");
-var drawerAnatomy = anatomy("drawer").parts("overlay", "dialogContainer", "dialog").extend("header", "closeButton", "body", "footer");
-var editableAnatomy = anatomy("editable").parts("preview", "input", "textarea");
-var formAnatomy = anatomy("form").parts("container", "requiredIndicator", "helperText");
-var formErrorAnatomy = anatomy("formError").parts("text", "icon");
-var inputAnatomy = anatomy("input").parts("addon", "field", "element");
-var listAnatomy = anatomy("list").parts("container", "item", "icon");
-var menuAnatomy = anatomy("menu").parts("button", "list", "item").extend("groupTitle", "command", "divider");
-var modalAnatomy = anatomy("modal").parts("overlay", "dialogContainer", "dialog").extend("header", "closeButton", "body", "footer");
-var numberInputAnatomy = anatomy("numberinput").parts("root", "field", "stepperGroup", "stepper");
-var pinInputAnatomy = anatomy("pininput").parts("field");
-var popoverAnatomy = anatomy("popover").parts("content", "header", "body", "footer").extend("popper", "arrow", "closeButton");
-var progressAnatomy = anatomy("progress").parts("label", "filledTrack", "track");
-var radioAnatomy = anatomy("radio").parts("container", "control", "label");
-var selectAnatomy = anatomy("select").parts("field", "icon");
-var sliderAnatomy = anatomy("slider").parts("container", "track", "thumb", "filledTrack");
-var statAnatomy = anatomy("stat").parts("container", "label", "helpText", "number", "icon");
-var switchAnatomy = anatomy("switch").parts("container", "track", "thumb");
-var tableAnatomy = anatomy("table").parts("table", "thead", "tbody", "tr", "th", "td", "tfoot", "caption");
-var tabsAnatomy = anatomy("tabs").parts("root", "tab", "tablist", "tabpanel", "tabpanels", "indicator");
+var breadcrumbAnatomy = anatomy("breadcrumb")
+  .parts("link", "item", "container")
+  .extend("separator")
+var buttonAnatomy = anatomy("button").parts()
+var checkboxAnatomy = anatomy("checkbox")
+  .parts("control", "icon", "container")
+  .extend("label")
+var circularProgressAnatomy = anatomy("progress")
+  .parts("track", "filledTrack")
+  .extend("label")
+var drawerAnatomy = anatomy("drawer")
+  .parts("overlay", "dialogContainer", "dialog")
+  .extend("header", "closeButton", "body", "footer")
+var editableAnatomy = anatomy("editable").parts("preview", "input", "textarea")
+var formAnatomy = anatomy("form").parts(
+  "container",
+  "requiredIndicator",
+  "helperText"
+)
+var formErrorAnatomy = anatomy("formError").parts("text", "icon")
+var inputAnatomy = anatomy("input").parts("addon", "field", "element")
+var listAnatomy = anatomy("list").parts("container", "item", "icon")
+var menuAnatomy = anatomy("menu")
+  .parts("button", "list", "item")
+  .extend("groupTitle", "command", "divider")
+var modalAnatomy = anatomy("modal")
+  .parts("overlay", "dialogContainer", "dialog")
+  .extend("header", "closeButton", "body", "footer")
+var numberInputAnatomy = anatomy("numberinput").parts(
+  "root",
+  "field",
+  "stepperGroup",
+  "stepper"
+)
+var pinInputAnatomy = anatomy("pininput").parts("field")
+var popoverAnatomy = anatomy("popover")
+  .parts("content", "header", "body", "footer")
+  .extend("popper", "arrow", "closeButton")
+var progressAnatomy = anatomy("progress").parts("label", "filledTrack", "track")
+var radioAnatomy = anatomy("radio").parts("container", "control", "label")
+var selectAnatomy = anatomy("select").parts("field", "icon")
+var sliderAnatomy = anatomy("slider").parts(
+  "container",
+  "track",
+  "thumb",
+  "filledTrack"
+)
+var statAnatomy = anatomy("stat").parts(
+  "container",
+  "label",
+  "helpText",
+  "number",
+  "icon"
+)
+var switchAnatomy = anatomy("switch").parts("container", "track", "thumb")
+var tableAnatomy = anatomy("table").parts(
+  "table",
+  "thead",
+  "tbody",
+  "tr",
+  "th",
+  "td",
+  "tfoot",
+  "caption"
+)
+var tabsAnatomy = anatomy("tabs").parts(
+  "root",
+  "tab",
+  "tablist",
+  "tabpanel",
+  "tabpanels",
+  "indicator"
+)
 /**
  * **Tag anatomy**
  * - Container: the container for the tag
@@ -75,6 +131,34 @@ var tabsAnatomy = anatomy("tabs").parts("root", "tab", "tablist", "tabpanel", "t
  * - closeButton: the close button for the tag
  */
 
-var tagAnatomy = anatomy("tag").parts("container", "label", "closeButton");
+var tagAnatomy = anatomy("tag").parts("container", "label", "closeButton")
 
-export { accordionAnatomy, alertAnatomy, avatarAnatomy, breadcrumbAnatomy, buttonAnatomy, checkboxAnatomy, circularProgressAnatomy, drawerAnatomy, editableAnatomy, formAnatomy, formErrorAnatomy, inputAnatomy, listAnatomy, menuAnatomy, modalAnatomy, numberInputAnatomy, pinInputAnatomy, popoverAnatomy, progressAnatomy, radioAnatomy, selectAnatomy, sliderAnatomy, statAnatomy, switchAnatomy, tableAnatomy, tabsAnatomy, tagAnatomy };
+export {
+  accordionAnatomy,
+  alertAnatomy,
+  avatarAnatomy,
+  breadcrumbAnatomy,
+  buttonAnatomy,
+  checkboxAnatomy,
+  circularProgressAnatomy,
+  drawerAnatomy,
+  editableAnatomy,
+  formAnatomy,
+  formErrorAnatomy,
+  inputAnatomy,
+  listAnatomy,
+  menuAnatomy,
+  modalAnatomy,
+  numberInputAnatomy,
+  pinInputAnatomy,
+  popoverAnatomy,
+  progressAnatomy,
+  radioAnatomy,
+  selectAnatomy,
+  sliderAnatomy,
+  statAnatomy,
+  switchAnatomy,
+  tableAnatomy,
+  tabsAnatomy,
+  tagAnatomy,
+}

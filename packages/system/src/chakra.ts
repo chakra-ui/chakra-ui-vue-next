@@ -159,7 +159,7 @@ export type ChakraTagOrComponent =
  *    ```
  */
 // @ts-expect-error
-export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
+export const chakra: IChakraFactory = (tag, options = {}) => {
   const inputHandlers = formElements[typeof tag === "string" ? tag : ""]
   const _props = (inputHandlers && inputHandlers.props) || {}
   const handleValueChange = inputHandlers && inputHandlers.handleValueChange
@@ -250,6 +250,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
             ...elementAttributes,
             ...(!props.__chakraIsRaw &&
               handleValueChange &&
+              // @ts-ignore
               handleValueChange(props, attrs.type as InputTypes)(emit)),
           },
           slots

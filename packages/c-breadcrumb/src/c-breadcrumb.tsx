@@ -8,7 +8,15 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, PropType, computed, cloneVNode, h, VNode, DefineComponent } from "vue"
+import {
+  defineComponent,
+  PropType,
+  computed,
+  cloneVNode,
+  h,
+  VNode,
+  DefineComponent,
+} from "vue"
 import {
   chakra,
   HTMLChakraProps,
@@ -173,7 +181,7 @@ export const CBreadcrumbSeparator = defineComponent({
         {slots}
       </chakra.span>
     )
-  }
+  },
 })
 
 // @ts-ignore "name" property is typically read-only for functional components
@@ -192,8 +200,8 @@ export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
     ChakraProps {}
 
-export const CBreadcrumbItem: DefineComponent<BreadcrumbItemProps> = defineComponent(
-  (props: BreadcrumbItemProps, { attrs, slots }) => {
+export const CBreadcrumbItem: DefineComponent<BreadcrumbItemProps> =
+  defineComponent((props: BreadcrumbItemProps, { attrs, slots }) => {
     const styles = useStyles()
     const itemStyles = computed<SystemStyleObject>(() => ({
       display: "inline-flex",
@@ -235,8 +243,7 @@ export const CBreadcrumbItem: DefineComponent<BreadcrumbItemProps> = defineCompo
         </chakra.li>
       )
     }
-  }
-)
+  })
 
 // @ts-ignore "name" property is typically read-only for functional components
 CBreadcrumbItem.name = "CBreadcrumbItem"
@@ -261,8 +268,8 @@ export interface BreadcrumbLinkProps extends ChakraProps {
  * It renders a `span` when it matches the current link. Otherwise,
  * it renders an anchor tag.
  */
-export const CBreadcrumbLink: DefineComponent<BreadcrumbLinkProps> = defineComponent(
-  (props: BreadcrumbLinkProps, { attrs, slots }) => {
+export const CBreadcrumbLink: DefineComponent<BreadcrumbLinkProps> =
+  defineComponent((props: BreadcrumbLinkProps, { attrs, slots }) => {
     const styles = useStyles()
 
     return () => {
@@ -291,8 +298,7 @@ export const CBreadcrumbLink: DefineComponent<BreadcrumbLinkProps> = defineCompo
         </chakra.a>
       )
     }
-  }
-)
+  })
 
 // @ts-ignore "name" property is typically read-only for functional components
 CBreadcrumbLink.name = "CBreadcrumbLink"

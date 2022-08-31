@@ -31,41 +31,40 @@ export interface LinkProps extends HTMLChakraProps<"a">, ThemingProps<"Link"> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/link
  */
-export const CLink: ComponentWithProps<
-  DeepPartial<LinkProps>
-> = defineComponent({
-  name: "CLink",
-  props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: "a",
+export const CLink: ComponentWithProps<DeepPartial<LinkProps>> =
+  defineComponent({
+    name: "CLink",
+    props: {
+      as: {
+        type: [Object, String] as PropType<DOMElements>,
+        default: "a",
+      },
+      isExternal: Boolean as PropType<LinkProps["isExternal"]>,
+      ...vueThemingProps,
     },
-    isExternal: Boolean as PropType<LinkProps["isExternal"]>,
-    ...vueThemingProps,
-  },
-  setup(props, { slots, attrs }) {
-    const themingProps = computed<ThemingProps>(() =>
-      filterUndefined({
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        size: props.size,
-        styleConfig: props.styleConfig,
-      })
-    )
-    const styles = useStyleConfig("Link", themingProps)
+    setup(props, { slots, attrs }) {
+      const themingProps = computed<ThemingProps>(() =>
+        filterUndefined({
+          colorScheme: props.colorScheme,
+          variant: props.variant,
+          size: props.size,
+          styleConfig: props.styleConfig,
+        })
+      )
+      const styles = useStyleConfig("Link", themingProps)
 
-    return () => (
-      <chakra.a
-        as={props.as}
-        __label="link"
-        // @ts-ignore Need to type "target" as Intrinsic HTML property
-        target={props.isExternal ? "_blank" : undefined}
-        rel={props.isExternal ? "noopener noreferrer" : undefined}
-        __css={styles.value}
-        {...attrs}
-      >
-        {slots}
-      </chakra.a>
-    )
-  },
-})
+      return () => (
+        <chakra.a
+          as={props.as}
+          __label="link"
+          // @ts-ignore Need to type "target" as Intrinsic HTML property
+          target={props.isExternal ? "_blank" : undefined}
+          rel={props.isExternal ? "noopener noreferrer" : undefined}
+          __css={styles.value}
+          {...attrs}
+        >
+          {slots}
+        </chakra.a>
+      )
+    },
+  })

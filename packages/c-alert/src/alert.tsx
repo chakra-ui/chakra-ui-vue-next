@@ -128,7 +128,6 @@ export const CAlertTitle = defineComponent({
     const styles = useStyles()
 
     return () => {
-
       return (
         <chakra.div
           __label="alert__title"

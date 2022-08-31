@@ -1,11 +1,7 @@
-import {
-  TinyColor,
-  readability,
-  isReadable,
-  random,
-  WCAG2Parms,
-} from "@ctrl/tinycolor"
-import { memoizedGet as get, Dict, isEmptyObject } from "@chakra-ui/utils"
+import { TinyColor, readability, isReadable, random } from "@ctrl/tinycolor"
+import type { WCAG2Parms } from "@ctrl/tinycolor"
+import { memoizedGet as get, isEmptyObject } from "@chakra-ui/utils"
+import type { Dict } from "@chakra-ui/utils"
 
 /**
  * Get the color raw value from theme

@@ -17,8 +17,8 @@ export interface CFormErrorMessageProps
   extends HTMLChakraProps<"div">,
     ThemingProps<"FormErrorMessage"> {}
 
-export const CFormErrorMessage: ComponentWithProps<CFormErrorMessageProps> = defineComponent(
-  {
+export const CFormErrorMessage: ComponentWithProps<CFormErrorMessageProps> =
+  defineComponent({
     name: "CFormErrorMessage",
     props: {
       ...vueThemingProps,
@@ -52,8 +52,7 @@ export const CFormErrorMessage: ComponentWithProps<CFormErrorMessageProps> = def
         )
       }
     },
-  }
-)
+  })
 
 /**
  * Used as the visual indicator that a field is invalid or

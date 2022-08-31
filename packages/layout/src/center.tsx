@@ -15,32 +15,31 @@ export interface CCenterProps extends HTMLChakraProps<"div"> {}
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/center
  */
-export const CCenter: ComponentWithProps<
-  DeepPartial<CCenterProps>
-> = defineComponent({
-  name: "CCenter",
-  props: {
-    as: {
-      type: [String, Object] as PropType<DOMElements>,
-      default: "div",
+export const CCenter: ComponentWithProps<DeepPartial<CCenterProps>> =
+  defineComponent({
+    name: "CCenter",
+    props: {
+      as: {
+        type: [String, Object] as PropType<DOMElements>,
+        default: "div",
+      },
     },
-  },
-  setup(props, { slots, attrs }) {
-    return () => {
-      return (
-        <chakra.div
-          __label="center"
-          __css={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          {...props}
-          {...attrs}
-        >
-          {slots}
-        </chakra.div>
-      )
-    }
-  },
-})
+    setup(props, { slots, attrs }) {
+      return () => {
+        return (
+          <chakra.div
+            __label="center"
+            __css={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            {...props}
+            {...attrs}
+          >
+            {slots}
+          </chakra.div>
+        )
+      }
+    },
+  })

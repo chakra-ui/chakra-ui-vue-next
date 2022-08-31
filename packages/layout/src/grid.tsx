@@ -122,62 +122,61 @@ export interface GridItemProps extends BoxProps {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/grid
  */
-export const CGrid: ComponentWithProps<
-  DeepPartial<GridProps>
-> = defineComponent({
-  name: "CGrid",
-  props: {
-    as: {
-      type: [String, Object] as PropType<
-        DOMElements | Component | ConcreteComponent | string
-      >,
-      default: "div",
+export const CGrid: ComponentWithProps<DeepPartial<GridProps>> =
+  defineComponent({
+    name: "CGrid",
+    props: {
+      as: {
+        type: [String, Object] as PropType<
+          DOMElements | Component | ConcreteComponent | string
+        >,
+        default: "div",
+      },
+      templateColumns: SNAO as PropType<GridProps["gridTemplateColumns"]>,
+      gap: SNAO as PropType<GridProps["gridGap"]>,
+      rowGap: SNAO as PropType<GridProps["gridRowGap"]>,
+      columnGap: SNAO as PropType<GridProps["gridColumnGap"]>,
+      autoFlow: SNAO as PropType<GridProps["gridAutoFlow"]>,
+      autoRows: SNAO as PropType<GridProps["gridAutoRows"]>,
+      autoColumns: SNAO as PropType<GridProps["gridAutoColumns"]>,
+      templateRows: SNAO as PropType<GridProps["gridTemplateRows"]>,
+      templateAreas: SNAO as PropType<GridProps["gridTemplateAreas"]>,
+      area: SNAO as PropType<GridProps["gridArea"]>,
+      column: SNAO as PropType<GridProps["gridColumn"]>,
+      row: SNAO as PropType<GridProps["gridRow"]>,
     },
-    templateColumns: SNAO as PropType<GridProps["gridTemplateColumns"]>,
-    gap: SNAO as PropType<GridProps["gridGap"]>,
-    rowGap: SNAO as PropType<GridProps["gridRowGap"]>,
-    columnGap: SNAO as PropType<GridProps["gridColumnGap"]>,
-    autoFlow: SNAO as PropType<GridProps["gridAutoFlow"]>,
-    autoRows: SNAO as PropType<GridProps["gridAutoRows"]>,
-    autoColumns: SNAO as PropType<GridProps["gridAutoColumns"]>,
-    templateRows: SNAO as PropType<GridProps["gridTemplateRows"]>,
-    templateAreas: SNAO as PropType<GridProps["gridTemplateAreas"]>,
-    area: SNAO as PropType<GridProps["gridArea"]>,
-    column: SNAO as PropType<GridProps["gridColumn"]>,
-    row: SNAO as PropType<GridProps["gridRow"]>,
-  },
-  setup(props, { slots, attrs }) {
-    const styles = computed(() =>
-      filterUndefined({
-        display: "grid",
-        gridArea: props.area,
-        gridTemplateAreas: props.templateAreas,
-        gridGap: props.gap,
-        gridRowGap: props.rowGap,
-        gridColumnGap: props.columnGap,
-        gridAutoColumns: props.autoColumns,
-        gridColumn: props.column,
-        gridRow: props.row,
-        gridAutoFlow: props.autoFlow,
-        gridAutoRows: props.autoRows,
-        gridTemplateRows: props.templateRows,
-        gridTemplateColumns: props.templateColumns,
-      })
-    )
-    return () => {
-      return (
-        <chakra.div
-          as={props.as}
-          __label="grid"
-          __css={styles.value}
-          {...attrs}
-        >
-          {slots}
-        </chakra.div>
+    setup(props, { slots, attrs }) {
+      const styles = computed(() =>
+        filterUndefined({
+          display: "grid",
+          gridArea: props.area,
+          gridTemplateAreas: props.templateAreas,
+          gridGap: props.gap,
+          gridRowGap: props.rowGap,
+          gridColumnGap: props.columnGap,
+          gridAutoColumns: props.autoColumns,
+          gridColumn: props.column,
+          gridRow: props.row,
+          gridAutoFlow: props.autoFlow,
+          gridAutoRows: props.autoRows,
+          gridTemplateRows: props.templateRows,
+          gridTemplateColumns: props.templateColumns,
+        })
       )
-    }
-  },
-})
+      return () => {
+        return (
+          <chakra.div
+            as={props.as}
+            __label="grid"
+            __css={styles.value}
+            {...attrs}
+          >
+            {slots}
+          </chakra.div>
+        )
+      }
+    },
+  })
 
 function spanFn(span?: ResponsiveValue<number | "auto">) {
   return mapResponsive(span, (value) =>
@@ -185,45 +184,44 @@ function spanFn(span?: ResponsiveValue<number | "auto">) {
   )
 }
 
-export const CGridItem: ComponentWithProps<
-  DeepPartial<GridItemProps>
-> = defineComponent({
-  name: "CGridItem",
-  props: {
-    as: {
-      type: [String, Object] as PropType<
-        DOMElements | Component | ConcreteComponent | string
-      >,
-      default: "div",
+export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> =
+  defineComponent({
+    name: "CGridItem",
+    props: {
+      as: {
+        type: [String, Object] as PropType<
+          DOMElements | Component | ConcreteComponent | string
+        >,
+        default: "div",
+      },
+      colSpan: SNAO as PropType<GridItemProps["colSpan"]>,
+      colStart: SNAO as PropType<GridItemProps["colStart"]>,
+      colEnd: SNAO as PropType<GridItemProps["colEnd"]>,
+      rowStart: SNAO as PropType<GridItemProps["rowStart"]>,
+      rowEnd: SNAO as PropType<GridItemProps["rowEnd"]>,
+      rowSpan: SNAO as PropType<GridItemProps["rowSpan"]>,
     },
-    colSpan: SNAO as PropType<GridItemProps["colSpan"]>,
-    colStart: SNAO as PropType<GridItemProps["colStart"]>,
-    colEnd: SNAO as PropType<GridItemProps["colEnd"]>,
-    rowStart: SNAO as PropType<GridItemProps["rowStart"]>,
-    rowEnd: SNAO as PropType<GridItemProps["rowEnd"]>,
-    rowSpan: SNAO as PropType<GridItemProps["rowSpan"]>,
-  },
-  setup(props, { slots, attrs }) {
-    const styles = computed(() =>
-      filterUndefined({
-        gridColumn: spanFn(props.colSpan),
-        gridRow: spanFn(props.rowSpan),
-        gridColumnStart: props.colStart,
-        gridColumnEnd: props.colEnd,
-        gridRowStart: props.rowStart,
-        gridRowEnd: props.rowEnd,
-      })
-    )
+    setup(props, { slots, attrs }) {
+      const styles = computed(() =>
+        filterUndefined({
+          gridColumn: spanFn(props.colSpan),
+          gridRow: spanFn(props.rowSpan),
+          gridColumnStart: props.colStart,
+          gridColumnEnd: props.colEnd,
+          gridRowStart: props.rowStart,
+          gridRowEnd: props.rowEnd,
+        })
+      )
 
-    return () => (
-      <chakra.div
-        as={props.as}
-        __label="grid__item"
-        __css={styles.value}
-        {...attrs}
-      >
-        {slots}
-      </chakra.div>
-    )
-  },
-})
+      return () => (
+        <chakra.div
+          as={props.as}
+          __label="grid__item"
+          __css={styles.value}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
+      )
+    },
+  })

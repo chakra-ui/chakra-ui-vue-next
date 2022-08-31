@@ -8,22 +8,28 @@ import {
   Fragment,
   Component,
   VNode,
-  SetupContext
+  SetupContext,
 } from "vue"
 
-const [EmotionCacheProvider, useEmotionCache, EmotionCacheInjectionSymbol] = createContext<EmotionCache>({
-  strict: false,
-  name: "EmotionCacheContext",
-})
+const [EmotionCacheProvider, useEmotionCache, EmotionCacheInjectionSymbol] =
+  createContext<EmotionCache>({
+    strict: false,
+    name: "EmotionCacheContext",
+  })
 
 export const defaultCache = createCache({
-  key: 'chakra',
+  key: "chakra",
 })
 
 export let __unusafe_useEmotionCache = useEmotionCache
 
 let withEmotionCache = function withEmotionCache(
-  fn: (cache: EmotionCache) => DefineComponent | Component | ((props?: unknown, ctx?: SetupContext) => VNode)
+  fn: (
+    cache: EmotionCache
+  ) =>
+    | DefineComponent
+    | Component
+    | ((props?: unknown, ctx?: SetupContext) => VNode)
 ) {
   return (p: unknown) => {
     const cache = useEmotionCache(defaultCache)
@@ -33,13 +39,18 @@ let withEmotionCache = function withEmotionCache(
 
 if (canUseDOM()) {
   withEmotionCache = function withEmotionCache(
-    fn: (cache: EmotionCache) => DefineComponent | Component | ((props?: unknown, ctx?: SetupContext) => VNode)
+    fn: (
+      cache: EmotionCache
+    ) =>
+      | DefineComponent
+      | Component
+      | ((props?: unknown, ctx?: SetupContext) => VNode)
   ) {
     return () => {
       const cache = useEmotionCache(defaultCache)
       if (!cache) {
         const cache = createCache({
-          key: 'chakra',
+          key: "chakra",
         })
         EmotionCacheProvider(cache)
         return fn(cache)
