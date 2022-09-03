@@ -180,6 +180,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "file:stub/types__react",
     "happy-dom": "^6.0.3"
   }
 }
