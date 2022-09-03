@@ -12,26 +12,7 @@ const ChakraComponents = require("@chakra-ui/vue-next")
 type ComponentsImport = typeof ChakraComponents
 
 async function generateComponents() {
-  let code = `
-    import type { HTMLAttributes, VNode } from "vue";
-    import type { ChakraProps } from "@chakra-ui/vue-system";
-
-    declare global {
-      namespace h.JSX {
-        interface Element extends VNode {}
-        interface ElementClass {
-          $props: {}
-        }
-        interface ElementAttributesProperty {
-          $props: {}
-        }
-    
-        interface IntrinsicAttributes
-          extends Omit<HTMLAttributes, "color">,
-            ChakraProps {}
-      }
-    }
-  `
+  let code = ``
 
   for (const component in ChakraComponents) {
     /**
@@ -65,9 +46,25 @@ async function generateComponents() {
    */
 
    import { ChakraProps, chakra } from '@chakra-ui/vue-system'
-   import { VNodeChild, HTMLAttributes } from 'vue'
+   import { VNodeChild, VNode, HTMLAttributes } from 'vue'
    
    export type JsxNode = VNodeChild | JSX.Element
+   
+   declare global {
+      namespace h.JSX {
+        interface Element extends VNode {}
+        interface ElementClass {
+          $props: {}
+        }
+        interface ElementAttributesProperty {
+          $props: {}
+        }
+    
+        interface IntrinsicAttributes
+          extends Omit<HTMLAttributes, "color">,
+            ChakraProps {}
+      }
+    }
 
    type EventHandler = (...args: any[]) => void;
    

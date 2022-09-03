@@ -256,12 +256,7 @@ export const CAccordionPanel: ComponentWithProps<CAccordionPanelProps> =
         })
         return (
           <CCollapse isOpen={isOpen.value}>
-            <chakra.div
-              {...contentProps}
-              __cs
-              s={styles.value.panel}
-              {...attrs}
-            >
+            <chakra.div {...contentProps} __css={styles.value.panel} {...attrs}>
               {getValidChildren(slots)}
             </chakra.div>
           </CCollapse>

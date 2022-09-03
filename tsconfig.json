@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "types": ["dom.iterable", "vue", "jest", "components.d.ts"],
+    "types": ["node", "dom.iterable", "vue", "jest", "components.d.ts", "env.d.ts"],
     "lib": ["dom", "esnext"],
     "composite": true,
     "declaration": true,
