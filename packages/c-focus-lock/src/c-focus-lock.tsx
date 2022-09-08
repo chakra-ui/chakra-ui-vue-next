@@ -39,7 +39,7 @@ import {
   unrefElement,
   VueComponentInstance,
 } from "@chakra-ui/vue-utils"
-import { chakra } from '@chakra-ui/vue-system'
+import { chakra } from "@chakra-ui/vue-system"
 
 type RefProp =
   | (() => HTMLElement | string | object | undefined | unknown)
@@ -160,16 +160,21 @@ export const CFocusLock = defineComponent({
         return
       }
 
-      return h(cloneVNode(firstChild, {
-        ref: target,
-        ...attrs,
-        "data-chakra-focus-lock": "",
-      }), {}, () => slots?.default?.({
-        enabled,
-        hasFocus,
-        activate,
-        deactivate
-      }))
+      return h(
+        cloneVNode(firstChild, {
+          ref: target,
+          ...attrs,
+          "data-chakra-focus-lock": "",
+        }),
+        {},
+        () =>
+          slots?.default?.({
+            enabled,
+            hasFocus,
+            activate,
+            deactivate,
+          })
+      )
     }
   },
 })

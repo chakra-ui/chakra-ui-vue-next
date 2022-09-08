@@ -29,46 +29,45 @@ export interface ContainerProps
  *
  * It also sets a default max-width of `60ch` (60 characters).
  */
-export const CContainer: ComponentWithProps<
-  DeepPartial<ContainerProps>
-> = defineComponent({
-  name: "CContainer",
-  props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: "div",
+export const CContainer: ComponentWithProps<DeepPartial<ContainerProps>> =
+  defineComponent({
+    name: "CContainer",
+    props: {
+      as: {
+        type: [Object, String] as PropType<DOMElements>,
+        default: "div",
+      },
+      centerContent: {
+        type: [Boolean] as PropType<ContainerProps["centerContent"]>,
+      },
+      ...vueThemingProps,
     },
-    centerContent: {
-      type: [Boolean] as PropType<ContainerProps["centerContent"]>,
-    },
-    ...vueThemingProps,
-  },
-  setup(props, { slots, attrs }) {
-    const themingProps = computed<ThemingProps>(() =>
-      filterUndefined({
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        size: props.size,
-        styleConfig: props.styleConfig,
-      })
-    )
-    const styles = useStyleConfig("Container", themingProps)
+    setup(props, { slots, attrs }) {
+      const themingProps = computed<ThemingProps>(() =>
+        filterUndefined({
+          colorScheme: props.colorScheme,
+          variant: props.variant,
+          size: props.size,
+          styleConfig: props.styleConfig,
+        })
+      )
+      const styles = useStyleConfig("Container", themingProps)
 
-    return () => (
-      <chakra.div
-        __label="container"
-        __css={{
-          ...styles.value,
-          ...(props.centerContent && {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }),
-        }}
-        {...attrs}
-      >
-        {slots}
-      </chakra.div>
-    )
-  },
-})
+      return () => (
+        <chakra.div
+          __label="container"
+          __css={{
+            ...styles.value,
+            ...(props.centerContent && {
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }),
+          }}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
+      )
+    },
+  })

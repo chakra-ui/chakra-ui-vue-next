@@ -1,38 +1,39 @@
 {
+//  "extends": "@vue/tsconfig/tsconfig.node.json",
   "compilerOptions": {
-    "target": "ES2015",                     /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
-    "module": "esnext",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
-    "resolveJsonModule": true,
-    "preserveSymlinks": true,
-    "lib": [ "es5", "esnext", "dom" ],
-    "types": ["node", "jest", "vite/client", "vite-plugin-pages/client", "vitest/globals", "cypress", "components.d.ts"],
+    "target": "es5",
+    "module": "esnext",
+    "types": ["node", "dom.iterable", "vue", "jest", "components.d.ts", "env.d.ts"],
+    "lib": ["dom", "esnext"],
+    "composite": true,
     "declaration": true,
-    "declarationMap": true,
-    "allowJs": true,
     "sourceMap": true,
     "moduleResolution": "node",
-    "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
-    "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
-    "strict": true,                        /* Enable all strict type-checking options. */  
-    "baseUrl": ".",                    
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": false,
+    "importsNotUsedAsValues": "preserve",
     "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
-    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
-    "skipLibCheck": true,                     /* Skip type checking of declaration files. */
-    "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "preserveValueImports": false,
+    "incremental": true,
+    "declarationMap": true
   },
   "include": [
     "./components.d.ts",
-    "packages",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/*.tsx",
     "playground/**/*.ts",
-    "playground/**/*.d.ts",
     "playground/**/*.tsx",
+    "playground/**/*.d.ts",
     "playground/**/*.vue",
     "tests/index.d.ts",
+    "**/*.d.ts",
     "vite.config.ts",
   ],
   "exclude": ["node_modules", "./@types", "dist", "packages/**/*.test.ts"],

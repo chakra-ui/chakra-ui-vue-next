@@ -88,7 +88,6 @@ export const CTagCloseButton: ComponentWithProps<CTagCloseButtonProps> =
   defineComponent({
     props: CloseButtonProps,
     setup(props, { slots, attrs }) {
-
       const themingProps = computed<ThemingProps>(() =>
         filterUndefined({
           colorScheme: props.colorScheme,

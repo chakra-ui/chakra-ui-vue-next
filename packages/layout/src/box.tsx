@@ -55,54 +55,52 @@ export interface SquareProps extends Omit<BoxProps, Omitted> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
-export const CSquare: ComponentWithProps<
-  DeepPartial<SquareProps>
-> = defineComponent({
-  name: "CSquare",
-  props: {
-    size: [Object, String, Number] as PropType<SquareProps["size"]>,
-    centerContent: {
-      type: [Boolean] as PropType<SquareProps["centerContent"]>,
-      default: true,
+export const CSquare: ComponentWithProps<DeepPartial<SquareProps>> =
+  defineComponent({
+    name: "CSquare",
+    props: {
+      size: [Object, String, Number] as PropType<SquareProps["size"]>,
+      centerContent: {
+        type: [Boolean] as PropType<SquareProps["centerContent"]>,
+        default: true,
+      },
     },
-  },
-  setup(props, { slots, attrs }) {
-    const styles = computed<SystemStyleObject>(() =>
-      props.centerContent
-        ? { display: "flex", alignItems: "center", justifyContent: "center" }
-        : {}
-    )
-    return () => (
-      <CBox
-        __label="square"
-        boxSize={props.size}
-        __css={{
-          ...styles.value,
-          flexShrink: 0,
-          flexGrow: 0,
-        }}
-        {...attrs}
-      >
-        {slots}
-      </CBox>
-    )
-  },
-})
+    setup(props, { slots, attrs }) {
+      const styles = computed<SystemStyleObject>(() =>
+        props.centerContent
+          ? { display: "flex", alignItems: "center", justifyContent: "center" }
+          : {}
+      )
+      return () => (
+        <CBox
+          __label="square"
+          boxSize={props.size}
+          __css={{
+            ...styles.value,
+            flexShrink: 0,
+            flexGrow: 0,
+          }}
+          {...attrs}
+        >
+          {slots}
+        </CBox>
+      )
+    },
+  })
 
 /**
  * CCircle is the `CBox` component implemented as a circle
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
-export const CCircle: ComponentWithProps<
-  DeepPartial<SquareProps>
-> = defineComponent({
-  name: "CCircle",
-  setup(_, { slots, attrs }) {
-    return () => (
-      <CSquare __label="circle" borderRadius="9999px" {...attrs}>
-        {slots}
-      </CSquare>
-    )
-  },
-})
+export const CCircle: ComponentWithProps<DeepPartial<SquareProps>> =
+  defineComponent({
+    name: "CCircle",
+    setup(_, { slots, attrs }) {
+      return () => (
+        <CSquare __label="circle" borderRadius="9999px" {...attrs}>
+          {slots}
+        </CSquare>
+      )
+    },
+  })

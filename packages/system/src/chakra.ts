@@ -17,15 +17,13 @@ import {
   SystemProps,
   SystemStyleObject,
 } from "@chakra-ui/styled-system"
-import _styled, { useEmotionTheme } from "@chakra-ui/vue-styled"
+import _styled from "@chakra-ui/vue-styled"
 
 import {
   isFunction,
   objectFilter,
   isObject,
   memoizedGet as get,
-  runIfFn,
-  filterUndefined,
   Dict,
 } from "@chakra-ui/utils"
 import { cx, css as _css, CSSObject } from "@emotion/css"
@@ -161,7 +159,7 @@ export type ChakraTagOrComponent =
  *    ```
  */
 // @ts-expect-error
-export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
+export const chakra: IChakraFactory = (tag, options = {}) => {
   const inputHandlers = formElements[typeof tag === "string" ? tag : ""]
   const _props = (inputHandlers && inputHandlers.props) || {}
   const handleValueChange = inputHandlers && inputHandlers.handleValueChange
@@ -252,6 +250,7 @@ export const chakra: IChakraFactory = (tag, options = {}): DefineComponent => {
             ...elementAttributes,
             ...(!props.__chakraIsRaw &&
               handleValueChange &&
+              // @ts-ignore
               handleValueChange(props, attrs.type as InputTypes)(emit)),
           },
           slots
@@ -398,12 +397,16 @@ export type ChakraFactoryProps = ChakraProps &
 type UserProvidedProps = { [key: string]: any }
 
 type IChakraFactory = {
-  [key in DOMElements]: DefineComponent | ComponentWithProps<ChakraFactoryProps>
+  [key in DOMElements]:
+    | DefineComponent<ChakraFactoryProps>
+    | ComponentWithProps<ChakraFactoryProps>
 } & {
   (
     tag: ChakraTagOrComponent,
     options?: StyleResolverOptions & UserProvidedProps
-  ): DefineComponent | ComponentWithProps<ChakraFactoryProps>
+  ):
+    | DefineComponent<ChakraFactoryProps>
+    | ComponentWithProps<ChakraFactoryProps>
 }
 
 domElements.forEach((tag) => {

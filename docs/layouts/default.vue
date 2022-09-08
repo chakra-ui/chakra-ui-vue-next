@@ -1,4 +1,0 @@
-<template>
-  Theme
-  <content />
-</template>

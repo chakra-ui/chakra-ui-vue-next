@@ -27,9 +27,7 @@ export type ComponentWithProps<P> = {
   new (): {
     $props: AllowedComponentProps &
       ComponentCustomProps &
-      VNodeProps &
-      { props?: Record<keyof P, any> } &
-      P & {
+      VNodeProps & { props?: Record<keyof P, any> } & P & {
         [key: string]: unknown
       }
   }
@@ -43,18 +41,6 @@ export type Tag =
   | typeof Teleport
   | typeof Suspense
   | Component
-
-export interface ThemingProps<ThemeComponent extends string = string> {
-  variant?: ThemeComponent extends keyof ThemeTypings["components"]
-    ? ThemeTypings["components"][ThemeComponent]["variants"] | (string & {})
-    : string
-  size?: ThemeComponent extends keyof ThemeTypings["components"]
-    ? ThemeTypings["components"][ThemeComponent]["sizes"] | (string & {})
-    : string
-  colorScheme?: ThemeTypings["colorSchemes"] | (string & {})
-  orientation?: "vertical" | "horizontal"
-  styleConfig?: Dict
-}
 
 export interface ChakraProps extends SystemProps, StyleResolverProps {
   /**
