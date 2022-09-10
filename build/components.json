@@ -8,6 +8,18 @@
         ],
         "default": "div"
       },
+      "index": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "defaultIndex": [
+        null,
+        null,
+        null,
+        null
+      ],
       "reduceMotion": {
         "default": false
       }
@@ -1377,6 +1389,17 @@
       }
     }
   },
+  "CTag": {
+    "props": {}
+  },
+  "CTagCloseButton": {
+    "props": {}
+  },
+  "CTagLabel": {
+    "props": {}
+  },
+  "CTagLeftIcon": {},
+  "CTagRightIcon": {},
   "CVisuallyHidden": {
     "name": "chakra-factory-span",
     "inheritAttrs": false,
