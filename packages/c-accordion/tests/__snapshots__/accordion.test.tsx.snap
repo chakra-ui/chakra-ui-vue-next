@@ -7,21 +7,21 @@ exports[`<CAccordion /> component should render properly 1`] = `
   >
     <div
       data-part="root"
-      id="accordion:"
+      id="accordion:GENERATED_TEST_ID"
     >
       <div
         class="css-17mg6aq"
         data-part="item"
-        id="accordion::item:accordion-item-undefined"
+        id="accordion:GENERATED_TEST_ID:item:accordion-item-undefined"
       >
         <button
-          aria-controls="accordion::content:accordion-item-undefined"
+          aria-controls="accordion:GENERATED_TEST_ID:content:accordion-item-undefined"
           aria-disabled="false"
           aria-expanded="false"
           class="css-1d10sx1"
-          data-ownedby="accordion:"
+          data-ownedby="accordion:GENERATED_TEST_ID"
           data-part="trigger"
-          id="accordion::trigger:accordion-item-undefined"
+          id="accordion:GENERATED_TEST_ID:trigger:accordion-item-undefined"
           type="button"
         >
           <c-v-stack
@@ -57,10 +57,10 @@ exports[`<CAccordion /> component should render properly 1`] = `
           style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
         >
           <div
-            aria-labelledby="accordion::trigger:accordion-item-undefined"
+            aria-labelledby="accordion:GENERATED_TEST_ID:trigger:accordion-item-undefined"
             class="css-13d8nyx"
             data-part="content"
-            id="accordion::content:accordion-item-undefined"
+            id="accordion:GENERATED_TEST_ID:content:accordion-item-undefined"
             role="region"
           >
              Sample accordion content 
@@ -70,16 +70,16 @@ exports[`<CAccordion /> component should render properly 1`] = `
       <div
         class="css-17mg6aq"
         data-part="item"
-        id="accordion::item:accordion-item-1"
+        id="accordion:GENERATED_TEST_ID:item:accordion-item-1"
       >
         <button
-          aria-controls="accordion::content:accordion-item-1"
+          aria-controls="accordion:GENERATED_TEST_ID:content:accordion-item-1"
           aria-disabled="false"
           aria-expanded="false"
           class="css-1d10sx1"
-          data-ownedby="accordion:"
+          data-ownedby="accordion:GENERATED_TEST_ID"
           data-part="trigger"
-          id="accordion::trigger:accordion-item-1"
+          id="accordion:GENERATED_TEST_ID:trigger:accordion-item-1"
           type="button"
         >
           <c-v-stack
@@ -114,10 +114,10 @@ exports[`<CAccordion /> component should render properly 1`] = `
           style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
         >
           <div
-            aria-labelledby="accordion::trigger:accordion-item-1"
+            aria-labelledby="accordion:GENERATED_TEST_ID:trigger:accordion-item-1"
             class="css-13d8nyx"
             data-part="content"
-            id="accordion::content:accordion-item-1"
+            id="accordion:GENERATED_TEST_ID:content:accordion-item-1"
             role="region"
           >
              Sample accordion content 
@@ -127,16 +127,16 @@ exports[`<CAccordion /> component should render properly 1`] = `
       <div
         class="css-17mg6aq"
         data-part="item"
-        id="accordion::item:accordion-item-2"
+        id="accordion:GENERATED_TEST_ID:item:accordion-item-2"
       >
         <button
-          aria-controls="accordion::content:accordion-item-2"
+          aria-controls="accordion:GENERATED_TEST_ID:content:accordion-item-2"
           aria-disabled="false"
           aria-expanded="false"
           class="css-1d10sx1"
-          data-ownedby="accordion:"
+          data-ownedby="accordion:GENERATED_TEST_ID"
           data-part="trigger"
-          id="accordion::trigger:accordion-item-2"
+          id="accordion:GENERATED_TEST_ID:trigger:accordion-item-2"
           type="button"
         >
           <c-v-stack
@@ -171,10 +171,10 @@ exports[`<CAccordion /> component should render properly 1`] = `
           style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
         >
           <div
-            aria-labelledby="accordion::trigger:accordion-item-2"
+            aria-labelledby="accordion:GENERATED_TEST_ID:trigger:accordion-item-2"
             class="css-13d8nyx"
             data-part="content"
-            id="accordion::content:accordion-item-2"
+            id="accordion:GENERATED_TEST_ID:content:accordion-item-2"
             role="region"
           >
              Sample accordion content 
@@ -193,22 +193,22 @@ exports[`<CAccordion /> component should toggle the accordion on click 1`] = `
   >
     <div
       data-part="root"
-      id="accordion:"
+      id="accordion:GENERATED_TEST_ID"
     >
       <div
         class="css-17mg6aq"
         data-part="item"
-        id="accordion::item:accordion-item-4"
+        id="accordion:GENERATED_TEST_ID:item:accordion-item-4"
       >
         <h2>
           <button
-            aria-controls="accordion::content:accordion-item-4"
+            aria-controls="accordion:GENERATED_TEST_ID:content:accordion-item-4"
             aria-disabled="false"
             aria-expanded="false"
             class="css-1d10sx1"
-            data-ownedby="accordion:"
+            data-ownedby="accordion:GENERATED_TEST_ID"
             data-part="trigger"
-            id="accordion::trigger:accordion-item-4"
+            id="accordion:GENERATED_TEST_ID:trigger:accordion-item-4"
             type="button"
           >
             Trigger
@@ -219,10 +219,10 @@ exports[`<CAccordion /> component should toggle the accordion on click 1`] = `
           style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
         >
           <div
-            aria-labelledby="accordion::trigger:accordion-item-4"
+            aria-labelledby="accordion:GENERATED_TEST_ID:trigger:accordion-item-4"
             class="css-13d8nyx"
             data-part="content"
-            id="accordion::content:accordion-item-4"
+            id="accordion:GENERATED_TEST_ID:content:accordion-item-4"
             role="region"
           >
             Panel
