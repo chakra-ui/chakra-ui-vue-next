@@ -1,6 +1,6 @@
 import { h, defineComponent, PropType, computed, ComputedRef, ref } from "vue"
 import * as accordion from "@zag-js/accordion"
-import { normalizeProps, useMachine, useSetup } from "@zag-js/vue"
+import { normalizeProps, useMachine } from "@zag-js/vue"
 import {
   chakra,
   DOMElements,
