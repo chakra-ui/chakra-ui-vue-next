@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/lodash.mergewith": "^4.6.6",
     "@types/object-assign": "4.0.30",
-    "vue": "^3.2.29"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

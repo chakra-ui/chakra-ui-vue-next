@@ -11,13 +11,14 @@
     "dev": "vite",
     "build": "echo '⚡️ Building docs package stub'",
     "generate": "vite-ssg build",
+    "gen:temp": "mkdir dist && echo '<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><ti\ntle>Chakra UI Vue Docs - Coming Soon</title></head><body><p>Chakra UI Vue Docs - Coming soon. We are currently working to set up the docs site! Come back later for updates</p></body></html>' >> dist/index.html",
     "serve": "vite preview"
   },
   "dependencies": {
     "@emotion/css": "^11.7.1",
     "feather-icons-paths": "^1.0.8",
     "prism-theme-vars": "^0.1.4",
-    "vue": "^3.2.29",
+    "vue": "^3.2.37",
     "vue-composable": "^1.0.0-beta.23",
     "vue-live": "2.0.0-alpha.7",
     "vue-prism-editor": "^2.0.0-alpha.2",
@@ -41,11 +42,11 @@
     "typescript": "4.6.4",
     "unplugin-icons": "^0.12.0",
     "unplugin-vue-components": "^0.14.0",
-    "vite": "^2.8.6",
+    "vite": "^3.0.7",
     "vite-plugin-md": "^0.6.0",
     "vite-plugin-mdx-vue": "^1.6.0",
     "vite-plugin-pages": "^0.20.1",
     "vite-plugin-vue-layouts": "^0.5.0",
-    "vite-ssg": "^0.17.2"
+    "vite-ssg": "^0.20.2"
   }
 }

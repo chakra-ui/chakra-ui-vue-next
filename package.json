@@ -86,6 +86,7 @@
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.mergewith": "^4.6.6",
+    "@types/react": "file:stub/types__react",
     "@types/recursive-readdir": "^2.2.0",
     "@types/shelljs": "^0.8.9",
     "@types/tinycolor2": "^1.4.2",
@@ -106,8 +107,8 @@
     "@vueuse/head": "^0.7.4",
     "@vueuse/integrations": "^4.8.1",
     "@vueuse/motion": "^1.5.4",
-    "@zag-js/accordion": "^0.1.9",
-    "@zag-js/vue": "^0.1.9",
+    "@zag-js/accordion": "^0.1.13",
+    "@zag-js/vue": "^0.1.14",
     "aria-hidden": "^1.1.2",
     "axe-core": "^4.1.2",
     "babel-jest": "^26.6.3",
@@ -139,6 +140,7 @@
     "feather-icons-paths": "^1.0.8",
     "focus-trap": "^6.3.0",
     "fs-extra": "^9.0.1",
+    "happy-dom": "^6.0.3",
     "husky": "^4.3.8",
     "hygen": "^6.0.4",
     "jest": "^26.6.3",
@@ -178,9 +180,5 @@
       "packages/*",
       "tooling/*"
     ]
-  },
-  "devDependencies": {
-    "@types/react": "file:stub/types__react",
-    "happy-dom": "^6.0.3"
   }
 }

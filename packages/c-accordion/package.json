@@ -26,8 +26,8 @@
     "@chakra-ui/vue-composables": "0.1.0-alpha.9",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@chakra-ui/vue-utils": "0.1.0-alpha.10",
-    "@zag-js/accordion": "^0.1.9",
-    "@zag-js/vue": "^0.1.9"
+    "@zag-js/accordion": "^0.1.13",
+    "@zag-js/vue": "^0.1.14"
   },
   "peerDependencies": {
     "vue": ">=3.0.5"
@@ -36,6 +36,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.2.29"
+    "vue": "^3.2.37"
   }
 }
