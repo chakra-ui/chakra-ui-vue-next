@@ -88,7 +88,9 @@ export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
         multiple: _props.allowMultiple,
         collapsible: _props.allowToggle,
       }))
-      const [state, send] = useMachine(accordion.machine(context.value))
+      const [state, send] = useMachine(accordion.machine({ id: uid.value }), {
+        context,
+      })
       const apiRef = computed(() =>
         accordion.connect(state.value, send, normalizeProps)
       )
@@ -115,8 +117,6 @@ export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
       })
       StylesProvider(styles)
 
-      const accordionRef = useSetup({ send, id: uid.value })
-
       return () => {
         const api = apiRef.value
         return (
@@ -125,11 +125,7 @@ export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
               "> div": styles.value.root,
             }}
           >
-            {() => (
-              <div ref={accordionRef} {...api.rootProps}>
-                {getValidChildren(slots)}
-              </div>
-            )}
+            {() => <div {...api.rootProps}>{getValidChildren(slots)}</div>}
           </chakra.div>
         )
       }
