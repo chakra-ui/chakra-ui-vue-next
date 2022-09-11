@@ -7,19 +7,7 @@ The official working repository for V1 of Chakra UI Vue with Vue 3 support.
 ### Install dependencies
 ```bash
 yarn install
-```
 
-### Watch components
-```bash
-yarn start
-```
-
-### Component playground (based on vite)
-```bash
-# In one background terminal (Only needs to be run once)
-yarn start
-
-# In another terminal
 yarn playground:dev
 ```
 
@@ -42,4 +30,7 @@ git commit -m "feat(component): create x component"
 git commit -m "chore: update x dependencies"
 ```
 
-For more information visit: [github.com/conventional-changelog/commitlint/#what-is-commitlint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
+For more information visit: [conventional-changelog/commitlint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
+
+## Project Stats
+![Alt](https://repobeats.axiom.co/api/embed/40b60a8e21b08d97af5849ea7a8c7d7f46956824.svg "Repobeats analytics image")
