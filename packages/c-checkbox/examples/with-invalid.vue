@@ -1,5 +1,5 @@
 <template>
-  <c-checkbox default-checked> Simple checkbox </c-checkbox>
+  <c-checkbox is-invalid> Checkbox </c-checkbox>
 </template>
 
 <script lang="ts" setup>

@@ -34,7 +34,11 @@ import * as checkbox from "@zag-js/checkbox"
 import { normalizeProps, useMachine, mergeProps } from "@zag-js/vue"
 import { useId, useIds } from "@chakra-ui/vue-composables"
 import { filterUndefined, mergeWith, pick } from "@chakra-ui/utils"
-import { useFormControlContext } from "@chakra-ui/c-form-control"
+import {
+  CFormControlProviderContext,
+  FormControlContext,
+  useFormControlContext,
+} from "@chakra-ui/c-form-control"
 import { HTMLChakraProps } from "@chakra-ui/vue-system"
 import { CheckboxIcon } from "./checkbox-icon"
 import { genId } from "@chakra-ui/vue-utils"
@@ -147,6 +151,10 @@ export const CCheckbox = defineComponent({
     id: String as PropType<string>,
     isIndeterminate: Boolean as PropType<CCheckboxProps["isIndeterminate"]>,
     isFocusable: Boolean as PropType<CCheckboxProps["isFocusable"]>,
+    isRequired: Boolean as PropType<CCheckboxProps["isRequired"]>,
+    isInvalid: Boolean as PropType<CCheckboxProps["isInvalid"]>,
+    isDisabled: Boolean as PropType<CCheckboxProps["isDisabled"]>,
+    isReadonly: Boolean as PropType<CCheckboxProps["isReadonly"]>,
     defaultChecked: Boolean as PropType<boolean>,
     name: String as PropType<CCheckboxProps["name"]>,
     "aria-label": String as PropType<CCheckboxProps["aria-label"]>,
@@ -169,7 +177,9 @@ export const CCheckbox = defineComponent({
     const mergedProps = computed(() => mergeWith({}, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
 
-    const inheritedFormControlProps = useFormControlContext()
+    const inheritedFormControlProps = useFormControlContext(
+      mergedProps as CFormControlProviderContext
+    )
 
     const id = genId()
     const [rootId, inputId, controlId, labelId] = useIds(
@@ -194,10 +204,10 @@ export const CCheckbox = defineComponent({
       })
 
       const cleanedOwnProps = filterUndefined({
-        required: attrs.isRequired,
-        disabled: attrs.isDisabled,
-        invalid: attrs.isInvalid,
-        readonly: attrs.isReadOnly,
+        required: props.isRequired,
+        disabled: props.isDisabled,
+        invalid: props.isInvalid,
+        readonly: props.isReadonly,
         focusable: props.isFocusable,
         "aria-invalid": props["aria-invalid"],
         "aria-label": props["aria-label"],
@@ -255,7 +265,11 @@ export const CCheckbox = defineComponent({
       })
     )
 
-    const isChecked = computed(() => api.value.isChecked)
+    onMounted(() => {
+      if (props.defaultChecked && api.value) {
+        api.value.setChecked(true)
+      }
+    })
 
     watch(
       () => api.value.isChecked,
