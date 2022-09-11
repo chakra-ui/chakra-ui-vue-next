@@ -1,9 +1,4 @@
-import {
-  MotionDirective,
-  MotionVariants,
-  Props,
-  useMotions,
-} from "@vueuse/motion"
+import { MotionDirective, useMotions } from "@vueuse/motion"
 import {
   defineComponent,
   h,
@@ -11,20 +6,21 @@ import {
   onBeforeUnmount,
   PropType,
   withDirectives,
+  watch,
 } from "vue"
 import { chakra } from "@chakra-ui/vue-system"
-import { TransitionDefaults } from "@chakra-ui/c-motion"
-import { useId } from "@chakra-ui/vue-composables"
+import { CAnimatePresence, TransitionDefaults } from "@chakra-ui/c-motion"
 import { CMotion } from "@chakra-ui/c-motion"
+import { genId } from "@chakra-ui/vue-utils"
 
 export const CheckIcon = defineComponent({
   name: "CheckboxCheckIcon",
   setup(_, { attrs, slots }) {
-    const transitionId = useId("check-icon-transition")
+    const transitionId = `check-icon-${genId()}`
     /** Handles exit transition */
     const leave = (done: VoidFunction) => {
       const motions = useMotions()
-      const instance = motions[transitionId.value]
+      const instance = motions[transitionId]
       instance?.leave(() => {
         done()
       })
@@ -66,7 +62,7 @@ export const CheckIcon = defineComponent({
                 transition: TransitionDefaults.leave,
               },
             }),
-            transitionId.value,
+            transitionId,
           ],
         ]
       )
@@ -76,11 +72,11 @@ export const CheckIcon = defineComponent({
 export const IndeterminateIcon = defineComponent({
   name: "CheckboxIndeterminateIcon",
   setup(_, { attrs, slots }) {
-    const transitionId = useId("indeterminate-icon-transition")
+    const transitionId = `indeterminate-icon-${genId()}`
     /** Handles exit transition */
     const leave = (done: VoidFunction) => {
       const motions = useMotions()
-      const instance = motions[transitionId.value]
+      const instance = motions[transitionId]
       instance?.leave(() => {
         done()
       })
@@ -109,8 +105,8 @@ export const IndeterminateIcon = defineComponent({
                 scaleX: 1,
                 opacity: 1,
                 transition: {
-                  scaleX: { duration: 200 },
-                  opacity: { duration: 200 },
+                  scaleX: { duration: 150 },
+                  opacity: { duration: 150 },
                   ...TransitionDefaults.enter,
                 },
               },
@@ -120,7 +116,7 @@ export const IndeterminateIcon = defineComponent({
                 transition: TransitionDefaults.leave,
               },
             }),
-            transitionId.value,
+            transitionId,
           ],
         ]
       )
@@ -143,7 +139,7 @@ export const CCheckboxTransition = defineComponent({
           height: "100%",
         }}
       >
-        {() => <chakra.div>{slots}</chakra.div>}
+        {props.open ? () => <chakra.div>{slots}</chakra.div> : null}
       </CMotion>
     )
   },
@@ -159,6 +155,7 @@ export const CheckboxIcon = defineComponent(
     const IconEl = computed(() =>
       props.isIndeterminate ? IndeterminateIcon : CheckIcon
     )
+
     return () => (
       <CCheckboxTransition open={props.isChecked || props.isIndeterminate}>
         {() => <IconEl.value {...attrs} />}
