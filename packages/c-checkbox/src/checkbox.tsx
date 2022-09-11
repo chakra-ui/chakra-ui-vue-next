@@ -19,7 +19,7 @@ import {
   onMounted,
   Fragment,
   cloneVNode,
-  watchEffect,
+  watch,
 } from "vue"
 import {
   chakra,
@@ -137,8 +137,12 @@ export interface CCheckboxProps
 }
 
 export const CCheckbox = defineComponent({
+  name: "CCheckbox",
   props: {
-    modelValue: String as PropType<string>,
+    modelValue: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     value: String as PropType<CCheckboxProps["value"]>,
     id: String as PropType<string>,
     isIndeterminate: Boolean as PropType<CCheckboxProps["isIndeterminate"]>,
@@ -253,23 +257,18 @@ export const CCheckbox = defineComponent({
 
     const isChecked = computed(() => api.value.isChecked)
 
-    watchEffect(() => {
-      console.log("state changed", state.value)
-    })
-
-    function handleSetChecked() {
-      if (isChecked.value) {
-        api.value.setChecked(false)
-      } else {
-        api.value.setChecked(true)
+    watch(
+      () => api.value.isChecked,
+      (value) => {
+        emit("update:modelValue", value)
       }
-    }
-    //
-    // watchEffect(() => {
-    //   console.log("machineContext", machineContext.value)
-    //   console.log("api", api.value)
-    //   console.log("clonedIcon", clonedIcon.value)
-    // })
+    )
+    watch(
+      () => props.modelValue,
+      (value) => {
+        api.value.setChecked(value)
+      }
+    )
 
     const inputProps = computed(() =>
       mergeProps(api.value.inputProps, {
