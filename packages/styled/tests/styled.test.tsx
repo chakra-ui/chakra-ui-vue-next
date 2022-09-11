@@ -91,6 +91,7 @@ describe.only("styled", () => {
 
     const { asFragment } = render(() => {
       return (
+        // @ts-ignore
         <H2 fontSize={20} flex={1}>
           hello world
         </H2>
@@ -305,6 +306,7 @@ describe.only("styled", () => {
 
   it("function in expression", () => {
     const fontSize = 20
+    // @ts-ignore
     const H1 = styled("h1", { label: "H1" })`
       font-size: ${fontSize + "px"};
     `

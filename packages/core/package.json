@@ -24,6 +24,7 @@
     "@chakra-ui/c-alert": "1.0.0-alpha.10",
     "@chakra-ui/c-breadcrumb": "1.0.0-alpha.10",
     "@chakra-ui/c-button": "1.0.0-alpha.10",
+    "@chakra-ui/c-checkbox": "0.0.0-alpha.0",
     "@chakra-ui/c-close-button": "0.1.0-alpha.10",
     "@chakra-ui/c-code": "1.0.0-alpha.10",
     "@chakra-ui/c-color-mode": "0.1.0-alpha.9",
