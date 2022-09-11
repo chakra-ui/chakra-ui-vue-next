@@ -275,6 +275,7 @@ export const CCheckbox = defineComponent({
       () => api.value.isChecked,
       (value) => {
         emit("update:modelValue", value)
+        emit("change", value)
       }
     )
     watch(
