@@ -168,6 +168,7 @@ export interface UseFormControlProps<T extends VNodeProps>
   disabled?: boolean
   readOnly?: boolean
   required?: boolean
+  "aria-describedby"?: string
 }
 
 /**

@@ -1,1 +1,1 @@
-export * from "./c-checkbox"
+export * from "./checkbox"
