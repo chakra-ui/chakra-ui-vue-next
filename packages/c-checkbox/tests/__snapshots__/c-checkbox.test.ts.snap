@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-199qsx4"
+  >
+    <label
+      class="chakra-checkbox css-1lc114p"
+      data-part="root"
+      id="root-chakra-checkbox-EMPTY_STRING"
+    >
+      <input
+        aria-checked="false"
+        aria-disabled="false"
+        aria-invalid="false"
+        aria-labelledby="checkbox:EMPTY_STRING:label"
+        class="chakra-checkbox__input"
+        data-part="input"
+        defaultchecked="false"
+        id="input-chakra-checkbox-EMPTY_STRING"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; word-wrap: normal;"
+        type="checkbox"
+      />
+      <span
+        aria-hidden="true"
+        class="chakra-checkbox__control css-1w9o455"
+        data-part="control"
+        id="control-chakra-checkbox-EMPTY_STRING"
+      >
+        <transition-stub
+          __css="[object Object]"
+          style="display: flex; align-items: center; justify-content: center; height: 100%;"
+        >
+          <!---->
+        </transition-stub>
+      </span>
+      <!---->
+    </label>
+  </div>
+</DocumentFragment>
+`;

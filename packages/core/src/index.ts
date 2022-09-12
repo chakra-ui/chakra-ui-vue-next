@@ -47,11 +47,11 @@ const ChakraUIVuePlugin: Plugin = {
       ":root": computedTheme.value.__cssVars,
     })
 
-    // Initialize colormode
+    // Initialize color mode
     const colorMode: UnwrapRef<ColorModeRef> =
       theme.config?.initialColorMode || "light"
 
-    // Provide initial colormode
+    // Provide initial color mode
     app.config.globalProperties.$initialColorMode = colorMode
 
     const colorModeRef = ref(colorMode) as ColorModeRef
@@ -130,6 +130,7 @@ export * from "@chakra-ui/c-breadcrumb"
 export * from "@chakra-ui/c-button"
 
 // C
+export * from "@chakra-ui/c-checkbox"
 export * from "@chakra-ui/c-color-mode"
 export * from "@chakra-ui/c-close-button"
 export * from "@chakra-ui/c-code"

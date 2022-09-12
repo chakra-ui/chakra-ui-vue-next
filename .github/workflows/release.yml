@@ -50,7 +50,7 @@ jobs:
       run: yarn build && yarn bootstrap
 
     - name: Testing components
-      run: yarn test
+      run: yarn test:ci
       env:
         CI: true
 
