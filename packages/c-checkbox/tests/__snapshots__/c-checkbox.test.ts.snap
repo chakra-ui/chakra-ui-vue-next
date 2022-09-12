@@ -13,6 +13,7 @@ exports[`should render properly 1`] = `
       <input
         aria-checked="false"
         aria-disabled="false"
+        aria-invalid="false"
         aria-labelledby="checkbox:EMPTY_STRING:label"
         class="chakra-checkbox__input"
         data-part="input"
