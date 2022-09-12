@@ -28,9 +28,15 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@chakra-ui/c-form-control": "0.0.0-alpha.5",
+    "@chakra-ui/c-motion": "0.1.0-alpha.9",
+    "@chakra-ui/utils": "2.0.3",
+    "@chakra-ui/vue-composables": "0.1.0-alpha.9",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@zag-js/checkbox": "^0.1.6",
-    "@zag-js/vue": "^0.1.14"
+    "@chakra-ui/vue-utils": "0.1.0-alpha.10",
+    "@vueuse/motion": "1.5.4",
+    "@zag-js/checkbox": "0.1.6",
+    "@zag-js/vue": "0.1.14"
   },
   "devDependencies": {
     "vue": "^3.1.4"

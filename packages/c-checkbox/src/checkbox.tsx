@@ -29,19 +29,22 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
 import { SNAO, vueThemingProps, getValidChildren } from "@chakra-ui/vue-utils"
-import { createStylesContext, SystemProps } from "@chakra-ui/vue-system"
+import {
+  ComponentWithProps,
+  HTMLChakraProps,
+  SystemProps,
+} from "@chakra-ui/vue-system"
 import * as checkbox from "@zag-js/checkbox"
 import { normalizeProps, useMachine, mergeProps } from "@zag-js/vue"
-import { useId, useIds } from "@chakra-ui/vue-composables"
+import { useIds } from "@chakra-ui/vue-composables"
 import { filterUndefined, mergeWith, pick } from "@chakra-ui/utils"
 import {
   CFormControlProviderContext,
-  FormControlContext,
   useFormControlContext,
 } from "@chakra-ui/c-form-control"
-import { HTMLChakraProps } from "@chakra-ui/vue-system"
 import { CheckboxIcon } from "./checkbox-icon"
 import { genId } from "@chakra-ui/vue-utils"
+import { useCheckboxGroupContext } from "./checkbox-group"
 
 /**
  * - Implement checkbox as state machine.
@@ -140,14 +143,14 @@ export interface CCheckboxProps
   inputProps?: HTMLChakraProps<"input">
 }
 
-export const CCheckbox = defineComponent({
+export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   name: "CCheckbox",
   props: {
     modelValue: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
-    value: String as PropType<CCheckboxProps["value"]>,
+    value: [String, Number] as PropType<CCheckboxProps["value"]>,
     id: String as PropType<string>,
     isIndeterminate: Boolean as PropType<CCheckboxProps["isIndeterminate"]>,
     isFocusable: Boolean as PropType<CCheckboxProps["isFocusable"]>,
@@ -173,8 +176,9 @@ export const CCheckbox = defineComponent({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const ownProps = computed(() => toRefs(reactive(omitThemingProps(props))))
-    const mergedProps = computed(() => mergeWith({}, props, attrs))
+    const group = useCheckboxGroupContext()
+    const ownProps = computed(() => omitThemingProps(props))
+    const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
 
     const inheritedFormControlProps = useFormControlContext(
@@ -269,6 +273,13 @@ export const CCheckbox = defineComponent({
       if (props.defaultChecked && api.value) {
         api.value.setChecked(true)
       }
+
+      if (api.value) {
+        if (group.value.value && ownProps.value.value) {
+          const isChecked = group.value.value.includes(ownProps.value.value)
+          api.value.setChecked(isChecked)
+        }
+      }
     })
 
     watch(
@@ -276,6 +287,9 @@ export const CCheckbox = defineComponent({
       (value) => {
         emit("update:modelValue", value)
         emit("change", value)
+        if (group.value.handleChange && ownProps.value.value) {
+          group.value.handleChange(ownProps.value.value, value)
+        }
       }
     )
     watch(

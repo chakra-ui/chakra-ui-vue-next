@@ -1028,6 +1028,16 @@
   dependencies:
     "@chakra-ui/theme-tools" "^2.0.2"
 
+"@chakra-ui/c-motion@0.0.0-alpha.9":
+  version "0.1.0-alpha.9"
+  dependencies:
+    "@chakra-ui/styled-system" "^2.2.2"
+    "@chakra-ui/utils" "^2.0.3"
+    "@chakra-ui/vue-composables" "0.1.0-alpha.9"
+    "@chakra-ui/vue-system" "0.1.0-alpha.10"
+    "@chakra-ui/vue-utils" "0.1.0-alpha.10"
+    "@vueuse/motion" "^1.5.4"
+
 "@chakra-ui/styled-system@^2.2.2":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-2.2.5.tgz#d1754d2117f554551b914ef060e81548c6cc9702"
@@ -4140,6 +4150,14 @@
     "@vueuse/shared" "4.9.1"
     vue-demi "*"
 
+"@vueuse/core@^4.7.0":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.11.2.tgz#d4f54bd38e7c289c6f6357992c02423774cb26d9"
+  integrity sha512-4A17XvKXpMR6829EVWvrdSKEeAjTWaiC3+xh51KEtlyCwvWQwZ0xwKDrbMj+e15ANxjHrTw/0bJVaWDfPQt/Pw==
+  dependencies:
+    "@vueuse/shared" "4.11.2"
+    vue-demi "*"
+
 "@vueuse/core@^6.0.0":
   version "6.9.2"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-6.9.2.tgz#76b16d01f33cf367dd1a2d7f2e31d106443ceb8a"
@@ -4167,6 +4185,15 @@
     nprogress "^0.2.0"
     qrcode "^1.4.4"
     universal-cookie "^4.0.4"
+
+"@vueuse/motion@1.5.4":
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.5.4.tgz#ab5eb0de143a664f217f93ecf059cd6404246536"
+  integrity sha512-hSGnVOzzXfp9q9WMDYZImckQCp5BZb6WM1kq+pOZHhLolPt9JqPnK/gImIE/xU27bKZwjE8PeTTcIhCC18xwmQ==
+  dependencies:
+    "@vueuse/core" "^4.7.0"
+    popmotion "^9.3.5"
+    vue-demi "0.7.4"
 
 "@vueuse/motion@^1.5.4":
   version "1.6.0"
@@ -4366,7 +4393,7 @@
     "@zag-js/core" "0.1.10"
     "@zag-js/types" "0.2.5"
 
-"@zag-js/checkbox@^0.1.6":
+"@zag-js/checkbox@0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@zag-js/checkbox/-/checkbox-0.1.6.tgz#4b163d7ff07d681aa184e1bdf0f004da62c102f8"
   integrity sha512-FLRvbqLMfoK3Vi1o9/o76b+Uh5Ss8enc87cr/ATEllKX35Y5y5/gwSOHjHfl6f53PTJFrvBNigRIFc2/fsLAiw==
@@ -4396,7 +4423,7 @@
   dependencies:
     csstype "3.1.0"
 
-"@zag-js/vue@^0.1.14":
+"@zag-js/vue@0.1.14", "@zag-js/vue@^0.1.14":
   version "0.1.14"
   resolved "https://registry.yarnpkg.com/@zag-js/vue/-/vue-0.1.14.tgz#970e1b5e1847e55fbb330604d311a5ae066e3b61"
   integrity sha512-t54vB6BxeEYatpxRLk+kXypyLDnoUbwBzMeplZ4gGdAF+0FAJNvhpd9CV/ViykqLXCYUDdi1K8/BYxYdirtFPA==
@@ -14039,7 +14066,7 @@ pnp-webpack-plugin@^1.7.0:
   dependencies:
     ts-pnp "^1.1.6"
 
-popmotion@^9.4.0:
+popmotion@^9.3.5, popmotion@^9.4.0:
   version "9.4.2"
   resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-9.4.2.tgz#0fccc191b3ecbc3e33af2d0cb9a569a9c49d6105"
   integrity sha512-j1sSXszfQ6LkqML2NaqAEn1XmwT/TWUe06lXgIUGwomHdVWjM0W6tLay+i1v9zrIMZLBDXslZU9W4RKWhgPPMw==
@@ -17923,6 +17950,11 @@ vue-demi@*:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.2.tgz#f6081c2feb5b698549729a81683ce029b8da289e"
   integrity sha512-41ukrclEbMddAyP7PvxMSYqnOSzPV6r7GNnyTSKSCNTaz19GehxmTiXyP9kwHSUv2+Dr6hHqiUiF7L1VAw2KdQ==
+
+vue-demi@0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.4.tgz#4c6be525788e1f6b3fd5d4f5f9f2148cf6645979"
+  integrity sha512-PT0qzI9Rp8R8eUAsTPXADC+KAZdrMufmbZqEMMqvaiesWyjCpgyuuvS5Su8cvBjK9RevLT/YfFiKWxc8YB9/8g==
 
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.10.0:
   version "7.11.0"

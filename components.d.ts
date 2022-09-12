@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-08-31T15:33:17.883Z
+ * This file was generated on 2022-09-12T04:00:56.880Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -78,6 +78,7 @@ declare module "@vue/runtime-core" {
     CButton: typeof import("@chakra-ui/vue-next")["CButton"]
     CButtonGroup: typeof import("@chakra-ui/vue-next")["CButtonGroup"]
     CIconButton: typeof import("@chakra-ui/vue-next")["CIconButton"]
+    CCheckbox: typeof import("@chakra-ui/vue-next")["CCheckbox"]
     CFocusLock: typeof import("@chakra-ui/vue-next")["CFocusLock"]
     CFormErrorIcon: typeof import("@chakra-ui/vue-next")["CFormErrorIcon"]
     CFormErrorMessage: typeof import("@chakra-ui/vue-next")["CFormErrorMessage"]
