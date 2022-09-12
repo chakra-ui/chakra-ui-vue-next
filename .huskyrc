@@ -1,7 +1,7 @@
 {
   "hooks": {
     "pre-commit": "lint-staged",
-    "pre-push": "yarn test",
+    "pre-push": "yarn test:ci",
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   }
 }
