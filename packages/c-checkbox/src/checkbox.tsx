@@ -176,7 +176,7 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const group = useCheckboxGroupContext()
+    const group = useCheckboxGroupContext(computed(() => ({})))
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
