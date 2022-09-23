@@ -18,19 +18,27 @@ git clone https://github.com/<your_github_username>/chakra-ui-vue-next.git
 cd chakra-ui
 ```
 
-3. Build components
-```bash
-yarn build
+3. Install dependencies and bootstrap the project
+```sh
+yarn
+# After the dependencies are installed, the `postinstall` script with trigger `preconstruct dev` which will build all the component packages.
 ```
 
-4. Setup all the dependencies and packages by running `yarn bootstrap`. This
-   command will install dependencies and bootstrap the repo using `lerna`
-```bash
-yarn bootstrap
+4. Run the Vite Playground.
 ```
+yarn playground:dev
+```
+This will boot the playground server and watches for changes in any package.
 
-> If you run into any issues during this step, kindly reach out to the Chakra UI
+> If you run into any issues during these steps, kindly reach out to the Chakra UI
 > Vue team here:[https://discord.gg/cMpMfvxa](https://discord.gg/cMpMfvxa)
+
+## For Windows OS Users
+There may be some trouble specific to the local setup in Windows. The following are suggestions in ensuring the local environment boots up successfully:
+
+- The package dependencies and scripts should work with Node `v16.16.0 and higher`
+- If you receive the error `EPERM: operation not permitted, symlink` and mentions `preconstruct`, you will need to enable OS developer mode. See Github issue [#381 for Preconstruct](https://github.com/preconstruct/preconstruct/issues/381)
+- If you receive the error `NODE_ENV is not recognized as an internal or external command`, try the package [win-node-env](https://www.npmjs.com/package/win-node-env)
 
 ## Development
 
@@ -57,7 +65,7 @@ cross-component development and builds all components.
 **`yarn bootstrap`**: bootstraps the entire project and symlinks all
 dependencies for cross-component development.
 
-**`yarn dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
+**`yarn playground:dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
 
 **`yarn docs:dev`**: run the documentation site locally.
 
