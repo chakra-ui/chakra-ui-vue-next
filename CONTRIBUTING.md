@@ -118,7 +118,7 @@ docs, simply run `yarn build`, and `yarn docs:dev`
 
 ### Components Development Playground
 
-Build components in isolation with Storybook using `yarn dev`
+Build components in isolation with Vite using `yarn playground:dev`
 
 ## Think you found a bug?
 
