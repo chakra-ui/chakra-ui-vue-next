@@ -39,6 +39,7 @@
     "@chakra-ui/c-portal": "0.1.0-alpha.10",
     "@chakra-ui/c-reset": "1.0.0-alpha.10",
     "@chakra-ui/c-scroll-lock": "0.1.0-alpha.8",
+    "@chakra-ui/c-skip-nav": "0.0.0-alpha.0",
     "@chakra-ui/c-spinner": "1.0.0-alpha.10",
     "@chakra-ui/c-tag": "0.0.0-alpha.0",
     "@chakra-ui/c-theme-provider": "1.0.0-alpha.10",
