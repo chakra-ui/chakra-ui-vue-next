@@ -8,17 +8,92 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, PropType } from 'vue'
-import { chakra, DOMElements } from '@chakra-ui/vue-system'
+import { h, defineComponent } from "vue"
+import {
+  chakra,
+  SystemStyleObject,
+  useStyleConfig,
+} from "@chakra-ui/vue-system"
+import { CBox } from "@chakra-ui/vue-next"
 
-export const CSkipNav = defineComponent({
+const FALLBACK_ID = "chakra-skip-nav"
+
+export const CSkipNavLink = defineComponent({
+  name: "CSkipNavLink",
   props: {
-    as: {
-      type: [Object, String] as PropType<DOMElements>,
-      default: 'div',
+    id: {
+      type: String,
+      default: FALLBACK_ID,
     },
   },
   setup(props, { slots, attrs }) {
-    return () => h(chakra(props.as), { ...attrs }, slots)
+    function getBaseStyles(styles: any): SystemStyleObject {
+      return {
+        userSelect: "none",
+        border: "0",
+        borderRadius: "md",
+        fontWeight: "semibold",
+        height: "1px",
+        width: "1px",
+        margin: "-1px",
+        padding: "0",
+        outline: "0",
+        overflow: "hidden",
+        position: "absolute",
+        clip: "rect(0 0 0 0)",
+        ...styles,
+        _focus: {
+          clip: "auto",
+          width: "auto",
+          height: "auto",
+          boxShadow: "outline",
+          padding: "1rem",
+          position: "fixed",
+          top: "1.5rem",
+          insetStart: "1.5rem",
+          ...styles["_focusVisible"],
+        },
+      }
+    }
+
+    const styles = useStyleConfig("SkipLink", props)
+
+    return () => {
+      return h(
+        chakra("a", {
+          __css: {
+            ...getBaseStyles(styles.value),
+          },
+        }),
+        {
+          ...attrs,
+          href: `#${props.id}`,
+        },
+        slots
+      )
+    }
+  },
+})
+
+export const CSkipNavContent = defineComponent({
+  name: "CSkipNavContent",
+  props: {
+    id: {
+      type: String,
+      default: FALLBACK_ID,
+    },
+  },
+  setup(props, { attrs, slots }) {
+    return () => {
+      return h(
+        chakra(CBox),
+        {
+          ...attrs,
+          id: props.id,
+          tabIndex: "-1",
+        },
+        slots
+      )
+    }
   },
 })
