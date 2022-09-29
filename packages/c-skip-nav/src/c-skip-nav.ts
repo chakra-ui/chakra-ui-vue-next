@@ -1,7 +1,7 @@
 /**
  * Hey! Welcome to @chakra-ui/vue-next CSkipNav
  *
- * My component description
+ * Component tandem to allow users to skip navigation content
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-skip-nav
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-skip-nav/src/c-skip-nav/c-skip-nav.ts
