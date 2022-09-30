@@ -3,10 +3,10 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="css-199qsx4"
+    class="css-zh89a5"
   >
     <label
-      class="chakra-checkbox css-1lc114p"
+      class="chakra-checkbox css-1feyqmz"
       data-part="root"
       id="root-chakra-checkbox-EMPTY_STRING"
     >
@@ -24,7 +24,7 @@ exports[`should render properly 1`] = `
       />
       <span
         aria-hidden="true"
-        class="chakra-checkbox__control css-1w9o455"
+        class="chakra-checkbox__control css-89mhxk"
         data-part="control"
         id="control-chakra-checkbox-EMPTY_STRING"
       >
