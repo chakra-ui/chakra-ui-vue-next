@@ -124,6 +124,7 @@ export { chakra }
 // A
 export * from "@chakra-ui/c-accordion"
 export * from "@chakra-ui/c-alert"
+export * from "@chakra-ui/c-avatar"
 
 // B
 export * from "@chakra-ui/c-breadcrumb"

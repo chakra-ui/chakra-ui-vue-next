@@ -4,7 +4,7 @@ exports[`should render properly 1`] = `
 <DocumentFragment>
   <button
     aria-label="Close"
-    class="chakra-icon-button css-11zmf7z"
+    class="chakra-icon-button css-1nc8gxl"
     data-testid="closebutton"
     type="button"
   >

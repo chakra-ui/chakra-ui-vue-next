@@ -27,7 +27,7 @@ export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
   setup(props, { slots, attrs }) {
     return () => (
       <chakra.div as={props.as} __label="box" {...attrs}>
-        {slots}
+        {() => slots?.default?.()}
       </chakra.div>
     )
   },

@@ -82,19 +82,29 @@ exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
   >
     <div
       class="chakra-box css-62u0by"
-    />
+    >
+      <!---->
+    </div>
     <div
       class="chakra-box css-62u0by"
-    />
+    >
+      <!---->
+    </div>
     <div
       class="chakra-box css-62u0by"
-    />
+    >
+      <!---->
+    </div>
     <div
       class="chakra-box css-62u0by"
-    />
+    >
+      <!---->
+    </div>
     <div
       class="chakra-box css-62u0by"
-    />
+    >
+      <!---->
+    </div>
   </div>
   <div
     class="chakra-grid css-85u0uj"
