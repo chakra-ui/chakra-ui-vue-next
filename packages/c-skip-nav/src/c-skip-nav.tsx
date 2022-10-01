@@ -88,7 +88,7 @@
    setup(props, { attrs, slots }) {
      return () => {
        return (
-         <CBox tabIndex="-1" id={props.id} data-test={FALLBACK_ID} {...attrs}>
+         <CBox tabIndex="-1" id={props.id} data-testid={FALLBACK_ID} {...attrs}>
            {() => getValidChildren(slots)}
          </CBox>
        )
