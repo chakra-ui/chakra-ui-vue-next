@@ -8,7 +8,7 @@
  * @see WebAIM   https://webaim.org/techniques/skipnav/
  */
 
- import { defineComponent, computed } from "vue"
+ import { defineComponent, computed, h } from "vue"
  import {
    chakra,
    ComponentWithProps,
