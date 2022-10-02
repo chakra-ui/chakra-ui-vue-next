@@ -1,5 +1,4 @@
 import { h, Fragment, ref } from "vue"
-import { cy, expect } from "local-cypress"
 import {
   CAlertDialog,
   CAlertDialogBody,
@@ -12,7 +11,7 @@ import {
 import { CButton } from "@chakra-ui/c-button"
 
 const render = (props: any = {}) => {
-  return cy.mount(
+  return cy.mount(() =>
     h(() => (
       <CAlertDialog modelValue={true} {...props}>
         <CAlertDialogOverlay />
@@ -63,7 +62,7 @@ describe("AlertDialog", () => {
       "onUpdate:modelValue": onClose as any,
     }
 
-    cy.mount(
+    cy.mount(() =>
       h(() => (
         <CAlertDialog modelValue={true} {...props}>
           <CAlertDialogOverlay />
@@ -82,7 +81,6 @@ describe("AlertDialog", () => {
     cy.get('[data-testid="close-button"]')
       .should("have.attr", "aria-label", "Close")
       .click({ force: true })
-      .wait(1000)
       .then(() => {
         expect(onClose).to.have.been.called
       })
@@ -101,8 +99,8 @@ describe("AlertDialog", () => {
    *
    * This should be treated as important however.
    */
-  it.skip("should trap focus while open", () => {
-    cy.mount(
+  it("should trap focus while open", () => {
+    cy.mount(() =>
       h(() => (
         <CAlertDialog modelValue={true}>
           <CAlertDialogOverlay />
@@ -128,8 +126,7 @@ describe("AlertDialog", () => {
 
     cy.log("Trigger tab() 20 times")
     new Array(20).forEach(() => {
-      // @ts-expect-error Tab action
-      cy.focused().tab()
+      cy.focused().type("{tab}")
     })
     cy.get('[data-testid="dialog"]').then((el) => {
       expect(el[0].contains(document.activeElement)).to.be.true

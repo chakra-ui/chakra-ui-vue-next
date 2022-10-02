@@ -13,12 +13,12 @@ Object.entries(ButtonGroup).map(([name, example]) => {
 })
 
 it.only("with a color scheme", () => {
-  cy.mount(
-    h(() => (
+  cy.mount(() => {
+    return h(() => (
       <CButtonGroup>
         <CButton colorScheme="blue">Save</CButton>
         <CButton>Cancel</CButton>
       </CButtonGroup>
     ))
-  )
+  })
 })

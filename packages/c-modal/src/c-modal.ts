@@ -248,6 +248,7 @@ export const CModal: ComponentWithProps<CModalProps> = defineComponent({
       emit("escape", event)
       emit("closeModal", false)
     }
+
     const mergedProps = computed(() => mergeProps(props, attrs))
 
     const styles = useMultiStyleConfig("Modal", mergedProps)

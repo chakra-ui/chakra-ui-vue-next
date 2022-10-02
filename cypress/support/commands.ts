@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 /*
  * This file should be replaced with cypress-axe
  * once that package becomes esm-compatible
@@ -8,6 +10,7 @@ axeCore.configure({
   rules: [{ id: "color-contrast", enabled: false }],
 })
 
+// @ts-ignore
 Cypress.Commands.add("checkA11y", () => {
   // @ts-ignore
   expect().to.be.accessible
@@ -20,7 +23,7 @@ const isAccessible = (_chai, utils) => {
   _chai.Assertion.addProperty("accessible", function () {
     let _this = this
 
-    return cy.get("#__cy_root", { log: false }).then(async ($root) => {
+    return cy.get("div[data-cy-root]", { log: false }).then(async ($root) => {
       const result = await axeCore.run($root[0])
       console.log(`A11y results: `, result)
       const { passes, violations } = result
