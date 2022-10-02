@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CPinInput should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-pin-input css-0"
+    data-complete=""
+    data-part="root"
+    id="pin-input:0"
+  >
+    <input
+      aria-label="pin code 1 of 0"
+      autocapitalize="none"
+      autocomplete="off"
+      class="chakra-pin-input-field css-11ncskj"
+      data-complete=""
+      data-ownedby="pin-input:0"
+      data-part="input"
+      id="pin-input:0:0"
+      inputmode="numeric"
+      placeholder="o"
+      type="tel"
+    />
+    <input
+      aria-label="pin code 2 of 0"
+      autocapitalize="none"
+      autocomplete="off"
+      class="chakra-pin-input-field css-11ncskj"
+      data-complete=""
+      data-ownedby="pin-input:0"
+      data-part="input"
+      id="pin-input:0:1"
+      inputmode="numeric"
+      placeholder="o"
+      type="tel"
+    />
+    <input
+      aria-label="pin code 3 of 0"
+      autocapitalize="none"
+      autocomplete="off"
+      class="chakra-pin-input-field css-11ncskj"
+      data-complete=""
+      data-ownedby="pin-input:0"
+      data-part="input"
+      id="pin-input:0:2"
+      inputmode="numeric"
+      placeholder="o"
+      type="tel"
+    />
+  </div>
+</DocumentFragment>
+`;
