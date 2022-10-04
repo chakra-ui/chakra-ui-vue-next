@@ -160,6 +160,7 @@ export * from "@chakra-ui/c-portal"
 export * from "@chakra-ui/c-reset"
 
 // S
+export * from "@chakra-ui/c-skip-nav"
 export * from "@chakra-ui/c-spinner"
 export * from "@chakra-ui/c-scroll-lock"
 
