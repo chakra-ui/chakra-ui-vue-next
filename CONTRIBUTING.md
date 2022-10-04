@@ -24,12 +24,6 @@ yarn
 # After the dependencies are installed, the `postinstall` script with trigger `preconstruct dev` which will build all the component packages.
 ```
 
-4. Run the Vite Playground.
-```
-yarn playground:dev
-```
-This will boot the playground server and watches for changes in any package.
-
 > If you run into any issues during these steps, kindly reach out to the Chakra UI
 > Vue team here:[https://discord.gg/cMpMfvxa](https://discord.gg/cMpMfvxa)
 
@@ -38,13 +32,14 @@ There may be some trouble specific to the local setup in Windows. The following 
 
 - The package dependencies and scripts should work with Node `v16.16.0 and higher`
 - If you receive the error `EPERM: operation not permitted, symlink` and mentions `preconstruct`, you will need to enable OS developer mode. See Github issue [#381 for Preconstruct](https://github.com/preconstruct/preconstruct/issues/381)
-- If you receive the error `NODE_ENV is not recognized as an internal or external command`, try the package [win-node-env](https://www.npmjs.com/package/win-node-env)
 
 ## Development
 
 To improve our development process, we've set up tooling and systems. Chakra UI
 uses a monorepo structure and we treat each component as an independent package
 that can be consumed in isolation.
+
+If you are looking to build a new component, and it has been approved by the team, head over to the [components-guide.md](./docs/guides/component-guide.md) to help you get started!
 
 ### Tooling
 
@@ -119,6 +114,8 @@ docs, simply run `yarn build`, and `yarn docs:dev`
 ### Components Development Playground
 
 Build components in isolation with Vite using `yarn playground:dev`
+
+Run `yarn start` in a separate terminal first so the packages are built and a watcher set up for changes.
 
 ## Think you found a bug?
 
