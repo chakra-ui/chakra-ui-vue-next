@@ -1,4 +1,3 @@
-import { cy } from "local-cypress"
 import { h, ref } from "vue"
 import * as Examples from "../examples"
 import { CTag, CTagLabel, CTagCloseButton } from "../src"

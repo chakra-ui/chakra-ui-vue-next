@@ -13,7 +13,11 @@
       >Other button</c-button
     >
     <!-- eslint-disable-next-line -->
-    <c-modal v-model="isOpen" :initial-focus-ref="() => $refs.initialFocus" :final-focus-ref="() => $refs.finalFocus">
+    <c-modal
+      v-model="isOpen"
+      :initial-focus-ref="() => $refs.initialFocus"
+      :final-focus-ref="() => $refs.finalFocus"
+    >
       <c-modal-overlay />
       <c-modal-content>
         <c-modal-header>Modal header</c-modal-header>

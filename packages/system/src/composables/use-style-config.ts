@@ -62,8 +62,8 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
     type ComponentStyles = SystemStyleObject | Record<string, SystemStyleObject>
     const styles = mergeWith({}, baseStyles, sizes, variants) as ComponentStyles
 
-    if (options.isMultiPart && styleConfig.parts) {
-      styleConfig.parts.forEach((part: string) => {
+    if (options.isMultiPart && styleConfig?.parts) {
+      styleConfig?.parts?.forEach((part: string) => {
         styles[part] = styles[part] ?? {}
       })
     }

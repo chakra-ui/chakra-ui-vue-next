@@ -1,4 +1,3 @@
-import { cy } from "local-cypress"
 import { h, ref } from "vue"
 
 import { CAvatar } from "../src"
@@ -8,13 +7,13 @@ describe("CAvatar", () => {
   it("has no accessibility violation", () => {
     Object.entries(Examples).map(([name, example]) => {
       it(`renders ${name} successfully`, () => {
-        cy.mount(h(() => example.default)).checkA11y()
+        cy.mount(example.default).checkA11y()
       })
     })
   })
 
   it("renders with default svg", () => {
-    cy.mount(() => h(() => <CAvatar />))
+    cy.mount(() => h(CAvatar))
 
     cy.get("svg")
   })

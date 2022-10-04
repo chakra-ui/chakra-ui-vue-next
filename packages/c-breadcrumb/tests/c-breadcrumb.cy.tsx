@@ -1,20 +1,19 @@
 import * as Examples from "../examples"
 import { h } from "vue"
-// import { cy } from 'local-cypress'
 import { CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink } from "../src"
-import { CIcon } from "../../c-icon/src"
+import { CIcon } from "@chakra-ui/c-icon"
 
 describe("Breadcrumb Examples", () => {
   Object.entries(Examples).map(([name, example]: any) => {
     it(`renders ${name} successfully`, () => {
-      cy.mount(h(() => <example.default></example.default>)).checkA11y()
+      cy.mount(example.default).checkA11y()
     })
   })
 })
 
 const render = (props: any = {}) => {
-  return cy.mount(
-    h(() => (
+  return cy.mount(() => {
+    return h(() => (
       <CBreadcrumb data-testid="breadcrumb" {...props}>
         <CBreadcrumbItem>
           <CBreadcrumbLink href="/">Home</CBreadcrumbLink>
@@ -29,7 +28,7 @@ const render = (props: any = {}) => {
         </CBreadcrumbItem>
       </CBreadcrumb>
     ))
-  )
+  })
 }
 
 describe("ARIA roles and attributes", () => {
@@ -73,8 +72,8 @@ describe("Separator tests", () => {
 
   it("should render separator as Functional component if provided", () => {
     const Sun = () => <CIcon data-testid="custom-separator" name="sun" />
-    cy.mount(
-      h(() => (
+    cy.mount(() => {
+      return h(() => (
         <CBreadcrumb separator={Sun} data-testid="breadcrumb">
           <CBreadcrumbItem>
             <CBreadcrumbLink href="/">Home</CBreadcrumbLink>
@@ -89,7 +88,7 @@ describe("Separator tests", () => {
           </CBreadcrumbItem>
         </CBreadcrumb>
       ))
-    )
+    })
       .get("[data-testid=breadcrumb] > ol > li")
       .find("[data-testid=custom-separator]")
       .should("exist")

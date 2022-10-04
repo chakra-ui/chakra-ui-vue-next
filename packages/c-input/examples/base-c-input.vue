@@ -3,14 +3,8 @@
     <c-v-stack>
       <chakra.div>value: {{ input }}</chakra.div>
       <pre>{{ input }}</pre>
-      <c-input v-model="input" />
+      <c-input v-model="input" data-testid="input" />
     </c-v-stack>
-    <chakra.input
-      v-model="input"
-      @input="handleInput"
-      placeholder="Raw input"
-      type="text"
-    />
   </chakra.div>
 </template>
 
@@ -18,7 +12,7 @@
 import { ref } from "vue"
 import { chakra } from "@chakra-ui/vue-next"
 
-const input = ref("")
+const input = ref("hello")
 
 function handleInput(val: Event) {
   console.log("input", val)
