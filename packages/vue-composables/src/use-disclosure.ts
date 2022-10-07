@@ -20,7 +20,9 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
 
   const isOpenState = ref(defaultIsOpen || false)
 
-  const isOpen = ref<boolean>()
+  const isOpen = ref<boolean>(
+    isOpenProp !== undefined ? isOpenProp : isOpenState.value
+  )
 
   const isControlled = isOpenProp !== undefined
 
@@ -64,8 +66,7 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
   const disclosureProps = ref<HTMLAttributes>()
 
   watchEffect(() => {
-    isOpen.value = isOpenProp !== undefined ? isOpenProp : isOpenState.value
-
+    isOpen.value = isOpenState.value
     buttonProps.value = {
       "aria-expanded": isOpen.value,
       "aria-controls": id.value,
@@ -81,7 +82,7 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
   })
 
   return {
-    isOpen: isOpen.value,
+    isOpen,
     onOpen,
     onClose,
     onToggle,
