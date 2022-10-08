@@ -13,7 +13,7 @@
     </c-drawer-content>
   </c-drawer>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { useDisclosure } from "../src/use-disclosure"
 
 const { onOpen, onClose, isOpen } = useDisclosure()
