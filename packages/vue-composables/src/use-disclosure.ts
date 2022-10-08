@@ -9,6 +9,10 @@ export interface UseDisclosureProps {
   id?: string
 }
 
+/**
+ * Handles common open, close, or toggle scenarios.
+ * It can be used to control feedback components such as `Modal`, `AlertDialog`, `Drawer`, etc.
+ */
 export function useDisclosure(props: UseDisclosureProps = {}) {
   const {
     isOpen: isOpenProp,
