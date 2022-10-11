@@ -50,39 +50,37 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
   const onToggle = () => (isOpen.value ? onClose() : onOpen())
 
   /**
-   * Ref object containing the HTML attributes for the button that
+   * Computed object containing the HTML attributes for the button that
    * is triggering the disclosure state
    *
    * `NOTE:` Pass this to the v-bind of the element.
    *
    * i.e. `v-bind='buttonProps'`
    */
-  const buttonProps = ref<HTMLAttributes>()
+
+  const buttonProps = computed(() => ({
+    "aria-expanded": isOpen.value,
+    "aria-controls": id.value,
+    onClick() {
+      onToggle()
+    },
+  }))
 
   /**
-   * Ref object containing the HTML attributes for the element that
+   * Computed object containing the HTML attributes for the element that
    * is being effected by the disclosure state.
    *
    * `NOTE:` Pass this to the v-bind of the element.
    *
    * i.e. `v-bind='disclosureProps'`
    */
-  const disclosureProps = ref<HTMLAttributes>()
+  const disclosureProps = computed(() => ({
+    hidden: !isOpen.value,
+    id: id.value,
+  }))
 
   watchEffect(() => {
     isOpen.value = isOpenState.value
-    buttonProps.value = {
-      "aria-expanded": isOpen.value,
-      "aria-controls": id.value,
-      onClick() {
-        onToggle()
-      },
-    }
-
-    disclosureProps.value = {
-      hidden: !isOpen.value,
-      id: id.value,
-    }
   })
 
   return {
