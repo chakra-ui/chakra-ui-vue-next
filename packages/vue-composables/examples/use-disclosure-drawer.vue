@@ -1,10 +1,10 @@
 <template>
-  <c-button @click="onOpen">Open Drawer</c-button>
+  <c-button @click="open">Open Drawer</c-button>
   <c-drawer placement="right" v-model="isOpen">
     <c-drawer-overlay />
     <c-drawer-content>
       <c-drawer-header borderBottomWidth="1px">Basic Drawer</c-drawer-header>
-      <c-drawer-close-button @click="onClose" />
+      <c-drawer-close-button @click="close" />
       <c-drawer-body>
         <p>Some contents...</p>
         <p>Some contents...</p>
@@ -16,5 +16,5 @@
 <script lang="ts" setup>
 import { useDisclosure } from "../src/use-disclosure"
 
-const { onOpen, onClose, isOpen } = useDisclosure()
+const { open, close, isOpen } = useDisclosure()
 </script>

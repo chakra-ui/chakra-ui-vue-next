@@ -1,6 +1,6 @@
 <template>
   <c-v-stack gap="4">
-    <c-button @click="onToggle">This is a button</c-button>
+    <c-button @click="toggle">This is a button</c-button>
     <c-center h="4">
       <c-box :hidden="!isOpen">Toggled On with onToggle!</c-box>
     </c-center>
@@ -9,5 +9,5 @@
 <script setup lang="ts">
 import { useDisclosure } from "../src/use-disclosure"
 
-const { onToggle, isOpen } = useDisclosure()
+const { toggle, isOpen } = useDisclosure()
 </script>

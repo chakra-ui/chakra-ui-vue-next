@@ -33,21 +33,21 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
   const uid = useId()
   const id = computed(() => idProp ?? `disclosure-${uid.value}`)
 
-  const onClose = () => {
+  const close = () => {
     if (!isControlled) {
       isOpenState.value = false
     }
     handleClose?.()
   }
 
-  const onOpen = () => {
+  const open = () => {
     if (!isControlled) {
       isOpenState.value = true
     }
     handleOpen?.()
   }
 
-  const onToggle = () => (isOpen.value ? onClose() : onOpen())
+  const toggle = () => (isOpen.value ? close() : open())
 
   /**
    * Computed object containing the HTML attributes for the button that
@@ -62,7 +62,7 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
     "aria-expanded": isOpen.value,
     "aria-controls": id.value,
     onClick() {
-      onToggle()
+      toggle()
     },
   }))
 
@@ -85,9 +85,9 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
 
   return {
     isOpen,
-    onOpen,
-    onClose,
-    onToggle,
+    open,
+    close,
+    toggle,
     isControlled,
     buttonProps,
     disclosureProps,
