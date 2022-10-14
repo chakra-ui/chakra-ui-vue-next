@@ -1,6 +1,6 @@
 import { ThemeProviderProps } from "@chakra-ui/vue-next/src"
-import { render, screen } from "../../test-utils/src"
-import { defineComponent, h, inject } from "vue"
+import { render, screen } from "@chakra-ui/vue-test-utils"
+import { h, defineComponent, inject } from "vue"
 import CThemeProvider from "../src"
 
 let blueString: string
@@ -9,7 +9,7 @@ const ChildComponent = defineComponent({
   setup() {
     const theme = inject<ThemeProviderProps>("$chakraTheme")
     blueString = JSON.stringify(theme?.colors?.blue)
-    return () => h("div", blueString)
+    return () => <div>{blueString}</div>
   },
 })
 

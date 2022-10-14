@@ -1,4 +1,5 @@
 import {
+  h,
   defineComponent,
   Fragment,
   PropType,
