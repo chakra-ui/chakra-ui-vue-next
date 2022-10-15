@@ -9,7 +9,7 @@ const ChildComponent = defineComponent({
   setup() {
     const theme = inject<ThemeProviderProps>("$chakraTheme")
     blueString = JSON.stringify(theme?.colors?.blue)
-    return () => <div>{blueString}</div>
+    return () => h("div", blueString)
   },
 })
 
