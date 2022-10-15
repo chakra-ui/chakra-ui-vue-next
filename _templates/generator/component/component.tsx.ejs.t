@@ -11,7 +11,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/src/<%=h.changeCase.paramCase(nam
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, PropType } from "vue"
+import { defineComponent, h, PropType } from "vue"
 import {
   chakra,
   ComponentWithProps,
