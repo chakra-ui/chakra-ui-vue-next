@@ -7,7 +7,6 @@ import {
   onBeforeMount,
   ref,
   onUnmounted,
-  warn,
 } from "vue"
 import { createPortalTarget, ensureTarget, unmountTarget } from "./portal.utils"
 import { useStackProvider } from "@chakra-ui/vue-composables"
