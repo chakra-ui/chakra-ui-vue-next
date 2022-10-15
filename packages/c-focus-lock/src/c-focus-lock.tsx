@@ -160,20 +160,10 @@ export const CFocusLock = defineComponent({
         return
       }
 
-      return h(
-        cloneVNode(firstChild, {
-          ref: target,
-          ...attrs,
-          "data-chakra-focus-lock": "",
-        }),
-        {},
-        () =>
-          slots?.default?.({
-            enabled,
-            hasFocus,
-            activate,
-            deactivate,
-          })
+      return (
+        <firstChild ref={target} data-chakra-focus-lock="" {...attrs}>
+          {slots?.defaults?.({ enabled, hasFocus, activate, deactivate })}
+        </firstChild>
       )
     }
   },
