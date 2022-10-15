@@ -61,15 +61,10 @@ const CPortal = defineComponent({
     useStackProvider()
 
     return () => {
-      return h(
-        // @ts-ignore
-        Teleport,
-        {
-          ...props,
-          ...attrs,
-          to: target.value,
-        },
-        slots
+      return (
+        <Teleport {...props} {...attrs} to={target.value}>
+          {slots}
+        </Teleport>
       )
     }
   },
