@@ -73,7 +73,7 @@ export const CCloseButton = defineComponent({
           __css={{ ...baseStyles, ...styles.value }}
           {...attrs}
         >
-          {slots.default ? () => getValidChildren(slots) : () => <CCloseIcon />}
+          {() => (slots.default ? getValidChildren(slots) : <CCloseIcon />)}
         </chakra.button>
       )
     }
