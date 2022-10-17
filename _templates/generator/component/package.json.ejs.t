@@ -35,7 +35,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "@chakra-ui/vue-system": "0.1.0-alpha.10"
   },
   "devDependencies": {
-    "vue": "^3.2.27"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
     "vue": "^3.1.4"
