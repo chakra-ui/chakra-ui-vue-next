@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-09-12T04:00:56.880Z
+ * This file was generated on 2022-10-06T19:08:38.068Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -79,6 +79,7 @@ declare module "@vue/runtime-core" {
     CButtonGroup: typeof import("@chakra-ui/vue-next")["CButtonGroup"]
     CIconButton: typeof import("@chakra-ui/vue-next")["CIconButton"]
     CCheckbox: typeof import("@chakra-ui/vue-next")["CCheckbox"]
+    CCheckboxGroup: typeof import("@chakra-ui/vue-next")["CCheckboxGroup"]
     CFocusLock: typeof import("@chakra-ui/vue-next")["CFocusLock"]
     CFormErrorIcon: typeof import("@chakra-ui/vue-next")["CFormErrorIcon"]
     CFormErrorMessage: typeof import("@chakra-ui/vue-next")["CFormErrorMessage"]
@@ -144,7 +145,11 @@ declare module "@vue/runtime-core" {
     CAnimatePresence: typeof import("@chakra-ui/vue-next")["CAnimatePresence"]
     CCollapse: typeof import("@chakra-ui/vue-next")["CCollapse"]
     CMotion: typeof import("@chakra-ui/vue-next")["CMotion"]
+    CPinInput: typeof import("@chakra-ui/vue-next")["CPinInput"]
+    CPinInputField: typeof import("@chakra-ui/vue-next")["CPinInputField"]
     CPortal: typeof import("@chakra-ui/vue-next")["CPortal"]
+    CSkipNavContent: typeof import("@chakra-ui/vue-next")["CSkipNavContent"]
+    CSkipNavLink: typeof import("@chakra-ui/vue-next")["CSkipNavLink"]
     CScrollLock: typeof import("@chakra-ui/vue-next")["CScrollLock"]
     CVisuallyHidden: typeof import("@chakra-ui/vue-next")["CVisuallyHidden"]
     CVisuallyHiddenInput: typeof import("@chakra-ui/vue-next")["CVisuallyHiddenInput"]

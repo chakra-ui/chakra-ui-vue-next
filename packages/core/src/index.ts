@@ -153,6 +153,7 @@ export * from "@chakra-ui/c-modal"
 export * from "@chakra-ui/c-motion"
 
 // P
+export * from "@chakra-ui/c-pin-input"
 export * from "@chakra-ui/c-popper"
 export * from "@chakra-ui/c-portal"
 
