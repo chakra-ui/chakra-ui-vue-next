@@ -7,6 +7,9 @@ import { CShowProps } from "./c-show"
 
 export interface CHideProps extends CShowProps {}
 
+/**
+ * Wrapper component to hide child elements based on breakpoint value
+ */
 export const CHide: ComponentWithProps<CHideProps> = defineComponent({
   props: {
     breakpoint: {
