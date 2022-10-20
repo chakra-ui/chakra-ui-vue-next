@@ -147,6 +147,7 @@ export * from "@chakra-ui/c-input"
 
 // L
 export * from "@chakra-ui/vue-layout"
+export * from "@chakra-ui/c-live-region"
 
 // M
 export * from "@chakra-ui/c-modal"

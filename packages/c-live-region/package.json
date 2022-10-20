@@ -1,0 +1,39 @@
+{
+  "name": "@chakra-ui/c-live-region",
+  "description": "Chakra UI Vue | Live region component",
+  "version": "0.0.0-alpha.0",
+  "main": "dist/chakra-ui-c-live-region.cjs.js",
+  "module": "dist/chakra-ui-c-live-region.esm.js",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/chakra-ui-c-live-region.cjs.js",
+      "default": "./dist/chakra-ui-c-live-region.esm.js"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-live-region",
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-system": "0.1.0-alpha.10"
+  },
+  "devDependencies": {
+    "vue": "^3.2.37"
+  },
+  "peerDependencies": {
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
