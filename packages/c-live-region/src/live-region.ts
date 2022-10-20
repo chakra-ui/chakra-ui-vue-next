@@ -68,6 +68,11 @@ export class LiveRegion {
     }
   }
 
+  /**
+   * Message provided to the region to be read out by the Screen Reader.
+   *
+   * Message can be supplied on trigger of some event (i.e. button click)
+   */
   public speak(message: string) {
     this.clear()
     if (this.region) {
@@ -75,12 +80,18 @@ export class LiveRegion {
     }
   }
 
+  /**
+   * Removes the region.
+   */
   public destroy() {
     if (this.region) {
       this.region.parentNode?.removeChild(this.region)
     }
   }
 
+  /**
+   * Clears the inner text of the region
+   */
   public clear() {
     if (this.region) {
       this.region.innerText = ""
