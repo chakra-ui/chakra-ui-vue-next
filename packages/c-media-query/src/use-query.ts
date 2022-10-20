@@ -11,6 +11,9 @@ export interface UseQueryProps {
   above?: string
 }
 
+/**
+ * Returns a media query value based on theme breakpoint or given query string.
+ */
 export function useQuery(props: UseQueryProps) {
   const { breakpoint = "", below, above } = props
 
