@@ -31,7 +31,7 @@ const CCode = defineComponent({
       return (
         <chakra.code
           as={props.as}
-          _css={{
+          __css={{
             display: "inline-block",
             verticalAlign: "middle",
             fontSize: "sm",
