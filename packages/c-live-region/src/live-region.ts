@@ -1,3 +1,5 @@
+import { HTMLAttributes } from "vue"
+
 function isDom() {
   return Boolean(globalThis?.document)
 }
@@ -29,25 +31,14 @@ export interface LiveRegionOptions {
    * Indicates what types of changes should be presented to the user.
    * @default "all"
    */
-  "aria-relevant"?:
-    | "additions"
-    | "additions removals"
-    | "additions text"
-    | "all"
-    | "removals"
-    | "removals additions"
-    | "removals text"
-    | "text"
-    | "text additions"
-    | "text removals"
-    | undefined
+  "aria-relevant"?: HTMLAttributes["aria-relevant"]
   /**
    * Indicates whether the entire region should be
    * considered as a whole when communicating updates
    *
    * @default true
    */
-  "aria-atomic"?: boolean | "true" | "false"
+  "aria-atomic"?: HTMLAttributes["aria-atomic"]
   /**
    * The node to append the live region node to
    */
