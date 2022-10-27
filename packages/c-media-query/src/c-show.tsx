@@ -41,7 +41,7 @@ export const CShow: ComponentWithProps<CShowProps> = defineComponent({
     const query = useQuery(props)
     return () => {
       return (
-        <CVisibility breakpoint={unref(query)}>
+        <CVisibility breakpoint={query.value}>
           {() => getValidChildren(slots)}
         </CVisibility>
       )

@@ -25,7 +25,7 @@ export const CHide: ComponentWithProps<CHideProps> = defineComponent({
   setup(props, { slots }) {
     const query = useQuery(props)
     return () => (
-      <CVisibility breakpoint={unref(query)} hide>
+      <CVisibility breakpoint={query.value} hide>
         {() => getValidChildren(slots)}
       </CVisibility>
     )
