@@ -168,7 +168,7 @@ export const CFocusLock = defineComponent({
 
       return (
         <clone ref={target} data-chakra-focus-lock="" {...attrs}>
-          {slots?.defaults?.({ enabled, hasFocus, activate, deactivate })}
+          {slots?.default?.({ enabled, hasFocus, activate, deactivate })}
         </clone>
       )
     }
