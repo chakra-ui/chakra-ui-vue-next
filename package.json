@@ -8,7 +8,8 @@
   "workspaces": [
     "packages/*",
     "tooling/*",
-    "website"
+    "website",
+    "website-new"
   ],
   "scripts": {
     "postinstall": "preconstruct dev",
