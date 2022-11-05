@@ -43,6 +43,8 @@
     "predocs:generate": "node ./scripts/dev.js",
     "docs:generate": "yarn pkg @chakra-ui/vue-docs generate",
     "docs:serve": "yarn pkg @chakra-ui/vue-docs serve",
+    "docs:generate:next": "yarn pkg @chakra-ui/vue-docs-next generate",
+    "docs:dev:next": "yarn pkg @chakra-ui/vue-docs-next dev",
     "pkg": "manypkg run",
     "pkgs:check": "manypkg check",
     "pkgs:fix": "manypkg fix",

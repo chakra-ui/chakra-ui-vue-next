@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-10-06T19:08:38.068Z
+ * This file was generated on 2022-11-05T12:25:32.200Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -146,6 +146,7 @@ declare module "@vue/runtime-core" {
     CCollapse: typeof import("@chakra-ui/vue-next")["CCollapse"]
     CMotion: typeof import("@chakra-ui/vue-next")["CMotion"]
     CPinInput: typeof import("@chakra-ui/vue-next")["CPinInput"]
+    CPinInputClearButton: typeof import("@chakra-ui/vue-next")["CPinInputClearButton"]
     CPinInputField: typeof import("@chakra-ui/vue-next")["CPinInputField"]
     CPortal: typeof import("@chakra-ui/vue-next")["CPortal"]
     CSkipNavContent: typeof import("@chakra-ui/vue-next")["CSkipNavContent"]
