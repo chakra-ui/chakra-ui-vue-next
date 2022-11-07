@@ -111,4 +111,22 @@ export default () => {
 ::code-editor{code="<CButton>test</CButton>"}
 ::
 
+```html:live
+<c-stack spacing="4" direction="row" align="center">
+  <c-button size="xs"> Button </c-button>
+  <c-button size="sm"> Button </c-button>
+  <c-button size="md"> Button </c-button>
+  <c-button size="lg"> Button </c-button>
+</c-stack>
+```
+
+```html
+<c-stack spacing="4" direction="row" align="center">
+  <c-button size="xs"> Button </c-button>
+  <c-button size="sm"> Button </c-button>
+  <c-button size="md"> Button </c-button>
+  <c-button size="lg"> Button </c-button>
+</c-stack>
+```
+
 ---
