@@ -16,6 +16,7 @@ import {
   ref,
   unref,
   watchEffect,
+  reactive,
 } from "vue"
 import {
   chakra,
@@ -105,12 +106,12 @@ export const CImage: ComponentWithProps<DeepPartial<CImageProps>> =
       crossOrigin: String as PropType<CImageProps["crossOrigin"]>,
     },
     setup(props, { slots, attrs }) {
-      const rest = {
+      const rest = reactive({
         width: props.htmlWidth,
         height: props.htmlHeight,
         onLoad: props.onLoad,
         onError: props.onError,
-      }
+      })
 
       const providedFallback = computed(
         () => props.fallbackSrc !== undefined || !!slots?.default?.()
