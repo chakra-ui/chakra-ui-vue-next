@@ -1,4 +1,4 @@
-import { h, defineComponent, toRefs, PropType } from "vue"
+import { h, defineComponent, PropType } from "vue"
 import {
   chakra,
   ComponentWithProps,
@@ -21,15 +21,13 @@ export const CTh: ComponentWithProps<DeepPartial<CTableColumnHeaderProps>> =
       isNumeric: Boolean as PropType<CTableColumnHeaderProps["isNumeric"]>,
     },
     setup(props, { slots, attrs }) {
-      const { isNumeric, ...rest } = toRefs(props)
       const styles = useCTableStyles()
 
       return () => (
         <chakra.th
-          {...rest}
           // @ts-ignore `th` prop not being recognized
           __css={styles.value.th}
-          data-is-numeric={isNumeric.value}
+          data-is-numeric={props.isNumeric}
           {...attrs}
         >
           {slots}

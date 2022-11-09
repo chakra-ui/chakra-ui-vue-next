@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, toRefs } from "vue"
+import { h, defineComponent, PropType } from "vue"
 import {
   chakra,
   ComponentWithProps,
@@ -17,16 +17,13 @@ export const CTableContainer: ComponentWithProps<
     overflowX: String as PropType<CTableContainerProps["overflowX"]>,
   },
   setup(props, { slots, attrs }) {
-    const { overflow, overflowX, ...rest } = toRefs(props)
-
     return () => (
       <chakra.div
-        {...rest}
         __css={{
           display: "block",
           whiteSpace: "nowrap",
           WebkitOverflowScrolling: "touch",
-          overflowX: overflow.value ?? overflowX.value ?? "auto",
+          overflowX: props.overflow ?? props.overflowX ?? "auto",
           overflowY: "hidden",
           maxWidth: "100%",
         }}

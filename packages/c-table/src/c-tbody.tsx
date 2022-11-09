@@ -12,12 +12,11 @@ export interface CTableBodyProps extends HTMLChakraProps<"tbody"> {}
 export const CTbody: ComponentWithProps<DeepPartial<CTableBodyProps>> =
   defineComponent({
     name: "CTableBody",
-    setup(props, { slots, attrs }) {
+    setup(_, { slots, attrs }) {
       const styles = useCTableStyles()
 
       return () => (
         <chakra.tbody
-          {...props}
           // @ts-ignore `tbody` prop not being recognized
           __css={styles.value.tbody}
           {...attrs}

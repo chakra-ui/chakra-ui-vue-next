@@ -12,12 +12,11 @@ export interface CTableRowProps extends HTMLChakraProps<"tr"> {}
 export const CTr: ComponentWithProps<DeepPartial<CTableRowProps>> =
   defineComponent({
     name: "CTableRow",
-    setup(props, { slots, attrs }) {
+    setup(_, { slots, attrs }) {
       const styles = useCTableStyles()
 
       return () => (
         <chakra.tr
-          {...props}
           // @ts-ignore `tr` prop not being recognized
           __css={styles.value.tr}
           {...attrs}

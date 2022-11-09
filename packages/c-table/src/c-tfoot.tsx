@@ -12,12 +12,11 @@ export interface CTableFooterProps extends HTMLChakraProps<"tbody"> {}
 export const CTfoot: ComponentWithProps<DeepPartial<CTableFooterProps>> =
   defineComponent({
     name: "CTableFooter",
-    setup(props, { slots, attrs }) {
+    setup(_, { slots, attrs }) {
       const styles = useCTableStyles()
 
       return () => (
         <chakra.tfoot
-          {...props}
           // @ts-ignore `tfoot` prop not being recognized
           __css={styles.value.tfoot}
           {...attrs}

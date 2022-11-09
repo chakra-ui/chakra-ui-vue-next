@@ -1,4 +1,4 @@
-import { h, defineComponent, PropType, toRefs } from "vue"
+import { h, defineComponent, PropType } from "vue"
 import {
   chakra,
   ComponentWithProps,
@@ -23,13 +23,10 @@ export const CTableCaption: ComponentWithProps<
     placement: String as PropType<CTableCaptionProps["placement"]>,
   },
   setup(props, { slots, attrs }) {
-    const { placement, ...rest } = toRefs(props)
-
     const styles = useCTableStyles()
 
     return () => (
       <chakra.caption
-        {...rest}
         __css={{
           // @ts-ignore Not recognizing `caption` in the object
           ...styles.value.caption,

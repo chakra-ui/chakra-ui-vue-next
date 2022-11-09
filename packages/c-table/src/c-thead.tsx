@@ -12,12 +12,11 @@ export interface CTHeadProps extends HTMLChakraProps<"thead"> {}
 export const CThead: ComponentWithProps<DeepPartial<CTHeadProps>> =
   defineComponent({
     name: "CTableHead",
-    setup(props, { slots, attrs }) {
+    setup(_, { slots, attrs }) {
       const styles = useCTableStyles()
 
       return () => (
         <chakra.thead
-          {...props}
           // @ts-ignore `thead` prop not being recognized
           __css={styles.value.thead}
           {...attrs}
