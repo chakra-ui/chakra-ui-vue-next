@@ -51,8 +51,6 @@ export const CTable: ComponentWithProps<DeepPartial<CTableProps>> =
 
       CTableStylesProvider(styles)
 
-      styles.value.th
-
       return () => (
         <chakra.table __css={styles.value.table} {...ownProps.value}>
           {slots}
