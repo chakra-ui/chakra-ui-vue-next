@@ -17,16 +17,9 @@ export interface ImgProps extends HTMLChakraProps<"img">, NativeImageOptions {}
 export const CImg: ComponentWithProps<DeepPartial<CImageProps>> =
   defineComponent({
     name: "CImg",
-    setup(props, { attrs }) {
+    setup(_, { attrs }) {
       return () => {
-        return (
-          <chakra.img
-            as={CNativeImage}
-            class="chakra-image"
-            {...props}
-            {...attrs}
-          />
-        )
+        return <chakra.img as={CNativeImage} class="chakra-image" {...attrs} />
       }
     },
   })
