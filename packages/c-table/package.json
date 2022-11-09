@@ -1,0 +1,40 @@
+{
+  "name": "@chakra-ui/c-table",
+  "description": "Chakra UI Vue | C table component",
+  "version": "0.0.0-alpha.0",
+  "main": "dist/chakra-ui-c-table.cjs.js",
+  "module": "dist/chakra-ui-c-table.esm.js",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/chakra-ui-c-table.cjs.js",
+      "default": "./dist/chakra-ui-c-table.esm.js"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-table",
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-system": "0.1.0-alpha.10",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
+  },
+  "devDependencies": {
+    "vue": "^3.2.37"
+  },
+  "peerDependencies": {
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

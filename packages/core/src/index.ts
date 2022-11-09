@@ -166,6 +166,7 @@ export * from "@chakra-ui/c-spinner"
 export * from "@chakra-ui/c-scroll-lock"
 
 // T
+export * from "@chakra-ui/c-table"
 export * from "@chakra-ui/c-theme-provider"
 export * from "@chakra-ui/c-tag"
 
