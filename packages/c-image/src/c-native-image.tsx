@@ -1,6 +1,5 @@
-import { omit } from "@chakra-ui/utils"
-import { PropsOf } from "@chakra-ui/vue-system"
 import { h, defineComponent, PropType } from "vue"
+import { PropsOf } from "@chakra-ui/vue-system"
 
 export interface NativeImageOptions {
   /**
