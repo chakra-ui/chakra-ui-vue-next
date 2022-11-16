@@ -1,4 +1,3 @@
 <template>
-  Home
   <slot />
 </template>

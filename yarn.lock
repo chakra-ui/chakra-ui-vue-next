@@ -10198,7 +10198,7 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-feather-icons-paths@^1.0.8:
+feather-icons-paths@^1.0.8, feather-icons-paths@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/feather-icons-paths/-/feather-icons-paths-1.1.1.tgz#fa6161e5d459639992847f5fd968705b553d9a97"
   integrity sha512-/tJRkJiRD3U3ZxxAFahlAnFYyYf6FyupwHbWZCi4W+5DAmNeJVvmSXFeDvWY0VT+RTcqqpCdNtT3YnDUfZyTKw==
