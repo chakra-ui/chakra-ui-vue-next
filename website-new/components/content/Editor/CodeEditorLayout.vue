@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps } from "vue"
+import { computed } from "vue"
 import { CBox, useClipboard } from "@chakra-ui/vue-next"
 import { CopyButton, CodeContainer, EditableNotice } from "./CodeEditorParts"
 

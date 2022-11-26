@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps } from "vue"
+import { computed } from "vue"
 
 import { PrismEditor } from "vue-prism-editor"
 import "vue-prism-editor/dist/prismeditor.min.css"
