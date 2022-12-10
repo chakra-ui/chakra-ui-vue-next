@@ -150,6 +150,7 @@ export * from "@chakra-ui/c-input"
 export * from "@chakra-ui/vue-layout"
 
 // M
+export * from "@chakra-ui/c-media-query"
 export * from "@chakra-ui/c-modal"
 export * from "@chakra-ui/c-motion"
 
