@@ -1,4 +1,4 @@
-import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
 import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
@@ -28,9 +28,10 @@ const CCode = defineComponent({
     const styles = useStyleConfig("Code", themingProps)
 
     return () => {
-      return h(
-        chakra(props.as, {
-          __css: {
+      return (
+        <chakra.code
+          as={props.as}
+          __css={{
             display: "inline-block",
             verticalAlign: "middle",
             fontSize: "sm",
@@ -38,10 +39,11 @@ const CCode = defineComponent({
             fontFamily: "mono",
             rounded: "sm",
             ...styles.value,
-          },
-        }),
-        attrs,
-        slots
+          }}
+          {...attrs}
+        >
+          {() => getValidChildren(slots)}
+        </chakra.code>
       )
     }
   },

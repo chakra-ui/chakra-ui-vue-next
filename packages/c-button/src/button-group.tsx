@@ -1,7 +1,11 @@
 import { computed, ComputedRef, defineComponent, h, PropType } from "vue"
 import { SystemProps, SystemStyleObject } from "@chakra-ui/styled-system"
 import { chakra, ThemingProps, ComponentWithProps } from "@chakra-ui/vue-system"
-import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
+import {
+  createContext,
+  getValidChildren,
+  vueThemingProps,
+} from "@chakra-ui/vue-utils"
 
 export interface ButtonGroupProps extends ThemingProps {
   /**
@@ -81,14 +85,15 @@ const CButtonGroup: ComponentWithProps<ButtonGroupProps> = defineComponent({
     })
 
     return () => {
-      return h(
-        chakra("div", { label: "button__group" }),
-        {
-          __css: { ...styles.value },
-          role: "group",
-          ...attrs,
-        },
-        slots
+      return (
+        <chakra.div
+          role="group"
+          __label="button__group"
+          __css={styles.value}
+          {...attrs}
+        >
+          {() => getValidChildren(slots)}
+        </chakra.div>
       )
     }
   },

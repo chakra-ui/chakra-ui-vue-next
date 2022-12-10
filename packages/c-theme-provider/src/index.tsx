@@ -27,7 +27,9 @@ const CThemeProvider: ComponentWithProps<CThemeProviderProps> = defineComponent(
       const pluginTheme = inject("$chakraTheme")
       const applicationTheme = computed(() => props.value || pluginTheme)
       provide("$chakraTheme", applicationTheme.value)
-      return () => h(Fragment, slots.default?.({ $chakraTheme: props.value }))
+      return () => (
+        <Fragment>{slots?.default?.({ $chakraTheme: props.value })}</Fragment>
+      )
     },
   }
 )

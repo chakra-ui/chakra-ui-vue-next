@@ -79,24 +79,20 @@ export const CWrap: ComponentWithProps<WrapProps> = defineComponent({
     }))
 
     const childrenToRender = props.shouldWrapChildren
-      ? getValidChildren(slots).map((child, index) =>
-          h(CWrapItem, { key: index }, child)
-        )
+      ? getValidChildren(slots).map((child, index) => (
+          <CWrapItem key={index}>{child}</CWrapItem>
+        ))
       : slots
 
     return () => {
-      return h(
-        chakra(props.as, {
-          label: "wrap",
-          ...attrs,
-        }),
-        {},
-        () =>
-          h(
-            chakra("ul", { label: "wrap__list", __css: styles.value }),
-            {},
-            childrenToRender
-          )
+      return (
+        <chakra.div as={props.as} __label="wrap" {...attrs}>
+          {() => (
+            <chakra.ul __label="wrap__list" __css={styles.value}>
+              {childrenToRender}
+            </chakra.ul>
+          )}
+        </chakra.div>
       )
     }
   },
@@ -107,17 +103,14 @@ export interface WrapItemProps extends HTMLChakraProps<"li"> {}
 export const CWrapItem = defineComponent({
   setup(_, { attrs, slots }) {
     return () => {
-      return h(
-        chakra("li", {
-          label: "wrap__listItem",
-          __css: {
-            display: "flex",
-            alignItems: "flex-start",
-          },
-          ...attrs,
-        }),
-        {},
-        slots
+      return (
+        <chakra.li
+          __label="wrap__listItem"
+          __css={{ display: "flex", alignItems: "flex-start" }}
+          {...attrs}
+        >
+          {() => getValidChildren(slots)}
+        </chakra.li>
       )
     }
   },

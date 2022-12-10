@@ -7,10 +7,10 @@ import {
   onBeforeMount,
   ref,
   onUnmounted,
-  warn,
 } from "vue"
 import { createPortalTarget, ensureTarget, unmountTarget } from "./portal.utils"
 import { useStackProvider } from "@chakra-ui/vue-composables"
+import { getValidChildren } from "@chakra-ui/vue-utils"
 
 export interface CPortalProps extends Omit<TeleportProps, "to"> {
   /**
@@ -61,15 +61,10 @@ const CPortal = defineComponent({
     useStackProvider()
 
     return () => {
-      return h(
-        // @ts-ignore
-        Teleport,
-        {
-          ...props,
-          ...attrs,
-          to: target.value,
-        },
-        slots
+      return (
+        <Teleport {...props} {...attrs} to={target.value}>
+          {slots}
+        </Teleport>
       )
     }
   },
