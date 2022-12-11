@@ -34,7 +34,12 @@
     "@chakra-ui/vue-composables": "0.1.0-alpha.1",
     "@chakra-ui/c-breadcrumb": "1.0.0-alpha.4",
     "@chakra-ui/c-form-control": "0.0.0-alpha.0",
-    "@chakra-ui/c-input": "0.0.0-alpha.0"
+    "@chakra-ui/c-input": "0.0.0-alpha.0",
+    "@chakra-ui/vue-anatomy": "0.0.0-alpha.0",
+    "@chakra-ui/c-avatar": "0.0.0-alpha.0",
+    "@chakra-ui/c-checkbox": "0.0.0-alpha.0",
+    "@chakra-ui/c-tag": "0.0.0-alpha.0",
+    "@chakra-ui/vue-styled": "0.0.0-alpha.0"
   },
   "changesets": [
     "bright-geese-tickle",
@@ -42,10 +47,13 @@
     "dry-mayflies-deny",
     "dull-masks-build",
     "empty-dragons-wait",
+    "forty-bulldogs-know",
+    "fuzzy-walls-shop",
     "gorgeous-tables-mate",
     "honest-bears-tell",
     "khaki-hounds-hunt",
     "kind-tools-camp",
+    "loud-drinks-arrive",
     "metal-tables-poke",
     "neat-rules-cry",
     "old-insects-exist",
@@ -56,11 +64,13 @@
     "rare-ads-impress",
     "selfish-mice-lay",
     "shy-eels-approve",
+    "sixty-rockets-sniff",
     "slimy-bugs-give",
     "spotty-trains-type",
     "sweet-lamps-brake",
     "ten-pandas-run",
     "tricky-olives-live",
+    "twelve-poems-scream",
     "two-moles-worry",
     "wild-chairs-applaud"
   ]
