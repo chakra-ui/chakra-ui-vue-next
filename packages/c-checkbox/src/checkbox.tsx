@@ -62,8 +62,6 @@ const CCheckboxControl = chakra("span", {
   },
 })
 
-console.log("CCheckboxControl", CCheckboxControl)
-
 const CLabel = chakra("label", {
   baseStyle: {
     cursor: "pointer",
