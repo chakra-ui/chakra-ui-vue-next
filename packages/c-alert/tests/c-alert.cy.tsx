@@ -5,7 +5,7 @@ import { CAlert, CAlertDescription, CAlertIcon, CAlertTitle } from "../src"
 describe("Alert Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
-      cy.mount(h(() => <example.default></example.default>)).checkA11y()
+      cy.mount(example.default).checkA11y()
     })
   })
 })
@@ -15,15 +15,15 @@ it("contains the correct role", () => {
 })
 
 it("renders its children", () => {
-  cy.mount(
-    h(() => (
+  cy.mount(() => {
+    return h(() => (
       <CAlert data-testid="alert" variant="left-accent" status="info" mb="3">
         <CAlertIcon mr="2" />
         <CAlertTitle> Info alert </CAlertTitle>
         <CAlertDescription> Something just happened </CAlertDescription>
       </CAlert>
     ))
-  )
+  })
     .get("[data-testid=alert]")
     .should("contain", "Info alert")
     .and("contain", "Something just happened")

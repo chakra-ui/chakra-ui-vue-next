@@ -1,7 +1,7 @@
 <template>
   <c-form-control id="first-name" is-invalid is-required w="400px">
     <c-form-label> First name </c-form-label>
-    <c-textarea placeholder="First Name" />
+    <c-textarea id="first-name" placeholder="First Name" />
     <c-form-helper-text> Keep it very short and sweet! </c-form-helper-text>
     <c-form-error-message>
       <c-form-error-icon />
@@ -26,7 +26,13 @@ const CTextarea = defineComponent({
     const styles = useMultiStyleConfig("Textarea", props)
     const _props = computed(() => toRefs(omitThemingProps(props)))
     const inputProps = useFormControl(_props.value)
-    return () => <chakra.textarea __css={styles.value} {...inputProps.value} />
+    return () => (
+      <chakra.textarea
+        __label="first-name"
+        __css={styles.value}
+        {...inputProps.value}
+      />
+    )
   },
 })
 export default CTextarea

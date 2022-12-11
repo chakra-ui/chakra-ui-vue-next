@@ -136,8 +136,8 @@ export const CTag: ComponentWithProps<CTagProps> = defineComponent({
     )
     const styles = useMultiStyleConfig("Tag", themingProps)
     const tagContainerStyles = computed<SystemStyleObject>(() => ({
-      ...styles.value.container,
-      bg: props.variantColor ?? styles.value.container.bg,
+      ...styles.value?.container,
+      bg: props.variantColor ?? styles.value?.container?.bg,
     }))
 
     return () => (

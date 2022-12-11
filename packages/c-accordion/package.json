@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-accordion",
-  "version": "1.0.0-alpha.11",
+  "version": "0.1.0-alpha.10",
   "main": "dist/chakra-ui-c-accordion.cjs.js",
   "module": "dist/chakra-ui-c-accordion.esm.js",
   "files": [
@@ -20,11 +20,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "1.0.0-alpha.11",
-    "@chakra-ui/c-motion": "1.0.0-alpha.10",
-    "@chakra-ui/utils": "^2.0.3",
-    "@chakra-ui/vue-composables": "1.0.0-alpha.10",
-    "@chakra-ui/vue-system": "1.0.0-alpha.11",
+    "@chakra-ui/c-icon": "1.0.0-alpha.10",
+    "@chakra-ui/c-motion": "0.1.0-alpha.9",
+    "@chakra-ui/utils": "2.0.12",
+    "@chakra-ui/vue-composables": "0.1.0-alpha.9",
+    "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@chakra-ui/vue-utils": "1.0.0-alpha.11",
     "@zag-js/accordion": "^0.1.13",
     "@zag-js/vue": "^0.1.14"

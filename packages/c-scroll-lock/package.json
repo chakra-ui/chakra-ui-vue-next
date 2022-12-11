@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^2.2.2",
-    "@chakra-ui/vue-system": "1.0.0-alpha.11",
+    "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@chakra-ui/vue-utils": "1.0.0-alpha.11",
     "body-scroll-lock": "^3.1.5"
   },

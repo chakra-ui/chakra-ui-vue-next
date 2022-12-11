@@ -18,25 +18,28 @@ git clone https://github.com/<your_github_username>/chakra-ui-vue-next.git
 cd chakra-ui
 ```
 
-3. Build components
-```bash
-yarn build
+3. Install dependencies and bootstrap the project
+```sh
+yarn
+# After the dependencies are installed, the `postinstall` script with trigger `preconstruct dev` which will build all the component packages.
 ```
 
-4. Setup all the dependencies and packages by running `yarn bootstrap`. This
-   command will install dependencies and bootstrap the repo using `lerna`
-```bash
-yarn bootstrap
-```
-
-> If you run into any issues during this step, kindly reach out to the Chakra UI
+> If you run into any issues during these steps, kindly reach out to the Chakra UI
 > Vue team here:[https://discord.gg/cMpMfvxa](https://discord.gg/cMpMfvxa)
+
+## For Windows OS Users
+There may be some trouble specific to the local setup in Windows. The following are suggestions in ensuring the local environment boots up successfully:
+
+- The package dependencies and scripts should work with Node `v16.16.0 and higher`
+- If you receive the error `EPERM: operation not permitted, symlink` and mentions `preconstruct`, you will need to enable OS developer mode. See Github issue [#381 for Preconstruct](https://github.com/preconstruct/preconstruct/issues/381)
 
 ## Development
 
 To improve our development process, we've set up tooling and systems. Chakra UI
 uses a monorepo structure and we treat each component as an independent package
 that can be consumed in isolation.
+
+If you are looking to build a new component, and it has been approved by the team, head over to the [components-guide.md](./docs/guides/component-guide.md) to help you get started!
 
 ### Tooling
 
@@ -57,7 +60,7 @@ cross-component development and builds all components.
 **`yarn bootstrap`**: bootstraps the entire project and symlinks all
 dependencies for cross-component development.
 
-**`yarn dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
+**`yarn playground:dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
 
 **`yarn docs:dev`**: run the documentation site locally.
 
@@ -110,7 +113,9 @@ docs, simply run `yarn build`, and `yarn docs:dev`
 
 ### Components Development Playground
 
-Build components in isolation with Storybook using `yarn dev`
+Build components in isolation with Vite using `yarn playground:dev`
+
+Run `yarn start` in a separate terminal first so the packages are built and a watcher set up for changes.
 
 ## Think you found a bug?
 

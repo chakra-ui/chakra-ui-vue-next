@@ -20,7 +20,7 @@ describe("<Portal />", () => {
     Object.entries(Examples).map(([name, example]) => {
       it(`renders ${name} successfully`, () => {
         cy.mount(example.default).then(({ parentElement }) => {
-          cy.wrap(parentElement).snapshot()
+          cy.wrap(parentElement).screenshot()
         })
       })
     })
@@ -53,15 +53,16 @@ describe("<Portal />", () => {
     Object.assign(target.style, style)
     document.body.appendChild(target)
 
-    cy.mount(
-      <>
-        <CPortal data-testid={portalSelector} to={`#${targetId}`}>
-          {" "}
-          {childText}{" "}
-        </CPortal>
-        {/* <div id={targetId} style={style} /> */}
-      </>
-    )
+    cy.mount(() => {
+      return h(() => (
+        <>
+          <CPortal data-testid={portalSelector} to={`#${targetId}`}>
+            {childText}
+          </CPortal>
+          {/* <div id={targetId} style={style} /> */}
+        </>
+      ))
+    })
       .get(`#${targetId}`)
       .should("contain.text", childText)
       .get(`[data-testid=${portalSelector}]`)

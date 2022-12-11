@@ -1,9 +1,17 @@
 {
-//  "extends": "@vue/tsconfig/tsconfig.node.json",
+  //  "extends": "@vue/tsconfig/tsconfig.node.json",
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "types": ["node", "dom.iterable", "vue", "jest", "components.d.ts", "env.d.ts"],
+    "types": [
+      "node",
+      "dom.iterable",
+      "vue",
+      "jest",
+      "components.d.ts",
+      "env.d.ts",
+      "cypress"
+    ],
     "lib": ["dom", "esnext"],
     "composite": true,
     "declaration": true,
@@ -28,15 +36,25 @@
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/*.tsx",
+    "tooling/**/*.ts",
+    "tooling/**/*.tsx",
+    "tooling/*.tsx",
     "playground/**/*.ts",
     "playground/**/*.tsx",
     "playground/**/*.d.ts",
     "playground/**/*.vue",
     "tests/index.d.ts",
     "**/*.d.ts",
-    "vite.config.ts",
+    "vite.config.ts"
   ],
-  "exclude": ["node_modules", "./@types", "dist", "packages/**/*.test.ts"],
+  "exclude": [
+    "node_modules",
+    "./@types",
+    "dist",
+    "packages/**/*.test.ts",
+    "**/*.cy.tsx",
+    "cypress/**/*.(ts|tsx)",
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",

@@ -37,9 +37,9 @@ const sizes: Record<string, SystemStyleObject> = {
 }
 
 const variants: Record<string, SystemStyleInterpolation> = {
-  outline: (props) => Input.variants.outline(props).field ?? {},
-  flushed: (props) => Input.variants.flushed(props).field ?? {},
-  filled: (props) => Input.variants.filled(props).field ?? {},
+  outline: (props: any) => Input.variants.outline(props).field ?? {},
+  flushed: (props: any) => Input.variants.flushed(props).field ?? {},
+  filled: (props: any) => Input.variants.filled(props).field ?? {},
   unstyled: Input.variants.unstyled.field ?? {},
 }
 

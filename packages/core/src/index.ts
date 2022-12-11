@@ -143,16 +143,19 @@ export * from "@chakra-ui/c-form-control"
 
 // I
 export * from "@chakra-ui/c-icon"
+export * from "@chakra-ui/c-image"
 export * from "@chakra-ui/c-input"
 
 // L
 export * from "@chakra-ui/vue-layout"
 
 // M
+export * from "@chakra-ui/c-media-query"
 export * from "@chakra-ui/c-modal"
 export * from "@chakra-ui/c-motion"
 
 // P
+export * from "@chakra-ui/c-pin-input"
 export * from "@chakra-ui/c-popper"
 export * from "@chakra-ui/c-portal"
 
@@ -160,6 +163,7 @@ export * from "@chakra-ui/c-portal"
 export * from "@chakra-ui/c-reset"
 
 // S
+export * from "@chakra-ui/c-skip-nav"
 export * from "@chakra-ui/c-spinner"
 export * from "@chakra-ui/c-scroll-lock"
 

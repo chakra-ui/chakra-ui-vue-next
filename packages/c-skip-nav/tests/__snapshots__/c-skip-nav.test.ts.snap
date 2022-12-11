@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CSkipNavContent should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-box css-0"
+    data-testid="chakra-skip-nav"
+    id="chakra-skip-nav"
+    tabindex="-1"
+  />
+</DocumentFragment>
+`;
+
+exports[`CSkipNavLink should render properly 1`] = `
+<DocumentFragment>
+  <a
+    class="css-cyzxyu"
+    href="#chakra-skip-nav"
+  />
+</DocumentFragment>
+`;

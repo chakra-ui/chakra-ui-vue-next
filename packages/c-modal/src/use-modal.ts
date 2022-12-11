@@ -8,6 +8,7 @@ import {
   VNodeProps,
   watch,
   watchEffect,
+  reactive,
 } from "vue"
 import { useIds } from "@chakra-ui/vue-composables"
 import {
@@ -102,12 +103,11 @@ export function useModal(options: UseModalOptions) {
 
   const finalFocusElement = computed(() => {
     let finalFocus
-    if (finalFocusRef?.value) {
-      const resolvedFinalFocusRef: MaybeElementRef = isFunction(
-        finalFocusRef.value
-      )
-        ? finalFocusRef.value?.()
-        : finalFocusRef.value
+
+    if (finalFocusRef) {
+      const resolvedFinalFocusRef: MaybeElementRef = isFunction(finalFocusRef)
+        ? finalFocusRef()
+        : finalFocusRef.name
       if (typeof resolvedFinalFocusRef === "string") {
         finalFocus = document.querySelector<FocusableElement & Element>(
           resolvedFinalFocusRef
@@ -241,7 +241,7 @@ export function useModal(options: UseModalOptions) {
     if (event.key === "Escape") {
       event.stopPropagation()
 
-      if (closeOnEsc?.value) {
+      if (closeOnEsc) {
         closeModal()
       }
 

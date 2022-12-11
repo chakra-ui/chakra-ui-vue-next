@@ -28,6 +28,6 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "1.0.0-alpha.11"
+    "@chakra-ui/vue-system": "0.1.0-alpha.10"
   }
 }

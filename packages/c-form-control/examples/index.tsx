@@ -1,5 +1,5 @@
 export * as InputExample from "./input-example.vue"
-export * as SelectExample from "./select-example.vue"
-export * as TextareaExample from "./textarea-example.vue"
+// export * as SelectExample from "./select-example.vue"
+// export * as TextareaExample from "./textarea-example.vue"
 export * as StandaloneFormLabel from "./standalone-formlabel.vue"
 export * as StylingFocus from "./styling-focus.vue"

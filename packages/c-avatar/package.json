@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-avatar",
   "description": "Chakra UI Vue | The avatar component is used to represent user and displays the profile picture initials or fallback icon component",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.0",
   "main": "dist/chakra-ui-c-avatar.cjs.js",
   "module": "dist/chakra-ui-c-avatar.esm.js",
   "author": "Shyrro <zsahmane@gmail.com>",
@@ -25,14 +25,14 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.3",
-    "@chakra-ui/vue-layout": "^1.0.0-alpha.12",
-    "@chakra-ui/vue-system": "^1.0.0-alpha.11",
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11",
-    "@chakra-ui/vue-theme-tools": "1.0.0-alpha.11"
+    "@chakra-ui/utils": "2.0.12",
+    "@chakra-ui/vue-layout": "^0.1.0-alpha.11",
+    "@chakra-ui/vue-system": "^0.1.0-alpha.5",
+    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.10",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
   },
   "devDependencies": {
-    "vue": "^3.2.29"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

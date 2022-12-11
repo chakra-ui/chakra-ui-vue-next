@@ -132,9 +132,7 @@ export const avatarProps = {
 export type CAvatarProps = typeof avatarProps
 
 export const CAvatar: ComponentWithProps<CAvatarProps> = defineComponent({
-  props: {
-    ...avatarProps,
-  },
+  props: avatarProps,
   setup(props, { slots, attrs }) {
     // Props handling
     const mergedProps = computed(() => mergeProps({}, props, attrs))
