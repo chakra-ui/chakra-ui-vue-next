@@ -1029,9 +1029,9 @@
     "@chakra-ui/theme-tools" "^2.0.2"
 
 "@chakra-ui/styled-system@^2.2.2":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-2.3.3.tgz#6152739f817b6c6786a53c8388ea7ab5b338e7cc"
-  integrity sha512-gCvyJkooWeE8NE6uOSkCf/sje7MdM92rx58dDcfHhVer+eYxat4AW4G8i9Tjnk+FWvgiYdqr70+SBWzEmfqn6g==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-2.4.0.tgz#4b50079606331e4e8fda7ea59da9db51b446d40c"
+  integrity sha512-G4HpbFERq4C1cBwKNDNkpCiliOICLXjYwKI/e/6hxNY+GlPxt8BCzz3uhd3vmEoG2vRM4qjidlVjphhWsf6vRQ==
   dependencies:
     csstype "^3.0.11"
     lodash.mergewith "4.6.2"
