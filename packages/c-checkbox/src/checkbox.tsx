@@ -62,6 +62,8 @@ const CCheckboxControl = chakra("span", {
   },
 })
 
+console.log("CCheckboxControl", CCheckboxControl)
+
 const CLabel = chakra("label", {
   baseStyle: {
     cursor: "pointer",
@@ -176,7 +178,9 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const group = useCheckboxGroupContext(computed(() => ({} as unknown)))
+    const group = useCheckboxGroupContext(
+      computed(() => ({} as CheckboxGroupContext))
+    )
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
@@ -314,6 +318,8 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
       const children = getValidChildren(slots)
       const hasChildren = children.length > 0
 
+      console.log("clonedIcon", clonedIcon)
+
       return (
         <chakra.div
           sx={{
@@ -334,7 +340,7 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
                     __css={styles.value.control}
                     {...api.value.controlProps}
                   >
-                    {clonedIcon.value}
+                    {() => clonedIcon.value}
                   </CCheckboxControl>
                   {hasChildren && (
                     <chakra.span
