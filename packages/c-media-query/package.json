@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.10",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.11",
     "@vueuse/core": "4.9.1"
   },
   "devDependencies": {

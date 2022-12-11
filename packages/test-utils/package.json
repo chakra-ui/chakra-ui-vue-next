@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "2.0.12",
-    "@chakra-ui/vue-styled": "0.0.0-alpha.0",
+    "@chakra-ui/vue-styled": "0.0.0-alpha.1",
     "@chakra-ui/vue-theme": "1.0.0-alpha.10",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^13.2.1",
