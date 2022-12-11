@@ -30,7 +30,7 @@
   "dependencies": {
     "@chakra-ui/c-form-control": "0.0.0-alpha.5",
     "@chakra-ui/c-motion": "0.1.0-alpha.9",
-    "@chakra-ui/utils": "2.0.11",
+    "@chakra-ui/utils": "2.0.12",
     "@chakra-ui/vue-composables": "0.1.0-alpha.9",
     "@chakra-ui/vue-system": "0.1.0-alpha.10",
     "@chakra-ui/vue-utils": "0.1.0-alpha.10",
