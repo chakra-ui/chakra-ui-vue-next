@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-color-mode",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.11",
   "main": "dist/chakra-ui-c-color-mode.cjs.js",
   "module": "dist/chakra-ui-c-color-mode.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
