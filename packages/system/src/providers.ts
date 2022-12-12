@@ -4,7 +4,7 @@ import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { ComputedRef } from "@vue/reactivity"
 
 const [StylesProvider, useStyles] = createContext<
-  ComputedRef<Dict<SystemStyleObject> | SystemStyleObject>
+  ComputedRef<Dict<SystemStyleObject>>
 >({
   name: "StylesContext",
   errorMessage:

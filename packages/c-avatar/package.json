@@ -25,14 +25,14 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.3",
+    "@chakra-ui/utils": "2.0.12",
     "@chakra-ui/vue-layout": "^0.1.0-alpha.11",
     "@chakra-ui/vue-system": "^0.1.0-alpha.5",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.10",
-    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.10"
+    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.10",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
   },
   "devDependencies": {
-    "vue": "^3.2.29"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

@@ -158,7 +158,7 @@ export const CheckboxIcon = defineComponent(
 
     return () => (
       <CCheckboxTransition open={props.isChecked || props.isIndeterminate}>
-        {() => <IconEl.value {...attrs} />}
+        <IconEl.value {...attrs} />
       </CCheckboxTransition>
     )
   }

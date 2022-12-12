@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-11-05T12:25:32.200Z
+ * This file was generated on 2022-12-12T05:56:22.565Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -86,6 +86,8 @@ declare module "@vue/runtime-core" {
     CFormLabel: typeof import("@chakra-ui/vue-next")["CFormLabel"]
     CRequiredIndicator: typeof import("@chakra-ui/vue-next")["CRequiredIndicator"]
     CIcon: typeof import("@chakra-ui/vue-next")["CIcon"]
+    CImage: typeof import("@chakra-ui/vue-next")["CImage"]
+    CImg: typeof import("@chakra-ui/vue-next")["CImg"]
     CInput: typeof import("@chakra-ui/vue-next")["CInput"]
     CInputAddon: typeof import("@chakra-ui/vue-next")["CInputAddon"]
     CInputGroup: typeof import("@chakra-ui/vue-next")["CInputGroup"]

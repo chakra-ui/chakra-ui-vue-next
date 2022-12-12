@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-reset",
   "description": "Chakra UI Vue | Chakra ui vue s lobal styles reset component component",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.11",
   "main": "dist/chakra-ui-c-reset.cjs.js",
   "module": "dist/chakra-ui-c-reset.esm.js",
   "exports": {

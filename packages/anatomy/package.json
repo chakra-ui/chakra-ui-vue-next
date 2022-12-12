@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-anatomy",
   "description": "Chakra UI Vue | The anatomy of all chakra components component",
-  "version": "0.0.0-alpha.0",
+  "version": "0.0.0-alpha.1",
   "main": "dist/chakra-ui-vue-anatomy.cjs.js",
   "module": "dist/chakra-ui-vue-anatomy.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

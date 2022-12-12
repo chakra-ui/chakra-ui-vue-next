@@ -143,12 +143,14 @@ export * from "@chakra-ui/c-form-control"
 
 // I
 export * from "@chakra-ui/c-icon"
+export * from "@chakra-ui/c-image"
 export * from "@chakra-ui/c-input"
 
 // L
 export * from "@chakra-ui/vue-layout"
 
 // M
+export * from "@chakra-ui/c-media-query"
 export * from "@chakra-ui/c-modal"
 export * from "@chakra-ui/c-motion"
 

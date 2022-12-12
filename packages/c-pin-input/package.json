@@ -16,10 +16,7 @@
       "default": "./dist/chakra-ui-c-pin-input.esm.js"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-pin-input",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -27,12 +24,12 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.10",
-    "@zag-js/vue": "^0.1.14",
-    "@zag-js/pin-input": "0.1.14",
     "@chakra-ui/c-input": "^0.0.0-alpha.5",
-    "@chakra-ui/utils": "^2.0.3"
+    "@chakra-ui/utils": "2.0.12",
+    "@chakra-ui/vue-system": "0.1.0-alpha.10",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.11",
+    "@zag-js/pin-input": "0.1.14",
+    "@zag-js/vue": "^0.1.14"
   },
   "devDependencies": {
     "vue": "^3.2.37"
