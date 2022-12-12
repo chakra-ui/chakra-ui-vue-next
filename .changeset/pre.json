@@ -39,7 +39,11 @@
     "@chakra-ui/c-avatar": "0.0.0-alpha.0",
     "@chakra-ui/c-checkbox": "0.0.0-alpha.0",
     "@chakra-ui/c-tag": "0.0.0-alpha.0",
-    "@chakra-ui/vue-styled": "0.0.0-alpha.0"
+    "@chakra-ui/vue-styled": "0.0.0-alpha.0",
+    "@chakra-ui/c-image": "0.0.0-alpha.0",
+    "@chakra-ui/c-media-query": "0.0.0-alpha.0",
+    "@chakra-ui/c-pin-input": "0.0.0-alpha.0",
+    "@chakra-ui/c-skip-nav": "0.0.0-alpha.0"
   },
   "changesets": [
     "bright-geese-tickle",
@@ -60,12 +64,14 @@
     "orange-camels-doubt",
     "perfect-brooms-impress",
     "proud-apples-compare",
+    "purple-singers-exist",
     "quiet-bananas-develop",
     "rare-ads-impress",
     "selfish-mice-lay",
     "shy-eels-approve",
     "sixty-rockets-sniff",
     "slimy-bugs-give",
+    "slow-tables-compare",
     "spotty-trains-type",
     "sweet-lamps-brake",
     "ten-pandas-run",

@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-styled",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.2",
   "main": "dist/chakra-ui-vue-styled.cjs.js",
   "module": "dist/chakra-ui-vue-styled.esm.js",
   "files": [
@@ -20,7 +20,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.12",
     "@emotion/cache": "^11.7.1",
     "@emotion/css": "^11.7.1",
     "@emotion/serialize": "^1.0.2",
