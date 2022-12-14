@@ -91,6 +91,7 @@ export const CTextarea = defineComponent({
     }
 
     return () => (
+      // @ts-ignore Type error coming from the factory
       <chakra.textarea
         __chakraIsRaw
         {...textarea.value}
