@@ -1,5 +1,5 @@
 import { computed, Plugin, ref, UnwrapRef } from "vue"
-import defaultTheme from "@chakra-ui/vue-theme"
+import { theme as defaultTheme, baseTheme } from "@chakra-ui/vue-theme"
 import type { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
@@ -7,9 +7,13 @@ import {
   EmotionThemeContextSymbol,
   EmotionCacheInjectionSymbol,
 } from "@chakra-ui/vue-styled"
+import {
+  extendTheme,
+  extendBaseTheme,
+  ThemeOverride,
+} from "@chakra-ui/theme-utils"
 import createCache, { EmotionCache } from "@emotion/cache"
 import internalIcons from "./icon.internals"
-import { extendTheme, ThemeOverride } from "./extend-theme"
 import { MergedIcons, parseIcons } from "./parse-icons"
 import { injectResetStyles, injectThemeGlobalStyles } from "./helpers/css-reset"
 import { mode } from "@chakra-ui/vue-theme-tools"
@@ -33,11 +37,15 @@ export function extendChakra(
 }
 
 const ChakraUIVuePlugin: Plugin = {
-  install(app, options: ChakraPluginOptions = { cssReset: true }) {
+  install(
+    app,
+    options: ChakraPluginOptions = { cssReset: true, isBaseTheme: false }
+  ) {
     // 1. Get theme value
     // 2. Parse theme tokens to CSS variables
     // 3. Inject all CSS variables as theme object
-    const theme = options.extendTheme || defaultTheme
+    const theme =
+      options.extendTheme || (options.isBaseTheme ? baseTheme : defaultTheme)
     const computedTheme = computed<WithCSSVar<ThemeOverride>>(() =>
       toCSSVar(theme)
     )
@@ -106,7 +114,7 @@ const ChakraUIVuePlugin: Plugin = {
 export type { ChakraPluginOptions }
 export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
-export { extendTheme }
+export { extendTheme, extendBaseTheme }
 
 // Export chakra factory function
 export { chakra }
