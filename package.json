@@ -59,7 +59,7 @@
     "docs:build:legacy": "vitepress build docs",
     "docs:serve:legacy": "vitepress serve docs",
     "predocs:dev": "node ./scripts/dev.js",
-    "docs:dev": "yarn pkg @chakra-ui/vue-docs dev",
+    "docs:dev": "yarn pkg @chakra-ui/vue-docs-next dev",
     "predocs:generate": "node ./scripts/dev.js",
     "docs:generate": "yarn pkg @chakra-ui/vue-docs generate",
     "docs:serve": "yarn pkg @chakra-ui/vue-docs serve",

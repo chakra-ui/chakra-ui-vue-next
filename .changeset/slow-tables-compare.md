@@ -40,7 +40,7 @@
 "@chakra-ui/vue-a11y": minor
 "@chakra-ui/vue-composables": minor
 "@chakra-ui/vue-auto-import": minor
-"@chakra-ui/vue-docs": minor
+
 ---
 
 Create Media Query, Avatar, Counter and Checkbox Components"

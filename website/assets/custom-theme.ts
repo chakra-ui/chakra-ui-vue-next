@@ -1,9 +1,9 @@
-import { extendTheme } from "@chakra-ui/vue-next"
-import { textStyles } from "~/theme/text-styles"
-import { globalStyles } from "~/theme/global-styles"
-import "@fontsource/ibm-plex-mono"
-import "@fontsource/dm-sans"
-import { semanticTokens } from "~/theme/semantic-tokens"
+import { extendTheme } from "@chakra-ui/vue-next";
+import { textStyles } from "~/theme/text-styles";
+import { globalStyles } from "~/theme/global-styles";
+import "@fontsource/ibm-plex-mono";
+import "@fontsource/dm-sans";
+import { semanticTokens } from "~/theme/semantic-tokens";
 
 export default extendTheme({
   colors: {
@@ -41,4 +41,4 @@ export default extendTheme({
   },
   textStyles,
   semanticTokens,
-})
+});

@@ -1,1 +1,0 @@
-import"./SponsorButton.vue_vue_type_script_setup_true_lang.bdb0804e.js";import{_ as t}from"./SponsorButton.vue_vue_type_script_setup_true_lang.bdb0804e.js";import"./entry.ade65d11.js";export{t as default};

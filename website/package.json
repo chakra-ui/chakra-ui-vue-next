@@ -1,28 +1,19 @@
 {
   "name": "@chakra-ui/vue-docs-next",
-  "version": "0.1.0",
-  "description": "Website for Chakra UI Vue Next",
-  "main": "index.html",
+  "version": "1.0.0-alpha.2",
   "private": true,
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/website",
-  "author": "Jonathan Bakebwa codebender828@gmail.com",
   "scripts": {
-    "clean": "rimraf dist",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "clean": "echo 'Cleaning...'",
+    "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.1.1",
-    "add": "^2.0.6",
-    "nuxt": "^3.0.0"
-  },
-  "dependencies": {
-    "@babel/core": "^7.12.9",
-    "@chakra-ui/vue-next": "1.0.0-alpha.13",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
+    "@nuxt/content": "^2.2.2",
+    "nuxt": "^3.0.0",
+    "@chakra-ui/vue-next": "1.0.0-alpha.16",
+    "@chakra-ui/vue-system": "1.0.0-alpha.13",
     "@emotion/css": "^11.9.0",
     "@emotion/server": "^11.4.0",
     "@fontsource/dm-sans": "^4.5.9",

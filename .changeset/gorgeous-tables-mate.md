@@ -31,7 +31,7 @@
 "@chakra-ui/vue-a11y": patch
 "@chakra-ui/vue-composables": patch
 "@chakra-ui/vue-auto-import": patch
-"@chakra-ui/vue-docs": patch
+
 ---
 
 Rewrite focus trap logic

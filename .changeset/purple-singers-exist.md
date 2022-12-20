@@ -40,7 +40,6 @@
 "@chakra-ui/vue-a11y": major
 "@chakra-ui/vue-composables": major
 "@chakra-ui/vue-auto-import": major
-"@chakra-ui/vue-docs": major
 ---
 
 Release @chakra-ui/vue-next@1.0.0-alpha.14

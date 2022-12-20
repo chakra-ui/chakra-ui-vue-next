@@ -1,1 +1,0 @@
-import{a,o,c as r,w as t,aM as s,u as n,f as p}from"./entry.ade65d11.js";const i=a({__name:"ProseTd",setup(c){return(e,d)=>(o(),r(n(p).td,{p:"2",borderTopWidth:"1px",borderColor:"inherit",fontSize:"sm",whiteSpace:"normal"},{default:t(()=>[s(e.$slots,"default")]),_:3}))}});export{i as default};

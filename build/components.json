@@ -1,4 +1,5 @@
 {
+  "CReset": {},
   "CAccordion": {
     "name": "CAccordion",
     "props": {
@@ -440,9 +441,6 @@
       }
     }
   },
-  "CFormHelperText": {
-    "name": ""
-  },
   "CFormErrorIcon": {
     "name": "CFormErrorIcon",
     "props": {
@@ -453,6 +451,9 @@
   "CFormErrorMessage": {
     "name": "CFormErrorMessage",
     "props": {}
+  },
+  "CFormHelperText": {
+    "name": ""
   },
   "CFormLabel": {
     "name": "CFormLabel",
@@ -1195,14 +1196,14 @@
       null
     ]
   },
-  "CShow": {
+  "CHide": {
     "props": {
       "breakpoint": {},
       "above": {},
       "below": {}
     }
   },
-  "CHide": {
+  "CShow": {
     "props": {
       "breakpoint": {},
       "above": {},
@@ -1461,21 +1462,6 @@
   "CModalOverlay": {
     "name": "CModalOverlay"
   },
-  "CMotion": {
-    "name": "CMotion",
-    "props": {
-      "as": {
-        "type": [
-          null,
-          null
-        ],
-        "default": "div"
-      },
-      "type": {
-        "default": "fade"
-      }
-    }
-  },
   "CAnimatePresence": {
     "name": "CAnimatePresence",
     "props": {
@@ -1523,6 +1509,21 @@
       "entered",
       "left"
     ]
+  },
+  "CMotion": {
+    "name": "CMotion",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "div"
+      },
+      "type": {
+        "default": "fade"
+      }
+    }
   },
   "CPinInput": {
     "name": "CPinInput",
@@ -1620,7 +1621,6 @@
     "name": "CPortal",
     "props": {}
   },
-  "CReset": {},
   "CSkipNavContent": {
     "name": "CSkipNavContent",
     "props": {

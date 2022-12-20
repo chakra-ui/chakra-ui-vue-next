@@ -4,6 +4,7 @@ import {
   Instance,
   Modifier,
   VirtualElement,
+  State,
 } from "@popperjs/core/lib/popper-lite"
 import {
   nextTick,
@@ -12,6 +13,7 @@ import {
   onUnmounted,
   ref,
   watch,
+  Ref,
 } from "vue"
 import { createPopperFn, CreatePopperOptions } from "./create-popper"
 
@@ -34,7 +36,7 @@ const defaultProps: UsePopperOptions = {
   modifiers: [],
 }
 
-export function usePopper(props: UsePopperOptions = {}) {
+export function usePopper(props: UsePopperOptions = {}): UsePopperReturn {
   const options = {
     ...defaultProps,
     ...filterUndefined(props),
@@ -61,13 +63,16 @@ export function usePopper(props: UsePopperOptions = {}) {
       if (!reference.value || !popper.value) return
       cleanup.value?.()
 
+      // @ts-expect-error Rewrite this hook to use native popper
       popperInstance.value = createPopper.value(reference.value, popper.value, {
         placement,
         modifiers,
         strategy,
       })
 
+      // @ts-expect-error Rewrite this hook to use native popper
       popperInstance.value.forceUpdate()
+      // @ts-expect-error Rewrite this hook to use native popper
       cleanup.value = popperInstance.value.destroy
     })
   }
@@ -96,6 +101,7 @@ export function usePopper(props: UsePopperOptions = {}) {
         setup()
       }
     },
+    // @ts-expect-error Rewrite this hook to use native popper
     referenceEl: reference,
     popper: (el: any) => {
       if (el) {
@@ -103,6 +109,16 @@ export function usePopper(props: UsePopperOptions = {}) {
         setup()
       }
     },
+    // @ts-expect-error Rewrite this hook to use native popper
     popperEl: popper,
   }
+}
+
+export interface UsePopperReturn {
+  update: (() => Promise<Partial<State>>) | undefined
+  forceUpdate: (() => void) | undefined
+  reference: (el: any) => void
+  popper: (el: any) => void
+  referenceEl: Ref<Element | VirtualElement | null>
+  popperEl: Ref<Instance | null>
 }

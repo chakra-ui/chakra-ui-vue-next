@@ -1,1 +1,0 @@
-import{a,o as s,c as t,w as r,aM as o,u as n,bO as l}from"./entry.ade65d11.js";const d=a({__name:"ProseOl",setup(u){return(e,c)=>(s(),t(n(l),null,{default:r(()=>[o(e.$slots,"default")]),_:3}))}});export{d as default};

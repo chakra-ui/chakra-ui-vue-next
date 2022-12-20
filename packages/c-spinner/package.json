@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-spinner",
   "description": "Chakra UI Vue | Visual cue that an action is either processing awaiting a course of change or a result component",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.13",
   "main": "dist/chakra-ui-c-spinner.cjs.js",
   "module": "dist/chakra-ui-c-spinner.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -28,11 +28,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-visually-hidden": "1.0.0-alpha.11",
+    "@chakra-ui/c-visually-hidden": "1.0.0-alpha.14",
     "@chakra-ui/utils": "2.0.12",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-theme": "1.0.0-alpha.10",
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
+    "@chakra-ui/vue-system": "1.0.0-alpha.13",
+    "@chakra-ui/vue-theme": "1.0.0-alpha.13",
+    "@chakra-ui/vue-utils": "1.0.0-alpha.14"
   },
   "devDependencies": {
     "vue": "^3.2.37"

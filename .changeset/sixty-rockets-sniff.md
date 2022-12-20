@@ -33,7 +33,7 @@
 "@chakra-ui/vue-a11y": minor
 "@chakra-ui/vue-composables": minor
 "@chakra-ui/vue-auto-import": minor
-"@chakra-ui/vue-docs": minor
+
 ---
 
 Created accordion component and migrated to Zag.js

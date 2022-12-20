@@ -1,12 +1,5 @@
 <template>
   <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <NuxtPage />
   </div>
 </template>
-
-<script>
-import "@fontsource/ibm-plex-mono"
-import "@fontsource/dm-sans"
-</script>

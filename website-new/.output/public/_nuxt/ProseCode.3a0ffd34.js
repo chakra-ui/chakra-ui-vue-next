@@ -1,1 +1,0 @@
-import{bH as t,a as n,aM as a}from"./entry.ade65d11.js";const o=n({props:{code:{type:String,default:""},language:{type:String,default:null},filename:{type:String,default:null},highlights:{type:Array,default:()=>[]}}});function r(e,s,l,d,p,u){return a(e.$slots,"default")}const f=t(o,[["render",r]]);export{f as default};

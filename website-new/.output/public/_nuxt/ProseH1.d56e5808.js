@@ -1,1 +1,0 @@
-import{a as t,o,c as s,w as n,aM as r,aN as c}from"./entry.ade65d11.js";const d=t({__name:"ProseH1",props:{id:null},setup(l){return(a,p)=>{const e=c("chakra.h1");return o(),s(e,{id:"skip-nav","text-style":"display.lg",mb:"5",maxW:"85ch",tabIndex:"-1"},{default:n(()=>[r(a.$slots,"default")]),_:3})}}});export{d as default};

@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-anatomy",
   "description": "Chakra UI Vue | The anatomy of all chakra components component",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.4",
   "main": "dist/chakra-ui-vue-anatomy.cjs.js",
   "module": "dist/chakra-ui-vue-anatomy.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,8 +25,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-theme-tools": "0.1.0-alpha.10"
+    "@chakra-ui/vue-system": "1.0.0-alpha.13",
+    "@chakra-ui/vue-theme-tools": "1.0.0-alpha.13"
   },
   "devDependencies": {
     "vue": "^3.2.37"

@@ -23,7 +23,7 @@
 '@chakra-ui/vue-theme-tools': minor
 '@chakra-ui/vue-utils': minor
 '@chakra-ui/vue-auto-import': minor
-'@chakra-ui/vue-docs': minor
+
 ---
 
 Created layout components and updated theminnng types for packages.

@@ -1,7 +1,7 @@
 <script lang="tsx">
 import { defineComponent } from "vue"
 import { useColorModeValue, CBox } from "@chakra-ui/vue-next"
-import pkgJSON from "../../packages/core/package.json"
+import pkgJSON from "../package.json"
 export default {}
 
 const versions = [
