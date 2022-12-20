@@ -1,5 +1,3 @@
-import highlightjs from "highlight.js"
-
 export default defineNuxtConfig({
   nitro: {
     prerender: {
@@ -8,10 +6,12 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/content"],
   build: {
+    // @ts-ignore
     extend(config: { resolve: { alias: { vue$: string } } }, _ctx: any) {
       config.resolve.alias.vue$ = "vue/dist/vue.esm-browser.js"
     },
   },
+  plugins: ["~/plugins/chakra.client.ts"],
   css: ["~/styles/prism.scss"],
   content: {
     documentDriven: true,

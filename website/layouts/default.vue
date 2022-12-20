@@ -54,6 +54,7 @@ const { path } = useRoute()
       >
         <chakra.div :mr="{ xl: '15.5rem' }">
           <slot />
+
           <c-h-stack align-items="center" mt="6">
             <c-icon name="info" />
             <p>Edit this page on GitHub</p>

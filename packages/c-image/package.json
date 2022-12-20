@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-image",
   "description": "Chakra UI Vue | Image component",
-  "version": "0.0.0-alpha.0",
+  "version": "0.0.0",
   "main": "dist/chakra-ui-c-image.cjs.js",
   "module": "dist/chakra-ui-c-image.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "2.0.12",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
+    "@chakra-ui/vue-system": "1.0.0",
     "lodash": "4.17.21"
   },
   "devDependencies": {

@@ -50,12 +50,3 @@ const CIconButton: ComponentWithProps<DeepPartial<CIconButtonProps>> =
   })
 
 export default CIconButton
-
-export const Foo = defineComponent((props, { slots }) => {
-  return () => (
-    <div>
-      <span data-foo>Hello</span>
-      {slots}
-    </div>
-  )
-})

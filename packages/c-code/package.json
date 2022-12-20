@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-code",
   "description": "Chakra UI Vue | Code is a component used to display inline code. It is composed from the Box component with a font family of mono for displaying code",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0",
   "main": "dist/chakra-ui-c-code.cjs.js",
   "module": "dist/chakra-ui-c-code.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "2.0.12",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
+    "@chakra-ui/vue-system": "1.0.0",
+    "@chakra-ui/vue-utils": "1.0.0"
   },
   "devDependencies": {
     "vue": "^3.2.37"

@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-skip-nav",
   "description": "Chakra UI Vue | My component description component",
-  "version": "0.0.0-alpha.0",
+  "version": "0.0.0",
   "main": "dist/chakra-ui-c-skip-nav.cjs.js",
   "module": "dist/chakra-ui-c-skip-nav.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,9 +25,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-next": "1.0.0-alpha.13",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
+    "@chakra-ui/vue-next": "1.0.0",
+    "@chakra-ui/vue-system": "1.0.0",
+    "@chakra-ui/vue-utils": "1.0.0"
   },
   "devDependencies": {
     "vue": "^3.2.37"

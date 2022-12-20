@@ -5,8 +5,6 @@ import TheNavbar from "../components/TheNavbar.vue"
 
 const bg = useColorModeValue("white", "gray.800")
 const color = useColorModeValue("gray.700", "whiteAlpha.900")
-
-// TODO: use vueuse/head
 </script>
 
 <template>

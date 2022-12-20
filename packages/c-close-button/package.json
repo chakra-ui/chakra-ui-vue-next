@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-close-button",
   "description": "Chakra UI Vue | An accessible close button component for chakra ui vue component",
-  "version": "0.1.0-alpha.10",
+  "version": "1.0.0",
   "main": "dist/chakra-ui-c-close-button.cjs.js",
   "module": "dist/chakra-ui-c-close-button.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -28,11 +28,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "1.0.0-alpha.10",
+    "@chakra-ui/c-icon": "1.0.0",
     "@chakra-ui/styled-system": "^2.2.2",
     "@chakra-ui/utils": "2.0.12",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
+    "@chakra-ui/vue-system": "1.0.0",
+    "@chakra-ui/vue-utils": "1.0.0"
   },
   "devDependencies": {
     "vue": "^3.2.37"
