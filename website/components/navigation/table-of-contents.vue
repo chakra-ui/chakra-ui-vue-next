@@ -65,52 +65,52 @@
               >{{ item.text }}</chakra.a
             >
           </nuxt-link>
+          <template v-if="item.children">
+            <chakra.li
+              v-for="nestedItem in item.children"
+              :key="nestedItem._path + nestedItem.id"
+              role="link"
+              :_selected="{
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
+              }"
+              list-style-type="none"
+              :sx="{
+                color: 'currentColor',
+                position: 'relative',
+                '&:after': {
+                  content: `''`,
+                  position: 'absolute',
+                  width: '100%',
+                  transform: 'scaleX(0)',
+                  height: '1px',
+                  top: '85%',
+                  left: 0,
+                  backgroundColor: 'currentColor',
+                  transformOrigin: 'bottom right',
+                  transition: 'transform .4s cubic-bezier(.86, 0, .07, 1)',
+                },
+                '&:hover::after': {
+                  transform: 'scaleX(1)',
+                  transformOrigin: 'bottom left',
+                },
+              }"
+              pl="4"
+            >
+              <nuxt-link :to="`#${item.id}`" custom v-slot="{ href, navigate }">
+                <chakra.a
+                  :href="href"
+                  @click="navigate"
+                  :_hover="{
+                    textDecoration: 'none',
+                  }"
+                >
+                  <chakra.span>—</chakra.span> {{ nestedItem.text }}
+                </chakra.a>
+              </nuxt-link>
+            </chakra.li>
+          </template>
         </chakra.li>
-        <template v-if="item.children">
-          <chakra.li
-            v-for="nestedItem in item.children"
-            :key="nestedItem._path + nestedItem.id"
-            role="link"
-            :_selected="{
-              textDecoration: 'underline',
-              textUnderlineOffset: '2px',
-            }"
-            list-style-type="none"
-            :sx="{
-              color: 'currentColor',
-              position: 'relative',
-              '&:after': {
-                content: `''`,
-                position: 'absolute',
-                width: '100%',
-                transform: 'scaleX(0)',
-                height: '1px',
-                top: '85%',
-                left: 0,
-                backgroundColor: 'currentColor',
-                transformOrigin: 'bottom right',
-                transition: 'transform .4s cubic-bezier(.86, 0, .07, 1)',
-              },
-              '&:hover::after': {
-                transform: 'scaleX(1)',
-                transformOrigin: 'bottom left',
-              },
-            }"
-            pl="4"
-          >
-            <nuxt-link :to="`#${item.id}`" custom v-slot="{ href, navigate }">
-              <chakra.a
-                :href="href"
-                @click="navigate"
-                :_hover="{
-                  textDecoration: 'none',
-                }"
-              >
-                <chakra.span>—</chakra.span> {{ nestedItem.text }}
-              </chakra.a>
-            </nuxt-link>
-          </chakra.li>
-        </template>
       </template>
     </c-stack>
   </chakra.div>
