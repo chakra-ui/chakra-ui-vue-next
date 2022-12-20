@@ -1,5 +1,11 @@
 # @chakra-ui/c-color-mode
 
+## 2.0.0-beta.0
+
+### Major Changes
+
+- Force bump version to `beta` tag
+
 ## 1.0.0
 
 ### Major Changes

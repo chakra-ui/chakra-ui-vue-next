@@ -1,5 +1,17 @@
 # @chakra-ui/c-media-query
 
+## 1.0.0-beta.0
+
+### Major Changes
+
+- Force bump version to `beta` tag
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-system@2.0.0-beta.0
+  - @chakra-ui/vue-utils@2.0.0-beta.0
+
 ## 0.0.0
 
 ### Major Changes

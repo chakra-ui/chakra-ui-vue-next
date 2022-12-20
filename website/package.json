@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-docs-next",
-  "version": "1.0.0",
+  "version": "2.0.0-beta.0",
   "description": "Website for Chakra UI Vue Next",
   "main": "index.html",
   "private": true,
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.12.9",
-    "@chakra-ui/vue-next": "1.0.0",
-    "@chakra-ui/vue-system": "1.0.0",
+    "@chakra-ui/vue-next": "2.0.0-beta.0",
+    "@chakra-ui/vue-system": "2.0.0-beta.0",
     "@emotion/css": "^11.9.0",
     "@emotion/server": "^11.4.0",
     "@fontsource/dm-sans": "^4.5.9",

@@ -1,5 +1,16 @@
 # @chakra-ui/vue-auto-import
 
+## 2.0.0-beta.0
+
+### Major Changes
+
+- Force bump version to `beta` tag
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-next@2.0.0-beta.0
+
 ## 1.0.0
 
 ### Major Changes

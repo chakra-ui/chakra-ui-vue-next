@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-media-query",
   "description": "Chakra UI Vue | Media query components and composables",
-  "version": "0.0.0",
+  "version": "1.0.0-beta.0",
   "main": "dist/chakra-ui-c-media-query.cjs.js",
   "module": "dist/chakra-ui-c-media-query.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,8 +25,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "1.0.0",
-    "@chakra-ui/vue-utils": "1.0.0",
+    "@chakra-ui/vue-system": "2.0.0-beta.0",
+    "@chakra-ui/vue-utils": "2.0.0-beta.0",
     "@vueuse/core": "4.9.1"
   },
   "devDependencies": {

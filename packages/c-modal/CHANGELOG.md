@@ -1,5 +1,24 @@
 # @chakra-ui/c-modal
 
+## 3.0.0-beta.0
+
+### Major Changes
+
+- Force bump version to `beta` tag
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/c-close-button@2.0.0-beta.0
+  - @chakra-ui/c-focus-lock@2.0.0-beta.0
+  - @chakra-ui/c-motion@2.0.0-beta.0
+  - @chakra-ui/c-portal@2.0.0-beta.0
+  - @chakra-ui/c-scroll-lock@2.0.0-beta.0
+  - @chakra-ui/vue-system@2.0.0-beta.0
+  - @chakra-ui/vue-utils@2.0.0-beta.0
+  - @chakra-ui/vue-a11y@2.0.0-beta.0
+  - @chakra-ui/vue-composables@2.0.0-beta.0
+
 ## 2.0.0
 
 ### Major Changes
