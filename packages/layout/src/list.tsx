@@ -137,7 +137,6 @@ export const CListIcon: ComponentWithProps<
     const styles = useStyles()
     return () => {
       return (
-        // @ts-expect-error
         <CIcon role="presentation" {...attrs} __css={styles.value.icon}>
           {slots}
         </CIcon>

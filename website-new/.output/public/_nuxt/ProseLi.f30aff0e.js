@@ -1,0 +1,1 @@
+import{a,o as t,c as s,w as o,aM as r,u as n,bN as p}from"./entry.ade65d11.js";const _=a({__name:"ProseLi",setup(c){return(e,l)=>(t(),s(n(p),{pb:"4px",ml:"12px"},{default:o(()=>[r(e.$slots,"default")]),_:3}))}});export{_ as default};

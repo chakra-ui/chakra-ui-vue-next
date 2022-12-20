@@ -43,7 +43,10 @@ export function getStackStyles(options: Options) {
 
   return {
     flexDirection: direction,
-    [selector]: mapResponsive(direction, (value) => directionStyles[value]),
+    [selector]: mapResponsive(
+      direction,
+      (value) => directionStyles[value as keyof directionStyles]
+    ),
   }
 }
 

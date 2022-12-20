@@ -1,0 +1,1 @@
+import{bH as a,o,c as s,w as r,aM as c,aN as n}from"./entry.ade65d11.js";const l={};function _(e,f){const t=n("chakra.h4");return o(),s(t,{"text-style":"display.xs",mt:"6",mb:"2"},{default:r(()=>[c(e.$slots,"default")]),_:3})}const m=a(l,[["render",_]]);export{m as default};

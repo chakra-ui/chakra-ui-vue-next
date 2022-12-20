@@ -83,6 +83,73 @@
   "CAlertTitle": {
     "name": "CAlertTitle"
   },
+  "CAvatar": {
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "span"
+      },
+      "src": {
+        "default": ""
+      },
+      "name": {
+        "default": ""
+      },
+      "initials": {
+        "default": ""
+      }
+    }
+  },
+  "CAvatarBadge": {
+    "props": {}
+  },
+  "CAvatarGroup": {
+    "props": {
+      "max": {
+        "default": 2
+      },
+      "spacing": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "justify": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "align": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "direction": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "shouldWrapChildren": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "CAvatarText": {
+    "props": {
+      "text": {
+        "default": ""
+      }
+    }
+  },
   "CBreadcrumb": {
     "name": "CBreadcrumb",
     "props": {
@@ -202,6 +269,48 @@
         "required": true
       }
     }
+  },
+  "CCheckbox": {
+    "name": "CCheckbox",
+    "props": {
+      "modelValue": {
+        "default": false
+      },
+      "value": [
+        null,
+        null
+      ],
+      "spacing": {
+        "type": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "default": "0.5rem"
+      },
+      "iconSize": [
+        null,
+        null
+      ]
+    },
+    "emits": [
+      "change",
+      "update:modelValue"
+    ]
+  },
+  "CCheckboxGroup": {
+    "name": "CCheckboxGroup",
+    "props": {
+      "modelValue": {},
+      "isDisabled": {
+        "default": false
+      }
+    },
+    "emits": [
+      "change",
+      "update:modelValue"
+    ]
   },
   "CCloseButton": {
     "props": {
@@ -369,6 +478,32 @@
       ]
     }
   },
+  "CImage": {
+    "name": "CImage",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "img"
+      },
+      "fallbackStrategy": {
+        "default": "beforeLoadOrError"
+      },
+      "htmlWidth": [
+        null,
+        null
+      ],
+      "htmlHeight": [
+        null,
+        null
+      ]
+    }
+  },
+  "CImg": {
+    "name": "CImg"
+  },
   "CInput": {
     "name": "CInput",
     "props": {
@@ -457,25 +592,6 @@
       }
     }
   },
-  "CCircle": {
-    "name": "CCircle"
-  },
-  "CSquare": {
-    "name": "CSquare",
-    "props": {
-      "size": [
-        null,
-        null,
-        null
-      ],
-      "centerContent": {
-        "type": [
-          null
-        ],
-        "default": true
-      }
-    }
-  },
   "CCenter": {
     "name": "CCenter",
     "props": {
@@ -487,6 +603,9 @@
         "default": "div"
       }
     }
+  },
+  "CCircle": {
+    "name": "CCircle"
   },
   "CContainer": {
     "name": "CContainer",
@@ -648,8 +767,71 @@
       ]
     }
   },
+  "CHStack": {
+    "name": "CHStack",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "div"
+      },
+      "align": [
+        null,
+        null,
+        null
+      ],
+      "justify": [
+        null,
+        null,
+        null
+      ],
+      "wrap": [
+        null,
+        null,
+        null
+      ],
+      "spacing": {
+        "type": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "default": "0.5rem"
+      },
+      "direction": [
+        null,
+        null,
+        null
+      ],
+      "divider": [
+        null,
+        null
+      ],
+      "shouldWrapChildren": [
+        null
+      ],
+      "isInline": [
+        null
+      ]
+    }
+  },
   "CHeading": {
     "name": "CHeading",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "h2"
+      }
+    }
+  },
+  "CKbd": {
+    "name": "CKbd",
     "props": {
       "as": {
         "type": [
@@ -736,21 +918,6 @@
   "COrderedList": {
     "name": "COrderedList"
   },
-  "CUnorderedList": {
-    "name": "CUnorderedList"
-  },
-  "CKbd": {
-    "name": "CKbd",
-    "props": {
-      "as": {
-        "type": [
-          null,
-          null
-        ],
-        "default": "h2"
-      }
-    }
-  },
   "CSimpleGrid": {
     "name": "CSimpleGrid",
     "props": {
@@ -796,55 +963,20 @@
   "CSpacer": {
     "name": "CSpacer"
   },
-  "CHStack": {
-    "name": "CHStack",
+  "CSquare": {
+    "name": "CSquare",
     "props": {
-      "as": {
+      "size": [
+        null,
+        null,
+        null
+      ],
+      "centerContent": {
         "type": [
-          null,
           null
         ],
-        "default": "div"
-      },
-      "align": [
-        null,
-        null,
-        null
-      ],
-      "justify": [
-        null,
-        null,
-        null
-      ],
-      "wrap": [
-        null,
-        null,
-        null
-      ],
-      "spacing": {
-        "type": [
-          null,
-          null,
-          null,
-          null
-        ],
-        "default": "0.5rem"
-      },
-      "direction": [
-        null,
-        null,
-        null
-      ],
-      "divider": [
-        null,
-        null
-      ],
-      "shouldWrapChildren": [
-        null
-      ],
-      "isInline": [
-        null
-      ]
+        "default": true
+      }
     }
   },
   "CStack": {
@@ -905,6 +1037,39 @@
   "CStackItem": {
     "name": "CStackItem"
   },
+  "CText": {
+    "name": "CText",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "p"
+      },
+      "align": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "decoration": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "casing": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "CUnorderedList": {
+    "name": "CUnorderedList"
+  },
   "CVStack": {
     "name": "CVStack",
     "props": {
@@ -956,36 +1121,6 @@
       ]
     }
   },
-  "CText": {
-    "name": "CText",
-    "props": {
-      "as": {
-        "type": [
-          null,
-          null
-        ],
-        "default": "p"
-      },
-      "align": [
-        null,
-        null,
-        null,
-        null
-      ],
-      "decoration": [
-        null,
-        null,
-        null,
-        null
-      ],
-      "casing": [
-        null,
-        null,
-        null,
-        null
-      ]
-    }
-  },
   "CWrap": {
     "props": {
       "as": {
@@ -1028,8 +1163,61 @@
     }
   },
   "CWrapItem": {},
-  "CModal": {
-    "name": "CModal",
+  "CWrapProps": {
+    "spacing": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "justify": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "align": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "direction": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "shouldWrapChildren": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "CShow": {
+    "props": {
+      "breakpoint": {},
+      "above": {},
+      "below": {}
+    }
+  },
+  "CHide": {
+    "props": {
+      "breakpoint": {},
+      "above": {},
+      "below": {}
+    }
+  },
+  "CVisibility": {
+    "props": {
+      "breakpoint": {
+        "required": true
+      }
+    }
+  },
+  "CAlertDialog": {
+    "name": "CAlertDialog",
     "props": {
       "modelValue": {
         "default": false
@@ -1074,39 +1262,38 @@
       "onUpdate:modelValue": {},
       "label": {
         "default": "modal"
-      }
+      },
+      "leastDestructiveRef": [
+        null,
+        null
+      ]
     },
     "emits": [
       "update:modelValue",
-      "escape",
-      "closeModal"
+      "close",
+      "escape"
     ]
   },
-  "CModalBody": {
+  "CAlertDialogBody": {
     "name": "CModalBody"
   },
-  "CModalCloseButton": {
+  "CAlertDialogCloseButton": {
     "name": "CModalCloseButton",
     "emits": [
       "click"
     ]
   },
-  "CModalContent": {
-    "name": "CModalContent",
-    "inheritAttrs": false,
-    "emits": [
-      "click",
-      "mousedown",
-      "keydown"
-    ]
+  "CAlertDialogContent": {
+    "name": "CAlertDialogContent",
+    "inheritAttrs": false
   },
-  "CModalFooter": {
+  "CAlertDialogFooter": {
     "name": "CModalFooter"
   },
-  "CModalHeader": {
+  "CAlertDialogHeader": {
     "name": "CModalHeader"
   },
-  "CModalOverlay": {
+  "CAlertDialogOverlay": {
     "name": "CModalOverlay"
   },
   "CDrawer": {
@@ -1193,8 +1380,8 @@
   "CDrawerOverlay": {
     "name": "CModalOverlay"
   },
-  "CAlertDialog": {
-    "name": "CAlertDialog",
+  "CModal": {
+    "name": "CModal",
     "props": {
       "modelValue": {
         "default": false
@@ -1239,38 +1426,39 @@
       "onUpdate:modelValue": {},
       "label": {
         "default": "modal"
-      },
-      "leastDestructiveRef": [
-        null,
-        null
-      ]
+      }
     },
     "emits": [
       "update:modelValue",
-      "close",
-      "escape"
+      "escape",
+      "closeModal"
     ]
   },
-  "CAlertDialogBody": {
+  "CModalBody": {
     "name": "CModalBody"
   },
-  "CAlertDialogCloseButton": {
+  "CModalCloseButton": {
     "name": "CModalCloseButton",
     "emits": [
       "click"
     ]
   },
-  "CAlertDialogContent": {
-    "name": "CAlertDialogContent",
-    "inheritAttrs": false
+  "CModalContent": {
+    "name": "CModalContent",
+    "inheritAttrs": false,
+    "emits": [
+      "click",
+      "mousedown",
+      "keydown"
+    ]
   },
-  "CAlertDialogFooter": {
+  "CModalFooter": {
     "name": "CModalFooter"
   },
-  "CAlertDialogHeader": {
+  "CModalHeader": {
     "name": "CModalHeader"
   },
-  "CAlertDialogOverlay": {
+  "CModalOverlay": {
     "name": "CModalOverlay"
   },
   "CMotion": {
@@ -1336,11 +1524,119 @@
       "left"
     ]
   },
+  "CPinInput": {
+    "name": "CPinInput",
+    "props": {
+      "value": {
+        "default": []
+      },
+      "modelValue": {
+        "default": false
+      },
+      "id": {
+        "default": "0"
+      },
+      "placeholder": {
+        "default": "o"
+      },
+      "type": {
+        "default": "numeric"
+      },
+      "otp": {
+        "default": false
+      },
+      "mask": {
+        "default": false
+      },
+      "blurOnComplete": {
+        "default": false
+      },
+      "dir": {
+        "default": "ltr"
+      },
+      "spacing": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "0.75"
+      }
+    },
+    "emits": [
+      "change",
+      "invalid",
+      "complete",
+      "update:modelValue"
+    ]
+  },
+  "CPinInputClearButton": {
+    "name": "CPinInputClearButton"
+  },
+  "CPinInputField": {
+    "name": "CPinInputField",
+    "props": {
+      "index": {
+        "default": 0
+      }
+    }
+  },
+  "CPinInputProps": {
+    "value": {
+      "default": []
+    },
+    "modelValue": {
+      "default": false
+    },
+    "id": {
+      "default": "0"
+    },
+    "placeholder": {
+      "default": "o"
+    },
+    "type": {
+      "default": "numeric"
+    },
+    "otp": {
+      "default": false
+    },
+    "mask": {
+      "default": false
+    },
+    "blurOnComplete": {
+      "default": false
+    },
+    "dir": {
+      "default": "ltr"
+    },
+    "spacing": {
+      "type": [
+        null,
+        null
+      ],
+      "default": "0.75"
+    }
+  },
   "CPortal": {
     "name": "CPortal",
     "props": {}
   },
   "CReset": {},
+  "CSkipNavContent": {
+    "name": "CSkipNavContent",
+    "props": {
+      "id": {
+        "default": "chakra-skip-nav"
+      }
+    }
+  },
+  "CSkipNavLink": {
+    "name": "CSkipNavLink",
+    "props": {
+      "id": {
+        "default": "chakra-skip-nav"
+      }
+    }
+  },
   "CSpinner": {
     "props": {
       "as": [

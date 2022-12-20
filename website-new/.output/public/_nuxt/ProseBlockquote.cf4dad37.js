@@ -1,0 +1,1 @@
+import{o as t,c as a,w as o,aM as r,u as s,bJ as n}from"./entry.ade65d11.js";const _={__name:"ProseBlockquote",setup(c){return(e,l)=>(t(),a(s(n),{mt:"4",role:"none",status:"warning",variant:"left-accent",as:"blockquote",rounded:"4px",my:"1.5rem"},{default:o(()=>[r(e.$slots,"default")]),_:3}))}};export{_ as default};

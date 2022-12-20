@@ -1,0 +1,1 @@
+import"./VersionSwitcher.vue_vue_type_script_lang.688e9e60.js";import{V as s,_ as t}from"./VersionSwitcher.vue_vue_type_script_lang.688e9e60.js";import"./entry.ade65d11.js";export{s as VersionSwitcher,t as default};

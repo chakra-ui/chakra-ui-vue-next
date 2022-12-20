@@ -1,0 +1,1 @@
+import{a as r,b as s,o as t,c as l,w as n,aM as c,u as e,bK as u}from"./entry.ade65d11.js";const f=r({__name:"ProseCodeInline",setup(p){const o=s("purple.500","purple.200");return(a,d)=>(t(),l(e(u),{color:e(o)},{default:n(()=>[c(a.$slots,"default")]),_:3},8,["color"]))}});export{f as default};

@@ -16,7 +16,7 @@ export interface CCheckboxGroupProps
   extends UseCheckboxGroupProps,
     Omit<ThemingProps<"Checkbox">, "orientation"> {}
 
-type CheckboxGroupContext = ComputedRef<
+export type CheckboxGroupContext = ComputedRef<
   ThemingProps & {
     isDisabled?: boolean
     value: (string | number)[]

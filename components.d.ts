@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-12-12T06:06:24.421Z
+ * This file was generated on 2022-12-14T07:21:51.681Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"

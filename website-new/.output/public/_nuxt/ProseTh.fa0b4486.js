@@ -1,0 +1,1 @@
+import{a as t,b as s,o as r,c as n,w as l,aM as c,u as e,f}from"./entry.ade65d11.js";const i=t({__name:"ProseTh",setup(u){const a=s("gray.50","whiteAlpha.100");return(o,p)=>(r(),n(e(f).th,{bg:e(a),fontWeight:"semibold",p:"2",fontSize:"sm"},{default:l(()=>[c(o.$slots,"default")]),_:3},8,["bg"]))}});export{i as default};

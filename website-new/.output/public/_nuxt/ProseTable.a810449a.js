@@ -1,0 +1,1 @@
+import{a as o,o as s,c as r,w as e,e as l,aM as f,u as a,f as n,C as u}from"./entry.ade65d11.js";const d=o({__name:"ProseTable",setup(c){return(t,_)=>(s(),r(a(u),{overflowX:"auto"},{default:e(()=>[l(a(n).table,{"text-align":"left",mt:"32px",w:"full"},{default:e(()=>[f(t.$slots,"default")]),_:3})]),_:3}))}});export{d as default};

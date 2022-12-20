@@ -44,7 +44,7 @@ import {
 } from "@chakra-ui/c-form-control"
 import { CheckboxIcon } from "./checkbox-icon"
 import { genId } from "@chakra-ui/vue-utils"
-import { useCheckboxGroupContext } from "./checkbox-group"
+import { useCheckboxGroupContext, CheckboxGroupContext } from "./checkbox-group"
 
 /**
  * - Implement checkbox as state machine.
@@ -176,9 +176,7 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const group = useCheckboxGroupContext(
-      computed(() => ({} as CheckboxGroupContext))
-    )
+    const group = useCheckboxGroupContext(computed(() => ({} as any)))
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
