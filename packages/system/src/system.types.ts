@@ -3,8 +3,6 @@ import {
   SystemProps,
   ResponsiveValue,
   StyleProps,
-  ThemeTypings,
-  ThemingProps,
 } from "@chakra-ui/styled-system"
 import { IntrinsicElementAttributes } from "./dom.types"
 
@@ -121,5 +119,3 @@ declare global {
         ChakraProps {}
   }
 }
-
-export { ThemeTypings, ThemingProps }
