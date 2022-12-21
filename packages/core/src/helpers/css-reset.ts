@@ -56,9 +56,12 @@ export function injectThemeGlobalStyles(
       })
 
       let rehydrating = false
-      let node: HTMLStyleElement | null = document.querySelector(
-        `style[data-emotion="${key} ${serializedStyles.value.name}"]`
-      )
+      let node: HTMLStyleElement | null =
+        typeof document !== "undefined"
+          ? document.querySelector(
+              `style[data-emotion="${key} ${serializedStyles.value.name}"]`
+            )
+          : null
 
       if (cache.sheet.tags.length) {
         sheet.before = cache.sheet.tags[0]

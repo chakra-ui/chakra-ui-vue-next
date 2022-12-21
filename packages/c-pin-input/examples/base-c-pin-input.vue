@@ -1,5 +1,5 @@
 <template>
-  <c-pin-input v-model="value">
+  <c-pin-input v-model="value" spacing="1">
     <c-pin-input-field />
     <c-pin-input-field />
     <c-pin-input-field />
