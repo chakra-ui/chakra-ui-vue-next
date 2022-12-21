@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-button",
-  "version": "1.0.0-alpha.10",
+  "version": "2.0.0-beta.0",
   "main": "dist/chakra-ui-c-button.cjs.js",
   "module": "dist/chakra-ui-c-button.esm.js",
   "files": [
@@ -20,11 +20,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "1.0.0-alpha.10",
-    "@chakra-ui/c-spinner": "1.0.0-alpha.10",
+    "@chakra-ui/c-icon": "2.0.0-beta.0",
+    "@chakra-ui/c-spinner": "2.0.0-beta.0",
     "@chakra-ui/utils": "2.0.12",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "1.0.0-alpha.11"
+    "@chakra-ui/vue-system": "2.0.0-beta.0",
+    "@chakra-ui/vue-utils": "2.0.0-beta.0"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-auto-import",
-  "version": "1.0.0-alpha.13",
+  "version": "2.0.0-beta.0",
   "main": "dist/chakra-ui-vue-auto-import.cjs.js",
   "module": "dist/chakra-ui-vue-auto-import.esm.js",
   "files": [
@@ -26,12 +26,12 @@
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-next": "1.0.0-alpha.13",
+    "@chakra-ui/vue-next": "2.0.0-beta.0",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@chakra-ui/vue-next": "1.0.0-alpha.13",
+    "@chakra-ui/vue-next": "2.0.0-beta.0",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.2.37"
   }

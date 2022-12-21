@@ -91,6 +91,7 @@ dist
 .vscode-test
 
 # yarn v2
+.yarn
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
