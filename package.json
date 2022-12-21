@@ -203,5 +203,6 @@
       "packages/*",
       "tooling/*"
     ]
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
