@@ -63,16 +63,13 @@ export function usePopper(props: UsePopperOptions = {}): UsePopperReturn {
       if (!reference.value || !popper.value) return
       cleanup.value?.()
 
-      // @ts-expect-error Rewrite this hook to use native popper
       popperInstance.value = createPopper.value(reference.value, popper.value, {
         placement,
         modifiers,
         strategy,
       })
 
-      // @ts-expect-error Rewrite this hook to use native popper
       popperInstance.value.forceUpdate()
-      // @ts-expect-error Rewrite this hook to use native popper
       cleanup.value = popperInstance.value.destroy
     })
   }
@@ -101,7 +98,6 @@ export function usePopper(props: UsePopperOptions = {}): UsePopperReturn {
         setup()
       }
     },
-    // @ts-expect-error Rewrite this hook to use native popper
     referenceEl: reference,
     popper: (el: any) => {
       if (el) {
