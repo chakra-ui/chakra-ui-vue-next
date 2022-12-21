@@ -15,8 +15,12 @@
     "nohoist": [
       "**/@nuxt/content",
       "**/@nuxt/content/**",
+      "**/@nuxt/vite-builder",
+      "**/@nuxt/vite-builder/**",
       "**/add",
       "**/add/**",
+      "**/nuxt",
+      "**/@nuxt/**",
       "**/nuxt",
       "**/nuxt/**",
       "**/@babel/core",

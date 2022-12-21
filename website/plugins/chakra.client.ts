@@ -1,4 +1,4 @@
-import ChakraUIVuePlugin, { chakra, extendChakra } from "@chakra-ui/vue-next"
+import ChakraUIVuePlugin, { chakra, extendTheme } from "@chakra-ui/vue-next"
 import { domElements } from "@chakra-ui/vue-system"
 
 import customTheme from "../assets/custom-theme"

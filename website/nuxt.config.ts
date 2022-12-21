@@ -4,7 +4,18 @@ export default defineNuxtConfig({
       routes: ["/docs/*", "/getting-started/*"],
     },
   },
-  modules: ["@nuxt/content"],
+  modules: [
+    "@nuxt/content",
+    (options, nuxt) => {
+      nuxt.hook("nitro:config", (config) => {
+        if (nuxt.options.dev) {
+          // Prevent inlining emotion (+ the crucial css cache!) in dev mode
+          config.externals.external ||= []
+          config.externals.external.push("@emotion/server")
+        }
+      })
+    },
+  ],
   build: {
     // @ts-ignore
     extend(config: { resolve: { alias: { vue$: string } } }, _ctx: any) {
