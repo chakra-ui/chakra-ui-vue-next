@@ -68,6 +68,7 @@
     "docs:serve": "yarn pkg @chakra-ui/vue-docs serve",
     "docs:generate:next": "yarn pkg @chakra-ui/vue-docs-next generate",
     "docs:dev:next": "yarn pkg @chakra-ui/vue-docs-next dev",
+    "gen:temp": "mkdir dist && echo '<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><ti\ntle>Chakra UI Vue Docs - Coming Soon</title></head><body><p>Chakra UI Vue Docs - Coming soon. We are currently working to set up the docs site! Come back later for updates</p></body></html>' >> dist/index.html",
     "pkg": "manypkg run",
     "pkgs:check": "manypkg check",
     "pkgs:fix": "manypkg fix",
