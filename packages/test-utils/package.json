@@ -28,5 +28,8 @@
     "@testing-library/vue": "^6.4.2",
     "jest-axe": "^5.0.1",
     "vue": "^3.2.37"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
