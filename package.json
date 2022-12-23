@@ -114,7 +114,6 @@
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.mergewith": "^4.6.6",
-    "@types/react": "file:stub/types__react",
     "@types/recursive-readdir": "^2.2.0",
     "@types/shelljs": "^0.8.9",
     "@types/tinycolor2": "^1.4.2",

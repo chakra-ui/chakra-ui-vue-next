@@ -5378,13 +5378,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@file:stub/types__react::locator=chakra-ui-vue-next%40workspace%3A.":
-  version: 0.0.0
-  resolution: "@types/react@file:stub/types__react#stub/types__react::hash=9ec565&locator=chakra-ui-vue-next%40workspace%3A."
-  checksum: 1e54fb7b3d4073e87783b945cd1a231209784ed825bac308caadaac43dd0b0676f251280fc2228346d0fd434b564ff3e5a8f7d3337e79a3e9f61f39d91435af6
-  languageName: node
-  linkType: hard
-
 "@types/recursive-readdir@npm:^2.2.0":
   version: 2.2.1
   resolution: "@types/recursive-readdir@npm:2.2.1"
@@ -7921,7 +7914,6 @@ __metadata:
     "@types/lodash.camelcase": ^4.3.6
     "@types/lodash.kebabcase": ^4.1.6
     "@types/lodash.mergewith": ^4.6.6
-    "@types/react": "file:stub/types__react"
     "@types/recursive-readdir": ^2.2.0
     "@types/shelljs": ^0.8.9
     "@types/tinycolor2": ^1.4.2
