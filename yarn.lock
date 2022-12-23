@@ -1431,6 +1431,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/anatomy@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@chakra-ui/anatomy@npm:2.1.0"
+  checksum: 76197950a1f6e0ebaec7bba845ad3993e36677f349d75b0fa0fd62719ee9fefaacf97026cd0baaa61033f5b84b44b80c37ee80c36830754576d2ee0ddbd47932
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/anatomy@npm:^2.0.1":
   version: 2.0.1
   resolution: "@chakra-ui/anatomy@npm:2.0.1"
@@ -1848,6 +1855,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@chakra-ui/styled-system@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@chakra-ui/styled-system@npm:2.5.0"
+  dependencies:
+    csstype: ^3.0.11
+    lodash.mergewith: 4.6.2
+  checksum: 805e36893c4eb00cfd18cb2242fc680edfca7d01202d6172708c4a4cf70309a8b3d988d12b30f766cc554117c1e2de53a01aef85e563057d91c4876efe4c345a
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/styled-system@npm:^2.2.2":
   version: 2.3.3
   resolution: "@chakra-ui/styled-system@npm:2.3.3"
@@ -1855,6 +1872,18 @@ __metadata:
     csstype: ^3.0.11
     lodash.mergewith: 4.6.2
   checksum: cc730bf6ce1d4c0f7fd2adc79b25c993e39360101bb3b205951de7efb1591477dd08ccba60ab1c05a456f08f1111020c3d1f603959d5468d56ea20f2db5a45e3
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/theme-tools@npm:2.0.14":
+  version: 2.0.14
+  resolution: "@chakra-ui/theme-tools@npm:2.0.14"
+  dependencies:
+    "@chakra-ui/anatomy": 2.1.0
+    color2k: ^2.0.0
+  peerDependencies:
+    "@chakra-ui/styled-system": ">=2.0.0"
+  checksum: 51275895caf9da88b47c28d9a1e965190c5fd4bfb2036f7cda4acfd308e36d220c3d3eff0e8bb6005f1a1e565cfbe7bc72bf321d0c288cd10f93bb2d1d1c4e61
   languageName: node
   linkType: hard
 
@@ -1867,6 +1896,29 @@ __metadata:
   peerDependencies:
     "@chakra-ui/system": ">=2.0.0-next.0"
   checksum: bc0113667e2cd07f1e12a4cf2236f1fa9a08da553445b77d36253de7b22138482fe4e4b53acffb54d63550fa71e80c88eb5732b9e1484f70f64a5bd1c4cb7da1
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/theme-utils@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "@chakra-ui/theme-utils@npm:2.0.6"
+  dependencies:
+    "@chakra-ui/styled-system": 2.5.0
+    "@chakra-ui/theme": 2.2.2
+    lodash.mergewith: 4.6.2
+  checksum: 85f5fc8515165f6167d4c990f81b0aafa26e2681421692c78eb8f56f85a396856a02e77eb4fc1ef7de170e9bce17193b6c2c6220058641b80277c31ee0cad60d
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/theme@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@chakra-ui/theme@npm:2.2.2"
+  dependencies:
+    "@chakra-ui/anatomy": 2.1.0
+    "@chakra-ui/theme-tools": 2.0.14
+  peerDependencies:
+    "@chakra-ui/styled-system": ">=2.0.0"
+  checksum: 150facefb731f8f2eaa4afb14d2bdeff039521491fffa9c7858a2ca58ab103ba998ea3e7dcaf7bd6116dd40eed47541ada2d39b140b8571f2a4903c497dd1cbc
   languageName: node
   linkType: hard
 
@@ -1996,6 +2048,7 @@ __metadata:
     "@chakra-ui/c-theme-provider": 2.0.0-beta.0
     "@chakra-ui/c-visually-hidden": 2.0.0-beta.0
     "@chakra-ui/styled-system": ^2.2.2
+    "@chakra-ui/theme-utils": ^2.0.6
     "@chakra-ui/utils": 2.0.12
     "@chakra-ui/vue-a11y": 2.0.0-beta.0
     "@chakra-ui/vue-composables": 2.0.0-beta.0
@@ -5327,8 +5380,8 @@ __metadata:
 
 "@types/react@file:stub/types__react::locator=chakra-ui-vue-next%40workspace%3A.":
   version: 0.0.0
-  resolution: "@types/react@file:stub/types__react#stub/types__react::hash=cdf41a&locator=chakra-ui-vue-next%40workspace%3A."
-  checksum: ee71a1d706c7da9972c78f6ad540606c06ca943eed58582d93deedfc5b63447029e63d3532d5b69d4ae837921e4c903c0c8461feccd0166df3367a4bfa0eb794
+  resolution: "@types/react@file:stub/types__react#stub/types__react::hash=9ec565&locator=chakra-ui-vue-next%40workspace%3A."
+  checksum: 1e54fb7b3d4073e87783b945cd1a231209784ed825bac308caadaac43dd0b0676f251280fc2228346d0fd434b564ff3e5a8f7d3337e79a3e9f61f39d91435af6
   languageName: node
   linkType: hard
 
@@ -7840,6 +7893,7 @@ __metadata:
     "@babel/preset-typescript": ^7.12.7
     "@chakra-ui/anatomy": ^2.0.1
     "@chakra-ui/styled-system": ^2.2.2
+    "@chakra-ui/theme-utils": ^2.0.6
     "@chakra-ui/utils": 2.0.12
     "@changesets/changelog-github": ^0.3.0
     "@changesets/cli": ^2.14.1
@@ -8483,6 +8537,13 @@ __metadata:
   bin:
     color-support: bin.js
   checksum: 9b7356817670b9a13a26ca5af1c21615463b500783b739b7634a0c2047c16cef4b2865d7576875c31c3cddf9dd621fa19285e628f20198b233a5cfdda6d0793b
+  languageName: node
+  linkType: hard
+
+"color2k@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "color2k@npm:2.0.0"
+  checksum: 6a425d2c3680b5de35f81d372ee2f4ed45739b234a7adb76750ec6fb8fba6a8d43b89ff1d5f009e2a4965a5b3f2f9e0d636908d41a9a7644b6e8c0145cbb7203
   languageName: node
   linkType: hard
 

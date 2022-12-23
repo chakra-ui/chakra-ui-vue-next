@@ -26,6 +26,13 @@ export const theme = {
   config,
 }
 
+export const baseTheme = {
+  ...foundations,
+  components: {},
+  styles,
+  config,
+}
+
 export type Theme = typeof theme
 export type { ColorHues }
 
