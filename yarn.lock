@@ -1855,23 +1855,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chakra-ui/styled-system@npm:2.5.0":
+"@chakra-ui/styled-system@npm:2.5.0, @chakra-ui/styled-system@npm:^2.2.2":
   version: 2.5.0
   resolution: "@chakra-ui/styled-system@npm:2.5.0"
   dependencies:
     csstype: ^3.0.11
     lodash.mergewith: 4.6.2
   checksum: 805e36893c4eb00cfd18cb2242fc680edfca7d01202d6172708c4a4cf70309a8b3d988d12b30f766cc554117c1e2de53a01aef85e563057d91c4876efe4c345a
-  languageName: node
-  linkType: hard
-
-"@chakra-ui/styled-system@npm:^2.2.2":
-  version: 2.3.3
-  resolution: "@chakra-ui/styled-system@npm:2.3.3"
-  dependencies:
-    csstype: ^3.0.11
-    lodash.mergewith: 4.6.2
-  checksum: cc730bf6ce1d4c0f7fd2adc79b25c993e39360101bb3b205951de7efb1591477dd08ccba60ab1c05a456f08f1111020c3d1f603959d5468d56ea20f2db5a45e3
   languageName: node
   linkType: hard
 
@@ -5380,8 +5370,8 @@ __metadata:
 
 "@types/react@file:stub/types__react::locator=chakra-ui-vue-next%40workspace%3A.":
   version: 0.0.0
-  resolution: "@types/react@file:stub/types__react#stub/types__react::hash=9ec565&locator=chakra-ui-vue-next%40workspace%3A."
-  checksum: 1e54fb7b3d4073e87783b945cd1a231209784ed825bac308caadaac43dd0b0676f251280fc2228346d0fd434b564ff3e5a8f7d3337e79a3e9f61f39d91435af6
+  resolution: "@types/react@file:stub/types__react#stub/types__react::hash=b05b83&locator=chakra-ui-vue-next%40workspace%3A."
+  checksum: 6fbacad453679075234a94a51a8c1bcacdfa315919f882f9519a7dfe3cacc867656c39c59badeef0b2661573fad5791023e80f97178f961fcf8432e4b9677055
   languageName: node
   linkType: hard
 
