@@ -1,12 +1,12 @@
 /**
- * Typescript support for @@chakra-ui/vue-next1.0.0-alpha.13 auto-imported
+ * Typescript support for @@chakra-ui/vue-next2.0.0-beta.0 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2022-10-06T19:08:38.068Z
+ * This file was generated on 2022-12-21T00:42:42.934Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -86,6 +86,8 @@ declare module "@vue/runtime-core" {
     CFormLabel: typeof import("@chakra-ui/vue-next")["CFormLabel"]
     CRequiredIndicator: typeof import("@chakra-ui/vue-next")["CRequiredIndicator"]
     CIcon: typeof import("@chakra-ui/vue-next")["CIcon"]
+    CImage: typeof import("@chakra-ui/vue-next")["CImage"]
+    CImg: typeof import("@chakra-ui/vue-next")["CImg"]
     CInput: typeof import("@chakra-ui/vue-next")["CInput"]
     CInputAddon: typeof import("@chakra-ui/vue-next")["CInputAddon"]
     CInputGroup: typeof import("@chakra-ui/vue-next")["CInputGroup"]
@@ -146,6 +148,7 @@ declare module "@vue/runtime-core" {
     CCollapse: typeof import("@chakra-ui/vue-next")["CCollapse"]
     CMotion: typeof import("@chakra-ui/vue-next")["CMotion"]
     CPinInput: typeof import("@chakra-ui/vue-next")["CPinInput"]
+    CPinInputClearButton: typeof import("@chakra-ui/vue-next")["CPinInputClearButton"]
     CPinInputField: typeof import("@chakra-ui/vue-next")["CPinInputField"]
     CPortal: typeof import("@chakra-ui/vue-next")["CPortal"]
     CSkipNavContent: typeof import("@chakra-ui/vue-next")["CSkipNavContent"]

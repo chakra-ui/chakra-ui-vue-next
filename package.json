@@ -5,11 +5,34 @@
   "main": "index.js",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
-  "workspaces": [
-    "packages/*",
-    "tooling/*",
-    "website"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "tooling/*",
+      "website",
+      "website-new"
+    ],
+    "nohoist": [
+      "**/@nuxt/content",
+      "**/@nuxt/content/**",
+      "**/@nuxt/vite-builder",
+      "**/@nuxt/vite-builder/**",
+      "**/add",
+      "**/add/**",
+      "**/nuxt",
+      "**/@nuxt/**",
+      "**/nuxt",
+      "**/nuxt/**",
+      "**/@babel/core",
+      "**/@babel/core/**",
+      "**/vue-live",
+      "**/vue-live/**",
+      "**/vue-prism-editor",
+      "**/vue-prism-editor/**",
+      "**/prismjs",
+      "**/prismjs/**"
+    ]
+  },
   "scripts": {
     "postinstall": "preconstruct dev",
     "dev": "preconstruct dev",
@@ -43,6 +66,9 @@
     "predocs:generate": "node ./scripts/dev.js",
     "docs:generate": "yarn pkg @chakra-ui/vue-docs generate",
     "docs:serve": "yarn pkg @chakra-ui/vue-docs serve",
+    "docs:generate:next": "yarn pkg @chakra-ui/vue-docs-next generate",
+    "docs:dev:next": "yarn pkg @chakra-ui/vue-docs-next dev",
+    "gen:temp": "mkdir dist && echo '<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><ti\ntle>Chakra UI Vue Docs - Coming Soon</title></head><body><p>Chakra UI Vue Docs - Coming soon. We are currently working to set up the docs site! Come back later for updates</p></body></html>' >> dist/index.html",
     "pkg": "manypkg run",
     "pkgs:check": "manypkg check",
     "pkgs:fix": "manypkg fix",
@@ -60,7 +86,8 @@
     "@babel/preset-typescript": "^7.12.7",
     "@chakra-ui/anatomy": "^2.0.1",
     "@chakra-ui/styled-system": "^2.2.2",
-    "@chakra-ui/utils": "^2.0.3",
+    "@chakra-ui/theme-utils": "^2.0.6",
+    "@chakra-ui/utils": "2.0.12",
     "@changesets/changelog-github": "^0.3.0",
     "@changesets/cli": "^2.14.1",
     "@commitlint/cli": "^11.0.0",
@@ -68,9 +95,9 @@
     "@ctrl/tinycolor": "^3.4.1",
     "@cypress/vite-dev-server": "^1.2.6",
     "@cypress/vue": "^3.0.3",
-    "@emotion/css": "^11.7.1",
+    "@emotion/css": "^11.9.0",
     "@emotion/jest": "^11.7.1",
-    "@emotion/server": "^11.0.0",
+    "@emotion/server": "^11.4.0",
     "@manypkg/cli": "^0.17.0",
     "@mdx-js/rollup": "^2.0.0-rc.2",
     "@popperjs/core": "^2.8.4",
@@ -87,7 +114,6 @@
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.kebabcase": "^4.1.6",
     "@types/lodash.mergewith": "^4.6.6",
-    "@types/react": "file:stub/types__react",
     "@types/recursive-readdir": "^2.2.0",
     "@types/shelljs": "^0.8.9",
     "@types/tinycolor2": "^1.4.2",
@@ -136,7 +162,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^7.0.0",
-    "feather-icons-paths": "^1.0.8",
+    "feather-icons-paths": "^1.1.1",
     "focus-trap": "^6.3.0",
     "fs-extra": "^9.0.1",
     "happy-dom": "^6.0.3",
@@ -178,5 +204,6 @@
       "packages/*",
       "tooling/*"
     ]
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }

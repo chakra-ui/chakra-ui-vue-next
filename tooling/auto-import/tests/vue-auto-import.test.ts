@@ -1,4 +1,4 @@
-import { componentResolver } from "../src"
+import { componentResolver } from "../"
 
 it("should resolve chakra components with import name and path", () => {
   const components = [

@@ -83,6 +83,73 @@
   "CAlertTitle": {
     "name": "CAlertTitle"
   },
+  "CAvatar": {
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "span"
+      },
+      "src": {
+        "default": ""
+      },
+      "name": {
+        "default": ""
+      },
+      "initials": {
+        "default": ""
+      }
+    }
+  },
+  "CAvatarBadge": {
+    "props": {}
+  },
+  "CAvatarGroup": {
+    "props": {
+      "max": {
+        "default": 2
+      },
+      "spacing": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "justify": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "align": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "direction": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "shouldWrapChildren": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "CAvatarText": {
+    "props": {
+      "text": {
+        "default": ""
+      }
+    }
+  },
   "CBreadcrumb": {
     "name": "CBreadcrumb",
     "props": {
@@ -202,6 +269,48 @@
         "required": true
       }
     }
+  },
+  "CCheckbox": {
+    "name": "CCheckbox",
+    "props": {
+      "modelValue": {
+        "default": false
+      },
+      "value": [
+        null,
+        null
+      ],
+      "spacing": {
+        "type": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "default": "0.5rem"
+      },
+      "iconSize": [
+        null,
+        null
+      ]
+    },
+    "emits": [
+      "change",
+      "update:modelValue"
+    ]
+  },
+  "CCheckboxGroup": {
+    "name": "CCheckboxGroup",
+    "props": {
+      "modelValue": {},
+      "isDisabled": {
+        "default": false
+      }
+    },
+    "emits": [
+      "change",
+      "update:modelValue"
+    ]
   },
   "CCloseButton": {
     "props": {
@@ -369,6 +478,32 @@
       ]
     }
   },
+  "CImage": {
+    "name": "CImage",
+    "props": {
+      "as": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "img"
+      },
+      "fallbackStrategy": {
+        "default": "beforeLoadOrError"
+      },
+      "htmlWidth": [
+        null,
+        null
+      ],
+      "htmlHeight": [
+        null,
+        null
+      ]
+    }
+  },
+  "CImg": {
+    "name": "CImg"
+  },
   "CInput": {
     "name": "CInput",
     "props": {
@@ -402,21 +537,21 @@
       }
     }
   },
-  "CInputGroup": {
-    "name": "CInputGroup",
-    "props": {}
-  },
   "CInputLeftAddon": {
     "name": "CInputLeftAddon",
     "id": "CInputLeftAddon"
   },
-  "CInputLeftElement": {
-    "name": "CInputLeftElement",
-    "id": "CInputLeftElement"
-  },
   "CInputRightAddon": {
     "name": "CInputRightAddon",
     "id": "CInputRightAddon"
+  },
+  "CInputGroup": {
+    "name": "CInputGroup",
+    "props": {}
+  },
+  "CInputLeftElement": {
+    "name": "CInputLeftElement",
+    "id": "CInputLeftElement"
   },
   "CInputRightElement": {
     "name": "CInputRightElement",
@@ -1028,6 +1163,59 @@
     }
   },
   "CWrapItem": {},
+  "CWrapProps": {
+    "spacing": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "justify": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "align": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "direction": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "shouldWrapChildren": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "CShow": {
+    "props": {
+      "breakpoint": {},
+      "above": {},
+      "below": {}
+    }
+  },
+  "CHide": {
+    "props": {
+      "breakpoint": {},
+      "above": {},
+      "below": {}
+    }
+  },
+  "CVisibility": {
+    "props": {
+      "breakpoint": {
+        "required": true
+      }
+    }
+  },
   "CModal": {
     "name": "CModal",
     "props": {
@@ -1336,11 +1524,119 @@
       "left"
     ]
   },
+  "CPinInput": {
+    "name": "CPinInput",
+    "props": {
+      "value": {
+        "default": []
+      },
+      "modelValue": {
+        "default": false
+      },
+      "id": {
+        "default": "0"
+      },
+      "placeholder": {
+        "default": "o"
+      },
+      "type": {
+        "default": "numeric"
+      },
+      "otp": {
+        "default": false
+      },
+      "mask": {
+        "default": false
+      },
+      "blurOnComplete": {
+        "default": false
+      },
+      "dir": {
+        "default": "ltr"
+      },
+      "spacing": {
+        "type": [
+          null,
+          null
+        ],
+        "default": "0.75"
+      }
+    },
+    "emits": [
+      "change",
+      "invalid",
+      "complete",
+      "update:modelValue"
+    ]
+  },
+  "CPinInputClearButton": {
+    "name": "CPinInputClearButton"
+  },
+  "CPinInputField": {
+    "name": "CPinInputField",
+    "props": {
+      "index": {
+        "default": 0
+      }
+    }
+  },
+  "CPinInputProps": {
+    "value": {
+      "default": []
+    },
+    "modelValue": {
+      "default": false
+    },
+    "id": {
+      "default": "0"
+    },
+    "placeholder": {
+      "default": "o"
+    },
+    "type": {
+      "default": "numeric"
+    },
+    "otp": {
+      "default": false
+    },
+    "mask": {
+      "default": false
+    },
+    "blurOnComplete": {
+      "default": false
+    },
+    "dir": {
+      "default": "ltr"
+    },
+    "spacing": {
+      "type": [
+        null,
+        null
+      ],
+      "default": "0.75"
+    }
+  },
   "CPortal": {
     "name": "CPortal",
     "props": {}
   },
   "CReset": {},
+  "CSkipNavContent": {
+    "name": "CSkipNavContent",
+    "props": {
+      "id": {
+        "default": "chakra-skip-nav"
+      }
+    }
+  },
+  "CSkipNavLink": {
+    "name": "CSkipNavLink",
+    "props": {
+      "id": {
+        "default": "chakra-skip-nav"
+      }
+    }
+  },
   "CSpinner": {
     "props": {
       "as": [

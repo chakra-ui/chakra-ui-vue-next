@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-pin-input",
   "description": "Chakra UI Vue | The pin input component is similar to the input component but is optimized for entering sequences of digits quickly component",
-  "version": "0.0.0-alpha.0",
+  "version": "1.0.0-beta.0",
   "main": "dist/chakra-ui-c-pin-input.cjs.js",
   "module": "dist/chakra-ui-c-pin-input.esm.js",
   "author": "Shyrro <zsahmane@gmail.com>",
@@ -16,10 +16,7 @@
       "default": "./dist/chakra-ui-c-pin-input.esm.js"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-pin-input",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -27,12 +24,12 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.10",
-    "@zag-js/vue": "^0.1.14",
+    "@chakra-ui/c-input": "^1.0.0-beta.0",
+    "@chakra-ui/utils": "2.0.12",
+    "@chakra-ui/vue-system": "2.0.0-beta.0",
+    "@chakra-ui/vue-utils": "2.0.0-beta.0",
     "@zag-js/pin-input": "0.1.14",
-    "@chakra-ui/c-input": "^0.0.0-alpha.5",
-    "@chakra-ui/utils": "^2.0.3"
+    "@zag-js/vue": "^0.1.14"
   },
   "devDependencies": {
     "vue": "^3.2.37"

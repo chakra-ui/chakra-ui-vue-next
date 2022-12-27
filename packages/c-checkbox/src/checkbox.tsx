@@ -176,7 +176,9 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const group = useCheckboxGroupContext(computed(() => ({})))
+    const group = useCheckboxGroupContext(
+      computed(() => ({} as CheckboxGroupContext))
+    )
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
@@ -313,6 +315,8 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
     return () => {
       const children = getValidChildren(slots)
       const hasChildren = children.length > 0
+
+      console.log("clonedIcon", clonedIcon)
 
       return (
         <chakra.div
