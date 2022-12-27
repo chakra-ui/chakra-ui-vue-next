@@ -22,7 +22,7 @@
   "dependencies": {
     "@chakra-ui/c-color-mode": "2.0.0-beta.0",
     "@chakra-ui/styled-system": "^2.2.2",
-    "@chakra-ui/utils": "2.0.12",
+    "@chakra-ui/utils": "2.0.13",
     "@chakra-ui/vue-styled": "1.0.0-beta.0",
     "@chakra-ui/vue-utils": "2.0.0-beta.0",
     "@emotion/css": "^11.9.0",
