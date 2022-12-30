@@ -30,7 +30,7 @@
   "dependencies": {
     "@chakra-ui/c-icon": "2.0.0-beta.0",
     "@chakra-ui/styled-system": "^2.2.2",
-    "@chakra-ui/utils": "2.0.12",
+    "@chakra-ui/utils": "2.0.14",
     "@chakra-ui/vue-system": "2.0.0-beta.0",
     "@chakra-ui/vue-utils": "2.0.0-beta.0"
   },
