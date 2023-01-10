@@ -45,7 +45,7 @@ const ChakraUIVuePlugin: Plugin = {
     // 2. Parse theme tokens to CSS variables
     // 3. Inject all CSS variables as theme object
     const theme: Theme | (Omit<Theme, "components"> & { components: Dict }) =
-      options.extendTheme || options.isBaseTheme ? baseTheme : defaultTheme
+      options.extendTheme ?? (options.isBaseTheme ? baseTheme : defaultTheme)
     const computedTheme = computed<WithCSSVar<ThemeOverride>>(() =>
       toCSSVar(theme)
     )
