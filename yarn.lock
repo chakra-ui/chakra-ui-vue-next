@@ -1855,23 +1855,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chakra-ui/styled-system@npm:2.5.0":
+"@chakra-ui/styled-system@npm:2.5.0, @chakra-ui/styled-system@npm:^2.2.2":
   version: 2.5.0
   resolution: "@chakra-ui/styled-system@npm:2.5.0"
   dependencies:
     csstype: ^3.0.11
     lodash.mergewith: 4.6.2
   checksum: 805e36893c4eb00cfd18cb2242fc680edfca7d01202d6172708c4a4cf70309a8b3d988d12b30f766cc554117c1e2de53a01aef85e563057d91c4876efe4c345a
-  languageName: node
-  linkType: hard
-
-"@chakra-ui/styled-system@npm:^2.2.2":
-  version: 2.3.3
-  resolution: "@chakra-ui/styled-system@npm:2.3.3"
-  dependencies:
-    csstype: ^3.0.11
-    lodash.mergewith: 4.6.2
-  checksum: cc730bf6ce1d4c0f7fd2adc79b25c993e39360101bb3b205951de7efb1591477dd08ccba60ab1c05a456f08f1111020c3d1f603959d5468d56ea20f2db5a45e3
   languageName: node
   linkType: hard
 
