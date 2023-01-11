@@ -1855,13 +1855,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chakra-ui/styled-system@npm:2.5.0, @chakra-ui/styled-system@npm:^2.2.2":
+"@chakra-ui/shared-utils@npm:2.0.4":
+  version: 2.0.4
+  resolution: "@chakra-ui/shared-utils@npm:2.0.4"
+  checksum: 8de5e224e01c8cd109321796524ddbbfe92d48fe9de4781dcecac90d4b7e9838dfd5ef9164e7e1ed87b2031988392d3b2d5f55bda3dd2347f92e91d292700d2b
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/styled-system@npm:2.5.0":
   version: 2.5.0
   resolution: "@chakra-ui/styled-system@npm:2.5.0"
   dependencies:
     csstype: ^3.0.11
     lodash.mergewith: 4.6.2
   checksum: 805e36893c4eb00cfd18cb2242fc680edfca7d01202d6172708c4a4cf70309a8b3d988d12b30f766cc554117c1e2de53a01aef85e563057d91c4876efe4c345a
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/styled-system@npm:^2.2.2":
+  version: 2.5.1
+  resolution: "@chakra-ui/styled-system@npm:2.5.1"
+  dependencies:
+    "@chakra-ui/shared-utils": 2.0.4
+    csstype: ^3.0.11
+    lodash.mergewith: 4.6.2
+  checksum: 8de540401d15e0bd7c547cb2a178ae29e75622c368fe6eebbf1e4796072ab5672197ac13db982a8b7083c60c199107ecd5d69c3c399666d1eee3390dea199de2
   languageName: node
   linkType: hard
 
