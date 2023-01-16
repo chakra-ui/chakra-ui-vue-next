@@ -53,8 +53,8 @@ const app = createApp(App)
           global: (props: any) => {
             return {
               body: {
-                bg: mode("white", "gray.800")(props),
-                color: mode("blackAlpha.800", "whiteAlpha.800")(props),
+                bg: "bg-default",
+                color: "txt-default",
                 "a.router-link-active": {
                   color: mode("teal.500", "teal.200")(props),
                   fontSize: mode("0.9rem", "0.9rem")(props),
@@ -69,9 +69,22 @@ const app = createApp(App)
           Button: {
             baseStyle: {
               shadow: "inset",
+              background: "bg-default"
             },
           },
         },
+        semanticTokens: {
+          colors: {
+            "bg-default": {
+              default: "white",
+              _dark: "gray.800"
+            },
+            "txt-default": {
+              default: "blackAlpha.800",
+              _dark: "whiteAlpha.800"
+            }
+          }
+        }
       }),
     })
   )

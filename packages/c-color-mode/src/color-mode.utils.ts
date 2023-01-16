@@ -27,6 +27,14 @@ export function syncBodyClassName(isDark: boolean) {
 }
 
 /**
+ * Function to add html element data-theme and style="color-scheme: <colorMode>;" attributes
+ */
+export function setDataset(colorMode: string) {
+  document.documentElement.dataset.theme = colorMode
+  document.documentElement.style.colorScheme = colorMode
+}
+
+/**
  * Check if JS media query matches the query string passed
  */
 function getMediaQuery(query: string) {
@@ -74,16 +82,19 @@ export function addListener(fn: Function) {
 }
 
 export const root = {
-  get: () =>
+  get: () => {
     document.documentElement.style.getPropertyValue(
-      "--chakra-ui-color-mode"
-    ) as ColorModeRef["value"],
+      "colorScheme"
+    ) as ColorModeRef["value"]
+  },
   set: (mode: ColorModeRef) => {
-    if (isBrowser) {
+    if (document) {
       document.documentElement.style.setProperty(
         "--chakra-ui-color-mode",
         mode.value
       )
+      document.documentElement.dataset.theme = mode.value
+      document.documentElement.style.colorScheme = mode.value
     }
   },
 }

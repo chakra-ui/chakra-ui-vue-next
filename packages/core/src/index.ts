@@ -1,6 +1,6 @@
 import { computed, Plugin, ref, UnwrapRef } from "vue"
 import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/vue-theme"
-import type { ColorModeRef } from "@chakra-ui/c-color-mode"
+import { type ColorModeRef, setDataset } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
 import {
@@ -61,6 +61,10 @@ const ChakraUIVuePlugin: Plugin = {
 
     // Provide initial color mode
     app.config.globalProperties.$initialColorMode = colorMode
+
+    if (!!document) {
+      setDataset(colorMode)
+    }
 
     const colorModeRef = ref(colorMode) as ColorModeRef
     app.provide<ColorModeRef>("$chakraColorMode", colorModeRef)

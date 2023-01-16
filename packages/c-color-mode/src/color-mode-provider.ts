@@ -1,6 +1,6 @@
 import { __DEV__ } from "@chakra-ui/utils"
 import { inject, isRef, ref, watchEffect } from "vue"
-import { ColorModeRef } from "./color-mode.utils"
+import { ColorModeRef, setDataset } from "./color-mode.utils"
 
 export type { ColorModeRef }
 
@@ -25,6 +25,7 @@ export const useColorMode = (): ColorModeContext => {
     } else {
       colorMode.value = "light"
     }
+    setDataset(colorMode.value)
   }
 
   return {
