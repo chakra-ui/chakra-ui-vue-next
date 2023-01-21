@@ -111,3 +111,5 @@ website/.vite-ssg-temp
 cypress/screenshots
 # playground/build/components.json
 .idea/*
+.yarn
+.yarnrc

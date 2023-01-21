@@ -7,10 +7,6 @@ import ChakraComponents from "./playground/build/components.json"
 import path from "path"
 
 export default defineConfig({
-  test: {
-    globals: true,
-    environment: "happy-dom",
-  },
   esbuild: {
     jsxFactory: "h",
     jsxFragment: "Fragment",
