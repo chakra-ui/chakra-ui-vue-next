@@ -1031,7 +1031,7 @@
     csstype "^3.0.11"
     lodash.mergewith "4.6.2"
 
-"@chakra-ui/theme-tools@2.0.16":
+"@chakra-ui/theme-tools@2.0.16", "@chakra-ui/theme-tools@^2.0.16":
   version "2.0.16"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-2.0.16.tgz#17caae14a61f93759f072b16c7346489eb8be643"
   integrity sha512-B/LD+2LNDeHYd/LVCHIJqckVZfhrycTUpNbhRVAiDRaS0AAcsPxKas7liTFkkMkM076YjiHlcla3KpVX+E9tzg==
@@ -1050,7 +1050,7 @@
     "@chakra-ui/theme" "2.2.4"
     lodash.mergewith "4.6.2"
 
-"@chakra-ui/theme@2.2.4":
+"@chakra-ui/theme@2.2.4", "@chakra-ui/theme@^2.2.4":
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-2.2.4.tgz#69948ebf19ae1387b9e5022aca1e58c881658b77"
   integrity sha512-zo1FBfkJBsvpOGGByRB4aEvekdeT/9BB7Lz3rAluKkC+Wo8yce1tTSlvPMpf2f4lsEI8zVid5ATQ6u3+kIFg4w==

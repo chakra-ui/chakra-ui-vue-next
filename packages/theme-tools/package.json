@@ -20,6 +20,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@chakra-ui/theme-tools": "^2.0.16",
     "@chakra-ui/utils": "2.0.14",
     "@chakra-ui/vue-system": "2.0.0-beta.0",
     "@ctrl/tinycolor": "^3.4.1",

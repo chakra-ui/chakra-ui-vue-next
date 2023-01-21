@@ -11,7 +11,7 @@ import PerfectScrollbar from "vue3-perfect-scrollbar"
 import { MotionPlugin } from "@vueuse/motion"
 import App from "./App.vue"
 import router from "./router"
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { mode } from "@chakra-ui/theme-tools"
 
 console.log({ router })
 

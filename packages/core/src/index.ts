@@ -1,5 +1,5 @@
 import { computed, Plugin, ref, UnwrapRef } from "vue"
-import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/vue-theme"
+import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/theme"
 import type { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/theme-utils"
 import { MergedIcons, parseIcons } from "./parse-icons"
 import { injectResetStyles, injectThemeGlobalStyles } from "./helpers/css-reset"
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { mode } from "@chakra-ui/theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
 import { Dict } from "@chakra-ui/utils"
 
@@ -45,7 +45,7 @@ const ChakraUIVuePlugin: Plugin = {
     // 2. Parse theme tokens to CSS variables
     // 3. Inject all CSS variables as theme object
     const theme: Theme | (Omit<Theme, "components"> & { components: Dict }) =
-      options.extendTheme ?? (options.isBaseTheme ? baseTheme : defaultTheme)
+      options.extendTheme || (options.isBaseTheme ? baseTheme : defaultTheme)
     const computedTheme = computed<WithCSSVar<ThemeOverride>>(() =>
       toCSSVar(theme)
     )

@@ -1,15 +1,12 @@
 {
-  //  "extends": "@vue/tsconfig/tsconfig.node.json",
+  // "extends": "@vue/tsconfig/tsconfig.node.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "esnext",
     "types": [
       "node",
-      "dom.iterable",
       "vue",
       "jest",
-      "components.d.ts",
-      "env.d.ts",
       "cypress"
     ],
     "lib": ["dom", "esnext"],
@@ -32,7 +29,8 @@
     "declarationMap": true
   },
   "include": [
-    "./components.d.ts",
+    "env.d.ts",
+    "components.d.ts",
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/*.tsx",
@@ -43,6 +41,7 @@
     "playground/**/*.tsx",
     "playground/**/*.d.ts",
     "playground/**/*.vue",
+    "playground/**/*.json",
     "tests/index.d.ts",
     "**/*.d.ts",
     "vite.config.ts"

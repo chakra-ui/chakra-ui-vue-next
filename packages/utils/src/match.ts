@@ -21,7 +21,7 @@ export function match<T extends string | number = string, U = unknown>(
       .map((key) => `"${key}"`)
       .join(", ")}.`
   )
-  /** @ts-expect-error "captureStackTrace" not in default Error constuctor typee  */
+
   if (Error?.captureStackTrace) Error.captureStackTrace(error, match)
   throw error
 }

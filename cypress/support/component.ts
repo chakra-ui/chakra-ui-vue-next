@@ -28,7 +28,7 @@ import Chakra, {
   extendChakra,
   CReset,
 } from "@chakra-ui/vue-next"
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { mode } from "@chakra-ui/theme-tools"
 import { feActivity, feUser } from "feather-icons-paths"
 import { h, Fragment, defineComponent } from "vue"
 

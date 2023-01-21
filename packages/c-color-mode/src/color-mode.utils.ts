@@ -6,7 +6,7 @@ const classNames = {
   dark: "chakra-ui-dark",
 }
 
-export type ColorModeRef = Ref<"light" | "dark">
+export type ColorModeRef = Ref<"light" | "dark" | "system">
 
 /**
  * SSR: Graceful fallback for the `body` element
