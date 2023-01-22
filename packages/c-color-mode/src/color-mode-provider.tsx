@@ -14,7 +14,7 @@ import {
 import { ColorMode, ColorModeRef, getColorModeUtils } from "./color-mode.utils"
 import { StorageManager } from "./storage-manager"
 import { createContext } from "@chakra-ui/vue-utils"
-import { mountColorModeScript } from './color-mode-script'
+import { mountColorModeScript } from "./color-mode-script"
 
 export type { ColorModeRef }
 
@@ -74,7 +74,6 @@ export function setupColorModeContext(
     initialColorMode,
   }: SetupColorModeContext
 ) {
-
   mountColorModeScript({
     initialColorMode: _colorMode.value,
     type: colorModeManager.type,
@@ -106,7 +105,6 @@ export function setupColorModeContext(
   }
 
   const resolvedColorMode = computed(() => getTheme(colorModeManager))
-
 
   function setColorMode(value: ColorMode | "system") {
     const { setClassName, setDataset, getSystemTheme } = utils.value
@@ -146,19 +144,21 @@ export function setupColorModeContext(
   })
 }
 
-/** 
+/**
  * Injects color mode into component instance
  */
 export const useColorMode = () => {
   const context = inject<IColorModeContext>(AppColorModeContextSymbol, {
     colorMode: computed(() => "light" as Exclude<ColorMode, "system">),
-    toggleColorMode: () => { },
+    toggleColorMode: () => {},
   })
 
   return {
     forced: context.forced,
-    colorMode: computed(() => context.colorMode.value as Exclude<ColorMode, "system">),
-    toggleColorMode: context.toggleColorMode
+    colorMode: computed(
+      () => context.colorMode.value as Exclude<ColorMode, "system">
+    ),
+    toggleColorMode: context.toggleColorMode,
   }
 }
 
@@ -188,31 +188,25 @@ export function useColorModeValue<TLight = unknown, TDark = unknown>(
   return modeValue
 }
 
-
-export const DarkMode = defineComponent((_, { slots, attrs }) => {
+export const CDarkMode = defineComponent((_, { slots, attrs }) => {
   provide(AppColorModeContextSymbol, {
     colorMode: computed(() => "dark" as Exclude<ColorMode, "system">),
-    toggleColorMode: () => { },
-    forced: true
+    toggleColorMode: () => {},
+    forced: true,
   })
 
-  return () => (
-    <>
-      {slots.default?.()}
-    </>
-  )
+  return () => <>{slots.default?.()}</>
 })
+CDarkMode.name = "CDarkMode"
 
-export const LightMode = defineComponent((_, { slots, attrs }) => {
+export const CLightMode = defineComponent((_, { slots, attrs }) => {
   provide(AppColorModeContextSymbol, {
     colorMode: computed(() => "light" as Exclude<ColorMode, "system">),
-    toggleColorMode: () => { },
-    forced: true
+    toggleColorMode: () => {},
+    forced: true,
   })
 
-  return () => (
-    <>
-      {slots.default?.()}
-    </>
-  )
+  return () => <>{slots.default?.()}</>
 })
+
+CLightMode.name = "CLightMode"

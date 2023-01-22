@@ -8,7 +8,14 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, PropType, DefineComponent, computed, watchEffect } from "vue"
+import {
+  h,
+  defineComponent,
+  PropType,
+  DefineComponent,
+  computed,
+  watchEffect,
+} from "vue"
 import {
   chakra,
   ChakraProps,
@@ -27,12 +34,12 @@ interface TagOptions {
 
 export interface CTagProps
   extends ChakraProps,
-  TagOptions,
-  ThemingProps<"CTag"> { }
+    TagOptions,
+    ThemingProps<"CTag"> {}
 
 export interface CTagLabelProps
   extends ChakraProps,
-  ThemingProps<"CTagLabel"> { }
+    ThemingProps<"CTagLabel"> {}
 
 const [StylesProvider, useTagStyles] = createStylesContext("CTag")
 
@@ -50,7 +57,6 @@ export const CTagLabel: ComponentWithProps<CTagLabelProps> = defineComponent({
       })
     )
 
-
     const styles = useTagStyles()
 
     return () => (
@@ -63,7 +69,7 @@ export const CTagLabel: ComponentWithProps<CTagLabelProps> = defineComponent({
 
 export interface CTagCloseButtonProps
   extends ChakraProps,
-  ThemingProps<"CTagCloseButton"> {
+    ThemingProps<"CTagCloseButton"> {
   isDisabled?: boolean
 }
 

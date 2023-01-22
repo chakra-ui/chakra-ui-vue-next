@@ -41,7 +41,9 @@ describe("CAvatar", () => {
 
   it("renders default svg when name is not specified", () => {
     cy.mount(() =>
-      h(() => <CAvatar src="https://avatars.githubusercontent.com/u/21237954?v=4" />)
+      h(() => (
+        <CAvatar src="https://avatars.githubusercontent.com/u/21237954?v=4" />
+      ))
     )
 
     cy.get("svg")

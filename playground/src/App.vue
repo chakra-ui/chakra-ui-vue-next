@@ -44,7 +44,7 @@
 import { computed, getCurrentInstance, defineComponent, watchEffect } from "vue"
 import {
   chakra,
-  DarkMode,
+  CDarkMode,
   CReset,
   CIconButton,
   useColorMode,
@@ -54,7 +54,7 @@ import Sidebar from "./components/Sidebar.vue"
 import { routes } from "./router"
 
 export default defineComponent({
-  components: { Sidebar, CReset, CIconButton, DarkMode },
+  components: { Sidebar, CReset, CIconButton, DarkMode: CDarkMode },
   setup() {
     const { colorMode, toggleColorMode } = useColorMode()
 
