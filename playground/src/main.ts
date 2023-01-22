@@ -38,7 +38,9 @@ const app = createApp(App)
         key: "chakra",
       },
       extendTheme: extendTheme({
-        config: {},
+        config: {
+          // initialColorMode: "system",
+        },
         fonts: {
           heading: `SplineSans, sans-serif, Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
           body: `SplineSans, sans-serif, Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,

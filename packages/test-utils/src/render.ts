@@ -7,12 +7,13 @@ import userEvent from "@testing-library/user-event"
 import { Component, defineComponent, h, provide } from "vue"
 import { toHaveNoViolations, axe } from "jest-axe"
 import { RunOptions } from "axe-core"
+import { AppColorModeContextSymbol } from "@chakra-ui/c-color-mode"
 
 expect.extend(toHaveNoViolations)
 
 const useDefaultProviders = () => {
   provide("$chakraTheme", theme)
-  provide("$chakraColorMode", "light")
+  provide(AppColorModeContextSymbol, "light")
   provide("$chakraIcons", {})
   provide(EmotionThemeContextSymbol, theme)
 }
