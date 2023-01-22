@@ -6,12 +6,10 @@ import {
   h,
   Fragment,
   provide,
-  readonly,
   Ref,
   ref,
   watch,
   watchEffect,
-  getCurrentInstance,
 } from "vue"
 import { ColorMode, ColorModeRef, getColorModeUtils } from "./color-mode.utils"
 import { StorageManager } from "./storage-manager"
@@ -148,13 +146,20 @@ export function setupColorModeContext(
   })
 }
 
-/** Injects color mode into component instance */
+/** 
+ * Injects color mode into component instance
+ */
 export const useColorMode = () => {
   const context = inject<IColorModeContext>(AppColorModeContextSymbol, {
     colorMode: computed(() => "light" as Exclude<ColorMode, "system">),
     toggleColorMode: () => { },
   })
-  return context
+
+  return {
+    forced: context.forced,
+    colorMode: computed(() => context.colorMode.value as Exclude<ColorMode, "system">),
+    toggleColorMode: context.toggleColorMode
+  }
 }
 
 /**

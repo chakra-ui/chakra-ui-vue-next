@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { chakra } from "@chakra-ui/vue-system"
 import { defineComponent, h } from "vue"
 import { RouterLink } from "vue-router"
@@ -22,10 +22,10 @@ const Stories = defineComponent({
           })
       )
 
-      const storyTitle = (story) =>
+      const storyTitle = (story: any) =>
         h(chakra.h3, { mt: 2, mb: 0, fontWeight: "bold" }, () => story.name)
 
-      const storyItem = (story) => {
+      const storyItem = (story: any) => {
         if (story.path === "/") {
           return chakraLogo
         } else
@@ -39,7 +39,7 @@ const Stories = defineComponent({
           )
       }
 
-      const liItem = (story) =>
+      const liItem = (story: any) =>
         h(
           chakra.li,
           {
