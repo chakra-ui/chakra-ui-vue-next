@@ -69,7 +69,6 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
       })
     }
 
-    console.log(`${themeKey} styles`, styles)
     return styles as Theme["components"][Component]
   })
 }

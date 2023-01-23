@@ -166,7 +166,7 @@ export const createStyled: CreateStyled = (
           </style>
         )
       }
-      return () => (
+      return (
         <>
           {possiblyStyleElement}
           {StyledElement}

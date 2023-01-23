@@ -2,6 +2,7 @@
 
 import { ChakraProps, HTMLChakraProps } from "@chakra-ui/vue-system"
 import { mount } from "@cypress/vue"
+import { Chainable } from "cypress"
 
 type ReturnedChainableMount = Chainable<ReturnType<typeof mount>>
 

@@ -1,8 +1,9 @@
 {
-  // "extends": "@vue/tsconfig/tsconfig.node.json",
+  "extends": "@vue/tsconfig/tsconfig.node.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "esnext",
+    "typeRoots": ["node_modules/@types", "@types"],
     "types": [
       "node",
       "vue",
@@ -31,6 +32,7 @@
   "include": [
     "env.d.ts",
     "components.d.ts",
+    "packages/**/*.vue",
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/*.tsx",
