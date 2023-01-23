@@ -3,27 +3,27 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <code
-    class="css-1b9x1mh"
+    class="css-jzsne5"
   >
     hello world
   </code>
   <code
-    class="css-1hzweom"
+    class="css-3kxaoo"
   >
      hello world, red 
   </code>
   <code
-    class="css-bri9l4"
+    class="css-19o3a2"
   >
      hello world, green 
   </code>
   <code
-    class="css-1y46pxi"
+    class="css-1xm0kle"
   >
      hello world, yellow 
   </code>
   <code
-    class="css-1kx42k1"
+    class="css-1ezro68"
   >
      hello world, teal 
   </code>

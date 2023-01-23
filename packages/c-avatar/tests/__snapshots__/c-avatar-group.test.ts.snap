@@ -16,18 +16,18 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-i1ne14"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Evan You"
           >
             <img
               alt="Evan You"
               aria-label="Evan You"
-              class="css-b0lfom"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-i1ne14"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Evan You"
@@ -43,18 +43,18 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-otnc8u"
+            class="chakra-avatar css-q8j305"
             initials=""
             name="Anthony Fu"
           >
             <img
               alt="Anthony Fu"
               aria-label="Anthony Fu"
-              class="css-dveu7w"
+              class="css-1r3dil4"
               src="https://avatars.githubusercontent.com/u/11247099?v=4"
             />
             <span
-              class="chakra-box css-otnc8u"
+              class="chakra-box css-q8j305"
             >
               <div
                 aria-label="Anthony Fu"
@@ -70,18 +70,18 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-ksu8qc"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Sarah Drasner"
           >
             <img
               alt="Sarah Drasner"
               aria-label="Sarah Drasner"
-              class="css-p6c9nn"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-ksu8qc"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Sarah Drasner"
@@ -97,18 +97,18 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-klxjsh"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Jonathan Bakebwa"
           >
             <img
               alt="Jonathan Bakebwa"
               aria-label="Jonathan Bakebwa"
-              class="css-1s97jsl"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-klxjsh"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Jonathan Bakebwa"
@@ -142,18 +142,18 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-i1ne14"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Evan You"
           >
             <img
               alt="Evan You"
               aria-label="Evan You"
-              class="css-b0lfom"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-i1ne14"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Evan You"
@@ -169,18 +169,18 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-otnc8u"
+            class="chakra-avatar css-q8j305"
             initials=""
             name="Anthony Fu"
           >
             <img
               alt="Anthony Fu"
               aria-label="Anthony Fu"
-              class="css-dveu7w"
+              class="css-1r3dil4"
               src="https://avatars.githubusercontent.com/u/11247099?v=4"
             />
             <span
-              class="chakra-box css-otnc8u"
+              class="chakra-box css-q8j305"
             >
               <div
                 aria-label="Anthony Fu"
@@ -196,18 +196,18 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-ksu8qc"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Sarah Drasner"
           >
             <img
               alt="Sarah Drasner"
               aria-label="Sarah Drasner"
-              class="css-p6c9nn"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-ksu8qc"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Sarah Drasner"
@@ -223,18 +223,18 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-klxjsh"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Jonathan Bakebwa"
           >
             <img
               alt="Jonathan Bakebwa"
               aria-label="Jonathan Bakebwa"
-              class="css-1s97jsl"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-klxjsh"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Jonathan Bakebwa"
@@ -267,7 +267,7 @@ exports[`CAvatarGroup renders group with 2 by default 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <div
-            class="css-1kshqev"
+            class="css-q8j305"
           >
             <div
               class="css-1sr8ytj"
@@ -281,18 +281,18 @@ exports[`CAvatarGroup renders group with 2 by default 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-i1ne14"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Evan You"
           >
             <img
               alt="Evan You"
               aria-label="Evan You"
-              class="css-b0lfom"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-i1ne14"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Evan You"
@@ -308,18 +308,18 @@ exports[`CAvatarGroup renders group with 2 by default 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-otnc8u"
+            class="chakra-avatar css-q8j305"
             initials=""
             name="Anthony Fu"
           >
             <img
               alt="Anthony Fu"
               aria-label="Anthony Fu"
-              class="css-dveu7w"
+              class="css-1r3dil4"
               src="https://avatars.githubusercontent.com/u/11247099?v=4"
             />
             <span
-              class="chakra-box css-otnc8u"
+              class="chakra-box css-q8j305"
             >
               <div
                 aria-label="Anthony Fu"
@@ -352,7 +352,7 @@ exports[`CAvatarGroup renders group with max prop passed 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <div
-            class="css-1kshqev"
+            class="css-q8j305"
           >
             <div
               class="css-1sr8ytj"
@@ -366,18 +366,18 @@ exports[`CAvatarGroup renders group with max prop passed 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-i1ne14"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Evan You"
           >
             <img
               alt="Evan You"
               aria-label="Evan You"
-              class="css-b0lfom"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-i1ne14"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Evan You"
@@ -393,18 +393,18 @@ exports[`CAvatarGroup renders group with max prop passed 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-otnc8u"
+            class="chakra-avatar css-q8j305"
             initials=""
             name="Anthony Fu"
           >
             <img
               alt="Anthony Fu"
               aria-label="Anthony Fu"
-              class="css-dveu7w"
+              class="css-1r3dil4"
               src="https://avatars.githubusercontent.com/u/11247099?v=4"
             />
             <span
-              class="chakra-box css-otnc8u"
+              class="chakra-box css-q8j305"
             >
               <div
                 aria-label="Anthony Fu"
@@ -420,18 +420,18 @@ exports[`CAvatarGroup renders group with max prop passed 1`] = `
           class="chakra-wrap__listItem css-1yp4ln"
         >
           <span
-            class="chakra-avatar css-ksu8qc"
+            class="chakra-avatar css-rtmy0"
             initials=""
             name="Sarah Drasner"
           >
             <img
               alt="Sarah Drasner"
               aria-label="Sarah Drasner"
-              class="css-p6c9nn"
+              class="css-fj6t8a"
               src="undefined"
             />
             <span
-              class="chakra-box css-ksu8qc"
+              class="chakra-box css-rtmy0"
             >
               <div
                 aria-label="Sarah Drasner"

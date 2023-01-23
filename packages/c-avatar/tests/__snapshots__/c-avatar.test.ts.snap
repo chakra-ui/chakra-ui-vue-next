@@ -3,18 +3,18 @@
 exports[`CAvatar renders initials when name is specified 1`] = `
 <DocumentFragment>
   <span
-    class="chakra-avatar css-vlj51a"
+    class="chakra-avatar css-rtmy0"
     initials=""
     name="Hello World"
   >
     <img
       alt="Hello World"
       aria-label="Hello World"
-      class="css-lpmi3b"
+      class="css-fj6t8a"
       src="undefined"
     />
     <span
-      class="chakra-box css-vlj51a"
+      class="chakra-box css-rtmy0"
     >
       <div
         aria-label="Hello World"
@@ -31,18 +31,18 @@ exports[`CAvatar renders initials when name is specified 1`] = `
 exports[`CAvatar renders properly with default avatar svg by default 1`] = `
 <DocumentFragment>
   <span
-    class="chakra-avatar css-ks2iz"
+    class="chakra-avatar css-q8j305"
     initials=""
     name=""
   >
     <img
       alt=""
       aria-label=""
-      class="css-1dfsndw"
+      class="css-1r3dil4"
       src=""
     />
     <span
-      class="chakra-box css-ks2iz"
+      class="chakra-box css-q8j305"
       initials=""
       name=""
     >

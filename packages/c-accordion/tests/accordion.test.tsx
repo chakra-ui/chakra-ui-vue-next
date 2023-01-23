@@ -5,7 +5,7 @@ import {
   CAccordionIcon,
   CAccordionPanel,
 } from "../src"
-import { Component, defineComponent, h, nextTick } from "vue"
+import { Component, defineComponent, getCurrentInstance, h, nextTick } from "vue"
 import {
   render,
   screen,
@@ -16,6 +16,8 @@ import {
 
 const CCollapseStub = defineComponent(
   ({ isOpen }: { isOpen: boolean }, { slots, attrs }) => {
+    const ctx = getCurrentInstance()
+    console.log("ctx", JSON.stringify(ctx?.appContext.provides))
     return () => <div hidden={!isOpen}>{slots}</div>
   }
 )
@@ -74,7 +76,7 @@ const renderComponent = (options: Component = {}) => {
 }
 
 describe("<CAccordion /> component", () => {
-  it("should render properly", () => {
+  it.only("should render properly", () => {
     const { asFragment } = renderComponent()
     expect(asFragment()).toMatchSnapshot()
   })

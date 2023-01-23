@@ -2,7 +2,12 @@
 
 exports[`should render properly 1`] = `
 <DocumentFragment>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="false"
+    mode="out-in"
+    persisted="false"
+  >
     <!---->
   </transition-stub>
 </DocumentFragment>

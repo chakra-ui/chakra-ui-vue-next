@@ -3,18 +3,18 @@
 exports[`CAvatarBadge renders badge without parameters 1`] = `
 <DocumentFragment>
   <span
-    class="chakra-avatar css-i1ne14"
+    class="chakra-avatar css-rtmy0"
     initials=""
     name="Evan You"
   >
     <img
       alt="Evan You"
       aria-label="Evan You"
-      class="css-b0lfom"
+      class="css-fj6t8a"
       src="undefined"
     />
     <span
-      class="chakra-box css-i1ne14"
+      class="chakra-box css-rtmy0"
     >
       <div
         aria-label="Evan You"
@@ -25,7 +25,7 @@ exports[`CAvatarBadge renders badge without parameters 1`] = `
       </div>
     </span>
     <div
-      class="chakra-avatar-badge css-1sjswgs"
+      class="chakra-avatar-badge css-afcq81"
     />
   </span>
 </DocumentFragment>
