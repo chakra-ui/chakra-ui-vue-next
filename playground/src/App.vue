@@ -26,7 +26,10 @@
         </router-view>
       </c-square>
       <c-h-stack top="10" right="10" pos="absolute">
-        <c-link is-external href="https://github.com/chakra-ui/chakra-ui-vue-next">
+        <c-link
+          is-external
+          href="https://github.com/chakra-ui/chakra-ui-vue-next"
+        >
           <c-icon-button
             color="inherit"
             @click="toggleColorMode"
@@ -65,9 +68,6 @@ export default defineComponent({
   setup() {
     const { colorMode, toggleColorMode } = useColorMode()
 
-    const instance = getCurrentInstance()
-    console.log(instance)
-
     const rootStyles = computed(() => {
       const styles = {
         light: {
@@ -96,10 +96,6 @@ export default defineComponent({
         transition: "all 0.2s ease-in",
         ...styles[colorMode.value],
       }
-    })
-
-    watchEffect(() => {
-      console.log("rootStyles", rootStyles.value)
     })
 
     return {
