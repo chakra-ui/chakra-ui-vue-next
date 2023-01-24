@@ -10,7 +10,7 @@ on:
       - develop
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
