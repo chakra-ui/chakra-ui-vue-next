@@ -1,7 +1,7 @@
 import { SystemStyleObject } from '@chakra-ui/styled-system'
 import { warn } from '@chakra-ui/utils'
 import { chakra, HTMLChakraProps } from '@chakra-ui/vue-system'
-import { computed, defineComponent, getCurrentInstance, PropType, watchEffect } from 'vue'
+import { computed, defineComponent, getCurrentInstance, PropType, h, Fragment } from 'vue'
 import { useAvatarStyles } from './c-avatar'
 
 type BadgePlacement = "top-start" | "top-end" | "bottom-start" | "bottom-end"

@@ -2,7 +2,6 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   chakra,
-  ComponentWithProps,
   SystemProps,
   SystemStyleObject,
 } from "@chakra-ui/vue-system"
@@ -14,8 +13,7 @@ import {
   useThemingProps
 } from "@chakra-ui/vue-utils"
 import { filterUndefined, mergeWith } from "@chakra-ui/utils"
-
-import { h, defineComponent, computed, ComputedRef, PropType, cloneVNode } from "vue"
+import { h, Fragment, defineComponent, computed, ComputedRef, PropType, cloneVNode } from "vue"
 import { baseStyle } from './c-avatar'
 
 type AvatarGroupContext = ComputedRef<ThemingProps>

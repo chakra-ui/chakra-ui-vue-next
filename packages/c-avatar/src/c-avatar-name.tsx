@@ -1,5 +1,5 @@
 import { chakra, ComponentWithProps, DeepPartial, HTMLChakraProps } from '@chakra-ui/vue-system';
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, h, Fragment } from 'vue';
 import { AvatarOptions, useAvatarStyles } from './c-avatar';
 import { initials } from './utils';
 
