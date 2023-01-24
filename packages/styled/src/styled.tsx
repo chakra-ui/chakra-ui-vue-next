@@ -86,8 +86,9 @@ export const createStyled: CreateStyled = (
       let mergedProps = { ...props, ...restAttrs }
 
       let className = options?.__label
-        ? `${cache.key}-${options?.__label || typeof tag === "string" ? tag : "element"
-        } `
+        ? `${cache.key}-${
+            options?.__label || typeof tag === "string" ? tag : "element"
+          } `
         : ``
       const FinalTag = as || baseTag
       const classInterpolations = [] as string[]
@@ -145,7 +146,7 @@ export const createStyled: CreateStyled = (
       // @ts-expect-error
       delete vnodeProps?.theme
 
-      const StyledElement = (<FinalTag {...vnodeProps}>{slots}</FinalTag>)
+      const StyledElement = <FinalTag {...vnodeProps}>{slots}</FinalTag>
 
       let possiblyStyleElement = <Noop />
       if (!isBrowser && rules !== undefined) {
@@ -176,8 +177,9 @@ export const createStyled: CreateStyled = (
 
     StyledComponent._name =
       identifierName === undefined
-        ? `Styled${typeof baseTag === "string" ? baseTag : baseTag.name || "Component"
-        }`
+        ? `Styled${
+            typeof baseTag === "string" ? baseTag : baseTag.name || "Component"
+          }`
         : identifierName
 
     StyledComponent.__emotion_real = StyledComponent

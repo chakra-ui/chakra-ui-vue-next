@@ -1,8 +1,15 @@
-import { SystemStyleObject } from '@chakra-ui/styled-system'
-import { warn } from '@chakra-ui/utils'
-import { chakra, HTMLChakraProps } from '@chakra-ui/vue-system'
-import { computed, defineComponent, getCurrentInstance, PropType, h, Fragment } from 'vue'
-import { useAvatarStyles } from './c-avatar'
+import { SystemStyleObject } from "@chakra-ui/styled-system"
+import { warn } from "@chakra-ui/utils"
+import { chakra, HTMLChakraProps } from "@chakra-ui/vue-system"
+import {
+  computed,
+  defineComponent,
+  getCurrentInstance,
+  PropType,
+  h,
+  Fragment,
+} from "vue"
+import { useAvatarStyles } from "./c-avatar"
 
 type BadgePlacement = "top-start" | "top-end" | "bottom-start" | "bottom-end"
 
@@ -44,7 +51,7 @@ export const CAvatarBadge = defineComponent({
     placement: {
       type: String as PropType<BadgePlacement>,
       default: "bottom-end",
-    }
+    },
   },
   setup(props, { attrs, slots }) {
     const styles = useAvatarStyles()
@@ -53,7 +60,9 @@ export const CAvatarBadge = defineComponent({
 
     warn.bind(instance)({
       condition: !Object.keys(placementMap).includes(props.placement),
-      message: `<CAvatarBadge /> expects a placement value of ${Object.keys(placementMap).join(", ")}. Instead got "${props.placement}"`
+      message: `<CAvatarBadge /> expects a placement value of ${Object.keys(
+        placementMap
+      ).join(", ")}. Instead got "${props.placement}"`,
     })
 
     const badgeStyles = computed<SystemStyleObject>(() => ({
@@ -61,7 +70,7 @@ export const CAvatarBadge = defineComponent({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      ...placementMap[props.placement] || {},
+      ...(placementMap[props.placement] || {}),
       ...styles.value.badge,
     }))
 
@@ -74,5 +83,5 @@ export const CAvatarBadge = defineComponent({
         {slots?.default?.()}
       </chakra.div>
     )
-  }
+  },
 })

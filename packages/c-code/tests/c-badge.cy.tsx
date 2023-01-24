@@ -1,7 +1,6 @@
 /// <reference types="../../../@types" />
 import * as Examples from "../examples"
 
-
 describe("Badge Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {

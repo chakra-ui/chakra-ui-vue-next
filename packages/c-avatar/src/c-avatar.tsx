@@ -23,13 +23,22 @@ import {
 import { match, SNAO, useThemingProps } from "@chakra-ui/vue-utils"
 import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
 import { mergeWith, filterUndefined, dataAttr } from "@chakra-ui/utils"
-import { chakra, ComponentWithProps, DeepPartial } from '@chakra-ui/vue-system'
+import { chakra, ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
 import { extractImgAttrs, getInitials } from "./utils"
-import { omitThemingProps, SystemProps, SystemStyleObject, ThemingProps } from '@chakra-ui/styled-system'
-import { createStylesContext, DOMElements, HTMLChakraProps, useMultiStyleConfig } from '@chakra-ui/vue-system'
-import { CAvatarImage } from './c-avatar-image'
-import { createIconComponent } from '@chakra-ui/c-icon'
-
+import {
+  omitThemingProps,
+  SystemProps,
+  SystemStyleObject,
+  ThemingProps,
+} from "@chakra-ui/styled-system"
+import {
+  createStylesContext,
+  DOMElements,
+  HTMLChakraProps,
+  useMultiStyleConfig,
+} from "@chakra-ui/vue-system"
+import { CAvatarImage } from "./c-avatar-image"
+import { createIconComponent } from "@chakra-ui/c-icon"
 
 export const baseStyle: SystemStyleObject = {
   display: "inline-flex",
@@ -84,7 +93,7 @@ export interface AvatarOptions {
   /**
    * Defining which referrer is sent when fetching the resource.
    */
-  referrerPolicy?: HTMLImageElement['referrerPolicy']
+  referrerPolicy?: HTMLImageElement["referrerPolicy"]
 }
 
 const [AvatarStylesProvider, useAvatarStyles] = createStylesContext("Avatar")
@@ -94,14 +103,19 @@ export interface CAvatarContext {
   icon: ComputedRef<VNode | undefined>
   isLoaded: ComputedRef<boolean>
 }
-const [AvatarContextProvider, useAvatarContext] = createContext<CAvatarContext>({
-  name: "AvatarContext",
-  strict: true,
-})
+const [AvatarContextProvider, useAvatarContext] = createContext<CAvatarContext>(
+  {
+    name: "AvatarContext",
+    strict: true,
+  }
+)
 
 export { AvatarContextProvider, useAvatarContext }
 
-export interface CAvatarProps extends AvatarOptions, ThemingProps<"Avatar">, HTMLChakraProps<"span"> {
+export interface CAvatarProps
+  extends AvatarOptions,
+    ThemingProps<"Avatar">,
+    HTMLChakraProps<"span"> {
   /**
    * Icon name or component
    */
@@ -117,8 +131,8 @@ export interface CAvatarProps extends AvatarOptions, ThemingProps<"Avatar">, HTM
 }
 
 /**
- * CAvatar Component 
-*/
+ * CAvatar Component
+ */
 // @ts-expect-error
 export const CAvatar = defineComponent({
   name: "CAvatar",
@@ -128,7 +142,7 @@ export const CAvatar = defineComponent({
       default: "span",
     },
     src: {
-      type: String as PropType<CAvatarProps['src']>,
+      type: String as PropType<CAvatarProps["src"]>,
       default: "",
     },
     srcSet: {
@@ -136,38 +150,43 @@ export const CAvatar = defineComponent({
       default: "",
     },
     name: {
-      type: String as PropType<CAvatarProps['name']>,
+      type: String as PropType<CAvatarProps["name"]>,
       default: "",
     },
     initials: {
-      type: String as PropType<CAvatarProps['initials']>,
+      type: String as PropType<CAvatarProps["initials"]>,
       default: "",
     },
-    loading: String as PropType<CAvatarProps['loading']>,
-    showBorder: Boolean as PropType<CAvatarProps['showBorder']>,
-    iconLabel: String as PropType<CAvatarProps['iconLabel']>,
+    loading: String as PropType<CAvatarProps["loading"]>,
+    showBorder: Boolean as PropType<CAvatarProps["showBorder"]>,
+    iconLabel: String as PropType<CAvatarProps["iconLabel"]>,
     borderRadius: {
-      type: SNAO as PropType<CAvatarProps['borderRadius']>,
-      default: "full"
+      type: SNAO as PropType<CAvatarProps["borderRadius"]>,
+      default: "full",
     },
-    borderColor: SNAO as PropType<CAvatarProps['borderColor']>,
-    ignoreFallback: SNAO as PropType<CAvatarProps['ignoreFallback']>,
-    icon: [String, Object] as PropType<CAvatarProps['icon']>,
+    borderColor: SNAO as PropType<CAvatarProps["borderColor"]>,
+    ignoreFallback: SNAO as PropType<CAvatarProps["ignoreFallback"]>,
+    icon: [String, Object] as PropType<CAvatarProps["icon"]>,
     ...vueThemingProps,
   },
   emits: ["load", "error"],
   setup(props, { slots, attrs, emit }) {
     const themingProps = useThemingProps(props)
     const mergedProps = computed(() => mergeWith({}, props, attrs))
-    const ownProps = computed(() => filterUndefined(omitThemingProps(mergedProps.value)))
+    const ownProps = computed(() =>
+      filterUndefined(omitThemingProps(mergedProps.value))
+    )
     const extractedAttrs = computed(() => extractImgAttrs(ownProps.value))
 
     const isLoaded = ref(false)
 
-    const styles = useMultiStyleConfig("Avatar", computed(() => ({
-      ...themingProps.value,
-      name: props.name
-    })))
+    const styles = useMultiStyleConfig(
+      "Avatar",
+      computed(() => ({
+        ...themingProps.value,
+        name: props.name,
+      }))
+    )
 
     function handleLoaded(value: unknown) {
       if (value) {
@@ -186,8 +205,8 @@ export const CAvatar = defineComponent({
         }
       } else if (props.icon) {
         return match(typeof props.icon as any, {
-          "string": h(createIconComponent(props.icon as string) as any),
-          "object": h(props.icon)
+          string: h(createIconComponent(props.icon as string) as any),
+          object: h(props.icon),
         })
       }
 
@@ -199,18 +218,18 @@ export const CAvatar = defineComponent({
       borderWidth: props.showBorder ? "2px" : undefined,
       ...baseStyle,
       ...styles.value.container,
-      ...props.borderColor && { borderColor: props.borderColor }
+      ...(props.borderColor && { borderColor: props.borderColor }),
     }))
 
     AvatarStylesProvider(styles)
     AvatarContextProvider({
       icon: ResolvedAvatarIcon,
-      isLoaded: computed(() => isLoaded.value)
+      isLoaded: computed(() => isLoaded.value),
     })
 
     return () => (
       <chakra.span
-        __label='avatar'
+        __label="avatar"
         data-loaded={dataAttr(isLoaded.value)}
         __css={avatarStyles.value}
         {...attrs}
@@ -231,5 +250,5 @@ export const CAvatar = defineComponent({
         {slots?.default?.()}
       </chakra.span>
     )
-  }
+  },
 })

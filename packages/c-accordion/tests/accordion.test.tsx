@@ -5,7 +5,13 @@ import {
   CAccordionIcon,
   CAccordionPanel,
 } from "../src"
-import { Component, defineComponent, getCurrentInstance, h, nextTick } from "vue"
+import {
+  Component,
+  defineComponent,
+  getCurrentInstance,
+  h,
+  nextTick,
+} from "vue"
 import {
   render,
   screen,

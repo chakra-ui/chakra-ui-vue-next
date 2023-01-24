@@ -1,3 +1,4 @@
+/* eslint vue/no-side-effects-in-computed-properties: 0  */
 import {
   ThemingProps,
   useMultiStyleConfig,
@@ -10,11 +11,19 @@ import {
   getValidChildren,
   SNAO,
   vueThemingProps,
-  useThemingProps
+  useThemingProps,
 } from "@chakra-ui/vue-utils"
 import { filterUndefined, mergeWith } from "@chakra-ui/utils"
-import { h, Fragment, defineComponent, computed, ComputedRef, PropType, cloneVNode } from "vue"
-import { baseStyle } from './c-avatar'
+import {
+  h,
+  Fragment,
+  defineComponent,
+  computed,
+  ComputedRef,
+  PropType,
+  cloneVNode,
+} from "vue"
+import { baseStyle } from "./c-avatar"
 
 type AvatarGroupContext = ComputedRef<ThemingProps>
 
@@ -27,7 +36,6 @@ const [AvatarGroupProvider, useAvatarGroup] = createContext<AvatarGroupContext>(
 
 export { useAvatarGroup }
 
-
 export const avatarGroupProps = {
   max: {
     type: Number,
@@ -35,11 +43,11 @@ export const avatarGroupProps = {
   },
   spacing: {
     type: SNAO as PropType<SystemProps["margin"]>,
-    default: "-0.75rem"
+    default: "-0.75rem",
   },
   borderRadius: {
     type: SNAO as PropType<SystemProps["borderRadius"]>,
-    default: "full"
+    default: "full",
   },
   borderColor: SNAO as PropType<SystemProps["borderColor"]>,
   ...vueThemingProps,
@@ -60,7 +68,9 @@ export const CAvatarGroup = defineComponent({
     const visibleChildren = computed(() =>
       validChildren.value.slice(0, props.max)
     )
-    const excessChildrenCount = computed(() => validChildren.value.length - props.max)
+    const excessChildrenCount = computed(
+      () => validChildren.value.length - props.max
+    )
 
     /**
      * Reversing the children is a great way to avoid using zIndex
@@ -70,20 +80,18 @@ export const CAvatarGroup = defineComponent({
       visibleChildren.value.reverse()
     )
 
-    const clonedChildren = computed(() => reversedVisibleChildren.value.map((vnode, index) => {
-      const isFirstAvatar = index === 0
-
-      const childProps = filterUndefined({
-        marginEnd: isFirstAvatar ? 0 : props.spacing,
-        size: props.size,
-        borderColor: vnode?.props?.borderColor ?? props.borderColor,
-        showBorder: true,
+    const clonedChildren = computed(() =>
+      reversedVisibleChildren.value.map((vnode, index) => {
+        const isFirstAvatar = index === 0
+        const childProps = filterUndefined({
+          marginEnd: isFirstAvatar ? 0 : props.spacing,
+          size: props.size,
+          borderColor: vnode?.props?.borderColor ?? props.borderColor,
+          showBorder: true,
+        })
+        return cloneVNode(vnode, childProps)
       })
-
-      console.log("childProps", childProps)
-
-      return cloneVNode(vnode, childProps)
-    }))
+    )
 
     const groupStyles = computed<SystemStyleObject>(() => ({
       display: "flex",
@@ -103,7 +111,7 @@ export const CAvatarGroup = defineComponent({
     return () => (
       <chakra.div
         role="group"
-        __label='avatar__group'
+        __label="avatar__group"
         __css={groupStyles.value}
       >
         <>

@@ -1,10 +1,18 @@
-import { defineComponent, h, Fragment, cloneVNode, computed, PropType, watchEffect } from 'vue';
+import {
+  defineComponent,
+  h,
+  Fragment,
+  cloneVNode,
+  computed,
+  PropType,
+  watchEffect,
+} from "vue"
 import { CImageProps, useImage } from "@chakra-ui/c-image"
 import { SNAO } from "@chakra-ui/vue-utils"
-import { CAvatarName } from './c-avatar-name';
-import { CDefaultAvatarIcon } from './c-default-avatar-icon';
-import { chakra, ComponentWithProps, DeepPartial } from '@chakra-ui/vue-system';
-import { useAvatarContext } from './c-avatar';
+import { CAvatarName } from "./c-avatar-name"
+import { CDefaultAvatarIcon } from "./c-default-avatar-icon"
+import { chakra, ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
+import { useAvatarContext } from "./c-avatar"
 
 export interface CAvatarImageProps extends CImageProps {
   initials?: string
@@ -17,23 +25,23 @@ export const CAvatarImage = defineComponent({
   name: "CAvatarImage",
   props: {
     src: {
-      type: String as PropType<CAvatarImageProps['src']>,
+      type: String as PropType<CAvatarImageProps["src"]>,
       default: "",
     },
     srcSet: {
-      type: String as PropType<CAvatarImageProps['src']>,
+      type: String as PropType<CAvatarImageProps["src"]>,
       default: "",
     },
     name: {
-      type: String as PropType<CAvatarImageProps['name']>,
+      type: String as PropType<CAvatarImageProps["name"]>,
       default: "",
     },
-    initials: String as PropType<CAvatarImageProps['initials']>,
-    iconLabel: String as PropType<CAvatarImageProps['iconLabel']>,
+    initials: String as PropType<CAvatarImageProps["initials"]>,
+    iconLabel: String as PropType<CAvatarImageProps["iconLabel"]>,
     loading: String as PropType<CAvatarImageProps["loading"]>,
-    borderRadius: SNAO as PropType<CAvatarImageProps['borderRadius']>,
-    ignoreFallback: Boolean as PropType<CAvatarImageProps['ignoreFallback']>,
-    referrerPolicy: SNAO as PropType<CAvatarImageProps['referrerPolicy']>,
+    borderRadius: SNAO as PropType<CAvatarImageProps["borderRadius"]>,
+    ignoreFallback: Boolean as PropType<CAvatarImageProps["ignoreFallback"]>,
+    referrerPolicy: SNAO as PropType<CAvatarImageProps["referrerPolicy"]>,
   },
   emits: ["load", "error"],
   setup(props, { slots, emit, attrs }) {
@@ -67,14 +75,10 @@ export const CAvatarImage = defineComponent({
     })
 
     return () => {
-
       const showFallback = !props.src || !hasLoaded.value
       if (showFallback) {
         return props.name ? (
-          <CAvatarName {...attrs}
-            name={props.name}
-            hidden={hasLoaded.value}
-          />
+          <CAvatarName {...attrs} name={props.name} hidden={hasLoaded.value} />
         ) : (
           <Icon.value {...attrs} />
         )
@@ -95,11 +99,11 @@ export const CAvatarImage = defineComponent({
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              borderRadius: props.borderRadius
+              borderRadius: props.borderRadius,
             }}
           />
         </>
       )
     }
-  }
+  },
 })

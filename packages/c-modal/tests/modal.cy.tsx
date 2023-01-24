@@ -13,7 +13,7 @@ import {
 import { CButton } from "../../c-button"
 import ReturnFocusOnCloseExample from "../examples/modal-return-focus.vue"
 import SimpleModalExample from "../examples/modal-simple.vue"
-import { useRef } from '@chakra-ui/vue-utils'
+import { useRef } from "@chakra-ui/vue-utils"
 
 const render = (props: any = {}) => {
   return cy.mount(() =>
