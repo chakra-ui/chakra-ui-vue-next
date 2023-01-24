@@ -40,13 +40,13 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile && yarn bootstrap
+        run: yarn install --frozen-lockfile
 
       - name: Linting
         run: yarn lint
 
       - name: Building packages
-        run: yarn build && yarn bootstrap
+        run: yarn build
 
       - name: Testing components
         run: yarn test:ci
