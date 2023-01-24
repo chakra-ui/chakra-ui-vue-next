@@ -1,6 +1,6 @@
 import { injectGlobal, css } from "@chakra-ui/vue-system"
 import { cssResetStyles } from "@chakra-ui/c-reset"
-import { ThemeOverride } from "../extend-theme"
+import { ThemeOverride } from "@chakra-ui/theme-utils"
 import { get, runIfFn } from "@chakra-ui/utils"
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { serializeStyles } from "@emotion/serialize"
@@ -56,9 +56,12 @@ export function injectThemeGlobalStyles(
       })
 
       let rehydrating = false
-      let node: HTMLStyleElement | null = document.querySelector(
-        `style[data-emotion="${key} ${serializedStyles.value.name}"]`
-      )
+      let node: HTMLStyleElement | null =
+        typeof document !== "undefined"
+          ? document.querySelector(
+              `style[data-emotion="${key} ${serializedStyles.value.name}"]`
+            )
+          : null
 
       if (cache.sheet.tags.length) {
         sheet.before = cache.sheet.tags[0]

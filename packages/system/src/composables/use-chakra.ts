@@ -11,9 +11,10 @@ export const useTheme = <T extends object = Dict>(): T => {
 /** Single hook to provide theme and color mode values */
 export const useChakra = () => {
   const theme = useTheme()
-  const { colorMode } = useColorMode()
+  const { colorMode, forced } = useColorMode()
   return {
     theme,
     colorMode,
+    forced,
   }
 }

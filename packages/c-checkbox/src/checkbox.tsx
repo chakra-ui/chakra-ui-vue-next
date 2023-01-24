@@ -4,7 +4,7 @@
  * C checkbox component is used in forms when a user needs to select multiple values from several options
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-checkbox
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-checkbox/src/c-checkbox/c-checkbox.tsx
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-checkbox/src/c-checkbox/c-checkbox.tsx
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -117,8 +117,8 @@ export interface CCheckboxControlProps {
 
 export interface CCheckboxProps
   extends HTMLChakraProps<"input">,
-    ThemingProps<"Checkbox">,
-    CCheckboxControlProps {
+  ThemingProps<"Checkbox">,
+  CCheckboxControlProps {
   /**
    * The spacing between the checkbox and its label text
    * @default 0.5rem
@@ -176,7 +176,9 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const group = useCheckboxGroupContext(computed(() => ({})))
+    const group = useCheckboxGroupContext(
+      computed(() => ({} as CheckboxGroupContext))
+    )
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
     const styles = useMultiStyleConfig("Checkbox", mergedProps)
@@ -313,6 +315,8 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
     return () => {
       const children = getValidChildren(slots)
       const hasChildren = children.length > 0
+
+      console.log("clonedIcon", clonedIcon)
 
       return (
         <chakra.div

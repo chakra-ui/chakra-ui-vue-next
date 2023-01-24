@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import { h, Fragment, defineComponent } from "vue"
 import {
   CFormControl,

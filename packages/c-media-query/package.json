@@ -1,0 +1,41 @@
+{
+  "name": "@chakra-ui/c-media-query",
+  "description": "Chakra UI Vue | Media query components and composables",
+  "version": "1.0.0-beta.1",
+  "main": "dist/chakra-ui-c-media-query.cjs.js",
+  "module": "dist/chakra-ui-c-media-query.esm.js",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/chakra-ui-c-media-query.cjs.js",
+      "default": "./dist/chakra-ui-c-media-query.esm.js"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-media-query",
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1",
+    "@vueuse/core": "4.9.1"
+  },
+  "devDependencies": {
+    "vue": "^3.2.37"
+  },
+  "peerDependencies": {
+    "vue": "^3.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

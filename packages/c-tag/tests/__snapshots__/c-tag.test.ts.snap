@@ -4,7 +4,7 @@ exports[`CTag renders base tag properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     Sample tag
   </span>
@@ -15,7 +15,7 @@ exports[`CTag renders base tag with c-label properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     <span
       class="css-1vp3zs1"
@@ -30,7 +30,7 @@ exports[`CTag renders tag with left icon properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     <svg
       class="chakra-icon css-1iuf2uu"
@@ -85,7 +85,7 @@ exports[`CTag renders with close button properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     <span
       class="css-1vp3zs1"
@@ -94,48 +94,27 @@ exports[`CTag renders with close button properly 1`] = `
     </span>
     <button
       aria-label="close"
-      class="css-5tukl8"
+      class="css-piepz9"
       type="button"
     >
       <svg
-        class="chakra-icon css-13otjrl"
+        attrs="[object Object]"
+        class="chakra-icon css-1md6f3y"
+        emit="(event, ...args) => instance.emit(event, ...args)"
+        expose="exposed => {
+        if (instance.exposed) {
+            warn(\`expose() should be called only once per setup().\`);
+        }
+        instance.exposed = exposed || {};
+    }"
         focusable="false"
-        viewBox="0 0 24 24"
+        slots="[object Object]"
+        viewBox="0 0 512 512"
       >
-        
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
-      
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="round"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokelinecap="round"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-  
+        <path
+          d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          fill="currentColor"
+        />
       </svg>
     </button>
   </span>
@@ -146,7 +125,7 @@ exports[`CTag renders with disabled button properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     <span
       class="css-1vp3zs1"
@@ -155,49 +134,28 @@ exports[`CTag renders with disabled button properly 1`] = `
     </span>
     <button
       aria-label="close"
-      class="css-5tukl8"
+      class="css-piepz9"
       disabled=""
       type="button"
     >
       <svg
-        class="chakra-icon css-13otjrl"
+        attrs="[object Object]"
+        class="chakra-icon css-1md6f3y"
+        emit="(event, ...args) => instance.emit(event, ...args)"
+        expose="exposed => {
+        if (instance.exposed) {
+            warn(\`expose() should be called only once per setup().\`);
+        }
+        instance.exposed = exposed || {};
+    }"
         focusable="false"
-        viewBox="0 0 24 24"
+        slots="[object Object]"
+        viewBox="0 0 512 512"
       >
-        
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
-      
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="round"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokelinecap="round"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-  
+        <path
+          d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          fill="currentColor"
+        />
       </svg>
     </button>
   </span>
@@ -208,7 +166,7 @@ exports[`CTag renders with left icon and close button 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     <svg
       class="chakra-icon css-1iuf2uu"
@@ -257,48 +215,27 @@ exports[`CTag renders with left icon and close button 1`] = `
     </span>
     <button
       aria-label="close"
-      class="css-5tukl8"
+      class="css-piepz9"
       type="button"
     >
       <svg
-        class="chakra-icon css-13otjrl"
+        attrs="[object Object]"
+        class="chakra-icon css-1md6f3y"
+        emit="(event, ...args) => instance.emit(event, ...args)"
+        expose="exposed => {
+        if (instance.exposed) {
+            warn(\`expose() should be called only once per setup().\`);
+        }
+        instance.exposed = exposed || {};
+    }"
         focusable="false"
-        viewBox="0 0 24 24"
+        slots="[object Object]"
+        viewBox="0 0 512 512"
       >
-        
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
-      
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="round"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="currentColor"
-            strokelinecap="round"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-  
+        <path
+          d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          fill="currentColor"
+        />
       </svg>
     </button>
   </span>
@@ -309,7 +246,7 @@ exports[`CTag renders with right icon properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-19839su"
+    class="chakra-tag css-uv65rg"
   >
     <span
       class="css-1vp3zs1"

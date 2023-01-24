@@ -3,10 +3,9 @@ import {
   SystemProps,
   ResponsiveValue,
   StyleProps,
-  ThemeTypings,
 } from "@chakra-ui/styled-system"
 import { IntrinsicElementAttributes } from "./dom.types"
-import { Dict } from "@chakra-ui/utils"
+
 import {
   AllowedComponentProps,
   ComponentCustomProps,
@@ -27,8 +26,9 @@ export type ComponentWithProps<P> = {
   new (): {
     $props: AllowedComponentProps &
       ComponentCustomProps &
-      VNodeProps & { props?: Record<keyof P, any> } & P & {
-        [key: string]: unknown
+      VNodeProps &
+      P & {
+        [key: string]: any
       }
   }
 }

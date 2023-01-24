@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import { h, Fragment, ref } from "vue"
 import {
   CAlertDialog,

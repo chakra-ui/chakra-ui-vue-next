@@ -1,4 +1,4 @@
-import theme from "@chakra-ui/vue-theme"
+import theme from "@chakra-ui/theme"
 import { resolveStyles } from "../src"
 
 const customTheme: any = {

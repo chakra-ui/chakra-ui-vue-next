@@ -57,9 +57,6 @@ If you are looking to build a new component, and it has been approved by the tea
 **`yarn install`**: bootstraps the entire project, symlinks all dependencies for
 cross-component development and builds all components.
 
-**`yarn bootstrap`**: bootstraps the entire project and symlinks all
-dependencies for cross-component development.
-
 **`yarn playground:dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
 
 **`yarn docs:dev`**: run the documentation site locally.

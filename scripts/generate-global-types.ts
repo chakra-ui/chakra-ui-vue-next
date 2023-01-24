@@ -30,12 +30,12 @@ async function generateComponents() {
   }
 
   for (let el = 0; el < domElements.length; el++) {
-    code += `'chakra.${domElements[el]}': typeof import('${pkgName}')['CBox']\n`
+    code += `'chakra.${domElements[el]}': typeof chakra['${domElements[el]}']\n`
   }
 
   const allTypes = `
   /**
-   * Typescript support for @${pkgName}${pkgVersion} auto-imported
+   * Typescript support for ${pkgName}${pkgVersion} auto-imported
    * components using \`unplugin-vue-components,\`
    * 
    * @see: https://github.com/antfu/unplugin-vue-components/#typescript
@@ -88,12 +88,8 @@ async function generateComponents() {
    } & Omit<HTMLAttributes, 'innerHTML'> & {
        innerHTML?: JsxNode
      }
-  
-  declare var chakra: typeof import("@chakra-ui/vue-next")["chakra"]
 
   declare module '@vue/runtime-core' {
-    import { chakra } from '@chakra-ui/vue-next'
-    export { chakra }
 
     /* Global component types for Volar auto-complete */
     export interface GlobalComponents {
@@ -160,13 +156,16 @@ async function generateComponents() {
     __dirname,
     "../packages/core/dist/declarations/src/index.d.ts"
   )
+  const localTypesFilePath = resolve(__dirname, "../@types/components.d.ts")
   writeFileSync(projectTypesFilePath, allTypes, "utf8")
+  writeFileSync(localTypesFilePath, allTypes, "utf8")
   appendFileSync(coreTypesFilePath, allTypes, "utf8")
 
   // Lint and Fix filea after writing types
   const eslint = new ESLint({ fix: true })
   const results = await eslint.lintFiles([
     projectTypesFilePath,
+    localTypesFilePath,
     coreTypesFilePath,
   ])
   await ESLint.outputFixes(results)

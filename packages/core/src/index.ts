@@ -1,6 +1,10 @@
 import { computed, Plugin, ref, UnwrapRef } from "vue"
-import defaultTheme from "@chakra-ui/vue-theme"
-import type { ColorModeRef } from "@chakra-ui/c-color-mode"
+import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/theme"
+import {
+  AppColorModeContextSymbol,
+  ColorModeRef,
+  setupColorModeContext,
+} from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
 import {
@@ -9,11 +13,17 @@ import {
 } from "@chakra-ui/vue-styled"
 import createCache, { EmotionCache } from "@emotion/cache"
 import internalIcons from "./icon.internals"
-import { extendTheme, ThemeOverride } from "./extend-theme"
+import {
+  extendTheme,
+  extendBaseTheme,
+  ThemeOverride,
+} from "@chakra-ui/theme-utils"
 import { MergedIcons, parseIcons } from "./parse-icons"
 import { injectResetStyles, injectThemeGlobalStyles } from "./helpers/css-reset"
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { mode } from "@chakra-ui/theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
+import { Dict } from "@chakra-ui/utils"
+import { localStorageManager, StorageManager } from "@chakra-ui/c-color-mode"
 
 /**
  * 1. Support passing cache options from plugin
@@ -21,27 +31,35 @@ import { ChakraPluginOptions } from "./helpers/plugin.types"
  * 3.
  */
 
+const defaultPluginOptions: ChakraPluginOptions = {
+  cssReset: true,
+  isBaseTheme: false,
+  colorModeManager: localStorageManager,
+}
+
 /**
  * Helper function to extend Chakra plugin with options
  * It just returns its arguments with typescript types added
  */
-
-export function extendChakra(
-  options: ChakraPluginOptions = { cssReset: true }
-) {
+export function extendChakra(options = defaultPluginOptions) {
   return options
 }
 
 const ChakraUIVuePlugin: Plugin = {
-  install(app, options: ChakraPluginOptions = { cssReset: true }) {
+  install(app, options: ChakraPluginOptions = defaultPluginOptions) {
     // 1. Get theme value
     // 2. Parse theme tokens to CSS variables
     // 3. Inject all CSS variables as theme object
-    const theme = options.extendTheme || defaultTheme
+    const theme =
+      options.extendTheme! ||
+      ((options.isBaseTheme ? baseTheme : defaultTheme) as any as
+        | Theme
+        | (Omit<Theme, "components"> & { components: Dict }))
     const computedTheme = computed<WithCSSVar<ThemeOverride>>(() =>
       toCSSVar(theme)
     )
 
+    const colorModeManager = options.colorModeManager || localStorageManager
     // Inject Chakra CSS variables
     injectGlobal({
       ":root": computedTheme.value.__cssVars,
@@ -51,11 +69,16 @@ const ChakraUIVuePlugin: Plugin = {
     const colorMode: UnwrapRef<ColorModeRef> =
       theme.config?.initialColorMode || "light"
 
-    // Provide initial color mode
-    app.config.globalProperties.$initialColorMode = colorMode
-
     const colorModeRef = ref(colorMode) as ColorModeRef
-    app.provide<ColorModeRef>("$chakraColorMode", colorModeRef)
+
+    setupColorModeContext(app, {
+      _colorMode: colorModeRef,
+      colorModeManager,
+      useSystemColorMode: theme.config?.useSystemColorMode || false,
+      initialColorMode: colorMode,
+      disableTransitionOnChange:
+        theme.config?.disableTransitionOnChange || false,
+    })
 
     if (options.cssReset) {
       injectResetStyles()
@@ -106,7 +129,7 @@ const ChakraUIVuePlugin: Plugin = {
 export type { ChakraPluginOptions }
 export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
-export { extendTheme }
+export { extendTheme, extendBaseTheme }
 
 // Export chakra factory function
 export { chakra }
@@ -143,12 +166,14 @@ export * from "@chakra-ui/c-form-control"
 
 // I
 export * from "@chakra-ui/c-icon"
+export * from "@chakra-ui/c-image"
 export * from "@chakra-ui/c-input"
 
 // L
 export * from "@chakra-ui/vue-layout"
 
 // M
+export * from "@chakra-ui/c-media-query"
 export * from "@chakra-ui/c-modal"
 export * from "@chakra-ui/c-motion"
 

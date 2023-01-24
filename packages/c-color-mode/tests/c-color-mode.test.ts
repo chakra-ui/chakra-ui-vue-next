@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from "vue"
-import { render, userEvent } from "../../test-utils/src"
+import { render, userEvent, waitMs } from "../../test-utils/src"
 import { useColorMode } from "../src"
 
 const renderComponent = (props?: any) => {
@@ -27,10 +27,12 @@ it("should toggle colormode", async () => {
   expect(getByTestId("colormode").textContent).toBe("light")
 
   await userEvent.click(getByTestId("toggle"))
+  await waitMs(500)
   await nextTick()
   expect(getByTestId("colormode").textContent).toBe("dark")
 
   await userEvent.click(getByTestId("toggle"))
+  await waitMs(500)
   await nextTick()
   expect(getByTestId("colormode").textContent).toBe("light")
 

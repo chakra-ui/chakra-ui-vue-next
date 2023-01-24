@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import UseDisclosureDrawer from "../examples/use-disclosure-drawer.vue"
 import UseDisclosureProps from "../examples/use-disclosure-props.vue"
 import UseDisclosureToggle from "../examples/use-disclosure-toggle.vue"

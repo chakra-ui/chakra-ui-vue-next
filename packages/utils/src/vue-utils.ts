@@ -25,7 +25,10 @@ type CreateContextReturn<T> = [(opts: T) => void, (fallback?: T) => T, Symbol]
  *
  * @param options create context options
  */
-export function createContext<ContextType>(options: CreateContextOptions = {}) {
+export function createContext<ContextType>(
+  options: CreateContextOptions = {},
+  defaults?: ContextType
+) {
   const {
     strict = true,
     errorMessage = "useContext: `context` is undefined. Seems you forgot to wrap component within the Provider",

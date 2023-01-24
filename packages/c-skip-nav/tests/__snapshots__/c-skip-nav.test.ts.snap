@@ -14,7 +14,7 @@ exports[`CSkipNavContent should render properly 1`] = `
 exports[`CSkipNavLink should render properly 1`] = `
 <DocumentFragment>
   <a
-    class="css-cyzxyu"
+    class="css-1awf05p"
     href="#chakra-skip-nav"
   />
 </DocumentFragment>

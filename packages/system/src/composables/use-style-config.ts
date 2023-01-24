@@ -1,9 +1,9 @@
 import { computed, ComputedRef, Ref } from "vue"
-import { SystemStyleObject } from "@chakra-ui/styled-system"
-import { ThemingProps } from "../system.types"
+import { SystemStyleObject, ThemingProps } from "@chakra-ui/styled-system"
+// import { ThemingProps } from "../system.types"
 import { filterUndefined, get, mergeWith, runIfFn } from "@chakra-ui/utils"
 import { useChakra } from "./use-chakra"
-import type { Theme } from "@chakra-ui/vue-theme"
+import type { Theme } from "@chakra-ui/theme"
 
 export function useStyleConfig<Component extends keyof Theme["components"]>(
   themeKey: Component,
@@ -63,7 +63,8 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
     const styles = mergeWith({}, baseStyles, sizes, variants) as ComponentStyles
 
     if (options.isMultiPart && styleConfig?.parts) {
-      styleConfig?.parts?.forEach((part: string) => {
+      styleConfig?.parts?.forEach((part: keyof ComponentStyles) => {
+        //@ts-ignore
         styles[part] = styles[part] ?? {}
       })
     }

@@ -28,7 +28,7 @@ import Chakra, {
   extendChakra,
   CReset,
 } from "@chakra-ui/vue-next"
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { mode } from "@chakra-ui/theme-tools"
 import { feActivity, feUser } from "feather-icons-paths"
 import { h, Fragment, defineComponent } from "vue"
 
@@ -36,19 +36,6 @@ import { domElements } from "@chakra-ui/vue-system"
 
 import { MotionPlugin } from "@vueuse/motion"
 import "./env"
-
-// Augment the Cypress namespace to include type definitions for
-// your custom command.
-// Alternatively, can be defined in cypress/support/component.d.ts
-// with a <reference path="./component" /> at the top of your spec.
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      mount: typeof mount
-      checkA11y: () => Chainable
-    }
-  }
-}
 
 const chakraOptions = extendChakra({
   cssReset: true,
@@ -82,6 +69,3 @@ Cypress.Commands.add("mount", (component, options = {}) => {
   // @ts-ignore
   return mount(component, options)
 })
-
-// Example use:
-// cy.mount(MyComponent)
