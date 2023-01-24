@@ -210,7 +210,7 @@ export const CAvatar = defineComponent({
         __label='avatar'
         data-loaded={dataAttr(isLoaded.value)}
         __css={avatarStyles.value}
-        {...extractedAttrs.value.rest}
+        {...attrs}
       >
         <CAvatarImage
           src={props.src}
@@ -224,9 +224,8 @@ export const CAvatar = defineComponent({
           iconLabel={props.iconLabel}
           ignoreFallback={props.ignoreFallback}
           {...extractedAttrs.value.imgAttrs}
-        >
-          {slots?.default?.()}
-        </CAvatarImage>
+        />
+        {slots?.default?.()}
       </chakra.span>
     )
   }

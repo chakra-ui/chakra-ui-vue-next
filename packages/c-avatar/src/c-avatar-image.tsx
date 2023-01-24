@@ -37,12 +37,11 @@ export const CAvatarImage = defineComponent({
   },
   emits: ["load", "error"],
   setup(props, { slots, emit, attrs }) {
-    const { status, imageRef } = useImage({
+    const { status } = useImage({
       ...props,
       ignoreFallback: props.ignoreFallback,
     })
     const hasLoaded = computed(() => status.value === "loaded")
-    const showFallback = computed(() => !props.src || !hasLoaded.value)
 
     /**
      * Fallback avatar applies under 2 conditions:
@@ -51,10 +50,7 @@ export const CAvatarImage = defineComponent({
      *
      * In this case, we'll show either the name avatar or default avatar
      */
-
-    watchEffect(() => {
-      console.debug("hasLoaded", status.value)
-    })
+    const showFallback = computed(() => !props.src || !hasLoaded.value)
 
     const { icon } = useAvatarContext()
 
@@ -72,23 +68,25 @@ export const CAvatarImage = defineComponent({
 
     return () => {
 
+      const showFallback = !props.src || !hasLoaded.value
+      if (showFallback) {
+        return props.name ? (
+          <CAvatarName {...attrs}
+            name={props.name}
+            hidden={hasLoaded.value}
+          />
+        ) : (
+          <Icon.value {...attrs} />
+        )
+      }
       return (
         <>
-          {!hasLoaded.value && props.name && (
-            <CAvatarName {...attrs}
-              name={props.name}
-              hidden={hasLoaded.value}
-            />
-          )}
-          {!props.src && !props.name && (
-            <Icon.value {...attrs} />
-          )}
-          <chakra.img {...attrs}
+          <chakra.img
+            {...attrs}
             __label="avatar__img"
             src={props.src}
             srcset={props.srcSet}
             alt={props.name}
-            ref={imageRef}
             onLoad={() => emit("load", [props.src, props.srcSet])}
             onError={(e) => emit("error", e)}
             referrerPolicy={props.referrerPolicy}
@@ -99,9 +97,7 @@ export const CAvatarImage = defineComponent({
               objectFit: "cover",
               borderRadius: props.borderRadius
             }}
-            hidden={!hasLoaded.value}
           />
-
         </>
       )
     }

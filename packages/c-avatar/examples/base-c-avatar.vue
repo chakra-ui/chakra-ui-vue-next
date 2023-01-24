@@ -72,6 +72,6 @@
     </c-h-stack>
   </c-stack>
 </template>
-<script setup>
+<script setup lang="ts">
 import { CAvatar } from "../src"
 </script>

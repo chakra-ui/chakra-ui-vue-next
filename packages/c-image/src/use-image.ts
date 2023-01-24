@@ -9,6 +9,8 @@ import {
   watch,
   onMounted,
   watchPostEffect,
+  nextTick,
+  watchEffect,
 } from "vue"
 
 type NativeImageProps = ImgHTMLAttributes
@@ -64,32 +66,30 @@ export function useImage(props: UseImageProps) {
 
   const status = ref<Status>("pending")
 
-  // const imageRef = ref<HTMLImageElement | null>()
-  const [imageRef, imageRefEl] = useRef<HTMLImageElement>()
-
   const load = () => {
     if (!src) return
-    if (imageRefEl.value) {
-      imageRefEl.value.src = src
-      if (crossOrigin) imageRefEl.value.crossOrigin = crossOrigin
-      if (srcSet) imageRefEl.value.srcset = srcSet
-      if (sizes) imageRefEl.value.sizes = sizes
-      if (loading) imageRefEl.value.loading = loading
 
-      imageRefEl.value.onload = (event: Event) => {
+    const image = new Image()
+
+    if (image) {
+      image.src = src
+      if (crossOrigin) image.crossOrigin = crossOrigin
+      if (srcSet) image.srcset = srcSet
+      if (sizes) image.sizes = sizes
+
+      image.onload = (event: Event) => {
         status.value = "loaded"
         onLoad?.(event as unknown as Event)
       }
 
-      imageRefEl.value.onerror = (error) => {
+      image.onerror = (error) => {
         status.value = "failed"
         onError?.(error as any)
       }
     }
   }
 
-  watch(imageRefEl, (_imageRefEl) => {
-    console.debug("useImage options", props, _imageRefEl)
+  watchPostEffect(() => {
     /**
      * If user opts out of the fallback/placeholder
      * logic, let's bail out.
@@ -98,10 +98,12 @@ export function useImage(props: UseImageProps) {
       return
     }
 
-    if (src && imageRefEl.value) {
+    if (src) {
       load()
     }
   })
+
+  watchEffect(() => console.debug("status", status.value))
 
   /**
    * If user opts out of the fallback/placeholder
@@ -109,7 +111,6 @@ export function useImage(props: UseImageProps) {
    */
   return {
     status: computed(() => (unref(ignoreFallback) ? "loaded" : status.value)),
-    imageRef
   }
 }
 
