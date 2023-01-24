@@ -1,6 +1,6 @@
 import { injectGlobal, css } from "@chakra-ui/vue-system"
 import { cssResetStyles } from "@chakra-ui/c-reset"
-import { ThemeOverride } from "../extend-theme"
+import { ThemeOverride } from "@chakra-ui/theme-utils"
 import { get, runIfFn } from "@chakra-ui/utils"
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
 import { serializeStyles } from "@emotion/serialize"

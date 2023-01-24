@@ -82,7 +82,7 @@ export function focusIn(container: HTMLElement | HTMLElement[], focus: Focus) {
 
   let offset = 0
   let total = elements.length
-  let next = undefined
+  let next: undefined | HTMLElement = undefined
   do {
     // Guard against infinite loops
     if (offset >= total || offset + total <= 0) return FocusResult.Error

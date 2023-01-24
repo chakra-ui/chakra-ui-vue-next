@@ -16,7 +16,7 @@ exports[`<CAspectRatio /> should render properly 1`] = `
 exports[`<CBadge /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-badge css-1f1oimr"
+    class="chakra-badge css-16bfjvf"
   >
     this is a badge
   </div>
@@ -51,7 +51,7 @@ exports[`<CCenter /> should render properly 1`] = `
 exports[`<CContainer /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-container css-1v8lbpd"
+    class="chakra-container css-1poer1"
   >
      container 
   </div>
@@ -178,13 +178,13 @@ exports[`<CKbd /> should render properly 1`] = `
 <DocumentFragment>
   <span>
     <kbd
-      class="chakra-kbd css-1t0x8xj"
+      class="chakra-kbd css-o84h17"
     >
       shift
     </kbd>
      + 
     <kbd
-      class="chakra-kbd css-1t0x8xj"
+      class="chakra-kbd css-o84h17"
     >
       H
     </kbd>
@@ -281,7 +281,7 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
       class="chakra-list__item css-0"
     >
       <svg
-        class="chakra-icon css-a2vvhw"
+        class="chakra-icon css-vg5qi3"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"
@@ -327,7 +327,7 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
       class="chakra-list__item css-0"
     >
       <svg
-        class="chakra-icon css-a2vvhw"
+        class="chakra-icon css-vg5qi3"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"

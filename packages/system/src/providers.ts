@@ -14,7 +14,7 @@ const [StylesProvider, useStyles] = createContext<
 export { StylesProvider, useStyles }
 
 export const createStylesContext = (componentName: string) =>
-  createContext<ComputedRef<Dict<SystemStyleObject> | SystemStyleObject>>({
+  createContext<ComputedRef<Record<string, SystemStyleObject>>>({
     name: `${componentName}StylesContext`,
     errorMessage: `useStyles: "styles" is undefined. Seems you forgot to wrap the components in "<${componentName} />" `,
   })

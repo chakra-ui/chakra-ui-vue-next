@@ -1,61 +1,71 @@
 import { __DEV__ } from "@chakra-ui/utils"
-import { ColorModeRef } from "./color-mode.utils"
+import { ColorMode } from "./color-mode.utils"
+
+export const STORAGE_KEY = "chakra-ui-color-mode"
 
 const hasSupport = () => typeof Storage !== "undefined"
 export const storageKey = "chakra-ui-color-mode"
 
-type MaybeColorMode = ColorModeRef["value"] | undefined
+type MaybeColorMode = ColorMode | undefined
 
 export interface StorageManager {
-  get(init?: ColorModeRef["value"]): MaybeColorMode
-  set(value: ColorModeRef["value"]): void
   type: "cookie" | "localStorage"
+  ssr?: boolean
+  get(init?: ColorMode): MaybeColorMode
+  set(value: ColorMode | "system"): void
 }
 
-/**
- * Simple object to handle read-write to localStorage
- */
-export const localStorageManager: StorageManager = {
-  get(init?) {
-    if (!hasSupport()) return init
-    try {
-      const value = localStorage.getItem(storageKey) as MaybeColorMode
-      return value ?? init
-    } catch (error) {
-      if (__DEV__) {
-        console.log(error)
+export function createLocalStorageManager(key: string): StorageManager {
+  return {
+    ssr: false,
+    type: "localStorage",
+    get(init?) {
+      if (!globalThis?.document) return init
+      let value: any
+      try {
+        value = localStorage.getItem(key) || init
+      } catch (e) {
+        // no op
       }
-      return init
-    }
-  },
-  set(value) {
-    if (!hasSupport()) return
-    try {
-      localStorage.setItem(storageKey, value)
-    } catch (error) {
-      if (__DEV__) {
-        console.log(error)
+
+      return value || init
+    },
+    set(value) {
+      try {
+        localStorage.setItem(key, value)
+      } catch (e) {
+        // no op
       }
-    }
-  },
-  type: "localStorage",
+    },
+  }
 }
 
-/**
- * Simple object to handle read-write to cookies
- */
-export const cookieStorageManager = (cookies = ""): StorageManager => ({
-  get(init?) {
-    const match = cookies.match(new RegExp(`(^| )${storageKey}=([^;]+)`))
+export const localStorageManager = createLocalStorageManager(STORAGE_KEY)
 
-    if (match) {
-      return match[2] as ColorModeRef["value"]
-    }
+function parseCookie(cookie: string, key: string): MaybeColorMode {
+  const match = cookie.match(new RegExp(`(^| )${key}=([^;]+)`))
+  return match?.[2] as MaybeColorMode
+}
 
-    return init
-  },
-  set(value) {
-    document.cookie = `${storageKey}=${value}; max-age=31536000; path=/`
-  },
-  type: "cookie",
-})
+export function createCookieStorageManager(
+  key: string,
+  cookie?: string
+): StorageManager {
+  return {
+    ssr: !!cookie,
+    type: "cookie",
+    get(init?): MaybeColorMode {
+      if (cookie) return parseCookie(cookie, key)
+      if (!globalThis?.document) return init
+      return parseCookie(document.cookie, key) || init
+    },
+    set(value) {
+      document.cookie = `${key}=${value}; max-age=31536000; path=/`
+    },
+  }
+}
+
+export const cookieStorageManager = createCookieStorageManager(STORAGE_KEY)
+
+export const cookieStorageManagerSSR = (cookie: string) =>
+  createCookieStorageManager(STORAGE_KEY, cookie)

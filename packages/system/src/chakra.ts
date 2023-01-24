@@ -28,8 +28,8 @@ import {
 } from "@chakra-ui/utils"
 import { cx, css as _css, CSSObject } from "@emotion/css"
 import { domElements, DOMElements } from "./system.utils"
-import { useTheme } from "./composables/use-chakra"
-import { SNAO, extractStyleAttrs } from "@chakra-ui/vue-utils"
+import { useChakra, useTheme } from "./composables/use-chakra"
+import { extractStyleAttrs } from "@chakra-ui/vue-utils"
 import { As, ChakraProps, ComponentWithProps } from "./system.types"
 import { formElements, InputTypes } from "./chakra.forms"
 import { FunctionInterpolation } from "@emotion/serialize"
@@ -76,14 +76,18 @@ const chakraProps = {
   __css: Object as PropType<StyleResolverProps["__css"]>,
   sx: Object as PropType<StyleResolverProps["sx"]>,
   css: Object as PropType<StyleResolverProps["css"]>,
-  noOfLines: SNAO as PropType<StyleResolverProps["noOfLines"]>,
+  noOfLines: [String, Number, Object, Array] as PropType<
+    StyleResolverProps["noOfLines"]
+  >,
   baseStyle: Object as PropType<StyleResolverProps["baseStyle"]>,
   isTruncated: Boolean as PropType<StyleResolverProps["isTruncated"]>,
   layerStyle: String as PropType<StyleResolverProps["layerStyle"]>,
   textStyle: String as PropType<StyleResolverProps["textStyle"]>,
   apply: String as PropType<StyleResolverProps["apply"]>,
   label: String as PropType<StyleResolverOptions["label"]>,
-  modelValue: SNAO as PropType<string | boolean | object>,
+  modelValue: [String, Number, Object, Array] as PropType<
+    string | boolean | object
+  >,
   /**
    * @warning
    * @internal
@@ -172,7 +176,7 @@ export const chakra: IChakraFactory = (tag, options = {}) => {
       ..._props,
     },
     setup(props, { slots, emit, attrs }) {
-      const theme = useTheme()
+      const { theme, colorMode, forced } = useChakra()
 
       const layerStyle$ = computed(
         () => props.layerStyle || options?.layerStyle
@@ -248,6 +252,7 @@ export const chakra: IChakraFactory = (tag, options = {}) => {
           {
             class: cx(inheritedClass as string, _componentName, className),
             ...elementAttributes,
+            "data-theme": forced ? colorMode.value : undefined,
             ...(!props.__chakraIsRaw &&
               handleValueChange &&
               // @ts-ignore

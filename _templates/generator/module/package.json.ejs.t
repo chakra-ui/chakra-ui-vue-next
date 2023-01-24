@@ -4,7 +4,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
-  "version": "0.0.0-alpha.0",
+  "version": "0.0.0-next.0",
   "main": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
   "module": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>",
   "files": [

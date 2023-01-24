@@ -5,7 +5,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.sentence(description) + ' component'%>",
-  "version": "0.0.0-alpha.0",
+  "version": "0.0.0-next.0",
   "main": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
   "module": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -32,7 +32,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-alpha.10"
+    "@chakra-ui/vue-system": "0.1.0-next.10"
   },
   "devDependencies": {
     "vue": "^3.2.37"

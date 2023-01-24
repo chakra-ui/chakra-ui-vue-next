@@ -3,125 +3,58 @@
 exports[`CAvatarGroup does not render number if max is higher than avatars 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar-group css-k008qs"
+    class="chakra-avatar__group css-1rs5v3u"
+    role="group"
   >
-    <div
-      class="chakra-wrap css-0"
+    <!---->
+    <span
+      class="chakra-avatar css-1exxn2a"
     >
-      <ul
-        class="chakra-wrap__list css-1t8u661"
+      <div
+        aria-label="Jonathan Bakebwa"
+        class="css-uo84k3"
+        role="img"
       >
-        <!---->
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-i1ne14"
-            initials=""
-            name="Evan You"
-          >
-            <img
-              alt="Evan You"
-              aria-label="Evan You"
-              class="css-b0lfom"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-i1ne14"
-            >
-              <div
-                aria-label="Evan You"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                EY
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-otnc8u"
-            initials=""
-            name="Anthony Fu"
-          >
-            <img
-              alt="Anthony Fu"
-              aria-label="Anthony Fu"
-              class="css-dveu7w"
-              src="https://avatars.githubusercontent.com/u/11247099?v=4"
-            />
-            <span
-              class="chakra-box css-otnc8u"
-            >
-              <div
-                aria-label="Anthony Fu"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                AF
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-ksu8qc"
-            initials=""
-            name="Sarah Drasner"
-          >
-            <img
-              alt="Sarah Drasner"
-              aria-label="Sarah Drasner"
-              class="css-p6c9nn"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-ksu8qc"
-            >
-              <div
-                aria-label="Sarah Drasner"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                SD
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-klxjsh"
-            initials=""
-            name="Jonathan Bakebwa"
-          >
-            <img
-              alt="Jonathan Bakebwa"
-              aria-label="Jonathan Bakebwa"
-              class="css-1s97jsl"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-klxjsh"
-            >
-              <div
-                aria-label="Jonathan Bakebwa"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                JB
-              </div>
-            </span>
-          </span>
-        </li>
-      </ul>
-    </div>
+        JB
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-1c4bfld"
+    >
+      <div
+        aria-label="Sarah Drasner"
+        class="css-uo84k3"
+        role="img"
+      >
+        SD
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-ors11u"
+    >
+      <div
+        aria-label="Anthony Fu"
+        class="css-uo84k3"
+        role="img"
+      >
+        AF
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-x22y92"
+    >
+      <div
+        aria-label="Evan You"
+        class="css-uo84k3"
+        role="img"
+      >
+        EY
+      </div>
+      <!---->
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -129,125 +62,58 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
 exports[`CAvatarGroup does not render number if max is reached 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar-group css-k008qs"
+    class="chakra-avatar__group css-1rs5v3u"
+    role="group"
   >
-    <div
-      class="chakra-wrap css-0"
+    <!---->
+    <span
+      class="chakra-avatar css-1exxn2a"
     >
-      <ul
-        class="chakra-wrap__list css-1t8u661"
+      <div
+        aria-label="Jonathan Bakebwa"
+        class="css-uo84k3"
+        role="img"
       >
-        <!---->
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-i1ne14"
-            initials=""
-            name="Evan You"
-          >
-            <img
-              alt="Evan You"
-              aria-label="Evan You"
-              class="css-b0lfom"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-i1ne14"
-            >
-              <div
-                aria-label="Evan You"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                EY
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-otnc8u"
-            initials=""
-            name="Anthony Fu"
-          >
-            <img
-              alt="Anthony Fu"
-              aria-label="Anthony Fu"
-              class="css-dveu7w"
-              src="https://avatars.githubusercontent.com/u/11247099?v=4"
-            />
-            <span
-              class="chakra-box css-otnc8u"
-            >
-              <div
-                aria-label="Anthony Fu"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                AF
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-ksu8qc"
-            initials=""
-            name="Sarah Drasner"
-          >
-            <img
-              alt="Sarah Drasner"
-              aria-label="Sarah Drasner"
-              class="css-p6c9nn"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-ksu8qc"
-            >
-              <div
-                aria-label="Sarah Drasner"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                SD
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-klxjsh"
-            initials=""
-            name="Jonathan Bakebwa"
-          >
-            <img
-              alt="Jonathan Bakebwa"
-              aria-label="Jonathan Bakebwa"
-              class="css-1s97jsl"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-klxjsh"
-            >
-              <div
-                aria-label="Jonathan Bakebwa"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                JB
-              </div>
-            </span>
-          </span>
-        </li>
-      </ul>
-    </div>
+        JB
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-1c4bfld"
+    >
+      <div
+        aria-label="Sarah Drasner"
+        class="css-uo84k3"
+        role="img"
+      >
+        SD
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-ors11u"
+    >
+      <div
+        aria-label="Anthony Fu"
+        class="css-uo84k3"
+        role="img"
+      >
+        AF
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-x22y92"
+    >
+      <div
+        aria-label="Evan You"
+        class="css-uo84k3"
+        role="img"
+      >
+        EY
+      </div>
+      <!---->
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -255,84 +121,38 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
 exports[`CAvatarGroup renders group with 2 by default 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar-group css-k008qs"
+    class="chakra-avatar__group css-1rs5v3u"
+    role="group"
   >
-    <div
-      class="chakra-wrap css-0"
+    <span
+      class="chakra-avatar__excess css-1d6omom"
     >
-      <ul
-        class="chakra-wrap__list css-1t8u661"
+      +2
+    </span>
+    <span
+      class="chakra-avatar css-1xmzc4h"
+    >
+      <div
+        aria-label="Anthony Fu"
+        class="css-uo84k3"
+        role="img"
       >
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <div
-            class="css-1kshqev"
-          >
-            <div
-              class="css-1sr8ytj"
-              role="img"
-            >
-              +2
-            </div>
-          </div>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-i1ne14"
-            initials=""
-            name="Evan You"
-          >
-            <img
-              alt="Evan You"
-              aria-label="Evan You"
-              class="css-b0lfom"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-i1ne14"
-            >
-              <div
-                aria-label="Evan You"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                EY
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-otnc8u"
-            initials=""
-            name="Anthony Fu"
-          >
-            <img
-              alt="Anthony Fu"
-              aria-label="Anthony Fu"
-              class="css-dveu7w"
-              src="https://avatars.githubusercontent.com/u/11247099?v=4"
-            />
-            <span
-              class="chakra-box css-otnc8u"
-            >
-              <div
-                aria-label="Anthony Fu"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                AF
-              </div>
-            </span>
-          </span>
-        </li>
-      </ul>
-    </div>
+        AF
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-x22y92"
+    >
+      <div
+        aria-label="Evan You"
+        class="css-uo84k3"
+        role="img"
+      >
+        EY
+      </div>
+      <!---->
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -340,111 +160,50 @@ exports[`CAvatarGroup renders group with 2 by default 1`] = `
 exports[`CAvatarGroup renders group with max prop passed 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar-group css-k008qs"
+    class="chakra-avatar__group css-1rs5v3u"
+    role="group"
   >
-    <div
-      class="chakra-wrap css-0"
+    <span
+      class="chakra-avatar__excess css-1d6omom"
     >
-      <ul
-        class="chakra-wrap__list css-1t8u661"
+      +1
+    </span>
+    <span
+      class="chakra-avatar css-1cd629q"
+    >
+      <div
+        aria-label="Sarah Drasner"
+        class="css-uo84k3"
+        role="img"
       >
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <div
-            class="css-1kshqev"
-          >
-            <div
-              class="css-1sr8ytj"
-              role="img"
-            >
-              +1
-            </div>
-          </div>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-i1ne14"
-            initials=""
-            name="Evan You"
-          >
-            <img
-              alt="Evan You"
-              aria-label="Evan You"
-              class="css-b0lfom"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-i1ne14"
-            >
-              <div
-                aria-label="Evan You"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                EY
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-otnc8u"
-            initials=""
-            name="Anthony Fu"
-          >
-            <img
-              alt="Anthony Fu"
-              aria-label="Anthony Fu"
-              class="css-dveu7w"
-              src="https://avatars.githubusercontent.com/u/11247099?v=4"
-            />
-            <span
-              class="chakra-box css-otnc8u"
-            >
-              <div
-                aria-label="Anthony Fu"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                AF
-              </div>
-            </span>
-          </span>
-        </li>
-        <li
-          class="chakra-wrap__listItem css-1yp4ln"
-        >
-          <span
-            class="chakra-avatar css-ksu8qc"
-            initials=""
-            name="Sarah Drasner"
-          >
-            <img
-              alt="Sarah Drasner"
-              aria-label="Sarah Drasner"
-              class="css-p6c9nn"
-              src="undefined"
-            />
-            <span
-              class="chakra-box css-ksu8qc"
-            >
-              <div
-                aria-label="Sarah Drasner"
-                class="css-1sr8ytj"
-                role="img"
-              >
-                SD
-              </div>
-            </span>
-          </span>
-        </li>
-      </ul>
-    </div>
+        SD
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-ors11u"
+    >
+      <div
+        aria-label="Anthony Fu"
+        class="css-uo84k3"
+        role="img"
+      >
+        AF
+      </div>
+      <!---->
+    </span>
+    <span
+      class="chakra-avatar css-x22y92"
+    >
+      <div
+        aria-label="Evan You"
+        class="css-uo84k3"
+        role="img"
+      >
+        EY
+      </div>
+      <!---->
+    </span>
   </div>
 </DocumentFragment>
 `;

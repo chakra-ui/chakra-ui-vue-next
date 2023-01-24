@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import { h } from "vue"
 import { CButtonGroup, CButton } from "../src"
 import { ButtonGroup } from "../examples"

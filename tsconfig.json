@@ -1,16 +1,14 @@
 {
-  //  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "extends": "@vue/tsconfig/tsconfig.node.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "esnext",
+    "typeRoots": ["./node_modules/@types", "./@types"],
     "types": [
+      "cypress",
       "node",
-      "dom.iterable",
       "vue",
       "jest",
-      "components.d.ts",
-      "env.d.ts",
-      "cypress"
     ],
     "lib": ["dom", "esnext"],
     "composite": true,
@@ -32,7 +30,8 @@
     "declarationMap": true
   },
   "include": [
-    "./components.d.ts",
+    "cypress/support/index.ts",
+    "packages/**/*.vue",
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/*.tsx",
@@ -43,16 +42,17 @@
     "playground/**/*.tsx",
     "playground/**/*.d.ts",
     "playground/**/*.vue",
+    "playground/**/*.json",
     "tests/index.d.ts",
     "**/*.d.ts",
-    "vite.config.ts"
+    "vite.config.ts",
   ],
   "exclude": [
     "node_modules",
     "./@types",
     "dist",
-    "packages/**/*.test.ts",
-    "**/*.cy.tsx",
+    // "packages/**/*.test.ts",
+    // "**/*.cy.tsx",
     "cypress/**/*.(ts|tsx)",
   ],
   "ts-node": {
@@ -61,5 +61,5 @@
       "resolveJsonModule": true,
       "noImplicitAny": false
     }
-  }
+  },
 }
