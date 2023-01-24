@@ -4,16 +4,14 @@ import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/extend-expect"
 import * as vtl from "@testing-library/vue"
 import userEvent from "@testing-library/user-event"
-import { Component, computed, defineComponent, h, provide, ref } from "vue"
+import { Component, computed, defineComponent, h, provide, ref, Ref } from "vue"
 import { toHaveNoViolations, axe } from "jest-axe"
 import { RunOptions } from "axe-core"
 import { AppColorModeContextSymbol } from "@chakra-ui/c-color-mode"
 
 expect.extend(toHaveNoViolations)
 
-const colorMode = ref("light")
-
-const useDefaultProviders = () => {
+const useDefaultProviders = (colorMode: Ref<"light" | "dark">) => {
   provide("$chakraTheme", theme)
   provide(AppColorModeContextSymbol, {
     colorMode,
@@ -44,7 +42,8 @@ export const render = (
     defineComponent({
       name: "ChakraUIVueTestContainer",
       setup(_, { slots }) {
-        useDefaultProviders()
+        const colorMode = ref<"light" | "dark">("light")
+        useDefaultProviders(colorMode)
         return () => h(component as any, {}, slots)
       },
     }),

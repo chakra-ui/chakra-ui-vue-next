@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-01-23T09:41:37.527Z
+ * This file was generated on 2023-01-24T10:19:38.029Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -68,6 +68,8 @@ declare module "@vue/runtime-core" {
     CAlertDescription: typeof import("@chakra-ui/vue-next")["CAlertDescription"]
     CAlertIcon: typeof import("@chakra-ui/vue-next")["CAlertIcon"]
     CAlertTitle: typeof import("@chakra-ui/vue-next")["CAlertTitle"]
+    CAvatar: typeof import("@chakra-ui/vue-next")["CAvatar"]
+    CAvatarBadge: typeof import("@chakra-ui/vue-next")["CAvatarBadge"]
     CBreadcrumb: typeof import("@chakra-ui/vue-next")["CBreadcrumb"]
     CBreadcrumbItem: typeof import("@chakra-ui/vue-next")["CBreadcrumbItem"]
     CBreadcrumbLink: typeof import("@chakra-ui/vue-next")["CBreadcrumbLink"]

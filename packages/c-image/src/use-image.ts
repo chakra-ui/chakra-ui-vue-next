@@ -103,8 +103,6 @@ export function useImage(props: UseImageProps) {
     }
   })
 
-  watchEffect(() => console.debug("status", status.value))
-
   /**
    * If user opts out of the fallback/placeholder
    * logic, let's just return 'loaded'
