@@ -28,7 +28,7 @@ import {
   CWrap,
   CWrapItem,
 } from "../src"
-import { CFlex } from "@chakra-ui/vue-next"
+import { CFlex } from "../../core"
 import { render, testA11y } from "../../test-utils/src"
 
 describe("<CLink />", () => {
