@@ -12,6 +12,7 @@ import { MotionPlugin } from "@vueuse/motion"
 import App from "./App.vue"
 import router from "./router"
 import { mode } from "@chakra-ui/theme-tools"
+import { feGithub } from 'feather-icons-paths'
 
 console.log({ router })
 
@@ -26,6 +27,7 @@ const app = createApp(App)
         library: {
           feActivity,
           feUser,
+          feGithub
         },
         extend: {
           discord: {

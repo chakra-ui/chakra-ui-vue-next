@@ -164,7 +164,10 @@ export const CAvatar = defineComponent({
 
     const isLoaded = ref(false)
 
-    const styles = useMultiStyleConfig("Avatar", themingProps)
+    const styles = useMultiStyleConfig("Avatar", computed(() => ({
+      ...themingProps.value,
+      name: props.name
+    })))
 
     function handleLoaded(value: unknown) {
       if (value) {

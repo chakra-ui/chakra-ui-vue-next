@@ -25,17 +25,24 @@
           <!-- </transition> -->
         </router-view>
       </c-square>
-      <c-icon-button
-        color="inherit"
-        pos="absolute"
-        @click="toggleColorMode"
-        top="10"
-        right="10"
-        :aria-label="`Switch to ${
-          colorMode === 'light' ? 'dark' : 'light'
-        } mode`"
-        :icon="colorMode === 'light' ? 'moon' : 'sun'"
-      />
+      <c-h-stack top="10" right="10" pos="absolute">
+        <c-link is-external href="https://github.com/chakra-ui/chakra-ui-vue-next">
+          <c-icon-button
+            color="inherit"
+            @click="toggleColorMode"
+            aria-label="Go to github"
+            icon="github"
+          />
+        </c-link>
+        <c-icon-button
+          color="inherit"
+          @click="toggleColorMode"
+          :aria-label="`Switch to ${
+            colorMode === 'light' ? 'dark' : 'light'
+          } mode`"
+          :icon="colorMode === 'light' ? 'moon' : 'sun'"
+        />
+      </c-h-stack>
     </c-center>
   </chakra.section>
 </template>
