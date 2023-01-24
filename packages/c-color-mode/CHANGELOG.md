@@ -1,5 +1,26 @@
 # @chakra-ui/c-color-mode
 
+## 2.0.0-beta.1
+
+### Major Changes
+
+- 176f4e2: Release @chakra-ui/vue-next@1.0.0-alpha.14
+
+### Minor Changes
+
+- 06cc6b0: - Feat: Adds `colorModeManager` Storage entity to cache color mode
+  from local env
+  - Fix: adds semantic tokens support to theme
+  - Feat: Add `CDarkMode` and `CLightMode` components
+- 1a78d56: Create Media Query, Avatar, Counter and Checkbox Components"
+
+### Patch Changes
+
+- Updated dependencies [06cc6b0]
+- Updated dependencies [176f4e2]
+- Updated dependencies [1a78d56]
+  - @chakra-ui/vue-utils@2.0.0-beta.1
+
 ## 2.0.0-beta.0
 
 ### Major Changes

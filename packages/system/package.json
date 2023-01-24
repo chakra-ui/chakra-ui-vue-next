@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-system",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-vue-system.cjs.js",
   "module": "dist/chakra-ui-vue-system.esm.js",
   "description": "Chakra UI Vue | System module",
@@ -20,11 +20,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-color-mode": "2.0.0-beta.0",
+    "@chakra-ui/c-color-mode": "2.0.0-beta.1",
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-styled": "1.0.0-beta.0",
-    "@chakra-ui/vue-utils": "2.0.0-beta.0",
+    "@chakra-ui/vue-styled": "1.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1",
     "@emotion/css": "^11.9.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1",

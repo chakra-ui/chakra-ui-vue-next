@@ -1,5 +1,58 @@
 # @chakra-ui/vue-next
 
+## 2.0.0-beta.1
+
+### Major Changes
+
+- 176f4e2: Release @chakra-ui/vue-next@1.0.0-alpha.14
+
+### Minor Changes
+
+- 06cc6b0: - Feat: Adds `colorModeManager` Storage entity to cache color mode
+  from local env
+  - Fix: adds semantic tokens support to theme
+  - Feat: Add `CDarkMode` and `CLightMode` components
+- 1a78d56: Create Media Query, Avatar, Counter and Checkbox Components"
+
+### Patch Changes
+
+- Updated dependencies [06cc6b0]
+- Updated dependencies [176f4e2]
+- Updated dependencies [1a78d56]
+  - @chakra-ui/c-visually-hidden@2.0.0-beta.1
+  - @chakra-ui/c-theme-provider@2.0.0-beta.1
+  - @chakra-ui/vue-composables@2.0.0-beta.1
+  - @chakra-ui/c-close-button@2.0.0-beta.1
+  - @chakra-ui/c-form-control@1.0.0-beta.1
+  - @chakra-ui/c-media-query@1.0.0-beta.1
+  - @chakra-ui/c-scroll-lock@2.0.0-beta.1
+  - @chakra-ui/c-breadcrumb@2.0.0-beta.1
+  - @chakra-ui/c-color-mode@2.0.0-beta.1
+  - @chakra-ui/c-focus-lock@2.0.0-beta.1
+  - @chakra-ui/c-accordion@2.0.0-beta.1
+  - @chakra-ui/c-pin-input@1.0.0-beta.1
+  - @chakra-ui/c-checkbox@1.0.0-beta.1
+  - @chakra-ui/c-skip-nav@1.0.0-beta.1
+  - @chakra-ui/c-spinner@2.0.0-beta.1
+  - @chakra-ui/c-avatar@1.0.0-beta.1
+  - @chakra-ui/c-button@2.0.0-beta.1
+  - @chakra-ui/c-motion@2.0.0-beta.1
+  - @chakra-ui/c-popper@2.0.0-beta.1
+  - @chakra-ui/c-portal@2.0.0-beta.1
+  - @chakra-ui/vue-a11y@2.0.0-beta.1
+  - @chakra-ui/c-alert@2.0.0-beta.1
+  - @chakra-ui/c-image@1.0.0-beta.1
+  - @chakra-ui/c-input@1.0.0-beta.1
+  - @chakra-ui/c-modal@3.0.0-beta.1
+  - @chakra-ui/c-reset@2.0.0-beta.1
+  - @chakra-ui/c-code@2.0.0-beta.1
+  - @chakra-ui/c-flex@2.0.0-beta.1
+  - @chakra-ui/c-icon@2.0.0-beta.1
+  - @chakra-ui/vue-layout@2.0.0-beta.1
+  - @chakra-ui/vue-styled@1.0.0-beta.1
+  - @chakra-ui/vue-system@2.0.0-beta.1
+  - @chakra-ui/c-tag@1.0.0-beta.1
+
 ## 2.0.0-beta.0
 
 ### Major Changes

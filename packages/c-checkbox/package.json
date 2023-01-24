@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-checkbox",
   "description": "Chakra UI Vue | C checkbox component is used in forms when a user needs to select multiple values from several options component",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "dist/chakra-ui-c-checkbox.cjs.js",
   "module": "dist/chakra-ui-c-checkbox.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,12 +25,12 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-form-control": "1.0.0-beta.0",
-    "@chakra-ui/c-motion": "2.0.0-beta.0",
+    "@chakra-ui/c-form-control": "1.0.0-beta.1",
+    "@chakra-ui/c-motion": "2.0.0-beta.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-composables": "2.0.0-beta.0",
-    "@chakra-ui/vue-system": "2.0.0-beta.0",
-    "@chakra-ui/vue-utils": "2.0.0-beta.0",
+    "@chakra-ui/vue-composables": "2.0.0-beta.1",
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1",
     "@vueuse/motion": "^1.5.4",
     "@zag-js/checkbox": "0.1.6",
     "@zag-js/vue": "^0.1.14"

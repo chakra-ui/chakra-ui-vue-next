@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-flex",
   "description": "Chakra UI Vue | C-flex component component",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-c-flex.cjs.js",
   "module": "dist/chakra-ui-c-flex.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -28,8 +28,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "2.0.0-beta.0",
-    "@chakra-ui/vue-utils": "2.0.0-beta.0"
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1"
   },
   "devDependencies": {
     "csstype": "^3.0.5",
