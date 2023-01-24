@@ -13,7 +13,7 @@
     }
   },
   "description": "Chakra UI Vue | CAccordion component",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-accordion",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-accordion",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {

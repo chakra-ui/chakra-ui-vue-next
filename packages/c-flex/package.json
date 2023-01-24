@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-flex",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-flex",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

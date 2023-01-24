@@ -4,7 +4,7 @@
  * The avatar component is used to represent user and displays the profile picture initials or fallback icon
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-avatar
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-avatar/src/c-avatar/c-avatar.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-avatar/src/c-avatar/c-avatar.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -114,8 +114,8 @@ export { AvatarContextProvider, useAvatarContext }
 
 export interface CAvatarProps
   extends AvatarOptions,
-    ThemingProps<"Avatar">,
-    HTMLChakraProps<"span"> {
+  ThemingProps<"Avatar">,
+  HTMLChakraProps<"span"> {
   /**
    * Icon name or component
    */

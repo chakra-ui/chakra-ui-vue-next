@@ -22,5 +22,5 @@
     "typescript": "^4.4.3",
     "vite": "^2.6.13"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/playground"
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/playground"
 }

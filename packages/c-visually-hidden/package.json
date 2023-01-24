@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-visually-hidden",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-visually-hidden",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

@@ -18,7 +18,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-color-mode",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-color-mode",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
