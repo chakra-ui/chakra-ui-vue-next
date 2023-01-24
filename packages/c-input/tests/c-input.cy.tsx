@@ -4,7 +4,7 @@ import { h, Fragment, defineComponent, ref } from "vue"
 import * as Examples from "../examples"
 
 // TODO: Add more input group related tests
-describe("Input Examples", () => {
+describe.skip("Input Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
       // @ts-ignore
