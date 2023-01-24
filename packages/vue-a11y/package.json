@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-a11y",
   "description": "Chakra UI Vue | Accessibility composables for chakra ui vue component",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-vue-a11y.cjs.js",
   "module": "dist/chakra-ui-vue-a11y.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/vue-a11y",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/vue-a11y",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

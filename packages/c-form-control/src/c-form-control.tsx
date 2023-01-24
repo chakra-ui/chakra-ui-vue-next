@@ -4,7 +4,7 @@
  * Form control component is used to manage form controls such input fields checkbox and radio buttons it provides components and context that make your form fields accessible by default
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-form-control
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-form-control/src/c-form-control/c-form-control.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-form-control/src/c-form-control/c-form-control.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -79,7 +79,7 @@ export const CFormControl: ComponentWithProps<DeepPartial<CFormControlProps>> =
     },
   })
 
-export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
+export interface CHelpTextProps extends HTMLChakraProps<"div"> { }
 /**
  * CFormHelperText
  *

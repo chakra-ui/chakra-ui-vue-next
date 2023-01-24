@@ -4,7 +4,7 @@
  * Image
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-image
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-image/src/c-image/c-image.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-image/src/c-image/c-image.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -74,8 +74,8 @@ interface ImageOptions extends NativeImageOptions {
 
 export interface CImageProps
   extends UseImageProps,
-    Omit<HTMLChakraProps<"img">, keyof UseImageProps>,
-    ImageOptions {}
+  Omit<HTMLChakraProps<"img">, keyof UseImageProps>,
+  ImageOptions { }
 
 // @ts-ignore
 export const CImage: ComponentWithProps<DeepPartial<CImageProps>> =

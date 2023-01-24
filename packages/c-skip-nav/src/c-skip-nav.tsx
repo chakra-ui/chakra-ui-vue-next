@@ -4,7 +4,7 @@
  * Component tandem to allow users to skip navigation content
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-skip-nav
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-skip-nav/src/c-skip-nav.tsx
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-skip-nav/src/c-skip-nav.tsx
  * @see WebAIM   https://webaim.org/techniques/skipnav/
  */
 

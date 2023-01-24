@@ -4,7 +4,7 @@
  * Input component is a component that is used to get user input in a text field
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-input
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-input/src/c-input/c-input.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-input/src/c-input/c-input.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -58,12 +58,12 @@ interface InputOptions {
 
 type Omitted = "disabled" | "required" | "readOnly" | "size"
 
-interface CInputNativeProps extends InputOptions, FormControlOptions {}
+interface CInputNativeProps extends InputOptions, FormControlOptions { }
 
 export interface CInputProps
   extends Omit<HTMLChakraProps<"span">, Omitted>,
-    CInputNativeProps,
-    ThemingProps<"Input"> {
+  CInputNativeProps,
+  ThemingProps<"Input"> {
   modelValue: string
 }
 

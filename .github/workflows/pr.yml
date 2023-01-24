@@ -6,11 +6,11 @@ name: PR Workflow
 on:
   pull_request:
     branches:
-      - master
+      - main
       - develop
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:

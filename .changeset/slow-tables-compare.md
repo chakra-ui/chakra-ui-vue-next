@@ -1,5 +1,4 @@
 ---
-"@chakra-ui/vue-anatomy": minor
 "@chakra-ui/c-accordion": minor
 "@chakra-ui/c-alert": minor
 "@chakra-ui/c-avatar": minor
@@ -34,13 +33,10 @@
 "@chakra-ui/vue-styled": minor
 "@chakra-ui/vue-system": minor
 "@chakra-ui/vue-test-utils": minor
-"@chakra-ui/vue-theme": minor
-"@chakra-ui/vue-theme-tools": minor
 "@chakra-ui/vue-utils": minor
 "@chakra-ui/vue-a11y": minor
 "@chakra-ui/vue-composables": minor
 "@chakra-ui/vue-auto-import": minor
-"@chakra-ui/vue-docs": minor
 ---
 
 Create Media Query, Avatar, Counter and Checkbox Components"

@@ -1,5 +1,4 @@
 ---
-"@chakra-ui/vue-anatomy": major
 "@chakra-ui/c-accordion": major
 "@chakra-ui/c-alert": major
 "@chakra-ui/c-avatar": major
@@ -34,13 +33,10 @@
 "@chakra-ui/vue-styled": major
 "@chakra-ui/vue-system": major
 "@chakra-ui/vue-test-utils": major
-"@chakra-ui/vue-theme": major
-"@chakra-ui/vue-theme-tools": major
 "@chakra-ui/vue-utils": major
 "@chakra-ui/vue-a11y": major
 "@chakra-ui/vue-composables": major
 "@chakra-ui/vue-auto-import": major
-"@chakra-ui/vue-docs": major
 ---
 
 Release @chakra-ui/vue-next@1.0.0-alpha.14

@@ -4,7 +4,7 @@
  * Tag component
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-tag
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-tag/src/c-tag/c-tag.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-tag/src/c-tag/c-tag.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -34,12 +34,12 @@ interface TagOptions {
 
 export interface CTagProps
   extends ChakraProps,
-    TagOptions,
-    ThemingProps<"CTag"> {}
+  TagOptions,
+  ThemingProps<"CTag"> { }
 
 export interface CTagLabelProps
   extends ChakraProps,
-    ThemingProps<"CTagLabel"> {}
+  ThemingProps<"CTagLabel"> { }
 
 const [StylesProvider, useTagStyles] = createStylesContext("CTag")
 
@@ -69,7 +69,7 @@ export const CTagLabel: ComponentWithProps<CTagLabelProps> = defineComponent({
 
 export interface CTagCloseButtonProps
   extends ChakraProps,
-    ThemingProps<"CTagCloseButton"> {
+  ThemingProps<"CTagCloseButton"> {
   isDisabled?: boolean
 }
 

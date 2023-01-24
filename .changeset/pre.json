@@ -46,6 +46,9 @@
     "@chakra-ui/vue-docs-next": "1.0.0"
   },
   "changesets": [
-    "seven-avocados-act"
+    "great-brooms-add",
+    "purple-singers-exist",
+    "seven-avocados-act",
+    "slow-tables-compare"
   ]
 }

@@ -4,7 +4,7 @@
  * C checkbox component is used in forms when a user needs to select multiple values from several options
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-checkbox
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-checkbox/src/c-checkbox/c-checkbox.tsx
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-checkbox/src/c-checkbox/c-checkbox.tsx
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -117,8 +117,8 @@ export interface CCheckboxControlProps {
 
 export interface CCheckboxProps
   extends HTMLChakraProps<"input">,
-    ThemingProps<"Checkbox">,
-    CCheckboxControlProps {
+  ThemingProps<"Checkbox">,
+  CCheckboxControlProps {
   /**
    * The spacing between the checkbox and its label text
    * @default 0.5rem

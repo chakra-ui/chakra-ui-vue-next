@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-composables",
   "description": "Chakra UI Vue | Chakra ui vue utility composables component",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-vue-composables.cjs.js",
   "module": "dist/chakra-ui-vue-composables.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/vue-composables",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/vue-composables",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
