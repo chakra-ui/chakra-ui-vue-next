@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { h, defineComponent, computed, mergeProps } from "vue"
+import { h, defineComponent, computed, mergeProps, PropType } from "vue"
 import {
   chakra,
   ComponentWithProps,
@@ -16,6 +16,7 @@ import {
   DeepPartial,
   HTMLChakraProps,
   omitThemingProps,
+  SystemStyleObject,
   ThemingProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
@@ -25,7 +26,9 @@ const [CTableStylesProvider, useCTableStyles] = createStylesContext("CTable")
 
 export { useCTableStyles }
 
-export interface TableOptions {}
+export interface TableOptions {
+  layout?: SystemStyleObject["tableLayout"]
+}
 
 export interface CTableProps
   extends HTMLChakraProps<"table">,
@@ -42,6 +45,9 @@ export const CTable: ComponentWithProps<DeepPartial<CTableProps>> =
   defineComponent({
     name: "CTable",
     props: {
+      layout: {
+        type: String as PropType<CTableProps["layout"]>,
+      },
       ...vueThemingProps,
     },
     setup(props, { slots, attrs }) {
@@ -52,7 +58,10 @@ export const CTable: ComponentWithProps<DeepPartial<CTableProps>> =
       CTableStylesProvider(styles)
 
       return () => (
-        <chakra.table __css={styles.value.table} {...ownProps.value}>
+        <chakra.table
+          __css={{ tableLayout: props.layout, ...styles.value.table }}
+          {...ownProps.value}
+        >
           {slots}
         </chakra.table>
       )
