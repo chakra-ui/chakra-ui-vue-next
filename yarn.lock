@@ -1026,22 +1026,12 @@
   resolved "https://registry.yarnpkg.com/@chakra-ui/anatomy/-/anatomy-2.1.1.tgz#819a1458ff727157e5500a69fc26bfea6e944495"
   integrity sha512-LUHAoqJAgxAqmyckG5bUpBrfEo1FleEyY+1A8hkWciy58gZ+h3GoY9oBpHcdo7XdHPpy3G+3hieK/7i9NLwxAw==
 
-"@chakra-ui/anatomy@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/anatomy/-/anatomy-2.1.2.tgz#ea66b1841e7195da08ddc862daaa3f3e56e565f5"
-  integrity sha512-pKfOS/mztc4sUXHNc8ypJ1gPWSolWT770jrgVRfolVbYlki8y5Y+As996zMF6k5lewTu6j9DQequ7Cc9a69IVQ==
-
 "@chakra-ui/shared-utils@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@chakra-ui/shared-utils/-/shared-utils-2.0.4.tgz#8661f2b48dd93d04151b10a894a4290c9d9a080c"
   integrity sha512-JGWr+BBj3PXGZQ2gxbKSD1wYjESbYsZjkCeE2nevyVk4rN3amV1wQzCnBAhsuJktMaZD6KC/lteo9ou9QUDzpA==
 
-"@chakra-ui/shared-utils@2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/shared-utils/-/shared-utils-2.0.5.tgz#cb2b49705e113853647f1822142619570feba081"
-  integrity sha512-4/Wur0FqDov7Y0nCXl7HbHzCg4aq86h+SXdoUeuCMD3dSj7dpsVnStLYhng1vxvlbUnLpdF4oz5Myt3i/a7N3Q==
-
-"@chakra-ui/styled-system@2.5.1", "@chakra-ui/styled-system@^2.2.2":
+"@chakra-ui/styled-system@2.5.1":
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/styled-system/-/styled-system-2.5.1.tgz#d76f0898d5036353947bc83afb2e1c3cad3d374a"
   integrity sha512-HhaXR/r5eGlC7vkoOWQ31yZEj+Aq+kFee7ZZb0fBRGKQichn06S9Ugr8CsFyzb+jNexHdtBlIcTBm0ufJ8HsFA==
@@ -1049,15 +1039,6 @@
     "@chakra-ui/shared-utils" "2.0.4"
     csstype "^3.0.11"
     lodash.mergewith "4.6.2"
-
-"@chakra-ui/theme-tools@2.0.0-beta.0":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-2.0.17.tgz#9496094336c9480f950c8d7ab6e05f1c19caa955"
-  integrity sha512-Auu38hnihlJZQcPok6itRDBbwof3TpXGYtDPnOvrq4Xp7jnab36HLt7KEXSDPXbtOk3ZqU99pvI1en5LbDrdjg==
-  dependencies:
-    "@chakra-ui/anatomy" "2.1.2"
-    "@chakra-ui/shared-utils" "2.0.5"
-    color2k "^2.0.0"
 
 "@chakra-ui/theme-tools@2.0.16", "@chakra-ui/theme-tools@^2.0.16":
   version "2.0.16"
@@ -1087,16 +1068,6 @@
     "@chakra-ui/shared-utils" "2.0.4"
     "@chakra-ui/theme-tools" "2.0.16"
 
-"@chakra-ui/utils@2.0.12":
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-2.0.12.tgz#5ab8a4529fca68d9f8c6722004f6a5129b0b75e9"
-  integrity sha512-1Z1MgsrfMQhNejSdrPJk8v5J4gCefHo+1wBmPPHTz5bGEbAAbZ13aXAfXy8w0eFy0Nvnawn0EHW7Oynp/MdH+Q==
-  dependencies:
-    "@types/lodash.mergewith" "4.6.6"
-    css-box-model "1.2.1"
-    framesync "5.3.0"
-    lodash.mergewith "4.6.2"
-
 "@chakra-ui/utils@2.0.14":
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-2.0.14.tgz#b6776c7a020ea46ed88a8048dfa2b512a1fe95f7"
@@ -1106,33 +1077,6 @@
     css-box-model "1.2.1"
     framesync "6.1.2"
     lodash.mergewith "4.6.2"
-
-"@chakra-ui/vue-anatomy@1.0.0-beta.0":
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/vue-anatomy/-/vue-anatomy-1.0.0-beta.0.tgz#3c87318c40e99b5c3b1a899461ef81934db6995f"
-  integrity sha512-gM5vItTX0elzqG28sMOEDESCVDF7aUp/SniMqn2BbQn8Le67q31JT1gtxJqvdH1b30r7rnTxa5DRsSgwTn5RYg==
-  dependencies:
-    "@chakra-ui/vue-system" "2.0.0-beta.0"
-    "@chakra-ui/vue-theme-tools" "2.0.0-beta.0"
-
-"@chakra-ui/vue-theme-tools@2.0.0-beta.0":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/vue-theme-tools/-/vue-theme-tools-2.0.0-beta.0.tgz#7e89263ff6ea1bf730e44933ea519d277c63c202"
-  integrity sha512-kewj1k8tV+w6Yrh91r7nQD3zeDFWkmp0+FAjtvLCeve8MtRaGxbkPKsA9uP3T9jyzz9aZn0mZbweadUQzXpVog==
-  dependencies:
-    "@chakra-ui/utils" "2.0.12"
-    "@chakra-ui/vue-system" "2.0.0-beta.0"
-    "@ctrl/tinycolor" "^3.4.1"
-    "@types/tinycolor2" "^1.4.2"
-    tinycolor2 "^1.4.2"
-
-"@chakra-ui/vue-theme@2.0.0-beta.0":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/vue-theme/-/vue-theme-2.0.0-beta.0.tgz#88c5f72b31c25963da6cd2971d9574ae9ee04787"
-  integrity sha512-d6zXKlGQVAPWhtUbdei/9FmKAc60v3Qs7lHcL4RLviQdnyqSss+x0DWuzM5LRGJyypWzh0TsfswctTTIQB5nww==
-  dependencies:
-    "@chakra-ui/vue-anatomy" "1.0.0-beta.0"
-    "@chakra-ui/vue-theme-tools" "2.0.0-beta.0"
 
 "@changesets/apply-release-plan@^6.1.3":
   version "6.1.3"
