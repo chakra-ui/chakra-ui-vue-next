@@ -10,6 +10,7 @@
       "vue",
       "jest",
     ],
+    "baseUrl": ".",
     "lib": ["dom", "esnext"],
     "composite": true,
     "declaration": true,

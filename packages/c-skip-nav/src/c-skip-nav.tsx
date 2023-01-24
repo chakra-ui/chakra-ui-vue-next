@@ -16,12 +16,11 @@ import {
   SystemStyleObject,
   useStyleConfig,
 } from "@chakra-ui/vue-system"
-import { CBox } from "@chakra-ui/vue-next"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 
 const FALLBACK_ID = "chakra-skip-nav"
 
-export interface CSkipNavLinkProps extends HTMLChakraProps<"a"> {}
+export interface CSkipNavLinkProps extends HTMLChakraProps<"a"> { }
 
 export const CSkipNavLink: ComponentWithProps<CSkipNavLinkProps> =
   defineComponent({
@@ -77,7 +76,7 @@ export const CSkipNavLink: ComponentWithProps<CSkipNavLinkProps> =
     },
   })
 
-export interface CSkipNavContentProps extends HTMLChakraProps<"div"> {}
+export interface CSkipNavContentProps extends HTMLChakraProps<"div"> { }
 
 export const CSkipNavContent: ComponentWithProps<CSkipNavContentProps> =
   defineComponent({
@@ -91,14 +90,14 @@ export const CSkipNavContent: ComponentWithProps<CSkipNavContentProps> =
     setup(props, { attrs, slots }) {
       return () => {
         return (
-          <CBox
+          <chakra.div
             tabIndex="-1"
             id={props.id}
             data-testid={FALLBACK_ID}
             {...attrs}
           >
             {() => getValidChildren(slots)}
-          </CBox>
+          </chakra.div>
         )
       }
     },

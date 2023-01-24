@@ -25,7 +25,6 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/vue-next": "2.0.0-beta.0",
     "@chakra-ui/vue-system": "2.0.0-beta.0",
     "@chakra-ui/vue-utils": "2.0.0-beta.0"
   },
