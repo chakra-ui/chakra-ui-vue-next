@@ -13,6 +13,7 @@ import {
 import { CButton } from "../../c-button"
 import ReturnFocusOnCloseExample from "../examples/modal-return-focus.vue"
 import SimpleModalExample from "../examples/modal-simple.vue"
+import { useRef } from '@chakra-ui/vue-utils'
 
 const render = (props: any = {}) => {
   return cy.mount(() =>
@@ -88,11 +89,11 @@ describe("Modal", () => {
       h(
         defineComponent({
           setup() {
-            const initialFocusRef = ref()
+            const [initialFocusRef, initialFocusRefEl] = useRef()
             return () => (
               <CModal
                 modelValue={true}
-                initialFocusRef={() => initialFocusRef.value}
+                initialFocusRef={() => initialFocusRefEl.value}
               >
                 <CModalOverlay />
                 <CModalContent data-testid="dialog">

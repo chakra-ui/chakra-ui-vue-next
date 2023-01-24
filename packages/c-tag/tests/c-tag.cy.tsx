@@ -39,16 +39,14 @@ describe("Tag", () => {
       const label = ref("opened")
       const triggerClose = () => (label.value = "closed")
 
-      return h(() => (
-        <CTag>
-          <CTagLabel>{label.value}</CTagLabel>
-          <CTagCloseButton
-            isDisabled
-            data-testid="close-button-disabled"
-            onClick={() => triggerClose()}
-          />
-        </CTag>
-      ))
+      return h(<CTag>
+        <CTagLabel>{label.value}</CTagLabel>
+        <CTagCloseButton
+          isDisabled
+          data-testid="close-button-disabled"
+          onClick={() => triggerClose()}
+        />
+      </CTag>)
     })
 
     cy.get("button").click({ force: true })

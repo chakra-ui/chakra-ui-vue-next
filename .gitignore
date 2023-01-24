@@ -113,3 +113,4 @@ cypress/screenshots
 .idea/*
 .yarn
 .yarnrc
+.yarnrc.yml
