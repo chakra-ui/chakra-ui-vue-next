@@ -79,18 +79,18 @@
       color-scheme="blue"
       @click="toggleIsOpen"
     >
-      {{ isOpen ? 'Close' : 'Open' }}
+      {{ isOpen ? "Close" : "Open" }}
     </c-button>
   </chakra.div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, ref, watch } from 'vue'
-import { usePopper } from '@chakra-ui/c-popper'
-import { CButton } from '@chakra-ui/c-button'
-import { useToggle } from '@vueuse/core'
-import { useMotion } from '@vueuse/motion'
-import { variants, innerVariants } from './motion.utils'
+import { computed, defineComponent, nextTick, ref, watch } from "vue"
+import { usePopper } from "../src"
+import { chakra, CButton } from "@chakra-ui/vue-next"
+import { useToggle } from "@vueuse/core"
+import { useMotion } from "@vueuse/motion"
+import { variants, innerVariants } from "./motion.utils"
 
 export default defineComponent({
   components: { CButton },
@@ -101,7 +101,7 @@ export default defineComponent({
     const innerPopperElement = ref()
     const { reference, popper, popperEl } = usePopper({
       gutter: 16,
-      placement: 'right-end',
+      placement: "right-end",
     })
 
     const _innerPopperElement = computed(

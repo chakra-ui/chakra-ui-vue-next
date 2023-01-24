@@ -57,8 +57,8 @@ export interface BreadcrumbOptions {
 
 export interface BreadcrumbProps
   extends ChakraProps,
-    BreadcrumbOptions,
-    ThemingProps<"Breadcrumb"> {}
+  BreadcrumbOptions,
+  ThemingProps<"Breadcrumb"> { }
 
 /**
  * CBreadcrumb is used to render a breadcrumb navigation landmark.
@@ -87,14 +87,14 @@ export const CBreadcrumb: DefineComponent<BreadcrumbProps> = defineComponent(
         return typeof props.separator === "string"
           ? props.separator
           : isObjectComponent(props.separator!)
-          ? // TODO:
+            ? // TODO:
             // Add support for
             // object components. ATM,
             // This computed property will only
             // work for functional components provided as
             // separators
             h(() => props.separator!)
-          : h(props.separator!)
+            : h(props.separator!)
       }
     })
 
@@ -198,7 +198,7 @@ interface BreadcrumbItemOptions extends BreadcrumbOptions {
 
 export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
-    ChakraProps {}
+  ChakraProps { }
 
 export const CBreadcrumbItem: DefineComponent<BreadcrumbItemProps> =
   defineComponent((props: BreadcrumbItemProps, { attrs, slots }) => {
@@ -268,7 +268,7 @@ export interface BreadcrumbLinkProps extends ChakraProps {
  * It renders a `span` when it matches the current link. Otherwise,
  * it renders an anchor tag.
  */
-export const CBreadcrumbLink: DefineComponent<BreadcrumbLinkProps> =
+export const CBreadcrumbLink =
   defineComponent((props: BreadcrumbLinkProps, { attrs, slots }) => {
     const styles = useStyles()
 

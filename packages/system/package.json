@@ -20,11 +20,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-color-mode": "2.0.0-beta.0",
+    "@chakra-ui/c-color-mode": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-styled": "1.0.0-beta.0",
-    "@chakra-ui/vue-utils": "2.0.0-beta.0",
+    "@chakra-ui/vue-styled": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
     "@emotion/css": "^11.9.0",
     "@emotion/serialize": "1.1.1",
     "lodash.camelcase": "^4.3.0",
@@ -32,6 +32,7 @@
     "lodash.memoize": "^4.1.2"
   },
   "devDependencies": {
+    "@chakra-ui/theme": "2.2.4",
     "@types/lodash.memoize": "^4.1.6",
     "vue": "^3.2.37"
   },

@@ -20,11 +20,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "2.0.0-beta.0",
-    "@chakra-ui/c-spinner": "2.0.0-beta.0",
+    "@chakra-ui/c-icon": "workspace:*",
+    "@chakra-ui/c-spinner": "workspace:*",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-system": "2.0.0-beta.0",
-    "@chakra-ui/vue-utils": "2.0.0-beta.0"
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.1.4"
