@@ -42,7 +42,7 @@
     "build:types": "ts-node scripts/generate-global-types.ts",
     "postbuild": "yarn build:types && yarn size",
     "start": "preconstruct watch",
-    "csb:install": "yarn && yarn bootstrap",
+    "csb:install": "yarn",
     "scaffold": "hygen generator",
     "release": "yarn changeset publish",
     "preplaygound:dev": "node ./scripts/dev.js",
