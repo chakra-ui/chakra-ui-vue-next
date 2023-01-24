@@ -5,7 +5,7 @@
  * to apply transitions to it's children
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-motion
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-motion/src/c-motion/c-animate-presence.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-motion/src/c-motion/c-animate-presence.ts
  */
 
 import {

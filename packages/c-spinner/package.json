@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-spinner",
   "description": "Chakra UI Vue | Visual cue that an action is either processing awaiting a course of change or a result component",
-  "version": "1.0.0-alpha.10",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-c-spinner.cjs.js",
   "module": "dist/chakra-ui-c-spinner.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-spinner",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-spinner",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -28,11 +28,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/c-visually-hidden": "1.0.0-alpha.10",
-    "@chakra-ui/utils": "^2.0.3",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-theme": "1.0.0-alpha.10",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.10"
+    "@chakra-ui/c-visually-hidden": "2.0.0-beta.1",
+    "@chakra-ui/theme": "^2.2.4",
+    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1"
   },
   "devDependencies": {
     "vue": "^3.2.37"

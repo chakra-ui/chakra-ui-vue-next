@@ -1,18 +1,24 @@
-import theme from "@chakra-ui/vue-theme"
+import theme from "@chakra-ui/theme"
 import { EmotionThemeContextSymbol } from "@chakra-ui/vue-styled"
 import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/extend-expect"
 import * as vtl from "@testing-library/vue"
 import userEvent from "@testing-library/user-event"
-import { Component, defineComponent, h, provide } from "vue"
+import { Component, computed, defineComponent, h, provide, ref, Ref } from "vue"
 import { toHaveNoViolations, axe } from "jest-axe"
 import { RunOptions } from "axe-core"
+import { AppColorModeContextSymbol } from "@chakra-ui/c-color-mode"
 
 expect.extend(toHaveNoViolations)
 
-const useDefaultProviders = () => {
+const useDefaultProviders = (colorMode: Ref<"light" | "dark">) => {
   provide("$chakraTheme", theme)
-  provide("$chakraColorMode", "light")
+  provide(AppColorModeContextSymbol, {
+    colorMode,
+    toggleColorMode: () => {
+      colorMode.value = colorMode.value === "light" ? "dark" : "light"
+    },
+  })
   provide("$chakraIcons", {})
   provide(EmotionThemeContextSymbol, theme)
 }
@@ -36,7 +42,8 @@ export const render = (
     defineComponent({
       name: "ChakraUIVueTestContainer",
       setup(_, { slots }) {
-        useDefaultProviders()
+        const colorMode = ref<"light" | "dark">("light")
+        useDefaultProviders(colorMode)
         return () => h(component as any, {}, slots)
       },
     }),

@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import { Button } from "../examples"
 import { h } from "vue"
 

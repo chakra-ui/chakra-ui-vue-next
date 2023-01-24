@@ -1,5 +1,6 @@
 import { DOMElements, ThemingProps } from "@chakra-ui/vue-system"
-import { PropType } from "vue"
+import { computed, PropType } from "vue"
+import { filterUndefined } from "@chakra-ui/utils"
 
 export const vueThemingProps = {
   colorScheme: String as PropType<ThemingProps["colorScheme"]>,
@@ -19,3 +20,13 @@ export interface BaseThemedComponentProps
   > {
   as?: DOMElements | "router-link" | "nuxt-link"
 }
+
+export const useThemingProps = <O extends ThemingProps & {}>(props: O) =>
+  computed<ThemingProps>(() =>
+    filterUndefined({
+      colorScheme: props.colorScheme,
+      variant: props.variant,
+      size: props.size,
+      styleConfig: props.styleConfig,
+    })
+  )

@@ -4,7 +4,7 @@
  * Breadcrumbs help users visualize their current location in relation to the rest of the website or application by showing the hierarchy of pages
  *
  * @see Docs     https://next.vue.chakra-ui.com/breadcrumb
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-breadcrumb/src/c-breadcrumb/c-breadcrumb.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-breadcrumb/src/c-breadcrumb/c-breadcrumb.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
@@ -57,8 +57,8 @@ export interface BreadcrumbOptions {
 
 export interface BreadcrumbProps
   extends ChakraProps,
-    BreadcrumbOptions,
-    ThemingProps<"Breadcrumb"> {}
+  BreadcrumbOptions,
+  ThemingProps<"Breadcrumb"> { }
 
 /**
  * CBreadcrumb is used to render a breadcrumb navigation landmark.
@@ -87,14 +87,14 @@ export const CBreadcrumb: DefineComponent<BreadcrumbProps> = defineComponent(
         return typeof props.separator === "string"
           ? props.separator
           : isObjectComponent(props.separator!)
-          ? // TODO:
+            ? // TODO:
             // Add support for
             // object components. ATM,
             // This computed property will only
             // work for functional components provided as
             // separators
             h(() => props.separator!)
-          : h(props.separator!)
+            : h(props.separator!)
       }
     })
 
@@ -198,7 +198,7 @@ interface BreadcrumbItemOptions extends BreadcrumbOptions {
 
 export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
-    ChakraProps {}
+  ChakraProps { }
 
 export const CBreadcrumbItem: DefineComponent<BreadcrumbItemProps> =
   defineComponent((props: BreadcrumbItemProps, { attrs, slots }) => {

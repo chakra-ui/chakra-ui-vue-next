@@ -11,7 +11,8 @@ import PerfectScrollbar from "vue3-perfect-scrollbar"
 import { MotionPlugin } from "@vueuse/motion"
 import App from "./App.vue"
 import router from "./router"
-import { mode } from "@chakra-ui/vue-theme-tools"
+import { mode } from "@chakra-ui/theme-tools"
+import { feGithub } from 'feather-icons-paths'
 
 console.log({ router })
 
@@ -26,6 +27,7 @@ const app = createApp(App)
         library: {
           feActivity,
           feUser,
+          feGithub
         },
         extend: {
           discord: {
@@ -38,7 +40,9 @@ const app = createApp(App)
         key: "chakra",
       },
       extendTheme: extendTheme({
-        config: {},
+        config: {
+          // initialColorMode: "system",
+        },
         fonts: {
           heading: `SplineSans, sans-serif, Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
           body: `SplineSans, sans-serif, Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,

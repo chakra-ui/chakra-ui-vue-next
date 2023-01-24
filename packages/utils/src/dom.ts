@@ -31,11 +31,11 @@ export type TemplateRef = Element | VueComponentInstance | undefined | null
  *
  * @returns []
  */
-export function useRef(): [
+export function useRef<T extends HTMLElement>(): [
   (el: TemplateRef | null) => void,
-  Ref<HTMLElement | null>
+  Ref<T | null>
 ] {
-  const refEl = ref<HTMLElement | null>(null)
+  const refEl = ref<T | null>(null)
 
   onBeforeUpdate(() => {
     // clear refs before DOM updates
@@ -50,7 +50,7 @@ export function useRef(): [
     refEl.value = (el as VueComponentInstance)?.$el ?? el
   }
 
-  return [_ref, refEl]
+  return [_ref, refEl as any as Ref<T | null>]
 }
 
 /** Vue Component HTML Element Instance */

@@ -1,24 +1,29 @@
-import {
-  CBox,
-  CWrap,
-  CWrapItem,
-  CWrapProps,
-  WrapProps,
-} from "@chakra-ui/vue-layout"
+/* eslint vue/no-side-effects-in-computed-properties: 0  */
 import {
   ThemingProps,
   useMultiStyleConfig,
   chakra,
-  ComponentWithProps,
+  SystemProps,
+  SystemStyleObject,
 } from "@chakra-ui/vue-system"
 import {
   createContext,
   getValidChildren,
+  SNAO,
   vueThemingProps,
+  useThemingProps,
 } from "@chakra-ui/vue-utils"
-import { filterUndefined } from "@chakra-ui/utils"
-
-import { h, defineComponent, computed, ComputedRef } from "vue"
+import { filterUndefined, mergeWith } from "@chakra-ui/utils"
+import {
+  h,
+  Fragment,
+  defineComponent,
+  computed,
+  ComputedRef,
+  PropType,
+  cloneVNode,
+} from "vue"
+import { baseStyle } from "./c-avatar"
 
 type AvatarGroupContext = ComputedRef<ThemingProps>
 
@@ -31,100 +36,93 @@ const [AvatarGroupProvider, useAvatarGroup] = createContext<AvatarGroupContext>(
 
 export { useAvatarGroup }
 
-export const CAvatarText = defineComponent({
-  props: {
-    text: {
-      type: String,
-      default: "",
-    },
-    ...vueThemingProps,
-  },
-  setup(props, ctx) {
-    const themingProps = computed<ThemingProps>(() =>
-      filterUndefined({
-        colorScheme: props.colorScheme,
-        variant: props.variant,
-        size: props.size,
-        styleConfig: props.styleConfig,
-      })
-    )
-    const styles = useMultiStyleConfig("Avatar", themingProps)
-    const containerStyles = computed(() => ({
-      ...styles.value.container,
-      display: styles.value.container.display || "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }))
-    const labelStyles = computed(() => ({
-      ...styles.value.label,
-      fontWeight: "medium",
-    }))
-
-    return () => (
-      <chakra.div __css={containerStyles.value} {...ctx.attrs}>
-        <chakra.div role="img" __css={labelStyles.value}>
-          {props.text}
-        </chakra.div>
-      </chakra.div>
-    )
-  },
-})
-
 export const avatarGroupProps = {
   max: {
     type: Number,
     default: 2,
   },
-  ...CWrapProps,
+  spacing: {
+    type: SNAO as PropType<SystemProps["margin"]>,
+    default: "-0.75rem",
+  },
+  borderRadius: {
+    type: SNAO as PropType<SystemProps["borderRadius"]>,
+    default: "full",
+  },
+  borderColor: SNAO as PropType<SystemProps["borderColor"]>,
   ...vueThemingProps,
 }
 
-export const CAvatarGroup: ComponentWithProps<typeof avatarGroupProps> =
-  defineComponent({
-    props: avatarGroupProps,
-    setup(props, { slots, attrs }) {
-      const wrapProps = computed(
-        () =>
-          ({
-            spacing: props.spacing || "-0.75em",
-            direction: props.direction || "row-reverse",
-            justify: props.justify,
-            align: props.align,
-            shouldWrapChildren: props.shouldWrapChildren,
-          } as WrapProps)
-      )
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
+/**
+ * CAvatarGroup displays a number of avatars grouped together in a stack.
+ */
+// @ts-ignore complex type
+export const CAvatarGroup = defineComponent({
+  props: avatarGroupProps,
+  setup(props, { slots, attrs }) {
+    const mergedProps = computed(() => mergeWith({}, props, attrs))
+    const themingProps = useThemingProps(mergedProps.value)
+    const styles = useMultiStyleConfig("Avatar", themingProps.value)
+
+    const validChildren = computed(() => getValidChildren(slots))
+    const visibleChildren = computed(() =>
+      validChildren.value.slice(0, props.max)
+    )
+    const excessChildrenCount = computed(
+      () => validChildren.value.length - props.max
+    )
+
+    /**
+     * Reversing the children is a great way to avoid using zIndex
+     * to overlap the avatars
+     */
+    const reversedVisibleChildren = computed(() =>
+      visibleChildren.value.reverse()
+    )
+
+    const clonedChildren = computed(() =>
+      reversedVisibleChildren.value.map((vnode, index) => {
+        const isFirstAvatar = index === 0
+        const childProps = filterUndefined({
+          marginEnd: isFirstAvatar ? 0 : props.spacing,
           size: props.size,
-          styleConfig: props.styleConfig,
+          borderColor: vnode?.props?.borderColor ?? props.borderColor,
+          showBorder: true,
         })
-      )
-      const validChildren = computed(() => getValidChildren(slots))
-      const visibleChildren = computed(() =>
-        validChildren.value.slice(0, props.max)
-      )
-      const nbHidden = computed(() => validChildren.value.length - props.max)
+        return cloneVNode(vnode, childProps)
+      })
+    )
 
-      AvatarGroupProvider(themingProps)
+    const groupStyles = computed<SystemStyleObject>(() => ({
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
+      flexDirection: "row-reverse",
+      ...styles.value.group,
+    }))
 
-      return () => (
-        <CBox __label="avatar-group" display="flex" {...attrs}>
-          <CWrap {...wrapProps.value}>
-            {nbHidden.value > 0 && (
-              <CWrapItem>
-                <CAvatarText
-                  {...themingProps.value}
-                  text={`+${nbHidden.value}`}
-                />
-              </CWrapItem>
-            )}
-            {visibleChildren.value.map((child) => (
-              <CWrapItem>{child}</CWrapItem>
-            ))}
-          </CWrap>
-        </CBox>
-      )
-    },
-  })
+    const excessStyles = computed<SystemStyleObject>(() => ({
+      borderRadius: props.borderRadius,
+      marginStart: props.spacing,
+      ...baseStyle,
+      ...styles.value.excessLabel,
+    }))
+
+    return () => (
+      <chakra.div
+        role="group"
+        __label="avatar__group"
+        __css={groupStyles.value}
+      >
+        <>
+          {excessChildrenCount.value > 0 && (
+            <chakra.span __label="avatar__excess" __css={excessStyles.value}>
+              {`+${excessChildrenCount.value}`}
+            </chakra.span>
+          )}
+          {clonedChildren.value}
+        </>
+      </chakra.div>
+    )
+  },
+})

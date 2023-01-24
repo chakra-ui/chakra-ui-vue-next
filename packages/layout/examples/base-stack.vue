@@ -24,11 +24,11 @@
         <chakra.div h="40px" bg="yellow.200"> 1 </chakra.div>
         <chakra.div h="40px" bg="tomato"> 2 </chakra.div>
         <chakra.div h="40px" bg="pink.100"> 3 </chakra.div>
+        <chakra.span></chakra.span>
       </c-v-stack>
     </chakra.div>
   </chakra.div>
 </template>
 <script lang="ts" setup>
-import { chakra } from "@chakra-ui/vue-system"
-import { CHStack, CVStack } from "@chakra-ui/vue-layout"
+import { CHStack, CVStack, chakra } from "@chakra-ui/vue-next"
 </script>

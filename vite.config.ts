@@ -5,12 +5,13 @@ import Pages from "vite-plugin-pages"
 import Layouts from "vite-plugin-vue-layouts"
 import ChakraComponents from "./playground/build/components.json"
 import path from "path"
+import vueJsx from "@vitejs/plugin-vue-jsx"
 
 export default defineConfig({
-  test: {
-    globals: true,
-    environment: "happy-dom",
-  },
+  // test: {
+  //   globals: true,
+  //   environment: "happy-dom",
+  // },
   esbuild: {
     jsxFactory: "h",
     jsxFragment: "Fragment",
@@ -36,6 +37,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueJsx({
+      // options are passed on to @vue/babel-plugin-jsx
+    }),
     Pages({
       pagesDir: path.relative(__dirname, "../packages"),
       extensions: ["vue"],

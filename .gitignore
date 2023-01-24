@@ -91,6 +91,7 @@ dist
 .vscode-test
 
 # yarn v2
+.yarn
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
@@ -110,3 +111,6 @@ website/.vite-ssg-temp
 cypress/screenshots
 # playground/build/components.json
 .idea/*
+.yarn
+.yarnrc
+.yarnrc.yml

@@ -1,12 +1,16 @@
 /**
+ * Pattern matching helper
  * Credit:
  * Adapted from the good folks at @headlessui/vue
  */
-export function match<T extends string | number = string, U = unknown>(
-  value: T,
-  lookup: Record<T, U | ((...args: any[]) => U)>,
+export function match<
+  TValue extends string | number = string,
+  TReturnValue = unknown
+>(
+  value: TValue,
+  lookup: Record<TValue, TReturnValue | ((...args: any[]) => TReturnValue)>,
   ...args: any[]
-): U {
+): TReturnValue {
   if (value in lookup) {
     let returnValue = lookup[value]
     return typeof returnValue === "function"
@@ -21,7 +25,6 @@ export function match<T extends string | number = string, U = unknown>(
       .map((key) => `"${key}"`)
       .join(", ")}.`
   )
-  /** @ts-expect-error "captureStackTrace" not in default Error constuctor typee  */
-  if (Error?.captureStackTrace) Error.captureStackTrace(error, match)
+  if (Error.captureStackTrace) Error.captureStackTrace(error, match)
   throw error
 }

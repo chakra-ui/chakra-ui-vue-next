@@ -137,7 +137,7 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack: ComponentWithProps<StackProps> = defineComponent({
+export const CStack = defineComponent({
   name: "CStack",
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -201,7 +201,7 @@ export const CStack: ComponentWithProps<StackProps> = defineComponent({
 /**
  * A view that arranges its children in a horizontal line.
  */
-export const CHStack: ComponentWithProps<StackProps> = defineComponent({
+export const CHStack = defineComponent({
   name: "CHStack",
   props: stackProps,
   setup(props, { attrs, slots }) {
@@ -217,7 +217,7 @@ export const CHStack: ComponentWithProps<StackProps> = defineComponent({
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack: ComponentWithProps<StackProps> = defineComponent({
+export const CVStack = defineComponent({
   name: "CVStack",
   props: stackProps,
   setup(props, { attrs, slots }) {

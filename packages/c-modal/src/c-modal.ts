@@ -4,7 +4,7 @@
  * An accessible dialog modal component for chakra ui vue.
  *
  * @see Docs     https://next.vue.chakra-ui.com/modal
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/master/packages/c-modal/src/c-modal.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-modal/src/c-modal.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 

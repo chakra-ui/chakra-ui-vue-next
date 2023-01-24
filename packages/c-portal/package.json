@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-portal",
   "description": "Chakra UI Vue | The portal allows us to teleport components to a differente location in the document component",
-  "version": "0.1.0-alpha.10",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-c-portal.cjs.js",
   "module": "dist/chakra-ui-c-portal.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-portal",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-portal",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -28,8 +28,9 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.3",
-    "@chakra-ui/vue-composables": "0.1.0-alpha.9"
+    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/vue-composables": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1"
   },
   "devDependencies": {
     "vue": "^3.2.37"

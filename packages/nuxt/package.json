@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "0.1.0-alpha.7",
+  "version": "2.0.0-beta.1",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "main": "dist/chakra-ui-nuxt-next.cjs.js",
   "module": "dist/chakra-ui-nuxt-next.esm.js",
@@ -13,7 +13,7 @@
       "default": "./dist/chakra-ui-nuxt-next.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/nuxt",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/nuxt",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {

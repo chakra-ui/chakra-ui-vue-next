@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-breadcrumb",
   "description": "Chakra UI Vue | Breadcrumbs help users visualize their current location in relation to the rest of the website or application by showing the hierarchy of pages component",
-  "version": "1.0.0-alpha.10",
+  "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-c-breadcrumb.cjs.js",
   "module": "dist/chakra-ui-c-breadcrumb.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-breadcrumb",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-breadcrumb",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -28,10 +28,10 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^2.2.2",
-    "@chakra-ui/utils": "^2.0.3",
-    "@chakra-ui/vue-system": "0.1.0-alpha.10",
-    "@chakra-ui/vue-utils": "0.1.0-alpha.10"
+    "@chakra-ui/styled-system": "2.5.1",
+    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1"
   },
   "peerDependencies": {
     "vue": "^3.1.4"
