@@ -1,4 +1,4 @@
-import { mount } from "@cypress/vue"
+/// <reference types="../../../@types" />
 
 import UseDisclosureDrawer from "../examples/use-disclosure-drawer.vue"
 import UseDisclosureProps from "../examples/use-disclosure-props.vue"
@@ -6,11 +6,11 @@ import UseDisclosureToggle from "../examples/use-disclosure-toggle.vue"
 
 describe("useDisclosure with button/disclosure props", () => {
   it("is accessbile", () => {
-    mount(UseDisclosureProps).checkA11y()
+    cy.mount(UseDisclosureProps).checkA11y()
   })
 
   it("renders the button props correctly", () => {
-    mount(UseDisclosureProps)
+    cy.mount(UseDisclosureProps)
 
     const button = cy.get("button")
 
@@ -20,7 +20,7 @@ describe("useDisclosure with button/disclosure props", () => {
   })
 
   it("toggles the disclosure", () => {
-    mount(UseDisclosureProps)
+    cy.mount(UseDisclosureProps)
 
     cy.get("button").should("have.attr", "aria-expanded", "false")
     cy.get("#disclosure-3").should("be.hidden")
@@ -40,7 +40,7 @@ describe("useDisclosure with button/disclosure props", () => {
 
 describe("useDisclosure with onToggle", () => {
   it("toggles the text", () => {
-    mount(UseDisclosureToggle)
+    cy.mount(UseDisclosureToggle)
 
     cy.contains("div", "Toggled On with onToggle!").should("be.hidden")
 
@@ -52,7 +52,7 @@ describe("useDisclosure with onToggle", () => {
 
 describe("useDisclosure with drawer", () => {
   it("toggles drawer", () => {
-    mount(UseDisclosureDrawer)
+    cy.mount(UseDisclosureDrawer)
 
     cy.get(".chakra-modal__content-container").should("not.exist")
 

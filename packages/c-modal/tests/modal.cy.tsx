@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import { h, Fragment, ref, defineComponent } from "vue"
 import {
   CModal,

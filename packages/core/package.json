@@ -58,7 +58,6 @@
     "@chakra-ui/vue-layout": "2.0.0-beta.0",
     "@chakra-ui/vue-styled": "1.0.0-beta.0",
     "@chakra-ui/vue-system": "2.0.0-beta.0",
-    "@chakra-ui/vue-theme-tools": "2.0.0-beta.0",
     "@emotion/cache": "^11.7.1",
     "@emotion/serialize": "^1.0.2",
     "@emotion/sheet": "^1.1.0",

@@ -1,3 +1,4 @@
+/// <reference types="../../../@types" />
 import { h, ref } from "vue"
 
 import { CAvatar } from "../src"

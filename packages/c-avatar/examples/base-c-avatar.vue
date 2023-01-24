@@ -18,17 +18,22 @@
     <chakra.p font-weight="bold">With custom icons</chakra.p>
     <c-h-stack align="center">
       <c-avatar size="sm">
-        <c-icon color="white" name="close" />
+        <template v-slot:icon>
+          <c-icon name="chevron-right" />
+        </template>
+        <!-- <c-icon v-slot:separator slot="icon" color="white" name="close" /> -->
       </c-avatar>
       <c-avatar size="md">
-        <c-icon color="white" name="star" />
+        <template v-slot:icon>
+          <c-icon color="white" name="star" />
+        </template>
       </c-avatar>
       <c-avatar size="lg">
-        <c-icon color="white" name="check" />
+        <template v-slot:icon>
+          <c-icon color="white" name="check" />
+        </template>
       </c-avatar>
-      <c-avatar size="xl">
-        <c-icon color="white" name="user" />
-      </c-avatar>
+      <c-avatar size="xl" icon="user"> </c-avatar>
     </c-h-stack>
 
     <chakra.p font-weight="bold">With initials</chakra.p>

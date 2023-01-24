@@ -1,9 +1,6 @@
 /// <reference types="cypress" />
 
-import { Component } from "vue"
 import { mount } from "@cypress/vue"
-
-import { DefineComponent } from "vue"
 
 // cypress/support/index.ts
 declare global {

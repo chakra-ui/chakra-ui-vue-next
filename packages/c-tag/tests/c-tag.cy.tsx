@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import { h, ref } from "vue"
 import * as Examples from "../examples"
 import { CTag, CTagLabel, CTagCloseButton } from "../src"
@@ -6,7 +8,7 @@ describe("Tag", () => {
   it("has no accessibility violation", () => {
     Object.entries(Examples).map(([name, example]) => {
       it(`renders ${name} successfully`, () => {
-        cy.mount(h(() => example.default)).checkA11y()
+        cy.mount(example.default).checkA11y()
       })
     })
   })

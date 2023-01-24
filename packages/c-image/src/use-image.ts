@@ -1,3 +1,4 @@
+import { useRef } from "@chakra-ui/vue-utils"
 import {
   computed,
   unref,
@@ -5,6 +6,9 @@ import {
   ImgHTMLAttributes,
   ref,
   watchSyncEffect,
+  watch,
+  onMounted,
+  watchPostEffect,
 } from "vue"
 
 type NativeImageProps = ImgHTMLAttributes
@@ -60,53 +64,41 @@ export function useImage(props: UseImageProps) {
 
   const status = ref<Status>("pending")
 
-  let imageRef: HTMLImageElement | null
-
-  const flush = () => {
-    if (imageRef) {
-      imageRef.onload = null
-      imageRef.onerror = null
-      imageRef = null
-    }
-  }
+  // const imageRef = ref<HTMLImageElement | null>()
+  const [imageRef, imageRefEl] = useRef<HTMLImageElement>()
 
   const load = () => {
     if (!src) return
+    if (imageRefEl.value) {
+      imageRefEl.value.src = src
+      if (crossOrigin) imageRefEl.value.crossOrigin = crossOrigin
+      if (srcSet) imageRefEl.value.srcset = srcSet
+      if (sizes) imageRefEl.value.sizes = sizes
+      if (loading) imageRefEl.value.loading = loading
 
-    flush()
+      imageRefEl.value.onload = (event: Event) => {
+        status.value = "loaded"
+        onLoad?.(event as unknown as Event)
+      }
 
-    // Create instance to check content for status
-    const img = new Image()
-    img.src = src
-    if (crossOrigin) img.crossOrigin = crossOrigin
-    if (srcSet) img.srcset = srcSet
-    if (sizes) img.sizes = sizes
-    if (loading) img.loading = loading
-
-    img.onload = (event: Event) => {
-      flush()
-      status.value = "loaded"
-      onLoad?.(event as unknown as Event)
+      imageRefEl.value.onerror = (error) => {
+        status.value = "failed"
+        onError?.(error as any)
+      }
     }
-
-    img.onerror = (error) => {
-      flush()
-      status.value = "failed"
-      onError?.(error as any)
-    }
-
-    imageRef = img
   }
 
-  watchSyncEffect(() => {
+  watch(imageRefEl, (_imageRefEl) => {
+    console.debug("useImage options", props, _imageRefEl)
     /**
      * If user opts out of the fallback/placeholder
      * logic, let's bail out.
      */
-    if (unref(ignoreFallback)) return undefined
+    if (unref(ignoreFallback)) {
+      return
+    }
 
-    if (src) {
-      // Loading...
+    if (src && imageRefEl.value) {
       load()
     }
   })
@@ -115,7 +107,10 @@ export function useImage(props: UseImageProps) {
    * If user opts out of the fallback/placeholder
    * logic, let's just return 'loaded'
    */
-  return computed(() => (unref(ignoreFallback) ? "loaded" : status.value))
+  return {
+    status: computed(() => (unref(ignoreFallback) ? "loaded" : status.value)),
+    imageRef
+  }
 }
 
 export const shouldShowFallbackImage = (

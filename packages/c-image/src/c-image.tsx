@@ -120,7 +120,7 @@ export const CImage: ComponentWithProps<DeepPartial<CImageProps>> =
       const shouldIgnoreFallbackImage = ref<boolean>()
 
       const showFallbackImage = ref<boolean>(false)
-      const status = useImage({
+      const { status } = useImage({
         ...props,
         ignoreFallback: computed(() => shouldIgnoreFallbackImage.value),
       })

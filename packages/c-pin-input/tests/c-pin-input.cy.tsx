@@ -1,4 +1,4 @@
-/// <reference types="../../../cypress/support" />
+/// <reference types="../../../@types" />
 
 import { h } from "vue"
 import * as Examples from "../examples"

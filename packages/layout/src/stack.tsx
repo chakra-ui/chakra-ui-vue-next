@@ -63,7 +63,7 @@ interface StackOptions {
   isInline?: boolean
 }
 
-export interface StackDividerProps extends HTMLChakraProps<"div"> {}
+export interface StackDividerProps extends HTMLChakraProps<"div"> { }
 
 export const CStackDivider = defineComponent({
   name: "CStackDivider",
@@ -104,7 +104,7 @@ export const CStackItem = defineComponent({
   },
 })
 
-export interface StackProps extends HTMLChakraProps<"div">, StackOptions {}
+export interface StackProps extends HTMLChakraProps<"div">, StackOptions { }
 
 const stackProps = {
   as: {
@@ -137,7 +137,7 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-export const CStack: ComponentWithProps<StackProps> = defineComponent({
+export const CStack = defineComponent({
   name: "CStack",
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -164,22 +164,22 @@ export const CStack: ComponentWithProps<StackProps> = defineComponent({
       const clones = shouldUseChildren.value
         ? validChildren
         : validChildren.map((child, index) => {
-            const isLast = index + 1 === validChildren.length
-            const wrappedChild = createVNode(CStackItem, { key: index }, child)
-            const _child = props.shouldWrapChildren ? wrappedChild : child
+          const isLast = index + 1 === validChildren.length
+          const wrappedChild = createVNode(CStackItem, { key: index }, child)
+          const _child = props.shouldWrapChildren ? wrappedChild : child
 
-            if (!hasDivider.value) return _child
+          if (!hasDivider.value) return _child
 
-            // todo: temporary divider
-            const clonedDivider = createVNode(CStackDivider, {
-              borderColor: "blue.200",
-              __css: dividerStyle.value,
-            })
-
-            const _divider = isLast ? null : clonedDivider
-
-            return createVNode(Fragment, { key: index }, [_child, _divider])
+          // todo: temporary divider
+          const clonedDivider = createVNode(CStackDivider, {
+            borderColor: "blue.200",
+            __css: dividerStyle.value,
           })
+
+          const _divider = isLast ? null : clonedDivider
+
+          return createVNode(Fragment, { key: index }, [_child, _divider])
+        })
 
       return (
         <chakra.div
@@ -201,7 +201,7 @@ export const CStack: ComponentWithProps<StackProps> = defineComponent({
 /**
  * A view that arranges its children in a horizontal line.
  */
-export const CHStack: ComponentWithProps<StackProps> = defineComponent({
+export const CHStack = defineComponent({
   name: "CHStack",
   props: stackProps,
   setup(props, { attrs, slots }) {
@@ -217,7 +217,7 @@ export const CHStack: ComponentWithProps<StackProps> = defineComponent({
 /**
  * A view that arranges its children in a vertical line.
  */
-export const CVStack: ComponentWithProps<StackProps> = defineComponent({
+export const CVStack = defineComponent({
   name: "CVStack",
   props: stackProps,
   setup(props, { attrs, slots }) {

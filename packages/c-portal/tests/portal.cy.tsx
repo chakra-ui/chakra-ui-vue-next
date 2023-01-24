@@ -1,3 +1,5 @@
+/// <reference types="../../../@types" />
+
 import * as Examples from "../examples"
 import { h, Fragment } from "vue"
 import { CPortal } from "../src"
