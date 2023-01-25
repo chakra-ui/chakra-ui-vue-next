@@ -1,5 +1,5 @@
-import { ThemeProviderProps } from "@chakra-ui/vue-next/src"
-import { render, screen } from "@chakra-ui/vue-test-utils"
+import { ThemeProviderProps } from "@chakra-ui/vue-next"
+import { render, screen } from "../tooling/test-utils"
 import { h, defineComponent, inject } from "vue"
 import CThemeProvider from "../src"
 

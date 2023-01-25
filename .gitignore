@@ -111,3 +111,6 @@ cypress/screenshots
 .yarn
 .yarnrc
 .yarnrc.yml
+
+# Turborepo
+.turbo

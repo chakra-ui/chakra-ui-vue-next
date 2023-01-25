@@ -15,7 +15,7 @@ import {
   DeepPartial,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
-import type { } from "@vue/runtime-core"
+import type {} from "@vue/runtime-core"
 import { SNAO, camelCase } from "@chakra-ui/vue-utils"
 import { mergeWith } from "@chakra-ui/utils"
 
@@ -40,7 +40,7 @@ const fallbackIcon = {
 
 export interface IconProps
   extends Omit<SVGAttributes, keyof ChakraProps>,
-  ChakraProps {
+    ChakraProps {
   /**
    * Icon Size
    */
@@ -51,11 +51,11 @@ export interface IconProps
 export const _iconProps = {
   as: {
     type: SNAO as PropType<IconProps["as"]>,
-    default: "svg"
+    default: "svg",
   },
   size: {
     type: SNAO as PropType<IconProps["size"]>,
-    default: "1em"
+    default: "1em",
   },
   name: String as PropType<IconProps["name"]>,
 }
@@ -98,7 +98,6 @@ export const CIcon = defineComponent({
     )
   },
 })
-
 
 export function createIconComponent(name: string) {
   const componentName = camelCase(name)

@@ -11,7 +11,7 @@ import type * as CSS from "csstype"
 
 export interface DividerProps
   extends HTMLChakraProps<"div">,
-  ThemingProps<"Container"> {
+    ThemingProps<"Container"> {
   orientation?: "horizontal" | "vertical"
 }
 

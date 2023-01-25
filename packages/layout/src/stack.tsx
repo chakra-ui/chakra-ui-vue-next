@@ -7,11 +7,7 @@ import {
   createVNode,
   VNode,
 } from "vue"
-import {
-  chakra,
-  DOMElements,
-  HTMLChakraProps,
-} from "@chakra-ui/vue-system"
+import { chakra, DOMElements, HTMLChakraProps } from "@chakra-ui/vue-system"
 import {
   getDividerStyles,
   getStackStyles,
@@ -62,7 +58,7 @@ interface StackOptions {
   isInline?: boolean
 }
 
-export interface StackDividerProps extends HTMLChakraProps<"div"> { }
+export interface StackDividerProps extends HTMLChakraProps<"div"> {}
 
 export const CStackDivider = defineComponent({
   name: "CStackDivider",
@@ -103,7 +99,7 @@ export const CStackItem = defineComponent({
   },
 })
 
-export interface StackProps extends HTMLChakraProps<"div">, StackOptions { }
+export interface StackProps extends HTMLChakraProps<"div">, StackOptions {}
 
 const stackProps = {
   as: {
@@ -164,22 +160,22 @@ export const CStack = defineComponent({
       const clones = shouldUseChildren.value
         ? validChildren
         : validChildren.map((child, index) => {
-          const isLast = index + 1 === validChildren.length
-          const wrappedChild = createVNode(CStackItem, { key: index }, child)
-          const _child = props.shouldWrapChildren ? wrappedChild : child
+            const isLast = index + 1 === validChildren.length
+            const wrappedChild = createVNode(CStackItem, { key: index }, child)
+            const _child = props.shouldWrapChildren ? wrappedChild : child
 
-          if (!hasDivider.value) return _child
+            if (!hasDivider.value) return _child
 
-          // todo: temporary divider
-          const clonedDivider = createVNode(CStackDivider, {
-            borderColor: "blue.200",
-            __css: dividerStyle.value,
+            // todo: temporary divider
+            const clonedDivider = createVNode(CStackDivider, {
+              borderColor: "blue.200",
+              __css: dividerStyle.value,
+            })
+
+            const _divider = isLast ? null : clonedDivider
+
+            return createVNode(Fragment, { key: index }, [_child, _divider])
           })
-
-          const _divider = isLast ? null : clonedDivider
-
-          return createVNode(Fragment, { key: index }, [_child, _divider])
-        })
 
       return (
         <chakra.div

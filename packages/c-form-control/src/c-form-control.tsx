@@ -75,7 +75,7 @@ export const CFormControl = defineComponent({
   },
 })
 
-export interface CHelpTextProps extends HTMLChakraProps<"div"> { }
+export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
 /**
  * CFormHelperText
  *

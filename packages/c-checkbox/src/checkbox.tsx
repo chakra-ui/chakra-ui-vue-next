@@ -117,8 +117,8 @@ export interface CCheckboxControlProps {
 
 export interface CCheckboxProps
   extends HTMLChakraProps<"input">,
-  ThemingProps<"Checkbox">,
-  CCheckboxControlProps {
+    ThemingProps<"Checkbox">,
+    CCheckboxControlProps {
   /**
    * The spacing between the checkbox and its label text
    * @default 0.5rem

@@ -32,5 +32,8 @@
   },
   "dependencies": {
     "@chakra-ui/vue-system": "workspace:*"
+  },
+  "peerDependencies": {
+    "@emotion/css": "^11.10.5"
   }
 }

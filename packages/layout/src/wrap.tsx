@@ -80,8 +80,8 @@ export const CWrap = defineComponent({
 
     const childrenToRender = props.shouldWrapChildren
       ? getValidChildren(slots).map((child, index) => (
-        <CWrapItem key={index}>{child}</CWrapItem>
-      ))
+          <CWrapItem key={index}>{child}</CWrapItem>
+        ))
       : slots
 
     return () => {
@@ -98,7 +98,7 @@ export const CWrap = defineComponent({
   },
 })
 
-export interface WrapItemProps extends HTMLChakraProps<"li"> { }
+export interface WrapItemProps extends HTMLChakraProps<"li"> {}
 
 export const CWrapItem = defineComponent({
   setup(_, { attrs, slots }) {

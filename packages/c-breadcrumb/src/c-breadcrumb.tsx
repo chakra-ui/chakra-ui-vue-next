@@ -58,8 +58,8 @@ export interface BreadcrumbOptions {
 
 export interface BreadcrumbProps
   extends ChakraProps,
-  BreadcrumbOptions,
-  ThemingProps<"Breadcrumb"> { }
+    BreadcrumbOptions,
+    ThemingProps<"Breadcrumb"> {}
 
 /**
  * CBreadcrumb is used to render a breadcrumb navigation landmark.
@@ -88,14 +88,14 @@ export const CBreadcrumb = defineComponent(
         return typeof props.separator === "string"
           ? props.separator
           : isObjectComponent(props.separator!)
-            ? // TODO:
+          ? // TODO:
             // Add support for
             // object components. ATM,
             // This computed property will only
             // work for functional components provided as
             // separators
             h(() => props.separator!)
-            : h(props.separator!)
+          : h(props.separator!)
       }
     })
 
@@ -199,51 +199,53 @@ interface BreadcrumbItemOptions extends BreadcrumbOptions {
 
 export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
-  ChakraProps { }
+    ChakraProps {}
 
-export const CBreadcrumbItem = defineComponent((props: BreadcrumbItemOptions, { attrs, slots }) => {
-  const styles = useStyles()
-  const itemStyles = computed<SystemStyleObject>(() => ({
-    display: "inline-flex",
-    alignItems: "center",
-    ...styles.value.item,
-  }))
+export const CBreadcrumbItem = defineComponent(
+  (props: BreadcrumbItemOptions, { attrs, slots }) => {
+    const styles = useStyles()
+    const itemStyles = computed<SystemStyleObject>(() => ({
+      display: "inline-flex",
+      alignItems: "center",
+      ...styles.value.item,
+    }))
 
-  return () => {
-    const validChildren = getValidChildren(slots)
-    const children = validChildren.map(
-      (vnode: VNode<unknown, unknown, BreadcrumbItemOptions>) => {
-        // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
-        if (vnode.type.name === "CBreadcrumbLink") {
-          return cloneVNode(vnode, {
-            isCurrentPage: props.isCurrentPage,
-          })
+    return () => {
+      const validChildren = getValidChildren(slots)
+      const children = validChildren.map(
+        (vnode: VNode<unknown, unknown, BreadcrumbItemOptions>) => {
+          // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
+          if (vnode.type.name === "CBreadcrumbLink") {
+            return cloneVNode(vnode, {
+              isCurrentPage: props.isCurrentPage,
+            })
+          }
+
+          // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
+          if (vnode.type.name === "CBreadcrumbSeparator") {
+            return cloneVNode(vnode, {
+              spacing: props.spacing,
+              children: vnode.children || { default: () => props.separator },
+            })
+          }
+
+          return vnode
         }
+      )
 
-        // @ts-expect-error The "name" property is not typed on `VNodeTypes` but we need to access it during runtime
-        if (vnode.type.name === "CBreadcrumbSeparator") {
-          return cloneVNode(vnode, {
-            spacing: props.spacing,
-            children: vnode.children || { default: () => props.separator },
-          })
-        }
-
-        return vnode
-      }
-    )
-
-    return (
-      <chakra.li __label="breadcrumb__list-item" __css={itemStyles.value}>
-        {children}
-        {!props.isLastChild && (
-          <CBreadcrumbSeparator spacing={props.spacing}>
-            {() => props.separator}
-          </CBreadcrumbSeparator>
-        )}
-      </chakra.li>
-    )
+      return (
+        <chakra.li __label="breadcrumb__list-item" __css={itemStyles.value}>
+          {children}
+          {!props.isLastChild && (
+            <CBreadcrumbSeparator spacing={props.spacing}>
+              {() => props.separator}
+            </CBreadcrumbSeparator>
+          )}
+        </chakra.li>
+      )
+    }
   }
-})
+)
 
 // @ts-ignore "name" property is typically read-only for functional components
 CBreadcrumbItem.name = "CBreadcrumbItem"
@@ -268,8 +270,8 @@ export interface BreadcrumbLinkProps extends ChakraProps {
  * It renders a `span` when it matches the current link. Otherwise,
  * it renders an anchor tag.
  */
-export const CBreadcrumbLink =
-  defineComponent((props: BreadcrumbLinkProps, { attrs, slots }) => {
+export const CBreadcrumbLink = defineComponent(
+  (props: BreadcrumbLinkProps, { attrs, slots }) => {
     const styles = useStyles()
 
     return () => {
@@ -298,10 +300,13 @@ export const CBreadcrumbLink =
         </chakra.a>
       )
     }
-  }) as ComponentWithProps<BreadcrumbLinkProps & {
+  }
+) as ComponentWithProps<
+  BreadcrumbLinkProps & {
     isCurrentPage?: boolean
     href?: string
-  }>
+  }
+>
 
 // @ts-ignore "name" property is typically read-only for functional components
 CBreadcrumbLink.name = "CBreadcrumbLink"

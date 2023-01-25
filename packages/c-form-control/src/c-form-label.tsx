@@ -11,7 +11,7 @@ import { useFormControlContext } from "./use-form-control"
 
 export interface FormLabelProps
   extends HTMLChakraProps<"label">,
-  ThemingProps<"FormLabel"> { }
+    ThemingProps<"FormLabel"> {}
 
 export const CFormLabel = defineComponent({
   name: "CFormLabel",
@@ -45,7 +45,7 @@ export const CFormLabel = defineComponent({
   },
 })
 
-export interface CRequiredIndicatorProps extends HTMLChakraProps<"span"> { }
+export interface CRequiredIndicatorProps extends HTMLChakraProps<"span"> {}
 
 /**
  * Used to show a "required" text or an asterisks (*) to indicate that

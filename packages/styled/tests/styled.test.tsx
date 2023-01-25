@@ -553,9 +553,9 @@ describe.only("styled", () => {
     let SomeComp = styled.div(
       css`
         animation: ${keyframes({
-        "from,to": { color: "green" },
-        "50%": { color: "hotpink" },
-      })};
+          "from,to": { color: "green" },
+          "50%": { color: "hotpink" },
+        })};
       `
     )
 

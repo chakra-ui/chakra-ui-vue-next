@@ -48,8 +48,8 @@ export const baseStyle: SystemStyleObject = {
   flexShrink: 0,
 }
 
-type BorderRadiusType = SystemStyleObject['borderRadius']
-type BorderColorType = SystemStyleObject['borderColor']
+type BorderRadiusType = SystemStyleObject["borderRadius"]
+type BorderColorType = SystemStyleObject["borderColor"]
 
 export interface AvatarOptions {
   /**
@@ -112,9 +112,7 @@ const [AvatarContextProvider, useAvatarContext] = createContext<CAvatarContext>(
 
 export { AvatarContextProvider, useAvatarContext }
 
-export interface CAvatarProps
-  extends AvatarOptions,
-  ThemingProps<"Avatar"> {
+export interface CAvatarProps extends AvatarOptions, ThemingProps<"Avatar"> {
   /**
    * Icon name or component
    */

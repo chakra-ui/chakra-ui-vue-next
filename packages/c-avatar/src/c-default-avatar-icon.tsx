@@ -1,7 +1,7 @@
 import { defineComponent, h, Fragment } from "vue"
 import { chakra, HTMLChakraComponents } from "@chakra-ui/vue-system"
 
-export interface CDefaultAvatarIconProps extends HTMLChakraComponents<"svg"> { }
+export interface CDefaultAvatarIconProps extends HTMLChakraComponents<"svg"> {}
 
 /**
  * Fallback avatar vue component.

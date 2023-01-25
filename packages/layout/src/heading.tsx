@@ -12,7 +12,7 @@ import type * as CSS from "csstype"
 
 export interface HeadingProps
   extends HTMLChakraProps<"h2">,
-  ThemingProps<"Heading"> { }
+    ThemingProps<"Heading"> {}
 
 export const CHeading = defineComponent({
   name: "CHeading",

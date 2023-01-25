@@ -1,12 +1,8 @@
 import { defineComponent, h, PropType } from "vue"
-import {
-  chakra,
-  DOMElements,
-  HTMLChakraProps,
-} from "@chakra-ui/vue-system"
+import { chakra, DOMElements, HTMLChakraProps } from "@chakra-ui/vue-system"
 import type * as CSS from "csstype"
 
-export interface CCenterProps extends HTMLChakraProps<"div"> { }
+export interface CCenterProps extends HTMLChakraProps<"div"> {}
 
 /**
  * Vue component used to horizontally and vertically center its child.

@@ -38,7 +38,7 @@
     "dev": "preconstruct dev",
     "clean": "pnpm -r --parallel run clean",
     "prebuild": "pnpm clean",
-    "build": "pnpm preconstruct build",
+    "build": "turbo run build --filter=!./examples/*",
     "build:types": "ts-node scripts/generate-global-types.ts",
     "postbuild": "pnpm build:types && pnpm size",
     "start": "preconstruct watch",
@@ -86,7 +86,8 @@
     "@babel/preset-typescript": "^7.12.7",
     "@chakra-ui/anatomy": "^2.0.1",
     "@chakra-ui/styled-system": "2.5.1",
-    "@chakra-ui/theme-tools": "^2.0.16",
+    "@chakra-ui/theme": "^2.2.5",
+    "@chakra-ui/theme-tools": "^2.0.17",
     "@chakra-ui/theme-utils": "^2.0.6",
     "@chakra-ui/utils": "2.0.14",
     "@chakra-ui/vue-next": "2.0.0-beta.1",
@@ -221,7 +222,8 @@
     ]
   },
   "resolutions": {
-    "csstype": "3.1.1"
+    "csstype": "3.1.1",
+    "@chakra-ui/theme-tools": "2.0.17"
   },
   "packageManager": "pnpm@1.22.19"
 }

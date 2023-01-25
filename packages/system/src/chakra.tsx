@@ -49,8 +49,8 @@ export interface BaseStyleResolverProps {
   componentName?: String
   label?: string
   baseStyle?:
-  | SystemStyleObject
-  | ((props: StyleResolverProps) => SystemStyleObject)
+    | SystemStyleObject
+    | ((props: StyleResolverProps) => SystemStyleObject)
   /**
    * User provided styles from component/chakra API
    */
@@ -66,18 +66,19 @@ export interface BaseStyleResolverProps {
    */
   __chakraIsRaw?: boolean
   theme?: Dict<any>
+  styleConfig?: Dict<any>
 }
 
 export interface StyleResolverProps
   extends BaseStyleResolverProps,
-  SystemProps { }
+    SystemProps {}
 
 interface StyleResolverOptions extends StyleResolverProps {
   truncateStyle?: CSSObject
   theme?: any
 }
 
-interface ChakraFactoryOptions extends StyleResolverProps { }
+interface ChakraFactoryOptions extends StyleResolverProps {}
 
 const chakraProps = {
   as: [String, Object] as PropType<ChakraTagOrComponent>,
@@ -140,8 +141,7 @@ type IChakraFactory = {
   (
     tag: ChakraTagOrComponent,
     options?: StyleResolverOptions & UserProvidedProps
-  ):
-    ChakraFactoryComponent
+  ): ChakraFactoryComponent
 }
 
 export function ___chakra___(
@@ -262,7 +262,6 @@ export function ___chakra___(
   >
 }
 
-
 /**
  * Chakra factory serves as an object of chakra enabled HTML elements,
  * and also a function that can be used to enable custom component receive chakra's style props.
@@ -323,7 +322,10 @@ export const chakra = Object.assign(
 type EventHandler = (...args: any[]) => void
 
 declare module "vue" {
-  interface ComponentCustomProps extends ChakraProps, StyleResolverProps, HTMLAttributes {
+  interface ComponentCustomProps
+    extends ChakraProps,
+      StyleResolverProps,
+      HTMLAttributes {
     id?: string
     role?: string
     tabindex?: number | string
@@ -339,6 +341,7 @@ declare module "vue" {
     focusable?: unknown
     type?: unknown
     disabled?: unknown
+    href?: unknown
     // should be removed after Vue supported component events typing
     // see: https://github.com/vuejs/vue-next/issues/1553
     //      https://github.com/vuejs/vue-next/issues/3029
@@ -377,8 +380,8 @@ declare module "vue" {
 interface GetStyleObject {
   (options: {
     baseStyle?:
-    | SystemStyleObject
-    | ((props: StyleResolverProps) => SystemStyleObject)
+      | SystemStyleObject
+      | ((props: StyleResolverProps) => SystemStyleObject)
   }): FunctionInterpolation<StyleResolverProps>
 }
 
@@ -396,8 +399,8 @@ export const toCSSObject: GetStyleObject = (options) => (props) => {
 interface StyledOptions extends StyleResolverOptions {
   label?: string
   baseStyle?:
-  | SystemStyleObject
-  | ((props: StyleResolverProps) => SystemStyleObject)
+    | SystemStyleObject
+    | ((props: StyleResolverProps) => SystemStyleObject)
 }
 
 export function styled<T extends As, P = {}>(
@@ -497,8 +500,7 @@ export const resolveStyles = (
   return cssObject
 }
 
-export type ChakraFactoryProps = ChakraProps &
-  StyleResolverProps
+export type ChakraFactoryProps = ChakraProps & StyleResolverProps
 
 /**
  * @example

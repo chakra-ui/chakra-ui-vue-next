@@ -73,12 +73,9 @@ interface ImageOptions extends NativeImageOptions {
   referrerPolicy?: ReferrerPolicy
 }
 
-export interface CImageProps
-  extends UseImageProps,
-  ImageOptions { }
+export interface CImageProps extends UseImageProps, ImageOptions {}
 
-
-export const CImage = (defineComponent({
+export const CImage = defineComponent({
   name: "CImage",
   props: {
     as: {
@@ -173,4 +170,4 @@ export const CImage = (defineComponent({
       )
     }
   },
-}) as any as ChakraFactoryComponent<CImageProps>)
+}) as any as ChakraFactoryComponent<CImageProps>

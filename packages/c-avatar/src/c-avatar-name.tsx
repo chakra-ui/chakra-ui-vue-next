@@ -10,7 +10,7 @@ import { initials } from "./utils"
 
 export interface CAvatarNameProps
   extends HTMLChakraProps<"div">,
-  Pick<AvatarOptions, "name" | "initials"> { }
+    Pick<AvatarOptions, "name" | "initials"> {}
 
 /**
  * The avatar name container
@@ -39,5 +39,5 @@ export const CAvatarName = defineComponent({
         {initials(props.name!)}
       </chakra.div>
     )
-  }
+  },
 })

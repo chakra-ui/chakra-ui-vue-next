@@ -14,7 +14,7 @@ import { useCheckboxGroup } from "./use-checkbox-group"
 
 export interface CCheckboxGroupProps
   extends UseCheckboxGroupProps,
-  Omit<ThemingProps<"Checkbox">, "orientation"> { }
+    Omit<ThemingProps<"Checkbox">, "orientation"> {}
 
 export type CheckboxGroupContext = ComputedRef<
   ThemingProps & {

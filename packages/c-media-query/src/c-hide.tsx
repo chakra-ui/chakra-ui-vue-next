@@ -4,7 +4,7 @@ import { CVisibility } from "./c-visibility"
 import { useQuery } from "./use-query"
 import { CShowProps } from "./c-show"
 
-export interface CHideProps extends CShowProps { }
+export interface CHideProps extends CShowProps {}
 
 /**
  * Wrapper component to hide child elements based on breakpoint value

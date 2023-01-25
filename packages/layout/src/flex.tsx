@@ -3,9 +3,9 @@ import {
   chakra,
   DOMElements,
   HTMLChakraProps,
-  ThemingProps
+  ThemingProps,
 } from "@chakra-ui/vue-system"
-import { SystemProps } from '@chakra-ui/styled-system'
+import { SystemProps } from "@chakra-ui/styled-system"
 import type * as CSS from "csstype"
 
 export interface FlexProps extends HTMLChakraProps<"div"> {

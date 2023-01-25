@@ -43,7 +43,9 @@ const transforms = {
   "right-end": "left bottom",
 }
 
-export const toTransformOrigin = (placement: Placement) => transforms[placement]
+export const toTransformOrigin = (
+  placement: Exclude<Placement, "auto" | "auto-start" | "auto-end">
+) => transforms[placement]
 
 const defaultEventListeners = {
   scroll: true,

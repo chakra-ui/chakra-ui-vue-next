@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@chakra-ui/theme": "^2.2.5",
+    "@chakra-ui/vue-styled": "workspace:*",
     "@types/lodash.memoize": "^4.1.6",
     "vue": "^3.2.37"
   },

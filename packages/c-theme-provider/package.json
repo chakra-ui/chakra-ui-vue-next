@@ -23,9 +23,12 @@
     "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/theme": "^2.2.5"
+    "@chakra-ui/theme": "^2.2.5",
+    "@chakra-ui/theme-tools": "2.0.17"
   },
   "devDependencies": {
+    "@chakra-ui/theme": "^2.2.5",
+    "@chakra-ui/theme-tools": "2.0.17",
     "vue": "^3.2.37"
   },
   "peerDependencies": {

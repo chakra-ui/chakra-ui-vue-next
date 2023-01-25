@@ -51,7 +51,7 @@ export const transformOrigin: Modifier<"transformOrigin", any> = {
 const setTransformOrigin = (state: State) => {
   state.elements.popper.style.setProperty(
     cssVars.transformOrigin.var,
-    toTransformOrigin(state.placement)
+    toTransformOrigin(state.placement as any)
   )
 }
 

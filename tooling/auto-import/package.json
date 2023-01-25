@@ -17,7 +17,10 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "types:check": "tsc --noEmit"
   },
   "publishConfig": {
     "access": "public"

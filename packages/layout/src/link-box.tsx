@@ -49,7 +49,7 @@ export const CLinkOverlay = defineComponent({
   },
 })
 
-export interface LinkBoxProps extends HTMLChakraProps<"div"> { }
+export interface LinkBoxProps extends HTMLChakraProps<"div"> {}
 
 /**
  * `LinkBox` is used to wrap content areas within a link while ensuring semantic html
