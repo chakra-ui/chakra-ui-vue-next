@@ -18,8 +18,9 @@ importers:
       '@chakra-ui/theme-tools': 2.0.17
       '@chakra-ui/theme-utils': ^2.0.6
       '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-next': 2.0.0-beta.1
-      '@chakra-ui/vue-test-utils': 2.0.0-beta.1
+      '@chakra-ui/vue-next': workspace:*
+      '@chakra-ui/vue-styled': workspace:*
+      '@chakra-ui/vue-test-utils': workspace:*
       '@changesets/changelog-github': ^0.3.0
       '@changesets/cli': ^2.14.1
       '@commitlint/cli': ^11.0.0
@@ -154,6 +155,7 @@ importers:
       '@chakra-ui/theme-utils': 2.0.8
       '@chakra-ui/utils': 2.0.14
       '@chakra-ui/vue-next': link:packages/core
+      '@chakra-ui/vue-styled': link:packages/styled
       '@chakra-ui/vue-test-utils': link:packages/test-utils
       '@changesets/changelog-github': 0.3.0
       '@changesets/cli': 2.26.0
@@ -867,7 +869,6 @@ importers:
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/theme': ^2.2.5
       '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-styled': workspace:*
       '@chakra-ui/vue-utils': workspace:*
       '@emotion/css': ^11.9.0
       '@emotion/serialize': 1.1.1
@@ -880,7 +881,6 @@ importers:
       '@chakra-ui/c-color-mode': link:../c-color-mode
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-styled': link:../styled
       '@chakra-ui/vue-utils': link:../utils
       '@emotion/css': 11.10.5
       '@emotion/serialize': 1.1.1
@@ -922,7 +922,6 @@ importers:
     specifiers:
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-system': workspace:*
       '@types/lodash.camelcase': ^4.3.6
       '@types/lodash.memoize': ^4.1.6
       '@types/lodash.mergewith': ^4.6.6
@@ -936,7 +935,6 @@ importers:
     dependencies:
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-system': link:../system
       '@types/lodash.camelcase': 4.3.7
       '@types/lodash.memoize': 4.1.7
       css-box-model: 1.2.1

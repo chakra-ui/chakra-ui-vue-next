@@ -29,4 +29,5 @@ export interface IPackageJson {
   publishConfig: {
     access: string
   }
+  tsup: any
 }
