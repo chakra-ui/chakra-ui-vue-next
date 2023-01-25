@@ -21,7 +21,7 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "build:types": "tsup src --dts-only",
+    "build:types": "echo 'TODO: create auto-import types'",
     "dev": "tsup --watch",
     "build:rollup": "rollup -c && pnpm build:types"
   },
