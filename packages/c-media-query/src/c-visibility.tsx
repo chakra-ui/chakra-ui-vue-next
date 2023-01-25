@@ -10,7 +10,7 @@ export interface CVisbilityProps {
   hide?: boolean
 }
 
-export const CVisibility: ComponentWithProps<CVisbilityProps> = defineComponent(
+export const CVisibility = defineComponent(
   {
     props: {
       breakpoint: {

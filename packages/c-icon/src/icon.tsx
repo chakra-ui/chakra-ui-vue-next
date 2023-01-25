@@ -48,14 +48,15 @@ export interface IconProps
   name?: string | undefined
 }
 
-export const iconProps = {
-  as: "svg",
-  size: "1em",
-}
-
-const _iconProps = {
-  as: SNAO as PropType<IconProps["as"]>,
-  size: SNAO as PropType<IconProps["size"]>,
+export const _iconProps = {
+  as: {
+    type: SNAO as PropType<IconProps["as"]>,
+    default: "svg"
+  },
+  size: {
+    type: SNAO as PropType<IconProps["size"]>,
+    default: "1em"
+  },
   name: String as PropType<IconProps["name"]>,
 }
 
@@ -63,7 +64,7 @@ export const CIcon = defineComponent({
   name: "CIcon",
   props: _iconProps,
   setup(_props, { slots, attrs }) {
-    const props = computed<IconProps>(() => mergeWith({}, iconProps, _props))
+    const props = computed<IconProps>(() => mergeWith({}, _props))
     const icons = inject<Record<string, any>>("$chakraIcons")
     const icon = computed(
       () => icons?.[props.value?.name as string] || fallbackIcon

@@ -5,14 +5,12 @@ import {
   chakra,
   DOMElements,
   StylesProvider,
-  ComponentWithProps,
   HTMLChakraProps,
   ThemingProps,
   useMultiStyleConfig,
   useStyles,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
-import { useIds, useId } from "@chakra-ui/vue-composables"
+import { useId } from "@chakra-ui/vue-composables"
 import {
   createContext,
   genId,

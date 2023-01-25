@@ -8,6 +8,7 @@ import {
 import { getValidChildren, SNAO } from "@chakra-ui/vue-utils"
 import { SystemProps } from "@chakra-ui/styled-system"
 import { computed, defineComponent, h, PropType } from "vue"
+import type * as CSS from "csstype"
 
 export interface WrapProps extends HTMLChakraProps<"div"> {
   /**

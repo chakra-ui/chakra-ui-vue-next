@@ -3,10 +3,9 @@ import {
   chakra,
   HTMLChakraProps,
   ResponsiveValue,
-  DeepPartial,
-  ComponentWithProps,
 } from "@chakra-ui/vue-system"
 import { defineComponent, h, PropType } from "vue"
+import type * as CSS from "csstype"
 
 interface AspectRatioOptions {
   /**
@@ -27,7 +26,7 @@ export interface AspectRatioProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/aspect-ratio
  */
-export const CAspectRatio: ComponentWithProps<DeepPartial<AspectRatioProps>> =
+export const CAspectRatio =
   defineComponent({
     name: "CAspectRatio",
     props: {

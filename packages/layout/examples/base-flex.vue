@@ -16,3 +16,7 @@
     </chakra.div>
   </c-flex>
 </template>
+
+<template lang="ts">
+import { chakra } from "@chakra-ui/vue-system"
+</template>

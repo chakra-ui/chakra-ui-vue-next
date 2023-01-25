@@ -2,15 +2,14 @@ import { h, defineComponent, PropType, unref } from "vue"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 import { CVisibility } from "./c-visibility"
 import { useQuery } from "./use-query"
-import { ComponentWithProps } from "@chakra-ui/vue-system"
 import { CShowProps } from "./c-show"
 
-export interface CHideProps extends CShowProps {}
+export interface CHideProps extends CShowProps { }
 
 /**
  * Wrapper component to hide child elements based on breakpoint value
  */
-export const CHide: ComponentWithProps<CHideProps> = defineComponent({
+export const CHide = defineComponent({
   props: {
     breakpoint: {
       type: String as PropType<CHideProps["breakpoint"]>,

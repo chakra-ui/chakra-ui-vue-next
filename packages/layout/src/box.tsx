@@ -4,9 +4,8 @@ import {
   DOMElements,
   SystemStyleObject,
   HTMLChakraProps,
-  DeepPartial,
-  ComponentWithProps,
 } from "@chakra-ui/vue-system"
+import type * as CSS from "csstype"
 
 export interface BoxProps extends HTMLChakraProps<"div"> { }
 
@@ -16,7 +15,7 @@ export interface BoxProps extends HTMLChakraProps<"div"> { }
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
-export const CBox: ComponentWithProps<DeepPartial<BoxProps>> = defineComponent({
+export const CBox = defineComponent({
   name: "CBox",
   props: {
     as: {
@@ -55,7 +54,7 @@ export interface SquareProps extends Omit<BoxProps, Omitted> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
-export const CSquare: ComponentWithProps<DeepPartial<SquareProps>> =
+export const CSquare =
   defineComponent({
     name: "CSquare",
     props: {
@@ -93,7 +92,7 @@ export const CSquare: ComponentWithProps<DeepPartial<SquareProps>> =
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/box
  */
-export const CCircle: ComponentWithProps<DeepPartial<SquareProps>> =
+export const CCircle =
   defineComponent({
     name: "CCircle",
     setup(_, { slots, attrs }) {

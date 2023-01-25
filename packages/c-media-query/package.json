@@ -28,8 +28,8 @@
     "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "2.0.0-beta.1",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
     "@vueuse/core": "4.9.1"
   },
   "devDependencies": {

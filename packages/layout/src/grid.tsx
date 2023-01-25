@@ -4,23 +4,15 @@ import {
   defineComponent,
   PropType,
   computed,
-  watchEffect,
-  Component,
-  ConcreteComponent,
 } from "vue"
 import {
   chakra,
-  HTMLChakraProps,
   SystemProps,
   ResponsiveValue,
-  DOMElements,
-  ComponentWithProps,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
 import { filterUndefined, mapResponsive } from "@chakra-ui/utils"
 import { SNAO } from "@chakra-ui/vue-utils"
-
-export interface GridProps extends HTMLChakraProps<"div">, GridOptions { }
+import type * as CSS from "csstype"
 
 export interface GridOptions {
   /**
@@ -85,6 +77,8 @@ export interface GridOptions {
   row?: SystemProps["gridRow"]
 }
 
+export interface GridProps extends GridOptions { }
+
 export interface GridItemProps extends BoxProps {
   /**
    * The number of columns the grid item should `span`.
@@ -122,61 +116,58 @@ export interface GridItemProps extends BoxProps {
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/grid
  */
-export const CGrid: ComponentWithProps<DeepPartial<GridProps>> =
-  defineComponent({
-    name: "CGrid",
-    props: {
-      as: {
-        type: [String, Object] as PropType<
-          DOMElements | Component | ConcreteComponent | string
-        >,
-        default: "div",
-      },
-      templateColumns: SNAO as PropType<GridProps["gridTemplateColumns"]>,
-      gap: SNAO as PropType<GridProps["gridGap"]>,
-      rowGap: SNAO as PropType<GridProps["gridRowGap"]>,
-      columnGap: SNAO as PropType<GridProps["gridColumnGap"]>,
-      autoFlow: SNAO as PropType<GridProps["gridAutoFlow"]>,
-      autoRows: SNAO as PropType<GridProps["gridAutoRows"]>,
-      autoColumns: SNAO as PropType<GridProps["gridAutoColumns"]>,
-      templateRows: SNAO as PropType<GridProps["gridTemplateRows"]>,
-      templateAreas: SNAO as PropType<GridProps["gridTemplateAreas"]>,
-      area: SNAO as PropType<GridProps["gridArea"]>,
-      column: SNAO as PropType<GridProps["gridColumn"]>,
-      row: SNAO as PropType<GridProps["gridRow"]>,
+export const CGrid = defineComponent({
+  name: "CGrid",
+  props: {
+    as: {
+      type: [String, Object] as PropType<any>,
+      default: "div",
     },
-    setup(props, { slots, attrs }) {
-      const styles = computed(() =>
-        filterUndefined({
-          display: "grid",
-          gridArea: props.area,
-          gridTemplateAreas: props.templateAreas,
-          gridGap: props.gap,
-          gridRowGap: props.rowGap,
-          gridColumnGap: props.columnGap,
-          gridAutoColumns: props.autoColumns,
-          gridColumn: props.column,
-          gridRow: props.row,
-          gridAutoFlow: props.autoFlow,
-          gridAutoRows: props.autoRows,
-          gridTemplateRows: props.templateRows,
-          gridTemplateColumns: props.templateColumns,
-        })
+    templateColumns: SNAO as PropType<SystemProps["gridTemplateColumns"]>,
+    gap: SNAO as PropType<SystemProps["gridGap"]>,
+    rowGap: SNAO as PropType<SystemProps["gridRowGap"]>,
+    columnGap: SNAO as PropType<SystemProps["gridColumnGap"]>,
+    autoFlow: SNAO as PropType<SystemProps["gridAutoFlow"]>,
+    autoRows: SNAO as PropType<SystemProps["gridAutoRows"]>,
+    autoColumns: SNAO as PropType<SystemProps["gridAutoColumns"]>,
+    templateRows: SNAO as PropType<SystemProps["gridTemplateRows"]>,
+    templateAreas: SNAO as PropType<SystemProps["gridTemplateAreas"]>,
+    area: SNAO as PropType<SystemProps["gridArea"]>,
+    column: SNAO as PropType<SystemProps["gridColumn"]>,
+    row: SNAO as PropType<SystemProps["gridRow"]>,
+  },
+  setup(props, { slots, attrs }) {
+    const styles = computed(() =>
+      filterUndefined({
+        display: "grid",
+        gridArea: props.area,
+        gridTemplateAreas: props.templateAreas,
+        gridGap: props.gap,
+        gridRowGap: props.rowGap,
+        gridColumnGap: props.columnGap,
+        gridAutoColumns: props.autoColumns,
+        gridColumn: props.column,
+        gridRow: props.row,
+        gridAutoFlow: props.autoFlow,
+        gridAutoRows: props.autoRows,
+        gridTemplateRows: props.templateRows,
+        gridTemplateColumns: props.templateColumns,
+      })
+    )
+    return () => {
+      return (
+        <chakra.div
+          as={props.as as any}
+          __label="grid"
+          __css={styles.value}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
-      return () => {
-        return (
-          <chakra.div
-            as={props.as}
-            __label="grid"
-            __css={styles.value}
-            {...attrs}
-          >
-            {slots}
-          </chakra.div>
-        )
-      }
-    },
-  })
+    }
+  },
+})
 
 function spanFn(span?: ResponsiveValue<number | "auto">) {
   return mapResponsive(span, (value) =>
@@ -184,13 +175,13 @@ function spanFn(span?: ResponsiveValue<number | "auto">) {
   )
 }
 
-export const CGridItem: ComponentWithProps<DeepPartial<GridItemProps>> =
+export const CGridItem =
   defineComponent({
     name: "CGridItem",
     props: {
       as: {
         type: [String, Object] as PropType<
-          DOMElements | Component | ConcreteComponent | string
+          any
         >,
         default: "div",
       },

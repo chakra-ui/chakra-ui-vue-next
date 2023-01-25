@@ -2,7 +2,6 @@ import {
   h,
   defineComponent,
   PropType,
-  Component,
   computed,
   Fragment,
   createVNode,
@@ -10,7 +9,6 @@ import {
 } from "vue"
 import {
   chakra,
-  ComponentWithProps,
   DOMElements,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
@@ -21,6 +19,7 @@ import {
   StackDirection,
 } from "./stack.utils"
 import { SystemProps } from "@chakra-ui/styled-system"
+import type * as CSS from "csstype"
 
 interface StackOptions {
   /**
@@ -138,7 +137,7 @@ const stackProps = {
  *
  */
 
-export const CStack: ComponentWithProps<StackOptions> = defineComponent({
+export const CStack = defineComponent({
   name: "CStack",
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -198,12 +197,11 @@ export const CStack: ComponentWithProps<StackOptions> = defineComponent({
       )
     }
   },
-}) as ComponentWithProps<StackOptions>
+})
 
 /**
  * A view that arranges its children in a horizontal line.
  */
-// @ts-ignore
 export const CHStack = defineComponent({
   name: "CHStack",
   props: stackProps,
@@ -214,7 +212,7 @@ export const CHStack = defineComponent({
       </CStack>
     )
   },
-}) as ComponentWithProps<StackOptions>
+})
 
 /**
  * A view that arranges its children in a vertical line.
@@ -229,4 +227,4 @@ export const CVStack = defineComponent({
       </CStack>
     )
   },
-}) as ComponentWithProps<StackOptions>
+})

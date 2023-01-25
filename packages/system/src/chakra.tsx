@@ -61,6 +61,10 @@ export interface BaseStyleResolverProps {
    * preserve the component's label class
    */
   __label?: string
+  /**
+   * @internal prop to handle factory components as raw elements
+   */
+  __chakraIsRaw?: boolean
   theme?: Dict<any>
 }
 
@@ -325,6 +329,16 @@ declare module "vue" {
     tabindex?: number | string
     value?: unknown
     viewBox?: unknown
+    src?: unknown
+    srcset?: unknown
+    crossOrigin?: unknown
+    srcSet?: unknown
+    loading?: unknown
+    alt?: unknown
+    referrerPolicy?: unknown
+    focusable?: unknown
+    type?: unknown
+    disabled?: unknown
     // should be removed after Vue supported component events typing
     // see: https://github.com/vuejs/vue-next/issues/1553
     //      https://github.com/vuejs/vue-next/issues/3029

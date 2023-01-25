@@ -8,7 +8,6 @@
 "@chakra-ui/c-close-button": major
 "@chakra-ui/c-code": major
 "@chakra-ui/c-color-mode": major
-"@chakra-ui/c-flex": major
 "@chakra-ui/c-focus-lock": major
 "@chakra-ui/c-form-control": major
 "@chakra-ui/c-icon": major

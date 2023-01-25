@@ -1,13 +1,10 @@
 /* eslint vue/no-side-effects-in-computed-properties: 0  */
 import {
-  ThemingProps,
   useMultiStyleConfig,
   chakra,
-  SystemProps,
   SystemStyleObject,
 } from "@chakra-ui/vue-system"
 import {
-  createContext,
   getValidChildren,
   SNAO,
   vueThemingProps,
@@ -19,44 +16,31 @@ import {
   Fragment,
   defineComponent,
   computed,
-  ComputedRef,
   PropType,
   cloneVNode,
 } from "vue"
 import { baseStyle } from "./c-avatar"
 
-type AvatarGroupContext = ComputedRef<ThemingProps>
-
-const [AvatarGroupProvider, useAvatarGroup] = createContext<AvatarGroupContext>(
-  {
-    strict: false,
-    name: "AvatarGroupContext",
-  }
-)
-
-export { useAvatarGroup }
-
 export const avatarGroupProps = {
   max: {
-    type: Number,
+    type: Number as PropType<number>,
     default: 2,
   },
   spacing: {
-    type: SNAO as PropType<SystemProps["margin"]>,
+    type: SNAO as PropType<SystemStyleObject["margin"]>,
     default: "-0.75rem",
   },
   borderRadius: {
-    type: SNAO as PropType<SystemProps["borderRadius"]>,
+    type: SNAO as PropType<SystemStyleObject["borderRadius"]>,
     default: "full",
   },
-  borderColor: SNAO as PropType<SystemProps["borderColor"]>,
+  borderColor: SNAO as PropType<SystemStyleObject["borderColor"]>,
   ...vueThemingProps,
 }
 
 /**
  * CAvatarGroup displays a number of avatars grouped together in a stack.
  */
-// @ts-ignore complex type
 export const CAvatarGroup = defineComponent({
   props: avatarGroupProps,
   setup(props, { slots, attrs }) {

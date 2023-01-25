@@ -28,7 +28,6 @@
 "@chakra-ui/c-modal": minor
 "@chakra-ui/c-reset": minor
 "@chakra-ui/c-code": minor
-"@chakra-ui/c-flex": minor
 "@chakra-ui/c-icon": minor
 "@chakra-ui/vue-layout": minor
 "@chakra-ui/vue-styled": minor

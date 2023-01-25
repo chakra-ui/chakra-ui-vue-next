@@ -31,10 +31,33 @@ async function transformFile(path: string, transformer: Transform) {
   )
 }
 
+const whitelistedPackages = {
+  "@chakra-ui/styled-system": true,
+  "@chakra-ui/utils": true,
+  "@chakra-ui/theme": true,
+  "@chakra-ui/theme-tools": true,
+  "@chakra-ui/theme-utils": true,
+}
+
 async function execute() {
   const files = await getAllPackageJsons()
   files.forEach((filePath) => {
     transformFile(filePath, (pkg) => {
+      const dependencies = pkg.dependencies
+      for (const dep in dependencies) {
+        if (whitelistedPackages[dep]) continue
+        if (dep.startsWith("@chakra-ui/")) {
+          pkg.dependencies[dep] = "workspace:*"
+        }
+      }
+
+      const devDependencies = pkg.dependencies
+      for (const devDep in devDependencies) {
+        if (whitelistedPackages[devDep]) continue
+        if (devDep.startsWith("@chakra-ui/")) {
+          pkg.dependencies[devDep] = "workspace:*"
+        }
+      }
       // pkg.scripts["build"] = "tsup src --dts"
       // pkg.scripts["build:fast"] = "tsup src"
       // pkg.scripts["clean"] = "rimraf dist .turbo"

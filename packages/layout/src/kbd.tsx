@@ -5,11 +5,10 @@ import {
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
-  ComponentWithProps,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
 import { computed, defineComponent, h, PropType } from "vue"
 import { filterUndefined } from "@chakra-ui/utils"
+import type * as CSS from "csstype"
 
 export interface KbdProps extends HTMLChakraProps<"kbd">, ThemingProps<"Kbd"> { }
 
@@ -25,7 +24,7 @@ export interface KbdProps extends HTMLChakraProps<"kbd">, ThemingProps<"Kbd"> { 
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/kbd
  */
-export const CKbd: ComponentWithProps<DeepPartial<KbdProps>> = defineComponent({
+export const CKbd = defineComponent({
   name: "CKbd",
   props: {
     as: {

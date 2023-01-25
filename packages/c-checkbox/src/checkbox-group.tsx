@@ -14,9 +14,9 @@ import { useCheckboxGroup } from "./use-checkbox-group"
 
 export interface CCheckboxGroupProps
   extends UseCheckboxGroupProps,
-    Omit<ThemingProps<"Checkbox">, "orientation"> {}
+  Omit<ThemingProps<"Checkbox">, "orientation"> { }
 
-type CheckboxGroupContext = ComputedRef<
+export type CheckboxGroupContext = ComputedRef<
   ThemingProps & {
     isDisabled?: boolean
     value: (string | number)[]
@@ -30,9 +30,7 @@ const [CheckboxGroupProvider, useCheckboxGroupContext] =
     name: "CheckboxGroupContext",
   })
 
-export const CCheckboxGroup: ComponentWithProps<
-  DeepPartial<CCheckboxGroupProps>
-> = defineComponent({
+export const CCheckboxGroup = defineComponent({
   name: "CCheckboxGroup",
   props: {
     modelValue: {

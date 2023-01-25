@@ -18,7 +18,6 @@ import {
   ComputedRef,
   VNode,
   DefineComponent,
-  readonly,
 } from "vue"
 import { match, SNAO, useThemingProps } from "@chakra-ui/vue-utils"
 import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
@@ -27,14 +26,12 @@ import { chakra, ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
 import { extractImgAttrs, getInitials } from "./utils"
 import {
   omitThemingProps,
-  SystemProps,
   SystemStyleObject,
   ThemingProps,
 } from "@chakra-ui/styled-system"
 import {
   createStylesContext,
   DOMElements,
-  HTMLChakraProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
 import { CAvatarImage } from "./c-avatar-image"
@@ -50,6 +47,9 @@ export const baseStyle: SystemStyleObject = {
   position: "relative",
   flexShrink: 0,
 }
+
+type BorderRadiusType = SystemStyleObject['borderRadius']
+type BorderColorType = SystemStyleObject['borderColor']
 
 export interface AvatarOptions {
   /**
@@ -84,7 +84,7 @@ export interface AvatarOptions {
    * The border color of the avatar
    * @type SystemProps["borderColor"]
    */
-  borderColor?: SystemProps["borderColor"]
+  borderColor?: SystemStyleObject["borderColor"]
 
   /**
    * Initials override for the avatar
@@ -114,8 +114,7 @@ export { AvatarContextProvider, useAvatarContext }
 
 export interface CAvatarProps
   extends AvatarOptions,
-  ThemingProps<"Avatar">,
-  HTMLChakraProps<"span"> {
+  ThemingProps<"Avatar"> {
   /**
    * Icon name or component
    */
@@ -133,7 +132,6 @@ export interface CAvatarProps
 /**
  * CAvatar Component
  */
-// @ts-expect-error
 export const CAvatar = defineComponent({
   name: "CAvatar",
   props: {
@@ -161,10 +159,10 @@ export const CAvatar = defineComponent({
     showBorder: Boolean as PropType<CAvatarProps["showBorder"]>,
     iconLabel: String as PropType<CAvatarProps["iconLabel"]>,
     borderRadius: {
-      type: SNAO as PropType<CAvatarProps["borderRadius"]>,
+      type: SNAO as PropType<SystemStyleObject["borderRadius"]>,
       default: "full",
     },
-    borderColor: SNAO as PropType<CAvatarProps["borderColor"]>,
+    borderColor: SNAO as PropType<SystemStyleObject["borderColor"]>,
     ignoreFallback: SNAO as PropType<CAvatarProps["ignoreFallback"]>,
     icon: [String, Object] as PropType<CAvatarProps["icon"]>,
     ...vueThemingProps,
@@ -242,6 +240,7 @@ export const CAvatar = defineComponent({
           onError={(e) => emit("error", e)}
           initials={props.initials}
           name={props.name}
+          // @ts-ignore
           borderRadius={props.borderRadius}
           iconLabel={props.iconLabel}
           ignoreFallback={props.ignoreFallback}
@@ -251,4 +250,4 @@ export const CAvatar = defineComponent({
       </chakra.span>
     )
   },
-})
+}) as any as ComponentWithProps<CAvatarProps>

@@ -5,11 +5,11 @@ import {
   HTMLChakraProps,
   ThemingProps,
   useStyleConfig,
-  ComponentWithProps,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
+import type * as CSS from "csstype"
+
 
 export interface BadgeProps
   extends HTMLChakraProps<"span">,
@@ -21,7 +21,7 @@ export interface BadgeProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
  */
-export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> =
+export const CBadge =
   defineComponent({
     name: "CBadge",
     props: {

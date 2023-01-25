@@ -1,60 +1,60 @@
 import { h, defineComponent, PropType, reactive } from "vue"
-import type CSS from "csstype"
 import {
   chakra,
   DOMElements,
-  ThemingProps,
-  SystemStyleObject,
-  ComponentWithProps,
-  DeepPartial,
+  HTMLChakraProps,
+  ThemingProps
 } from "@chakra-ui/vue-system"
+import { SystemProps } from '@chakra-ui/styled-system'
+import type * as CSS from "csstype"
 
-export interface FlexProps {
+export interface FlexProps extends HTMLChakraProps<"div"> {
   /**
    * Shorthand for `alignItems` style prop
-   * @type SystemStyleObject["alignItems"]
-   * SystemStyleObject because prop can be String, Array or Object
+   * @type SystemProps["alignItems"]
+   * SystemProps because prop can be String, Array or Object
    */
-  align?: SystemStyleObject["alignItems"]
+  align?: SystemProps["alignItems"]
 
   /**
    * Shorthand for `justifyContent` style prop
-   * @type SystemStyleObject["justifyContent"]
+   * @type SystemProps["justifyContent"]
    */
-  justify?: SystemStyleObject["justifyContent"]
+  justify?: SystemProps["justifyContent"]
 
   /**
    * Shorthand for `flexWrap` style prop
-   * @type SystemStyleObject["flexWrap"]
+   * @type SystemProps["flexWrap"]
    */
-  wrap?: SystemStyleObject["flexWrap"]
+  wrap?: SystemProps["flexWrap"]
 
   /**
    * Shorthand for `flexDirection` style prop
-   * @type SystemStyleObject["flexDirection"]
+   * @type SystemProps["flexDirection"]
    */
-  direction?: SystemStyleObject["flexDirection"]
+  direction?: SystemProps["flexDirection"]
 
   /**
    * Shorthand for `flexBasis` style prop
-   * @type SystemStyleObject["flexBasis"]
+   * @type SystemProps["flexBasis"]
    */
-  basis?: SystemStyleObject["flexBasis"]
+  basis?: SystemProps["flexBasis"]
 
   /**
    * Shorthand for `flexGrow` style prop
-   * @type SystemStyleObject["flexGrow"]
+   * @type SystemProps["flexGrow"]
    */
-  grow?: SystemStyleObject["flexGrow"]
+  grow?: SystemProps["flexGrow"]
 
   /**
    * Shorthand for `flexShrink` style prop
-   * @type SystemStyleObject["flexShrink"]
+   * @type SystemProps["flexShrink"]
    */
-  shrink?: SystemStyleObject["flexShrink"]
+  shrink?: SystemProps["flexShrink"]
 }
 
-const CFlex: ComponentWithProps<DeepPartial<FlexProps>> = defineComponent({
+const CFlex = defineComponent({
+  name: "CFlex",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,

@@ -15,10 +15,20 @@ export interface CAvatarNameProps
 /**
  * The avatar name container
  */
-export const CAvatarName: ComponentWithProps<DeepPartial<CAvatarNameProps>> =
-  defineComponent((props: CAvatarNameProps, { attrs }) => {
+export const CAvatarName = defineComponent({
+  name: "CAvatarName",
+  props: {
+    name: {
+      type: String as PropType<AvatarOptions["name"]>,
+      default: "",
+    },
+    initials: {
+      type: String as PropType<AvatarOptions["initials"]>,
+      default: "",
+    },
+  },
+  setup(props, { attrs }) {
     const styles = useAvatarStyles()
-
     return () => (
       <chakra.div
         role="img"
@@ -29,18 +39,5 @@ export const CAvatarName: ComponentWithProps<DeepPartial<CAvatarNameProps>> =
         {initials(props.name!)}
       </chakra.div>
     )
-  })
-
-// @ts-ignore "name" property not typed
-CAvatarName.name = "CAvatarName"
-// @ts-ignore "props" property not typed
-CAvatarName.props = {
-  name: {
-    type: String as PropType<AvatarOptions["name"]>,
-    default: "",
-  },
-  initials: {
-    type: String as PropType<AvatarOptions["initials"]>,
-    default: "",
-  },
-}
+  }
+})
