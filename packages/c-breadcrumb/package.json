@@ -19,19 +19,22 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-breadcrumb",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-breadcrumb",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "types:check": "tsc --noEmit"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-system": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*"
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

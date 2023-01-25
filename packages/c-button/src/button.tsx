@@ -106,7 +106,7 @@ const CButtonIcon: ComponentWithProps<DeepPartial<IconProps>> = defineComponent(
   }
 )
 
-export interface CButtonProps extends HTMLChakraProps<"button"> {}
+export interface CButtonProps extends HTMLChakraProps<"button"> { }
 
 /**
  * CButton

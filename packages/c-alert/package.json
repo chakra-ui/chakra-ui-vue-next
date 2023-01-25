@@ -13,16 +13,19 @@
     }
   },
   "description": "Chakra UI Vue | CAlert component",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-alert",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-alert",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "workspace:*",
-    "@chakra-ui/vue-system": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*"
+    "@chakra-ui/c-icon": "2.0.0-beta.1",
+    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1"
   },
   "peerDependencies": {
     "vue": ">=3.0.5"

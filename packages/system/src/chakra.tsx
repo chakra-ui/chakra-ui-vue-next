@@ -1,7 +1,6 @@
 import {
   Component,
   computed,
-  ConcreteComponent,
   DefineComponent,
   defineComponent,
   h,
@@ -9,6 +8,11 @@ import {
   ComponentCustomProps,
   PropType,
   resolveComponent,
+  ComponentOptionsMixin,
+  EmitsOptions,
+  AllowedComponentProps,
+  VNodeProps,
+  ExtractPropTypes,
 } from "vue"
 import {
   css,
@@ -30,7 +34,7 @@ import { cx, css as _css, CSSObject } from "@emotion/css"
 import { domElements, DOMElements } from "./system.utils"
 import { useChakra, useTheme } from "./composables/use-chakra"
 import { extractStyleAttrs } from "@chakra-ui/vue-utils"
-import { As, ChakraProps, ComponentWithProps } from "./system.types"
+import { As, ChakraProps } from "./system.types"
 import { formElements, InputTypes } from "./chakra.forms"
 import { FunctionInterpolation } from "@emotion/serialize"
 
@@ -45,8 +49,8 @@ export interface BaseStyleResolverProps {
   componentName?: String
   label?: string
   baseStyle?:
-    | SystemStyleObject
-    | ((props: StyleResolverProps) => SystemStyleObject)
+  | SystemStyleObject
+  | ((props: StyleResolverProps) => SystemStyleObject)
   /**
    * User provided styles from component/chakra API
    */
@@ -62,14 +66,14 @@ export interface BaseStyleResolverProps {
 
 export interface StyleResolverProps
   extends BaseStyleResolverProps,
-    SystemProps {}
+  SystemProps { }
 
 interface StyleResolverOptions extends StyleResolverProps {
   truncateStyle?: CSSObject
   theme?: any
 }
 
-interface ChakraFactoryOptions extends StyleResolverProps {}
+interface ChakraFactoryOptions extends StyleResolverProps { }
 
 const chakraProps = {
   as: [String, Object] as PropType<ChakraTagOrComponent>,
@@ -107,65 +111,41 @@ const chakraProps = {
 }
 
 export type ChakraBaseComponentProps = typeof chakraProps
-export type ChakraTagOrComponent =
-  | DOMElements
-  | Component
-  | ConcreteComponent
-  | string
+export type ChakraTagOrComponent = DOMElements | Component
 
-/**
- * Chakra factory serves as an object of chakra enabled HTML elements,
- * and also a function that can be used to enable custom component receive chakra's style props.
- * @param tag Tag or Component
- * @param options resolver options
- * 
- * How does it work?
- *
- * 1. Components returned from the chakra factory can be styled after consuming them
- *    @example
- *    ```js
- *    const Form = chakra('form') // returns a VNode you can use in the template directly
- *    ```
- * 
- * 2. Chakra components can directly be styled upon creation using the options object of type `StyleResolverProps`
- *    This resolves style object for component styles defined in the theme.
- * 
- *    Styling components using the chakra factory function can be done using the following keys from the theme:
- *    - `baseStyle`
- *    - `layerStyle`
- *    - `textStyle`
- * 
- *    @example
- *    ```js
- *    const MyCustomButton = chakra('button', {
- *     baseStyle: {
-         bg: 'papayawhip,
-         color: 'red.500,
-         px: 4,
-         py: 3
-       }
- *    })
- *    ```
- *    ```html
- *    <my-custom-button>Hello Papaya Button</my-custom-button>
- *    ```
- * 
- *    See more about the style resolution in the `resolveStyles` function.
- * 
- * 3. Chakra components created and styled using the `chakra` factory can be overriden in the template by applying
- *    style properties directly
- * 
- *    @example
- *    ```html
- *    <my-custom-button bg="blue.400">
- *      Papaya button goes blue
- *    </my-custom-button>
- *    ```
- */
-// @ts-expect-error
-export const chakra: IChakraFactory = (tag, options = {}) => {
+export type ChakraFactoryComponent<Props extends {} = {}> = DefineComponent<
+  Props,
+  () => JSX.Element,
+  {},
+  {},
+  {},
+  ComponentOptionsMixin,
+  ComponentOptionsMixin,
+  EmitsOptions,
+  string,
+  VNodeProps & AllowedComponentProps & ComponentCustomProps,
+  Readonly<ExtractPropTypes<Props>>,
+  {}
+>
+
+export type ComponentWithProps<Props> = ChakraFactoryComponent<Props>
+
+type IChakraFactory = {
+  [key in DOMElements]: ChakraFactoryComponent
+} & {
+  (
+    tag: ChakraTagOrComponent,
+    options?: StyleResolverOptions & UserProvidedProps
+  ):
+    ChakraFactoryComponent
+}
+
+export function ___chakra___(
+  tag: ChakraTagOrComponent,
+  options: StyledOptions = {}
+) {
   const inputHandlers = formElements[typeof tag === "string" ? tag : ""]
-  const _props = (inputHandlers && inputHandlers.props) || {}
+  const _props = ((inputHandlers && inputHandlers.props) as any) || {}
   const handleValueChange = inputHandlers && inputHandlers.handleValueChange
 
   return defineComponent({
@@ -262,21 +242,129 @@ export const chakra: IChakraFactory = (tag, options = {}) => {
         )
       }
     },
-  })
+  }) as any as DefineComponent<
+    {},
+    () => JSX.Element,
+    {},
+    {},
+    {},
+    ComponentOptionsMixin,
+    ComponentOptionsMixin,
+    EmitsOptions,
+    string,
+    VNodeProps & AllowedComponentProps & ComponentCustomProps,
+    Readonly<ExtractPropTypes<{}>>,
+    {}
+  >
 }
 
-// return h(
-//   _styled((componentOrTag as any) || props.as)({
-//     ...resolvedComponentStyles,
-//     ...elementAttributes,
-//   }) as unknown as DefineComponent<ChakraProps>,
-//   slots
-// )
+
+/**
+ * Chakra factory serves as an object of chakra enabled HTML elements,
+ * and also a function that can be used to enable custom component receive chakra's style props.
+ * @param tag Tag or Component
+ * @param options resolver options
+ * 
+ * How does it work?
+ *
+ * 1. Components returned from the chakra factory can be styled after consuming them
+ *    @example
+ *    ```js
+ *    const Form = chakra('form') // returns a VNode you can use in the template directly
+ *    ```
+ * 
+ * 2. Chakra components can directly be styled upon creation using the options object of type `StyleResolverProps`
+ *    This resolves style object for component styles defined in the theme.
+ * 
+ *    Styling components using the chakra factory function can be done using the following keys from the theme:
+ *    - `baseStyle`
+ *    - `layerStyle`
+ *    - `textStyle`
+ * 
+ *    @example
+ *    ```js
+ *    const MyCustomButton = chakra('button', {
+ *     baseStyle: {
+         bg: 'papayawhip,
+         color: 'red.500,
+         px: 4,
+         py: 3
+       }
+ *    })
+ *    ```
+ *    ```html
+ *    <my-custom-button>Hello Papaya Button</my-custom-button>
+ *    ```
+ * 
+ *    See more about the style resolution in the `resolveStyles` function.
+ * 
+ * 3. Chakra components created and styled using the `chakra` factory can be overriden in the template by applying
+ *    style properties directly
+ * 
+ *    @example
+ *    ```html
+ *    <my-custom-button bg="blue.400">
+ *      Papaya button goes blue
+ *    </my-custom-button>
+ *    ```
+ */
+export const chakra = Object.assign(
+  ___chakra___,
+  domElements.reduce((acc, curr) => {
+    acc[curr] = ___chakra___(curr)
+    return acc
+  }, {} as { [key in DOMElements]: ChakraFactoryComponent })
+)
+
+type EventHandler = (...args: any[]) => void
+
+declare module "vue" {
+  interface ComponentCustomProps extends ChakraProps, StyleResolverProps, HTMLAttributes {
+    id?: string
+    role?: string
+    tabindex?: number | string
+    value?: unknown
+    viewBox?: unknown
+    // should be removed after Vue supported component events typing
+    // see: https://github.com/vuejs/vue-next/issues/1553
+    //      https://github.com/vuejs/vue-next/issues/3029
+    onBlur?: EventHandler
+    onOpen?: EventHandler
+    onEdit?: EventHandler
+    onLoad?: EventHandler
+    onClose?: EventHandler
+    onFocus?: EventHandler
+    onInput?: EventHandler
+    onClick?: EventHandler
+    onPress?: EventHandler
+    onCancel?: EventHandler
+    onChange?: EventHandler
+    onDelete?: EventHandler
+    onScroll?: EventHandler
+    onSubmit?: EventHandler
+    onSelect?: EventHandler
+    onConfirm?: EventHandler
+    onPreview?: EventHandler
+    onKeypress?: EventHandler
+    onTouchend?: EventHandler
+    onTouchmove?: EventHandler
+    onTouchstart?: EventHandler
+    onTouchcancel?: EventHandler
+    onMouseenter?: EventHandler
+    onMouseleave?: EventHandler
+    onMousemove?: EventHandler
+    onKeydown?: EventHandler
+    onKeyup?: EventHandler
+    onDeselect?: EventHandler
+    onClear?: EventHandler
+  }
+}
+
 interface GetStyleObject {
   (options: {
     baseStyle?:
-      | SystemStyleObject
-      | ((props: StyleResolverProps) => SystemStyleObject)
+    | SystemStyleObject
+    | ((props: StyleResolverProps) => SystemStyleObject)
   }): FunctionInterpolation<StyleResolverProps>
 }
 
@@ -294,8 +382,8 @@ export const toCSSObject: GetStyleObject = (options) => (props) => {
 interface StyledOptions extends StyleResolverOptions {
   label?: string
   baseStyle?:
-    | SystemStyleObject
-    | ((props: StyleResolverProps) => SystemStyleObject)
+  | SystemStyleObject
+  | ((props: StyleResolverProps) => SystemStyleObject)
 }
 
 export function styled<T extends As, P = {}>(
@@ -314,19 +402,28 @@ type ChakraFactory = {
   <T extends ChakraTagOrComponent, P = {}>(
     component: T,
     options?: StyledOptions
-  ): ChakraComponent<P>
+  ): DefineComponent<
+    {},
+    () => JSX.Element,
+    {},
+    {},
+    {},
+    ComponentOptionsMixin,
+    ComponentOptionsMixin,
+    EmitsOptions,
+    string,
+    VNodeProps & AllowedComponentProps & ComponentCustomProps,
+    Readonly<ExtractPropTypes<{}>>,
+    {}
+  >
 }
 
 export type HTMLChakraComponents<P> = {
   [Tag in DOMElements]: ChakraComponent<P>
 }
 
-export const _chakra = styled as unknown as ChakraFactory &
+export const _chakra = styled as unknown as IChakraFactory &
   HTMLChakraComponents<ChakraProps>
-
-domElements.forEach((tag) => {
-  chakra[tag] = chakra(tag)
-})
 
 export const resolveStyles = (
   resolvers = {} as StyleResolverOptions
@@ -387,13 +484,7 @@ export const resolveStyles = (
 }
 
 export type ChakraFactoryProps = ChakraProps &
-  StyleResolverProps &
-  HTMLAttributes &
-  ComponentCustomProps &
-  JSX.IntrinsicAttributes & {
-    // value?: unknown
-    [key: string]: any
-  }
+  StyleResolverProps
 
 /**
  * @example
@@ -401,23 +492,7 @@ export type ChakraFactoryProps = ChakraProps &
  */
 type UserProvidedProps = { [key: string]: any }
 
-type IChakraFactory = {
-  [key in DOMElements]:
-    | DefineComponent<ChakraFactoryProps>
-    | ComponentWithProps<ChakraFactoryProps>
-} & {
-  (
-    tag: ChakraTagOrComponent,
-    options?: StyleResolverOptions & UserProvidedProps
-  ):
-    | DefineComponent<ChakraFactoryProps>
-    | ComponentWithProps<ChakraFactoryProps>
-}
-
 domElements.forEach((tag) => {
-  chakra[tag] = chakra(tag, {})
-})
-
-domElements.forEach((tag) => {
-  _chakra[tag] = _chakra(tag, {})
+  // @ts-ignore
+  _chakra[tag] = _chakra(tag)
 })

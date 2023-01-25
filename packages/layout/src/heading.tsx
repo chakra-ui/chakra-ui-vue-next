@@ -13,7 +13,7 @@ import { filterUndefined } from "@chakra-ui/utils"
 
 export interface HeadingProps
   extends HTMLChakraProps<"h2">,
-    ThemingProps<"Heading"> {}
+  ThemingProps<"Heading"> { }
 
 export const CHeading: ComponentWithProps<DeepPartial<HeadingProps>> =
   defineComponent({

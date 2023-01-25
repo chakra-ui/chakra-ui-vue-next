@@ -112,7 +112,7 @@ export interface CCheckboxControlProps {
   "aria-labelledby"?: string
   "aria-invalid"?: boolean
   "aria-describedby"?: string
-  tabIndex?: number
+  tabIndex?: number | string
 }
 
 export interface CCheckboxProps

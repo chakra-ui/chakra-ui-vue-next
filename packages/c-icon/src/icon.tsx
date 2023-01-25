@@ -59,7 +59,6 @@ const _iconProps = {
   name: String as PropType<IconProps["name"]>,
 }
 
-// @ts-ignore
 export const CIcon = defineComponent({
   name: "CIcon",
   props: _iconProps,

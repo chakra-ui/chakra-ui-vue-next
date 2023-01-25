@@ -2,12 +2,11 @@ import { Dict, mapResponsive } from "@chakra-ui/utils"
 import {
   chakra,
   HTMLChakraProps,
-  SystemProps,
   DOMElements,
   tokenToCSSVar,
-  ComponentWithProps,
 } from "@chakra-ui/vue-system"
-import { getValidChildren, SNAO, vueThemingProps } from "@chakra-ui/vue-utils"
+import { getValidChildren, SNAO } from "@chakra-ui/vue-utils"
+import { SystemProps } from "@chakra-ui/styled-system"
 import { computed, defineComponent, h, PropType } from "vue"
 
 export interface WrapProps extends HTMLChakraProps<"div"> {
@@ -37,12 +36,12 @@ export interface WrapProps extends HTMLChakraProps<"div"> {
   shouldWrapChildren?: boolean
 }
 
-export const CWrapProps = {
-  spacing: SNAO as PropType<WrapProps["spacing"]>,
-  justify: SNAO as PropType<WrapProps["justify"]>,
-  align: SNAO as PropType<WrapProps["align"]>,
-  direction: SNAO as PropType<WrapProps["direction"]>,
-  shouldWrapChildren: SNAO as PropType<WrapProps["shouldWrapChildren"]>,
+export const wrapProps = {
+  spacing: SNAO as PropType<SystemProps["margin"]>,
+  justify: SNAO as PropType<SystemProps["justifyContent"]>,
+  align: SNAO as PropType<SystemProps["alignItems"]>,
+  direction: SNAO as PropType<SystemProps["flexDir"]>,
+  shouldWrapChildren: SNAO as PropType<boolean>,
 }
 
 /**
@@ -50,13 +49,13 @@ export const CWrapProps = {
  *
  * @see Docs https://vue.chakra-ui.com/docs/typography/text
  */
-export const CWrap: ComponentWithProps<WrapProps> = defineComponent({
+export const CWrap = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
       default: "div",
     },
-    ...CWrapProps,
+    ...wrapProps,
   },
   setup(props, { slots, attrs }) {
     const styles = computed(() => ({
@@ -80,8 +79,8 @@ export const CWrap: ComponentWithProps<WrapProps> = defineComponent({
 
     const childrenToRender = props.shouldWrapChildren
       ? getValidChildren(slots).map((child, index) => (
-          <CWrapItem key={index}>{child}</CWrapItem>
-        ))
+        <CWrapItem key={index}>{child}</CWrapItem>
+      ))
       : slots
 
     return () => {
@@ -98,7 +97,7 @@ export const CWrap: ComponentWithProps<WrapProps> = defineComponent({
   },
 })
 
-export interface WrapItemProps extends HTMLChakraProps<"li"> {}
+export interface WrapItemProps extends HTMLChakraProps<"li"> { }
 
 export const CWrapItem = defineComponent({
   setup(_, { attrs, slots }) {

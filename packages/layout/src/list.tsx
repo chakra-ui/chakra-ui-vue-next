@@ -33,8 +33,8 @@ interface ListOptions {
 
 export interface ListProps
   extends HTMLChakraProps<"ul">,
-    ThemingProps<"List">,
-    ListOptions {}
+  ThemingProps<"List">,
+  ListOptions { }
 
 /**
  * List is used to display list items, it renders a `<ul>` by default.

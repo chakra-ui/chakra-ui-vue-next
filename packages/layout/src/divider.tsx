@@ -12,7 +12,7 @@ import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface DividerProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"Container"> {
+  ThemingProps<"Container"> {
   orientation?: "horizontal" | "vertical"
 }
 

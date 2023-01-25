@@ -20,7 +20,7 @@ import {
 import { filterUndefined, mapResponsive } from "@chakra-ui/utils"
 import { SNAO } from "@chakra-ui/vue-utils"
 
-export interface GridProps extends HTMLChakraProps<"div">, GridOptions {}
+export interface GridProps extends HTMLChakraProps<"div">, GridOptions { }
 
 export interface GridOptions {
   /**

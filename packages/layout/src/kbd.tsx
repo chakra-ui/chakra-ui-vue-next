@@ -11,7 +11,7 @@ import {
 import { computed, defineComponent, h, PropType } from "vue"
 import { filterUndefined } from "@chakra-ui/utils"
 
-export interface KbdProps extends HTMLChakraProps<"kbd">, ThemingProps<"Kbd"> {}
+export interface KbdProps extends HTMLChakraProps<"kbd">, ThemingProps<"Kbd"> { }
 
 /**
  * Semantic component to render a keyboard shortcut

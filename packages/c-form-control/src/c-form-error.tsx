@@ -15,7 +15,7 @@ import { CIcon, iconProps, IconProps } from "@chakra-ui/c-icon"
 
 export interface CFormErrorMessageProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"FormErrorMessage"> {}
+  ThemingProps<"FormErrorMessage"> { }
 
 export const CFormErrorMessage: ComponentWithProps<CFormErrorMessageProps> =
   defineComponent({

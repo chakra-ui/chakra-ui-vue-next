@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/vue-system"
 import { defineComponent, h } from "vue"
 
-export interface SpacerProps extends HTMLChakraProps<"div"> {}
+export interface SpacerProps extends HTMLChakraProps<"div"> { }
 
 /**
  * A flexible flex spacer that expands along the major axis of its containing flex layout.

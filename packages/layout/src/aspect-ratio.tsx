@@ -19,7 +19,7 @@ interface AspectRatioOptions {
 
 export interface AspectRatioProps
   extends HTMLChakraProps<"div">,
-    AspectRatioOptions {}
+  AspectRatioOptions { }
 
 /**
  * Vue component used to cropping media (videos, images and maps)

@@ -8,7 +8,7 @@ import {
   ComponentWithProps,
 } from "@chakra-ui/vue-system"
 
-export interface BoxProps extends HTMLChakraProps<"div"> {}
+export interface BoxProps extends HTMLChakraProps<"div"> { }
 
 /**
  * Box is the most abstract component on top of which other chakra

@@ -29,7 +29,7 @@ export type ExpandedValues = string | string[]
 
 export interface CAccordionProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"Accordion"> {
+  ThemingProps<"Accordion"> {
   /**
    * If `true`, multiple accordion items can be expanded at once.
    */
@@ -64,7 +64,7 @@ const [AccordionProvider, useAccordion] = createContext<CAccordionContext>({
   strict: true,
 })
 
-export const CAccordion: ComponentWithProps<DeepPartial<CAccordionProps>> =
+export const CAccordion =
   defineComponent({
     name: "CAccordion",
     props: {
@@ -147,7 +147,7 @@ const [AccordionItemProvider, useAccordionItem] =
     name: "AccordionItemContext",
     strict: true,
   })
-export const CAccordionItem: ComponentWithProps<CAccordionItemProps> =
+export const CAccordionItem =
   defineComponent({
     name: "CAccordionItem",
     props: {
@@ -197,7 +197,7 @@ export const CAccordionItem: ComponentWithProps<CAccordionItemProps> =
 export interface CAccordionButtonProps extends HTMLChakraProps<"button"> {
   disabled?: boolean
 }
-export const CAccordionButton: ComponentWithProps<CAccordionButtonProps> =
+export const CAccordionButton =
   defineComponent({
     name: "CAccordionButton",
     props: {
@@ -234,7 +234,7 @@ export const CAccordionButton: ComponentWithProps<CAccordionButtonProps> =
 export interface CAccordionPanelProps extends HTMLChakraProps<"div"> {
   disabled?: boolean
 }
-export const CAccordionPanel: ComponentWithProps<CAccordionPanelProps> =
+export const CAccordionPanel =
   defineComponent({
     name: "CAccordionPanel",
     props: {
@@ -261,8 +261,8 @@ export const CAccordionPanel: ComponentWithProps<CAccordionPanelProps> =
     },
   })
 
-export interface CAccordionIconProps extends HTMLChakraProps<"svg"> {}
-export const CAccordionIcon: ComponentWithProps<CAccordionIconProps> =
+export interface CAccordionIconProps extends HTMLChakraProps<"svg"> { }
+export const CAccordionIcon =
   defineComponent({
     name: "CAccordionIcon",
     setup(props, { slots, attrs }) {

@@ -1,7 +1,6 @@
 import { UnionStringArray, omit } from "@chakra-ui/utils"
 import { keyframes, injectGlobal } from "@emotion/css"
 import { PropType } from "vue"
-import { ThemingProps } from "./system.types"
 
 /**
  * Carefully selected html elements for chakra components.

@@ -10,7 +10,7 @@ import {
 } from "vue"
 import {
   chakra,
-  SystemProps,
+  ComponentWithProps,
   DOMElements,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
@@ -20,9 +20,7 @@ import {
   selector,
   StackDirection,
 } from "./stack.utils"
-import { getValidChildren, SNAO, SAO } from "@chakra-ui/vue-utils"
-import type { } from "@chakra-ui/styled-system"
-import type { } from "csstype"
+import { SystemProps } from "@chakra-ui/styled-system"
 
 interface StackOptions {
   /**
@@ -53,7 +51,7 @@ interface StackOptions {
    * If `true`, each stack item will show a divider
    * @type Component | boolean
    */
-  divider?: Component | boolean
+  divider?: any | boolean
   /**
    * If `true`, the children will be wrapped in a `Box` with
    * `display: inline-block`, and the `Box` will take the spacing props
@@ -113,14 +111,14 @@ const stackProps = {
     type: [Object, String] as PropType<DOMElements>,
     default: "div",
   },
-  align: SAO as PropType<StackProps["align"]>,
-  justify: SAO as PropType<StackProps["justify"]>,
-  wrap: SAO as PropType<StackProps["wrap"]>,
+  align: [String, Array, Object] as PropType<StackProps["align"]>,
+  justify: [String, Array, Object] as PropType<StackProps["justify"]>,
+  wrap: [String, Array, Object] as PropType<StackProps["wrap"]>,
   spacing: {
-    type: SNAO as PropType<StackProps["spacing"]>,
+    type: [String, Array, Object, Number] as PropType<StackProps["spacing"]>,
     default: "0.5rem",
   },
-  direction: SAO as PropType<StackProps["direction"]>,
+  direction: [String, Array, Object] as PropType<StackProps["direction"]>,
 
   // todo: divider
   divider: [Object, Boolean] as PropType<StackProps["divider"]>,
@@ -139,8 +137,8 @@ const stackProps = {
  * @see Docs https://vue.chakra-ui.com/docs/layout/stack
  *
  */
-// @ts-ignore
-export const CStack = defineComponent({
+
+export const CStack: ComponentWithProps<StackOptions> = defineComponent({
   name: "CStack",
   props: stackProps,
   setup(props, { slots, attrs }) {
@@ -163,7 +161,7 @@ export const CStack = defineComponent({
     )
 
     return () => {
-      const validChildren: VNode[] = getValidChildren(slots)
+      const validChildren: VNode[] = slots as any as VNode[]
       const clones = shouldUseChildren.value
         ? validChildren
         : validChildren.map((child, index) => {
@@ -200,7 +198,7 @@ export const CStack = defineComponent({
       )
     }
   },
-})
+}) as ComponentWithProps<StackOptions>
 
 /**
  * A view that arranges its children in a horizontal line.
@@ -211,27 +209,24 @@ export const CHStack = defineComponent({
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
-      // @ts-expect-error Stack typed API
       <CStack __label="stack-horizontal" {...props} {...attrs} direction="row">
         {slots}
       </CStack>
     )
   },
-})
+}) as ComponentWithProps<StackOptions>
 
 /**
  * A view that arranges its children in a vertical line.
  */
-// @ts-ignore
 export const CVStack = defineComponent({
   name: "CVStack",
   props: stackProps,
   setup(props, { attrs, slots }) {
     return () => (
-      // @ts-expect-error Stack typed API
       <CStack __label="stack-vertical" {...props} {...attrs} direction="column">
         {slots}
       </CStack>
     )
   },
-})
+}) as ComponentWithProps<StackOptions>

@@ -13,7 +13,7 @@ import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface BadgeProps
   extends HTMLChakraProps<"span">,
-    Partial<ThemingProps<"Badge">> {}
+  Partial<ThemingProps<"Badge">> { }
 
 /**
  * Vue component used to display notifications, messages, or

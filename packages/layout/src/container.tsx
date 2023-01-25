@@ -13,7 +13,7 @@ import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export interface ContainerProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"Container"> {
+  ThemingProps<"Container"> {
   /**
    * If `true`, container will center its children
    * regardless of their width.

@@ -4,7 +4,7 @@
   "main": "dist/chakra-ui-vue-system.cjs.js",
   "module": "dist/chakra-ui-vue-system.esm.js",
   "description": "Chakra UI Vue | System module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/system",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/system",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "files": [
@@ -17,14 +17,17 @@
     }
   },
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "types:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@chakra-ui/c-color-mode": "workspace:*",
+    "@chakra-ui/c-color-mode": "2.0.0-beta.1",
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-styled": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*",
+    "@chakra-ui/vue-styled": "1.0.0-beta.1",
+    "@chakra-ui/vue-utils": "2.0.0-beta.1",
     "@emotion/css": "^11.9.0",
     "@emotion/serialize": "1.1.1",
     "lodash.camelcase": "^4.3.0",
@@ -32,7 +35,7 @@
     "lodash.memoize": "^4.1.2"
   },
   "devDependencies": {
-    "@chakra-ui/theme": "2.2.4",
+    "@chakra-ui/theme": "^2.2.4",
     "@types/lodash.memoize": "^4.1.6",
     "vue": "^3.2.37"
   },

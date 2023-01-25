@@ -112,7 +112,7 @@ export const CDrawer: ComponentWithProps<DrawerProps> = defineComponent({
   },
 })
 
-export interface DrawerContentProps extends HTMLChakraProps<"section"> {}
+export interface DrawerContentProps extends HTMLChakraProps<"section"> { }
 
 export const CDrawerContent: ComponentWithProps<DrawerContentProps> =
   defineComponent({

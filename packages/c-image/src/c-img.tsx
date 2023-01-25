@@ -8,7 +8,7 @@ import { h, defineComponent } from "vue"
 import { CImageProps } from "./c-image"
 import { CNativeImage, NativeImageOptions } from "./c-native-image"
 
-export interface ImgProps extends HTMLChakraProps<"img">, NativeImageOptions {}
+export interface ImgProps extends HTMLChakraProps<"img">, NativeImageOptions { }
 
 /**
  * Fallback component for SSR users who want to use the native `img` with

@@ -132,7 +132,7 @@ export default ChakraUIVuePlugin
 export { extendTheme, extendBaseTheme }
 
 // Export chakra factory function
-export { chakra }
+export { chakra as chakra }
 
 /**
  *

@@ -10,7 +10,7 @@
       "vue",
       "jest",
     ],
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "lib": ["dom", "esnext"],
     "composite": true,
     "declaration": true,
@@ -27,7 +27,7 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
     "preserveValueImports": false,
-    "incremental": true,
+    // "incremental": true,
     "declarationMap": true
   },
   "include": [

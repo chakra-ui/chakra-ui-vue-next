@@ -7,7 +7,7 @@ import {
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
 
-export interface CCenterProps extends HTMLChakraProps<"div"> {}
+export interface CCenterProps extends HTMLChakraProps<"div"> { }
 
 /**
  * Vue component used to horizontally and vertically center its child.

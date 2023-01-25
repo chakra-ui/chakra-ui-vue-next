@@ -57,8 +57,8 @@ interface SpinnerOptions {
 
 export interface CSpinnerProps
   extends SpinnerOptions,
-    ThemingProps,
-    HTMLChakraProps<"div"> {
+  ThemingProps,
+  HTMLChakraProps<"div"> {
   color?: string
   as?: DOMElements
 }
