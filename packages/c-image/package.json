@@ -29,11 +29,13 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "2.0.0-beta.1",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
     "lodash": "4.17.21"
   },
   "devDependencies": {
+    "csstype": "^3.1.1",
+    "@chakra-ui/styled-system": "2.5.1",
     "vue": "^3.2.37"
   },
   "peerDependencies": {
