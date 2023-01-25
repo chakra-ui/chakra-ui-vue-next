@@ -1,5 +1,5 @@
 import { render } from "../../test-utils/src"
-import { CAvatar, CAvatarGroup, avatarProps, avatarGroupProps } from "../src"
+import { CAvatar, CAvatarGroup, avatarGroupProps } from "../src"
 
 interface AvatarOptions {
   name: string

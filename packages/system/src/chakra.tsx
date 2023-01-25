@@ -410,7 +410,7 @@ export function styled<T extends As, P = {}>(
 
   const styleObject = toCSSObject(options)
   // @ts-ignore
-  return chakra(component as ChakraTagOrComponent, styledOptions)(styleObject)
+  return chakra(component as ChakraTagOrComponent, styledOptions)
 }
 
 export type ChakraComponent<P = ChakraProps> = ComponentWithProps<As & P>
