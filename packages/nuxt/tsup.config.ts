@@ -9,7 +9,6 @@ export default defineConfig({
     }
   },
   jsxFactory: "h",
-  jsxFragmentFactory: "Fragment",
   format: ["esm", "cjs"],
   entry: {
     "chakra-ui-nuxt-next": "src/index.tsx",
