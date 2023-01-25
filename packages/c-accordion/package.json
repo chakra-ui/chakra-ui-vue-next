@@ -3,6 +3,7 @@
   "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-c-accordion.cjs.js",
   "module": "dist/chakra-ui-c-accordion.esm.js",
+  "typings": "dist/chakra-ui-c-accordion.d.ts",
   "files": [
     "dist"
   ],
@@ -18,9 +19,12 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "types:check": "tsc --noEmit"
+    "build": "tsup && pnpm build:types",
+    "build:rollup": "rollup -c && pnpm build:types",
+    "build:fast": "tsup",
+    "build:types": "tsup src --dts-only",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "@chakra-ui/c-icon": "workspace:*",
@@ -40,5 +44,18 @@
   },
   "devDependencies": {
     "vue": "^3.2.37"
+  },
+  "tsup": {
+    "name": "chakra-ui-c-accordion",
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "entry": {
+      "chakra-ui-c-accordion": "src/index.tsx"
+    },
+    "keepNames": true
   }
 }

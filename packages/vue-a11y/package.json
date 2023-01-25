@@ -1,9 +1,9 @@
 {
-  "name": "@chakra-ui/vue-a11y",
+  "name": "@chakra-ui/vue-accessibilty",
   "description": "Chakra UI Vue | Accessibility composables for chakra ui vue component",
   "version": "2.0.0-beta.1",
-  "main": "dist/chakra-ui-vue-a11y.cjs.js",
-  "module": "dist/chakra-ui-vue-a11y.esm.js",
+  "main": "dist/chakra-ui-vue-accessibilty.cjs.js",
+  "module": "dist/chakra-ui-vue-accessibilty.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,8 +12,8 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-a11y.cjs.js",
-      "default": "./dist/chakra-ui-vue-a11y.esm.js"
+      "require": "./dist/chakra-ui-vue-accessibilty.cjs.js",
+      "default": "./dist/chakra-ui-vue-accessibilty.esm.js"
     }
   },
   "publishConfig": {
@@ -26,9 +26,12 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "types:check": "tsc --noEmit"
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only",
+    "build:rollup": "rollup -c && pnpm build:types"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "2.5.1",
@@ -40,5 +43,18 @@
   },
   "peerDependencies": {
     "vue": "^3.2.29"
+  },
+  "tsup": {
+    "name": "chakra-ui-vue-accessibilty",
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "entry": {
+      "chakra-ui-vue-accessibilty": "src/index.tsx"
+    },
+    "keepNames": true
   }
 }

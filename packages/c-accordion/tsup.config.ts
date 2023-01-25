@@ -1,15 +1,18 @@
 import { defineConfig } from "tsup"
-// import pkg from "./package.json"
-import kebabCase from "lodash.kebabcase"
 
 export default defineConfig({
-  outExtension({ format, options, pkgType }) {
-    console.log("tsup::", { format, options, pkgType })
+  clean: true,
+  target: "es2019",
+  outExtension({ format }) {
     return {
       js: `.${format}.js`,
     }
   },
-  clean: true,
-  target: "es2019",
-  format: ["cjs", "esm"],
+  jsxFactory: "h",
+  jsxFragmentFactory: "Fragment",
+  format: ["esm", "cjs"],
+  entry: {
+    "chakra-ui-c-accordion": "src/index.tsx",
+  },
+  keepNames: true,
 })

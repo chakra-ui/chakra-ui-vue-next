@@ -18,9 +18,12 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "types:check": "tsc --noEmit"
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "build:types": "tsup src --dts-only",
+    "dev": "tsup --watch",
+    "build:rollup": "rollup -c && pnpm build:types"
   },
   "publishConfig": {
     "access": "public"
@@ -30,12 +33,25 @@
   },
   "peerDependencies": {
     "@chakra-ui/vue-next": "workspace:*",
+    "@chakra-ui/theme": "2.2.4",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@chakra-ui/vue-next": "2.0.0-beta.1",
+    "@chakra-ui/vue-next": "workspace:*",
+    "@chakra-ui/theme": "2.2.4",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.2.37"
+  },
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "entry": {
+      "chakra-ui-vue-auto-import": "src/index.tsx"
+    }
   }
 }

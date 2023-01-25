@@ -22,7 +22,7 @@ import {
   getSelector,
   TemplateRef,
 } from "@chakra-ui/vue-utils"
-import { useInertOthers } from "@chakra-ui/vue-a11y"
+import { useInertOthers } from "@chakra-ui/vue-accessibilty"
 import { focus, FocusableElement, isFunction } from "@chakra-ui/utils"
 
 export interface UseModalOptions {

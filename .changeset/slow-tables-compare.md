@@ -33,7 +33,7 @@
 "@chakra-ui/vue-system": minor
 "@chakra-ui/vue-test-utils": minor
 "@chakra-ui/vue-utils": minor
-"@chakra-ui/vue-a11y": minor
+"@chakra-ui/vue-accessibilty": minor
 "@chakra-ui/vue-composables": minor
 "@chakra-ui/vue-auto-import": minor
 ---

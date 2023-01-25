@@ -42,5 +42,5 @@ import {
   CAccordionButton,
   CAccordionPanel,
   CAccordionIcon,
-} from "@chakra-ui/c-accordion"
+} from "../dist"
 </script>

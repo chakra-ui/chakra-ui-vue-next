@@ -33,6 +33,7 @@
   "include": [
     "cypress/support/index.ts",
     "packages/**/*.vue",
+    "packages/**/*.json",
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/*.tsx",

@@ -102,3 +102,5 @@ export const CFormHelperText = defineComponent((props, { attrs, slots }) => {
     </chakra.div>
   )
 })
+
+CFormHelperText.name = "CFormHelperText"

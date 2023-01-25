@@ -1,35 +1,21 @@
-import {
-  h,
-  defineComponent,
-  Fragment,
-  PropType,
-  provide,
-  inject,
-  computed,
-} from "vue"
-import type { Theme } from "@chakra-ui/theme"
-import type * as ThemeTools from "@chakra-ui/theme-tools"
+import { defineComponent, inject, computed, provide, Fragment } from 'vue';
 
-export interface CThemeProviderProps {
-  value?: Theme
-}
-
-const CThemeProvider = defineComponent({
+defineComponent({
   name: "CThemeProvider",
   props: {
     value: {
-      type: [Object] as PropType<Theme>,
-      default: () => undefined,
-    },
+      type: [Object],
+      default: () => void 0
+    }
   },
   setup(props, { slots }) {
-    const pluginTheme = inject("$chakraTheme")
-    const applicationTheme = computed(() => props.value || pluginTheme)
-    provide("$chakraTheme", applicationTheme.value)
-    return () => (
-      <Fragment>{slots?.default?.({ $chakraTheme: props.value })}</Fragment>
-    )
-  },
-})
-
-export default CThemeProvider
+    const pluginTheme = inject("$chakraTheme");
+    const applicationTheme = computed(() => props.value || pluginTheme);
+    provide("$chakraTheme", applicationTheme.value);
+    return () => {
+      var _a;
+      return /* @__PURE__ */ React.createElement(Fragment, null, (_a = slots == null ? void 0 : slots.default) == null ? void 0 : _a.call(slots, { $chakraTheme: props.value }));
+    };
+  }
+});
+//# sourceMappingURL=chakra-ui-c-theme-provider.esm.js.map

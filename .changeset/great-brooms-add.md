@@ -21,7 +21,7 @@
 "@chakra-ui/c-motion": minor
 "@chakra-ui/c-popper": minor
 "@chakra-ui/c-portal": minor
-"@chakra-ui/vue-a11y": minor
+"@chakra-ui/vue-accessibilty": minor
 "@chakra-ui/c-alert": minor
 "@chakra-ui/c-image": minor
 "@chakra-ui/c-input": minor

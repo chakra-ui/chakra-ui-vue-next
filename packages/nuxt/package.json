@@ -18,9 +18,12 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "types:check": "tsc --noEmit"
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only",
+    "build:rollup": "rollup -c && pnpm build:types"
   },
   "peerDependencies": {
     "vue": "^3.1.4"
@@ -30,5 +33,18 @@
   },
   "devDependencies": {
     "vue": "^3.2.37"
+  },
+  "tsup": {
+    "name": "chakra-ui-nuxt-next",
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "entry": {
+      "chakra-ui-nuxt-next": "src/index.tsx"
+    },
+    "keepNames": true
   }
 }

@@ -198,7 +198,7 @@ export * from "@chakra-ui/c-visually-hidden"
 
 // OTHERS
 export * from "@chakra-ui/vue-composables"
-export * from "@chakra-ui/vue-a11y"
+export * from "@chakra-ui/vue-accessibilty"
 
 /**
  *

@@ -23,9 +23,12 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rimraf dist .turbo",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "types:check": "tsc --noEmit"
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only",
+    "build:rollup": "rollup -c && pnpm build:types"
   },
   "dependencies": {
     "@chakra-ui/c-form-control": "workspace:*",
@@ -41,5 +44,18 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "tsup": {
+    "name": "chakra-ui-c-input",
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "entry": {
+      "chakra-ui-c-input": "src/index.tsx"
+    },
+    "keepNames": true
   }
 }

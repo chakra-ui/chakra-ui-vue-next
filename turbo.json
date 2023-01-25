@@ -6,9 +6,17 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
+    "build:rollup": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build:rollup"]
+    },
     "build:fast": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build:fast"]
+    },
+    "clean": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^clean"]
     },
     "dev": {
       "cache": false

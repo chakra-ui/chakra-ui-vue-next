@@ -39,7 +39,7 @@
   - @chakra-ui/c-motion@2.0.0-beta.1
   - @chakra-ui/c-popper@2.0.0-beta.1
   - @chakra-ui/c-portal@2.0.0-beta.1
-  - @chakra-ui/vue-a11y@2.0.0-beta.1
+  - @chakra-ui/vue-accessibilty@2.0.0-beta.1
   - @chakra-ui/c-alert@2.0.0-beta.1
   - @chakra-ui/c-image@1.0.0-beta.1
   - @chakra-ui/c-input@1.0.0-beta.1
@@ -95,7 +95,7 @@
   - @chakra-ui/vue-system@2.0.0-beta.0
   - @chakra-ui/vue-theme@2.0.0-beta.0
   - @chakra-ui/vue-theme-tools@2.0.0-beta.0
-  - @chakra-ui/vue-a11y@2.0.0-beta.0
+  - @chakra-ui/vue-accessibilty@2.0.0-beta.0
   - @chakra-ui/vue-composables@2.0.0-beta.0
 
 ## 1.0.0
@@ -140,7 +140,7 @@
   - @chakra-ui/vue-system@1.0.0
   - @chakra-ui/vue-theme@1.0.0
   - @chakra-ui/vue-theme-tools@1.0.0
-  - @chakra-ui/vue-a11y@1.0.0
+  - @chakra-ui/vue-accessibilty@1.0.0
   - @chakra-ui/vue-composables@1.0.0
 
 ## 1.0.0-beta.14
@@ -199,7 +199,7 @@
   - @chakra-ui/vue-system@1.0.0-beta.11
   - @chakra-ui/vue-theme@1.0.0-beta.11
   - @chakra-ui/vue-theme-tools@1.0.0-beta.11
-  - @chakra-ui/vue-a11y@1.0.0-beta.11
+  - @chakra-ui/vue-accessibilty@1.0.0-beta.11
   - @chakra-ui/vue-composables@1.0.0-beta.10
 
 ## 1.0.0-alpha.14
@@ -264,7 +264,7 @@
   - @chakra-ui/vue-styled@0.0.0-alpha.1
   - @chakra-ui/vue-system@1.0.0-alpha.11
   - @chakra-ui/vue-theme-tools@1.0.0-alpha.11
-  - @chakra-ui/vue-a11y@1.0.0-alpha.10
+  - @chakra-ui/vue-accessibilty@1.0.0-alpha.10
   - @chakra-ui/vue-composables@1.0.0-alpha.10
   - @chakra-ui/c-avatar@0.0.0-alpha.1
 
@@ -307,7 +307,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.10
   - @chakra-ui/vue-theme@1.0.0-alpha.10
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.10
-  - @chakra-ui/vue-a11y@0.1.0-alpha.9
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.9
   - @chakra-ui/vue-composables@0.1.0-alpha.9
 
 ## 1.0.0-alpha.11
@@ -346,7 +346,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.9
   - @chakra-ui/vue-theme@1.0.0-alpha.9
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.9
-  - @chakra-ui/vue-a11y@0.1.0-alpha.8
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.8
   - @chakra-ui/vue-composables@0.1.0-alpha.8
 
 ## 1.0.0-alpha.10
@@ -381,7 +381,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.8
   - @chakra-ui/vue-theme@1.0.0-alpha.8
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.8
-  - @chakra-ui/vue-a11y@0.1.0-alpha.7
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.7
   - @chakra-ui/vue-composables@0.1.0-alpha.7
 
 ## 1.0.0-alpha.9
@@ -418,7 +418,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.7
   - @chakra-ui/vue-theme@1.0.0-alpha.7
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.7
-  - @chakra-ui/vue-a11y@0.1.0-alpha.6
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.6
   - @chakra-ui/vue-composables@0.1.0-alpha.6
 
 ## 1.0.0-alpha.8
@@ -466,7 +466,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.6
   - @chakra-ui/vue-theme@1.0.0-alpha.6
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.6
-  - @chakra-ui/vue-a11y@0.1.0-alpha.5
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.5
   - @chakra-ui/vue-composables@0.1.0-alpha.5
 
 ## 1.0.0-alpha.7
@@ -505,7 +505,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.5
   - @chakra-ui/vue-theme@0.1.0-alpha.5
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.5
-  - @chakra-ui/vue-a11y@0.1.0-alpha.4
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.4
   - @chakra-ui/vue-composables@0.1.0-alpha.4
 
 ## 1.0.0-alpha.6
@@ -548,7 +548,7 @@
   - @chakra-ui/vue-system@0.1.0-alpha.4
   - @chakra-ui/vue-theme@0.1.0-alpha.4
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.4
-  - @chakra-ui/vue-a11y@0.1.0-alpha.3
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.3
   - @chakra-ui/vue-composables@0.1.0-alpha.3
 
 ## 1.0.0-alpha.5
@@ -585,7 +585,7 @@
   - @chakra-ui/vue-layout@0.1.0-alpha.4
   - @chakra-ui/vue-theme@0.1.0-alpha.3
   - @chakra-ui/vue-theme-tools@0.1.0-alpha.3
-  - @chakra-ui/vue-a11y@0.1.0-alpha.2
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.2
   - @chakra-ui/vue-composables@0.1.0-alpha.2
   - @chakra-ui/c-close-button@0.1.0-alpha.3
   - @chakra-ui/c-theme-provider@1.0.0-alpha.3
