@@ -21,7 +21,6 @@ import {
   SystemProps,
   SystemStyleObject,
 } from "@chakra-ui/styled-system"
-import _styled from "@chakra-ui/vue-styled"
 
 import {
   isFunction,
@@ -410,7 +409,8 @@ export function styled<T extends As, P = {}>(
   const { baseStyle, ...styledOptions } = options ?? {}
 
   const styleObject = toCSSObject(options)
-  return _styled(component as ChakraTagOrComponent, styledOptions)(styleObject)
+  // @ts-ignore
+  return chakra(component as ChakraTagOrComponent, styledOptions)(styleObject)
 }
 
 export type ChakraComponent<P = ChakraProps> = ComponentWithProps<As & P>

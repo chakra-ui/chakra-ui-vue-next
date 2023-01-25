@@ -20,6 +20,7 @@ import {
   cloneVNode,
 } from "vue"
 import { baseStyle } from "./c-avatar"
+import type * as CSS from "csstype"
 
 export const avatarGroupProps = {
   max: {
