@@ -22,6 +22,8 @@
     "build:dev": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
     "build:types": "jiti scripts/generate-global-types.ts",
     "postbuild": "pnpm pkgs:size",
+    "build:fast": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
+    "postbuild:fast": "pnpm pkgs:size",
     "start": "preconstruct watch",
     "scaffold": "hygen generator",
     "release": "pnpm changeset publish",
