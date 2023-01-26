@@ -30,7 +30,7 @@
     "preplaygound:dev": "node ./scripts/dev.js",
     "playground:dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
     "preplaygound:build": "node ./scripts/dev.js",
-    "playground:build": "pnpm install && pnpm build && cross-env NODE_ENV=production vite build playground --config ./vite.config.ts",
+    "playground:build": "pnpm install && cross-env NODE_ENV=production vite build playground --config ./vite.config.ts",
     "cy:open": "cypress open",
     "cy:run": "cypress run --component --quiet",
     "test:component": "pnpm cy:run",
