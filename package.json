@@ -55,7 +55,7 @@
     "pkgs:fix": "manypkg fix",
     "size": "echo TODO: Analyze build sizes",
     "analyze": "size-limit --why",
-    "vitest": "vitest",
+    "vitest": "vitest --globals --environment=jsdom",
     "coverage": "vitest run --coverage"
   },
   "license": "MIT",
