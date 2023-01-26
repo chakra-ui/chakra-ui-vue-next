@@ -884,6 +884,7 @@ importers:
 
   packages/nuxt:
     specifiers:
+      '@chakra-ui/c-color-mode': workspace:*
       '@chakra-ui/vue-next': workspace:*
       '@emotion/css': ^11.10.5
       '@emotion/server': ^11.10.0
@@ -896,6 +897,7 @@ importers:
       nuxt: ^3.0.0
       vue: ^3.2.37
     dependencies:
+      '@chakra-ui/c-color-mode': link:../c-color-mode
       '@chakra-ui/vue-next': link:../core
       '@emotion/css': 11.10.5
       '@emotion/server': 11.10.0_@emotion+css@11.10.5

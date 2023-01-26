@@ -18,24 +18,29 @@ export function getColorModeUtils(options: UtilOptions = {}) {
 
   const utils = {
     setDataset: (value: ColorMode) => {
+      if (!globalThis?.document) return
       const cleanup = preventTransition ? utils.preventTransition() : undefined
       document.documentElement.dataset.theme = value
       document.documentElement.style.colorScheme = value
       cleanup?.()
     },
     setClassName(dark: boolean) {
+      if (!globalThis?.document) return
       document.body.classList.add(dark ? classNames.dark : classNames.light)
       document.body.classList.remove(dark ? classNames.light : classNames.dark)
     },
     query() {
+      if (!globalThis?.document) return
       return window.matchMedia("(prefers-color-scheme: dark)")
     },
     getSystemTheme(fallback?: ColorMode) {
-      const dark = utils.query().matches ?? fallback === "dark"
+      if (!globalThis?.document) return
+      const dark = utils.query()!.matches ?? fallback === "dark"
       return dark ? "dark" : "light"
     },
     addListener(fn: (cm: ColorMode) => unknown) {
       const mql = utils.query()
+      if (!globalThis?.document || !mql) return
       const listener = (e: MediaQueryListEvent) => {
         fn(e.matches ? "dark" : "light")
       }
