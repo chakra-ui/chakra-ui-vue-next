@@ -20,6 +20,7 @@ importers:
       '@chakra-ui/theme-tools': 2.0.17
       '@chakra-ui/theme-utils': ^2.0.6
       '@chakra-ui/utils': 2.0.14
+      '@chakra-ui/vue-auto-import': workspace:*
       '@chakra-ui/vue-next': workspace:*
       '@chakra-ui/vue-styled': workspace:*
       '@chakra-ui/vue-system': workspace:*
@@ -167,6 +168,7 @@ importers:
       '@chakra-ui/theme-tools': 2.0.17_ak67p4fuwhwgy7hpxa6ejvcgoy
       '@chakra-ui/theme-utils': 2.0.8
       '@chakra-ui/utils': 2.0.14
+      '@chakra-ui/vue-auto-import': link:tooling/auto-import
       '@chakra-ui/vue-next': link:packages/core
       '@chakra-ui/vue-styled': link:packages/styled
       '@chakra-ui/vue-system': link:packages/system

@@ -1,3 +1,4 @@
+/** @ts-ignore */
 import * as ChakraComponents from "@chakra-ui/vue-next"
 import type * as Theme from "@chakra-ui/theme"
 import type * as ThemeTools from "@chakra-ui/theme-tools"

@@ -6,10 +6,6 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
-    "build:rollup": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build:rollup"]
-    },
     "build:fast": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build:fast"]

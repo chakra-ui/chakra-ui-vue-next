@@ -102,7 +102,6 @@ const configureBuildScripts: TransformFunction = (pkg: IPackageJson) => {
   } else {
     pkg.scripts["build:types"] = "tsup src --dts-only"
   }
-  delete pkg.scripts["build:rollup"]
   pkg.scripts["build:fast"] = "tsup"
   pkg.scripts["dev"] = "tsup --watch"
   pkg.scripts["clean"] = "rimraf dist .turbo"

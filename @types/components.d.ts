@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-01-26T03:46:18.920Z
+ * This file was generated on 2023-01-26T05:06:19.790Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -233,6 +233,19 @@ declare module "@vue/runtime-core" {
     role?: string
     tabindex?: number | string
     value?: unknown
+    id?: string
+    viewBox?: unknown
+    src?: unknown
+    srcset?: unknown
+    crossOrigin?: unknown
+    srcSet?: unknown
+    loading?: unknown
+    alt?: unknown
+    referrerPolicy?: unknown
+    focusable?: unknown
+    type?: unknown
+    disabled?: unknown
+    href?: unknown
     // should be removed after Vue supported component events typing
     // see: https://github.com/vuejs/vue-next/issues/1553
     //      https://github.com/vuejs/vue-next/issues/3029

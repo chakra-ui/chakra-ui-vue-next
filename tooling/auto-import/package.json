@@ -21,7 +21,7 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "build:types": "echo 'WIP exporting all types'",
+    "build:types": "tsc --baseUrl . --outDir dist --rootDir . --emitDeclarationOnly --declarationMap",
     "dev": "tsup --watch"
   },
   "publishConfig": {
