@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-01-26T01:35:24.938Z
+ * This file was generated on 2023-01-26T03:46:18.920Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -102,6 +102,7 @@ declare module "@vue/runtime-core" {
     CCircle: typeof import("@chakra-ui/vue-next")["CCircle"]
     CContainer: typeof import("@chakra-ui/vue-next")["CContainer"]
     CDivider: typeof import("@chakra-ui/vue-next")["CDivider"]
+    CFlex: typeof import("@chakra-ui/vue-next")["CFlex"]
     CGrid: typeof import("@chakra-ui/vue-next")["CGrid"]
     CGridItem: typeof import("@chakra-ui/vue-next")["CGridItem"]
     CHStack: typeof import("@chakra-ui/vue-next")["CHStack"]

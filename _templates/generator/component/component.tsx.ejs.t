@@ -11,18 +11,15 @@ to: packages/<%=h.changeCase.paramCase(name)%>/src/<%=h.changeCase.paramCase(nam
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, h, PropType } from "vue"
+import { defineComponent, h, Fragment, PropType } from "vue"
 import {
   chakra,
-  ComponentWithProps,
-  DeepPartial,
   DOMElements,
 } from "@chakra-ui/vue-system"
 
 export interface <%= h.changeCase.pascalCase(name) %>Props {}
 
-export const <%= h.changeCase.pascalCase(name) %>: ComponentWithProps<DeepPartial<<%= h.changeCase.pascalCase(name) %>Props>> =
-  defineComponent({
+export const <%= h.changeCase.pascalCase(name) %> = defineComponent({
     props: {
       as: {
         type: [Object, String] as PropType<DOMElements>,

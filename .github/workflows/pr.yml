@@ -55,10 +55,13 @@ jobs:
       - name: Lint types and code
         run: pnpm lint
 
+      - name: Allocate Node.js Memory
+        run:
+          export NODE_OPTIONS=--max_old_space_size=16384 && echo Allocated Node
+          Memory :\:\ $NODE_OPTIONS
+
       - name: Build packages
         run: pnpm build
-        env:
-          NODE_OPTIONS: "--max-old-space-size=8192"
 
       - name: Run tests
         run: pnpm test:ci

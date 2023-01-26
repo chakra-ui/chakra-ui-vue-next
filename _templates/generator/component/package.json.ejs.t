@@ -29,7 +29,12 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "build:types": "tsup src --dts-only",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "@chakra-ui/vue-system": "0.1.0-next.10"
