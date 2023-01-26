@@ -127,9 +127,7 @@ export const CTagCloseButton = defineComponent({
         {...attrs}
         disabled={props?.isDisabled}
       >
-        {slots.default
-          ? () => getValidChildren(slots)
-          : () => <CTagCloseIcon />}
+        {slots.default ? () => getValidChildren(slots) : <CTagCloseIcon />}
       </chakra.button>
     )
   },
