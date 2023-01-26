@@ -223,32 +223,29 @@ export const CAvatar = defineComponent({
       isLoaded: computed(() => isLoaded.value),
     })
 
-    return () => {
-      console.log("render c-avatar", chakra.span)
-      return (
-        <chakra.span
-          __label="avatar"
-          data-loaded={dataAttr(isLoaded.value)}
-          __css={avatarStyles.value}
-          {...attrs}
-        >
-          <CAvatarImage
-            src={props.src}
-            srcSet={props.srcSet}
-            loading={props.loading}
-            onLoad={handleLoaded}
-            onError={(e) => emit("error", e)}
-            initials={props.initials}
-            name={props.name}
-            // @ts-ignore
-            borderRadius={props.borderRadius}
-            iconLabel={props.iconLabel}
-            ignoreFallback={props.ignoreFallback}
-            {...extractedAttrs.value.imgAttrs}
-          />
-          {slots?.default?.()}
-        </chakra.span>
-      )
-    }
+    return () => (
+      <chakra.span
+        __label="avatar"
+        data-loaded={dataAttr(isLoaded.value)}
+        __css={avatarStyles.value}
+        {...attrs}
+      >
+        <CAvatarImage
+          src={props.src}
+          srcSet={props.srcSet}
+          loading={props.loading}
+          onLoad={handleLoaded}
+          onError={(e) => emit("error", e)}
+          initials={props.initials}
+          name={props.name}
+          // @ts-ignore
+          borderRadius={props.borderRadius}
+          iconLabel={props.iconLabel}
+          ignoreFallback={props.ignoreFallback}
+          {...extractedAttrs.value.imgAttrs}
+        />
+        {slots?.default?.()}
+      </chakra.span>
+    )
   },
 }) as any as ComponentWithProps<CAvatarProps>
