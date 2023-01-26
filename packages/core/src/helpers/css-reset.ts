@@ -100,7 +100,6 @@ export function injectThemeGlobalStyles(
       // if this doesn't exist then it will be
       // null so the style element will be appended
       let element = sheet.tags[sheet.tags.length - 1].nextElementSibling
-      console.log({ element })
       sheet.before = element
       sheet.flush()
     }
