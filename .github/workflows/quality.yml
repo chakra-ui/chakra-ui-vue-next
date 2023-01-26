@@ -13,7 +13,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
-      NODE_OPTIONS: "--max-old-space-size=8192"
+      # NODE_OPTIONS: "--max-old-space-size=8192"
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
