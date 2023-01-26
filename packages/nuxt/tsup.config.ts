@@ -17,7 +17,7 @@ export default defineConfig({
   ],
   format: ["esm", "cjs"],
   entry: {
-    "chakra-ui-nuxt-next": "src/index.tsx",
+    "chakra-ui-nuxt-next": "src/index.ts",
   },
   keepNames: true,
 })

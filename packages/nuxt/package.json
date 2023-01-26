@@ -2,26 +2,29 @@
   "name": "@chakra-ui/nuxt-next",
   "version": "2.0.0-beta.1",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
+  "exports": {
+    ".": {
+      "import": "./dist/chakra-ui-nuxt-next.esm.js",
+      "require": "./dist/chakra-ui-nuxt-next.cjs.js"
+    }
+  },
   "main": "dist/chakra-ui-nuxt-next.cjs.js",
   "module": "dist/chakra-ui-nuxt-next.esm.js",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/chakra-ui-nuxt-next.cjs.js",
-      "default": "./dist/chakra-ui-nuxt-next.esm.js"
-    }
-  },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/nuxt",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/nuxt",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "dev": "tsup --watch",
     "clean": "rimraf dist .turbo",
-    "build": "nuxt-module-build",
-    "build:fast": "nuxt-module-build",
-    "dev:build": "nuxi build playground",
-    "dev": "nuxi dev playground",
+    "nuxt:build": "nuxt-module-build",
+    "nuxt:build:fast": "nuxt-module-build",
+    "nuxt:dev:build": "nuxi build playground",
+    "nuxt:dev": "nuxi dev playground",
     "types:check": "tsc --noEmit",
     "build:types": "tsup src --dts-only"
   },

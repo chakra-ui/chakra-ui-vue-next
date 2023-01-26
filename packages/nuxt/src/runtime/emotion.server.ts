@@ -1,5 +1,5 @@
-import { extractCritical } from '@emotion/server'
-import { NitroApp } from 'nitropack'
+import { extractCritical } from "@emotion/server"
+import type { NitroApp } from "nitropack"
 
 /**
  * Why are we declaring types for  `defineNitroPlugin`?
@@ -18,17 +18,17 @@ import { NitroApp } from 'nitropack'
 
 export type NitroAppPlugin = (nitro: NitroApp) => void
 
-export function defineNitroPlugin (def: NitroAppPlugin): NitroAppPlugin {
+export function defineNitroPlugin(def: NitroAppPlugin): NitroAppPlugin {
   return def
 }
 
 export default defineNitroPlugin((nitroApp) => {
-  nitroApp.hooks.hook('render:html', (html) => {
+  nitroApp.hooks.hook("render:html", (html) => {
     const { ids, css } = extractCritical(html.body)
-    html.head.push(`<style data-emotion="${ids.join(' ')}">${css}</style>`)
+    html.head.push(`<style data-emotion="${ids.join(" ")}">${css}</style>`)
     html.head.push(
       `<script data-emotion="${ids.join(
-        ' '
+        " "
       )}">window.$emotionSSRIds=${JSON.stringify(ids)}</script>`
     )
   })

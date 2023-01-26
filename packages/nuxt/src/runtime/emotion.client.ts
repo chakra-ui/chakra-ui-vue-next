@@ -1,5 +1,5 @@
-import { hydrate } from '@emotion/css'
-import { defineNuxtPlugin } from '#app'
+import { hydrate } from "@emotion/css"
+import { defineNuxtPlugin } from "nuxt/app"
 
 export default defineNuxtPlugin((_) => {
   if (window.$emotionSSRIds) {

@@ -4,7 +4,7 @@
   "main": "dist/chakra-ui-vue-system.cjs.js",
   "module": "dist/chakra-ui-vue-system.esm.js",
   "description": "Chakra UI Vue | System module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/system",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/system",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "files": [
