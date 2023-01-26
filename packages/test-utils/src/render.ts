@@ -1,4 +1,5 @@
 import theme from "@chakra-ui/theme"
+// @ts-ignore
 import { EmotionThemeContextSymbol } from "@chakra-ui/vue-styled"
 import "@testing-library/jest-dom"
 import "@testing-library/jest-dom/extend-expect"

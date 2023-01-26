@@ -5,11 +5,10 @@ import {
   HTMLChakraProps,
   ThemingProps,
   useStyleConfig,
-  ComponentWithProps,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
+import type * as CSS from "csstype"
 
 export interface BadgeProps
   extends HTMLChakraProps<"span">,
@@ -21,42 +20,41 @@ export interface BadgeProps
  *
  * @see Docs https://vue.chakra-ui.com/docs/data-display/badge
  */
-export const CBadge: ComponentWithProps<DeepPartial<BadgeProps>> =
-  defineComponent({
-    name: "CBadge",
-    props: {
-      as: {
-        type: [Object, String] as PropType<DOMElements>,
-        default: "div",
-      },
-      ...vueThemingProps,
+export const CBadge = defineComponent({
+  name: "CBadge",
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: "div",
     },
-    setup(props, { slots, attrs }) {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
+    ...vueThemingProps,
+  },
+  setup(props, { slots, attrs }) {
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    const styles = useStyleConfig("Badge", themingProps)
+    return () => {
+      return (
+        <chakra.div
+          as={props.as}
+          __label="badge"
+          __css={{
+            display: "inline-block",
+            whiteSpace: "nowrap",
+            verticalAlign: "middle",
+            ...styles.value,
+          }}
+          {...attrs}
+        >
+          {slots}
+        </chakra.div>
       )
-      const styles = useStyleConfig("Badge", themingProps)
-      return () => {
-        return (
-          <chakra.div
-            as={props.as}
-            __label="badge"
-            __css={{
-              display: "inline-block",
-              whiteSpace: "nowrap",
-              verticalAlign: "middle",
-              ...styles.value,
-            }}
-            {...attrs}
-          >
-            {slots}
-          </chakra.div>
-        )
-      }
-    },
-  })
+    }
+  },
+})

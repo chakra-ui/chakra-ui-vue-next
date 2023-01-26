@@ -1,6 +1,5 @@
 import { chakra } from "@chakra-ui/vue-system"
 import { useRef } from "@chakra-ui/vue-utils"
-import { useId } from "@chakra-ui/vue-composables"
 import { MotionDirective, MotionVariants, useMotions } from "@vueuse/motion"
 import {
   h,

@@ -4,7 +4,7 @@ import { render } from "../../test-utils/src"
 import { createSerializer } from "@emotion/jest"
 import { css } from "../src/styled"
 import { EmotionThemeProvider } from "../src/theming"
-import { keyframes } from "@chakra-ui/vue-system"
+import { keyframes } from "../../system"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
 
 expect.addSnapshotSerializer(createSerializer())

@@ -17,14 +17,15 @@ import {
   unref,
   watchEffect,
   reactive,
+  DefineComponent,
 } from "vue"
 import {
   chakra,
   ComponentWithProps,
-  DeepPartial,
   DOMElements,
-  HTMLChakraProps,
   SystemProps,
+  HTMLChakraProps,
+  ChakraFactoryComponent,
 } from "@chakra-ui/vue-system"
 import {
   FallbackStrategy,
@@ -33,7 +34,7 @@ import {
   UseImageProps,
 } from "./use-image"
 import { CNativeImage, NativeImageOptions } from "./c-native-image"
-import { omit } from "@chakra-ui/utils"
+import { filterUndefined, omit } from "@chakra-ui/utils"
 
 interface ImageOptions extends NativeImageOptions {
   /**
@@ -72,106 +73,101 @@ interface ImageOptions extends NativeImageOptions {
   referrerPolicy?: ReferrerPolicy
 }
 
-export interface CImageProps
-  extends UseImageProps,
-  Omit<HTMLChakraProps<"img">, keyof UseImageProps>,
-  ImageOptions { }
+export interface CImageProps extends UseImageProps, ImageOptions {}
 
-// @ts-ignore
-export const CImage: ComponentWithProps<DeepPartial<CImageProps>> =
-  defineComponent({
-    name: "CImage",
-    props: {
-      as: {
-        type: [Object, String] as PropType<DOMElements>,
-        default: "img",
-      },
-      fallbackSrc: String as PropType<CImageProps["fallbackSrc"]>,
-      loading: String as PropType<CImageProps["loading"]>,
-      fit: String as PropType<CImageProps["fit"]>,
-      align: String as PropType<CImageProps["align"]>,
-      ignoreFallback: Boolean as PropType<CImageProps["ignoreFallback"]>,
-      fallbackStrategy: {
-        type: String as PropType<CImageProps["fallbackStrategy"]>,
-        default: "beforeLoadOrError",
-      },
-      referrerPolicy: String as PropType<CImageProps["referrerPolicy"]>,
-      htmlWidth: [String, Number] as PropType<CImageProps["htmlWidth"]>,
-      htmlHeight: [String, Number] as PropType<CImageProps["htmlHeight"]>,
-      src: String as PropType<CImageProps["src"]>,
-      srcSet: String as PropType<CImageProps["srcSet"]>,
-      sizes: String as PropType<CImageProps["sizes"]>,
-      onLoad: Function as PropType<CImageProps["onLoad"]>,
-      onError: Function as PropType<CImageProps["onError"]>,
-      crossOrigin: String as PropType<CImageProps["crossOrigin"]>,
+export const CImage = defineComponent({
+  name: "CImage",
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: "img",
     },
-    setup(props, { slots, attrs }) {
-      const rest = reactive({
-        width: props.htmlWidth,
-        height: props.htmlHeight,
-        onLoad: props.onLoad,
-        onError: props.onError,
-      })
+    fallbackSrc: String as PropType<CImageProps["fallbackSrc"]>,
+    loading: String as PropType<CImageProps["loading"]>,
+    fit: String as PropType<CImageProps["fit"]>,
+    align: String as PropType<CImageProps["align"]>,
+    ignoreFallback: Boolean as PropType<CImageProps["ignoreFallback"]>,
+    fallbackStrategy: {
+      type: String as PropType<CImageProps["fallbackStrategy"]>,
+      default: "beforeLoadOrError",
+    },
+    referrerPolicy: String as PropType<CImageProps["referrerPolicy"]>,
+    htmlWidth: [String, Number] as PropType<CImageProps["htmlWidth"]>,
+    htmlHeight: [String, Number] as PropType<CImageProps["htmlHeight"]>,
+    src: String as PropType<CImageProps["src"]>,
+    srcSet: String as PropType<CImageProps["srcSet"]>,
+    sizes: String as PropType<CImageProps["sizes"]>,
+    onLoad: Function as PropType<CImageProps["onLoad"]>,
+    onError: Function as PropType<CImageProps["onError"]>,
+    crossOrigin: String as PropType<CImageProps["crossOrigin"]>,
+  },
+  setup(props, { slots, attrs }) {
+    const rest = reactive({
+      width: props.htmlWidth,
+      height: props.htmlHeight,
+      onLoad: props.onLoad,
+      onError: props.onError,
+    })
 
-      const providedFallback = computed(
-        () => props.fallbackSrc !== undefined || !!slots?.default?.()
+    const providedFallback = computed(
+      () => props.fallbackSrc !== undefined || !!slots?.default?.()
+    )
+
+    const shouldIgnoreFallbackImage = ref<boolean>()
+
+    const showFallbackImage = ref<boolean>(false)
+    const { status } = useImage({
+      ...props,
+      ignoreFallback: computed(() => shouldIgnoreFallbackImage.value),
+    })
+
+    watchEffect(() => {
+      shouldIgnoreFallbackImage.value =
+        props.loading != null ||
+        unref(props.ignoreFallback) ||
+        !providedFallback.value
+
+      showFallbackImage.value = shouldShowFallbackImage(
+        status.value,
+        props.fallbackStrategy!
       )
+    })
 
-      const shouldIgnoreFallbackImage = ref<boolean>()
+    const shared = computed(() => ({
+      objectFit: props.fit,
+      objectPosition: props.align,
+      ...attrs,
+      ...(shouldIgnoreFallbackImage.value
+        ? rest
+        : omit(rest, ["onError", "onLoad"])),
+    }))
 
-      const showFallbackImage = ref<boolean>(false)
-      const { status } = useImage({
-        ...props,
-        ignoreFallback: computed(() => shouldIgnoreFallbackImage.value),
-      })
-
-      watchEffect(() => {
-        shouldIgnoreFallbackImage.value =
-          props.loading != null ||
-          unref(props.ignoreFallback) ||
-          !providedFallback.value
-
-        showFallbackImage.value = shouldShowFallbackImage(
-          status.value,
-          props.fallbackStrategy!
-        )
-      })
-
-      const shared = computed(() => ({
-        objectFit: props.fit,
-        objectPosition: props.align,
-        ...attrs,
-        ...(shouldIgnoreFallbackImage.value
-          ? rest
-          : omit(rest, ["onError", "onLoad"])),
-      }))
-
-      return () => {
-        if (showFallbackImage.value) {
-          if (slots.default) return slots.default()
-
-          return (
-            <chakra.img
-              as={CNativeImage}
-              class="chakra-image__placeholder"
-              src={props.fallbackSrc}
-              {...shared.value}
-            />
-          )
-        }
+    return () => {
+      if (showFallbackImage.value) {
+        if (slots.default) return slots.default()
 
         return (
           <chakra.img
             as={CNativeImage}
-            src={props.src}
-            srcset={props.srcSet}
-            crossOrigin={props.crossOrigin}
-            loading={props.loading}
-            referrerPolicy={props.referrerPolicy}
-            class="chakra-image"
+            class="chakra-image__placeholder"
+            src={props.fallbackSrc}
             {...shared.value}
           />
         )
       }
-    },
-  })
+
+      return (
+        <chakra.img
+          as={CNativeImage}
+          src={props.src}
+          srcset={props.srcSet}
+          crossOrigin={props.crossOrigin}
+          loading={props.loading}
+          referrerPolicy={props.referrerPolicy}
+          class="chakra-image"
+          {...filterUndefined(shared.value)}
+        />
+      )
+    }
+  },
+}) as any as ChakraFactoryComponent<CImageProps>

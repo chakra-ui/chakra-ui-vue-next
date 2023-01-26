@@ -16,26 +16,33 @@
       "default": "./dist/chakra-ui-c-avatar.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-avatar",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-avatar",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "2.0.0-beta.1",
-    "@chakra-ui/c-image": "1.0.0-beta.1",
+    "@chakra-ui/c-icon": "workspace:*",
+    "@chakra-ui/c-image": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
-    "@chakra-ui/theme-tools": "2.0.16",
+    "@chakra-ui/theme-tools": "^2.0.16",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-layout": "2.0.0-beta.1",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "2.0.0-beta.1"
+    "@chakra-ui/vue-layout": "workspace:*",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
+    "csstype": "3.1.1"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "csstype": "3.1.1"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

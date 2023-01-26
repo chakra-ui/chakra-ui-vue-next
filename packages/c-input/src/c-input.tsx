@@ -58,12 +58,12 @@ interface InputOptions {
 
 type Omitted = "disabled" | "required" | "readOnly" | "size"
 
-interface CInputNativeProps extends InputOptions, FormControlOptions { }
+interface CInputNativeProps extends InputOptions, FormControlOptions {}
 
 export interface CInputProps
   extends Omit<HTMLChakraProps<"span">, Omitted>,
-  CInputNativeProps,
-  ThemingProps<"Input"> {
+    CInputNativeProps,
+    ThemingProps<"Input"> {
   modelValue: string
 }
 

@@ -1,5 +1,5 @@
 import { Placement } from "@popperjs/core"
-import { Modifier, State } from "@popperjs/core/lib/popper-lite"
+import { Modifier, State } from "@popperjs/core"
 import {
   getBoxShadow,
   toTransformOrigin,
@@ -51,7 +51,7 @@ export const transformOrigin: Modifier<"transformOrigin", any> = {
 const setTransformOrigin = (state: State) => {
   state.elements.popper.style.setProperty(
     cssVars.transformOrigin.var,
-    toTransformOrigin(state.placement)
+    toTransformOrigin(state.placement as any)
   )
 }
 

@@ -16,20 +16,26 @@
       "default": "./dist/chakra-ui-c-form-control.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-form-control",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-form-control",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "^2.0.0-beta.1",
+    "@chakra-ui/c-icon": "workspace:*",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-composables": "^2.0.0-beta.1",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "^2.0.0-beta.1"
+    "@chakra-ui/vue-composables": "workspace:*",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
+    "csstype": "3.1.1"
   },
   "devDependencies": {
     "vue": "^3.2.37"

@@ -59,7 +59,6 @@ export const CInputLeftElement = defineComponent({
   name: "CInputLeftElement",
   setup(_, { attrs, slots }) {
     return () => (
-      // @ts-expect-error Untyped internal prop
       <CInputElement placement="left" __label="input__left-element" {...attrs}>
         {slots}
       </CInputElement>
@@ -76,7 +75,6 @@ export const CInputRightElement = defineComponent({
     return () => (
       <CInputElement
         placement="right"
-        // @ts-expect-error Untyped internal prop
         __label="input__right-element"
         {...attrs}
       >

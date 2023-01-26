@@ -44,7 +44,7 @@ If you are looking to build a new component, and it has been approved by the tea
 ### Tooling
 
 - [Lerna](https://lerna.js.org/) to manage installation of dependencies and
-  running various scripts. We also have yarn workspaces enabled by default.
+  running various scripts. We also have pnpm workspaces enabled by default.
 - [Testing Library](https://testing-library.com/) for testing components and
   hooks
 - [Vite SSR](https://www.vitejs.org/) for a blazing fast documentation website.
@@ -54,25 +54,25 @@ If you are looking to build a new component, and it has been approved by the tea
 
 ### Commands
 
-**`yarn install`**: bootstraps the entire project, symlinks all dependencies for
+**`pnpm install`**: bootstraps the entire project, symlinks all dependencies for
 cross-component development and builds all components.
 
-**`yarn playground:dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
+**`pnpm playground:dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
 
-**`yarn docs:dev`**: run the documentation site locally.
+**`pnpm docs:dev`**: run the documentation site locally.
 
-**`yarn docs:build`**: run build for all component packages.
+**`pnpm docs:build`**: run build for all component packages.
 
-**`yarn test`**: run test for all component packages.
+**`pnpm test`**: run test for all component packages.
 
-**`yarn release`**: publish changed packages.
+**`pnpm release`**: publish changed packages.
 
-**`yarn pkg [package] <cmd>`**: Run a command on the specific package you're
+**`pnpm pkg [package] <cmd>`**: Run a command on the specific package you're
 working on. You can run `build`, `test`, `lint` commands.
 
-#### Package Aliasing and Yarn Workspace
+#### Package Aliasing and pnpm Workspace
 
-Since we're using lerna monorepo + yarn workspaces by default, this enables us
+Since we're using lerna monorepo + pnpm workspaces by default, this enables us
 to run commands within component packages directly from the root.
 
 Each component is named this way: `@chakra-ui/[component]`. Let's say we want to
@@ -82,7 +82,7 @@ build the button component. Here's how to do it:
 > *we prefix all component names with a `c-` in kebab-case or a capital `C` in PascalCase.*
 
 ```bash
-yarn workspace @chakra-ui/c-button build
+pnpm workspace @chakra-ui/c-button build
 
 # or
 
@@ -92,11 +92,11 @@ lerna run build --scope @chakra-ui/c-button
 **Shortcut:**
 ```bash
 # to build
-yarn pkg @chakra-ui/c-tabs build
+pnpm pkg @chakra-ui/c-tabs build
 
 # to test
-yarn pkg @chakra-ui/c-tabs test
-yarn pkg @chakra-ui/c-tabs test --watch
+pnpm pkg @chakra-ui/c-tabs test
+pnpm pkg @chakra-ui/c-tabs test --watch
 
 ```
 
@@ -106,13 +106,13 @@ and want to avoid running the command for all components.
 ### Documentation
 
 The documentation site is built with Vite.js on SSR. If you'd like to contribute to the
-docs, simply run `yarn build`, and `yarn docs:dev`
+docs, simply run `pnpm build`, and `pnpm docs:dev`
 
 ### Components Development Playground
 
-Build components in isolation with Vite using `yarn playground:dev`
+Build components in isolation with Vite using `pnpm playground:dev`
 
-Run `yarn start` in a separate terminal first so the packages are built and a watcher set up for changes.
+Run `pnpm start` in a separate terminal first so the packages are built and a watcher set up for changes.
 
 ## Think you found a bug?
 
@@ -176,19 +176,19 @@ https://www.conventionalcommits.org/ or check out the
 
 3. Make and commit your changes following the
    [commit convention](https://github.com/chakra-ui/chakra-ui/blob/main/CONTRIBUTING.md#commit-convention).
-   As you develop, you can run `yarn pkg <module> build` and
-   `yarn pkg <module> test` to make sure everything works as expected. Please
-   note that you might have to run `yarn boot` first in order to build all
+   As you develop, you can run `pnpm pkg <module> build` and
+   `pnpm pkg <module> test` to make sure everything works as expected. Please
+   note that you might have to run `pnpm boot` first in order to build all
    dependencies.
 
-4. Run `yarn changeset` to create a detailed description of your changes. This
+4. Run `pnpm changeset` to create a detailed description of your changes. This
    will be used to generate a changelog when we publish an update.
    [Learn more about Changeset](https://github.com/atlassian/changesets/tree/master/packages/cli).
    Please note that you might have to run `git fetch origin main:master` (where
-   origin will be your fork on GitHub) before `yarn changeset` works.
+   origin will be your fork on GitHub) before `pnpm changeset` works.
 
 > If you made minor changes like CI config, prettier, etc, you can run
-> `yarn changeset add --empty` to generate an empty changeset file to document
+> `pnpm changeset add --empty` to generate an empty changeset file to document
 > your changes.
 
 ### Tests

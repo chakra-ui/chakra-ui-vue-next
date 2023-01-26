@@ -1,6 +1,5 @@
 import { computed, ComputedRef, Ref } from "vue"
 import { SystemStyleObject, ThemingProps } from "@chakra-ui/styled-system"
-// import { ThemingProps } from "../system.types"
 import { filterUndefined, get, mergeWith, runIfFn } from "@chakra-ui/utils"
 import { useChakra } from "./use-chakra"
 import type { Theme } from "@chakra-ui/theme"

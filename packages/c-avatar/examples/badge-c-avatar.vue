@@ -115,6 +115,7 @@
     </c-h-stack>
   </c-stack>
 </template>
-<script setup>
+<script setup lang="ts">
 import { CAvatar, CAvatarBadge } from "../src"
+import { chakra } from "@chakra-ui/vue-next"
 </script>

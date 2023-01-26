@@ -234,7 +234,7 @@ export const modalProps = {
   },
 }
 
-export const CModal: ComponentWithProps<CModalProps> = defineComponent({
+export const CModal = defineComponent({
   name: "CModal",
   props: modalProps,
   emits: ["update:modelValue", "escape", "closeModal"],
@@ -291,9 +291,7 @@ export interface CModalContentProps extends HTMLChakraProps<"section"> {
  * ModalContent is used to group modal's content. It has all the
  * necessary `aria-*` properties to indicate that it is a modal
  */
-export const CModalContent: ComponentWithProps<
-  DeepPartial<CModalContentProps>
-> = defineComponent({
+export const CModalContent = defineComponent({
   name: "CModalContent",
   inheritAttrs: false,
   emits: ["click", "mousedown", "keydown"],
@@ -402,9 +400,7 @@ export const CModalContent: ComponentWithProps<
  *
  * @see Docs https://next.chakra-ui.com/docs/overlay/modal
  */
-export const CModalOverlay: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<"div">>
-> = defineComponent({
+export const CModalOverlay = defineComponent({
   name: "CModalOverlay",
   setup(_, { attrs }) {
     const styles = useStyles()
@@ -442,9 +438,7 @@ export const CModalOverlay: ComponentWithProps<
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalHeader: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<"header">>
-> = defineComponent({
+export const CModalHeader = defineComponent({
   name: "CModalHeader",
   setup(_, { attrs, slots }) {
     const { hasHeader, headerId } = unref(useModalContext())
@@ -483,9 +477,7 @@ export const CModalHeader: ComponentWithProps<
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalBody: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<"div">>
-> = defineComponent({
+export const CModalBody = defineComponent({
   name: "CModalBody",
   setup(_, { slots, attrs }) {
     const { bodyId, hasBody } = unref(useModalContext())
@@ -523,9 +515,7 @@ export const CModalBody: ComponentWithProps<
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalFooter: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<"footer">>
-> = defineComponent({
+export const CModalFooter = defineComponent({
   name: "CModalFooter",
   setup(_, { slots, attrs }) {
     const styles = useStyles()
@@ -557,9 +547,7 @@ export const CModalFooter: ComponentWithProps<
  *
  * @see Docs https://next.vue.chakra-ui.com/docs/components/modal
  */
-export const CModalCloseButton: ComponentWithProps<
-  DeepPartial<HTMLChakraProps<"button">>
-> = defineComponent({
+export const CModalCloseButton = defineComponent({
   name: "CModalCloseButton",
   emits: ["click"],
   setup(_, { attrs, emit }) {

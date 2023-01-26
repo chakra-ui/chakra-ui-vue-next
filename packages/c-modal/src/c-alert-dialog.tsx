@@ -17,53 +17,50 @@ export interface CAlertDialogProps
  * CAlertDialog
  * Data wrapper for the alert dialog component
  */
-export const CAlertDialog: ComponentWithProps<DeepPartial<CAlertDialogProps>> =
-  defineComponent({
-    name: "CAlertDialog",
-    props: {
-      ...modalProps,
-      leastDestructiveRef: [Function, String] as PropType<
-        CModalProps["initialFocusRef"]
-      >,
-    },
-    emits: ["update:modelValue", "close", "escape"],
-    setup(props, { attrs, slots, emit }) {
-      const isOpen = computed(() => props.modelValue!)
+export const CAlertDialog = defineComponent({
+  name: "CAlertDialog",
+  props: {
+    ...modalProps,
+    leastDestructiveRef: [Function, String] as PropType<
+      CModalProps["initialFocusRef"]
+    >,
+  },
+  emits: ["update:modelValue", "close", "escape"],
+  setup(props, { attrs, slots, emit }) {
+    const isOpen = computed(() => props.modelValue!)
 
-      const handleUpdateModelValue = (val: boolean) => {
-        emit("update:modelValue", val)
-      }
+    const handleUpdateModelValue = (val: boolean) => {
+      emit("update:modelValue", val)
+    }
 
-      return () => {
-        const {
-          modelValue,
-          "onUpdate:modelValue": updateModelValue,
-          ...rest
-        } = props
-        return (
-          <CModal
-            {...rest}
-            {...attrs}
-            modelValue={isOpen.value}
-            /* eslint-disable-next-line */
+    return () => {
+      const {
+        modelValue,
+        "onUpdate:modelValue": updateModelValue,
+        ...rest
+      } = props
+      return (
+        <CModal
+          {...rest}
+          {...attrs}
+          modelValue={isOpen.value}
+          /* eslint-disable-next-line */
           onUpdate:modelValue={handleUpdateModelValue}
-            label="alertdialog"
-            initialFocusRef={props.leastDestructiveRef}
-          >
-            {slots}
-          </CModal>
-        )
-      }
-    },
-  })
+          label="alertdialog"
+          initialFocusRef={props.leastDestructiveRef}
+        >
+          {slots}
+        </CModal>
+      )
+    }
+  },
+})
 
 /**
  * CAlertDialogContent
  * Wrapper for the alert dialog content
  */
-export const CAlertDialogContent: ComponentWithProps<
-  DeepPartial<CModalContentProps>
-> = defineComponent({
+export const CAlertDialogContent = defineComponent({
   name: "CAlertDialogContent",
   inheritAttrs: false,
   setup(_, { attrs, slots }) {
