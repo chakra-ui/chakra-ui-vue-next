@@ -1,10 +1,6 @@
 import { computed, Plugin, ref, UnwrapRef } from "vue"
 import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/theme"
-import {
-  AppColorModeContextSymbol,
-  ColorModeRef,
-  setupColorModeContext,
-} from "@chakra-ui/c-color-mode"
+import { ColorModeRef, setupColorModeContext } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
 import { chakra, injectGlobal } from "@chakra-ui/vue-system"
 import {

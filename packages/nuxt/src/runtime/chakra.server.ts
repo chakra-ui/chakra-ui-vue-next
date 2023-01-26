@@ -1,4 +1,3 @@
-import { extractCritical } from "@emotion/server"
 import type { NitroApp } from "nitropack"
 
 /**
@@ -23,13 +22,5 @@ export function defineNitroPlugin(def: NitroAppPlugin): NitroAppPlugin {
 }
 
 export default defineNitroPlugin((nitroApp) => {
-  nitroApp.hooks.hook("render:html", (html) => {
-    const { ids, css } = extractCritical(html.body)
-    html.head.push(`<style data-emotion="${ids.join(" ")}">${css}</style>`)
-    html.head.push(
-      `<script data-emotion="${ids.join(
-        " "
-      )}">window.$emotionSSRIds=${JSON.stringify(ids)}</script>`
-    )
-  })
+  console.log("chakra-ui-nuxt:server_runtime")
 })

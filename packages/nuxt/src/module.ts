@@ -3,43 +3,27 @@ import {
   addPlugin,
   createResolver,
   addServerPlugin,
+  installModule,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
 
-declare global {
-  interface Window {
-    /** Serialized SSR IDs for emotion */
-    $emotionSSRIds: string[]
-  }
-}
-
 export default defineNuxtModule({
   meta: {
-    name: "@nuxtjs/emotion",
-    configKey: "emotion",
+    name: "@chakra-ui/nuxt-nect",
+    configKey: "chakra",
     compatibilty: ">=3.0.0",
   },
   setup(_, nuxt) {
-    // ensure `nitro.plugins` is initialized
-    nuxt.options.nitro.plugins = nuxt.options.nitro.plugins || []
-
-    nuxt.hook("nitro:config", (config) => {
-      // Prevent inlining emotion (+ the crucial css cache!) in dev mode
-      if (nuxt.options.dev) {
-        if (config.externals) {
-          config.externals.external ||= []
-          config.externals.external.push("@emotion/server")
-        }
-      }
-    })
-
+    console.log("chakra-ui-nuxt:module")
     /**
      * Register emotion plugin
      */
+
+    installModule("@nuxtjs/emotion")
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
     nuxt.options.build.transpile.push(runtimeDir)
-    addServerPlugin(resolve(runtimeDir, "emotion.server"))
-    addPlugin(resolve(runtimeDir, "emotion.client"))
+    addServerPlugin(resolve(runtimeDir, "chakra.server"))
+    addPlugin(resolve(runtimeDir, "chakra.client"))
   },
 })

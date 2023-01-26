@@ -31,7 +31,8 @@
   "dependencies": {
     "@chakra-ui/vue-next": "workspace:*",
     "@emotion/css": "^11.10.5",
-    "@emotion/server": "^11.10.0"
+    "@emotion/server": "^11.10.0",
+    "@nuxtjs/emotion": "1.0.0"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

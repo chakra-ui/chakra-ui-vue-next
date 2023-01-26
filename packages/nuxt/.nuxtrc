@@ -1,2 +1,2 @@
-imports.autoImport=true
-typescript.includeWorkspace=true
+imports.autoImport=false
+typescript.includeWorkspace=false
