@@ -66,6 +66,18 @@ jobs:
   bundlesize:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 18.x
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
@@ -82,11 +94,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@master
-
-      - name: Setup Node.js 18.x
-        uses: actions/setup-node@master
-        with:
-          node-version: 18.x
 
       - name: compressed-size-action
         uses: preactjs/compressed-size-action@v2
