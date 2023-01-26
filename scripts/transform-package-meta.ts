@@ -1,38 +1,13 @@
 import consola from "consola"
-import glob from "glob-promise"
 import { IPackageJson } from "./types/package.json"
-import { readFileSync, writeFileSync } from "fs"
+import { writeFileSync } from "fs"
 import kebabCase from "lodash.kebabcase"
-import { defineConfig } from "tsup"
 import { dirname } from "path"
-
-async function getAllPackageJsons() {
-  const packageJsonFiles = await glob("**/tooling/**/package.json", {
-    nobrace: true,
-  }).then((f) =>
-    f.filter(
-      (path) =>
-        !path.includes("node_modules") && !path.includes("tsconfig.json")
-    )
-  )
-  consola.info(
-    `Found ${packageJsonFiles.length} package files... Applying transform`,
-    packageJsonFiles
-  )
-  return packageJsonFiles
-}
-
-type TransformFunction = (file: IPackageJson) => IPackageJson
-
-async function transformFile(path: string, transformer: TransformFunction) {
-  const file = await readFileSync(path, "utf8")
-  const transformedFileContent = transformer(JSON.parse(file))
-  await writeFileSync(
-    path,
-    JSON.stringify(transformedFileContent, null, 2),
-    "utf-8"
-  )
-}
+import {
+  getAllPackageJsons,
+  TransformFunction,
+  transformPackageJson,
+} from "./utils"
 
 const whitelistedPackages = {
   "@chakra-ui/styled-system": true,
@@ -77,9 +52,9 @@ export default defineConfig({
 async function execute() {
   const files = await getAllPackageJsons()
   files.forEach(async (filePath) => {
-    await transformFile(filePath, await writeTsupConfig(filePath))
-    await transformFile(filePath, configureBuildScripts)
-    await transformFile(filePath, configureBuildTargets)
+    await transformPackageJson(filePath, await writeTsupConfig(filePath))
+    await transformPackageJson(filePath, configureBuildScripts)
+    await transformPackageJson(filePath, configureBuildTargets)
   })
 }
 
@@ -106,27 +81,6 @@ const configureBuildScripts: TransformFunction = (pkg: IPackageJson) => {
   pkg.scripts["dev"] = "tsup --watch"
   pkg.scripts["clean"] = "rimraf dist .turbo"
   pkg.scripts["types:check"] = "tsc --noEmit"
-  return pkg
-}
-
-const configureLocalWorkspaceDependencies: TransformFunction = (
-  pkg: IPackageJson
-) => {
-  const dependencies = pkg.dependencies
-  for (const dep in dependencies) {
-    if (whitelistedPackages[dep]) continue
-    if (dep.startsWith("@chakra-ui/")) {
-      pkg.dependencies[dep] = "workspace:*"
-    }
-  }
-
-  const devDependencies = pkg.dependencies
-  for (const devDep in devDependencies) {
-    if (whitelistedPackages[devDep]) continue
-    if (devDep.startsWith("@chakra-ui/")) {
-      pkg.dependencies[devDep] = "workspace:*"
-    }
-  }
   return pkg
 }
 

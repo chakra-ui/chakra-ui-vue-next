@@ -37,9 +37,16 @@ jobs:
 
       - name: Build packages
         run: pnpm build
-
-      - name: Check package sizes
-        uses: preactjs/compressed-size-action@v2
+  size:
+    runs-on: ubuntu-latest
+    env:
+      CI_JOB_NUMBER: 1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+      - uses: antfu/export-size-action@main
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          pattern: "**/dist/**/*.esm.js"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          comment_token: ${{ secrets.COMMENT_TOKEN }}
+          paths: packages/core,packages/shared,packages/integrations,packages/firebase,packages/rxjs
