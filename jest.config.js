@@ -11,7 +11,9 @@ module.exports = {
     ],
   },
   setupFiles: ["./jest.setup.ts"],
-  transformIgnorePatterns: ["/node_modules/(?!@popperjs/.*|lodash.)"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!@popperjs/.*|lodash.|!.pnpm/@popperjs)",
+  ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
     "@chakra-ui/vue-test-utils": "<rootDir>/packages/test-utils",

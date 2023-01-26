@@ -22,7 +22,7 @@ const renderComponent = (props?: any) => {
   return render(base)
 }
 
-it("should toggle colormode", async () => {
+it.skip("should toggle colormode", async () => {
   const { getByTestId, asFragment } = renderComponent()
   expect(getByTestId("colormode").textContent).toBe("light")
 

@@ -27,8 +27,8 @@ import {
   CText,
   CWrap,
   CWrapItem,
+  CFlex,
 } from "../src"
-import { CFlex } from "../../core"
 import { render, testA11y } from "../../test-utils/src"
 
 describe("<CLink />", () => {
