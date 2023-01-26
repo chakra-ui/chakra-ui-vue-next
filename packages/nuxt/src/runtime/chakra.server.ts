@@ -1,4 +1,5 @@
 import type { NitroApp } from "nitropack"
+import { H3Event, parseCookies } from "h3"
 
 /**
  * Why are we declaring types for  `defineNitroPlugin`?
@@ -21,6 +22,19 @@ export function defineNitroPlugin(def: NitroAppPlugin): NitroAppPlugin {
   return def
 }
 
-export default defineNitroPlugin((nitroApp) => {
+const CHAKRA_UI_COLOR_MODE_COOKIE_KEY = "chakra-ui-color-mode"
+
+export default defineNitroPlugin((app) => {
   console.log("chakra-ui-nuxt:server_runtime")
+  app.hooks.hook("render:html", (html, { event: rawEvent }) => {
+    const event = new H3Event(rawEvent.node.req, rawEvent.node.res)
+    const parsedCookies = parseCookies(event)
+    const colorMode = parsedCookies[CHAKRA_UI_COLOR_MODE_COOKIE_KEY]
+
+    if (colorMode) {
+      html.htmlAttrs.push(`data-theme="${colorMode}"`)
+      html.htmlAttrs.push(`style="color-scheme: ${colorMode};"`)
+      html.htmlAttrs.push(`data-chakra-ui-ssr="true"`)
+    }
+  })
 })

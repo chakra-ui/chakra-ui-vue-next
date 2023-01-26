@@ -29,6 +29,7 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
+    "@chakra-ui/c-color-mode": "workspace:*",
     "@chakra-ui/vue-next": "workspace:*",
     "@emotion/css": "^11.10.5",
     "@emotion/server": "^11.10.0",
