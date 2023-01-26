@@ -35,6 +35,15 @@ export default defineNitroPlugin((app) => {
       html.htmlAttrs.push(`data-theme="${colorMode}"`)
       html.htmlAttrs.push(`style="color-scheme: ${colorMode};"`)
       html.htmlAttrs.push(`data-chakra-ui-ssr="true"`)
+      html.head.push(
+        `<script data-chakra-ui-ssr-context>window.$chakraSSRContext=${JSON.stringify(
+          {
+            theme: {
+              ssrColorMode: colorMode,
+            },
+          }
+        )}</script>`
+      )
     }
   })
 })

@@ -8,6 +8,19 @@ import {
 import type * as NuxtSchema from "@nuxt/schema"
 import { ChakraPluginOptions } from "@chakra-ui/vue-next"
 
+/** Chakra UI Vue SSR Context State */
+export interface ChakraUISSRContext {
+  theme?: {
+    ssrColorMode: "light" | "dark"
+  }
+}
+
+declare global {
+  interface Window {
+    $chakraSSRContext: ChakraUISSRContext
+  }
+}
+
 export default defineNuxtModule<ChakraPluginOptions>({
   meta: {
     name: "@chakra-ui/nuxt-next",
