@@ -318,8 +318,6 @@ export const CCheckbox = defineComponent({
       const children = getValidChildren(slots)
       const hasChildren = children.length > 0
 
-      console.log("clonedIcon", clonedIcon)
-
       return (
         <chakra.div
           sx={{

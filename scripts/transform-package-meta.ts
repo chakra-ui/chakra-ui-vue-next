@@ -7,7 +7,7 @@ import { defineConfig } from "tsup"
 import { dirname } from "path"
 
 async function getAllPackageJsons() {
-  const packageJsonFiles = await glob("**/packages/**/package.json", {
+  const packageJsonFiles = await glob("**/tooling/**/package.json", {
     nobrace: true,
   }).then((f) =>
     f.filter(
@@ -74,50 +74,6 @@ export default defineConfig({
   }
 }
 
-async function writeRollupConfig(pkgPath: string) {
-  return function processConfig(pkg: IPackageJson): IPackageJson {
-    const name = kebabCase(pkg.name)
-    const content = `import multi from "@rollup/plugin-multi-entry"
-import esbuild from "rollup-plugin-esbuild"
-import kebabCase from "lodash.kebabcase"
-
-const name = "${name}"
-
-const bundle = (config) => ({
-  ...config,
-  input: ["src/**/*.tsx", "src/**/*.ts"],
-  external: (id) => !/^[./]/.test(id),
-})
-
-/**
- * @type {import('rollup').RollupOptions[]}
- */
-const RollupConfig = [
-  bundle({
-    plugins: [multi(), esbuild()],
-    output: [
-      {
-        file: \`./dist/${name}.cjs.js\`,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: \`./dist/${name}.esm.js\`,
-        format: "es",
-        sourcemap: true,
-      },
-    ],
-  }),
-]
-
-export default RollupConfig
-`
-    const packageDirName = dirname(pkgPath)
-    writeFileSync(`${packageDirName}/rollup.config.mjs`, content, "utf-8")
-    return pkg
-  }
-}
-
 async function execute() {
   const files = await getAllPackageJsons()
   files.forEach(async (filePath) => {
@@ -141,7 +97,11 @@ const configureBuildTargets: TransformFunction = (pkg: IPackageJson) => {
 
 const configureBuildScripts: TransformFunction = (pkg: IPackageJson) => {
   pkg.scripts["build"] = "tsup && pnpm build:types"
-  pkg.scripts["build:types"] = "tsup src --dts-only"
+  if (pkg.name === "@chakra-ui/vue-auto-import") {
+    pkg.scripts["build:types"] = "echo: 'WIP exporting all types'"
+  } else {
+    pkg.scripts["build:types"] = "tsup src --dts-only"
+  }
   delete pkg.scripts["build:rollup"]
   pkg.scripts["build:fast"] = "tsup"
   pkg.scripts["dev"] = "tsup --watch"

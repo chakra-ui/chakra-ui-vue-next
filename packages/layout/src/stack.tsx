@@ -188,7 +188,7 @@ export const CStack = defineComponent({
           __css={hasDivider.value ? {} : { [selector]: styles.value[selector] }}
           {...attrs}
         >
-          {() => clones}
+          {clones}
         </chakra.div>
       )
     }
@@ -204,7 +204,7 @@ export const CHStack = defineComponent({
   setup(props, { attrs, slots }) {
     return () => (
       <CStack __label="stack-horizontal" {...props} {...attrs} direction="row">
-        {slots}
+        {slots?.default?.()}
       </CStack>
     )
   },
@@ -219,7 +219,7 @@ export const CVStack = defineComponent({
   setup(props, { attrs, slots }) {
     return () => (
       <CStack __label="stack-vertical" {...props} {...attrs} direction="column">
-        {slots}
+        {slots?.default?.()}
       </CStack>
     )
   },

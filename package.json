@@ -20,7 +20,7 @@
     "prebuild": "pnpm clean",
     "build": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils}",
     "build:dev": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
-    "build:types": "ts-node scripts/generate-global-types.ts",
+    "build:types": "jiti scripts/generate-global-types.ts",
     "postbuild": "pnpm build:types && pnpm size",
     "start": "preconstruct watch",
     "csb:install": "pnpm && pnpm bootstrap",
@@ -53,7 +53,7 @@
     "pkg": "manypkg run",
     "pkgs:check": "manypkg check",
     "pkgs:fix": "manypkg fix",
-    "size": "echo `TODO: Analyze build sizes`",
+    "size": "echo TODO: Analyze build sizes",
     "analyze": "size-limit --why",
     "vitest": "vitest",
     "coverage": "vitest run --coverage"

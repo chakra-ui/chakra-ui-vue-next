@@ -38,7 +38,8 @@ import {
   CAccordionItem,
   CAccordionButton,
   CAccordionPanel,
-} from "@chakra-ui/c-accordion"
+} from "../src"
+import { chakra } from "@chakra-ui/vue-next"
 import { useId, useIds } from "@chakra-ui/vue-composables"
 import { watchEffect } from "vue"
 
@@ -49,8 +50,8 @@ const data = [
 ]
 
 const id = useId()
-const idWithName = useId("with-name")
-const ids = useIds("accordion", "button", "panel", "item")
+const idWithName = useId()
+const ids = useIds(`accordion-${id}`, "button", "panel", "item")
 
 watchEffect(() => {
   console.log("id", id.value)

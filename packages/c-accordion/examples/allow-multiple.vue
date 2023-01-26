@@ -42,5 +42,6 @@ import {
   CAccordionButton,
   CAccordionPanel,
   CAccordionIcon,
-} from "../dist"
+} from "../src"
+import { chakra } from "@chakra-ui/vue-next"
 </script>

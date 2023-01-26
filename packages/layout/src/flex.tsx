@@ -53,7 +53,7 @@ export interface FlexProps extends HTMLChakraProps<"div"> {
   shrink?: SystemProps["flexShrink"]
 }
 
-const CFlex = defineComponent({
+export const CFlex = defineComponent({
   name: "CFlex",
   props: {
     as: {
@@ -93,4 +93,4 @@ const CFlex = defineComponent({
   },
 })
 
-export default CFlex
+// export default CFlex

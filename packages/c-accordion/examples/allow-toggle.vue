@@ -42,7 +42,8 @@ import {
   CAccordionItem,
   CAccordionButton,
   CAccordionPanel,
-} from "@chakra-ui/c-accordion"
+} from "../src"
+import { chakra } from "@chakra-ui/vue-next"
 import { useToggle } from "@vueuse/core"
 const [isToggle] = useToggle(true)
 </script>

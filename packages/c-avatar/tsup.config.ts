@@ -10,9 +10,9 @@ export default defineConfig({
     }
   },
   esbuildPlugins: [
-    // @ts-expect-error plugin does not extend tsup.Plugin type
+    // @ts-expect-error `EsbuildPluginJSX` does not extend `tsup.Plugin` type.
     EsbuildPluginJSX({
-      include: [/\.[jt]sx?$/],
+      include: [/.[jt]sx?$/],
     }),
   ],
   format: ["esm", "cjs"],

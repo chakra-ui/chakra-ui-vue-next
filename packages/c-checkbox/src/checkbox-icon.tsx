@@ -28,44 +28,21 @@ export const CheckIcon = defineComponent({
     onBeforeUnmount(() => {
       leave(() => null)
     })
-    return () =>
-      withDirectives(
-        <chakra.svg
-          width="1.2em"
-          viewBox="0 0 12 10"
-          style={{
-            fill: "none",
-            strokeWidth: 2,
-            stroke: "currentColor",
-            strokeDasharray: 16,
-          }}
-          {...attrs}
-        >
-          {() => <polyline points="1.5 6 4.5 9 10.5 1" />}
-        </chakra.svg>,
-        [
-          [
-            MotionDirective({
-              initial: {
-                opacity: 0,
-                strokeDashoffset: 16,
-                transition: TransitionDefaults.leave,
-              },
-              enter: {
-                opacity: 1,
-                strokeDashoffset: 0,
-                transition: TransitionDefaults.enter,
-              },
-              leave: {
-                opacity: 0,
-                strokeDashoffset: 16,
-                transition: TransitionDefaults.leave,
-              },
-            }),
-            transitionId,
-          ],
-        ]
-      )
+    return () => (
+      <chakra.svg
+        width="1.2em"
+        viewBox="0 0 12 10"
+        style={{
+          fill: "none",
+          strokeWidth: 2,
+          stroke: "currentColor",
+          strokeDasharray: 16,
+        }}
+        {...attrs}
+      >
+        {() => <polyline points="1.5 6 4.5 9 10.5 1" />}
+      </chakra.svg>
+    )
   },
 })
 
@@ -84,42 +61,16 @@ export const IndeterminateIcon = defineComponent({
     onBeforeUnmount(() => {
       leave(() => null)
     })
-    return () =>
-      withDirectives(
-        <chakra.svg
-          width="1.2em"
-          viewBox="0 0 24 24"
-          style={{ stroke: "currentColor", strokeWidth: 4 }}
-          {...attrs}
-        >
-          {() => <line x1="21" x2="3" y1="12" y2="12" />}
-        </chakra.svg>,
-        [
-          [
-            MotionDirective({
-              initial: {
-                scaleX: 0.65,
-                opacity: 0,
-              },
-              enter: {
-                scaleX: 1,
-                opacity: 1,
-                transition: {
-                  scaleX: { duration: 150 },
-                  opacity: { duration: 150 },
-                  ...TransitionDefaults.enter,
-                },
-              },
-              leave: {
-                scaleX: 0.65,
-                opacity: 0,
-                transition: TransitionDefaults.leave,
-              },
-            }),
-            transitionId,
-          ],
-        ]
-      )
+    return () => (
+      <chakra.svg
+        width="1.2em"
+        viewBox="0 0 24 24"
+        style={{ stroke: "currentColor", strokeWidth: 4 }}
+        {...attrs}
+      >
+        {() => <line x1="21" x2="3" y1="12" y2="12" />}
+      </chakra.svg>
+    )
   },
 })
 
@@ -156,11 +107,7 @@ export const CheckboxIcon = defineComponent(
       props.isIndeterminate ? IndeterminateIcon : CheckIcon
     )
 
-    return () => (
-      <CCheckboxTransition open={props.isChecked || props.isIndeterminate}>
-        <IconEl.value {...attrs} />
-      </CCheckboxTransition>
-    )
+    return () => <IconEl.value {...attrs} />
   }
 )
 

@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.0.0-beta.0 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.0.0-beta.1 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-01-24T13:16:48.745Z
+ * This file was generated on 2023-01-26T01:35:24.938Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -57,8 +57,6 @@ declare module "@vue/runtime-core" {
   /* Global component types for Volar auto-complete */
   export interface GlobalComponents {
     chakra: typeof import("@chakra-ui/vue-next")["chakra"]
-    CDarkMode: typeof import("@chakra-ui/vue-next")["CDarkMode"]
-    CLightMode: typeof import("@chakra-ui/vue-next")["CLightMode"]
     CAccordion: typeof import("@chakra-ui/vue-next")["CAccordion"]
     CAccordionButton: typeof import("@chakra-ui/vue-next")["CAccordionButton"]
     CAccordionIcon: typeof import("@chakra-ui/vue-next")["CAccordionIcon"]
@@ -79,9 +77,12 @@ declare module "@vue/runtime-core" {
     CIconButton: typeof import("@chakra-ui/vue-next")["CIconButton"]
     CCheckbox: typeof import("@chakra-ui/vue-next")["CCheckbox"]
     CCheckboxGroup: typeof import("@chakra-ui/vue-next")["CCheckboxGroup"]
+    CDarkMode: typeof import("@chakra-ui/vue-next")["CDarkMode"]
+    CLightMode: typeof import("@chakra-ui/vue-next")["CLightMode"]
     CFocusLock: typeof import("@chakra-ui/vue-next")["CFocusLock"]
     CFormErrorIcon: typeof import("@chakra-ui/vue-next")["CFormErrorIcon"]
     CFormErrorMessage: typeof import("@chakra-ui/vue-next")["CFormErrorMessage"]
+    CFormHelperText: typeof import("@chakra-ui/vue-next")["CFormHelperText"]
     CFormLabel: typeof import("@chakra-ui/vue-next")["CFormLabel"]
     CRequiredIndicator: typeof import("@chakra-ui/vue-next")["CRequiredIndicator"]
     CIcon: typeof import("@chakra-ui/vue-next")["CIcon"]
@@ -152,6 +153,7 @@ declare module "@vue/runtime-core" {
     CPortal: typeof import("@chakra-ui/vue-next")["CPortal"]
     CSkipNavContent: typeof import("@chakra-ui/vue-next")["CSkipNavContent"]
     CSkipNavLink: typeof import("@chakra-ui/vue-next")["CSkipNavLink"]
+    CSpinner: typeof import("@chakra-ui/vue-next")["CSpinner"]
     CScrollLock: typeof import("@chakra-ui/vue-next")["CScrollLock"]
     CVisuallyHidden: typeof import("@chakra-ui/vue-next")["CVisuallyHidden"]
     CVisuallyHiddenInput: typeof import("@chakra-ui/vue-next")["CVisuallyHiddenInput"]

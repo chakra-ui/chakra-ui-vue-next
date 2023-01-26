@@ -154,7 +154,7 @@ async function generateComponents() {
   const projectTypesFilePath = resolve(__dirname, "../components.d.ts")
   const coreTypesFilePath = resolve(
     __dirname,
-    "../packages/core/dist/declarations/src/index.d.ts"
+    "../packages/core/dist/index.d.ts"
   )
   const localTypesFilePath = resolve(__dirname, "../@types/components.d.ts")
   writeFileSync(projectTypesFilePath, allTypes, "utf8")

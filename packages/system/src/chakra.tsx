@@ -5,7 +5,6 @@ import {
   defineComponent,
   h,
   HTMLAttributes,
-  ComponentCustomProps,
   PropType,
   resolveComponent,
   ComponentOptionsMixin,
@@ -21,6 +20,7 @@ import {
   SystemProps,
   SystemStyleObject,
 } from "@chakra-ui/styled-system"
+import type { ComponentCustomProps } from "vue"
 
 import {
   isFunction,
@@ -230,19 +230,35 @@ export function ___chakra___(
           componentOrTag = resolveComponent(componentOrTag)
         }
 
-        return h(
-          (componentOrTag as any) || props.as,
-          {
-            class: cx(inheritedClass as string, _componentName, className),
-            ...elementAttributes,
-            "data-theme": forced ? colorMode.value : undefined,
-            ...(!props.__chakraIsRaw &&
+        const Tag = (componentOrTag as any) || props.as
+
+        return (
+          <Tag
+            class={cx(inheritedClass as string, _componentName, className)}
+            {...elementAttributes}
+            data-theme={forced ? colorMode.value : undefined}
+            {...(!props.__chakraIsRaw &&
               handleValueChange &&
               // @ts-ignore
-              handleValueChange(props, attrs.type as InputTypes)(emit)),
-          },
-          slots
+              handleValueChange(props, attrs.type as InputTypes)(emit))}
+          >
+            {slots}
+          </Tag>
         )
+
+        // return h(
+        //   (componentOrTag as any) || props.as,
+        //   {
+        //     class: cx(inheritedClass as string, _componentName, className),
+        //     ...elementAttributes,
+        //     "data-theme": forced ? colorMode.value : undefined,
+        //     ...(!props.__chakraIsRaw &&
+        //       handleValueChange &&
+        //       // @ts-ignore
+        //       handleValueChange(props, attrs.type as InputTypes)(emit)),
+        //   },
+        //   slots
+        // )
       }
     },
   }) as any as DefineComponent<

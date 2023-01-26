@@ -21,13 +21,14 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "build:types": "tsup src --dts-only",
+    "build:types": "echo 'WIP exporting all types'",
     "dev": "tsup --watch"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
+    "@chakra-ui/c-theme-provider": "workspace:*",
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
