@@ -132,7 +132,7 @@ export type ChakraFactoryComponent<Props extends {} = {}> = DefineComponent<
   {}
 >
 
-export type ComponentWithProps<Props> = ChakraFactoryComponent<Props>
+export type ComponentWithProps<Props extends {}> = ChakraFactoryComponent<Props>
 
 type IChakraFactory = {
   [key in DOMElements]: ChakraFactoryComponent

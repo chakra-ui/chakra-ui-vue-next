@@ -1,4 +1,5 @@
 import { defineConfig } from "tsup"
+import EsbuildPluginJSX from "unplugin-vue-jsx/esbuild"
 
 export default defineConfig({
   clean: true,
@@ -8,8 +9,12 @@ export default defineConfig({
       js: `.${format}.js`,
     }
   },
-  jsxFactory: "h",
-  jsxFragmentFactory: "Fragment",
+  esbuildPlugins: [
+    // @ts-expect-error plugin does not extend tsup.Plugin type
+    EsbuildPluginJSX({
+      include: [/\.[jt]sx?$/],
+    }),
+  ],
   format: ["esm", "cjs"],
   entry: {
     "chakra-ui-c-avatar": "src/index.tsx",

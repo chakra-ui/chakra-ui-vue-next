@@ -20,7 +20,6 @@
   "scripts": {
     "clean": "rimraf dist .turbo",
     "build": "tsup && pnpm build:types",
-    "build:rollup": "rollup -c && pnpm build:types",
     "build:fast": "tsup",
     "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
@@ -44,18 +43,5 @@
   },
   "devDependencies": {
     "vue": "^3.2.37"
-  },
-  "tsup": {
-    "name": "chakra-ui-c-accordion",
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "entry": {
-      "chakra-ui-c-accordion": "src/index.tsx"
-    },
-    "keepNames": true
   }
 }

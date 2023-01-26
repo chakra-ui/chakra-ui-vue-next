@@ -22,8 +22,7 @@
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
     "dev": "tsup --watch",
-    "build:types": "tsup src --dts-only",
-    "build:rollup": "rollup -c && pnpm build:types"
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/vue-utils": "workspace:*",
@@ -45,18 +44,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "tsup": {
-    "name": "chakra-ui-vue-styled",
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "entry": {
-      "chakra-ui-vue-styled": "src/index.tsx"
-    },
-    "keepNames": true
   }
 }

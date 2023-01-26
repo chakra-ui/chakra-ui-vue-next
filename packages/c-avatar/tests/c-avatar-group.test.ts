@@ -13,7 +13,7 @@ const renderGroupAvatar = (urls: Array<AvatarOptions>, props?: any) => {
   })
 
   const maxAvatars = props?.max ? `max=${props?.max}` : ""
-  const template = (content) =>
+  const template = (content: any) =>
     `<CAvatarGroup ${maxAvatars}>${content}</CAvatarGroup>`
 
   const component = {

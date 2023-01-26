@@ -8,8 +8,6 @@ export default defineConfig({
       js: `.${format}.js`,
     }
   },
-  jsxFactory: "h",
-  jsxFragmentFactory: "Fragment",
   format: ["esm", "cjs"],
   entry: {
     "chakra-ui-c-visually-hidden": "src/index.tsx",

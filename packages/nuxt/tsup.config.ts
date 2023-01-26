@@ -8,7 +8,6 @@ export default defineConfig({
       js: `.${format}.js`,
     }
   },
-  jsxFactory: "h",
   format: ["esm", "cjs"],
   entry: {
     "chakra-ui-nuxt-next": "src/index.tsx",

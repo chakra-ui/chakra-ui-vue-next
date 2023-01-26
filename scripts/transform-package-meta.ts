@@ -7,7 +7,7 @@ import { defineConfig } from "tsup"
 import { dirname } from "path"
 
 async function getAllPackageJsons() {
-  const packageJsonFiles = await glob("**/tooling/**/package.json", {
+  const packageJsonFiles = await glob("**/packages/**/package.json", {
     nobrace: true,
   }).then((f) =>
     f.filter(
@@ -45,6 +45,7 @@ const whitelistedPackages = {
 async function writeTsupConfig(pkgPath: string) {
   return function processConfig(pkg: IPackageJson): IPackageJson {
     const content = `import { defineConfig } from "tsup"
+import EsbuildPluginJSX from "unplugin-vue-jsx/esbuild"
 
 export default defineConfig({
   clean: true,
@@ -54,8 +55,12 @@ export default defineConfig({
       js: \`.\${format}.js\`,
     }
   },
-  jsxFactory: "h",
-  jsxFragmentFactory: "Fragment",
+  esbuildPlugins: [
+    // @ts-expect-error \`EsbuildPluginJSX\` does not extend \`tsup.Plugin\` type.
+    EsbuildPluginJSX({
+      include: [/\.[jt]sx?$/],
+    }),
+  ],
   format: ["esm", "cjs"],
   entry: {
     "${kebabCase(pkg.name)}": "src/index.tsx",
@@ -117,9 +122,8 @@ async function execute() {
   const files = await getAllPackageJsons()
   files.forEach(async (filePath) => {
     await transformFile(filePath, await writeTsupConfig(filePath))
-    await transformFile(filePath, await writeRollupConfig(filePath))
     await transformFile(filePath, configureBuildScripts)
-    // await transformFile(filePath, configureBuildTargets)
+    await transformFile(filePath, configureBuildTargets)
   })
 }
 
@@ -130,15 +134,15 @@ const configureBuildTargets: TransformFunction = (pkg: IPackageJson) => {
   pkg.exports["."].require = `./dist/${kebabCase(pkg.name)}.cjs.js`
   pkg.exports["."].default = `./dist/${kebabCase(pkg.name)}.esm.js`
 
+  delete pkg.tsup
   consola.info(`pkg: ${pkg.name}`)
-
   return pkg
 }
 
 const configureBuildScripts: TransformFunction = (pkg: IPackageJson) => {
   pkg.scripts["build"] = "tsup && pnpm build:types"
   pkg.scripts["build:types"] = "tsup src --dts-only"
-  pkg.scripts["build:rollup"] = "rollup -c && pnpm build:types"
+  delete pkg.scripts["build:rollup"]
   pkg.scripts["build:fast"] = "tsup"
   pkg.scripts["dev"] = "tsup --watch"
   pkg.scripts["clean"] = "rimraf dist .turbo"

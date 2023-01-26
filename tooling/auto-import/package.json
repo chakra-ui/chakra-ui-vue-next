@@ -21,9 +21,8 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "build:types": "echo 'TODO: create auto-import types'",
-    "dev": "tsup --watch",
-    "build:rollup": "rollup -c && pnpm build:types"
+    "build:types": "tsup src --dts-only",
+    "dev": "tsup --watch"
   },
   "publishConfig": {
     "access": "public"
@@ -42,16 +41,5 @@
     "@chakra-ui/theme": "2.2.4",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.2.37"
-  },
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "entry": {
-      "chakra-ui-vue-auto-import": "src/index.tsx"
-    }
   }
 }
