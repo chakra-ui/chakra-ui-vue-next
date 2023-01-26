@@ -13,5 +13,5 @@
   </c-v-stack>
 </template>
 <script setup>
-import { CVStack } from '@chakra-ui/vue-layout'
+import { CVStack } from "../src"
 </script>

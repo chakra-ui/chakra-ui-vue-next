@@ -20,9 +20,10 @@ import {
   chakra,
   useMultiStyleConfig,
   omitThemingProps,
+  ThemingProps,
 } from "@chakra-ui/vue-system"
 import { filterUndefined } from "@chakra-ui/utils"
-import { useFormControl } from "@chakra-ui/c-form-control"
+import { useFormControl } from "../src"
 import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
 
 const CSelect = defineComponent({
