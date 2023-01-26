@@ -14,58 +14,28 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: "--max-old-space-size=16384"
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
     steps:
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 7
-          run_install: false
+      - name: Checkout branch
+        uses: actions/checkout@v3
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Checkout Repo
-        uses: actions/checkout@master
-        with:
-          # This makes Actions fetch all Git history
-          # so that Changesets can generate changelogs with the correct commits
-          fetch-depth: 0
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: pnpm install
+      - name: Install
+        uses: ./.github/composite-actions/install
 
       - name: Lint types and code
         run: pnpm lint
 
-      - name: Build packages
-        run: pnpm build
-        env:
-          NODE_OPTIONS: "--max-old-space-size=8192"
-
-      - name: Run tests
+      - name: Run Component Tests
         run: pnpm test:ci
         env:
           CI: true
 
-      # TODO: Uncomment when ready to start testing RCs
+      - name: Build packages
+        run: pnpm build
 
       - name: Setup CI Git User
         run: |
