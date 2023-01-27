@@ -95,7 +95,7 @@ export default defineNuxtModule<ChakraModuleOptions>({
     addPlugin(resolve(runtimeDir, "chakra.factory.universal"))
     addPluginTemplate(
       {
-        src: resolve(templatesDir, "chakra.universal.t.ts"),
+        src: resolve(templatesDir, "chakra.universal.t.js"),
         options: {
           extendTheme,
           cssReset,

@@ -3,15 +3,10 @@ import Chakra, {
   cookieStorageManagerSSR,
   extendChakra,
   ColorModeConstants,
-  ColorModeScriptProps,
   extendTheme
 } from "@chakra-ui/vue-next"
 import { parseCookies } from "h3"
 
-type AllowedSSRColorMode = Exclude<
-  ColorModeScriptProps["initialColorMode"],
-  "system"
->
 
 const extendedTheme = <%= (function() {
   // keep a list of serialized functions
@@ -42,14 +37,14 @@ const extendedTheme = <%= (function() {
 export default defineNuxtPlugin((nuxtApp) => {
 
   // SSR Color Mode Handling
-  let ssrColorMode: AllowedSSRColorMode
+  let ssrColorMode
   const event = nuxtApp.ssrContext?.event
 
   if (event) {
     const parsedCookies = parseCookies(event)
     const colorMode = parsedCookies[ColorModeConstants.CookieStorageKey]
     if (colorMode) {
-      ssrColorMode = colorMode as AllowedSSRColorMode
+      ssrColorMode = colorMode
     } else {
       // TODO: Replace with options color mode
       ssrColorMode = "light"

@@ -17,7 +17,7 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "tsup && pnpm build:types",
+    "build": "tsup --onSuccess 'cp -a src/templates dist' && pnpm build:types",
     "build:fast": "tsup",
     "dev": "tsup --watch",
     "clean": "rimraf dist .turbo",

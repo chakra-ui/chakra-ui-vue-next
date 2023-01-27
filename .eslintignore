@@ -6,3 +6,4 @@ dist
 # For this reason, we ignore the playground directory.
 playground
 snapshots.js
+chakra.universal.t.js

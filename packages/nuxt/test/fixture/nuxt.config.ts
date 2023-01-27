@@ -1,6 +1,6 @@
-import { defineNuxtConfig } from 'nuxt/config'
-import emotionModule from '../..'
+import { defineNuxtConfig } from "nuxt/config"
+import chakraModule from "../.."
 
 export default defineNuxtConfig({
-  modules: [emotionModule]
+  modules: [chakraModule],
 })
