@@ -240,27 +240,42 @@ export const CDrawerContent = defineComponent({
   },
 })
 
-export const CDrawerBody = defineComponent({
-  name: "CDrawerBody",
-  extends: CModalBody,
-})
+export const CDrawerBody = Object.assign(
+  {
+    name: "CDrawerBody",
+  },
+  CModalBody
+)
+CDrawerBody.name = "CAlertDialogBody"
 
-export const CDrawerCloseButton = defineComponent({
-  name: "CDrawerCloseButton",
-  extends: CModalCloseButton,
-})
+export const CDrawerCloseButton = Object.assign(
+  {
+    name: "CDrawerCloseButton",
+  },
+  CModalBody
+)
+CDrawerBody.name = "CDrawerCloseButton"
 
-export const CDrawerFooter = defineComponent({
-  name: "CDrawerFooter",
-  extends: CModalFooter,
-})
+export const CDrawerFooter = Object.assign(
+  {
+    name: "CDrawerFooter",
+  },
+  CModalBody
+)
+CDrawerBody.name = "CDrawerFooter"
 
-export const CDrawerHeader = defineComponent({
-  name: "CDrawerHeader",
-  extends: CModalHeader,
-})
+export const CDrawerHeader = Object.assign(
+  {
+    name: "CDrawerHeaderr",
+  },
+  CModalBody
+)
+CDrawerBody.name = "CDrawerHeader"
 
-export const CDrawerOverlay = defineComponent({
-  name: "CDrawerOverlay",
-  extends: CModalOverlay,
-})
+export const CDrawerOverlay = Object.assign(
+  {
+    name: "CDrawerOverlay",
+  },
+  CModalOverlay
+)
+CDrawerBody.name = "CDrawerOverlay"

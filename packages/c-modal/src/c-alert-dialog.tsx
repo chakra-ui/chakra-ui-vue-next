@@ -80,27 +80,42 @@ export const CAlertDialogContent = defineComponent({
   },
 })
 
-export const CAlertDialogBody = defineComponent({
-  name: "CAlertDialogBody",
-  extends: CModalBody,
-})
+export const CAlertDialogBody = Object.assign(
+  {
+    name: "CAlertDialogBody",
+  },
+  CModalBody
+)
+CAlertDialogBody.name = "CAlertDialogBody"
 
-export const CAlertDialogCloseButton = defineComponent({
-  name: "CAlertDialogCloseButton",
-  extends: CModalCloseButton,
-})
+export const CAlertDialogCloseButton = Object.assign(
+  {
+    name: "CAlertDialogCloseButton",
+  },
+  CModalCloseButton
+)
+CAlertDialogCloseButton.name = "CAlertDialogCloseButton"
 
-export const CAlertDialogFooter = defineComponent({
-  name: "CAlertDialogFooter",
-  extends: CModalFooter,
-})
+export const CAlertDialogFooter = Object.assign(
+  {
+    name: "CAlertDialogFooter",
+  },
+  CModalFooter
+)
+CAlertDialogFooter.name = "CAlertDialogFooter"
 
-export const CAlertDialogHeader = defineComponent({
-  name: "CAlertDialogHeader",
-  extends: CModalHeader,
-})
+export const CAlertDialogHeader = Object.assign(
+  {
+    name: "CAlertDialogHeader",
+  },
+  CModalHeader
+)
+CAlertDialogHeader.name = "CAlertDialogHeader"
 
-export const CAlertDialogOverlay = defineComponent({
-  name: "CAlertDialogOverlay",
-  extends: CModalOverlay,
-})
+export const CAlertDialogOverlay = Object.assign(
+  {
+    name: "CAlertDialogOverlay",
+  },
+  CModalOverlay
+)
+CAlertDialogOverlay.name = "CAlertDialogOverlay"
