@@ -7,7 +7,11 @@ import {
   addPluginTemplate,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
-import { ChakraPluginOptions } from "@chakra-ui/vue-next"
+import {
+  ChakraPluginOptions,
+  extendTheme as _extendTheme,
+} from "@chakra-ui/vue-next"
+import { mergeWith } from "@chakra-ui/utils"
 
 /** Chakra UI Vue SSR Context State */
 export interface ChakraUISSRContext {
@@ -22,15 +26,31 @@ declare global {
   }
 }
 
-export default defineNuxtModule<ChakraPluginOptions>({
+export type ChakraModuleOptions = Omit<ChakraPluginOptions, "colorModeManager">
+
+const defaultModuleOptions: ChakraModuleOptions = {
+  cssReset: true,
+  isBaseTheme: false,
+}
+
+export default defineNuxtModule<ChakraModuleOptions>({
   meta: {
     name: "@chakra-ui/nuxt-next",
     configKey: "chakra",
     compatibilty: ">=3.0.0",
   },
-  setup(_options, nuxt) {
+  setup(__options, nuxt) {
     console.log("chakra-ui-nuxt:module")
-    const theme = _options.extendTheme
+    const _options = mergeWith(
+      defaultModuleOptions,
+      __options
+    ) as ChakraModuleOptions
+
+    const extendTheme = _extendTheme(_options.extendTheme || {})
+    const icons = _options.icons
+    const isBaseTheme = _options.isBaseTheme
+    const emotionCacheOptions = _options.emotionCacheOptions
+    const cssReset = _options.cssReset
 
     // Install emotion module
     installModule("@nuxtjs/emotion")
@@ -40,18 +60,23 @@ export default defineNuxtModule<ChakraPluginOptions>({
     nuxt.options.build.transpile.push("@chakra-ui")
     nuxt.options.build.transpile.push(runtimeDir)
     addServerPlugin(resolve(runtimeDir, "chakra.server"))
-    // addPluginTemplate(resolve(templatesDir, "chakra.universal.t"))
-    addPluginTemplate({
-      src: resolve(templatesDir, "chakra.universal.t.js"),
-      options: {
-        theme: theme,
-        cssReset: true,
-        icons: {},
-        emotionCacheOptions: {
-          key: "chakra",
-        },
-        isBaseTheme: true,
-      } as ChakraPluginOptions,
-    })
+
+    // Resolve template and inject plugin
+    addPlugin(resolve(runtimeDir, "chakra.factory.universal"))
+    addPluginTemplate(
+      {
+        src: resolve(templatesDir, "chakra.universal.t.ts"),
+        options: {
+          extendTheme,
+          cssReset,
+          icons,
+          emotionCacheOptions,
+          isBaseTheme,
+        } as ChakraPluginOptions,
+      },
+      {
+        append: true,
+      }
+    )
   },
 })

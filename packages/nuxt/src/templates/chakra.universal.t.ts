@@ -1,13 +1,11 @@
 import { defineNuxtPlugin } from "#imports"
 import Chakra, {
-  chakra,
   cookieStorageManagerSSR,
   extendChakra,
   ColorModeConstants,
   ColorModeScriptProps,
-  ChakraPluginOptions,
+  extendTheme
 } from "@chakra-ui/vue-next"
-import { domElements } from "@chakra-ui/vue-system"
 import { parseCookies } from "h3"
 
 type AllowedSSRColorMode = Exclude<
@@ -46,6 +44,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   // SSR Color Mode Handling
   let ssrColorMode: AllowedSSRColorMode
   const event = nuxtApp.ssrContext?.event
+
   if (event) {
     const parsedCookies = parseCookies(event)
     const colorMode = parsedCookies[ColorModeConstants.CookieStorageKey]
@@ -62,15 +61,25 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Variable merging
   const cssReset = <%= options.cssReset %>
-  const icons = <%= JSON.stringify(options.icons, null, 2) %>
+  const icons = <%= JSON.stringify(options.icons || "NULL", null, 2) %>
   const isBaseTheme = <%= options.isBaseTheme %>
-  const emotionCacheOptions = <%= JSON.stringify(options.emotionCacheOptions || {}, null, 2) %>
+  const emotionCacheOptions = <%= JSON.stringify(options.emotionCacheOptions || "NULL", null, 2) %>
 
-  const pluginOptions: ChakraPluginOptions = {
+  const pluginOptions = {
     cssReset,
-    extendTheme: extendedTheme,
-    icons,
-    emotionCacheOptions,
+    extendTheme: extendTheme(extendedTheme, {
+      config: {
+        initialColorMode: isBrowser
+          ? window.$chakraSSRContext?.theme?.ssrColorMode
+          : ssrColorMode,
+      },
+    }),
+    ...(icons !== "NULL" && {
+      icons,
+    }),
+    ...(emotionCacheOptions !== "NULL" && {
+      emotionCacheOptions,
+    }),
     isBaseTheme
   }
 
@@ -84,8 +93,4 @@ export default defineNuxtPlugin((nuxtApp) => {
       ),
     })
   )
-
-  domElements.forEach((tag) => {
-    app.component(`chakra.${tag}`, chakra(tag))
-  })
 })
