@@ -17,22 +17,30 @@ runs:
       run: |
         echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-    - uses: actions/cache@v3
-      name: Setup pnpm cache
-      with:
-        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+    - name: Get cypress cache directory path
+      id: cypress-cache-dir
+      shell: bash
+      run: |
+        echo "CYPRESS_BIN_PATH=$(npx cypress cache path)" >> $GITHUB_OUTPUT
 
-    - name: Cache Cypress binary
-      uses: actions/cache@v3
+    - uses: actions/cache@v3
+      id: pnpm-cache
       with:
-        path: ~/.cache/Cypress
-        key:
-          cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+        path: |
+            ${{ steps.pnpm-cache-dir.outputs.STORE_PATH }}
+            ${{ steps.cypress-cache-dir.outputs.CYPRESS_BIN_PATH }}
+        key: ${{ runner.os }}-pnpm-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          cypress-${{ runner.os }}-cypress-
+            ${{ runner.os }}-pnpm-cypress-
+            ${{ runner.os }}-pnpm-store-
+
+    # - uses: actions/cache@v3
+    #   name: Setup pnpm cache
+    #   with:
+    #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+    #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-pnpm-store-
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
