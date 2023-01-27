@@ -31,7 +31,8 @@
     "@emotion/css": "^11.10.5",
     "@emotion/server": "^11.10.0",
     "@nuxtjs/emotion": "1.0.0",
-    "unbuild": "^1.1.1"
+    "unbuild": "^1.1.1",
+    "vitest": "^0.18.0"
   },
   "peerDependencies": {
     "vue": "^3.1.4"
@@ -43,7 +44,7 @@
     "@nuxt/kit": "^3.0.0",
     "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.0.0",
-    "@nuxt/test-utils": "^3.0.0",
+    "@nuxt/test-utils": "^3.1.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "nuxt": "^3.0.0",
     "vue": "^3.2.37"
