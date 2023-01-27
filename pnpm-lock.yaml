@@ -3006,7 +3006,7 @@ packages:
       '@emotion/css':
         optional: true
     dependencies:
-      '@emotion/css': 11.10.5
+      '@emotion/css': 11.10.5_@babel+core@7.20.12
       '@emotion/utils': 1.2.0
       html-tokenize: 2.0.1
       multipipe: 1.0.2
