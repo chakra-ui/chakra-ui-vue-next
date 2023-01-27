@@ -1,5 +1,5 @@
 import type * as NuxtAppTypes from "nuxt/app"
-import { defineNuxtPlugin } from "#imports"
+import { defineNuxtPlugin, useAppConfig } from "#imports"
 import Chakra, {
   chakra,
   cookieStorageManagerSSR,
@@ -10,15 +10,25 @@ import Chakra, {
 } from "@chakra-ui/vue-next"
 import { domElements } from "@chakra-ui/vue-system"
 import { parseCookies } from "h3"
+import type { ChakraModuleOptions } from "../module"
 
 type AllowedSSRColorMode = Exclude<
   ColorModeScriptProps["initialColorMode"],
   "system"
 >
 
+declare module "@nuxt/schema" {
+  interface App {
+    $chakraConfig: ChakraModuleOptions
+  }
+}
+
 export default defineNuxtPlugin((nuxtApp) => {
   const app = nuxtApp.vueApp
   const isBrowser = typeof document !== "undefined"
+
+  const config = useAppConfig()
+  const chakraConfig = config.$chakraConfig
 
   // SSR Color Mode Handling
   let ssrColorMode
@@ -39,10 +49,21 @@ export default defineNuxtPlugin((nuxtApp) => {
   app.use(
     Chakra,
     extendChakra({
-      cssReset: true,
+      ...(chakraConfig.emotionCacheOptions && {
+        emotionCacheOptions: chakraConfig.emotionCacheOptions,
+      }),
+      ...(chakraConfig.cssReset && {
+        cssReset: chakraConfig.cssReset,
+      }),
       extendTheme: extendTheme({
-        colors: {
-          $brand: "#f5f",
+        ...(chakraConfig.extendTheme && chakraConfig.extendTheme),
+        config: {
+          ...(chakraConfig.extendTheme?.config && {
+            extendTheme: chakraConfig.extendTheme.config,
+          }),
+          initialColorMode: isBrowser
+            ? window.$chakraSSRContext?.theme?.ssrColorMode
+            : ssrColorMode,
         },
       }),
       colorModeManager: cookieStorageManagerSSR(

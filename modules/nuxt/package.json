@@ -9,7 +9,7 @@
     }
   },
   "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
+  "types": "./dist/module.d.ts",
   "files": [
     "dist"
   ],
@@ -30,7 +30,8 @@
     "@chakra-ui/vue-next": "workspace:*",
     "@emotion/css": "^11.10.5",
     "@emotion/server": "^11.10.0",
-    "@nuxtjs/emotion": "1.0.0"
+    "@nuxtjs/emotion": "1.0.0",
+    "unbuild": "^1.1.1"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

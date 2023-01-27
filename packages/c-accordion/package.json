@@ -3,7 +3,6 @@
   "version": "2.0.0-beta.1",
   "main": "dist/chakra-ui-c-accordion.cjs.js",
   "module": "dist/chakra-ui-c-accordion.esm.js",
-  "typings": "dist/chakra-ui-c-accordion.d.ts",
   "files": [
     "dist"
   ],

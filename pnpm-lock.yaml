@@ -327,7 +327,7 @@ importers:
   modules/nuxt:
     specifiers:
       '@chakra-ui/c-color-mode': workspace:*
-      '@chakra-ui/vue-next': workspace:*
+      '@chakra-ui/vue-next': ../packages/core
       '@emotion/css': ^11.10.5
       '@emotion/server': ^11.10.0
       '@nuxt/kit': ^3.0.0
@@ -337,13 +337,15 @@ importers:
       '@nuxtjs/emotion': 1.0.0
       '@nuxtjs/eslint-config-typescript': ^12.0.0
       nuxt: ^3.0.0
+      unbuild: ^1.1.1
       vue: ^3.2.37
     dependencies:
       '@chakra-ui/c-color-mode': link:../../packages/c-color-mode
-      '@chakra-ui/vue-next': link:../../packages/core
+      '@chakra-ui/vue-next': link:../packages/core
       '@emotion/css': 11.10.5
       '@emotion/server': 11.10.0_@emotion+css@11.10.5
       '@nuxtjs/emotion': 1.0.0
+      unbuild: 1.1.1
     devDependencies:
       '@nuxt/kit': 3.1.1
       '@nuxt/module-builder': 0.2.1
@@ -3008,7 +3010,7 @@ packages:
       '@emotion/css':
         optional: true
     dependencies:
-      '@emotion/css': 11.10.5_@babel+core@7.20.12
+      '@emotion/css': 11.10.5
       '@emotion/utils': 1.2.0
       html-tokenize: 2.0.1
       multipipe: 1.0.2

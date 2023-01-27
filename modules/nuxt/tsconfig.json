@@ -1,6 +1,5 @@
 {
   // "extends": "../../tsconfig.json",
   "extends": "./playground/.nuxt/tsconfig.json",
-  "include": ["src", "./index.tsx", "./index.ts"],
-  "exclude": ["src/templates"]
+  "include": ["src", "./index.tsx", "./index.ts", "chakra-shims.d.ts"],
 }

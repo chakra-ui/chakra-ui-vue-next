@@ -10,25 +10,35 @@ import kebabCase from "lodash.kebabcase"
 
 const logger = consola.withTag("size-packages")
 
+const ignored = ["@chakra-ui/vue-test-utils"]
+
 function checkFileSize(pkg: IPackageJson, filePath: string) {
   if (!ensureFile(filePath)) {
     return
   }
   const file = readFileSync(filePath)
-  const minSize = (file.length / 1024).toFixed(2) + "kb"
   const gzipped = gzipSync(file)
-  const gzippedSize = (gzipped.length / 1024).toFixed(2) + "kb"
   const compressed = compress(file)
-  const compressedSize = (compressed?.length! / 1024).toFixed(2) + "kb"
+  const gzip = (gzipped.length / 1024).toFixed(2) + "kb"
+  const gzipNum = Number((gzipped.length / 1024).toFixed(2))
+  const minified = (file.length / 1024).toFixed(2) + "kb"
+  const rawNum = Number((file.length / 1024).toFixed(2))
+  const brotli = (compressed?.length! / 1024).toFixed(2) + "kb"
+  const brotliNum = Number((compressed?.length! / 1024).toFixed(2))
   console.log(
     `${chalk.yellow(
       chalk.bold(path.basename(filePath))
-    )} min:${minSize} / gzip:${gzippedSize} / brotli:${compressedSize}`
+    )} min:${minified} / gzip:${gzip} / brotli:${brotli}`
   )
 
   return {
     package: pkg,
-    compressedSize,
+    minified,
+    rawNum,
+    gzip,
+    gzipNum,
+    brotli,
+    brotliNum,
   }
 }
 
@@ -48,9 +58,16 @@ async function sizePackages() {
   const resultsTable: {
     package: string
     entry: string
-    compressedSize: string
+    minified: string
+    rawNum: number
+    gzip: string
+    gzipNum: number
+    brotli: string
+    brotliNum: number
   }[] = []
-  for (const instance of packages) {
+  for (const instance of packages.filter(
+    (pkg) => !ignored.includes(pkg.name)
+  )) {
     const _package = instance.meta
     const entry = `${instance.directory}/dist/${kebabCase(
       instance.name
@@ -61,13 +78,42 @@ async function sizePackages() {
       resultsTable.push({
         package: _package.name,
         entry,
-        compressedSize: result.compressedSize,
+        minified: result.minified,
+        rawNum: result.rawNum,
+        gzip: result.gzip,
+        gzipNum: result.gzipNum,
+        brotli: result.brotli,
+        brotliNum: result.brotliNum,
       })
     }
   }
-  console.table(resultsTable)
+
+  const rawSizeTotal = Math.round(
+    resultsTable.reduce((acc, curr) => acc + curr.rawNum, 0)
+  ).toPrecision(4)
+  const gzipSizeTotal = resultsTable
+    .reduce((acc, curr) => acc + curr.gzipNum, 0)
+    .toPrecision(2)
+  const brotliSizeTotal = resultsTable
+    .reduce((acc, curr) => acc + curr.brotliNum, 0)
+    .toPrecision(2)
+  console.table(
+    resultsTable.map(({ rawNum, brotliNum, gzipNum, ...rest }) => rest)
+  )
+  consola.success(
+    "@chakra-ui/vue-next:: brotli",
+    chalk.cyanBright(chalk.bold(brotliSizeTotal, "kb"))
+  )
+  consola.success(
+    "@chakra-ui/vue-next:: gzip",
+    chalk.cyanBright(chalk.bold(gzipSizeTotal, "kb"))
+  )
+  consola.success(
+    "@chakra-ui/vue-next:: minified",
+    chalk.cyanBright(chalk.bold(rawSizeTotal, "kb"))
+  )
 }
 
 sizePackages()
-  .then(() => logger.success("OK"))
+  .then(() => logger.log("Done"))
   .catch(logger.error)

@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { chakra, useColorMode } from "@chakra-ui/vue-next"
+import { chakra, useColorMode, CHStack } from "@chakra-ui/vue-next"
 
 const { colorMode, toggleColorMode } = useColorMode()
 </script>

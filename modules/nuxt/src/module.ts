@@ -4,7 +4,6 @@ import {
   createResolver,
   addServerPlugin,
   installModule,
-  addPluginTemplate,
   addComponent,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
@@ -14,7 +13,6 @@ import {
   extendTheme as _extendTheme,
 } from "@chakra-ui/vue-next"
 import { mergeWith } from "@chakra-ui/utils"
-import * as ChakraComponents from "@chakra-ui/vue-next"
 
 /** Chakra UI Vue SSR Context State */
 export interface ChakraUISSRContext {
@@ -29,31 +27,17 @@ declare global {
   }
 }
 
-function getChakraComponents() {
-  const Components = []
-  const _ChakraComponents = ChakraComponents as Record<string, any>
-  for (const component in _ChakraComponents) {
-    /**
-     * Group of strict checks to make sure that
-     * we only generate types for components.
-     */
-    if (
-      component.startsWith("C") &&
-      _ChakraComponents[component]?.name &&
-      _ChakraComponents[component]?.setup &&
-      typeof _ChakraComponents[component]?.setup === "function"
-    ) {
-      Components.push(_ChakraComponents[component])
-    }
-  }
-
-  return Components
-}
 export type ChakraModuleOptions = Omit<ChakraPluginOptions, "colorModeManager">
 
 const defaultModuleOptions: ChakraModuleOptions = {
   cssReset: true,
-  isBaseTheme: false,
+  isBaseTheme: true,
+}
+
+declare module "@nuxt/schema" {
+  interface AppConfig {
+    $chakraConfig: ChakraModuleOptions
+  }
 }
 
 export default defineNuxtModule<ChakraModuleOptions>({
@@ -77,37 +61,22 @@ export default defineNuxtModule<ChakraModuleOptions>({
 
     nuxt.options.build.transpile.push("@chakra-ui")
 
+    nuxt.options.appConfig.$chakraConfig = {
+      extendTheme,
+      isBaseTheme,
+      icons,
+      cssReset,
+      emotionCacheOptions,
+    }
+
     // Install emotion module
     installModule("@nuxtjs/emotion")
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
     nuxt.options.build.transpile.push(runtimeDir)
 
-    for (const Component of getChakraComponents()) {
-      addComponent({
-        name: Component.name,
-        export: Component.name,
-        filePath: "@chakra-ui/vue-next",
-      })
-    }
-
     // Resolve template and inject plugin
     addPlugin(resolve(runtimeDir, "chakra"))
     addServerPlugin(resolve(runtimeDir, "chakra.server"))
-    // addPluginTemplate(
-    //   {
-    //     src: resolve(runtimeDir, "templates/chakra.universal.t.js"),
-    //     options: {
-    //       extendTheme,
-    //       cssReset,
-    //       icons,
-    //       emotionCacheOptions,
-    //       isBaseTheme,
-    //     } as ChakraPluginOptions,
-    //   },
-    //   {
-    //     append: true,
-    //   }
-    // )
   },
 })
