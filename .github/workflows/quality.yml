@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     name: Build
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     env:
       # NODE_OPTIONS: "--max-old-space-size=16384"
