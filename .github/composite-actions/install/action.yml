@@ -34,14 +34,6 @@ runs:
           ${{ runner.os }}-pnpm-cypress-
           ${{ runner.os }}-pnpm-store-
 
-    # - uses: actions/cache@v3
-    #   name: Setup pnpm cache
-    #   with:
-    #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-    #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-pnpm-store-
-
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
