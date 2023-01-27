@@ -24,15 +24,15 @@ runs:
         echo "CYPRESS_BIN_PATH=$(npx cypress cache path)" >> $GITHUB_OUTPUT
 
     - uses: actions/cache@v3
-      id: pnpm-cache
+      id: restore-pnpm-cache
       with:
         path: |
-            ${{ steps.pnpm-cache-dir.outputs.STORE_PATH }}
-            ${{ steps.cypress-cache-dir.outputs.CYPRESS_BIN_PATH }}
+          ${{ steps.pnpm-cache-dir.outputs.STORE_PATH }}
+          ${{ steps.cypress-cache-dir.outputs.CYPRESS_BIN_PATH }}
         key: ${{ runner.os }}-pnpm-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-            ${{ runner.os }}-pnpm-cypress-
-            ${{ runner.os }}-pnpm-store-
+          ${{ runner.os }}-pnpm-cypress-
+          ${{ runner.os }}-pnpm-store-
 
     # - uses: actions/cache@v3
     #   name: Setup pnpm cache
