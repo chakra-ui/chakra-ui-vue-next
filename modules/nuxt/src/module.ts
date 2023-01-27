@@ -74,13 +74,14 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const emotionCacheOptions = _options.emotionCacheOptions
     const cssReset = _options.cssReset
 
+    nuxt.options.build.transpile.push("@chakra-ui")
+
     // Install emotion module
     installModule("@nuxtjs/emotion")
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
-    const templatesDir = resolve("./templates")
-    nuxt.options.build.transpile.push("@chakra-ui")
     nuxt.options.build.transpile.push(runtimeDir)
+    const templatesDir = resolve("./templates")
 
     for (const Component of getChakraComponents()) {
       addComponent({

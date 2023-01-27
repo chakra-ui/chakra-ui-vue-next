@@ -173,7 +173,7 @@ importers:
       '@babel/preset-typescript': 7.18.6_@babel+core@7.20.12
       '@babel/runtime': 7.20.13
       '@chakra-ui/anatomy': 2.1.1
-      '@chakra-ui/nuxt-next': link:packages/nuxt
+      '@chakra-ui/nuxt-next': link:modules/nuxt
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/theme': 2.2.5_ak67p4fuwhwgy7hpxa6ejvcgoy
       '@chakra-ui/theme-tools': 2.0.17_ak67p4fuwhwgy7hpxa6ejvcgoy
@@ -324,13 +324,37 @@ importers:
       vue3-perfect-scrollbar: 1.6.1
       yargs: 17.6.2
 
-  examples/nuxt-app:
+  modules/nuxt:
     specifiers:
-      '@chakra-ui/nuxt-next': workspace:*
-      nuxt: ^3.1.0
+      '@chakra-ui/c-color-mode': workspace:*
+      '@chakra-ui/vue-next': workspace:*
+      '@emotion/css': ^11.10.5
+      '@emotion/server': ^11.10.0
+      '@nuxt/kit': ^3.0.0
+      '@nuxt/module-builder': ^0.2.1
+      '@nuxt/schema': ^3.0.0
+      '@nuxt/test-utils': ^3.0.0
+      '@nuxtjs/emotion': 1.0.0
+      '@nuxtjs/eslint-config-typescript': ^12.0.0
+      nuxt: ^3.0.0
+      vue: ^3.2.37
+    dependencies:
+      '@chakra-ui/c-color-mode': link:../../packages/c-color-mode
+      '@chakra-ui/vue-next': link:../../packages/core
+      '@emotion/css': 11.10.5
+      '@emotion/server': 11.10.0_@emotion+css@11.10.5
+      '@nuxtjs/emotion': 1.0.0
     devDependencies:
-      '@chakra-ui/nuxt-next': link:../../packages/nuxt
+      '@nuxt/kit': 3.1.1
+      '@nuxt/module-builder': 0.2.1
+      '@nuxt/schema': 3.1.1
+      '@nuxt/test-utils': 3.1.1_vue@3.2.45
+      '@nuxtjs/eslint-config-typescript': 12.0.0
       nuxt: 3.1.1
+      vue: 3.2.45
+
+  modules/nuxt/playground:
+    specifiers: {}
 
   packages/c-accordion:
     specifiers:
@@ -881,38 +905,6 @@ importers:
       csstype: 3.1.1
     devDependencies:
       vue: 3.2.45
-
-  packages/nuxt:
-    specifiers:
-      '@chakra-ui/c-color-mode': workspace:*
-      '@chakra-ui/vue-next': workspace:*
-      '@emotion/css': ^11.10.5
-      '@emotion/server': ^11.10.0
-      '@nuxt/kit': ^3.0.0
-      '@nuxt/module-builder': ^0.2.1
-      '@nuxt/schema': ^3.0.0
-      '@nuxt/test-utils': ^3.0.0
-      '@nuxtjs/emotion': 1.0.0
-      '@nuxtjs/eslint-config-typescript': ^12.0.0
-      nuxt: ^3.0.0
-      vue: ^3.2.37
-    dependencies:
-      '@chakra-ui/c-color-mode': link:../c-color-mode
-      '@chakra-ui/vue-next': link:../core
-      '@emotion/css': 11.10.5
-      '@emotion/server': 11.10.0_@emotion+css@11.10.5
-      '@nuxtjs/emotion': 1.0.0
-    devDependencies:
-      '@nuxt/kit': 3.1.1
-      '@nuxt/module-builder': 0.2.1
-      '@nuxt/schema': 3.1.1
-      '@nuxt/test-utils': 3.1.1_vue@3.2.45
-      '@nuxtjs/eslint-config-typescript': 12.0.0
-      nuxt: 3.1.1
-      vue: 3.2.45
-
-  packages/nuxt/playground:
-    specifiers: {}
 
   packages/styled:
     specifiers:

@@ -9,8 +9,7 @@
     "packages": [
       "packages/*",
       "tooling/*",
-      "website",
-      "website-new"
+      "modules/*"
     ]
   },
   "scripts": {
