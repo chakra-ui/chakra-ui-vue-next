@@ -17,6 +17,7 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
+    "postinstall": "nuxt-module-build --stub && nuxi prepare playground",
     "clean": "rimraf dist .turbo",
     "build": "nuxt-module-build",
     "build:fast": "nuxt-module-build",
