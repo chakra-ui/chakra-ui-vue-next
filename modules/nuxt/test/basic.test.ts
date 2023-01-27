@@ -1,6 +1,6 @@
 import { fileURLToPath } from "url"
 import { setup, $fetch } from "@nuxt/test-utils"
-describe("nust emotion ssr", async () => {
+describe("nuxt emotion ssr", async () => {
   await setup({
     rootDir: fileURLToPath(new URL("../playground", import.meta.url)),
   })

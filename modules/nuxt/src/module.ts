@@ -8,6 +8,7 @@ import {
   addComponent,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
+import type * as Theme from "@chakra-ui/theme"
 import {
   ChakraPluginOptions,
   extendTheme as _extendTheme,
@@ -81,7 +82,6 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
     nuxt.options.build.transpile.push(runtimeDir)
-    const templatesDir = resolve("./templates")
 
     for (const Component of getChakraComponents()) {
       addComponent({
@@ -92,22 +92,22 @@ export default defineNuxtModule<ChakraModuleOptions>({
     }
 
     // Resolve template and inject plugin
+    addPlugin(resolve(runtimeDir, "chakra"))
     addServerPlugin(resolve(runtimeDir, "chakra.server"))
-    addPlugin(resolve(runtimeDir, "chakra.factory.universal"))
-    addPluginTemplate(
-      {
-        src: resolve(templatesDir, "chakra.universal.t.js"),
-        options: {
-          extendTheme,
-          cssReset,
-          icons,
-          emotionCacheOptions,
-          isBaseTheme,
-        } as ChakraPluginOptions,
-      },
-      {
-        append: true,
-      }
-    )
+    // addPluginTemplate(
+    //   {
+    //     src: resolve(runtimeDir, "templates/chakra.universal.t.js"),
+    //     options: {
+    //       extendTheme,
+    //       cssReset,
+    //       icons,
+    //       emotionCacheOptions,
+    //       isBaseTheme,
+    //     } as ChakraPluginOptions,
+    //   },
+    //   {
+    //     append: true,
+    //   }
+    // )
   },
 })

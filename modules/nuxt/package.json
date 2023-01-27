@@ -17,16 +17,13 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "tsup --onSuccess 'cp -a src/templates dist' && pnpm build:types",
-    "build:fast": "tsup",
-    "dev": "tsup --watch",
     "clean": "rimraf dist .turbo",
-    "nuxt:build": "nuxt-module-build",
-    "nuxt:build:fast": "nuxt-module-build",
-    "nuxt:dev:build": "nuxi build playground",
-    "nuxt:dev": "NODE_OPTIONS --experimental-specifier-resolution=node nuxi dev playground",
+    "build": "nuxt-module-build",
+    "build:fast": "nuxt-module-build",
+    "dev:build": "nuxi build playground",
+    "dev": "nuxi dev playground",
     "types:check": "tsc --noEmit",
-    "build:types": "tsup src --dts-only"
+    "build:types": "echo 'noop -> @chakra-ui/nuxt-next types already built'"
   },
   "dependencies": {
     "@chakra-ui/c-color-mode": "workspace:*",

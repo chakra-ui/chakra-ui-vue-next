@@ -354,7 +354,10 @@ importers:
       vue: 3.2.45
 
   modules/nuxt/playground:
-    specifiers: {}
+    specifiers:
+      '@chakra-ui/nuxt-next': workspace:*
+    dependencies:
+      '@chakra-ui/nuxt-next': link:..
 
   packages/c-accordion:
     specifiers:

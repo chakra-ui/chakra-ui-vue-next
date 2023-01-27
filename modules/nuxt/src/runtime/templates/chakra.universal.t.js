@@ -3,11 +3,8 @@ import Chakra, {
   cookieStorageManagerSSR,
   extendChakra,
   ColorModeConstants,
-  extendBaseTheme
 } from "@chakra-ui/vue-next"
 import { parseCookies } from "h3"
-import { baseTheme } from "@chakra-ui/theme"
-
 
 const extendedTheme = <%= (function() {
   // keep a list of serialized functions
@@ -63,13 +60,15 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const pluginOptions = {
     cssReset,
-    extendTheme: extendBaseTheme(extendedTheme, {
+    extendTheme: {
+      ...extendedTheme,
       config: {
+        ...extendedTheme.config,
         initialColorMode: isBrowser
           ? window.$chakraSSRContext?.theme?.ssrColorMode
           : ssrColorMode,
       },
-    }),
+    },
     ...(icons !== "NULL" && {
       icons,
     }),
