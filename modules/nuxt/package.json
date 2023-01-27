@@ -18,7 +18,7 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "nuxt-module-build --stub && nuxi prepare playground",
-    "prebuild:fase": "nuxt-module-build --stub && nuxi prepare playground",
+    "prebuild:fast": "nuxt-module-build --stub && nuxi prepare playground",
     "clean": "rimraf dist .turbo",
     "build": "nuxt-module-build",
     "build:fast": "nuxt-module-build",
