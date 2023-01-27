@@ -6,4 +6,6 @@ dist
 # For this reason, we ignore the playground directory.
 playground
 snapshots.js
+
+# Nuxt plugin template
 chakra.universal.t.js
