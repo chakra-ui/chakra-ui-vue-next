@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # NODE_OPTIONS: "--max-old-space-size=16384"
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      # TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      # TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
     steps:
       - name: Checkout branch
