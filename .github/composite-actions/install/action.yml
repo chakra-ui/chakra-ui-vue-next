@@ -25,6 +25,15 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
+    - name: Cache Cypress binary
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/Cypress
+        key:
+          cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          cypress-${{ runner.os }}-cypress-
+
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -39,4 +48,7 @@ runs:
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
     - name: Install dependencies
       shell: bash
-      run: pnpm install
+      run: |
+        pnpm install --frozen-lockfile
+        npx cypress verify
+        npx cypress info
