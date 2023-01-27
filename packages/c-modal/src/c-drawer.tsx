@@ -19,15 +19,23 @@ import {
 import { createContext } from "@chakra-ui/vue-utils"
 import {
   chakra,
-  ComponentWithProps,
-  DeepPartial,
   HTMLChakraProps,
   SystemStyleObject,
   useStyles,
   useTheme,
 } from "@chakra-ui/vue-system"
 
-import { CModal, CModalProps, modalProps, useModalContext } from "./c-modal"
+import {
+  CModal,
+  CModalBody,
+  CModalCloseButton,
+  CModalFooter,
+  CModalHeader,
+  CModalOverlay,
+  CModalProps,
+  modalProps,
+  useModalContext,
+} from "./c-modal"
 import { MotionDirective, useMotions } from "@vueuse/motion"
 import { useId } from "@chakra-ui/vue-composables"
 
@@ -232,10 +240,27 @@ export const CDrawerContent = defineComponent({
   },
 })
 
-export {
-  CModalBody as CDrawerBody,
-  CModalCloseButton as CDrawerCloseButton,
-  CModalFooter as CDrawerFooter,
-  CModalHeader as CDrawerHeader,
-  CModalOverlay as CDrawerOverlay,
-} from "./c-modal"
+export const CDrawerBody = defineComponent({
+  name: "CDrawerBody",
+  extends: CModalBody,
+})
+
+export const CDrawerCloseButton = defineComponent({
+  name: "CDrawerCloseButton",
+  extends: CModalCloseButton,
+})
+
+export const CDrawerFooter = defineComponent({
+  name: "CDrawerFooter",
+  extends: CModalFooter,
+})
+
+export const CDrawerHeader = defineComponent({
+  name: "CDrawerHeader",
+  extends: CModalHeader,
+})
+
+export const CDrawerOverlay = defineComponent({
+  name: "CDrawerOverlay",
+  extends: CModalOverlay,
+})

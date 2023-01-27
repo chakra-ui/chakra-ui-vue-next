@@ -1,5 +1,5 @@
 <template>
-  <chakra.div
+  <c-h-stack
     display="flex"
     min-h="600px"
     justify-content="center"
@@ -13,13 +13,13 @@
       color="white"
       font-weight="bold"
     >
-      Click me to toggle. ({{ colorMode }})
+      Click me to toggle | {{ colorMode }}
     </chakra.button>
 
     <chakra.button px="4" py="3" bg="$brand" font-weight="bold">
       Extended Component
     </chakra.button>
-  </chakra.div>
+  </c-h-stack>
 </template>
 
 <script lang="ts" setup>
