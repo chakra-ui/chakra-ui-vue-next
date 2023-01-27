@@ -254,7 +254,7 @@ export const CDrawerCloseButton = Object.assign(
   },
   CModalBody
 )
-CDrawerBody.name = "CDrawerCloseButton"
+CDrawerCloseButton.name = "CDrawerCloseButton"
 
 export const CDrawerFooter = Object.assign(
   {
@@ -262,7 +262,7 @@ export const CDrawerFooter = Object.assign(
   },
   CModalBody
 )
-CDrawerBody.name = "CDrawerFooter"
+CDrawerFooter.name = "CDrawerFooter"
 
 export const CDrawerHeader = Object.assign(
   {
@@ -270,7 +270,7 @@ export const CDrawerHeader = Object.assign(
   },
   CModalBody
 )
-CDrawerBody.name = "CDrawerHeader"
+CDrawerHeader.name = "CDrawerHeader"
 
 export const CDrawerOverlay = Object.assign(
   {
@@ -278,4 +278,4 @@ export const CDrawerOverlay = Object.assign(
   },
   CModalOverlay
 )
-CDrawerBody.name = "CDrawerOverlay"
+CDrawerOverlay.name = "CDrawerOverlay"
