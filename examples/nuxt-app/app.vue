@@ -15,6 +15,10 @@
     >
       Click me to toggle. ({{ colorMode }})
     </chakra.button>
+
+    <chakra.button px="4" py="3" bg="$brand" font-weight="bold">
+      Extended Component
+    </chakra.button>
   </chakra.div>
 </template>
 
