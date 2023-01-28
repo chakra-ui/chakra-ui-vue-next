@@ -37,6 +37,7 @@ export * from "@chakra-ui/vue-layout"
 
 // M
 export * from "@chakra-ui/c-media-query"
+export * from "@chakra-ui/c-menu"
 export * from "@chakra-ui/c-modal"
 export * from "@chakra-ui/c-motion"
 

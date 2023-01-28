@@ -41,6 +41,7 @@
     "@chakra-ui/c-image": "workspace:*",
     "@chakra-ui/c-input": "workspace:*",
     "@chakra-ui/c-media-query": "workspace:*",
+    "@chakra-ui/c-menu": "workspace:*",
     "@chakra-ui/c-modal": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
     "@chakra-ui/c-pin-input": "workspace:*",
