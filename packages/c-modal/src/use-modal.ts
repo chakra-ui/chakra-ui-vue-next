@@ -22,7 +22,7 @@ import {
   getSelector,
   TemplateRef,
 } from "@chakra-ui/vue-utils"
-import { useInertOthers } from "@chakra-ui/vue-a11y"
+import { useInertOthers } from "@chakra-ui/vue-accessibilty"
 import { focus, FocusableElement, isFunction } from "@chakra-ui/utils"
 
 export interface UseModalOptions {
@@ -107,7 +107,7 @@ export function useModal(options: UseModalOptions) {
     if (finalFocusRef) {
       const resolvedFinalFocusRef: MaybeElementRef = isFunction(finalFocusRef)
         ? finalFocusRef()
-        : finalFocusRef.name
+        : finalFocusRef.value
       if (typeof resolvedFinalFocusRef === "string") {
         finalFocus = document.querySelector<FocusableElement & Element>(
           resolvedFinalFocusRef

@@ -1,11 +1,11 @@
 import { filterUndefined } from "@chakra-ui/utils"
-import { Placement } from "@popperjs/core/lib/enums"
 import {
+  Placement,
   Instance,
   Modifier,
   VirtualElement,
   State,
-} from "@popperjs/core/lib/popper-lite"
+} from "@popperjs/core"
 import {
   nextTick,
   onBeforeUpdate,

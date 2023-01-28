@@ -28,16 +28,15 @@ exports[`should render properly 1`] = `
         data-part="control"
         id="control-chakra-checkbox-EMPTY_STRING"
       >
-        <transition-stub
-          __css="[object Object]"
-          appear="false"
-          css="false"
-          mode="out-in"
-          persisted="false"
-          style="display: flex; align-items: center; justify-content: center; height: 100%;"
+        <svg
+          class="css-1mg6af5"
+          style="fill: none; stroke-width: 2; stroke: currentColor; stroke-dasharray: 16;"
+          viewBox="0 0 12 10"
         >
-          <!---->
-        </transition-stub>
+          <polyline
+            points="1.5 6 4.5 9 10.5 1"
+          />
+        </svg>
       </span>
       <!---->
     </label>

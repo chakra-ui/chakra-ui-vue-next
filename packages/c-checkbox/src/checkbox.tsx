@@ -44,7 +44,7 @@ import {
 } from "@chakra-ui/c-form-control"
 import { CheckboxIcon } from "./checkbox-icon"
 import { genId } from "@chakra-ui/vue-utils"
-import { useCheckboxGroupContext } from "./checkbox-group"
+import { CheckboxGroupContext, useCheckboxGroupContext } from "./checkbox-group"
 
 /**
  * - Implement checkbox as state machine.
@@ -112,13 +112,13 @@ export interface CCheckboxControlProps {
   "aria-labelledby"?: string
   "aria-invalid"?: boolean
   "aria-describedby"?: string
-  tabIndex?: number
+  tabIndex?: number | string
 }
 
 export interface CCheckboxProps
   extends HTMLChakraProps<"input">,
-  ThemingProps<"Checkbox">,
-  CCheckboxControlProps {
+    ThemingProps<"Checkbox">,
+    CCheckboxControlProps {
   /**
    * The spacing between the checkbox and its label text
    * @default 0.5rem
@@ -143,7 +143,7 @@ export interface CCheckboxProps
   inputProps?: HTMLChakraProps<"input">
 }
 
-export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
+export const CCheckbox = defineComponent({
   name: "CCheckbox",
   props: {
     modelValue: {
@@ -177,7 +177,7 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
   emits: ["change", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
     const group = useCheckboxGroupContext(
-      computed(() => ({} as CheckboxGroupContext))
+      computed(() => ({})) as CheckboxGroupContext
     )
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
@@ -240,6 +240,7 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
     }))
 
     const [state, send] = useMachine(
+      // @ts-ignore
       checkbox.machine({
         id: "chakra-ui-checkbox-machine",
       }),
@@ -249,6 +250,7 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
     )
 
     const api = computed(() =>
+      // @ts-ignore
       checkbox.connect(state.value, send, normalizeProps)
     )
 
@@ -315,8 +317,6 @@ export const CCheckbox: ComponentWithProps<CCheckboxProps> = defineComponent({
     return () => {
       const children = getValidChildren(slots)
       const hasChildren = children.length > 0
-
-      console.log("clonedIcon", clonedIcon)
 
       return (
         <chakra.div

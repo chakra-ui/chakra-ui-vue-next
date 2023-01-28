@@ -1,5 +1,5 @@
 import { render } from "../../test-utils/src"
-import { CAvatar, CAvatarGroup, avatarProps, avatarGroupProps } from "../src"
+import { CAvatar, CAvatarGroup, avatarGroupProps } from "../src"
 
 interface AvatarOptions {
   name: string
@@ -13,7 +13,7 @@ const renderGroupAvatar = (urls: Array<AvatarOptions>, props?: any) => {
   })
 
   const maxAvatars = props?.max ? `max=${props?.max}` : ""
-  const template = (content) =>
+  const template = (content: any) =>
     `<CAvatarGroup ${maxAvatars}>${content}</CAvatarGroup>`
 
   const component = {

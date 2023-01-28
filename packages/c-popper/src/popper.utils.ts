@@ -41,8 +41,9 @@ const transformEnum = {
   "right-end": "left bottom",
 }
 
-export const toTransformOrigin = (placement: Placement) =>
-  transformEnum[placement]
+export const toTransformOrigin = (
+  placement: Exclude<Placement, "auto" | "auto-start" | "auto-end">
+) => transformEnum[placement]
 
 interface GetArrowStyleOptions {
   arrowSize: number

@@ -15,6 +15,7 @@ parserOptions:
   sourceType: module
 plugins:
   - "@typescript-eslint"
+  - prettier
 rules:
   "@typescript-eslint/member-delimiter-style":
     - error

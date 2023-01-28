@@ -27,12 +27,12 @@ import Chakra, {
   extendTheme,
   extendChakra,
   CReset,
-} from "@chakra-ui/vue-next"
+} from "../../packages/core"
 import { mode } from "@chakra-ui/theme-tools"
 import { feActivity, feUser } from "feather-icons-paths"
 import { h, Fragment, defineComponent } from "vue"
 
-import { domElements } from "@chakra-ui/vue-system"
+import { domElements } from "../../packages/system"
 
 import { MotionPlugin } from "@vueuse/motion"
 import "./env"

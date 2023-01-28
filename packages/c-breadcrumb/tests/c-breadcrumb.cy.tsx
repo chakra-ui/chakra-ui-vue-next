@@ -3,7 +3,7 @@
 import * as Examples from "../examples"
 import { h } from "vue"
 import { CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink } from "../src"
-import { CIcon } from "@chakra-ui/c-icon"
+import { CIcon } from "../../c-icon"
 
 describe("Breadcrumb Examples", () => {
   Object.entries(Examples).map(([name, example]: any) => {

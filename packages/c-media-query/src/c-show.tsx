@@ -25,7 +25,7 @@ export interface CShowProps {
 /**
  * Wrapper component to show child elements based on breakpoint value
  */
-export const CShow: ComponentWithProps<CShowProps> = defineComponent({
+export const CShow = defineComponent({
   props: {
     breakpoint: {
       type: String as PropType<CShowProps["breakpoint"]>,

@@ -29,5 +29,5 @@
   </c-container>
 </template>
 <script setup lang="ts">
-import { CStack } from '@chakra-ui/vue-layout'
+import { CStack } from "../src"
 </script>

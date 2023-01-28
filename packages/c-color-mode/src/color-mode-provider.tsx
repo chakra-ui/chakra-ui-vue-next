@@ -96,7 +96,22 @@ export function setupColorModeContext(
 
   const managerValue = colorModeManager.get()
 
-  if (managerValue) {
+  // If this is SSR, we check to see if the cookie has been specified.
+  // Otherwise we should bail.
+  if (
+    // Is SSR
+    typeof document !== "undefined" &&
+    document.documentElement.dataset.chakraUiSsr === "true"
+    // !initialColorMode
+  ) {
+    // Bail and
+    // Forcefully hydrate client to match ccolor mode
+    const ssrColorMode = document.documentElement.dataset.theme
+    if (ssrColorMode) {
+      console.debug("chakra-ui-ssr color mode is", ssrColorMode)
+      setColorMode(ssrColorMode as ColorMode)
+    }
+  } else if (managerValue) {
     setColorMode(managerValue)
   } else if (initialColorMode === "system") {
     setColorMode("system")
@@ -108,7 +123,7 @@ export function setupColorModeContext(
 
   function setColorMode(value: ColorMode | "system") {
     const { setClassName, setDataset, getSystemTheme } = utils.value
-    const resolved = value === "system" ? getSystemTheme() : value
+    const resolved = value === "system" ? getSystemTheme()! : value
     colorMode.value = resolved
 
     setClassName(resolved === "dark")

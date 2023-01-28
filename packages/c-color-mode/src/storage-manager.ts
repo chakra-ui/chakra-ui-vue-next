@@ -1,10 +1,10 @@
 import { __DEV__ } from "@chakra-ui/utils"
+import { ColorModeConstants } from "./color-mode-script"
 import { ColorMode } from "./color-mode.utils"
 
-export const STORAGE_KEY = "chakra-ui-color-mode"
+export const STORAGE_KEY = ColorModeConstants.BaseStorageKey
 
 const hasSupport = () => typeof Storage !== "undefined"
-export const storageKey = "chakra-ui-color-mode"
 
 type MaybeColorMode = ColorMode | undefined
 
@@ -60,6 +60,7 @@ export function createCookieStorageManager(
       return parseCookie(document.cookie, key) || init
     },
     set(value) {
+      if (typeof document === "undefined") return
       document.cookie = `${key}=${value}; max-age=31536000; path=/`
     },
   }

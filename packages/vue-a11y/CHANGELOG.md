@@ -1,4 +1,4 @@
-# @chakra-ui/vue-a11y
+# @chakra-ui/vue-accessibilty
 
 ## 2.0.0-beta.1
 

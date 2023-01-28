@@ -25,15 +25,21 @@
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-composables": "2.0.0-beta.1",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "2.0.0-beta.1",
-    "@vueuse/motion": "^1.5.4"
+    "@chakra-ui/vue-composables": "workspace:*",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
+    "@vueuse/motion": "^1.5.4",
+    "@vueuse/shared": "^9.11.1"
   },
   "devDependencies": {
     "vue": "^3.2.37"

@@ -7,6 +7,8 @@ on:
   push:
     paths:
       - "packages/**"
+      - "tooling/**"
+      - "moduels/**"
     branches:
       - main
 
@@ -14,46 +16,28 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    env:
+      # NODE_OPTIONS: "--max-old-space-size=16384"
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
     steps:
-      - name: Get Yarn cache path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Checkout branch
+        uses: actions/checkout@v3
 
-      - name: Checkout Repo
-        uses: actions/checkout@master
-        with:
-          # This makes Actions fetch all Git history
-          # so that Changesets can generate changelogs with the correct commits
-          fetch-depth: 0
+      - name: Install
+        uses: ./.github/composite-actions/install
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: 18
+      - name: Lint types and code
+        run: pnpm lint
 
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Linting
-        run: yarn lint
-
-      - name: Building packages
-        run: yarn build
-
-      - name: Testing components
-        run: yarn test:ci
+      - name: Run Component Tests
+        run: pnpm test:ci
         env:
           CI: true
 
-      # TODO: Uncomment when ready to start testing RCs
+      - name: Build packages
+        run: pnpm build
 
       - name: Setup CI Git User
         run: |
@@ -63,7 +47,7 @@ jobs:
       - name: Create Release Pull Request
         uses: changesets/action@master
         with:
-          publish: yarn release
+          publish: pnpm release
           title: "chore(release): version packages and publish"
           commit: "chore(release): version packages"
         env:

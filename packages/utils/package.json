@@ -14,7 +14,12 @@
     }
   },
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "2.5.1",

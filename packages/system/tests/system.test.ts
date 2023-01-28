@@ -84,7 +84,9 @@ describe("as prop", () => {
           setup(_, { slots }) {
             return () =>
               h(
-                chakra(FakeRouterLink, { to: "https://vue.chakra-ui.com/" }),
+                chakra(FakeRouterLink, {
+                  to: "https://vue.chakra-ui.com/",
+                }),
                 {},
                 slots
               )

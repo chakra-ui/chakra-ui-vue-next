@@ -21,14 +21,13 @@
 "@chakra-ui/c-motion": minor
 "@chakra-ui/c-popper": minor
 "@chakra-ui/c-portal": minor
-"@chakra-ui/vue-a11y": minor
+"@chakra-ui/vue-accessibilty": minor
 "@chakra-ui/c-alert": minor
 "@chakra-ui/c-image": minor
 "@chakra-ui/c-input": minor
 "@chakra-ui/c-modal": minor
 "@chakra-ui/c-reset": minor
 "@chakra-ui/c-code": minor
-"@chakra-ui/c-flex": minor
 "@chakra-ui/c-icon": minor
 "@chakra-ui/vue-layout": minor
 "@chakra-ui/vue-styled": minor

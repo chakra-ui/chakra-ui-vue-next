@@ -104,9 +104,6 @@ dist
 # SSG
 website/.vite-ssg-temp
 
-# npmrc
-.npmrc
-
 # Cypress screenshots generated
 cypress/screenshots
 # playground/build/components.json
@@ -114,3 +111,7 @@ cypress/screenshots
 .yarn
 .yarnrc
 .yarnrc.yml
+
+# Turborepo
+.turbo
+.output

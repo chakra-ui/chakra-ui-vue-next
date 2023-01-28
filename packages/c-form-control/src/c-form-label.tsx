@@ -1,8 +1,6 @@
 import { defineComponent, computed, h } from "vue"
 import {
   chakra,
-  ComponentWithProps,
-  DeepPartial,
   HTMLChakraProps,
   ThemingProps,
   useStyleConfig,
@@ -53,9 +51,7 @@ export interface CRequiredIndicatorProps extends HTMLChakraProps<"span"> {}
  * Used to show a "required" text or an asterisks (*) to indicate that
  * a field is required.
  */
-export const CRequiredIndicator: ComponentWithProps<
-  DeepPartial<CRequiredIndicatorProps>
-> = defineComponent({
+export const CRequiredIndicator = defineComponent({
   name: "CRequiredIndicator",
   setup(_, { attrs }) {
     const field = useFormControlContext()
