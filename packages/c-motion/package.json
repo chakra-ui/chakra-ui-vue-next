@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-motion",
   "description": "Chakra UI Vue | Chakra ui vue motion and transition components and utilities component",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-c-motion.cjs.js",
   "module": "dist/chakra-ui-c-motion.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

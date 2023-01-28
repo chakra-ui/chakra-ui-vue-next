@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-next",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/chakra-ui-vue-next.cjs.js",
   "module": "dist/chakra-ui-vue-next.esm.js",
