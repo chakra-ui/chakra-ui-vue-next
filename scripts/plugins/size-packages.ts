@@ -6,11 +6,10 @@ import { gzipSync } from "node:zlib"
 import { compress } from "brotli"
 import chalk from "chalk"
 import path from "node:path"
-import kebabCase from "lodash.kebabcase"
 
 const logger = consola.withTag("size-packages")
 
-const ignored = ["@chakra-ui/vue-test-utils"]
+const ignored = ["@chakra-ui/vue-test-utils", "@chakra-ui/nuxt-next-playground"]
 
 function checkFileSize(pkg: IPackageJson, filePath: string) {
   if (!ensureFile(filePath)) {
