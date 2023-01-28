@@ -16,7 +16,7 @@
       "default": "./dist/chakra-ui-c-input.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-input",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-input",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

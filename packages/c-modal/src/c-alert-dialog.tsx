@@ -8,6 +8,14 @@ import {
   CModalContentProps,
 } from "./c-modal"
 
+import {
+  CModalBody,
+  CModalCloseButton,
+  CModalFooter,
+  CModalHeader,
+  CModalOverlay,
+} from "./c-modal"
+
 export interface CAlertDialogProps
   extends Omit<CModalProps, "initialFocusRef" | "closeModal" | "handleEscape"> {
   leastDestructiveRef: CModalProps["initialFocusRef"]
@@ -72,10 +80,42 @@ export const CAlertDialogContent = defineComponent({
   },
 })
 
-export {
-  CModalBody as CAlertDialogBody,
-  CModalCloseButton as CAlertDialogCloseButton,
-  CModalFooter as CAlertDialogFooter,
-  CModalHeader as CAlertDialogHeader,
-  CModalOverlay as CAlertDialogOverlay,
-} from "./c-modal"
+export const CAlertDialogBody = Object.assign(
+  {
+    name: "CAlertDialogBody",
+  },
+  CModalBody
+)
+CAlertDialogBody.name = "CAlertDialogBody"
+
+export const CAlertDialogCloseButton = Object.assign(
+  {
+    name: "CAlertDialogCloseButton",
+  },
+  CModalCloseButton
+)
+CAlertDialogCloseButton.name = "CAlertDialogCloseButton"
+
+export const CAlertDialogFooter = Object.assign(
+  {
+    name: "CAlertDialogFooter",
+  },
+  CModalFooter
+)
+CAlertDialogFooter.name = "CAlertDialogFooter"
+
+export const CAlertDialogHeader = Object.assign(
+  {
+    name: "CAlertDialogHeader",
+  },
+  CModalHeader
+)
+CAlertDialogHeader.name = "CAlertDialogHeader"
+
+export const CAlertDialogOverlay = Object.assign(
+  {
+    name: "CAlertDialogOverlay",
+  },
+  CModalOverlay
+)
+CAlertDialogOverlay.name = "CAlertDialogOverlay"

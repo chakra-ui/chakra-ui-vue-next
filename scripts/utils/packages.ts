@@ -4,7 +4,7 @@ import glob from "glob-promise"
 import { IPackageJson } from "../types/package.json"
 
 export async function getAllPackageJsons() {
-  const packagesDirectories = ["packages", "tooling"]
+  const packagesDirectories = ["packages", "tooling", "modules"]
   const packageJsonFiles = (
     await Promise.all(
       await packagesDirectories.map(async (directory) => {

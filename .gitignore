@@ -114,3 +114,4 @@ cypress/screenshots
 
 # Turborepo
 .turbo
+.output

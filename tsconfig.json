@@ -47,7 +47,7 @@
     "playground/**/*.json",
     "tests/index.d.ts",
     "**/*.d.ts",
-    "vite.config.ts",
+    "vite.config.ts", "packages/nuxt/src/runtime/chakra.client.template.jst",
   ],
   "exclude": [
     "node_modules",

@@ -19,7 +19,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/layout",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/layout",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

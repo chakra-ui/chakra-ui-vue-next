@@ -4,6 +4,7 @@
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/chakra-ui-vue-next.cjs.js",
   "module": "dist/chakra-ui-vue-next.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -13,7 +14,7 @@
       "default": "./dist/chakra-ui-vue-next.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/core",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/core",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {

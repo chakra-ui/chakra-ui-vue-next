@@ -17,12 +17,21 @@ runs:
       run: |
         echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
+    - name: Get cypress cache directory path
+      id: cypress-cache-dir
+      shell: bash
+      run: |
+        echo "CYPRESS_BIN_PATH=$(npx cypress cache path)" >> $GITHUB_OUTPUT
+
     - uses: actions/cache@v3
-      name: Setup pnpm cache
+      id: restore-pnpm-cache
       with:
-        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        path: |
+          ${{ steps.pnpm-cache-dir.outputs.STORE_PATH }}
+          ${{ steps.cypress-cache-dir.outputs.CYPRESS_BIN_PATH }}
+        key: ${{ runner.os }}-pnpm-cypress-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
+          ${{ runner.os }}-pnpm-cypress-
           ${{ runner.os }}-pnpm-store-
 
     - name: Setup Node.js
@@ -39,4 +48,7 @@ runs:
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
     - name: Install dependencies
       shell: bash
-      run: pnpm install
+      run: |
+        pnpm install --frozen-lockfile
+        npx cypress verify
+        npx cypress info
