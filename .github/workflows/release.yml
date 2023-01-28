@@ -6,6 +6,7 @@ name: Release
 on:
   push:
     paths:
+      - ".github/**"
       - "packages/**"
       - "tooling/**"
       - "moduels/**"
