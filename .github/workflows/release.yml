@@ -45,12 +45,23 @@ jobs:
           git config --global user.name "codebender828"
           git config --global user.email "jbakebwa@163.com"
 
-      - name: Create Release Pull Request
-        uses: changesets/action@master
+      - name: Create @dev release
+        if: steps.changesets.outputs.published != 'true'
+        run: |
+          git checkout main
+          pnpm version:dev
+          pnpm release:dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create release Pull Request or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
         with:
           publish: pnpm release
-          title: "chore(release): version packages and publish"
-          commit: "chore(release): version packages"
+          title: "ci(release): version packages and publish"
+          commit: "ci(release): version packages"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -27,7 +27,6 @@
     "postbuild:fast": "pnpm pkgs:size",
     "start": "preconstruct watch",
     "scaffold": "hygen generator",
-    "release": "pnpm changeset publish",
     "preplaygound:dev": "node ./scripts/dev.js",
     "playground:dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
     "preplaygound:build": "node ./scripts/dev.js",
@@ -60,7 +59,11 @@
     "vitest": "vitest --globals --environment=jsdom",
     "coverage": "vitest run --coverage",
     "process:packages": "pnpm jiti ./scripts/process-packages.ts process-packages",
-    "pkgs:size": "pnpm jiti ./scripts/plugins/size-packages.ts"
+    "pkgs:size": "pnpm jiti ./scripts/plugins/size-packages.ts",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "version:dev": "changeset version --snapshot dev",
+    "release:dev": "changeset publish --tag dev"
   },
   "license": "MIT",
   "private": true,
