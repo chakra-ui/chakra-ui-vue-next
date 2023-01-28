@@ -69,9 +69,7 @@ async function sizePackages() {
     (pkg) => !ignored.includes(pkg.name)
   )) {
     const _package = instance.meta
-    const entry = `${instance.directory}/dist/${kebabCase(
-      instance.name
-    )}.esm.js`
+    const entry = `${instance.directory}/${_package.module || _package.main}`
     const result = checkFileSize(_package, entry)
 
     if (result) {
