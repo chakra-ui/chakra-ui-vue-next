@@ -19,7 +19,7 @@
     "prebuild": "pnpm clean",
     "build": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils}",
     "build:dev": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
-    "build:ci": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils} --concurrency=1",
+    "build:ci": "turbo run build:ci --filter=!./examples/* --filter=!{./packages/test-utils} --concurrency=5",
     "build:types": "jiti scripts/generate-global-types.ts",
     "postbuild": "pnpm pkgs:size",
     "build:fast": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",

@@ -10,6 +10,10 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build:fast"]
     },
+    "build:ci": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build:fast"]
+    },
     "clean": {
       "outputs": ["dist/**"],
       "dependsOn": ["^clean"]
