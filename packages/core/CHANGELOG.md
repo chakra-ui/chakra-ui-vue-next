@@ -1,5 +1,49 @@
 # @chakra-ui/vue-next
 
+## 2.0.0-beta.2
+
+### Minor Changes
+
+- 57380d50: Migrate to pnpm
+- ed252d61: Migrate build to pnpm and use rollup build
+
+### Patch Changes
+
+- Updated dependencies [57380d50]
+- Updated dependencies [ed252d61]
+  - @chakra-ui/c-visually-hidden@2.0.0-beta.2
+  - @chakra-ui/c-theme-provider@2.0.0-beta.2
+  - @chakra-ui/vue-composables@2.0.0-beta.2
+  - @chakra-ui/c-close-button@2.0.0-beta.2
+  - @chakra-ui/c-form-control@1.0.0-beta.2
+  - @chakra-ui/c-media-query@1.0.0-beta.2
+  - @chakra-ui/c-scroll-lock@2.0.0-beta.2
+  - @chakra-ui/c-breadcrumb@2.0.0-beta.2
+  - @chakra-ui/c-color-mode@2.0.0-beta.2
+  - @chakra-ui/c-focus-lock@2.0.0-beta.2
+  - @chakra-ui/c-accordion@2.0.0-beta.2
+  - @chakra-ui/c-pin-input@1.0.0-beta.2
+  - @chakra-ui/c-checkbox@1.0.0-beta.2
+  - @chakra-ui/c-skip-nav@1.0.0-beta.2
+  - @chakra-ui/c-spinner@2.0.0-beta.2
+  - @chakra-ui/c-avatar@1.0.0-beta.2
+  - @chakra-ui/c-button@2.0.0-beta.2
+  - @chakra-ui/c-motion@2.0.0-beta.2
+  - @chakra-ui/c-popper@2.0.0-beta.2
+  - @chakra-ui/c-portal@2.0.0-beta.2
+  - @chakra-ui/vue-accessibilty@2.0.0-beta.2
+  - @chakra-ui/c-alert@2.0.0-beta.2
+  - @chakra-ui/c-image@1.0.0-beta.2
+  - @chakra-ui/c-input@1.0.0-beta.2
+  - @chakra-ui/c-modal@3.0.0-beta.2
+  - @chakra-ui/c-reset@2.0.0-beta.2
+  - @chakra-ui/c-code@2.0.0-beta.2
+  - @chakra-ui/c-icon@2.0.0-beta.2
+  - @chakra-ui/vue-layout@2.0.0-beta.2
+  - @chakra-ui/vue-styled@1.0.0-beta.2
+  - @chakra-ui/vue-system@2.0.0-beta.2
+  - @chakra-ui/c-tag@1.0.0-beta.2
+
 ## 2.0.0-beta.1
 
 ### Major Changes

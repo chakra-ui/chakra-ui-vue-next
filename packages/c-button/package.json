@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-button",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-c-button.cjs.js",
   "module": "dist/chakra-ui-c-button.esm.js",
   "files": [

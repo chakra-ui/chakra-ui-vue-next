@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-modal",
   "description": "Chakra UI Vue | An accessible dialog modal component for chakra ui vue component",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0-beta.2",
   "main": "dist/chakra-ui-c-modal.cjs.js",
   "module": "dist/chakra-ui-c-modal.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

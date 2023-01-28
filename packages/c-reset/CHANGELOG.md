@@ -1,5 +1,18 @@
 # @chakra-ui/c-reset
 
+## 2.0.0-beta.2
+
+### Minor Changes
+
+- 57380d50: Migrate to pnpm
+- ed252d61: Migrate build to pnpm and use rollup build
+
+### Patch Changes
+
+- Updated dependencies [57380d50]
+- Updated dependencies [ed252d61]
+  - @chakra-ui/vue-system@2.0.0-beta.2
+
 ## 2.0.0-beta.1
 
 ### Major Changes
