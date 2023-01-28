@@ -34,4 +34,4 @@ jobs:
           CI: true
 
       - name: Build packages
-        run: pnpm build
+        run: pnpm build:ci
