@@ -22,6 +22,7 @@ export const [MenuProvider, useMenu] = createContext<any>({
 })
 
 export const CMenu = defineComponent({
+  name: "CMenu",
   props: {
     menuId: {
       type: String,
