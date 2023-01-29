@@ -1,7 +1,5 @@
 /**
  * Pattern matching helper
- * Credit:
- * Adapted from the good folks at @headlessui/vue
  */
 export function match<
   TValue extends string | number = string,
