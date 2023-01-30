@@ -25,28 +25,27 @@ export interface CIconButtonProps extends ButtonProps {
  *
  * IconButton composes the Button component except that it renders only an icon.
  */
-const CIconButton: ComponentWithProps<DeepPartial<CIconButtonProps>> =
-  defineComponent({
-    name: "CIconButton",
-    props: IconButtonProps,
-    setup(props, { attrs }) {
-      if (!props.ariaLabel) {
-        console.error(
-          `chakra-ui: The \`aria-label\` prop is required for the <c-icon-button />`
-        )
-      }
-
-      return () => (
-        <CButton
-          padding={"0"}
-          rounded={props.isRound ? "rounded" : "md"}
-          aria-label={props.ariaLabel}
-          {...attrs}
-        >
-          <CIcon aria-hidden focusable={0} name={props.icon} />
-        </CButton>
+const CIconButton = defineComponent({
+  name: "CIconButton",
+  props: IconButtonProps,
+  setup(props, { attrs }) {
+    if (!props.ariaLabel) {
+      console.error(
+        `chakra-ui: The \`aria-label\` prop is required for the <c-icon-button />`
       )
-    },
-  })
+    }
+
+    return () => (
+      <CButton
+        padding={"0"}
+        rounded={props.isRound ? "rounded" : "md"}
+        aria-label={props.ariaLabel}
+        {...attrs}
+      >
+        <CIcon aria-hidden focusable={0} name={props.icon} />
+      </CButton>
+    )
+  },
+})
 
 export default CIconButton

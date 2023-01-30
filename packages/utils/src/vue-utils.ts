@@ -1,5 +1,4 @@
-import { isFunction, isObject, Dict } from "@chakra-ui/utils"
-import { SystemStyleObject } from "@chakra-ui/styled-system"
+import { isObject } from "@chakra-ui/utils"
 import { inject, InjectionKey, provide, isVNode, Slots, VNode } from "vue"
 
 export interface CreateContextOptions {

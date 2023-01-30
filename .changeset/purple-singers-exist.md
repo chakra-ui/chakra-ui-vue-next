@@ -8,7 +8,6 @@
 "@chakra-ui/c-close-button": major
 "@chakra-ui/c-code": major
 "@chakra-ui/c-color-mode": major
-"@chakra-ui/c-flex": major
 "@chakra-ui/c-focus-lock": major
 "@chakra-ui/c-form-control": major
 "@chakra-ui/c-icon": major
@@ -34,7 +33,7 @@
 "@chakra-ui/vue-system": major
 "@chakra-ui/vue-test-utils": major
 "@chakra-ui/vue-utils": major
-"@chakra-ui/vue-a11y": major
+"@chakra-ui/vue-accessibilty": major
 "@chakra-ui/vue-composables": major
 "@chakra-ui/vue-auto-import": major
 ---

@@ -1,19 +1,16 @@
-import {
-  ComponentWithProps,
-  DeepPartial,
-  ResponsiveValue,
-} from "@chakra-ui/vue-system"
+import { ResponsiveValue, DOMElements } from "@chakra-ui/vue-system"
 import { h, defineComponent, PropType, computed } from "vue"
-import { DOMElements } from "@chakra-ui/vue-system"
 import { SNAO } from "@chakra-ui/vue-utils"
-import { CGrid, GridProps } from "./grid"
+import { CGrid } from "./grid"
 import { isNull, isNumber, mapResponsive } from "@chakra-ui/utils"
+import { SystemProps } from "@chakra-ui/styled-system"
+import type * as CSS from "csstype"
 
 interface SimpleGridOptions {
   /**
    * The width at which child elements will break into columns. Pass a number for pixel values or a string for any other valid CSS length.
    */
-  minChildWidth?: GridProps["minWidth"]
+  minChildWidth?: SystemProps["minWidth"]
   /**
    * The number of columns
    */
@@ -21,18 +18,18 @@ interface SimpleGridOptions {
   /**
    * The gap between the grid items
    */
-  spacing?: GridProps["gridGap"]
+  spacing?: SystemProps["gridGap"]
   /**
    * The column gap between the grid items
    */
-  spacingX?: GridProps["gridGap"]
+  spacingX?: SystemProps["gridGap"]
   /**
    * The row gap between the grid items
    */
-  spacingY?: GridProps["gridGap"]
+  spacingY?: SystemProps["gridGap"]
 }
 
-export interface SimpleGridProps extends GridProps, SimpleGridOptions {}
+export interface SimpleSystemProps extends SystemProps, SimpleGridOptions {}
 
 /**
  * SimpleGrid
@@ -42,42 +39,41 @@ export interface SimpleGridProps extends GridProps, SimpleGridOptions {}
  *
  * @see Docs https://vue.chakra-ui.com/docs/layout/simple-grid
  */
-export const CSimpleGrid: ComponentWithProps<DeepPartial<SimpleGridProps>> =
-  defineComponent({
-    name: "CSimpleGrid",
-    props: {
-      as: {
-        type: [Object, String] as PropType<DOMElements>,
-        default: "ul",
-      },
-      minChildWidth: SNAO as PropType<SimpleGridProps["minWidth"]>,
-      columns: SNAO as PropType<SimpleGridProps["columns"]>,
-      spacing: SNAO as PropType<SimpleGridProps["gridGap"]>,
-      spacingX: SNAO as PropType<SimpleGridProps["gridGap"]>,
-      spacingY: SNAO as PropType<SimpleGridProps["gridGap"]>,
+export const CSimpleGrid = defineComponent({
+  name: "CSimpleGrid",
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: "ul",
     },
-    setup(props, { slots, attrs }) {
-      const templateColumns = computed(() =>
-        props.minChildWidth
-          ? widthToColumns(props.minChildWidth)
-          : countToColumns(props.columns)
-      )
+    minChildWidth: SNAO as PropType<SimpleSystemProps["minWidth"]>,
+    columns: SNAO as PropType<SimpleSystemProps["columns"]>,
+    spacing: SNAO as PropType<SimpleSystemProps["gridGap"]>,
+    spacingX: SNAO as PropType<SimpleSystemProps["gridGap"]>,
+    spacingY: SNAO as PropType<SimpleSystemProps["gridGap"]>,
+  },
+  setup(props, { slots, attrs }) {
+    const templateColumns = computed(() =>
+      props.minChildWidth
+        ? widthToColumns(props.minChildWidth)
+        : countToColumns(props.columns)
+    )
 
-      return () => (
-        <CGrid
-          as={props.as}
-          __label="simple-grid"
-          gap={props.spacing}
-          columnGap={props.spacingX}
-          rowGap={props.spacingY}
-          templateColumns={templateColumns.value}
-          {...attrs}
-        >
-          {slots}
-        </CGrid>
-      )
-    },
-  })
+    return () => (
+      <CGrid
+        as={props.as}
+        __label="simple-grid"
+        gap={props.spacing}
+        columnGap={props.spacingX}
+        rowGap={props.spacingY}
+        templateColumns={templateColumns.value}
+        {...attrs}
+      >
+        {slots}
+      </CGrid>
+    )
+  },
+})
 
 function toPx(n: string | number) {
   return isNumber(n) ? `${n}px` : n

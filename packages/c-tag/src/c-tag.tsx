@@ -34,16 +34,16 @@ interface TagOptions {
 
 export interface CTagProps
   extends ChakraProps,
-  TagOptions,
-  ThemingProps<"CTag"> { }
+    TagOptions,
+    ThemingProps<"CTag"> {}
 
 export interface CTagLabelProps
   extends ChakraProps,
-  ThemingProps<"CTagLabel"> { }
+    ThemingProps<"CTagLabel"> {}
 
 const [StylesProvider, useTagStyles] = createStylesContext("CTag")
 
-export const CTagLabel: ComponentWithProps<CTagLabelProps> = defineComponent({
+export const CTagLabel = defineComponent({
   props: {
     ...vueThemingProps,
   },
@@ -69,7 +69,7 @@ export const CTagLabel: ComponentWithProps<CTagLabelProps> = defineComponent({
 
 export interface CTagCloseButtonProps
   extends ChakraProps,
-  ThemingProps<"CTagCloseButton"> {
+    ThemingProps<"CTagCloseButton"> {
   isDisabled?: boolean
 }
 
@@ -106,37 +106,34 @@ export const CTagCloseIcon = defineComponent((_, attrs) => {
   )
 })
 
-export const CTagCloseButton: ComponentWithProps<CTagCloseButtonProps> =
-  defineComponent({
-    props: CloseButtonProps,
-    setup(props, { slots, attrs }) {
-      const styles = useTagStyles()
+export const CTagCloseButton = defineComponent({
+  props: CloseButtonProps,
+  setup(props, { slots, attrs }) {
+    const styles = useTagStyles()
 
-      const buttonStyles: SystemStyleObject = {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        outline: "0",
-        ...styles.value.closeButton,
-      }
+    const buttonStyles: SystemStyleObject = {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      outline: "0",
+      ...styles.value.closeButton,
+    }
 
-      return () => (
-        <chakra.button
-          aria-label="close"
-          type="button"
-          __css={buttonStyles}
-          {...attrs}
-          disabled={props?.isDisabled}
-        >
-          {slots.default
-            ? () => getValidChildren(slots)
-            : () => <CTagCloseIcon />}
-        </chakra.button>
-      )
-    },
-  })
+    return () => (
+      <chakra.button
+        aria-label="close"
+        type="button"
+        __css={buttonStyles}
+        {...attrs}
+        disabled={props?.isDisabled}
+      >
+        {slots.default ? () => getValidChildren(slots) : <CTagCloseIcon />}
+      </chakra.button>
+    )
+  },
+})
 
-export const CTag: ComponentWithProps<CTagProps> = defineComponent({
+export const CTag = defineComponent({
   props: TagProps,
   setup(props, { slots, attrs }) {
     const themingProps = computed<ThemingProps>(() =>

@@ -5,18 +5,17 @@ import {
   cloneVNode,
   computed,
   PropType,
-  watchEffect,
 } from "vue"
 import { CImageProps, useImage } from "@chakra-ui/c-image"
 import { SNAO } from "@chakra-ui/vue-utils"
 import { CAvatarName } from "./c-avatar-name"
 import { CDefaultAvatarIcon } from "./c-default-avatar-icon"
-import { chakra, ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
+import { chakra, SystemStyleObject } from "@chakra-ui/vue-system"
 import { useAvatarContext } from "./c-avatar"
 
-export interface CAvatarImageProps extends CImageProps {
+export interface CAvatarImageProps extends Omit<CImageProps, "borderRadius"> {
   initials?: string
-  borderRadius?: CImageProps["borderRadius"]
+  borderRadius?: SystemStyleObject["borderRadius"]
   iconLabel?: string
   name?: string
 }
@@ -39,7 +38,7 @@ export const CAvatarImage = defineComponent({
     initials: String as PropType<CAvatarImageProps["initials"]>,
     iconLabel: String as PropType<CAvatarImageProps["iconLabel"]>,
     loading: String as PropType<CAvatarImageProps["loading"]>,
-    borderRadius: SNAO as PropType<CAvatarImageProps["borderRadius"]>,
+    borderRadius: SNAO as PropType<SystemStyleObject["borderRadius"]>,
     ignoreFallback: Boolean as PropType<CAvatarImageProps["ignoreFallback"]>,
     referrerPolicy: SNAO as PropType<CAvatarImageProps["referrerPolicy"]>,
   },

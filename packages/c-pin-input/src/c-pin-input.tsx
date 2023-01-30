@@ -22,6 +22,7 @@ import {
 import { CInput } from "@chakra-ui/c-input"
 import { connect } from "@zag-js/pin-input"
 import { PinInputProps, usePinInputMachine } from "./use-pin-input"
+import { SystemProps } from "@chakra-ui/styled-system"
 
 const [StylesProvider, useStyles] = createStylesContext("CPinInput")
 const [PinInputProvider, usePinInput] =
@@ -67,7 +68,7 @@ export const CPinInputProps = {
     default: "ltr",
   },
   spacing: {
-    type: [String, Number],
+    type: [String, Number] as PropType<SystemProps["margin"]>,
     default: "0.75",
   },
   ...vueThemingProps,
@@ -82,8 +83,10 @@ export const CPinInput = defineComponent({
 
     const inputStyles = computed(() => ({
       ...styles.value,
-      mx: props.spacing,
+      mx: props.spacing!,
     }))
+
+    // @ts-ignore
     StylesProvider(inputStyles)
 
     const api = usePinInputMachine(props as unknown as PinInputProps, emit)

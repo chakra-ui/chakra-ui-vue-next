@@ -48,7 +48,7 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
-const CButtonGroup: ComponentWithProps<ButtonGroupProps> = defineComponent({
+const CButtonGroup = defineComponent({
   name: "CButtonGroup",
   props,
   setup(props, { attrs, slots }) {

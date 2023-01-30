@@ -1,2 +1,11 @@
-## Project Stats
-![Alt](https://repobeats.axiom.co/api/embed/40b60a8e21b08d97af5849ea7a8c7d7f46956824.svg "Repobeats analytics image")
+# @chakra-ui/vue-next
+
+Chakra UI on Vue 3
+
+## Installation
+
+```sh
+yarn add @chakra-ui/vue-next
+# or
+npm i @chakra-ui/vue-next
+```

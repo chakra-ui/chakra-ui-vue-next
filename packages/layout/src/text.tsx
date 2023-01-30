@@ -6,11 +6,10 @@ import {
   SystemProps,
   useStyleConfig,
   DOMElements,
-  ComponentWithProps,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
 import { SNAO, vueThemingProps } from "@chakra-ui/vue-utils"
 import { computed, defineComponent, h, PropType } from "vue"
+import type * as CSS from "csstype"
 
 export interface TextProps extends HTMLChakraProps<"p">, ThemingProps<"Text"> {
   /**
@@ -35,49 +34,49 @@ export interface TextProps extends HTMLChakraProps<"p">, ThemingProps<"Text"> {
  *
  * @see Docs https://vue.chakra-ui.com/docs/typography/text
  */
-export const CText: ComponentWithProps<DeepPartial<TextProps>> =
-  defineComponent({
-    name: "CText",
-    props: {
-      as: {
-        type: [Object, String] as PropType<DOMElements>,
-        default: "p",
-      },
-      align: SNAO as PropType<TextProps["textAlign"]>,
-      decoration: SNAO as PropType<TextProps["textDecoration"]>,
-      casing: SNAO as PropType<TextProps["textTransform"]>,
-      ...vueThemingProps,
+export const CText = defineComponent({
+  name: "CText",
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: "p",
     },
-    setup(props, { slots, attrs }) {
-      const themingProps = computed<ThemingProps>(() =>
-        filterUndefined({
-          colorScheme: props.colorScheme,
-          variant: props.variant,
-          size: props.size,
-          styleConfig: props.styleConfig,
-        })
-      )
-      const styles = useStyleConfig("Text", themingProps)
+    align: SNAO as PropType<TextProps["textAlign"]>,
+    decoration: SNAO as PropType<TextProps["textDecoration"]>,
+    casing: SNAO as PropType<TextProps["textTransform"]>,
+    ...vueThemingProps,
+  },
+  setup(props, { slots, attrs }) {
+    const themingProps = computed<ThemingProps>(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+    // @ts-expect-error "Text" not correctly inferred. todo
+    const styles = useStyleConfig("Text", themingProps)
 
-      const aliasedProps = computed(() =>
-        filterUndefined({
-          textAlign: props.align,
-          textDecoration: props.decoration,
-          textTransform: props.casing,
-        })
-      )
+    const aliasedProps = computed(() =>
+      filterUndefined({
+        textAlign: props.align,
+        textDecoration: props.decoration,
+        textTransform: props.casing,
+      })
+    )
 
-      return () => {
-        return (
-          <chakra.p
-            __label="text"
-            {...aliasedProps.value}
-            __css={styles.value}
-            {...attrs}
-          >
-            {slots}
-          </chakra.p>
-        )
-      }
-    },
-  })
+    return () => {
+      return (
+        <chakra.p
+          __label="text"
+          {...aliasedProps.value}
+          __css={styles.value}
+          {...attrs}
+        >
+          {slots}
+        </chakra.p>
+      )
+    }
+  },
+})

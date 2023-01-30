@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-auto-import",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-vue-auto-import.cjs.js",
   "module": "dist/chakra-ui-vue-auto-import.esm.js",
   "files": [
@@ -17,21 +17,29 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "build:types": "tsc --baseUrl . --outDir dist --rootDir . --emitDeclarationOnly --declarationMap",
+    "dev": "tsup --watch"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
+    "@chakra-ui/c-theme-provider": "workspace:*",
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-next": "2.0.0-beta.1",
+    "@chakra-ui/vue-next": "workspace:*",
+    "@chakra-ui/theme": "2.2.4",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@chakra-ui/vue-next": "2.0.0-beta.1",
+    "@chakra-ui/vue-next": "workspace:*",
+    "@chakra-ui/theme": "2.2.4",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.2.37"
   }

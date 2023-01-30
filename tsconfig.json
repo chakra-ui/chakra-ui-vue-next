@@ -10,6 +10,7 @@
       "vue",
       "jest",
     ],
+    // "baseUrl": ".",
     "lib": ["dom", "esnext"],
     "composite": true,
     "declaration": true,
@@ -26,12 +27,13 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
     "preserveValueImports": false,
-    "incremental": true,
+    // "incremental": true,
     "declarationMap": true
   },
   "include": [
     "cypress/support/index.ts",
     "packages/**/*.vue",
+    "packages/**/*.json",
     "packages/**/*.ts",
     "packages/**/*.tsx",
     "packages/*.tsx",
@@ -45,7 +47,7 @@
     "playground/**/*.json",
     "tests/index.d.ts",
     "**/*.d.ts",
-    "vite.config.ts",
+    "vite.config.ts", "packages/nuxt/src/runtime/chakra.client.template.jst",
   ],
   "exclude": [
     "node_modules",

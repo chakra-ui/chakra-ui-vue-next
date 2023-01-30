@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-reset",
   "description": "Chakra UI Vue | Chakra ui vue s lobal styles reset component component",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-c-reset.cjs.js",
   "module": "dist/chakra-ui-c-reset.esm.js",
   "exports": {
@@ -21,10 +21,15 @@
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "2.0.0-beta.1"
+    "@chakra-ui/vue-system": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.37"

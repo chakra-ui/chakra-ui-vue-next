@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-utils",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-vue-utils.cjs.js",
   "module": "dist/chakra-ui-vue-utils.esm.js",
   "description": "Chakra UI Vue | Utils module",
@@ -14,7 +14,12 @@
     }
   },
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "2.5.1",

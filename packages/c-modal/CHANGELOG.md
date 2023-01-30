@@ -1,5 +1,26 @@
 # @chakra-ui/c-modal
 
+## 3.0.0-beta.2
+
+### Minor Changes
+
+- 57380d50: Migrate to pnpm
+- ed252d61: Migrate build to pnpm and use rollup build
+
+### Patch Changes
+
+- Updated dependencies [57380d50]
+- Updated dependencies [ed252d61]
+  - @chakra-ui/vue-composables@2.0.0-beta.2
+  - @chakra-ui/c-close-button@2.0.0-beta.2
+  - @chakra-ui/c-scroll-lock@2.0.0-beta.2
+  - @chakra-ui/c-focus-lock@2.0.0-beta.2
+  - @chakra-ui/c-motion@2.0.0-beta.2
+  - @chakra-ui/c-portal@2.0.0-beta.2
+  - @chakra-ui/vue-accessibilty@2.0.0-beta.2
+  - @chakra-ui/vue-system@2.0.0-beta.2
+  - @chakra-ui/vue-utils@2.0.0-beta.2
+
 ## 3.0.0-beta.1
 
 ### Major Changes
@@ -25,7 +46,7 @@
   - @chakra-ui/c-focus-lock@2.0.0-beta.1
   - @chakra-ui/c-motion@2.0.0-beta.1
   - @chakra-ui/c-portal@2.0.0-beta.1
-  - @chakra-ui/vue-a11y@2.0.0-beta.1
+  - @chakra-ui/vue-accessibilty@2.0.0-beta.1
   - @chakra-ui/vue-system@2.0.0-beta.1
   - @chakra-ui/vue-utils@2.0.0-beta.1
 
@@ -45,7 +66,7 @@
   - @chakra-ui/c-scroll-lock@2.0.0-beta.0
   - @chakra-ui/vue-system@2.0.0-beta.0
   - @chakra-ui/vue-utils@2.0.0-beta.0
-  - @chakra-ui/vue-a11y@2.0.0-beta.0
+  - @chakra-ui/vue-accessibilty@2.0.0-beta.0
   - @chakra-ui/vue-composables@2.0.0-beta.0
 
 ## 2.0.0
@@ -64,7 +85,7 @@
   - @chakra-ui/c-scroll-lock@1.0.0
   - @chakra-ui/vue-system@1.0.0
   - @chakra-ui/vue-utils@1.0.0
-  - @chakra-ui/vue-a11y@1.0.0
+  - @chakra-ui/vue-accessibilty@1.0.0
   - @chakra-ui/vue-composables@1.0.0
 
 ## 2.0.0-beta.11
@@ -97,7 +118,7 @@
   - @chakra-ui/c-scroll-lock@1.0.0-beta.10
   - @chakra-ui/vue-system@1.0.0-beta.11
   - @chakra-ui/vue-utils@1.0.0-beta.12
-  - @chakra-ui/vue-a11y@1.0.0-beta.11
+  - @chakra-ui/vue-accessibilty@1.0.0-beta.11
   - @chakra-ui/vue-composables@1.0.0-beta.10
 
 ## 2.0.0-alpha.11
@@ -140,7 +161,7 @@
   - @chakra-ui/c-scroll-lock@1.0.0-alpha.9
   - @chakra-ui/vue-system@1.0.0-alpha.11
   - @chakra-ui/vue-utils@1.0.0-alpha.11
-  - @chakra-ui/vue-a11y@1.0.0-alpha.10
+  - @chakra-ui/vue-accessibilty@1.0.0-alpha.10
   - @chakra-ui/vue-composables@1.0.0-alpha.10
 
 ## 1.1.0-alpha.10
@@ -163,7 +184,7 @@
   - @chakra-ui/c-scroll-lock@0.1.0-alpha.8
   - @chakra-ui/vue-system@0.1.0-alpha.10
   - @chakra-ui/vue-utils@0.1.0-alpha.10
-  - @chakra-ui/vue-a11y@0.1.0-alpha.9
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.9
   - @chakra-ui/vue-composables@0.1.0-alpha.9
 
 ## 1.1.0-alpha.8
@@ -184,7 +205,7 @@
   - @chakra-ui/c-scroll-lock@0.1.0-alpha.7
   - @chakra-ui/vue-system@0.1.0-alpha.9
   - @chakra-ui/vue-utils@0.1.0-alpha.9
-  - @chakra-ui/vue-a11y@0.1.0-alpha.8
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.8
   - @chakra-ui/vue-composables@0.1.0-alpha.8
 
 ## 1.1.0-alpha.7
@@ -201,7 +222,7 @@
   - @chakra-ui/c-scroll-lock@0.1.0-alpha.6
   - @chakra-ui/vue-system@0.1.0-alpha.8
   - @chakra-ui/vue-utils@0.1.0-alpha.8
-  - @chakra-ui/vue-a11y@0.1.0-alpha.7
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.7
   - @chakra-ui/vue-composables@0.1.0-alpha.7
 
 ## 1.1.0-alpha.6
@@ -220,7 +241,7 @@
   - @chakra-ui/c-scroll-lock@0.1.0-alpha.5
   - @chakra-ui/vue-system@0.1.0-alpha.7
   - @chakra-ui/vue-utils@0.1.0-alpha.7
-  - @chakra-ui/vue-a11y@0.1.0-alpha.6
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.6
   - @chakra-ui/vue-composables@0.1.0-alpha.6
 
 ## 1.1.0-alpha.5
@@ -249,7 +270,7 @@
   - @chakra-ui/c-scroll-lock@0.1.0-alpha.4
   - @chakra-ui/vue-system@0.1.0-alpha.6
   - @chakra-ui/vue-utils@0.1.0-alpha.6
-  - @chakra-ui/vue-a11y@0.1.0-alpha.5
+  - @chakra-ui/vue-accessibilty@0.1.0-alpha.5
   - @chakra-ui/vue-composables@0.1.0-alpha.5
 
 ## 1.1.0-alpha.4

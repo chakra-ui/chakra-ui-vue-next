@@ -69,5 +69,5 @@ export interface UseCheckboxProps {
   "aria-labelledby"?: string
   "aria-invalid"?: true | undefined
   "aria-describedby"?: string
-  tabIndex?: number
+  tabIndex?: number | string
 }

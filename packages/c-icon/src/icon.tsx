@@ -6,14 +6,16 @@ import {
   SVGAttributes,
   PropType,
   Fragment,
+  DefineComponent,
 } from "vue"
 import {
   chakra,
   ChakraProps,
   ComponentWithProps,
   DeepPartial,
-  DOMElements,
+  HTMLChakraProps,
 } from "@chakra-ui/vue-system"
+import type {} from "@vue/runtime-core"
 import { SNAO, camelCase } from "@chakra-ui/vue-utils"
 import { mergeWith } from "@chakra-ui/utils"
 
@@ -46,56 +48,56 @@ export interface IconProps
   name?: string | undefined
 }
 
-export const iconProps = {
-  as: "svg",
-  size: "1em",
-}
-
-const _iconProps = {
-  as: SNAO as PropType<IconProps["as"]>,
-  size: SNAO as PropType<IconProps["size"]>,
+export const _iconProps = {
+  as: {
+    type: SNAO as PropType<IconProps["as"]>,
+    default: "svg",
+  },
+  size: {
+    type: SNAO as PropType<IconProps["size"]>,
+    default: "1em",
+  },
   name: String as PropType<IconProps["name"]>,
 }
 
-export const CIcon: ComponentWithProps<DeepPartial<IconProps>> =
-  defineComponent({
-    name: "CIcon",
-    props: _iconProps,
-    setup(_props, { slots, attrs }) {
-      const props = computed<IconProps>(() => mergeWith({}, iconProps, _props))
-      const icons = inject<Record<string, any>>("$chakraIcons")
-      const icon = computed(
-        () => icons?.[props.value?.name as string] || fallbackIcon
-      )
+export const CIcon = defineComponent({
+  name: "CIcon",
+  props: _iconProps,
+  setup(_props, { slots, attrs }) {
+    const props = computed<IconProps>(() => mergeWith({}, _props))
+    const icons = inject<Record<string, any>>("$chakraIcons")
+    const icon = computed(
+      () => icons?.[props.value?.name as string] || fallbackIcon
+    )
 
-      const hasDefaultSlot = computed(() => slots?.default?.()?.length)
-      const vnodeProps = computed(() => ({
-        w: props.value.size,
-        h: props.value.size,
-        display: "inline-block",
-        lineHeight: "1em",
-        flexShrink: 0,
-        color: "currentColor",
-        ...(!hasDefaultSlot.value && {
-          innerHTML: icon.value.path,
-        }),
-        focusable: false,
-        viewBox: icon.value.viewBox || fallbackIcon.viewBox,
-      }))
+    const hasDefaultSlot = computed(() => slots?.default?.()?.length)
+    const vnodeProps = computed(() => ({
+      w: props.value.size,
+      h: props.value.size,
+      display: "inline-block",
+      lineHeight: "1em",
+      flexShrink: 0,
+      color: "currentColor",
+      ...(!hasDefaultSlot.value && {
+        innerHTML: icon.value.path,
+      }),
+      focusable: false,
+      viewBox: icon.value.viewBox || fallbackIcon.viewBox,
+    }))
 
-      return () => (
-        <chakra.svg
-          as={props.value.as}
-          __label="icon"
-          {...(icon.value.attrs || {})}
-          {...vnodeProps.value}
-          {...attrs}
-        >
-          {slots}
-        </chakra.svg>
-      )
-    },
-  })
+    return () => (
+      <chakra.svg
+        as={props.value.as}
+        __label="icon"
+        {...(icon.value.attrs || {})}
+        {...vnodeProps.value}
+        {...attrs}
+      >
+        {slots}
+      </chakra.svg>
+    )
+  },
+})
 
 export function createIconComponent(name: string) {
   const componentName = camelCase(name)
@@ -107,7 +109,7 @@ export function createIconComponent(name: string) {
         </CIcon>
       )
     }
-  )
+  ) as any as DefineComponent
 
   iconComponent.name = componentName
   return iconComponent

@@ -110,6 +110,19 @@ async function generateComponents() {
       role?: string;
       tabindex?: number | string;
       value?: unknown
+      id?: string
+      viewBox?: unknown
+      src?: unknown
+      srcset?: unknown
+      crossOrigin?: unknown
+      srcSet?: unknown
+      loading?: unknown
+      alt?: unknown
+      referrerPolicy?: unknown
+      focusable?: unknown
+      type?: unknown
+      disabled?: unknown
+      href?: unknown
       // should be removed after Vue supported component events typing
       // see: https://github.com/vuejs/vue-next/issues/1553
       //      https://github.com/vuejs/vue-next/issues/3029
@@ -154,7 +167,7 @@ async function generateComponents() {
   const projectTypesFilePath = resolve(__dirname, "../components.d.ts")
   const coreTypesFilePath = resolve(
     __dirname,
-    "../packages/core/dist/declarations/src/index.d.ts"
+    "../packages/core/dist/index.d.ts"
   )
   const localTypesFilePath = resolve(__dirname, "../@types/components.d.ts")
   writeFileSync(projectTypesFilePath, allTypes, "utf8")

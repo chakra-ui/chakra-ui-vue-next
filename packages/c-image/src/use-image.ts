@@ -1,16 +1,10 @@
-import { useRef } from "@chakra-ui/vue-utils"
 import {
   computed,
   unref,
   ComputedRef,
   ImgHTMLAttributes,
   ref,
-  watchSyncEffect,
-  watch,
-  onMounted,
   watchPostEffect,
-  nextTick,
-  watchEffect,
 } from "vue"
 
 type NativeImageProps = ImgHTMLAttributes

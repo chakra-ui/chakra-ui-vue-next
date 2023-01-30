@@ -17,7 +17,6 @@ export interface ChakraPluginOptions {
   cssReset?: boolean
   extendTheme?: ThemeOverride
   icons?: IconsOptions
-  defaultColorMode?: UnwrapRef<ColorModeRef>
   colorModeManager?: StorageManager
   emotionCacheOptions?: Options
   isBaseTheme?: boolean

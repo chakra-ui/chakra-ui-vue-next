@@ -10,21 +10,19 @@ export interface CVisbilityProps {
   hide?: boolean
 }
 
-export const CVisibility: ComponentWithProps<CVisbilityProps> = defineComponent(
-  {
-    props: {
-      breakpoint: {
-        type: String as PropType<CVisbilityProps["breakpoint"]>,
-        required: true,
-      },
-      hide: Boolean as PropType<CVisbilityProps["hide"]>,
+export const CVisibility = defineComponent({
+  props: {
+    breakpoint: {
+      type: String as PropType<CVisbilityProps["breakpoint"]>,
+      required: true,
     },
-    setup(props, { slots }) {
-      const show = useMediaQuery(props.breakpoint)
+    hide: Boolean as PropType<CVisbilityProps["hide"]>,
+  },
+  setup(props, { slots }) {
+    const show = useMediaQuery(props.breakpoint)
 
-      const isVisible = computed(() => (props.hide ? !show.value : show.value))
+    const isVisible = computed(() => (props.hide ? !show.value : show.value))
 
-      return () => (isVisible.value ? slots.default!() : null)
-    },
-  }
-)
+    return () => (isVisible.value ? slots.default!() : null)
+  },
+})

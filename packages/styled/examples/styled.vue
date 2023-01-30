@@ -16,6 +16,7 @@
     >
       Hot pink
     </chakra.button>
+    <CButton />
   </div>
 </template>
 
@@ -41,8 +42,13 @@ function handleClick(e: MouseEvent) {
 const CButton = defineComponent({
   setup() {
     return () => (
-      <Button height="32px" onClick={handleClick}>
-        Main Button
+      <Button
+        height="32px"
+        bg="teal.100"
+        _hover={{ bg: "teal.200" }}
+        onClick={handleClick}
+      >
+        Yo this is a button
       </Button>
     )
   },

@@ -17,7 +17,7 @@ import {
   useMultiStyleConfig,
   omitThemingProps,
 } from "@chakra-ui/vue-system"
-import { useFormControl } from "@chakra-ui/c-form-control"
+import { useFormControl } from "../src"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 const CTextarea = defineComponent({

@@ -22,7 +22,7 @@ import { StyleResolverProps } from "./chakra"
  * @example
  * export const CBox = CBoxImpl as ComponentWithProps<{ hello?: string }>
  */
-export type ComponentWithProps<P> = {
+export type ComponentWithProps2<P> = {
   new (): {
     $props: AllowedComponentProps &
       ComponentCustomProps &

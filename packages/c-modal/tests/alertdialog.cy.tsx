@@ -10,7 +10,7 @@ import {
   CAlertDialogOverlay,
   CAlertDialogContent,
 } from "../src"
-import { CButton } from "@chakra-ui/c-button"
+import { CButton } from "@chakra-ui/vue-next"
 
 const render = (props: any = {}) => {
   return cy.mount(() =>

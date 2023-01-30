@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/vue-composables",
   "description": "Chakra UI Vue | Chakra ui vue utility composables component",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-vue-composables.cjs.js",
   "module": "dist/chakra-ui-vue-composables.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -25,13 +25,18 @@
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "2.0.0-beta.1"
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.37"

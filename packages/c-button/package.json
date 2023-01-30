@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-button",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "dist/chakra-ui-c-button.cjs.js",
   "module": "dist/chakra-ui-c-button.esm.js",
   "files": [
@@ -17,14 +17,19 @@
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/c-icon": "2.0.0-beta.1",
-    "@chakra-ui/c-spinner": "2.0.0-beta.1",
+    "@chakra-ui/c-icon": "workspace:*",
+    "@chakra-ui/c-spinner": "workspace:*",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
-    "@chakra-ui/vue-utils": "2.0.0-beta.1"
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

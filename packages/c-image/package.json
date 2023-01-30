@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-image",
   "description": "Chakra UI Vue | Image component",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "main": "dist/chakra-ui-c-image.cjs.js",
   "module": "dist/chakra-ui-c-image.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -22,14 +22,22 @@
   },
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist"
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/vue-system": "2.0.0-beta.1",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
     "lodash": "4.17.21"
   },
   "devDependencies": {
+    "csstype": "^3.1.1",
+    "@chakra-ui/styled-system": "2.5.1",
     "vue": "^3.2.37"
   },
   "peerDependencies": {

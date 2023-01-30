@@ -7,19 +7,19 @@
 </template>
 
 <script lang="tsx" setup>
-import { h, defineComponent, computed, toRefs } from 'vue'
+import { h, defineComponent, computed, toRefs } from "vue"
 import {
   chakra,
   useMultiStyleConfig,
   omitThemingProps,
-} from '@chakra-ui/vue-system'
-import { useFormControl } from '@chakra-ui/c-form-control'
-import { vueThemingProps } from '@chakra-ui/vue-utils'
+} from "@chakra-ui/vue-system"
+import { useFormControl } from "@chakra-ui/vue-next"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 const CInput = defineComponent({
   props: vueThemingProps,
   setup(props) {
-    const styles = useMultiStyleConfig('Input', props)
+    const styles = useMultiStyleConfig("Input", props)
     const _props = computed(() => toRefs(omitThemingProps(props)))
     const inputProps = useFormControl(_props.value)
     return () => (
