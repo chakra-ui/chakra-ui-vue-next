@@ -5,6 +5,7 @@ import {
   DeepPartial,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
+import { getValidChildren } from "@chakra-ui/vue-utils"
 
 export interface CTableContainerProps extends HTMLChakraProps<"div"> {}
 
@@ -29,7 +30,7 @@ export const CTableContainer: ComponentWithProps<
         }}
         {...attrs}
       >
-        {slots}
+        {() => getValidChildren(slots)}
       </chakra.div>
     )
   },
