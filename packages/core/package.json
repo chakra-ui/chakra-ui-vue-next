@@ -52,6 +52,7 @@
     "@chakra-ui/c-spinner": "workspace:*",
     "@chakra-ui/c-tag": "workspace:*",
     "@chakra-ui/c-theme-provider": "workspace:*",
+    "@chakra-ui/c-toast": "workspace:*",
     "@chakra-ui/c-visually-hidden": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/theme": "^2.2.5",

@@ -793,6 +793,15 @@ importers:
     devDependencies:
       vue: 3.2.45
 
+  packages/c-toast:
+    specifiers:
+      '@chakra-ui/vue-system': workspace:*
+      vue: ^3.2.37
+    dependencies:
+      '@chakra-ui/vue-system': link:../system
+    devDependencies:
+      vue: 3.2.45
+
   packages/c-visually-hidden:
     specifiers:
       '@chakra-ui/vue-system': workspace:*
@@ -827,6 +836,7 @@ importers:
       '@chakra-ui/c-spinner': workspace:*
       '@chakra-ui/c-tag': workspace:*
       '@chakra-ui/c-theme-provider': workspace:*
+      '@chakra-ui/c-toast': workspace:*
       '@chakra-ui/c-visually-hidden': workspace:*
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/theme': ^2.2.5
@@ -870,6 +880,7 @@ importers:
       '@chakra-ui/c-spinner': link:../c-spinner
       '@chakra-ui/c-tag': link:../c-tag
       '@chakra-ui/c-theme-provider': link:../c-theme-provider
+      '@chakra-ui/c-toast': link:../c-toast
       '@chakra-ui/c-visually-hidden': link:../c-visually-hidden
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/theme': 2.2.5_ak67p4fuwhwgy7hpxa6ejvcgoy
