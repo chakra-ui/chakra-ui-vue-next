@@ -9,25 +9,22 @@
  */
 
 import { defineComponent, h, Fragment, PropType } from "vue"
-import {
-  chakra,
-  DOMElements,
-} from "@chakra-ui/vue-system"
+import { chakra, DOMElements } from "@chakra-ui/vue-system"
 
 export interface CToastProps {}
 
 export const CToast = defineComponent({
-    props: {
-      as: {
-        type: [Object, String] as PropType<DOMElements>,
-        default: "div",
-      },
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: "div",
     },
-    setup(props, { slots, attrs }) {
-      return () => (
-        <chakra.div as={props.as} {...attrs}>
-          {slots}
-        </chakra.div>
-      )
-    },
-  })
+  },
+  setup(props, { slots, attrs }) {
+    return () => (
+      <chakra.div as={props.as} {...attrs}>
+        {slots}
+      </chakra.div>
+    )
+  },
+})

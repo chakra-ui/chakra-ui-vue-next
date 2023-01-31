@@ -33,7 +33,9 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "workspace:*"
+    "@chakra-ui/vue-system": "workspace:*",
+    "@zag-js/toast": "^0.2.8",
+    "@zag-js/vue": "^0.1.14"
   },
   "devDependencies": {
     "vue": "^3.2.37"
