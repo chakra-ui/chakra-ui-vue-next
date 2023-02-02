@@ -34,8 +34,10 @@
   },
   "dependencies": {
     "@chakra-ui/vue-system": "workspace:*",
+    "@zag-js/core": "^0.2.6",
     "@zag-js/toast": "^0.2.8",
-    "@zag-js/vue": "^0.1.14"
+    "@zag-js/vue": "^0.1.16",
+    "motion": "^10.15.5"
   },
   "devDependencies": {
     "vue": "^3.2.37"

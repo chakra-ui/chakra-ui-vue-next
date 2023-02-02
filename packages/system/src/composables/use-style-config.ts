@@ -40,7 +40,6 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
     const themeStyleConfig = get(theme, `components.${themeKey}`)
 
     const styleConfig = styleConfigProp || themeStyleConfig
-
     const mergedProps = mergeWith(
       { theme: theme, colorMode: colorMode.value },
       styleConfig?.defaultProps ?? {},
