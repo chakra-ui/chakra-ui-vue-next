@@ -1,4 +1,4 @@
-import { computed, Plugin, ref, UnwrapRef } from "vue"
+import { computed, createVNode, Plugin, ref, render, UnwrapRef } from "vue"
 import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/theme"
 import { ColorModeRef, setupColorModeContext } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
@@ -19,7 +19,8 @@ import { injectResetStyles, injectThemeGlobalStyles } from "./helpers/css-reset"
 import { mode } from "@chakra-ui/theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
 import { Dict } from "@chakra-ui/utils"
-import { localStorageManager, StorageManager } from "@chakra-ui/c-color-mode"
+import { localStorageManager } from "@chakra-ui/c-color-mode"
+import { ToastContainerId, CToastContainer } from "@chakra-ui/c-toast"
 
 /**
  * 1. Support passing cache options from plugin
@@ -119,6 +120,20 @@ const ChakraUIVuePlugin: Plugin = {
 
     // Set color mode property
     app.config.globalProperties.$mode = mode
+
+    // Setup toast container component
+    console.log("app._context", app._context)
+    const toastContainer =
+      document.getElementById(ToastContainerId) || document.createElement("div")
+    toastContainer.id = ToastContainerId
+
+    if (!document.body.contains(toastContainer)) {
+      document.body.appendChild(toastContainer)
+    }
+
+    const vnode = createVNode(CToastContainer)
+    vnode.appContext = app._context
+    render(vnode, toastContainer)
   },
 }
 

@@ -46,7 +46,6 @@ export const CPresenceGroup = defineComponent({
 
     function enter(element: Element) {
       const state = mountedStates.get(element)
-      console.log("enter state", element, state)
 
       if (!state) return
 
@@ -56,7 +55,6 @@ export const CPresenceGroup = defineComponent({
 
     function exit(element: Element, done: VoidFunction) {
       const state = mountedStates.get(element)
-      console.log("exit state", element, state)
 
       if (!state) return done()
 

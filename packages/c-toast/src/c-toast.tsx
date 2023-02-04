@@ -22,8 +22,10 @@ import * as toast from "@zag-js/toast"
 import { normalizeProps, useActor } from "@zag-js/vue"
 import { chakra, DOMElements } from "@chakra-ui/vue-system"
 import { useMachine } from "./toast-state-machine"
-import { Motion } from "./c-motion"
+// import { Motion } from "./c-motion"
 import { CPresenceGroup } from "./c-presence-group"
+
+import { Presence, Motion } from "motion/vue"
 
 export const placements = [
   "top-start",
@@ -34,10 +36,10 @@ export const placements = [
   "bottom-end",
 ] as const
 
-export type Placement = (typeof placements)[number]
+export type ToastPlacement = (typeof placements)[number]
 
 export function getToastsByPlacement(toasts: toast.Service[]) {
-  const result: Partial<Record<Placement, toast.Service[]>> = {
+  const result: Partial<Record<ToastPlacement, toast.Service[]>> = {
     "top-start": [],
     top: [],
     "top-end": [],
@@ -76,6 +78,8 @@ export const CToast = defineComponent({
 
     return () => {
       const api = apiRef.value
+
+      console.log('"api.rootProps', api)
       return (
         <div
           style={{
@@ -116,9 +120,22 @@ export const CToastContainer = defineComponent({
       getToastsByPlacement(allToasts.value)
     )
 
-    watchEffect(() =>
-      console.log("toastsByPlacements", toastsByPlacements.value)
-    )
+    function initial(placement: ToastPlacement) {
+      const position = placement
+      const dir = ["top", "bottom"].includes(position) ? "y" : "x"
+
+      let factor = ["top-right", "bottom-right"].includes(position) ? 1 : -1
+      if (position === "bottom") factor = 1
+
+      console.log(`initial >> ${position}`, {
+        opacity: 0,
+        [dir]: factor * 24,
+      })
+      return {
+        opacity: 0,
+        [dir]: factor * 24,
+      }
+    }
 
     return () => {
       const api = $toast.value
@@ -127,31 +144,46 @@ export const CToastContainer = defineComponent({
         <>
           {Object.entries(toastsByPlacements.value).map(
             ([placement, toasts]) => (
-              <div
+              <chakra.div
                 key={placement}
-                {...api.getGroupProps({ placement: placement as Placement })}
+                {...api.getGroupProps({
+                  placement: placement as ToastPlacement,
+                })}
+                pointerEvents="none"
               >
-                <CPresenceGroup>
-                  {toasts.map((toast, i) => {
-                    console.log("toast-objct", toast)
-                    return (
+                {/* <CPresenceGroup> */}
+                {toasts.map((toast, i) => {
+                  return (
+                    <Presence key={i}>
                       <Motion
-                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                        initial={initial(toast.state.context.placement)}
                         animate={{
                           opacity: 1,
-                          scale: 1,
                           y: 0,
+                          x: 0,
+                          scale: 1,
+                          transition: {
+                            duration: 0.4,
+                            ease: [0.4, 0, 0.2, 1],
+                          },
                         }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        key={i}
+                        exit={{
+                          opacity: 0,
+                          scale: 0.85,
+                          transition: {
+                            duration: 0.2,
+                            ease: [0.4, 0, 1, 1],
+                          },
+                        }}
                         data-toastId={toast.id}
                       >
                         <CToast actor={toast} />
                       </Motion>
-                    )
-                  })}
-                </CPresenceGroup>
-              </div>
+                    </Presence>
+                  )
+                })}
+                {/* </CPresenceGroup> */}
+              </chakra.div>
             )
           )}
         </>
@@ -159,3 +191,5 @@ export const CToastContainer = defineComponent({
     }
   },
 })
+
+export const ToastContainerId = "chakra-ui-toast-container"
