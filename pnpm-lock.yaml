@@ -860,6 +860,8 @@ importers:
       '@emotion/serialize': 1.1.1
       '@emotion/sheet': ^1.1.0
       '@emotion/utils': ^1.1.0
+      '@zag-js/toast': ^0.2.8
+      '@zag-js/vue': ^0.2.8
       vue: ^3.2.37
     dependencies:
       '@chakra-ui/c-accordion': link:../c-accordion
@@ -904,6 +906,8 @@ importers:
       '@emotion/serialize': 1.1.1
       '@emotion/sheet': 1.2.1
       '@emotion/utils': 1.2.0
+      '@zag-js/toast': 0.2.8
+      '@zag-js/vue': 0.2.8_vue@3.2.45
     devDependencies:
       vue: 3.2.45
 
@@ -7084,6 +7088,15 @@ packages:
       klona: 2.0.6
     dev: false
 
+  /@zag-js/core/0.2.8:
+    resolution: {integrity: sha512-3WXIn2G4BfQEvO6I+5CvOy9aJAkvnBzYbuFWM9wfgtU6OHSx4mZJW88XDGexYLUcoIEunKByFmTxvtA9UncSOQ==}
+    dependencies:
+      '@zag-js/store': 0.2.6
+      klona: 2.0.6
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /@zag-js/pin-input/0.1.14:
     resolution: {integrity: sha512-GkeDzUguKy+laZFGV8+2wsEJ6b2owJcCi+1btegQ5RfLUIC2YWodO8RbIEOQIETh6DC/Np3l8NZf1m5flxrFJw==}
     dependencies:
@@ -7115,6 +7128,15 @@ packages:
       proxy-compare: 2.4.0
     dev: false
 
+  /@zag-js/store/0.2.6:
+    resolution: {integrity: sha512-2++D+Y7fz+aEMV1WIDyqEus9vGqssWkdLUTSXar3oTKNIIiD3hFHimqtFCLWnArqZUL4VP+89GWHr5f506P84w==}
+    dependencies:
+      proxy-compare: 2.4.0
+      valtio: 1.10.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   /@zag-js/toast/0.2.8:
     resolution: {integrity: sha512-ZONlxess1v0umknfwAuv8L5A7vK/D4adh9yTZW+2eZokmxsizSOJKnsjbAaINCjN4GUQfauWt0g8SKjtakzosQ==}
     dependencies:
@@ -7141,6 +7163,12 @@ packages:
       csstype: 3.1.1
     dev: false
 
+  /@zag-js/types/0.3.4:
+    resolution: {integrity: sha512-KkZOMNqFZA0TaVF70O6WIRJPWTcDyRQjhXLDkLVfo99gwJdsC1bMZWfjrCiR8g1CfzvCyGNSWzdArIgzTJVEMA==}
+    dependencies:
+      csstype: 3.1.1
+    dev: false
+
   /@zag-js/vue/0.1.16_vue@3.2.45:
     resolution: {integrity: sha512-R+GjGFUeG1Vjv5fAlPVzw3/k3TjL47O6XKfwmIdj/QwsZ3nFX6ytppa2rLq6SvXo1ZErxr0R7R+eMVyU7XVmBw==}
     peerDependencies:
@@ -7150,6 +7178,19 @@ packages:
       '@zag-js/store': 0.1.4
       '@zag-js/types': 0.2.7
       vue: 3.2.45
+    dev: false
+
+  /@zag-js/vue/0.2.8_vue@3.2.45:
+    resolution: {integrity: sha512-UfY67spWDPEodAFdTcHnzmZCDaI0+nP6eRfjFfFMY1Z8bFyUYUHF9Fypi9tTiEvjNpdvfz3dx4T0crjWKzSbrQ==}
+    peerDependencies:
+      vue: '>=3.0.0'
+    dependencies:
+      '@zag-js/core': 0.2.8
+      '@zag-js/store': 0.2.6
+      '@zag-js/types': 0.3.4
+      vue: 3.2.45
+    transitivePeerDependencies:
+      - react
     dev: false
 
   /@zhead/schema-vue/0.7.4_vue@3.2.45:
@@ -21820,6 +21861,12 @@ packages:
       querystring: 0.2.0
     dev: false
 
+  /use-sync-external-store/1.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dev: false
+
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
     engines: {node: '>=0.10.0'}
@@ -21891,6 +21938,19 @@ packages:
     resolution: {integrity: sha512-M6w37eVCMMouJ9V/sdPGnC5H4uDr73/+xdq0FBLO3TFFX1+7wiUY6Es328NN+y43tmY+doUdN9g9J21vqB7iLw==}
     dependencies:
       builtins: 1.0.3
+    dev: false
+
+  /valtio/1.10.0:
+    resolution: {integrity: sha512-weL/kg2394gghZWo1iKasGg4otnEl42Hqp0/wJ09cV1HieZelPh3du4qyctFzaAwOMoeyZgmSGXxD3aFKQ9J3w==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=16.8'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      proxy-compare: 2.4.0
+      use-sync-external-store: 1.2.0
     dev: false
 
   /verror/1.10.0:

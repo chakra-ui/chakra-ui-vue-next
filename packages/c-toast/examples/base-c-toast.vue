@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { CToast, $toast, CToastContainer } from "../src"
+import { useToast } from "../src"
 
-// const toast = useToast()
+const toast = useToast()
 
 /**
  * - Render the toast container imperatively (do not require consumer to manually import toast component).
@@ -17,10 +17,12 @@ import { CToast, $toast, CToastContainer } from "../src"
  */
 
 function notify() {
-  $toast.value.create({
+  const t = toast.value.create({
     title: "Hey yo!",
     description: "Welcome to the world of bread!",
     duration: 20000,
   })
+
+  console.log("t", t)
 }
 </script>

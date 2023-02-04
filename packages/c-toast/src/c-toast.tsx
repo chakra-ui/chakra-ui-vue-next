@@ -14,9 +14,10 @@ import {
   ref,
   Fragment,
   computed,
-  onMounted,
   PropType,
+  inject,
   watchEffect,
+  ComputedRef,
 } from "vue"
 import * as toast from "@zag-js/toast"
 import { normalizeProps, useActor } from "@zag-js/vue"
@@ -98,47 +99,37 @@ export const CToast = defineComponent({
   },
 })
 
-const [state, send] = useMachine(
-  // @ts-ignore
-  toast.group.machine({ id: "chakra.toast.group" }),
-  {
-    context: ref({
-      pauseOnInteraction: true,
-    }),
-  }
-)
+function initial(placement: ToastPlacement) {
+  const position = placement
+  const dir = ["top", "bottom"].includes(position) ? "y" : "x"
 
-export const $toast = computed(() =>
-  toast.group.connect(state.value, send, normalizeProps)
-)
+  let factor = ["top-right", "bottom-right"].includes(position) ? 1 : -1
+  if (position === "bottom") factor = 1
+
+  console.log(`initial >> ${position}`, {
+    opacity: 0,
+    [dir]: factor * 24,
+  })
+  return {
+    opacity: 0,
+    [dir]: factor * 24,
+  }
+}
 
 export const CToastContainer = defineComponent({
   name: "CToastContainer",
   setup(_, { slots }) {
-    const allToasts = computed(() => $toast.value.toasts)
+    const t = useToast()
+    const allToasts = computed(() => t.value.toasts)
+    const toast = computed(() => t.value)
     const toastsByPlacements = computed(() =>
       getToastsByPlacement(allToasts.value)
     )
 
-    function initial(placement: ToastPlacement) {
-      const position = placement
-      const dir = ["top", "bottom"].includes(position) ? "y" : "x"
-
-      let factor = ["top-right", "bottom-right"].includes(position) ? 1 : -1
-      if (position === "bottom") factor = 1
-
-      console.log(`initial >> ${position}`, {
-        opacity: 0,
-        [dir]: factor * 24,
-      })
-      return {
-        opacity: 0,
-        [dir]: factor * 24,
-      }
-    }
+    watchEffect(() => console.debug("toast - container -toast", toast.value))
 
     return () => {
-      const api = $toast.value
+      const api = toast.value
 
       return (
         <>
@@ -193,3 +184,14 @@ export const CToastContainer = defineComponent({
 })
 
 export const ToastContainerId = "chakra-ui-toast-container"
+export const ToastContextSymbol = Symbol("ToastContextSymbol")
+
+export interface IToastContext extends ReturnType<typeof toast.group.connect> {}
+
+export function useToast() {
+  // TODO: Consider providing noop for SSR
+  return inject<ComputedRef<IToastContext>>(
+    ToastContextSymbol,
+    {} as ComputedRef<IToastContext>
+  )
+}

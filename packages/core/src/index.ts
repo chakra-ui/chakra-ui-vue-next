@@ -20,7 +20,14 @@ import { mode } from "@chakra-ui/theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
 import { Dict } from "@chakra-ui/utils"
 import { localStorageManager } from "@chakra-ui/c-color-mode"
-import { ToastContainerId, CToastContainer } from "@chakra-ui/c-toast"
+import {
+  ToastContainerId,
+  CToastContainer,
+  ToastContextSymbol,
+  useMachine,
+} from "@chakra-ui/c-toast"
+import { normalizeProps } from "@zag-js/vue"
+import * as __toast__ from "@zag-js/toast"
 
 /**
  * 1. Support passing cache options from plugin
@@ -121,8 +128,28 @@ const ChakraUIVuePlugin: Plugin = {
     // Set color mode property
     app.config.globalProperties.$mode = mode
 
+    // Create Toast Group Machine
+    const [state, send] = useMachine(
+      // @ts-ignore
+      __toast__.group.machine({ id: "chakra.toast.group" }),
+      {
+        context: ref({
+          pauseOnInteraction: true,
+        }),
+      }
+    )
+
+    const toast = computed(() =>
+      __toast__.group.connect(state.value, send, normalizeProps)
+    )
+    console.log("state", {
+      state: state.value,
+      toast: toast.value,
+    })
+
+    app.provide(ToastContextSymbol, toast)
+
     // Setup toast container component
-    console.log("app._context", app._context)
     const toastContainer =
       document.getElementById(ToastContainerId) || document.createElement("div")
     toastContainer.id = ToastContainerId
