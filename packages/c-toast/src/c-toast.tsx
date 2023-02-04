@@ -18,12 +18,15 @@ import {
   inject,
   watchEffect,
   ComputedRef,
+  reactive,
+  watch,
 } from "vue"
 import * as toast from "@zag-js/toast"
-import { normalizeProps, useActor } from "@zag-js/vue"
+import { normalizeProps, useMachine, useActor } from "@zag-js/vue"
+import * as __toast__ from "@zag-js/toast"
 import { chakra, DOMElements } from "@chakra-ui/vue-system"
-import { useMachine } from "./toast-state-machine"
-// import { Motion } from "./c-motion"
+// import { useMachine } from "./toast-state-machine"
+import type * as Toast from "@zag-js/core"
 import { CPresenceGroup } from "./c-presence-group"
 
 import { Presence, Motion } from "motion/vue"
@@ -116,15 +119,47 @@ function initial(placement: ToastPlacement) {
   }
 }
 
+interface IToastStore {
+  toastGroup?: IToastContext
+}
+// @ts-ignore Type inferrence
+export const toastStore = reactive<IToastStore>({
+  toastGroup: undefined,
+})
+
+export const toastContext = computed(() => toastStore.toastGroup)
+
 export const CToastContainer = defineComponent({
   name: "CToastContainer",
   setup(_, { slots }) {
     const t = useToast()
-    const allToasts = computed(() => t.value.toasts)
-    const toast = computed(() => t.value)
+
+    // Create Toast Group Machine
+    const [state, send] = useMachine(
+      // @ts-ignore
+      __toast__.group.machine({ id: "chakra.toast.group" }),
+      {
+        context: ref({
+          pauseOnInteraction: true,
+        }),
+      }
+    )
+
+    const toast = computed(() =>
+      // @ts-ignore
+      __toast__.group.connect(state.value, send, normalizeProps)
+    )
+
+    const allToasts = computed(() => toast.value.toasts)
     const toastsByPlacements = computed(() =>
       getToastsByPlacement(allToasts.value)
     )
+
+    watch(toast, (value) => {
+      // Update the store context object
+      // every time it changes
+      toastStore.toastGroup = value
+    })
 
     watchEffect(() => console.debug("toast - container -toast", toast.value))
 

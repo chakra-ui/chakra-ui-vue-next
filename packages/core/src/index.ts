@@ -24,9 +24,10 @@ import {
   ToastContainerId,
   CToastContainer,
   ToastContextSymbol,
-  useMachine,
+  toastContext,
+  // useMachine,
 } from "@chakra-ui/c-toast"
-import { normalizeProps } from "@zag-js/vue"
+import { useMachine, normalizeProps } from "@zag-js/vue"
 import * as __toast__ from "@zag-js/toast"
 
 /**
@@ -128,26 +129,7 @@ const ChakraUIVuePlugin: Plugin = {
     // Set color mode property
     app.config.globalProperties.$mode = mode
 
-    // Create Toast Group Machine
-    const [state, send] = useMachine(
-      // @ts-ignore
-      __toast__.group.machine({ id: "chakra.toast.group" }),
-      {
-        context: ref({
-          pauseOnInteraction: true,
-        }),
-      }
-    )
-
-    const toast = computed(() =>
-      __toast__.group.connect(state.value, send, normalizeProps)
-    )
-    console.log("state", {
-      state: state.value,
-      toast: toast.value,
-    })
-
-    app.provide(ToastContextSymbol, toast)
+    app.provide(ToastContextSymbol, toastContext)
 
     // Setup toast container component
     const toastContainer =
