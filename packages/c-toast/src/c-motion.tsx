@@ -59,22 +59,22 @@ export const Motion = defineComponent({
     onMounted(() => {
       const unmount = state.mount(root.value!)
       let height = props.animate?.height
-      // if (root.value) {
-      //   const el = root.value as HTMLElement
-      //   const { height: initialHeight } = getComputedStyle(el)
-      //   el.style.visibility = "hidden"
-      //   el.style.height = props.animate?.height || "auto"
-      //   const { height: targetHeight } = getComputedStyle(el)
-      //   height = targetHeight
-      //   el.style.height = initialHeight
-      //   el.style.visibility = "visible"
-      // }
+      if (root.value) {
+        const el = root.value as HTMLElement
+        const { height: initialHeight } = getComputedStyle(el)
+        el.style.visibility = "hidden"
+        el.style.height = props.animate?.height || "auto"
+        const { height: targetHeight } = getComputedStyle(el)
+        height = targetHeight
+        el.style.height = initialHeight
+        el.style.visibility = "visible"
+      }
 
       state.update({
         ...props,
         animate: {
           ...props.animate,
-          // height: height,
+          height: height,
         },
         initial: props.initial === true ? undefined : props.initial,
       })
@@ -84,17 +84,17 @@ export const Motion = defineComponent({
 
     let manuallyAppliedMotionStyles = false
     onUpdated(() => {
-      // let height = props.exit?.height
-      // if (root.value) {
-      //   const el = root.value as HTMLElement
-      //   const { height: initialHeight } = getComputedStyle(el)
-      //   el.style.visibility = "hidden"
-      //   el.style.height = props.exit?.height || "auto"
-      //   const { height: targetHeight } = getComputedStyle(el)
-      //   height = targetHeight
-      //   el.style.height = initialHeight
-      //   el.style.visibility = "visible"
-      // }
+      let height = props.exit?.height
+      if (root.value) {
+        const el = root.value as HTMLElement
+        const { height: initialHeight } = getComputedStyle(el)
+        el.style.visibility = "hidden"
+        el.style.height = props.exit?.height || "auto"
+        const { height: targetHeight } = getComputedStyle(el)
+        height = targetHeight
+        el.style.height = initialHeight
+        el.style.visibility = "visible"
+      }
       /**
        * Vue reapplies all styles every render, rather than diffing and
        * only reapplying the ones that change. This means that initially
@@ -118,7 +118,7 @@ export const Motion = defineComponent({
         ...props,
         animate: {
           ...props.animate,
-          // height: height,
+          height: height,
         },
         initial: props.initial === true ? undefined : props.initial,
       })

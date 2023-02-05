@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/c-alert": "workspace:*",
+    "@chakra-ui/c-close-button": "workspace:*",
     "@zag-js/core": "^0.2.6",
     "@zag-js/toast": "^0.2.8",
     "@zag-js/vue": "^0.1.16",

@@ -21,45 +21,21 @@ import {
   reactive,
   watch,
 } from "vue"
-import * as toast from "@zag-js/toast"
 import { normalizeProps, useMachine, useActor } from "@zag-js/vue"
-import * as __toast__ from "@zag-js/toast"
 import { chakra, DOMElements } from "@chakra-ui/vue-system"
-// import { useMachine } from "./toast-state-machine"
+import { getToastsByPlacement, ToastPlacement, __toast__ } from "./toast.utils"
 import type * as Toast from "@zag-js/core"
 import { CPresenceGroup } from "./c-presence-group"
+import {
+  CAlert,
+  CAlertDescription,
+  CAlertTitle,
+  CAlertIcon,
+} from "@chakra-ui/c-alert"
+import { CCloseButton } from "@chakra-ui/c-close-button"
 
-import { Presence, Motion } from "motion/vue"
-
-export const placements = [
-  "top-start",
-  "top",
-  "top-end",
-  "bottom-start",
-  "bottom",
-  "bottom-end",
-] as const
-
-export type ToastPlacement = (typeof placements)[number]
-
-export function getToastsByPlacement(toasts: toast.Service[]) {
-  const result: Partial<Record<ToastPlacement, toast.Service[]>> = {
-    "top-start": [],
-    top: [],
-    "top-end": [],
-    "bottom-start": [],
-    bottom: [],
-    "bottom-end": [],
-  }
-
-  for (const toast of toasts) {
-    const placement = toast.state.context.placement!
-    result[placement] ||= []
-    result[placement]!.push(toast)
-  }
-
-  return result
-}
+import { Presence } from "motion/vue"
+import { Motion } from "./c-motion"
 
 export interface CToastProps {}
 
@@ -77,26 +53,53 @@ export const CToast = defineComponent({
     const [state, send] = useActor(props.actor)
     const apiRef = computed(() =>
       // @ts-ignore
-      toast.connect(state.value, send, normalizeProps)
+      __toast__.connect(state.value, send, normalizeProps)
     )
 
     return () => {
       const api = apiRef.value
-
-      console.log('"api.rootProps', api)
+      const { style: rootPropsStyles, ...restRootProps } = api.rootProps
       return (
-        <div
+        <Motion
           style={{
-            backgroundColor: "var(--chakra-colors-blue-100)",
-            borderRadius: "10px",
-            padding: "16px 20px",
+            ...(rootPropsStyles as any),
           }}
-          {...api.rootProps}
+          initial={initial(state.value.context.placement)}
+          animate={{
+            opacity: 1,
+            height: "auto",
+            y: 0,
+            x: 0,
+            scale: 1,
+            transition: {
+              duration: 0.4,
+              ease: [0.4, 0, 0.2, 1],
+            },
+          }}
+          exit={{
+            height: 0,
+            opacity: [1, 0],
+            scale: [1, 0.9],
+            // y: initial(state.value.context.placement).height,
+            transition: {
+              duration: 0.3,
+              ease: [0.4, 0, 1, 1],
+            },
+          }}
+          data-toastId={state.value.context.id}
         >
-          <h3 {...api.titleProps}>{api.title}</h3>
-          <p {...api.descriptionProps}>{api.description}</p>
-          <button onClick={api.dismiss}>Close</button>
-        </div>
+          <CAlert
+            {...restRootProps}
+            status={api.type as Exclude<typeof api.type, "custom">}
+          >
+            <CAlertIcon />
+            <CAlertTitle {...api.titleProps}>{api.title}</CAlertTitle>
+            <CAlertDescription {...api.descriptionProps}>
+              {api.description}
+            </CAlertDescription>
+            <CCloseButton onClick={api.dismiss} />
+          </CAlert>
+        </Motion>
       )
     }
   },
@@ -115,6 +118,7 @@ function initial(placement: ToastPlacement) {
   })
   return {
     opacity: 0,
+    height: 0,
     [dir]: factor * 24,
   }
 }
@@ -155,13 +159,15 @@ export const CToastContainer = defineComponent({
       getToastsByPlacement(allToasts.value)
     )
 
-    watch(toast, (value) => {
-      // Update the store context object
-      // every time it changes
-      toastStore.toastGroup = value
-    })
-
-    watchEffect(() => console.debug("toast - container -toast", toast.value))
+    watch(
+      () => toast.value,
+      (value) => {
+        // Update the store context object
+        // every time it changes
+        toastStore.toastGroup = value
+      },
+      { immediate: true }
+    )
 
     return () => {
       const api = toast.value
@@ -177,38 +183,11 @@ export const CToastContainer = defineComponent({
                 })}
                 pointerEvents="none"
               >
-                {/* <CPresenceGroup> */}
-                {toasts.map((toast, i) => {
-                  return (
-                    <Presence key={i}>
-                      <Motion
-                        initial={initial(toast.state.context.placement)}
-                        animate={{
-                          opacity: 1,
-                          y: 0,
-                          x: 0,
-                          scale: 1,
-                          transition: {
-                            duration: 0.4,
-                            ease: [0.4, 0, 0.2, 1],
-                          },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          scale: 0.85,
-                          transition: {
-                            duration: 0.2,
-                            ease: [0.4, 0, 1, 1],
-                          },
-                        }}
-                        data-toastId={toast.id}
-                      >
-                        <CToast actor={toast} />
-                      </Motion>
-                    </Presence>
-                  )
-                })}
-                {/* </CPresenceGroup> */}
+                <CPresenceGroup>
+                  {toasts.map((toast, i) => {
+                    return <CToast actor={toast} key={i} />
+                  })}
+                </CPresenceGroup>
               </chakra.div>
             )
           )}
@@ -221,7 +200,8 @@ export const CToastContainer = defineComponent({
 export const ToastContainerId = "chakra-ui-toast-container"
 export const ToastContextSymbol = Symbol("ToastContextSymbol")
 
-export interface IToastContext extends ReturnType<typeof toast.group.connect> {}
+export interface IToastContext
+  extends ReturnType<typeof __toast__.group.connect> {}
 
 export function useToast() {
   // TODO: Consider providing noop for SSR

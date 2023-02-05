@@ -6,23 +6,20 @@
 
 <script setup lang="ts">
 import { useToast } from "../src"
+import sentence from "random-sentence"
 
 const toast = useToast()
 
 /**
- * - Render the toast container imperatively (do not require consumer to manually import toast component).
- * - Provide `useToast` hook.
- * - Styles the toasts based in toast status.
  * - Normalize transition.
  */
 
 function notify() {
   const t = toast.value.create({
-    title: "Hey yo!",
-    description: "Welcome to the world of bread!",
-    duration: 20000,
+    title: sentence({ min: 2, max: 3 }),
+    description: sentence({ words: 8 }),
+    type: "success",
+    duration: 100000,
   })
-
-  console.log("t", t)
 }
 </script>

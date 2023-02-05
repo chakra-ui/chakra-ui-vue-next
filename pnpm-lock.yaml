@@ -86,6 +86,7 @@ importers:
       '@vueuse/motion': ^1.5.4
       '@vueuse/shared': ^9.11.1
       '@zag-js/accordion': ^0.1.13
+      '@zag-js/core': ^0.2.6
       '@zag-js/vue': ^0.1.14
       aria-hidden: ^1.1.2
       axe-core: ^4.1.2
@@ -136,6 +137,7 @@ importers:
       object-assign: ^4.1.1
       prettier: ^2.1.2
       pretty: ^2.0.0
+      random-sentence: ^1.0.4
       recursive-readdir: ^2.2.2
       rimraf: ^4.1.2
       rollup: ^3.10.1
@@ -244,6 +246,7 @@ importers:
       '@vueuse/motion': 1.6.0_vue@3.2.45
       '@vueuse/shared': 9.11.1_vue@3.2.45
       '@zag-js/accordion': 0.1.15
+      '@zag-js/core': 0.2.8
       '@zag-js/vue': 0.1.16_vue@3.2.45
       aria-hidden: 1.2.2
       axe-core: 4.6.3
@@ -294,6 +297,7 @@ importers:
       object-assign: 4.1.1
       prettier: 2.8.3
       pretty: 2.0.0
+      random-sentence: 1.0.4
       recursive-readdir: 2.2.3
       rimraf: 4.1.2
       rollup: 3.10.1
@@ -795,6 +799,8 @@ importers:
 
   packages/c-toast:
     specifiers:
+      '@chakra-ui/c-alert': workspace:*
+      '@chakra-ui/c-close-button': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@zag-js/core': ^0.2.6
       '@zag-js/toast': ^0.2.8
@@ -802,6 +808,8 @@ importers:
       motion: ^10.15.5
       vue: ^3.2.37
     dependencies:
+      '@chakra-ui/c-alert': link:../c-alert
+      '@chakra-ui/c-close-button': link:../c-close-button
       '@chakra-ui/vue-system': link:../system
       '@zag-js/core': 0.2.6
       '@zag-js/toast': 0.2.8
@@ -8642,6 +8650,10 @@ packages:
     resolution: {integrity: sha512-uc2Vix1frTfnuzxxu1Hp4ktSvM3QaI4oXl4ZUqL1wjTu/BGki9TrCWoqLTg/drR1KwAEarXuRFCG2Svr1GxPFw==}
     dev: false
 
+  /clamp/1.0.1:
+    resolution: {integrity: sha512-kgMuFyE78OC6Dyu3Dy7vcx4uy97EIbVxJB/B0eJ3bUNAkwdNcxYzgKltnyADiYwsR7SEqkkUPsEUT//OVS6XMA==}
+    dev: false
+
   /class-utils/0.3.6:
     resolution: {integrity: sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==}
     engines: {node: '>=0.10.0'}
@@ -13752,6 +13764,10 @@ packages:
     resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
     engines: {node: '>=8'}
 
+  /is-function/1.0.2:
+    resolution: {integrity: sha512-lw7DUp0aWXYg+CBCN+JKkcE0Q2RayZnSvnZBlwgxHBQhqt5pZNVy4Ri7H9GmmXkdu7LUthszM+Tor1u/2iBcpQ==}
+    dev: false
+
   /is-generator-fn/2.1.0:
     resolution: {integrity: sha512-cTIB4yPYL/Grw0EaSzASzg6bBy9gqCofvWN8okThAYIxKJZC+udlRAmGbM0XLeniEJSs8uEgHPGuHSe1XsOLSQ==}
     engines: {node: '>=6'}
@@ -13820,6 +13836,10 @@ packages:
     resolution: {integrity: sha512-dqJvarLawXsFbNDeJW7zAz8ItJ9cd28YufuuFzh0G8pNHjJMnY08Dv7sYX2uF5UpQOwieAeOExEYAWWfu7ZZUA==}
     engines: {node: '>= 0.4'}
 
+  /is-nil/1.0.1:
+    resolution: {integrity: sha512-m2Rm8PhUFDNNhgvwZJjJG74a9h5CHU0fkA8WT+WGlCjyEbZ2jPwgb+ZxHu4np284EqNVyOsgppReK4qy/TwEwg==}
+    dev: false
+
   /is-number-object/1.0.7:
     resolution: {integrity: sha512-k1U0IRzLMo7ZlYIfzRu23Oh6MiIFasgpb9X76eqfFZAqwH44UI4KTBvBYIZ1dSL9ZzChTB9ShHfLkR4pdW5krQ==}
     engines: {node: '>= 0.4'}
@@ -13845,6 +13865,10 @@ packages:
   /is-obj/2.0.0:
     resolution: {integrity: sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==}
     engines: {node: '>=8'}
+    dev: false
+
+  /is-object/1.0.2:
+    resolution: {integrity: sha512-2rRIahhZr2UWb45fIOuvZGpFtz0TyOZLf32KxBbSoUCeZR495zCKlWUKKUByk3geS2eAs7ZAABt0Y/Rx0GiQGA==}
     dev: false
 
   /is-path-inside/3.0.3:
@@ -15461,6 +15485,10 @@ packages:
     dependencies:
       glob: 7.2.3
       picomatch: 2.3.1
+    dev: false
+
+  /max-safe-int/1.0.0:
+    resolution: {integrity: sha512-Rmc9S+xr1IwnktrDAbR4+7Nh9RTzvJ83A1R4WVKPZCwd7Qo5mc/u8qBoC+T4hskmBDByg72vHgHjB1GcLwEEgw==}
     dev: false
 
   /md5.js/1.3.5:
@@ -18744,6 +18772,57 @@ packages:
     resolution: {integrity: sha512-6n3AEXth91ASapMVKiEh2wrbFJmI+NBilrWE0AbiGgfm0xet0QXC8+a3K19r1UVYjUjctUgB053c3V/J6V0kCQ==}
     dev: true
 
+  /random-char/1.0.4:
+    resolution: {integrity: sha512-kSvxo/8fIAlRJW/FB1dT3LDGADsbS+qD7AxYQJTgNDQ6w3Gumtfu+YphQGXK8ZtxKXO7mR8MqbckpBf8oywcvg==}
+    dependencies:
+      is-nil: 1.0.1
+      is-object: 1.0.2
+      random-natural: 1.0.3
+      to-str: 1.0.0
+    dev: false
+
+  /random-integral/1.0.3:
+    resolution: {integrity: sha512-MgWqgQqlHWGj5LExW2EoP4EtJty6uGNszlHdMuAox/yLVixpjEQIAyluW2CH9Nrxt0hE7fklFqYM0JFELSWpvw==}
+    dependencies:
+      clamp: 1.0.1
+      max-safe-int: 1.0.0
+      to-integer: 1.0.1
+    dev: false
+
+  /random-lorem/1.0.4:
+    resolution: {integrity: sha512-AphHHqlYSjoc0nXOiraL1U24odLkVSKKLSf87U2J/TV8+qCfJZDJ9prGnu9KH0HPZZy/H0c1/Zk6+xrTcPeiGA==}
+    dependencies:
+      clamp: 1.0.1
+      random-char: 1.0.4
+      random-natural: 1.0.3
+      random-syllable: 1.0.1
+    dev: false
+
+  /random-natural/1.0.3:
+    resolution: {integrity: sha512-Mw78ZGZ3lKO5K2XUxv4dXQudnBu9oTVHRFutqbfy+thZem41a+hFMD6egzQNHj3Kbee9fM8RGnryHyyip/mmbw==}
+    dependencies:
+      max-safe-int: 1.0.0
+      random-integral: 1.0.3
+    dev: false
+
+  /random-sentence/1.0.4:
+    resolution: {integrity: sha512-H4RPftk1NCZ7Scrr/FRYFI8EteTShN+8p/KU7WvrN0JijgCB5UPNE93AxgGOCgmyjwoQ/cXCPoxqb3TRvsZl5w==}
+    dependencies:
+      clamp: 1.0.1
+      random-lorem: 1.0.4
+      random-natural: 1.0.3
+    dev: false
+
+  /random-syllable/1.0.1:
+    resolution: {integrity: sha512-X/i6uCPfVD2RklQDblV59zZNvPpXKRC6DGHyS9GNwm0bQ1bAzBA/7Rjp0QumP2v6vlqGfAstKMeDgOnQUg48kA==}
+    dependencies:
+      clamp: 1.0.1
+      is-object: 1.0.2
+      random-char: 1.0.4
+      random-natural: 1.0.3
+      to-integer: 1.0.1
+    dev: false
+
   /randombytes/2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
     dependencies:
@@ -20825,6 +20904,15 @@ packages:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
 
+  /to-integer/1.0.1:
+    resolution: {integrity: sha512-mv4Nwp8Y28xLp1rdYgnlV4NqYBn23lIitU2fqCtyrLXlwsC6th3Aq37JRe7qfuROMJv66kAZG8V9NR1HIgwOUg==}
+    dependencies:
+      is-function: 1.0.2
+      is-nil: 1.0.1
+      is-object: 1.0.2
+      is-symbol: 1.0.4
+    dev: false
+
   /to-object-path/0.3.0:
     resolution: {integrity: sha512-9mWHdnGRuh3onocaHzukyvCZhzvr6tiflAy/JRFXcJX0TjgfWA9pk9t8CMbzmBE4Jfw58pXbkngtBtqYxzNEyg==}
     engines: {node: '>=0.10.0'}
@@ -20859,6 +20947,15 @@ packages:
       extend-shallow: 3.0.2
       regex-not: 1.0.2
       safe-regex: 1.1.0
+    dev: false
+
+  /to-str/1.0.0:
+    resolution: {integrity: sha512-UETUWfNiPKGvdZ2nAmiTTmv583SivKIHB10J0qQQgfkWvSQXKtPeF+On7pejMaD2rqTIFWgXz25dPyzABAgIHw==}
+    dependencies:
+      is-function: 1.0.2
+      is-nil: 1.0.1
+      is-object: 1.0.2
+      is-symbol: 1.0.4
     dev: false
 
   /toidentifier/1.0.1:
