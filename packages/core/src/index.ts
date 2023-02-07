@@ -135,9 +135,10 @@ const ChakraUIVuePlugin: Plugin = {
     const toastContainer =
       document.getElementById(ToastContainerId) || document.createElement("div")
     toastContainer.id = ToastContainerId
+    toastContainer.setAttribute("data-chakra-toast-container", "")
 
     if (!document.body.contains(toastContainer)) {
-      document.body.appendChild(toastContainer)
+      document.body.insertAdjacentElement("afterend", toastContainer)
     }
 
     const vnode = createVNode(CToastContainer)

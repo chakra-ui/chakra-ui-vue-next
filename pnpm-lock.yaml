@@ -802,6 +802,7 @@ importers:
       '@chakra-ui/c-alert': workspace:*
       '@chakra-ui/c-close-button': workspace:*
       '@chakra-ui/vue-system': workspace:*
+      '@chakra-ui/vue-utils': workspace:*
       '@zag-js/core': ^0.2.6
       '@zag-js/toast': ^0.2.8
       '@zag-js/vue': ^0.1.16
@@ -811,6 +812,7 @@ importers:
       '@chakra-ui/c-alert': link:../c-alert
       '@chakra-ui/c-close-button': link:../c-close-button
       '@chakra-ui/vue-system': link:../system
+      '@chakra-ui/vue-utils': link:../utils
       '@zag-js/core': 0.2.6
       '@zag-js/toast': 0.2.8
       '@zag-js/vue': 0.1.16_vue@3.2.45

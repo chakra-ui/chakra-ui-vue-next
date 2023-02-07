@@ -1,76 +1,60 @@
-import {
-  defineComponent,
-  h,
-  onBeforeUpdate,
-  provide,
-  Transition,
-  TransitionGroup,
-} from "vue"
-import { mountedStates } from "@motionone/dom"
-import { contextId, presenceId } from "./c-motion.context"
-
-export interface PresenceState {
-  initial?: boolean | undefined
-}
-
-let _id = 1
-const createPresenceGroupContextId = () => Symbol(`presence-group-${_id}`)
-
-const doneCallbacks = new WeakMap<Element, VoidFunction>()
-
-function removeDoneCallback(element: Element) {
-  const prevDoneCallback = doneCallbacks.get(element)
-  prevDoneCallback &&
-    element.removeEventListener("motioncomplete", prevDoneCallback)
-  doneCallbacks.delete(element)
-}
+import { defineComponent, h, ref, TransitionGroup } from "vue"
+import { unrefElement } from "@chakra-ui/vue-utils"
+import { ToastPlacement } from "./toast.utils"
+import { animate, spring } from "motion"
 
 export const CPresenceGroup = defineComponent({
   name: "CPresenceGroup",
-  props: {
-    name: { type: String },
-    initial: {
-      type: Boolean,
-      default: true,
-    },
-    exitBeforeEnter: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props, { slots, attrs }) {
-    const state: PresenceState = { initial: props.initial }
-    const presenseGroupContextId = createPresenceGroupContextId()
+  setup(_, { slots }) {
+    function enter(element: Element, done: VoidFunction) {
+      const el = element as HTMLElement
+      const height = el.clientHeight
 
-    provide(presenceId, state)
+      animate(
+        element,
+        {
+          height: ["0px", `${height}px`],
+          opacity: [0, 1],
+          scale: [0.95, 1],
+        },
+        {
+          easing: spring({
+            mass: 1,
+            stiffness: 100,
+            damping: 50,
+            velocity: 0,
+          }),
+        }
+      ).finished.then(done)
 
-    function enter(element: Element) {
-      const state = mountedStates.get(element)
-
-      if (!state) return
-
-      removeDoneCallback(element)
-      state.setActive("exit", false)
+      requestAnimationFrame(() => {})
     }
 
-    function exit(element: Element, done: VoidFunction) {
-      const state = mountedStates.get(element)
+    async function exit(element: Element, done: VoidFunction) {
+      const easing = spring({
+        mass: 1,
+        stiffness: 100,
+        damping: 50,
+        velocity: 0,
+      })
 
-      if (!state) return done()
-
-      state.setActive("exit", true)
-
-      removeDoneCallback(element)
-      doneCallbacks.set(element, done)
-      element.addEventListener("motioncomplete", done)
+      console.log("easing", easing)
+      animate(
+        element,
+        {
+          height: `0px`,
+          opacity: [1, 0],
+          scale: [1, 0.85],
+        },
+        {
+          easing,
+        }
+      ).finished.then(done)
+      requestAnimationFrame(() => {})
     }
-
-    onBeforeUpdate(() => {
-      state.initial = undefined
-    })
 
     return () => (
-      <TransitionGroup onEnter={enter} onLeave={exit} css={false}>
+      <TransitionGroup tag="div" onEnter={enter} onLeave={exit} css={false}>
         {slots.default?.()}
       </TransitionGroup>
     )

@@ -99,6 +99,7 @@ export const CAlert = defineComponent({
       alignItems: "center",
       position: "relative",
       overflow: "hidden",
+      fontFamily: "body",
       ...styles.value.container,
     }))
 
