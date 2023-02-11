@@ -51,6 +51,4 @@ import {
 } from "../src"
 const log = (val) => console.log(val)
 const menu = ref()
-
-const openMenu = () => menu.value.open()
 </script>

@@ -5,7 +5,7 @@ import { CMenu, CMenuList, CMenuItem, CMenuTrigger } from "../src"
 const menu = ref(null)
 </script>
 <template>
-  <c-button color-scheme="purple" @click="menu.open()">Open menu</c-button>
+  <c-button color-scheme="purple" @click="menu.open()">Trigger menu</c-button>
   <c-menu ref="menu">
     <c-menu-trigger>Open menu</c-menu-trigger>
     <c-menu-list>
