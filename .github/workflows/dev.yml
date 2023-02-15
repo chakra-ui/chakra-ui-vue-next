@@ -11,7 +11,7 @@ on:
       - "tooling/**"
       - "modules/**"
     branches:
-      - dev
+      - develop
 
 jobs:
   release:
