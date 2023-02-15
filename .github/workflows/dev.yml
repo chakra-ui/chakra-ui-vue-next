@@ -11,7 +11,7 @@ on:
       - "tooling/**"
       - "modules/**"
     branches:
-      - main
+      - dev
 
 jobs:
   release:
@@ -53,15 +53,4 @@ jobs:
           pnpm release:dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create release Pull Request or Publish to NPM
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
-          title: "ci(release): version packages and publish"
-          commit: "ci(release): version packages"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
