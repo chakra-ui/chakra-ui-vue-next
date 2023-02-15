@@ -63,6 +63,7 @@ export function usePopper(props: UsePopperOptions = {}): UsePopperReturn {
       if (!reference.value || !popper.value) return
       cleanup.value?.()
 
+      // @ts-ignore
       popperInstance.value = createPopper.value(reference.value, popper.value, {
         placement,
         modifiers,
@@ -98,6 +99,7 @@ export function usePopper(props: UsePopperOptions = {}): UsePopperReturn {
         setup()
       }
     },
+    // @ts-ignore
     referenceEl: reference,
     popper: (el: any) => {
       if (el) {

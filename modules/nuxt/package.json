@@ -1,9 +1,12 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "2.0.0-beta.2",
+  "version": "0.0.0-dev-20230215144750",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
+  "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/module.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     }
@@ -15,41 +18,40 @@
   ],
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/nuxt",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
-  "license": "MIT",
   "scripts": {
-    "prepare:playground": "nuxi prepare playground",
-    "prebuild": "pnpm prepare:playground",
-    "prebuild:fast": "pnpm prepare:playground",
-    "clean": "rimraf dist .turbo",
-    "build": "nuxt-module-build",
-    "build:fast": "nuxt-module-build",
-    "dev:build": "nuxi build playground",
+    "build": "unbuild",
     "dev": "nuxi dev playground",
-    "types:check": "tsc --noEmit",
-    "build:types": "echo 'noop -> @chakra-ui/nuxt-next types already built'"
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "lint": "eslint .",
+    "test": "nuxi prepare playground && vitest run",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@chakra-ui/c-color-mode": "workspace:*",
     "@chakra-ui/vue-next": "workspace:*",
     "@emotion/css": "^11.10.5",
     "@emotion/server": "^11.10.0",
+    "@nuxt/kit": "^3.2.0",
     "@nuxtjs/emotion": "1.0.0",
-    "unbuild": "^1.1.1",
-    "vitest": "^0.18.0"
+    "playwright": "^1.30.0"
   },
-  "peerDependencies": {
-    "vue": "^3.1.4"
+  "devDependencies": {
+    "@chakra-ui/theme": "^2.2.4",
+    "@chakra-ui/utils": "2.0.14",
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.2.0",
+    "@nuxt/test-utils": "^3.2.0",
+    "changelogen": "^0.4.1",
+    "eslint": "^8.34.0",
+    "mlly": "^1.1.0",
+    "nuxt": "^3.2.0",
+    "pathe": "^1.1.0",
+    "unbuild": "^1.1.1",
+    "vitest": "^0.28.5"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "@nuxt/kit": "^3.0.0",
-    "@nuxt/module-builder": "^0.2.1",
-    "@nuxt/schema": "^3.0.0",
-    "@nuxt/test-utils": "^3.1.1",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "nuxt": "^3.0.0",
-    "vue": "^3.2.37"
   }
 }

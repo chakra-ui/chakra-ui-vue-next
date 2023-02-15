@@ -9,7 +9,7 @@ on:
       - ".github/**"
       - "packages/**"
       - "tooling/**"
-      - "moduels/**"
+      - "modules/**"
     branches:
       - main
 

@@ -1,3 +1,4 @@
+import type * as Utils from "@chakra-ui/utils"
 import { filterUndefined } from "@chakra-ui/utils"
 
 export const getInitials = (name: string) => {

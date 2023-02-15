@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-next",
-  "version": "2.0.0-beta.2",
+  "version": "0.0.0-dev-20230215144750",
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/chakra-ui-vue-next.cjs.js",
   "module": "dist/chakra-ui-vue-next.esm.js",
@@ -53,6 +53,7 @@
     "@chakra-ui/c-spinner": "workspace:*",
     "@chakra-ui/c-tag": "workspace:*",
     "@chakra-ui/c-theme-provider": "workspace:*",
+    "@chakra-ui/c-toast": "workspace:*",
     "@chakra-ui/c-visually-hidden": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/theme": "^2.2.5",
@@ -67,7 +68,9 @@
     "@emotion/cache": "^11.7.1",
     "@emotion/serialize": "1.1.1",
     "@emotion/sheet": "^1.1.0",
-    "@emotion/utils": "^1.1.0"
+    "@emotion/utils": "^1.1.0",
+    "@zag-js/toast": "^0.2.8",
+    "@zag-js/vue": "^0.2.8"
   },
   "devDependencies": {
     "vue": "^3.2.37"

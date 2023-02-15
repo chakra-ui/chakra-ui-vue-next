@@ -1,7 +1,5 @@
 {
   "private": true,
   "name": "@chakra-ui/nuxt-next-playground",
-  "dependencies": {
-    "@chakra-ui/nuxt-next": "workspace:*"
-  }
+  "type": "module"
 }
