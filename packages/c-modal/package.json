@@ -38,7 +38,7 @@
     "@chakra-ui/c-motion": "workspace:*",
     "@chakra-ui/c-portal": "workspace:*",
     "@chakra-ui/c-scroll-lock": "workspace:*",
-    "@chakra-ui/styled-system": "2.5.1",
+    "@chakra-ui/styled-system": "2.6.0",
     "@chakra-ui/utils": "2.0.14",
     "@chakra-ui/vue-accessibilty": "workspace:*",
     "@chakra-ui/vue-composables": "workspace:*",
