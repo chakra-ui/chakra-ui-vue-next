@@ -9,7 +9,11 @@ import path from "node:path"
 
 const logger = consola.withTag("size-packages")
 
-const ignored = ["@chakra-ui/vue-test-utils", "@chakra-ui/nuxt-next-playground"]
+const ignored = [
+  "@chakra-ui/vue-test-utils",
+  "@chakra-ui/nuxt-next-playground",
+  "@chakra-ui/vue-next-test-fixture",
+]
 
 function checkFileSize(pkg: IPackageJson, filePath: string) {
   if (!ensureFile(filePath)) {
