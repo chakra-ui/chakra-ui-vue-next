@@ -75,7 +75,6 @@ export function useFocusTrap(
 
   // Restore when `enabled` becomes false
   function restore() {
-    // @ts-expect-error - focusElement is not typed
     focusElement(restoreElement.value)
     restoreElement.value = null
     previousActiveElement.value = null
@@ -127,14 +126,12 @@ export function useFocusTrap(
         if (!contains(containers.value, toElement)) {
           event.preventDefault()
           event.stopPropagation()
-          // @ts-expect-error - focusElement is not typed
           focusElement(previous)
         } else {
           previousActiveElement.value = toElement
           focusElement(toElement)
         }
       } else {
-        // @ts-expect-error - focusElement is not typed
         focusElement(previousActiveElement.value)
       }
     },
