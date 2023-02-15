@@ -1,5 +1,4 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.node.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "esnext",
@@ -19,7 +18,7 @@
     "skipLibCheck": true,
     "strict": true,
     "isolatedModules": false,
-    "importsNotUsedAsValues": "preserve",
+    "verbatimModuleSyntax": false,
     "noFallthroughCasesInSwitch": true,
     "jsx": "preserve",
     "esModuleInterop": true,
@@ -27,8 +26,9 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
     "preserveValueImports": false,
+    "ignoreDeprecations": "5.0",
     // "incremental": true,
-    "declarationMap": true
+    "declarationMap": true,
   },
   "include": [
     "cypress/support/index.ts",

@@ -1,6 +1,4 @@
-import { defineComponent, h, ref, TransitionGroup } from "vue"
-import { unrefElement } from "@chakra-ui/vue-utils"
-import { ToastPlacement } from "./toast.utils"
+import { defineComponent, h, TransitionGroup } from "vue"
 import { animate, spring } from "motion"
 
 export const CPresenceGroup = defineComponent({
@@ -38,7 +36,6 @@ export const CPresenceGroup = defineComponent({
         velocity: 0,
       })
 
-      console.log("easing", easing)
       animate(
         element,
         {

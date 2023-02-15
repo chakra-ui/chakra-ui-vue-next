@@ -13,6 +13,7 @@ import {
   h,
   ref,
   Fragment,
+  Ref,
   computed,
   PropType,
   inject,
@@ -20,7 +21,7 @@ import {
   ComputedRef,
   reactive,
 } from "vue"
-import { normalizeProps, useMachine, useActor } from "@zag-js/vue"
+import { normalizeProps, useMachine, useActor, useService } from "@zag-js/vue"
 import { chakra, DOMElements } from "@chakra-ui/vue-system"
 import { getToastsByPlacement, ToastPlacement, __toast__ } from "./toast.utils"
 import type * as Toast from "@zag-js/core"
@@ -32,10 +33,6 @@ import {
   CAlertIcon,
 } from "@chakra-ui/c-alert"
 import { CCloseButton } from "@chakra-ui/c-close-button"
-
-import { Presence } from "motion/vue"
-import { Motion } from "./c-motion"
-import { api } from "@zag-js/toast"
 
 export interface CToastProps {}
 
@@ -74,7 +71,6 @@ export const CToast = defineComponent({
             }
             style={{
               ...(rootPropsStyles as any),
-              "--remove-delay": "400ms",
             }}
           >
             <CAlertIcon />
@@ -93,29 +89,35 @@ export const CToast = defineComponent({
 })
 
 interface IToastStore {
-  toastGroup?: IToastContext
+  toastApi?: IToastContext
 }
-// @ts-ignore Type inferrence
-export const toastStore = ref<IToastStore>({
-  toastGroup: undefined,
+
+export const toastStore: Ref<IToastStore> = ref({
+  toastApi: undefined,
 })
 
-export const toastContext = computed(() => toastStore.value.toastGroup)
+// @ts-ignore typing gcoming soon
+export const globalToastMachine: Toast.Machine<
+  __toast__.GroupMachineContext,
+  Toast.StateMachine.StateSchema,
+  Toast.StateMachine.AnyEventObject
+> = __toast__.group.machine({
+  id: "chakra.toast.group",
+  pauseOnInteraction: true,
+})
+globalToastMachine.start()
+
+export const toastContext = computed(() => toastStore.value.toastApi)
 
 export const CToastContainer = defineComponent({
   name: "CToastContainer",
-  setup(_, { slots }) {
+  setup() {
     const t = useToast()
 
     // Create Toast Group Machine
-    const [state, send] = useMachine(
+    const [state, send] = useActor(
       // @ts-ignore
-      __toast__.group.machine({ id: "chakra.toast.group" }),
-      {
-        context: ref({
-          // pauseOnInteraction: true,
-        }),
-      }
+      globalToastMachine
     )
 
     const toast = computed(() =>
@@ -129,9 +131,7 @@ export const CToastContainer = defineComponent({
     )
 
     watchEffect(() => {
-      // Update the store context object
-      // every time it changes
-      toastStore.value.toastGroup = toast.value
+      toastStore.value.toastApi = toast.value
     })
 
     return () => {
@@ -148,7 +148,7 @@ export const CToastContainer = defineComponent({
                 })}
               >
                 {toasts.map((toast, i) => {
-                  return <CToast actor={toast} key={i} />
+                  return <CToast actor={toast} key={placement} />
                 })}
               </CPresenceGroup>
             )
@@ -170,4 +170,8 @@ export function useToast() {
     ToastContextSymbol,
     {} as ComputedRef<IToastContext>
   )
+}
+
+export function createStandAloneToast() {
+  return globalToastMachine!
 }

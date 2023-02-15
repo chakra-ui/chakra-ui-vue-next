@@ -1,3 +1,4 @@
+import type * as ChakraUITheme from "@chakra-ui/theme"
 import {
   h,
   defineComponent,

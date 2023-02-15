@@ -9,26 +9,19 @@ import {
 } from "@chakra-ui/vue-styled"
 import createCache, { EmotionCache } from "@emotion/cache"
 import internalIcons from "./icon.internals"
-import {
-  extendTheme,
-  extendBaseTheme,
-  ThemeOverride,
-} from "@chakra-ui/theme-utils"
+import type { ThemeOverride } from "@chakra-ui/theme-utils"
 import { MergedIcons, parseIcons } from "./parse-icons"
 import { injectResetStyles, injectThemeGlobalStyles } from "./helpers/css-reset"
 import { mode } from "@chakra-ui/theme-tools"
 import { ChakraPluginOptions } from "./helpers/plugin.types"
-import { Dict } from "@chakra-ui/utils"
+import { canUseDOM, Dict } from "@chakra-ui/utils"
 import { localStorageManager } from "@chakra-ui/c-color-mode"
 import {
   ToastContainerId,
   CToastContainer,
   ToastContextSymbol,
   toastContext,
-  // useMachine,
 } from "@chakra-ui/c-toast"
-import { useMachine, normalizeProps } from "@zag-js/vue"
-import * as __toast__ from "@zag-js/toast"
 
 /**
  * 1. Support passing cache options from plugin
@@ -132,25 +125,28 @@ const ChakraUIVuePlugin: Plugin = {
     app.provide(ToastContextSymbol, toastContext)
 
     // Setup toast container component
-    const toastContainer =
-      document.getElementById(ToastContainerId) || document.createElement("div")
-    toastContainer.id = ToastContainerId
-    toastContainer.setAttribute("data-chakra-toast-container", "")
+    if (canUseDOM()) {
+      const toastContainer =
+        document.getElementById(ToastContainerId) ||
+        document.createElement("div")
+      toastContainer.id = ToastContainerId
+      toastContainer.setAttribute("data-chakra-toast-container", "")
 
-    if (!document.body.contains(toastContainer)) {
-      document.body.insertAdjacentElement("afterend", toastContainer)
+      if (!document.body.contains(toastContainer)) {
+        document.body.insertAdjacentElement("afterend", toastContainer)
+      }
+
+      const vnode = createVNode(CToastContainer)
+      vnode.appContext = app._context
+      render(vnode, toastContainer)
     }
-
-    const vnode = createVNode(CToastContainer)
-    vnode.appContext = app._context
-    render(vnode, toastContainer)
   },
 }
 
 export type { ChakraPluginOptions }
 export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
-export { extendTheme, extendBaseTheme }
+export { extendTheme, extendBaseTheme } from "@chakra-ui/theme-utils"
 
 // Export chakra factory function
 export { chakra as chakra }
