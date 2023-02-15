@@ -21,7 +21,7 @@
   "scripts": {
     "build": "unbuild",
     "dev": "nuxi dev playground",
-    "postinstall": "nuxi dev playground",
+    "postinstall": "nuxi prepare playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "lint": "eslint .",
