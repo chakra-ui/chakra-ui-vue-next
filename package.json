@@ -38,6 +38,7 @@
     "test:silent": "cross-env NODE_ENV=test jest --verbose --silent --config jest.config.js",
     "test:ci": "pnpm dev && pnpm test:silent && pnpm cy:run",
     "test:unit": "cross-env NODE_ENV=test jest --config jest.config.js",
+    "test:nuxt": "cross-env NODE_ENV=test pnpm pkg @chakra-ui/nuxt-next test",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "checktypes": "turbo run types:check --filter=!./examples/* --filter=!{./packages/test-utils}",
     "docs:dev:legacy": "vitepress dev docs",

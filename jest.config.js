@@ -23,4 +23,5 @@ module.exports = {
     "<rootDir>/packages/test-utils/src/snapshot-serializer.ts",
   ],
   testMatch: ["**/**/*.test.(js|jsx|ts|tsx)"],
+  testPathIgnorePatterns: ["/node_modules/", "/modules/"],
 }
