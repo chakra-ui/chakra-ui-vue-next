@@ -47,7 +47,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Install plugin
   app.use(
-    Chakra,
+    // TODO: Fix type for Chakra plugin
+    Chakra as any,
     extendChakra({
       ...(chakraConfig.emotionCacheOptions && {
         emotionCacheOptions: chakraConfig.emotionCacheOptions,

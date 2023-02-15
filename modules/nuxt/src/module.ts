@@ -4,15 +4,15 @@ import {
   createResolver,
   addServerPlugin,
   installModule,
-  addComponent,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
 import type * as Theme from "@chakra-ui/theme"
-import {
-  ChakraPluginOptions,
-  extendTheme as _extendTheme,
-} from "@chakra-ui/vue-next"
+import type * as ChakraUI from "@chakra-ui/vue-next"
+import * as Chakra from "@chakra-ui/vue-next"
 import { mergeWith } from "@chakra-ui/utils"
+
+const { extendTheme: _extendTheme } = Chakra
+const ChakraPlugin = Chakra.default
 
 /** Chakra UI Vue SSR Context State */
 export interface ChakraUISSRContext {
@@ -27,7 +27,10 @@ declare global {
   }
 }
 
-export type ChakraModuleOptions = Omit<ChakraPluginOptions, "colorModeManager">
+export type ChakraModuleOptions = Omit<
+  ChakraUI.ChakraPluginOptions,
+  "colorModeManager"
+>
 
 const defaultModuleOptions: ChakraModuleOptions = {
   cssReset: true,
