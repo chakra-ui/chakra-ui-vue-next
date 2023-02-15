@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "2.0.0-beta.2",
+  "version": "0.0.0-dev-20230215144750",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "license": "MIT",
   "type": "module",
@@ -24,7 +24,7 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "lint": "eslint .",
-    "test": "vitest run",
+    "test": "nuxi prepare playground && vitest run",
     "test:watch": "vitest watch"
   },
   "dependencies": {
@@ -33,7 +33,8 @@
     "@emotion/css": "^11.10.5",
     "@emotion/server": "^11.10.0",
     "@nuxt/kit": "^3.2.0",
-    "@nuxtjs/emotion": "1.0.0"
+    "@nuxtjs/emotion": "1.0.0",
+    "playwright": "^1.30.0"
   },
   "devDependencies": {
     "@chakra-ui/theme": "^2.2.4",
@@ -48,7 +49,7 @@
     "nuxt": "^3.2.0",
     "pathe": "^1.1.0",
     "unbuild": "^1.1.1",
-    "vitest": "^0.28.4"
+    "vitest": "^0.28.5"
   },
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,11 @@
 # @chakra-ui/vue-utils
 
+## 0.0.0-dev-20230215144750
+
+### Patch Changes
+
+- Update build
+
 ## 2.0.0-beta.2
 
 ### Minor Changes

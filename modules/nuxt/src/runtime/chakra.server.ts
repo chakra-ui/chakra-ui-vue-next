@@ -26,14 +26,12 @@ const CHAKRA_UI_COLOR_MODE_COOKIE_KEY = "chakra-ui-color-mode"
 
 export default defineNitroPlugin((app) => {
   if (process.env.NODE_ENV === "development") {
-    console.debug("chakra-ui-nuxt:server_runtime")
+    console.debug("chakra-ui-nuxt:server_runtime ready")
   }
   app.hooks.hook("render:html", (html, { event: rawEvent }) => {
     const event = new H3Event(rawEvent.node.req, rawEvent.node.res)
     const parsedCookies = parseCookies(event)
     const colorMode = parsedCookies[CHAKRA_UI_COLOR_MODE_COOKIE_KEY]
-
-    console.log("colorMode", colorMode)
 
     if (colorMode) {
       html.htmlAttrs.push(`data-theme="${colorMode}"`)

@@ -347,8 +347,9 @@ importers:
       mlly: ^1.1.0
       nuxt: ^3.2.0
       pathe: ^1.1.0
+      playwright: ^1.30.0
       unbuild: ^1.1.1
-      vitest: ^0.28.4
+      vitest: ^0.28.5
     dependencies:
       '@chakra-ui/c-color-mode': link:../../packages/c-color-mode
       '@chakra-ui/vue-next': link:../../packages/core
@@ -356,6 +357,7 @@ importers:
       '@emotion/server': 11.10.0_@emotion+css@11.10.5
       '@nuxt/kit': 3.2.0
       '@nuxtjs/emotion': 1.0.0
+      playwright: 1.30.0
     devDependencies:
       '@chakra-ui/theme': 2.2.4
       '@chakra-ui/utils': 2.0.14
@@ -3048,7 +3050,7 @@ packages:
       '@emotion/css':
         optional: true
     dependencies:
-      '@emotion/css': 11.10.5_@babel+core@7.20.12
+      '@emotion/css': 11.10.5
       '@emotion/utils': 1.2.0
       html-tokenize: 2.0.1
       multipipe: 1.0.2
@@ -17946,6 +17948,21 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.1.0
       pathe: 1.1.0
+
+  /playwright-core/1.30.0:
+    resolution: {integrity: sha512-7AnRmTCf+GVYhHbLJsGUtskWTE33SwMZkybJ0v6rqR1boxq2x36U7p1vDRV7HO2IwTZgmycracLxPEJI49wu4g==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: false
+
+  /playwright/1.30.0:
+    resolution: {integrity: sha512-ENbW5o75HYB3YhnMTKJLTErIBExrSlX2ZZ1C/FzmHjUYIfxj/UnI+DWpQr992m+OQVSg0rCExAOlRwB+x+yyIg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.30.0
+    dev: false
 
   /please-upgrade-node/3.2.0:
     resolution: {integrity: sha512-gQR3WpIgNIKwBMVLkpMUeR3e1/E1y42bqDQZfql+kDeXd8COYfM8PQA4X6y7a8u9Ua9FHmsrrmirW2vHs45hWg==}

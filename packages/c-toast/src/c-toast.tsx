@@ -55,10 +55,6 @@ export const CToast = defineComponent({
 
     const toast = useToast()
 
-    watchEffect(() => {
-      console.log("toast state", state.value)
-    })
-
     return () => {
       const { style: rootPropsStyles, ...restRootProps } =
         apiRef.value.rootProps

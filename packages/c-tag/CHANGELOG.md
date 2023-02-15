@@ -1,5 +1,15 @@
 # @chakra-ui/c-tag
 
+## 0.0.0-dev-20230215144750
+
+### Patch Changes
+
+- Update build
+- Updated dependencies
+  - @chakra-ui/vue-system@0.0.0-dev-20230215144750
+  - @chakra-ui/c-icon@0.0.0-dev-20230215144750
+  - @chakra-ui/vue-utils@0.0.0-dev-20230215144750
+
 ## 1.0.0-beta.2
 
 ### Minor Changes

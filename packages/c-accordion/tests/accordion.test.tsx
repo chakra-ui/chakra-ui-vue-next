@@ -23,7 +23,6 @@ import {
 const CCollapseStub = defineComponent(
   ({ isOpen }: { isOpen: boolean }, { slots, attrs }) => {
     const ctx = getCurrentInstance()
-    console.log("ctx", JSON.stringify(ctx?.appContext.provides))
     return () => <div hidden={!isOpen}>{slots}</div>
   }
 )

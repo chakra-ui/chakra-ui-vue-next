@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-toast",
   "description": "Chakra UI Vue | The toast component is used to give feedback to users after an action has taken place component",
-  "version": "0.0.0-next.0",
+  "version": "0.0.0-dev-20230215144750",
   "main": "dist/chakra-ui-c-toast.cjs.js",
   "module": "dist/chakra-ui-c-toast.esm.js",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

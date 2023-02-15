@@ -50,7 +50,6 @@ export default defineNuxtModule<ChakraModuleOptions>({
     compatibilty: ">=3.0.0",
   },
   setup(__options, nuxt) {
-    console.log("chakra-ui-nuxt:module")
     const _options = mergeWith(
       defaultModuleOptions,
       __options

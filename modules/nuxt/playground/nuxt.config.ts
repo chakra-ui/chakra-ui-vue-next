@@ -1,4 +1,4 @@
+import ChakraUI from "../src/module"
 export default defineNuxtConfig({
-  modules: ["../src/module"],
-  chakra: {},
+  modules: [ChakraUI],
 })

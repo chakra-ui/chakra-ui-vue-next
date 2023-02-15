@@ -1,5 +1,45 @@
 # @chakra-ui/vue-next
 
+## 0.0.0-dev-20230215144750
+
+### Patch Changes
+
+- Update build
+- Updated dependencies
+  - @chakra-ui/c-theme-provider@0.0.0-dev-20230215144750
+  - @chakra-ui/c-form-control@0.0.0-dev-20230215144750
+  - @chakra-ui/c-focus-lock@0.0.0-dev-20230215144750
+  - @chakra-ui/c-avatar@0.0.0-dev-20230215144750
+  - @chakra-ui/c-motion@0.0.0-dev-20230215144750
+  - @chakra-ui/c-popper@0.0.0-dev-20230215144750
+  - @chakra-ui/vue-accessibilty@0.0.0-dev-20230215144750
+  - @chakra-ui/c-alert@0.0.0-dev-20230215144750
+  - @chakra-ui/c-toast@0.0.0-dev-20230215144750
+  - @chakra-ui/vue-system@0.0.0-dev-20230215144750
+  - @chakra-ui/c-accordion@0.0.0-dev-20230215144750
+  - @chakra-ui/c-breadcrumb@0.0.0-dev-20230215144750
+  - @chakra-ui/c-button@0.0.0-dev-20230215144750
+  - @chakra-ui/c-checkbox@0.0.0-dev-20230215144750
+  - @chakra-ui/c-close-button@0.0.0-dev-20230215144750
+  - @chakra-ui/c-code@0.0.0-dev-20230215144750
+  - @chakra-ui/c-color-mode@0.0.0-dev-20230215144750
+  - @chakra-ui/c-icon@0.0.0-dev-20230215144750
+  - @chakra-ui/c-image@0.0.0-dev-20230215144750
+  - @chakra-ui/c-input@0.0.0-dev-20230215144750
+  - @chakra-ui/c-media-query@0.0.0-dev-20230215144750
+  - @chakra-ui/c-modal@0.0.0-dev-20230215144750
+  - @chakra-ui/c-pin-input@0.0.0-dev-20230215144750
+  - @chakra-ui/c-portal@0.0.0-dev-20230215144750
+  - @chakra-ui/c-reset@0.0.0-dev-20230215144750
+  - @chakra-ui/c-scroll-lock@0.0.0-dev-20230215144750
+  - @chakra-ui/c-skip-nav@0.0.0-dev-20230215144750
+  - @chakra-ui/c-spinner@0.0.0-dev-20230215144750
+  - @chakra-ui/c-tag@0.0.0-dev-20230215144750
+  - @chakra-ui/c-visually-hidden@0.0.0-dev-20230215144750
+  - @chakra-ui/vue-layout@0.0.0-dev-20230215144750
+  - @chakra-ui/vue-styled@0.0.0-dev-20230215144750
+  - @chakra-ui/vue-composables@0.0.0-dev-20230215144750
+
 ## 2.0.0-beta.2
 
 ### Minor Changes

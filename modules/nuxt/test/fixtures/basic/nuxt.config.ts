@@ -1,5 +1,5 @@
-import MyModule from "../../../src/module"
-
+import { defineNuxtConfig } from "nuxt/config"
+import ChakraUI from "../../../src/module"
 export default defineNuxtConfig({
-  modules: [MyModule],
+  modules: [ChakraUI],
 })
