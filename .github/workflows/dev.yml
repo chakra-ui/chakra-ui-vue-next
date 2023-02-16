@@ -51,7 +51,9 @@ jobs:
         if: steps.changesets.outputs.published != 'true'
         run: |
           git checkout develop
-          changeset pre exit && changeset version --snapshot dev && changeset publish --tag dev
+          pnpm changeset pre exit
+          pnpm changeset version --snapshot dev
+          pnpm changeset publish --tag dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
