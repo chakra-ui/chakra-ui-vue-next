@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-system",
-  "version": "0.0.0-beta.1",
+  "version": "2.1.0-beta.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "Chakra UI Vue | System module",
