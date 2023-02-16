@@ -115,7 +115,11 @@ const chakraProps = {
 }
 
 export type ChakraBaseComponentProps = typeof chakraProps
-export type ChakraTagOrComponent = DOMElements | Component
+export type ChakraTagOrComponent =
+  | DOMElements
+  | Component
+  | "router-link"
+  | "nuxt-link"
 
 export type ChakraFactoryComponent<Props extends {} = {}> = DefineComponent<
   Props,
@@ -282,7 +286,7 @@ export function ___chakra___(
  * and also a function that can be used to enable custom component receive chakra's style props.
  * @param tag Tag or Component
  * @param options resolver options
- * 
+ *
  * How does it work?
  *
  * 1. Components returned from the chakra factory can be styled after consuming them
@@ -290,15 +294,15 @@ export function ___chakra___(
  *    ```js
  *    const Form = chakra('form') // returns a VNode you can use in the template directly
  *    ```
- * 
+ *
  * 2. Chakra components can directly be styled upon creation using the options object of type `StyleResolverProps`
  *    This resolves style object for component styles defined in the theme.
- * 
+ *
  *    Styling components using the chakra factory function can be done using the following keys from the theme:
  *    - `baseStyle`
  *    - `layerStyle`
  *    - `textStyle`
- * 
+ *
  *    @example
  *    ```js
  *    const MyCustomButton = chakra('button', {
@@ -313,12 +317,12 @@ export function ___chakra___(
  *    ```html
  *    <my-custom-button>Hello Papaya Button</my-custom-button>
  *    ```
- * 
+ *
  *    See more about the style resolution in the `resolveStyles` function.
- * 
+ *
  * 3. Chakra components created and styled using the `chakra` factory can be overriden in the template by applying
  *    style properties directly
- * 
+ *
  *    @example
  *    ```html
  *    <my-custom-button bg="blue.400">

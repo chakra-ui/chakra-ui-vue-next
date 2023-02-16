@@ -66,7 +66,7 @@ export default defineConfig({
           if (name in ChakraComponents) {
             return {
               importName: name,
-              path: `@chakra-ui/vue-next`,
+              path: path.resolve(__dirname, "./packages/core/src"),
             }
           }
         },

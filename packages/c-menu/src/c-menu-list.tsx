@@ -25,7 +25,7 @@ export const CMenuList = defineComponent({
             __css={listStyles.value}
             {...root.value.contentProps}
           >
-            {() => getValidChildren(slots)}
+            {slots.default?.()}
           </chakra.ul>
         </chakra.div>
       </CPortal>

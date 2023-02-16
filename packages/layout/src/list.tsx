@@ -30,7 +30,7 @@ interface ListOptions {
   spacing?: SystemProps["margin"]
 }
 
-export interface ListProps
+export interface CListProps
   extends HTMLChakraProps<"ul">,
     ThemingProps<"List">,
     ListOptions {}
@@ -48,11 +48,11 @@ export const CList = defineComponent({
       default: "ul",
     },
     styleType: {
-      type: SAO as PropType<ListProps["listStyleType"]>,
+      type: SAO as PropType<CListProps["listStyleType"]>,
       default: "none",
     },
-    stylePosition: SAO as PropType<ListProps["listStylePosition"]>,
-    spacing: SNAO as PropType<ListProps["margin"]>,
+    stylePosition: SAO as PropType<CListProps["listStylePosition"]>,
+    spacing: SNAO as PropType<CListProps["margin"]>,
   },
   setup(props, { slots, attrs }) {
     const styles = useMultiStyleConfig("List", props)

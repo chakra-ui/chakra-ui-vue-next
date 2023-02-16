@@ -33,5 +33,3 @@ export const CVisuallyHidden = chakra("span", {
 export const CVisuallyHiddenInput = chakra("input", {
   baseStyle: visuallyHiddenStyle,
 })
-
-export default CVisuallyHidden

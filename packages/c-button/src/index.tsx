@@ -1,3 +1,3 @@
-export { default as CButton } from "./button"
-export { default as CButtonGroup } from "./button-group"
-export { default as CIconButton } from "./icon-button"
+export * from "./button"
+export * from "./button-group"
+export * from "./icon-button"

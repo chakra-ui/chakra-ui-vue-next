@@ -36,8 +36,8 @@
     "@chakra-ui/vue-layout": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/menu": "^0.1.16",
-    "@zag-js/vue": "^0.2.8"
+    "@zag-js/menu": "0.3.8",
+    "@zag-js/vue": "^0.2.9"
   },
   "devDependencies": {
     "vue": "^3.2.37"

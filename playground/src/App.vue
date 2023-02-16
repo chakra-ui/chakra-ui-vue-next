@@ -51,20 +51,20 @@
 </template>
 
 <script lang="ts">
-import { computed, getCurrentInstance, defineComponent, watchEffect } from "vue"
+import { computed, defineComponent } from "vue"
 import {
   chakra,
   CDarkMode,
   CReset,
   CIconButton,
   useColorMode,
-} from "@chakra-ui/vue-next"
-import { useTheme } from "@chakra-ui/vue-system"
+} from "../../packages/core/src"
+import { useTheme } from "../../packages/system/src"
 import Sidebar from "./components/Sidebar.vue"
 import { routes } from "./router"
 
 export default defineComponent({
-  components: { Sidebar, CReset, CIconButton, DarkMode: CDarkMode },
+  components: { Sidebar, CIconButton, DarkMode: CDarkMode },
   setup() {
     const { colorMode, toggleColorMode } = useColorMode()
 

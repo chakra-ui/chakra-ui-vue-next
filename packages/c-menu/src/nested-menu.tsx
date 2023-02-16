@@ -57,7 +57,7 @@ export const CSubMenuTrigger = defineComponent({
         {...triggerItemProps.value}
         {...attrs}
       >
-        {() => getValidChildren(slots)}
+        {slots.default?.()}
       </chakra.li>
     )
   },
@@ -70,7 +70,7 @@ export const CSubMenuItem = defineComponent({
     },
   },
   setup(props, { slots, attrs }) {
-    const validChildren = getValidChildren(slots)
+    const validChildren = slots.default?.() || []
 
     const styles = useStyles()
     const itemStyles = computed(() => ({
@@ -108,7 +108,7 @@ export const CSubMenuList = defineComponent({
             __css={listStyles.value}
             {...sub.value.contentProps}
           >
-            {() => getValidChildren(slots)}
+            {slots.default?.()}
           </chakra.ul>
         </chakra.div>
       </CPortal>
@@ -128,6 +128,6 @@ export const CSubMenu = defineComponent({
 
     SubMenuProvider({ sub, root, machine: subMachine })
 
-    return () => getValidChildren(slots)
+    return () => slots.default?.()
   },
 })

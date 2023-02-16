@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "workspace:*",
+  "version": "2.1.0-beta.1",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "license": "MIT",
   "type": "module",
@@ -21,7 +21,8 @@
   "scripts": {
     "prebuild": "nuxi prepare playground",
     "build": "unbuild",
-    "dev": "nuxi dev playground",
+    "dev": "echo 'Dev'",
+    "start": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "lint": "eslint .",

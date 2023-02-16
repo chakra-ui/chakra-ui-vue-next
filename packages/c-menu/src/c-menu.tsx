@@ -59,6 +59,7 @@ export const CMenu = defineComponent({
     const root = computed(() => menu.connect(state.value, send, normalizeProps))
     // Set active id on first render
     if (props.initialActiveId) {
+      // @ts-expect-error setActiveId not typed correctly
       root.value.setActiveId(props.initialActiveId)
     }
     expose({
@@ -71,7 +72,7 @@ export const CMenu = defineComponent({
 
     return () => (
       <chakra.div __label="menu" {...attrs}>
-        {() => getValidChildren(slots)}
+        {slots.default?.()}
       </chakra.div>
     )
   },
@@ -82,7 +83,7 @@ export const CMenuTrigger = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    const themingProps = computed<ThemingProps>(() =>
+    const themingProps = computed<ThemingProps<"Button">>(() =>
       filterUndefined({
         colorScheme: props.colorScheme || "gray",
         variant: props.variant,
@@ -91,7 +92,7 @@ export const CMenuTrigger = defineComponent({
       })
     )
     const styles = useStyles()
-    const buttonStyles = useStyleConfig("Button", themingProps)
+    const buttonStyles = useStyleConfig("Button", props)
     const triggerStyles = computed(() => ({
       ...buttonStyles.value,
       ...styles.value.button,
@@ -105,7 +106,7 @@ export const CMenuTrigger = defineComponent({
         {...root.value.triggerProps}
         {...attrs}
       >
-        {() => getValidChildren(slots)}
+        {slots.default?.()}
       </chakra.button>
     )
   },
@@ -153,9 +154,7 @@ export const CMenuGroup = defineComponent({
         >
           {props.groupTitle}
         </chakra.p>
-        <chakra.div {...groupProps.value}>
-          {() => getValidChildren(slots)}
-        </chakra.div>
+        <chakra.div {...groupProps.value}>{slots.default?.()}</chakra.div>
       </chakra.div>
     )
   },

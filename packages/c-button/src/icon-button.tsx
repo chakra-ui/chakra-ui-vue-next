@@ -1,8 +1,7 @@
 import { h, defineComponent, PropType, VNode } from "vue"
-import CButton from "./button"
+import { CButton } from "./button"
 import { ButtonProps } from "./button.utils"
 import { CIcon } from "@chakra-ui/c-icon"
-import { ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
 
 const IconButtonProps = {
   // ...BUTTON_PROPS,
@@ -25,7 +24,7 @@ export interface CIconButtonProps extends ButtonProps {
  *
  * IconButton composes the Button component except that it renders only an icon.
  */
-const CIconButton = defineComponent({
+export const CIconButton = defineComponent({
   name: "CIconButton",
   props: IconButtonProps,
   setup(props, { attrs }) {
@@ -47,5 +46,3 @@ const CIconButton = defineComponent({
     )
   },
 })
-
-export default CIconButton

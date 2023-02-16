@@ -4,7 +4,7 @@ import Chakra, {
   extendTheme,
   BodyScrollLockDirective,
   extendChakra,
-} from "@chakra-ui/vue-next"
+} from "../../packages/core/src"
 import { domElements } from "@chakra-ui/vue-system"
 import { feActivity, feUser } from "feather-icons-paths"
 import PerfectScrollbar from "vue3-perfect-scrollbar"
@@ -12,7 +12,7 @@ import { MotionPlugin } from "@vueuse/motion"
 import App from "./App.vue"
 import router from "./router"
 import { mode } from "@chakra-ui/theme-tools"
-import { feGithub } from 'feather-icons-paths'
+import { feGithub } from "feather-icons-paths"
 
 console.log({ router })
 
@@ -20,6 +20,7 @@ const app = createApp(App)
   .use(router)
   .use(MotionPlugin)
   .use(
+    // @ts-ignore
     Chakra,
     extendChakra({
       cssReset: true,
@@ -27,7 +28,7 @@ const app = createApp(App)
         library: {
           feActivity,
           feUser,
-          feGithub
+          feGithub,
         },
         extend: {
           discord: {

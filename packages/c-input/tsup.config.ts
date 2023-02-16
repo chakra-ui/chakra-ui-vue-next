@@ -16,6 +16,6 @@ export default defineConfig({
     }),
   ],
   format: ["esm", "cjs"],
-  entry: ['src/**/*.(ts|tsx)'],
+  entry: ["src/**/*.(ts|tsx)"],
   keepNames: true,
 })

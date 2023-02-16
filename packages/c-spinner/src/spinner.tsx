@@ -70,7 +70,7 @@ const defaultSpinnerProps = {
   speed: "0.45s",
 }
 
-const CSpinner = defineComponent({
+export const CSpinner = defineComponent({
   name: "CSpinner",
   props: {
     as: SNAO as PropType<CSpinnerProps["as"]>,
@@ -141,5 +141,3 @@ const CSpinner = defineComponent({
     )
   },
 })
-
-export default CSpinner

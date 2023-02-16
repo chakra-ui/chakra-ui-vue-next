@@ -1,1 +1,1 @@
-export { default as CSpinner } from "./spinner"
+export * from "./spinner"

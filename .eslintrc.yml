@@ -7,24 +7,24 @@ extends:
   - plugin:prettier/recommended
   - plugin:vue/essential
   - plugin:vue/vue3-essential
-  - "@vue/typescript"
+  # - "@vue/typescript"
 parser: vue-eslint-parser
 parserOptions:
   parser: "@typescript-eslint/parser"
   ecmaVersion: 2020
   sourceType: module
 plugins:
-  - "@typescript-eslint"
+  # - "@typescript-eslint"
   - prettier
 rules:
-  "@typescript-eslint/member-delimiter-style":
-    - error
-    - multiline:
-        delimiter: none
-        requireLast: false
-      singleline:
-        delimiter: comma
-        requireLast: false
+  # "@typescript-eslint/member-delimiter-style":
+  #   - error
+  #   - multiline:
+  #       delimiter: none
+  #       requireLast: false
+  #     singleline:
+  #       delimiter: comma
+  #       requireLast: false
   vue/no-multiple-template-root: "off"
   "prettier/prettier":
     - error

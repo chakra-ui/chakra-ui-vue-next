@@ -30,5 +30,6 @@
   </chakra.div>
 </template>
 <script lang="ts" setup>
-import { CHStack, CVStack, chakra } from "@chakra-ui/vue-next"
+import { CHStack, CVStack } from "../src"
+import { chakra } from "../../system/src"
 </script>

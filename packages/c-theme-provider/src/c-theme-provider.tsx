@@ -15,7 +15,7 @@ export interface CThemeProviderProps {
   value?: Theme
 }
 
-const CThemeProvider = defineComponent({
+export const CThemeProvider = defineComponent({
   name: "CThemeProvider",
   props: {
     value: {
@@ -32,5 +32,3 @@ const CThemeProvider = defineComponent({
     )
   },
 })
-
-export default CThemeProvider

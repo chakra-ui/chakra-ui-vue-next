@@ -43,7 +43,7 @@ import {
   CAccordionButton,
   CAccordionPanel,
 } from "../src"
-import { chakra } from "@chakra-ui/vue-next"
+import { chakra } from "../../core"
 import { useToggle } from "@vueuse/core"
 const [isToggle] = useToggle(true)
 </script>

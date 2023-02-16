@@ -147,10 +147,11 @@ export type { ChakraPluginOptions }
 export interface ThemeProviderProps extends ThemeOverride {}
 export default ChakraUIVuePlugin
 export { extendTheme, extendBaseTheme } from "@chakra-ui/theme-utils"
+export * from "@chakra-ui/vue-system"
 
 // Export chakra factory function
 export { chakra as chakra }
 
-export * from "./components"
 import * as ChakraComponents from "./components"
+export * from "./components"
 export { ChakraComponents }

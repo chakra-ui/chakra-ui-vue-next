@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/vue-system"
 import { filterUndefined } from "@chakra-ui/utils"
 
-const CCode = defineComponent({
+export const CCode = defineComponent({
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -48,5 +48,3 @@ const CCode = defineComponent({
     }
   },
 })
-
-export default CCode

@@ -48,7 +48,7 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
-const CButtonGroup = defineComponent({
+export const CButtonGroup = defineComponent({
   name: "CButtonGroup",
   props,
   setup(props, { attrs, slots }) {
@@ -99,5 +99,4 @@ const CButtonGroup = defineComponent({
   },
 })
 
-export default CButtonGroup
 export { useButtonGroup }

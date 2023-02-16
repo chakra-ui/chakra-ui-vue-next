@@ -92,5 +92,3 @@ export const CFlex = defineComponent({
     )
   },
 })
-
-// export default CFlex

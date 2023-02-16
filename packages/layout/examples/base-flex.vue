@@ -18,5 +18,5 @@
 </template>
 
 <script lang="ts">
-import { chakra } from "@chakra-ui/vue-system"
+import { chakra } from "../../core"
 </script>

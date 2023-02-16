@@ -257,5 +257,3 @@ export const CButton = defineComponent({
     }
   },
 })
-
-export default CButton

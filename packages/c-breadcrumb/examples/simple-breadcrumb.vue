@@ -13,13 +13,13 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, h } from 'vue'
-import { useRoute } from 'vue-router'
-import { CIcon } from '@chakra-ui/vue-next'
+import { defineComponent, h } from "vue"
+import { useRoute } from "vue-router"
+import { CIcon } from "../../core/src"
 
 const Sun = () => {
   return h(CIcon, {
-    name: 'sun',
+    name: "sun",
   })
 }
 const route = useRoute()

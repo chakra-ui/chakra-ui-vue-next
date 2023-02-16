@@ -12,15 +12,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
+import { CCode } from "../src"
+import { chakra } from "../../core"
 
 const colorSchemes = ref([
-  'gray',
-  'green',
-  'red',
-  'yellow',
-  'orange',
-  'purple',
-  'teal',
+  "gray",
+  "green",
+  "red",
+  "yellow",
+  "orange",
+  "purple",
+  "teal",
 ])
 </script>
