@@ -15,7 +15,7 @@ on:
 
 jobs:
   release:
-    name: Release
+    name: Development Release
     runs-on: ubuntu-latest
     env:
       # NODE_OPTIONS: "--max-old-space-size=16384"
@@ -48,7 +48,7 @@ jobs:
       - name: Create @dev release
         if: steps.changesets.outputs.published != 'true'
         run: |
-          git checkout main
+          git checkout develop
           pnpm version:dev
           pnpm release:dev
         env:
