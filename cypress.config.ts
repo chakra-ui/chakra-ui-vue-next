@@ -6,7 +6,7 @@ export default defineConfig({
   reporter: "spec",
   component: {
     setupNodeEvents(on, config) {},
-    specPattern: "packages//**/*.cy.*",
+    specPattern: "packages/**/*.cy.*",
     excludeSpecPattern: "**/*.snap",
     devServer: {
       framework: "vue",
