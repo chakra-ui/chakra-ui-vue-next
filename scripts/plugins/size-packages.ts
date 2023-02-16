@@ -1,5 +1,5 @@
 import consola from "consola"
-import { ensureFile, readFileSync, ensureDirSync } from "fs-extra"
+import { ensureFile, readFileSync } from "fs-extra"
 import { IPackageJson } from "../types/package.json"
 import { getAllPackageJsons } from "../utils"
 import { gzipSync } from "node:zlib"
@@ -29,9 +29,9 @@ function checkFileSize(pkg: IPackageJson, filePath: string) {
   const brotli = (compressed?.length! / 1024).toFixed(2) + "kb"
   const brotliNum = Number((compressed?.length! / 1024).toFixed(2))
   console.log(
-    `${chalk.yellow(
-      chalk.bold(path.basename(filePath))
-    )} min:${minified} / gzip:${gzip} / brotli:${brotli}`
+    `CommonJS (Unoptimized) :: ${chalk.yellow(
+      chalk.bold(pkg.name)
+    )} ==> min:${minified} / gzip:${gzip} / brotli:${brotli}`
   )
 
   return {
@@ -72,7 +72,7 @@ async function sizePackages() {
     (pkg) => !ignored.includes(pkg.name)
   )) {
     const _package = instance.meta
-    const entry = `${instance.directory}/${_package.module || _package.main}`
+    const entry = `${instance.directory}/${_package.main || _package.module}`
     const result = checkFileSize(_package, entry)
 
     if (result) {

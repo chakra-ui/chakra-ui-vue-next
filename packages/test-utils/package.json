@@ -1,15 +1,15 @@
 {
   "name": "@chakra-ui/vue-test-utils",
-  "version": "0.0.0-dev-20230215144750",
-  "main": "dist/chakra-ui-vue-test-utils.cjs.js",
-  "module": "dist/chakra-ui-vue-test-utils.esm.js",
+  "version": "0.0.0-beta.1",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-test-utils.cjs.js",
-      "default": "./dist/chakra-ui-vue-test-utils.esm.js"
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.esm.js"
     }
   },
   "description": "Chakra UI Vue | TestUtils module",

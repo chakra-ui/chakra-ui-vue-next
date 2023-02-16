@@ -16,8 +16,6 @@ export default defineConfig({
     }),
   ],
   format: ["esm", "cjs"],
-  entry: {
-    "chakra-ui-c-checkbox": "src/index.tsx",
-  },
+  entry: ['src/**/*.(ts|tsx)'],
   keepNames: true,
 })

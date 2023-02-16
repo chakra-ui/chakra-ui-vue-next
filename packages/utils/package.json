@@ -1,16 +1,16 @@
 {
   "name": "@chakra-ui/vue-utils",
-  "version": "0.0.0-dev-20230215144750",
-  "main": "dist/chakra-ui-vue-utils.cjs.js",
-  "module": "dist/chakra-ui-vue-utils.esm.js",
+  "version": "0.0.0-beta.1",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "description": "Chakra UI Vue | Utils module",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/utils",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-utils.cjs.js",
-      "default": "./dist/chakra-ui-vue-utils.esm.js"
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.esm.js"
     }
   },
   "scripts": {

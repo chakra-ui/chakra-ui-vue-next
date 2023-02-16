@@ -1,5 +1,45 @@
 # @chakra-ui/c-modal
 
+## 0.0.0-beta.1
+
+### Major Changes
+
+- Use TSUP splitting
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-composables@0.0.0-beta.1
+  - @chakra-ui/c-close-button@0.0.0-beta.1
+  - @chakra-ui/c-scroll-lock@0.0.0-beta.1
+  - @chakra-ui/c-focus-lock@0.0.0-beta.1
+  - @chakra-ui/c-motion@0.0.0-beta.1
+  - @chakra-ui/c-portal@0.0.0-beta.1
+  - @chakra-ui/vue-accessibilty@0.0.0-beta.1
+  - @chakra-ui/vue-system@0.0.0-beta.1
+  - @chakra-ui/vue-utils@0.0.0-beta.1
+
+## 0.0.0-beta.0
+
+### Major Changes
+
+- hange build pipeline to use tsup
+
+### Patch Changes
+
+- a3e70d0b: Create package
+- Updated dependencies
+- Updated dependencies [a3e70d0b]
+  - @chakra-ui/vue-composables@0.0.0-beta.0
+  - @chakra-ui/c-close-button@0.0.0-beta.0
+  - @chakra-ui/c-scroll-lock@0.0.0-beta.0
+  - @chakra-ui/c-focus-lock@0.0.0-beta.0
+  - @chakra-ui/c-motion@0.0.0-beta.0
+  - @chakra-ui/c-portal@0.0.0-beta.0
+  - @chakra-ui/vue-accessibilty@0.0.0-beta.0
+  - @chakra-ui/vue-system@0.0.0-beta.0
+  - @chakra-ui/vue-utils@0.0.0-beta.0
+
 ## 0.0.0-dev-20230215144750
 
 ### Patch Changes
