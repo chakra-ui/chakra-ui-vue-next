@@ -7,11 +7,13 @@ exports[`<CAccordion /> component should render properly 1`] = `
   >
     <div
       data-part="root"
+      data-scope="accordion"
       id="accordion:EMPTY_STRING"
     >
       <div
         class="css-17mg6aq"
         data-part="item"
+        data-scope="accordion"
         id="accordion:EMPTY_STRING:item:accordion-item-undefined"
       >
         <button
@@ -21,6 +23,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
           class="css-1oqzxfr"
           data-ownedby="accordion:EMPTY_STRING"
           data-part="trigger"
+          data-scope="accordion"
           id="accordion:EMPTY_STRING:trigger:accordion-item-undefined"
           type="button"
         >
@@ -60,6 +63,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
             aria-labelledby="accordion:EMPTY_STRING:trigger:accordion-item-undefined"
             class="css-13d8nyx"
             data-part="content"
+            data-scope="accordion"
             id="accordion:EMPTY_STRING:content:accordion-item-undefined"
             role="region"
           >
@@ -70,6 +74,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
       <div
         class="css-17mg6aq"
         data-part="item"
+        data-scope="accordion"
         id="accordion:EMPTY_STRING:item:accordion-item-1"
       >
         <button
@@ -79,6 +84,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
           class="css-1oqzxfr"
           data-ownedby="accordion:EMPTY_STRING"
           data-part="trigger"
+          data-scope="accordion"
           id="accordion:EMPTY_STRING:trigger:accordion-item-1"
           type="button"
         >
@@ -117,6 +123,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
             aria-labelledby="accordion:EMPTY_STRING:trigger:accordion-item-1"
             class="css-13d8nyx"
             data-part="content"
+            data-scope="accordion"
             id="accordion:EMPTY_STRING:content:accordion-item-1"
             role="region"
           >
@@ -127,6 +134,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
       <div
         class="css-17mg6aq"
         data-part="item"
+        data-scope="accordion"
         id="accordion:EMPTY_STRING:item:accordion-item-2"
       >
         <button
@@ -136,6 +144,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
           class="css-1oqzxfr"
           data-ownedby="accordion:EMPTY_STRING"
           data-part="trigger"
+          data-scope="accordion"
           id="accordion:EMPTY_STRING:trigger:accordion-item-2"
           type="button"
         >
@@ -174,6 +183,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
             aria-labelledby="accordion:EMPTY_STRING:trigger:accordion-item-2"
             class="css-13d8nyx"
             data-part="content"
+            data-scope="accordion"
             id="accordion:EMPTY_STRING:content:accordion-item-2"
             role="region"
           >
