@@ -13,8 +13,7 @@
     ]
   },
   "scripts": {
-    "postinstall": "preconstruct dev",
-    "dev": "preconstruct dev",
+    "dev": "turbo run dev",
     "clean": "pnpm -r --parallel run clean",
     "prebuild": "pnpm clean",
     "build": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils}",
@@ -25,7 +24,6 @@
     "postbuild": "pnpm pkgs:size",
     "build:fast": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
     "postbuild:fast": "pnpm pkgs:size",
-    "start": "preconstruct watch",
     "scaffold": "hygen generator",
     "preplaygound:dev": "node ./scripts/dev.js",
     "playground:dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
@@ -104,7 +102,6 @@
     "@nuxt/schema": "^3.0.0",
     "@nuxt/test-utils": "^3.0.0",
     "@popperjs/core": "^2.8.4",
-    "@preconstruct/cli": "^2.1.5",
     "@rollup/plugin-multi-entry": "^6.0.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "@size-limit/file": "^5.0.3",
@@ -228,12 +225,6 @@
     "vue-router": "^4.0.12",
     "vue3-perfect-scrollbar": "^1.5.5",
     "yargs": "^17.6.2"
-  },
-  "preconstruct": {
-    "packages": [
-      "packages/*",
-      "tooling/*"
-    ]
   },
   "resolutions": {
     "csstype": "3.1.1",

@@ -53,34 +53,36 @@ async function execute() {
   const files = await getAllPackageJsons()
   files.forEach(async (filePath) => {
     await transformPackageJson(filePath, await writeTsupConfig(filePath))
+    await transformPackageJson(filePath, configureBuildScripts)
+    await transformPackageJson(filePath, configureBuildTargets)
   })
 }
 
-// const configureBuildTargets: TransformFunction = (pkg: IPackageJson) => {
-//   pkg.main = `dist/${kebabCase(pkg.name)}.cjs.js`
-//   pkg.module = `dist/${kebabCase(pkg.name)}.esm.js`
+const configureBuildTargets: TransformFunction = (pkg: IPackageJson) => {
+  pkg.main = `dist/${kebabCase(pkg.name)}.cjs.js`
+  pkg.module = `dist/${kebabCase(pkg.name)}.esm.js`
 
-//   pkg.exports["."].require = `./dist/${kebabCase(pkg.name)}.cjs.js`
-//   pkg.exports["."].default = `./dist/${kebabCase(pkg.name)}.esm.js`
+  pkg.exports["."].require = `./dist/${kebabCase(pkg.name)}.cjs.js`
+  pkg.exports["."].default = `./dist/${kebabCase(pkg.name)}.esm.js`
 
-//   delete pkg.tsup
-//   consola.info(`pkg: ${pkg.name}`)
-//   return pkg
-// }
+  delete pkg.tsup
+  consola.info(`pkg: ${pkg.name}`)
+  return pkg
+}
 
-// const configureBuildScripts: TransformFunction = (pkg: IPackageJson) => {
-//   pkg.scripts["build"] = "tsup && pnpm build:types"
-//   if (pkg.name === "@chakra-ui/vue-auto-import") {
-//     pkg.scripts["build:types"] = "echo: 'WIP exporting all types'"
-//   } else {
-//     pkg.scripts["build:types"] = "tsup src --dts-only"
-//   }
-//   pkg.scripts["build:fast"] = "tsup"
-//   pkg.scripts["dev"] = "tsup --watch"
-//   pkg.scripts["clean"] = "rimraf dist .turbo"
-//   pkg.scripts["types:check"] = "tsc --noEmit"
-//   return pkg
-// }
+const configureBuildScripts: TransformFunction = (pkg: IPackageJson) => {
+  pkg.scripts["build"] = "tsup && pnpm build:types"
+  if (pkg.name === "@chakra-ui/vue-auto-import") {
+    pkg.scripts["build:types"] = "echo: 'WIP exporting all types'"
+  } else {
+    pkg.scripts["build:types"] = "tsup src --dts-only"
+  }
+  pkg.scripts["build:fast"] = "tsup"
+  pkg.scripts["dev"] = "tsup --watch"
+  pkg.scripts["clean"] = "rimraf dist .turbo"
+  pkg.scripts["types:check"] = "tsc --noEmit"
+  return pkg
+}
 
 execute()
   .then(() => consola.success("Successfully transformed files"))
