@@ -16,10 +16,7 @@
       "default": "./dist/index.esm.js"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
-  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-toast",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -33,13 +30,13 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/c-alert": "workspace:*",
     "@chakra-ui/c-close-button": "workspace:*",
+    "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
     "@zag-js/core": "^0.2.6",
     "@zag-js/toast": "^0.2.8",
-    "@zag-js/vue": "^0.1.16",
+    "@zag-js/vue": "^0.2.8",
     "motion": "^10.15.5"
   },
   "devDependencies": {

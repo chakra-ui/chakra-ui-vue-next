@@ -16,7 +16,7 @@
       "default": "./dist/index.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-avatar",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-avatar",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -33,16 +33,15 @@
     "@chakra-ui/c-icon": "workspace:*",
     "@chakra-ui/c-image": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
-    "@chakra-ui/theme-tools": "^2.0.16",
+    "@chakra-ui/theme-tools": "^2.0.17",
     "@chakra-ui/utils": "2.0.14",
     "@chakra-ui/vue-layout": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "csstype": "3.1.1"
+    "csstype": "^3.1.1"
   },
   "devDependencies": {
-    "vue": "^3.2.37",
-    "csstype": "3.1.1"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

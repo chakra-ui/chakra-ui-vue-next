@@ -13,7 +13,7 @@
     }
   },
   "description": "Chakra UI Vue | Styled module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/styled",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/styled",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "@chakra-ui/vue-utils": "workspace:*",
     "@emotion/cache": "^11.7.1",
-    "@emotion/css": "^11.9.0",
+    "@emotion/css": "^11.10.5",
     "@emotion/serialize": "1.1.1",
     "@emotion/utils": "^1.1.0",
     "@emotion/weak-memoize": "^0.2.5",

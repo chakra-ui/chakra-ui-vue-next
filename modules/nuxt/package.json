@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt-next",
-  "version": "2.1.0-beta.0",
+  "version": "workspace:*",
   "description": "Nuxt 3 compatible version of Chakra UI Vue",
   "license": "MIT",
   "type": "module",
@@ -16,7 +16,7 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/nuxt",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/modules/nuxt",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "scripts": {
     "prebuild": "nuxi prepare playground",
@@ -38,7 +38,7 @@
     "playwright": "^1.30.0"
   },
   "devDependencies": {
-    "@chakra-ui/theme": "^2.2.4",
+    "@chakra-ui/theme": "^2.2.5",
     "@chakra-ui/utils": "2.0.14",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/module-builder": "^0.2.1",

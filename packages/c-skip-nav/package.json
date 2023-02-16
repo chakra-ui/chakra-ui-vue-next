@@ -16,7 +16,7 @@
       "default": "./dist/index.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-skip-nav",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-skip-nav",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },

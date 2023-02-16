@@ -16,7 +16,7 @@
       "default": "./dist/index.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-checkbox",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-checkbox",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -38,7 +38,7 @@
     "@chakra-ui/vue-utils": "workspace:*",
     "@vueuse/motion": "^1.5.4",
     "@zag-js/checkbox": "0.1.6",
-    "@zag-js/vue": "^0.1.14"
+    "@zag-js/vue": "^0.2.8"
   },
   "devDependencies": {
     "vue": "^3.2.37"

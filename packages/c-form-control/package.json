@@ -16,7 +16,7 @@
       "default": "./dist/index.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-form-control",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-form-control",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -35,7 +35,7 @@
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "csstype": "3.1.1"
+    "csstype": "^3.1.1"
   },
   "devDependencies": {
     "vue": "^3.2.37"

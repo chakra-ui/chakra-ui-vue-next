@@ -13,7 +13,7 @@
     }
   },
   "description": "Chakra UI Vue | VueAutoImport module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/tooling/auto-import",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/tooling/auto-import",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -32,14 +32,14 @@
     "lodash.kebabcase": "^4.1.1"
   },
   "peerDependencies": {
-    "@chakra-ui/vue-next": "workspace:*",
     "@chakra-ui/theme": "2.2.4",
+    "@chakra-ui/vue-next": "workspace:*",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.0.11"
   },
   "devDependencies": {
+    "@chakra-ui/theme": "^2.2.5",
     "@chakra-ui/vue-next": "workspace:*",
-    "@chakra-ui/theme": "2.2.4",
     "unplugin-vue-components": "^0.14.0",
     "vue": "^3.2.37"
   }

@@ -14,7 +14,7 @@
       "default": "./dist/index.esm.js"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/core",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/core",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -41,7 +41,7 @@
     "@chakra-ui/c-image": "workspace:*",
     "@chakra-ui/c-input": "workspace:*",
     "@chakra-ui/c-media-query": "workspace:*",
-    "@chakra-ui/c-menu": "workspace:*",
+    "@chakra-ui/c-menu": "0.0.0-beta.2",
     "@chakra-ui/c-modal": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
     "@chakra-ui/c-pin-input": "workspace:*",
@@ -57,7 +57,7 @@
     "@chakra-ui/c-visually-hidden": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/theme-tools": "^2.0.16",
+    "@chakra-ui/theme-tools": "^2.0.17",
     "@chakra-ui/theme-utils": "^2.0.6",
     "@chakra-ui/utils": "2.0.14",
     "@chakra-ui/vue-accessibilty": "workspace:*",

@@ -4,7 +4,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "Chakra UI Vue | Utils module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/utils",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/utils",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "exports": {
