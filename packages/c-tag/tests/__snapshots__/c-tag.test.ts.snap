@@ -102,8 +102,24 @@ exports[`CTag renders with close button properly 1`] = `
         class="chakra-icon css-1md6f3y"
         emit="(event, ...args) => instance.emit(event, ...args)"
         expose="exposed => {
-        if (instance.exposed) {
-            warn(\`expose() should be called only once per setup().\`);
+        {
+            if (instance.exposed) {
+                warn(\`expose() should be called only once per setup().\`);
+            }
+            if (exposed != null) {
+                let exposedType = typeof exposed;
+                if (exposedType === 'object') {
+                    if (shared.isArray(exposed)) {
+                        exposedType = 'array';
+                    }
+                    else if (reactivity.isRef(exposed)) {
+                        exposedType = 'ref';
+                    }
+                }
+                if (exposedType !== 'object') {
+                    warn(\`expose() should be passed a plain object, received \${exposedType}.\`);
+                }
+            }
         }
         instance.exposed = exposed || {};
     }"
@@ -143,8 +159,24 @@ exports[`CTag renders with disabled button properly 1`] = `
         class="chakra-icon css-1md6f3y"
         emit="(event, ...args) => instance.emit(event, ...args)"
         expose="exposed => {
-        if (instance.exposed) {
-            warn(\`expose() should be called only once per setup().\`);
+        {
+            if (instance.exposed) {
+                warn(\`expose() should be called only once per setup().\`);
+            }
+            if (exposed != null) {
+                let exposedType = typeof exposed;
+                if (exposedType === 'object') {
+                    if (shared.isArray(exposed)) {
+                        exposedType = 'array';
+                    }
+                    else if (reactivity.isRef(exposed)) {
+                        exposedType = 'ref';
+                    }
+                }
+                if (exposedType !== 'object') {
+                    warn(\`expose() should be passed a plain object, received \${exposedType}.\`);
+                }
+            }
         }
         instance.exposed = exposed || {};
     }"
@@ -223,8 +255,24 @@ exports[`CTag renders with left icon and close button 1`] = `
         class="chakra-icon css-1md6f3y"
         emit="(event, ...args) => instance.emit(event, ...args)"
         expose="exposed => {
-        if (instance.exposed) {
-            warn(\`expose() should be called only once per setup().\`);
+        {
+            if (instance.exposed) {
+                warn(\`expose() should be called only once per setup().\`);
+            }
+            if (exposed != null) {
+                let exposedType = typeof exposed;
+                if (exposedType === 'object') {
+                    if (shared.isArray(exposed)) {
+                        exposedType = 'array';
+                    }
+                    else if (reactivity.isRef(exposed)) {
+                        exposedType = 'ref';
+                    }
+                }
+                if (exposedType !== 'object') {
+                    warn(\`expose() should be passed a plain object, received \${exposedType}.\`);
+                }
+            }
         }
         instance.exposed = exposed || {};
     }"
