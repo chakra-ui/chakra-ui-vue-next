@@ -35,7 +35,7 @@
     "@vue/compiler-dom": "3.2.45",
     "@vue/compiler-sfc": "^3.2.45",
     "jest-axe": "^5.0.1",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

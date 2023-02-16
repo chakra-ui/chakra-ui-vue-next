@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "@types/lodash.memoize": "^4.1.6",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.2.31"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

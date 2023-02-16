@@ -1,6 +1,7 @@
 import { filterUndefined } from "@chakra-ui/utils"
 import * as menu from "@zag-js/menu"
 import { normalizeProps, useMachine } from "@zag-js/vue"
+import { Machine, StateMachine } from "@zag-js/core"
 import {
   StylesProvider,
   ThemingProps,
@@ -14,9 +15,18 @@ import {
   getValidChildren,
   vueThemingProps,
 } from "@chakra-ui/vue-utils"
-import { computed, defineComponent, h } from "vue"
+import { ComputedRef, computed, defineComponent, h } from "vue"
+import type {
+  MachineContext,
+  MachineState,
+  UserDefinedContext,
+} from "@zag-js/menu/dist/menu.types"
 
-export const [MenuProvider, useMenu] = createContext<any>({
+export const [MenuProvider, useMenu] = createContext<{
+  root: ComputedRef<ReturnType<typeof menu.connect>>
+  machine: ReturnType<typeof menu.machine>
+  rootEmit: (event: "select", ...args: any[]) => void
+}>({
   name: "MenuContext",
   strict: true,
 })
@@ -52,7 +62,7 @@ export const CMenu = defineComponent({
       menu.machine({
         id: props.menuId || "1",
         "aria-label": props.ariaLabel,
-        onSelect: (value) => emit("select", value),
+        onSelect: (value) => emit("select", value.value),
       })
     )
 
@@ -116,7 +126,7 @@ export const CMenuDivider = defineComponent({
   setup(_, { attrs }) {
     const styles = useStyles()
     const { root } = useMenu()
-    const separatorProps = computed(() => root.value.separatorProps)
+    const separatorProps = computed(() => root.value)
     return () => (
       <chakra.hr
         __label="menu-divider"
@@ -139,10 +149,10 @@ export const CMenuGroup = defineComponent({
     const styles = useStyles()
     const { root } = useMenu()
     const groupProps = computed(() =>
-      root.value.getGroupProps({ id: props.groupTitle })
+      root.value.getItemGroupProps({ id: props.groupTitle })
     )
     const labelProps = computed(() =>
-      root.value.getLabelProps({ htmlFor: props.groupTitle })
+      root.value.getItemGroupLabelProps({ htmlFor: props.groupTitle })
     )
 
     return () => (
@@ -154,7 +164,9 @@ export const CMenuGroup = defineComponent({
         >
           {props.groupTitle}
         </chakra.p>
-        <chakra.div {...groupProps.value}>{slots.default?.()}</chakra.div>
+        <chakra.div {...groupProps.value}>
+          {() => getValidChildren(slots)}
+        </chakra.div>
       </chakra.div>
     )
   },

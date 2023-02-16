@@ -30,12 +30,12 @@
     "@chakra-ui/vue-utils": "workspace:*"
   },
   "peerDependencies": {
-    "vue": ">=3.0.5"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   }
 }

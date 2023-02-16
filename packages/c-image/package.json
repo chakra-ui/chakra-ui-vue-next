@@ -38,10 +38,10 @@
   "devDependencies": {
     "@chakra-ui/styled-system": "2.5.1",
     "csstype": "^3.1.1",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

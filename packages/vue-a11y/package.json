@@ -38,9 +38,9 @@
     "@chakra-ui/vue-utils": "workspace:*"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.2.29"
+    "vue": "3.2.47"
   }
 }

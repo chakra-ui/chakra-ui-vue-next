@@ -35,12 +35,12 @@
     "@chakra-ui/theme": "2.2.4",
     "@chakra-ui/vue-next": "workspace:*",
     "unplugin-vue-components": "^0.14.0",
-    "vue": "^3.0.11"
+    "vue": "3.2.47"
   },
   "devDependencies": {
     "@chakra-ui/theme": "^2.2.5",
     "@chakra-ui/vue-next": "workspace:*",
     "unplugin-vue-components": "^0.14.0",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   }
 }
