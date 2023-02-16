@@ -62,7 +62,7 @@
     "version": "changeset version",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset version --snapshot dev && changeset publish --tag dev"
+    "release:dev": "changeset pre exit && changeset version --snapshot dev && changeset publish --tag dev"
   },
   "license": "MIT",
   "private": true,
