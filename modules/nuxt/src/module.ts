@@ -9,7 +9,7 @@ import type * as NuxtSchema from "@nuxt/schema"
 import type * as Theme from "@chakra-ui/theme"
 import type * as ChakraUI from "@chakra-ui/vue-next"
 import * as Chakra from "@chakra-ui/vue-next"
-import { mergeWith } from "@chakra-ui/utils"
+import mergeWith from "lodash.mergewith"
 
 const { extendTheme: _extendTheme } = Chakra
 const ChakraPlugin = Chakra.default

@@ -9,6 +9,7 @@ export default defineConfig({
       include: [/.[jt]sx?$/],
     }) as any,
   ],
+  metafile: true,
   format: ["esm", "cjs"],
   entry: ["src/**/*.(ts|tsx)"],
   keepNames: true,

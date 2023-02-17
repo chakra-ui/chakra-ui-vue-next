@@ -15,6 +15,7 @@ export default defineConfig({
       include: [/.[jt]sx?$/],
     }),
   ],
+  metafile: true,
   format: ["esm", "cjs"],
   entry: {
     "chakra-ui-vue-next-test-fixture": "src/index.tsx",
