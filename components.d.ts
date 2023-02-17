@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.0.0-beta.1 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.0 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-01-26T11:03:05.352Z
+ * This file was generated on 2023-02-17T13:41:24.872Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -124,6 +124,7 @@ declare module "@vue/runtime-core" {
     CText: typeof import("@chakra-ui/vue-next")["CText"]
     CUnorderedList: typeof import("@chakra-ui/vue-next")["CUnorderedList"]
     CVStack: typeof import("@chakra-ui/vue-next")["CVStack"]
+    CMenu: typeof import("@chakra-ui/vue-next")["CMenu"]
     CAlertDialog: typeof import("@chakra-ui/vue-next")["CAlertDialog"]
     CAlertDialogBody: typeof import("@chakra-ui/vue-next")["CAlertDialogBody"]
     CAlertDialogCloseButton: typeof import("@chakra-ui/vue-next")["CAlertDialogCloseButton"]
@@ -156,6 +157,9 @@ declare module "@vue/runtime-core" {
     CSkipNavLink: typeof import("@chakra-ui/vue-next")["CSkipNavLink"]
     CSpinner: typeof import("@chakra-ui/vue-next")["CSpinner"]
     CScrollLock: typeof import("@chakra-ui/vue-next")["CScrollLock"]
+    CThemeProvider: typeof import("@chakra-ui/vue-next")["CThemeProvider"]
+    CPresenceGroup: typeof import("@chakra-ui/vue-next")["CPresenceGroup"]
+    CToastContainer: typeof import("@chakra-ui/vue-next")["CToastContainer"]
     CVisuallyHidden: typeof import("@chakra-ui/vue-next")["CVisuallyHidden"]
     CVisuallyHiddenInput: typeof import("@chakra-ui/vue-next")["CVisuallyHiddenInput"]
     "chakra.a": (typeof chakra)["a"]

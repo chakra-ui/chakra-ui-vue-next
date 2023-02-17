@@ -21,7 +21,7 @@
     "build:ci": "pnpm build --concurrency=5",
     "postbuild:ci": "pnpm pkgs:size",
     "build:types": "jiti scripts/generate-global-types.ts",
-    "postbuild": "pnpm pkgs:size",
+    "postbuild": "pnpm build:types && pnpm pkgs:size",
     "build:fast": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
     "postbuild:fast": "pnpm pkgs:size",
     "scaffold": "hygen generator",
