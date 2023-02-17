@@ -43,5 +43,5 @@ import {
   CAccordionPanel,
   CAccordionIcon,
 } from "../src"
-import { chakra } from "../../core"
+import { chakra } from "../../vue"
 </script>

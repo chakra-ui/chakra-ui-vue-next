@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { CCode } from "../src"
-import { chakra } from "../../core"
+import { chakra } from "../../vue"
 
 const colorSchemes = ref([
   "gray",

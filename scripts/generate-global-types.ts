@@ -3,7 +3,7 @@ const { resolve } = require("path")
 const {
   name: pkgName,
   version: pkgVersion,
-} = require("../packages/core/package.json")
+} = require("../packages/vue/package.json")
 
 const { ESLint } = require("eslint")
 const { domElements } = require("@chakra-ui/vue-system")
@@ -37,19 +37,19 @@ async function generateComponents() {
   /**
    * Typescript support for ${pkgName}${pkgVersion} auto-imported
    * components using \`unplugin-vue-components,\`
-   * 
+   *
    * @see: https://github.com/antfu/unplugin-vue-components/#typescript
-   * 
+   *
    * This is a generated file. Do not edit it's contents.
-   * 
+   *
    * This file was generated on ${new Date().toISOString()}
    */
 
    import { ChakraProps, chakra } from '@chakra-ui/vue-system'
    import { VNodeChild, VNode, HTMLAttributes } from 'vue'
-   
+
    export type JsxNode = VNodeChild | JSX.Element
-   
+
    declare global {
       namespace h.JSX {
         interface Element extends VNode {}
@@ -59,7 +59,7 @@ async function generateComponents() {
         interface ElementAttributesProperty {
           $props: {}
         }
-    
+
         interface IntrinsicAttributes
           extends Omit<HTMLAttributes, "color">,
             ChakraProps {}
@@ -67,11 +67,11 @@ async function generateComponents() {
     }
 
    type EventHandler = (...args: any[]) => void;
-   
+
    export interface SlotDirective {
      [name: string]: () => JsxNode
    }
-   
+
    type JsxComponentCustomProps = {
       vModel?: unknown
       vModels?: unknown[]
@@ -159,7 +159,7 @@ async function generateComponents() {
   }
 
   export {}
-  
+
 
   `
 

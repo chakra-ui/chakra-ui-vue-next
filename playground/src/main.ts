@@ -4,7 +4,7 @@ import Chakra, {
   extendTheme,
   BodyScrollLockDirective,
   extendChakra,
-} from "../../packages/core/src"
+} from "../../packages/vue/src"
 import { domElements } from "@chakra-ui/vue-system"
 import { feActivity, feUser } from "feather-icons-paths"
 import PerfectScrollbar from "vue3-perfect-scrollbar"

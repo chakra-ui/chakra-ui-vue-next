@@ -117,5 +117,5 @@
 </template>
 <script setup lang="ts">
 import { CAvatar, CAvatarBadge } from "../src"
-import { chakra } from "../../core"
+import { chakra } from "../../vue"
 </script>

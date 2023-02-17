@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { defineComponent, h } from "vue"
 import { useRoute } from "vue-router"
-import { CIcon } from "../../core/src"
+import { CIcon } from "../../vue/src"
 
 const Sun = () => {
   return h(CIcon, {

@@ -58,7 +58,7 @@ import {
   CReset,
   CIconButton,
   useColorMode,
-} from "../../packages/core/src"
+} from "../../packages/vue/src"
 import { useTheme } from "../../packages/system/src"
 import Sidebar from "./components/Sidebar.vue"
 import { routes } from "./router"

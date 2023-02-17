@@ -179,7 +179,7 @@ importers:
       '@chakra-ui/theme-utils': 2.0.8
       '@chakra-ui/utils': 2.0.14
       '@chakra-ui/vue-auto-import': link:tooling/auto-import
-      '@chakra-ui/vue-next': link:packages/core
+      '@chakra-ui/vue-next': link:packages/vue
       '@chakra-ui/vue-styled': link:packages/styled
       '@chakra-ui/vue-system': link:packages/system
       '@chakra-ui/vue-test-utils': link:packages/test-utils
@@ -346,7 +346,7 @@ importers:
       vitest: ^0.28.5
     dependencies:
       '@chakra-ui/c-color-mode': link:../../packages/c-color-mode
-      '@chakra-ui/vue-next': link:../../packages/core
+      '@chakra-ui/vue-next': link:../../packages/vue
       '@emotion/css': 11.10.5
       '@emotion/server': 11.10.0_@emotion+css@11.10.5
       '@nuxt/kit': 3.2.0
@@ -858,103 +858,6 @@ importers:
     devDependencies:
       '@emotion/css': 11.10.5
 
-  packages/core:
-    specifiers:
-      '@chakra-ui/c-accordion': workspace:*
-      '@chakra-ui/c-alert': workspace:*
-      '@chakra-ui/c-avatar': workspace:*
-      '@chakra-ui/c-breadcrumb': workspace:*
-      '@chakra-ui/c-button': workspace:*
-      '@chakra-ui/c-checkbox': workspace:*
-      '@chakra-ui/c-close-button': workspace:*
-      '@chakra-ui/c-code': workspace:*
-      '@chakra-ui/c-color-mode': workspace:*
-      '@chakra-ui/c-focus-lock': workspace:*
-      '@chakra-ui/c-form-control': workspace:*
-      '@chakra-ui/c-icon': workspace:*
-      '@chakra-ui/c-image': workspace:*
-      '@chakra-ui/c-input': workspace:*
-      '@chakra-ui/c-media-query': workspace:*
-      '@chakra-ui/c-menu': 0.0.0-beta.2
-      '@chakra-ui/c-modal': workspace:*
-      '@chakra-ui/c-motion': workspace:*
-      '@chakra-ui/c-pin-input': workspace:*
-      '@chakra-ui/c-popper': workspace:*
-      '@chakra-ui/c-portal': workspace:*
-      '@chakra-ui/c-reset': workspace:*
-      '@chakra-ui/c-scroll-lock': workspace:*
-      '@chakra-ui/c-skip-nav': workspace:*
-      '@chakra-ui/c-spinner': workspace:*
-      '@chakra-ui/c-tag': workspace:*
-      '@chakra-ui/c-theme-provider': workspace:*
-      '@chakra-ui/c-toast': workspace:*
-      '@chakra-ui/c-visually-hidden': workspace:*
-      '@chakra-ui/styled-system': 2.5.1
-      '@chakra-ui/theme': ^2.2.5
-      '@chakra-ui/theme-tools': 2.0.17
-      '@chakra-ui/theme-utils': ^2.0.6
-      '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-accessibilty': workspace:*
-      '@chakra-ui/vue-composables': workspace:*
-      '@chakra-ui/vue-layout': workspace:*
-      '@chakra-ui/vue-styled': workspace:*
-      '@chakra-ui/vue-system': workspace:*
-      '@emotion/cache': ^11.7.1
-      '@emotion/serialize': 1.1.1
-      '@emotion/sheet': ^1.1.0
-      '@emotion/utils': ^1.1.0
-      '@zag-js/toast': ^0.2.8
-      '@zag-js/vue': ^0.2.9
-      vue: 3.2.47
-    dependencies:
-      '@chakra-ui/c-accordion': link:../c-accordion
-      '@chakra-ui/c-alert': link:../c-alert
-      '@chakra-ui/c-avatar': link:../c-avatar
-      '@chakra-ui/c-breadcrumb': link:../c-breadcrumb
-      '@chakra-ui/c-button': link:../c-button
-      '@chakra-ui/c-checkbox': link:../c-checkbox
-      '@chakra-ui/c-close-button': link:../c-close-button
-      '@chakra-ui/c-code': link:../c-code
-      '@chakra-ui/c-color-mode': link:../c-color-mode
-      '@chakra-ui/c-focus-lock': link:../c-focus-lock
-      '@chakra-ui/c-form-control': link:../c-form-control
-      '@chakra-ui/c-icon': link:../c-icon
-      '@chakra-ui/c-image': link:../c-image
-      '@chakra-ui/c-input': link:../c-input
-      '@chakra-ui/c-media-query': link:../c-media-query
-      '@chakra-ui/c-menu': link:../c-menu
-      '@chakra-ui/c-modal': link:../c-modal
-      '@chakra-ui/c-motion': link:../c-motion
-      '@chakra-ui/c-pin-input': link:../c-pin-input
-      '@chakra-ui/c-popper': link:../c-popper
-      '@chakra-ui/c-portal': link:../c-portal
-      '@chakra-ui/c-reset': link:../c-reset
-      '@chakra-ui/c-scroll-lock': link:../c-scroll-lock
-      '@chakra-ui/c-skip-nav': link:../c-skip-nav
-      '@chakra-ui/c-spinner': link:../c-spinner
-      '@chakra-ui/c-tag': link:../c-tag
-      '@chakra-ui/c-theme-provider': link:../c-theme-provider
-      '@chakra-ui/c-toast': link:../c-toast
-      '@chakra-ui/c-visually-hidden': link:../c-visually-hidden
-      '@chakra-ui/styled-system': 2.5.1
-      '@chakra-ui/theme': 2.2.5_ak67p4fuwhwgy7hpxa6ejvcgoy
-      '@chakra-ui/theme-tools': 2.0.17_ak67p4fuwhwgy7hpxa6ejvcgoy
-      '@chakra-ui/theme-utils': 2.0.8
-      '@chakra-ui/utils': 2.0.14
-      '@chakra-ui/vue-accessibilty': link:../vue-a11y
-      '@chakra-ui/vue-composables': link:../vue-composables
-      '@chakra-ui/vue-layout': link:../layout
-      '@chakra-ui/vue-styled': link:../styled
-      '@chakra-ui/vue-system': link:../system
-      '@emotion/cache': 11.10.5
-      '@emotion/serialize': 1.1.1
-      '@emotion/sheet': 1.2.1
-      '@emotion/utils': 1.2.0
-      '@zag-js/toast': 0.2.8
-      '@zag-js/vue': 0.2.9_vue@3.2.47
-    devDependencies:
-      vue: 3.2.47
-
   packages/layout:
     specifiers:
       '@chakra-ui/c-icon': workspace:*
@@ -1085,6 +988,103 @@ importers:
       '@types/object-assign': 4.0.30
       vue: 3.2.47
 
+  packages/vue:
+    specifiers:
+      '@chakra-ui/c-accordion': workspace:*
+      '@chakra-ui/c-alert': workspace:*
+      '@chakra-ui/c-avatar': workspace:*
+      '@chakra-ui/c-breadcrumb': workspace:*
+      '@chakra-ui/c-button': workspace:*
+      '@chakra-ui/c-checkbox': workspace:*
+      '@chakra-ui/c-close-button': workspace:*
+      '@chakra-ui/c-code': workspace:*
+      '@chakra-ui/c-color-mode': workspace:*
+      '@chakra-ui/c-focus-lock': workspace:*
+      '@chakra-ui/c-form-control': workspace:*
+      '@chakra-ui/c-icon': workspace:*
+      '@chakra-ui/c-image': workspace:*
+      '@chakra-ui/c-input': workspace:*
+      '@chakra-ui/c-media-query': workspace:*
+      '@chakra-ui/c-menu': 0.0.0-beta.2
+      '@chakra-ui/c-modal': workspace:*
+      '@chakra-ui/c-motion': workspace:*
+      '@chakra-ui/c-pin-input': workspace:*
+      '@chakra-ui/c-popper': workspace:*
+      '@chakra-ui/c-portal': workspace:*
+      '@chakra-ui/c-reset': workspace:*
+      '@chakra-ui/c-scroll-lock': workspace:*
+      '@chakra-ui/c-skip-nav': workspace:*
+      '@chakra-ui/c-spinner': workspace:*
+      '@chakra-ui/c-tag': workspace:*
+      '@chakra-ui/c-theme-provider': workspace:*
+      '@chakra-ui/c-toast': workspace:*
+      '@chakra-ui/c-visually-hidden': workspace:*
+      '@chakra-ui/styled-system': 2.5.1
+      '@chakra-ui/theme': ^2.2.5
+      '@chakra-ui/theme-tools': 2.0.17
+      '@chakra-ui/theme-utils': ^2.0.6
+      '@chakra-ui/utils': 2.0.14
+      '@chakra-ui/vue-accessibilty': workspace:*
+      '@chakra-ui/vue-composables': workspace:*
+      '@chakra-ui/vue-layout': workspace:*
+      '@chakra-ui/vue-styled': workspace:*
+      '@chakra-ui/vue-system': workspace:*
+      '@emotion/cache': ^11.7.1
+      '@emotion/serialize': 1.1.1
+      '@emotion/sheet': ^1.1.0
+      '@emotion/utils': ^1.1.0
+      '@zag-js/toast': ^0.2.8
+      '@zag-js/vue': ^0.2.9
+      vue: 3.2.47
+    dependencies:
+      '@chakra-ui/c-accordion': link:../c-accordion
+      '@chakra-ui/c-alert': link:../c-alert
+      '@chakra-ui/c-avatar': link:../c-avatar
+      '@chakra-ui/c-breadcrumb': link:../c-breadcrumb
+      '@chakra-ui/c-button': link:../c-button
+      '@chakra-ui/c-checkbox': link:../c-checkbox
+      '@chakra-ui/c-close-button': link:../c-close-button
+      '@chakra-ui/c-code': link:../c-code
+      '@chakra-ui/c-color-mode': link:../c-color-mode
+      '@chakra-ui/c-focus-lock': link:../c-focus-lock
+      '@chakra-ui/c-form-control': link:../c-form-control
+      '@chakra-ui/c-icon': link:../c-icon
+      '@chakra-ui/c-image': link:../c-image
+      '@chakra-ui/c-input': link:../c-input
+      '@chakra-ui/c-media-query': link:../c-media-query
+      '@chakra-ui/c-menu': link:../c-menu
+      '@chakra-ui/c-modal': link:../c-modal
+      '@chakra-ui/c-motion': link:../c-motion
+      '@chakra-ui/c-pin-input': link:../c-pin-input
+      '@chakra-ui/c-popper': link:../c-popper
+      '@chakra-ui/c-portal': link:../c-portal
+      '@chakra-ui/c-reset': link:../c-reset
+      '@chakra-ui/c-scroll-lock': link:../c-scroll-lock
+      '@chakra-ui/c-skip-nav': link:../c-skip-nav
+      '@chakra-ui/c-spinner': link:../c-spinner
+      '@chakra-ui/c-tag': link:../c-tag
+      '@chakra-ui/c-theme-provider': link:../c-theme-provider
+      '@chakra-ui/c-toast': link:../c-toast
+      '@chakra-ui/c-visually-hidden': link:../c-visually-hidden
+      '@chakra-ui/styled-system': 2.5.1
+      '@chakra-ui/theme': 2.2.5_ak67p4fuwhwgy7hpxa6ejvcgoy
+      '@chakra-ui/theme-tools': 2.0.17_ak67p4fuwhwgy7hpxa6ejvcgoy
+      '@chakra-ui/theme-utils': 2.0.8
+      '@chakra-ui/utils': 2.0.14
+      '@chakra-ui/vue-accessibilty': link:../vue-a11y
+      '@chakra-ui/vue-composables': link:../vue-composables
+      '@chakra-ui/vue-layout': link:../layout
+      '@chakra-ui/vue-styled': link:../styled
+      '@chakra-ui/vue-system': link:../system
+      '@emotion/cache': 11.10.5
+      '@emotion/serialize': 1.1.1
+      '@emotion/sheet': 1.2.1
+      '@emotion/utils': 1.2.0
+      '@zag-js/toast': 0.2.12
+      '@zag-js/vue': 0.2.9_vue@3.2.47
+    devDependencies:
+      vue: 3.2.47
+
   packages/vue-a11y:
     specifiers:
       '@chakra-ui/styled-system': 2.5.1
@@ -1126,7 +1126,7 @@ importers:
       lodash.kebabcase: 4.1.1
     devDependencies:
       '@chakra-ui/theme': 2.2.5
-      '@chakra-ui/vue-next': link:../../packages/core
+      '@chakra-ui/vue-next': link:../../packages/vue
       unplugin-vue-components: 0.14.13_vue@3.2.47
       vue: 3.2.47
 
@@ -7077,10 +7077,6 @@ packages:
       '@zag-js/types': 0.3.4
     dev: false
 
-  /@zag-js/anatomy/0.1.3:
-    resolution: {integrity: sha512-jiXEJ9aMmLs/0lGTOjrji7ug8QKwM0EpLfzStzTJ7TOSCLaASyKqGsL6J9pRDl6Zo2n/DgjdQY5gjGMNNhtHow==}
-    dev: false
-
   /@zag-js/anatomy/0.1.4:
     resolution: {integrity: sha512-Xc5QmQwY0W3VdkukYVaoujuCmgf0Y2ZbXhIBi0CJ0d8wWRwjkphhJu8l9kDyX4ElpyzvExYbrpTuQoI4BspaVQ==}
     dev: false
@@ -7091,13 +7087,6 @@ packages:
       '@zag-js/anatomy': 0.1.4
       '@zag-js/core': 0.2.9
       '@zag-js/types': 0.3.4
-    dev: false
-
-  /@zag-js/core/0.2.5:
-    resolution: {integrity: sha512-fPcC4B/fHg4Fj3MA65Hzu6r5iPUtxzcUJ3V59pDZjdfeomCMKdxhMGRkwDrkmesCP+tfJ6xqJiIGEPgPCLmfyA==}
-    dependencies:
-      '@zag-js/store': 0.2.3
-      klona: 2.0.5
     dev: false
 
   /@zag-js/core/0.2.9:
@@ -7141,12 +7130,6 @@ packages:
       '@floating-ui/dom': 1.1.0
     dev: false
 
-  /@zag-js/store/0.2.3:
-    resolution: {integrity: sha512-Qcb2mCdB0YxKl5FVWBNU5FLRFNpnTVe4v5rAG/ftXXPCiuSAzm3l62FPqzWb+Dbun7BuhKgVUZqbOVsHEV0Scg==}
-    dependencies:
-      proxy-compare: 2.4.0
-    dev: false
-
   /@zag-js/store/0.2.7:
     resolution: {integrity: sha512-uGuqfOR06wZiNGHxTIUmw4Ywdz6rsPfP/H8DRh+y6LVgtfBQSLdptHEK6UOgCCr0OdyKh0tSrY09SVB30WKaDA==}
     dependencies:
@@ -7159,20 +7142,6 @@ packages:
       '@zag-js/anatomy': 0.1.4
       '@zag-js/core': 0.2.9
       '@zag-js/types': 0.3.4
-    dev: false
-
-  /@zag-js/toast/0.2.8:
-    resolution: {integrity: sha512-ZONlxess1v0umknfwAuv8L5A7vK/D4adh9yTZW+2eZokmxsizSOJKnsjbAaINCjN4GUQfauWt0g8SKjtakzosQ==}
-    dependencies:
-      '@zag-js/anatomy': 0.1.3
-      '@zag-js/core': 0.2.5
-      '@zag-js/types': 0.3.3
-    dev: false
-
-  /@zag-js/types/0.3.3:
-    resolution: {integrity: sha512-OLZKFo2aPOmxFeaqUH9DUFiE+iLKgAxAvxhD8HhmQJOJlyUC1jXgCv6fOG5so7UUKWz+yitPjHYjys6ReymZdQ==}
-    dependencies:
-      csstype: 3.1.1
     dev: false
 
   /@zag-js/types/0.3.4:
@@ -14716,11 +14685,6 @@ packages:
   /kleur/4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
-    dev: false
-
-  /klona/2.0.5:
-    resolution: {integrity: sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==}
-    engines: {node: '>= 8'}
     dev: false
 
   /klona/2.0.6:

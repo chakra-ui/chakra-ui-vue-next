@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { chakra } from "../../core"
+import { chakra } from "../../vue"
 import { ref, watch, watchEffect } from "vue"
 import { useFocusTrap } from "../src/use-focus-trap"
 import { unrefElement } from "@chakra-ui/vue-utils"

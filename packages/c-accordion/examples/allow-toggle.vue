@@ -43,7 +43,7 @@ import {
   CAccordionButton,
   CAccordionPanel,
 } from "../src"
-import { chakra } from "../../core"
+import { chakra } from "../../vue"
 import { useToggle } from "@vueuse/core"
 const [isToggle] = useToggle(true)
 </script>
