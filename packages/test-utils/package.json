@@ -27,7 +27,7 @@
   "dependencies": {
     "@chakra-ui/c-color-mode": "workspace:*",
     "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-styled": "workspace:*",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^13.5.0",

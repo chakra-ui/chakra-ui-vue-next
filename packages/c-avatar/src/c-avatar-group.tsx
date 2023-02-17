@@ -9,8 +9,10 @@ import {
   SNAO,
   vueThemingProps,
   useThemingProps,
+  mergeWith,
 } from "@chakra-ui/vue-utils"
-import { filterUndefined, mergeWith } from "@chakra-ui/utils"
+import { filterUndefined } from "@chakra-ui/utils"
+
 import {
   h,
   Fragment,

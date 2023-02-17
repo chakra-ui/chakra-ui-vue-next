@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@chakra-ui/c-icon": "workspace:*",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",

@@ -1,4 +1,4 @@
-import { vueThemingProps, SNAO } from "@chakra-ui/vue-utils"
+import { vueThemingProps, SNAO, mergeWith } from "@chakra-ui/vue-utils"
 import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
@@ -8,11 +8,8 @@ import {
   useStyleConfig,
   SystemStyleObject,
   HTMLChakraProps,
-  ComponentWithProps,
-  DeepPartial,
 } from "@chakra-ui/vue-system"
 import { CVisuallyHidden } from "@chakra-ui/c-visually-hidden"
-import { mergeWith } from "@chakra-ui/utils"
 
 const spin = keyframes({
   "0%": {

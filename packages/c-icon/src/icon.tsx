@@ -16,8 +16,7 @@ import {
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
 import type {} from "@vue/runtime-core"
-import { SNAO, camelCase } from "@chakra-ui/vue-utils"
-import { mergeWith } from "@chakra-ui/utils"
+import { SNAO, camelCase, mergeWith } from "@chakra-ui/vue-utils"
 
 const fallbackIcon = {
   path: `

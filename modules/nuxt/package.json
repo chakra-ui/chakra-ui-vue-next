@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.2.0",

@@ -1,4 +1,4 @@
-import { mergeWith } from "@chakra-ui/utils"
+import { mergeWith } from "@chakra-ui/vue-utils"
 
 interface InternalIcon {
   [key: string]:

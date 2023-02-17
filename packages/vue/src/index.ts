@@ -219,8 +219,9 @@ export * from "@chakra-ui/c-toast"
 export * from "@chakra-ui/c-visually-hidden"
 
 // OTHERS
-export * from "@chakra-ui/vue-composables"
 export * from "@chakra-ui/vue-accessibilty"
+export * from "@chakra-ui/vue-composables"
+export * from "@chakra-ui/vue-utils"
 
 /**
  *

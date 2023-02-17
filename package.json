@@ -79,7 +79,7 @@
     "@chakra-ui/theme": "^2.2.5",
     "@chakra-ui/theme-tools": "^2.0.17",
     "@chakra-ui/theme-utils": "^2.0.6",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-auto-import": "workspace:*",
     "@chakra-ui/vue-next": "workspace:*",
     "@chakra-ui/vue-styled": "workspace:*",
