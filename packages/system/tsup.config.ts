@@ -10,6 +10,7 @@ export default defineConfig({
     }) as any,
   ],
   metafile: true,
+  external: ["lodash.mergewith"],
   format: ["esm", "cjs"],
   entry: ["src/**/*.(ts|tsx)"],
   keepNames: true,

@@ -16,6 +16,7 @@ export default defineConfig({
     }),
   ],
   metafile: true,
+  external: ["lodash.mergewith"],
   format: ["esm", "cjs"],
   entry: {
     "chakra-ui-vue-next-test-fixture": "src/index.tsx",
