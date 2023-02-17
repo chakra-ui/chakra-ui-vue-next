@@ -3,11 +3,12 @@ import { cssResetStyles } from "@chakra-ui/c-reset"
 import { ThemeOverride } from "@chakra-ui/theme-utils"
 import { get, runIfFn } from "@chakra-ui/utils"
 import { ColorModeRef } from "@chakra-ui/c-color-mode"
+import { computed, ref, watch, watchEffect } from "vue"
+import type { EmotionCache } from "@emotion/cache"
 import { serializeStyles } from "@emotion/serialize"
 import { StyleSheet } from "@emotion/sheet"
-import { computed, ref, watch, watchEffect } from "vue"
-import createCache, { EmotionCache } from "@emotion/cache"
 import { insertStyles, SerializedStyles } from "@emotion/utils"
+import { createCache } from "@chakra-ui/vue-styled"
 
 /** Injects CSS reset styles */
 export function injectResetStyles() {
@@ -51,7 +52,6 @@ export function injectThemeGlobalStyles(
         key: `${key} ${serializedStyles.value.name}`,
         nonce: cache.sheet.nonce,
         container: cache.sheet.container,
-        // @ts-expect-error `isSpeedy` is not typed
         speedy: cache.sheet.isSpeedy,
       })
 
@@ -104,7 +104,6 @@ export function injectThemeGlobalStyles(
       sheet.flush()
     }
 
-    /* @ts-expect-error Sheet type not correctly assigned*/
     cache.insert(``, serializedStyles.value, sheet, false)
   })
 }

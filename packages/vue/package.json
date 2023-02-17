@@ -2,19 +2,19 @@
   "name": "@chakra-ui/vue-next",
   "version": "2.1.0-beta.0",
   "description": "Vue 3 compatible version of Chakra UI Vue",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs.js",
-      "default": "./dist/index.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/core",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/vue",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -65,7 +65,7 @@
     "@chakra-ui/vue-layout": "workspace:*",
     "@chakra-ui/vue-styled": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
-    "@emotion/cache": "^11.7.1",
+    "@emotion/cache": "^11.10.5",
     "@emotion/serialize": "1.1.1",
     "@emotion/sheet": "^1.1.0",
     "@emotion/utils": "^1.1.0",

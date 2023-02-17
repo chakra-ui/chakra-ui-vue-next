@@ -33,7 +33,7 @@ importers:
       '@ctrl/tinycolor': ^3.4.1
       '@cypress/vite-dev-server': ^5.0.2
       '@cypress/vue': ^5.0.3
-      '@emotion/css': ^11.10.5
+      '@emotion/css': ^11.10.6
       '@emotion/jest': ^11.7.1
       '@emotion/server': ^11.10.0
       '@manypkg/cli': ^0.17.0
@@ -190,9 +190,9 @@ importers:
       '@ctrl/tinycolor': 3.5.0
       '@cypress/vite-dev-server': 5.0.2
       '@cypress/vue': 5.0.3_cypress@12.5.1+vue@3.2.47
-      '@emotion/css': 11.10.5_@babel+core@7.20.12
+      '@emotion/css': 11.10.6
       '@emotion/jest': 11.10.5_@types+jest@26.0.24
-      '@emotion/server': 11.10.0_@emotion+css@11.10.5
+      '@emotion/server': 11.10.0_@emotion+css@11.10.6
       '@manypkg/cli': 0.17.0
       '@manypkg/get-packages': 2.1.0
       '@mdx-js/rollup': 2.2.1_rollup@3.10.1
@@ -611,14 +611,14 @@ importers:
 
   packages/c-media-query:
     specifiers:
+      '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/core': 4.9.1
       vue: 3.2.47
     dependencies:
+      '@chakra-ui/vue-composables': link:../vue-composables
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
-      '@vueuse/core': 4.9.1_vue@3.2.47
     devDependencies:
       vue: 3.2.47
 
@@ -880,7 +880,7 @@ importers:
   packages/styled:
     specifiers:
       '@chakra-ui/vue-utils': workspace:*
-      '@emotion/cache': ^11.7.1
+      '@emotion/cache': ^11.10.5
       '@emotion/css': ^11.10.5
       '@emotion/serialize': 1.1.1
       '@emotion/utils': ^1.1.0
@@ -1029,7 +1029,7 @@ importers:
       '@chakra-ui/vue-layout': workspace:*
       '@chakra-ui/vue-styled': workspace:*
       '@chakra-ui/vue-system': workspace:*
-      '@emotion/cache': ^11.7.1
+      '@emotion/cache': ^11.10.5
       '@emotion/serialize': 1.1.1
       '@emotion/sheet': ^1.1.0
       '@emotion/utils': ^1.1.0
@@ -2960,6 +2960,22 @@ packages:
       stylis: 4.1.3
     dev: false
 
+  /@emotion/babel-plugin/11.10.6:
+    resolution: {integrity: sha512-p2dAqtVrkhSa7xz1u/m9eHYdLi+en8NowrmXeF/dKtJpU8lCWli8RUAati7NcSl0afsBott48pdnANuD0wh9QQ==}
+    dependencies:
+      '@babel/helper-module-imports': 7.18.6
+      '@babel/runtime': 7.20.13
+      '@emotion/hash': 0.9.0
+      '@emotion/memoize': 0.8.0
+      '@emotion/serialize': 1.1.1
+      babel-plugin-macros: 3.1.0
+      convert-source-map: 1.9.0
+      escape-string-regexp: 4.0.0
+      find-root: 1.1.0
+      source-map: 0.5.7
+      stylis: 4.1.3
+    dev: false
+
   /@emotion/cache/11.10.5:
     resolution: {integrity: sha512-dGYHWyzTdmK+f2+EnIGBpkz1lKc4Zbj2KHd4cX3Wi8/OWr5pKslNjc3yABKH4adRGCvSX4VDC0i04mrrq0aiRA==}
     dependencies:
@@ -3000,6 +3016,16 @@ packages:
     dependencies:
       '@babel/core': 7.20.12
       '@emotion/babel-plugin': 11.10.5_@babel+core@7.20.12
+      '@emotion/cache': 11.10.5
+      '@emotion/serialize': 1.1.1
+      '@emotion/sheet': 1.2.1
+      '@emotion/utils': 1.2.0
+    dev: false
+
+  /@emotion/css/11.10.6:
+    resolution: {integrity: sha512-88Sr+3heKAKpj9PCqq5A1hAmAkoSIvwEq1O2TwDij7fUtsJpdkV4jMTISSTouFeRvsGvXIpuSuDQ4C1YdfNGXw==}
+    dependencies:
+      '@emotion/babel-plugin': 11.10.6
       '@emotion/cache': 11.10.5
       '@emotion/serialize': 1.1.1
       '@emotion/sheet': 1.2.1
@@ -3049,6 +3075,21 @@ packages:
         optional: true
     dependencies:
       '@emotion/css': 11.10.5_@babel+core@7.20.12
+      '@emotion/utils': 1.2.0
+      html-tokenize: 2.0.1
+      multipipe: 1.0.2
+      through: 2.3.8
+    dev: false
+
+  /@emotion/server/11.10.0_@emotion+css@11.10.6:
+    resolution: {integrity: sha512-MTvJ21JPo9aS02GdjFW4nhdwOi2tNNpMmAM/YED0pkxzjDNi5WbiTwXqaCnvLc2Lr8NFtjhT0az1vTJyLIHYcw==}
+    peerDependencies:
+      '@emotion/css': ^11.0.0-rc.0
+    peerDependenciesMeta:
+      '@emotion/css':
+        optional: true
+    dependencies:
+      '@emotion/css': 11.10.6
       '@emotion/utils': 1.2.0
       html-tokenize: 2.0.1
       multipipe: 1.0.2

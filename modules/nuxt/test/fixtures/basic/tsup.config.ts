@@ -16,6 +16,8 @@ export default defineConfig({
     }),
   ],
   format: ["esm", "cjs"],
-  entry: ["src/**/*.(ts|tsx)"],
+  entry: {
+    "chakra-ui-vue-next-test-fixture": "src/index.tsx",
+  },
   keepNames: true,
 })

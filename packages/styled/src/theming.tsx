@@ -1,7 +1,16 @@
-import weakMemoize from "@emotion/weak-memoize"
+import weakMemoizeImport from "@emotion/weak-memoize"
 import { createContext } from "@chakra-ui/vue-utils"
 import { getTheme } from "./utils"
-import { ComputedRef } from "vue"
+
+export function weakMemoize(...args: Parameters<typeof weakMemoizeImport>) {
+  return typeof weakMemoizeImport === "function"
+    ? weakMemoizeImport(...args)
+    : // @ts-ignore
+    weakMemoizeImport.default(...args) // @ts-ignore
+    ? weakMemoizeImport.default(...args)
+    : // @ts-ignore
+      weakMemoizeImport(...args)
+}
 
 const [_EmotionThemeProvider, useEmotionTheme, EmotionThemeContextSymbol] =
   createContext<object>({

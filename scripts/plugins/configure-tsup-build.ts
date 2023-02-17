@@ -7,7 +7,6 @@ import {
 } from "../utils"
 import { dirname } from "node:path"
 import { writeFileSync } from "fs-extra"
-import kebabCase from "lodash.kebabcase"
 
 const logger = consola.withTag("configure-tsup-build")
 
@@ -19,16 +18,10 @@ import EsbuildPluginJSX from "unplugin-vue-jsx/esbuild"
 export default defineConfig({
   clean: true,
   target: "es2019",
-  outExtension({ format }) {
-    return {
-      js: \`.\${format}.js\`,
-    }
-  },
   esbuildPlugins: [
-    // @ts-expect-error \`EsbuildPluginJSX\` does not extend \`tsup.Plugin\` type.
     EsbuildPluginJSX({
-      include: [/\.[jt]sx?$/],
-    }),
+      include: [/.[jt]sx?$/],
+    }) as any,
   ],
   format: ["esm", "cjs"],
   entry: ['src/**/*.(ts|tsx)'],
@@ -42,11 +35,11 @@ export default defineConfig({
 }
 
 const configureBuildTargets: TransformFunction = (pkg: IPackageJson) => {
-  pkg.main = `dist/index.cjs.js`
-  pkg.module = `dist/index.esm.js`
+  pkg.main = `dist/index.js`
+  pkg.module = `dist/index.mjs`
 
-  pkg.exports["."].require = `./dist/index.cjs.js`
-  pkg.exports["."].default = `./dist/index.esm.js`
+  pkg.exports["."].require = `./dist/index.js`
+  pkg.exports["."].default = `./dist/index.mjs`
 
   delete pkg.tsup
   consola.info(`pkg: ${pkg.name}`)

@@ -4,16 +4,10 @@ import EsbuildPluginJSX from "unplugin-vue-jsx/esbuild"
 export default defineConfig({
   clean: true,
   target: "es2019",
-  outExtension({ format }) {
-    return {
-      js: `.${format}.js`,
-    }
-  },
   esbuildPlugins: [
-    // @ts-expect-error `EsbuildPluginJSX` does not extend `tsup.Plugin` type.
     EsbuildPluginJSX({
       include: [/.[jt]sx?$/],
-    }),
+    }) as any,
   ],
   format: ["esm", "cjs"],
   entry: ["src/**/*.(ts|tsx)"],

@@ -1,5 +1,17 @@
 import { isObject } from "@chakra-ui/utils"
-import { inject, InjectionKey, provide, isVNode, Slots, VNode } from "vue"
+import {
+  inject,
+  InjectionKey,
+  provide,
+  isVNode,
+  Slots,
+  VNode,
+  ComputedRef,
+  Ref,
+  computed,
+  ref,
+} from "vue"
+import { MaybeComputedRef, MaybeRef } from "./types"
 
 export interface CreateContextOptions {
   /**
@@ -94,4 +106,15 @@ export function isObjectComponent<T extends CouldBeObjectComponent>(
   }
 
   return false
+}
+
+/**
+ * Normalize value/ref/getter to `ref` or `computed`.
+ * Adapted from @vueuse/shared
+ */
+export function resolveRef<T>(r: MaybeComputedRef<T>): ComputedRef<T>
+export function resolveRef<T>(r: MaybeRef<T>): Ref<T>
+export function resolveRef<T>(r: T): Ref<T>
+export function resolveRef<T>(r: MaybeComputedRef<T>) {
+  return typeof r === "function" ? computed<T>(r as any) : ref(r)
 }

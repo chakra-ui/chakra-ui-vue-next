@@ -21,6 +21,7 @@
   "scripts": {
     "prebuild": "nuxi prepare playground",
     "build": "unbuild",
+    "build:fast": "unbuild",
     "dev": "echo 'Dev'",
     "start": "nuxi dev playground",
     "dev:build": "nuxi build playground",
@@ -55,5 +56,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "module": "dist/chakra-ui-nuxt-next.esm.mjs"
 }

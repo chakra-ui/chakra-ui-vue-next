@@ -50,6 +50,9 @@ export default defineNuxtModule<ChakraModuleOptions>({
     compatibilty: ">=3.0.0",
   },
   setup(__options, nuxt) {
+    // Install emotion module
+    // installModule("@nuxtjs/emotion")
+
     const _options = mergeWith(
       defaultModuleOptions,
       __options
@@ -61,6 +64,16 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const emotionCacheOptions = _options.emotionCacheOptions
     const cssReset = _options.cssReset
 
+    nuxt.hook("nitro:config", (config) => {
+      // Prevent inlining emotion (+ the crucial css cache!) in dev mode
+      if (nuxt.options.dev) {
+        if (config.externals) {
+          config.externals.external ||= []
+          config.externals.external.push("@emotion/server")
+        }
+      }
+    })
+
     nuxt.options.build.transpile.push("@chakra-ui")
 
     nuxt.options.appConfig.$chakraConfig = {
@@ -71,11 +84,13 @@ export default defineNuxtModule<ChakraModuleOptions>({
       emotionCacheOptions,
     }
 
-    // Install emotion module
-    installModule("@nuxtjs/emotion")
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
     nuxt.options.build.transpile.push(runtimeDir)
+
+    // Add emotion plugins
+    addServerPlugin(resolve(runtimeDir, "emotion.server"))
+    addPlugin(resolve(runtimeDir, "emotion.client"))
 
     // Resolve template and inject plugin
     addPlugin(resolve(runtimeDir, "chakra"))

@@ -1,6 +1,16 @@
-import createCache from "@emotion/cache"
+import createCacheImport from "@emotion/cache"
 import { EmotionCache } from "@emotion/utils"
 import { createContext, canUseDOM } from "@chakra-ui/vue-utils"
+
+export function createCache(...args: Parameters<typeof createCacheImport>) {
+  return typeof createCacheImport === "function"
+    ? createCacheImport(...args)
+    : // @ts-ignore
+    createCacheImport.default(...args) // @ts-ignore
+    ? createCacheImport.default(...args)
+    : // @ts-ignore
+      createCacheImport(...args)
+}
 
 import {
   DefineComponent,

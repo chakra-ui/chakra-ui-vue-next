@@ -15,6 +15,7 @@ const whitelistedPackages = {
   "@chakra-ui/theme": true,
   "@chakra-ui/theme-tools": true,
   "@chakra-ui/theme-utils": true,
+  "@chakra-ui/nuxt-next": true,
 }
 
 async function writeTsupConfig(pkgPath: string) {
@@ -60,10 +61,10 @@ async function execute() {
 
 const configureBuildTargets: TransformFunction = (pkg: IPackageJson) => {
   pkg.main = `dist/${kebabCase(pkg.name)}.cjs.js`
-  pkg.module = `dist/${kebabCase(pkg.name)}.esm.js`
+  pkg.module = `dist/${kebabCase(pkg.name)}.esm.mjs`
 
   pkg.exports["."].require = `./dist/${kebabCase(pkg.name)}.cjs.js`
-  pkg.exports["."].default = `./dist/${kebabCase(pkg.name)}.esm.js`
+  pkg.exports["."].default = `./dist/${kebabCase(pkg.name)}.esm.mjs`
 
   delete pkg.tsup
   consola.info(`pkg: ${pkg.name}`)

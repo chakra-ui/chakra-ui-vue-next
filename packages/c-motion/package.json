@@ -2,8 +2,8 @@
   "name": "@chakra-ui/c-motion",
   "description": "Chakra UI Vue | Chakra ui vue motion and transition components and utilities component",
   "version": "2.1.0-beta.0",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,8 +12,8 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs.js",
-      "default": "./dist/index.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "publishConfig": {

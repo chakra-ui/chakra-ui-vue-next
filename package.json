@@ -92,7 +92,7 @@
     "@ctrl/tinycolor": "^3.4.1",
     "@cypress/vite-dev-server": "^5.0.2",
     "@cypress/vue": "^5.0.3",
-    "@emotion/css": "^11.10.5",
+    "@emotion/css": "^11.10.6",
     "@emotion/jest": "^11.7.1",
     "@emotion/server": "^11.10.0",
     "@manypkg/cli": "^0.17.0",

@@ -1,15 +1,15 @@
 {
   "name": "@chakra-ui/vue-auto-import",
   "version": "2.1.0-beta.0",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs.js",
-      "default": "./dist/index.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "description": "Chakra UI Vue | VueAutoImport module",
