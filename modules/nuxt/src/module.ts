@@ -3,7 +3,7 @@ import {
   addPlugin,
   createResolver,
   addServerPlugin,
-  installModule,
+  addComponent,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
 import type * as Theme from "@chakra-ui/theme"
@@ -74,7 +74,32 @@ export default defineNuxtModule<ChakraModuleOptions>({
       }
     })
 
-    nuxt.options.build.transpile.push("@chakra-ui")
+    // Transpile
+    nuxt.options.build.transpile.push("@chakra-ui/vue-next")
+
+    // Auto-import components
+    for (const component in Chakra) {
+      /**
+       * Group of strict checks to make sure that
+       * we only generate types for components.
+       */
+      if (
+        component.startsWith("C") &&
+        // @ts-ignore
+        Chakra[component]?.name &&
+        // @ts-ignore
+        Chakra[component]?.setup &&
+        // @ts-ignore
+        typeof Chakra[component]?.setup === "function"
+      ) {
+        addComponent({
+          name: component,
+          // @ts-ignore
+          export: Chakra[component]?.name,
+          filePath: "@chakra-ui/vue-next",
+        })
+      }
+    }
 
     nuxt.options.appConfig.$chakraConfig = {
       extendTheme,

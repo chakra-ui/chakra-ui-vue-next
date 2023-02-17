@@ -1,13 +1,13 @@
 import * as ChakraComponents from "@chakra-ui/vue-next"
-import type * as Theme from "@chakra-ui/theme"
-import type * as ThemeTools from "@chakra-ui/theme-tools"
-import type * as CThemeProvider from "@chakra-ui/c-theme-provider"
+import type { ComponentResolverFunction } from "unplugin-vue-components"
 
-export const componentResolver = (name: string) => {
+export const componentResolver: ComponentResolverFunction = (name: string) => {
   if (name in ChakraComponents) {
     return {
       importName: name,
       path: `@chakra-ui/vue-next`,
     }
+  } else {
+    return undefined as any
   }
 }

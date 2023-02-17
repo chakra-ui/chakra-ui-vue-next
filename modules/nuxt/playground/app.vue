@@ -2,7 +2,7 @@
   <c-container>
     <c-heading>Chakra UI Vue Next</c-heading>
     <c-grid template-columns="1fr 1fr" gap="5">
-      <!-- <c-grid-item>
+      <c-grid-item>
         <c-stack>
           <c-h-stack>
             <chakra.p>Toggle Color Mode</chakra.p>
@@ -27,7 +27,7 @@
             >
           </c-stack>
         </c-stack>
-      </c-grid-item> -->
+      </c-grid-item>
       <c-grid-item>
         <c-heading>Toast</c-heading>
         <c-button @click="handleClick">Hello Chakra UI</c-button>
@@ -37,19 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  chakra,
-  CButton,
-  CContainer,
-  CGrid,
-  CStack,
-  CHStack,
-  CGridItem,
-  CHeading,
-  useToast,
-  useColorMode,
-  CIconButton,
-} from "@chakra-ui/vue-next"
+import { chakra, useToast, useColorMode } from "@chakra-ui/vue-next"
 const toast = useToast()
 
 const { colorMode, toggleColorMode } = useColorMode()
