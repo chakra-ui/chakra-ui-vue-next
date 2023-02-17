@@ -1,5 +1,5 @@
 import { clampValue, countDecimalPlaces, toPrecision } from "@chakra-ui/utils"
-import { computed, ref, watchEffect } from "vue"
+import { ref, watchEffect } from "vue"
 
 export interface UseCounterProps {
   /**

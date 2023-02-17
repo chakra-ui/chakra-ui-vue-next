@@ -1,4 +1,4 @@
-import { UnionStringArray, omit } from "@chakra-ui/utils"
+import { UnionStringArray } from "@chakra-ui/utils"
 import { keyframes, injectGlobal } from "@emotion/css"
 import { PropType } from "vue"
 

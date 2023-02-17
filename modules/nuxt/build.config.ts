@@ -25,7 +25,6 @@ export default defineBuildConfig({
     "nuxt3",
     "vue",
     "vue-demi",
-    "@chakra-ui/utils",
     "css-box-model",
     "framesync",
     "lodash.mergewith",

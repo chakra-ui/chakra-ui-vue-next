@@ -30,10 +30,12 @@ export function injectThemeGlobalStyles(
   )
   if (!globalStyles.value) return undefined
 
-  const cache = createCache({
-    key: "chakra-global",
-    nonce: "__chakra__",
-  })
+  const cache =
+    _cache ||
+    createCache({
+      key: "chakra-global",
+      nonce: "__chakra__",
+    })
 
   const _globalStyles = computed(() => css(globalStyles.value)(theme))
 
@@ -52,6 +54,7 @@ export function injectThemeGlobalStyles(
         key: `${key} ${serializedStyles.value.name}`,
         nonce: cache.sheet.nonce,
         container: cache.sheet.container,
+        // @ts-ignore
         speedy: cache.sheet.isSpeedy,
       })
 
@@ -104,6 +107,7 @@ export function injectThemeGlobalStyles(
       sheet.flush()
     }
 
+    // @ts-ignore
     cache.insert(``, serializedStyles.value, sheet, false)
   })
 }
