@@ -6,9 +6,11 @@ The official working repository for V1 of Chakra UI Vue with Vue 3 support.
 
 ### Install dependencies
 ```bash
-yarn install
+pnpm install
 
-yarn playground:dev
+pnpm dev
+
+pnpm playground:dev
 ```
 
 ## Development Guide
