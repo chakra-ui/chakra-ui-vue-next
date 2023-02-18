@@ -10,7 +10,7 @@ export default defineConfig({
     }) as any,
   ],
   metafile: true,
-  external: ["lodash.mergewith"],
+  external: ["lodash.mergewith", "@chakra-ui/utils"],
   format: ["esm", "cjs"],
   entry: ["src/**/*.(ts|tsx)"],
   keepNames: true,
