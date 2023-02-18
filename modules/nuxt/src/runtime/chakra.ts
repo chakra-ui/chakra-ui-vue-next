@@ -7,8 +7,8 @@ import Chakra, {
   ColorModeConstants,
   extendTheme,
   ColorModeScriptProps,
+  domElements,
 } from "@chakra-ui/vue-next"
-import { domElements } from "@chakra-ui/vue-system"
 import { parseCookies } from "h3"
 import type { ChakraModuleOptions } from "../module"
 
@@ -70,6 +70,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       colorModeManager: cookieStorageManagerSSR(
         ColorModeConstants.CookieStorageKey
       ),
+      icons: chakraConfig.icons,
     })
   )
 

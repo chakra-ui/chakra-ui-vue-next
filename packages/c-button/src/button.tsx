@@ -5,6 +5,7 @@ import {
   h,
   Fragment,
   SetupContext,
+  DefineComponent,
 } from "vue"
 import {
   chakra,
@@ -58,15 +59,15 @@ const CButtonSpinner = defineComponent({
 })
 
 interface CButtonContentProps {
-  leftIcon?: string
-  rightIcon?: string
+  leftIcon?: string | object | typeof chakra.svg | DefineComponent
+  rightIcon?: string | object | typeof chakra.svg | DefineComponent
   iconSpacing?: CButtonSpinnerProps["spacing"]
 }
 const CButtonContent = defineComponent({
   name: "CButtonContent",
   props: {
-    leftIcon: String as PropType<CButtonContentProps["leftIcon"]>,
-    rightIcon: String as PropType<CButtonContentProps["rightIcon"]>,
+    leftIcon: [String, Object] as PropType<CButtonContentProps["leftIcon"]>,
+    rightIcon: [String, Object] as PropType<CButtonContentProps["rightIcon"]>,
     iconSpacing: String as PropType<CButtonContentProps["iconSpacing"]>,
   },
   setup(props, { slots }) {
@@ -92,10 +93,18 @@ const CButtonContent = defineComponent({
 const CButtonIcon = defineComponent({
   name: "CButtonIcon",
   props: {
-    icon: String as PropType<string>,
+    icon: [String, Object] as PropType<string | object | DefineComponent>,
   },
   setup(props, { attrs }) {
-    return () => <CIcon __label="button__icon" name={props.icon} {...attrs} />
+    return () =>
+      typeof props.icon === "string" ? (
+        <CIcon __label="button__icon" name={props.icon} {...attrs} />
+      ) : (
+        <CIcon __label="button__icon" {...attrs}>
+          {/* @ts-ignore */}
+          <props.icon />
+        </CIcon>
+      )
   },
 })
 
@@ -130,10 +139,10 @@ export const CButton = defineComponent({
       type: String as PropType<ButtonProps["type"]>,
     },
     leftIcon: {
-      type: String as PropType<ButtonProps["leftIcon"]>,
+      type: [String, Object] as PropType<ButtonProps["leftIcon"]>,
     },
     rightIcon: {
-      type: String as PropType<ButtonProps["rightIcon"]>,
+      type: [String, Object] as PropType<ButtonProps["rightIcon"]>,
     },
     iconSpacing: {
       type: SNAO as PropType<ButtonProps["iconSpacing"]>,

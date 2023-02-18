@@ -5,18 +5,12 @@ import {
   inject,
   SVGAttributes,
   PropType,
-  Fragment,
   DefineComponent,
 } from "vue"
-import {
-  chakra,
-  ChakraProps,
-  ComponentWithProps,
-  DeepPartial,
-  HTMLChakraProps,
-} from "@chakra-ui/vue-system"
+import { chakra, ChakraProps } from "@chakra-ui/vue-system"
 import type {} from "@vue/runtime-core"
 import { SNAO, camelCase, mergeWith } from "@chakra-ui/vue-utils"
+import { omit } from "@chakra-ui/utils"
 
 const fallbackIcon = {
   path: `
@@ -111,5 +105,43 @@ export function createIconComponent(name: string) {
   ) as any as DefineComponent
 
   iconComponent.name = componentName
+  return iconComponent
+}
+
+export interface CreateIconOptions {
+  name: string
+  path: string
+  viewBox?: string
+}
+
+const createIconProps = omit(_iconProps, ["name"])
+export function createIcon(options: CreateIconOptions) {
+  const componentName = camelCase(options.name)
+  const iconComponent = defineComponent({
+    name: componentName,
+    props: createIconProps,
+    setup(props, { slots, attrs }) {
+      const hasDefaultSlot = computed(() => slots?.default?.()?.length)
+      const vnodeProps = computed(() => ({
+        w: props.size,
+        h: props.size,
+        display: "inline-block",
+        lineHeight: "1em",
+        flexShrink: 0,
+        color: "currentColor",
+        ...(!hasDefaultSlot.value && {
+          innerHTML: options.path,
+        }),
+        focusable: false,
+        viewBox: options.viewBox || fallbackIcon.viewBox,
+      }))
+
+      return () => (
+        <chakra.svg __label="icon" {...vnodeProps.value} {...attrs}>
+          {slots.default?.()}
+        </chakra.svg>
+      )
+    },
+  })
   return iconComponent
 }
