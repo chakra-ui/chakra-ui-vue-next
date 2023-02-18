@@ -117,6 +117,7 @@ export default defineNuxtModule<ChakraModuleOptions>({
     // Include all internal lodash modules
     // to the optimized dependencies since they do not
     // natively export ESM modules.
+    // We should still preserve user-provided option
     const viteConfig = nuxt.options.vite || {}
     const extendedViteConfigOptions = {
       optimizeDeps: {
