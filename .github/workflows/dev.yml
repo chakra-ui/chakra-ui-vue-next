@@ -10,6 +10,7 @@ on:
   push:
     paths:
       - ".github/**"
+      - ".changeset/**"
       - "packages/**"
       - "tooling/**"
       - "modules/**"
