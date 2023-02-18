@@ -337,6 +337,7 @@ importers:
       '@nuxt/test-utils': ^3.2.0
       '@nuxtjs/emotion': 1.0.0
       changelogen: ^0.4.1
+      defu: ^6.1.2
       eslint: ^8.34.0
       mlly: ^1.1.0
       nuxt: ^3.2.0
@@ -351,6 +352,7 @@ importers:
       '@emotion/server': 11.10.0_@emotion+css@11.10.5
       '@nuxt/kit': 3.2.0
       '@nuxtjs/emotion': 1.0.0
+      defu: 6.1.2
       playwright: 1.30.0
     devDependencies:
       '@chakra-ui/theme': 2.2.5
@@ -6374,7 +6376,7 @@ packages:
       '@babel/core': 7.20.12
       '@babel/plugin-transform-typescript': 7.20.13_@babel+core@7.20.12
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.20.12
-      vite: 4.1.1_@types+node@18.11.18
+      vite: 4.1.1
       vue: 3.2.47
     transitivePeerDependencies:
       - supports-color
@@ -22041,7 +22043,6 @@ packages:
       rollup: 3.15.0
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /vite/4.1.1_@types+node@18.11.18:
     resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}

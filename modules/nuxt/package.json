@@ -36,6 +36,7 @@
     "@emotion/server": "^11.10.0",
     "@nuxt/kit": "^3.2.0",
     "@nuxtjs/emotion": "1.0.0",
+    "defu": "^6.1.2",
     "playwright": "^1.30.0"
   },
   "devDependencies": {

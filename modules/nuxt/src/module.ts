@@ -10,6 +10,7 @@ import type * as Theme from "@chakra-ui/theme"
 import type * as ChakraUI from "@chakra-ui/vue-next"
 import * as Chakra from "@chakra-ui/vue-next"
 import mergeWith from "lodash.mergewith"
+import { defu } from "defu"
 
 const { extendTheme: _extendTheme } = Chakra
 const ChakraPlugin = Chakra.default
@@ -112,6 +113,18 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
     nuxt.options.build.transpile.push(runtimeDir)
+
+    // Include all internal lodash modules
+    // to the optimized dependencies since they do not
+    // natively export ESM modules.
+    const viteConfig = nuxt.options.vite || {}
+    const extendedViteConfigOptions = {
+      optimizeDeps: {
+        include: ["lodash.mergewith", "lodash.camelcase", "lodash.memoize"],
+      },
+    }
+    const finalViteConfig = defu(viteConfig, extendedViteConfigOptions)
+    nuxt.options.vite = finalViteConfig
 
     // Add emotion plugins
     addServerPlugin(resolve(runtimeDir, "emotion.server"))
