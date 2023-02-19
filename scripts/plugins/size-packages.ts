@@ -47,8 +47,8 @@ function checkFileSize(pkg: IPackageJson, filePath: string) {
 
 async function sizePackages() {
   const packageJsonFilePaths = await getAllPackageJsons()
-  const allPackagesPromises = await packageJsonFilePaths.map(async (path) => {
-    const pkg = JSON.parse(await readFileSync(path, "utf8")) as IPackageJson
+  const allPackagesPromises = packageJsonFilePaths.map((path) => {
+    const pkg = JSON.parse(readFileSync(path, "utf8")) as IPackageJson
     const [directory] = path.split("/package.json")
     return {
       name: pkg.name,
@@ -57,7 +57,7 @@ async function sizePackages() {
       directory,
     }
   })
-  const packages = await Promise.all(allPackagesPromises)
+  const packages = allPackagesPromises
   const resultsTable: {
     package: string
     entry: string

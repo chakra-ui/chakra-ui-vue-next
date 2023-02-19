@@ -1,3 +1,15 @@
+import consola from "consola"
+
+import { existsSync, readFileSync } from "fs-extra"
+import { IPackageJson } from "../types/package.json"
+import { getAllPackageJsons } from "../utils"
+import { gzipSync } from "node:zlib"
+import { compress } from "brotli"
+import chalk from "chalk"
+import path from "node:path"
+
+const logger = consola.withTag("size-packages")
+
 import * as ts from "typescript"
 import { resolve, dirname } from "path"
 import { ESLint } from "eslint"
@@ -43,8 +55,9 @@ function findAndGenerateComponentExportsInFile(
 
     namedExports.set(file, exports)
   })
-  return generateExportsCode(namedExports)
+  return namedExports
 }
+
 function generateExportsCode(_exports: ComponentExportsMap) {
   let code = ``
   _exports.forEach(async (exports, file) => {
@@ -72,13 +85,33 @@ function generateExportsCode(_exports: ComponentExportsMap) {
   return code
 }
 
-findAndGenerateComponentExportsInFile(
-  [resolve(__dirname, "../../../packages/c-button/src/index.tsx")],
-  {
+const allowedWorkspaces = ["packages", "tooling"]
+
+try {
+  const packageJsonFilePaths = await getAllPackageJsons()
+  const allComponentExports = packageJsonFilePaths
+    .filter((path) => {
+      return allowedWorkspaces.filter((workspace) => path.includes(workspace))
+        .length
+    })
+    .map((path) => {
+      const pkg = JSON.parse(readFileSync(path, "utf8")) as IPackageJson
+      const [directory] = path.split("/package.json")
+      const exportPath = existsSync(`${directory}/src/index.tsx`)
+        ? `${directory}/src/index.tsx`
+        : `${directory}/src/index.ts`
+      return exportPath
+    })
+
+  const exportMap = findAndGenerateComponentExportsInFile(allComponentExports, {
     noEmitOnError: true,
     noImplicitAny: true,
     target: ts.ScriptTarget.ES5,
     module: ts.ModuleKind.CommonJS,
     jsx: ts.JsxEmit.Preserve,
-  }
-)
+  })
+  generateExportsCode(exportMap)
+  logger.log("Done")
+} catch (error) {
+  logger.error(error)
+}
