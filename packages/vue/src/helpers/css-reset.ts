@@ -1,4 +1,5 @@
-import { injectGlobal, css } from "@chakra-ui/vue-system"
+import { injectGlobal } from "@chakra-ui/vue-system"
+import { css } from "@chakra-ui/styled-system"
 import { cssResetStyles } from "@chakra-ui/c-reset"
 import { ThemeOverride } from "@chakra-ui/theme-utils"
 import { get, runIfFn } from "@chakra-ui/utils"

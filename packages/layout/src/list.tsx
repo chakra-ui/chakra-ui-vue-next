@@ -1,12 +1,14 @@
 import { CIcon } from "@chakra-ui/c-icon"
 import {
   HTMLChakraProps,
-  SystemProps,
-  ThemingProps,
   useMultiStyleConfig,
   useStyles,
   StylesProvider,
 } from "@chakra-ui/vue-system"
+import {
+  SystemProps,
+  ThemingProps
+} from "@chakra-ui/styled-system"
 import { h, defineComponent, PropType, computed } from "vue"
 import { chakra, DOMElements } from "@chakra-ui/vue-system"
 import { getValidChildren, SNAO, SAO } from "@chakra-ui/vue-utils"
@@ -32,8 +34,8 @@ interface ListOptions {
 
 export interface CListProps
   extends HTMLChakraProps<"ul">,
-    ThemingProps<"List">,
-    ListOptions {}
+  ThemingProps<"List">,
+  ListOptions { }
 
 /**
  * List is used to display list items, it renders a `<ul>` by default.

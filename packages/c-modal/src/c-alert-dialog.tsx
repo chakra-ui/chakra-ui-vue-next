@@ -1,12 +1,5 @@
-import { ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
 import { defineComponent, PropType, h, computed } from "vue"
-import {
-  CModal,
-  CModalContent,
-  CModalProps,
-  modalProps,
-  CModalContentProps,
-} from "./c-modal"
+import { CModal, CModalContent, CModalProps, modalProps } from "./c-modal"
 
 import {
   CModalBody,

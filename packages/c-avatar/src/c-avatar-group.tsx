@@ -2,8 +2,8 @@
 import {
   useMultiStyleConfig,
   chakra,
-  SystemStyleObject,
 } from "@chakra-ui/vue-system"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import {
   getValidChildren,
   SNAO,

@@ -3,10 +3,9 @@ import {
   chakra,
   HTMLChakraProps,
   DOMElements,
-  tokenToCSSVar,
 } from "@chakra-ui/vue-system"
 import { getValidChildren, SNAO } from "@chakra-ui/vue-utils"
-import { SystemProps } from "@chakra-ui/styled-system"
+import { SystemProps, tokenToCSSVar } from "@chakra-ui/styled-system"
 import { computed, defineComponent, h, PropType } from "vue"
 import type * as CSS from "csstype"
 
@@ -80,8 +79,8 @@ export const CWrap = defineComponent({
 
     const childrenToRender = props.shouldWrapChildren
       ? getValidChildren(slots).map((child, index) => (
-          <CWrapItem key={index}>{child}</CWrapItem>
-        ))
+        <CWrapItem key={index}>{child}</CWrapItem>
+      ))
       : slots
 
     return () => {
@@ -98,7 +97,7 @@ export const CWrap = defineComponent({
   },
 })
 
-export interface WrapItemProps extends HTMLChakraProps<"li"> {}
+export interface WrapItemProps extends HTMLChakraProps<"li"> { }
 
 export const CWrapItem = defineComponent({
   setup(_, { attrs, slots }) {

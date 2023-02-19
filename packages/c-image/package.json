@@ -33,10 +33,10 @@
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "@chakra-ui/styled-system": "2.5.1"
   },
   "devDependencies": {
-    "@chakra-ui/styled-system": "2.5.1",
     "csstype": "^3.1.1",
     "vue": "3.2.47"
   },

@@ -4,11 +4,10 @@ import {
   chakra,
   keyframes,
   DOMElements,
-  ThemingProps,
   useStyleConfig,
-  SystemStyleObject,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
+import { ThemingProps, SystemStyleObject } from "@chakra-ui/styled-system"
 import { CVisuallyHidden } from "@chakra-ui/c-visually-hidden"
 
 const spin = keyframes({
@@ -54,8 +53,8 @@ interface SpinnerOptions {
 
 export interface CSpinnerProps
   extends SpinnerOptions,
-    ThemingProps,
-    HTMLChakraProps<"div"> {
+  ThemingProps,
+  HTMLChakraProps<"div"> {
   color?: string
   as?: DOMElements
 }

@@ -13,14 +13,14 @@ import {
   chakra,
   ComponentWithProps,
   HTMLChakraProps,
-  SystemStyleObject,
   useStyleConfig,
 } from "@chakra-ui/vue-system"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 
 const FALLBACK_ID = "chakra-skip-nav"
 
-export interface CSkipNavLinkProps extends HTMLChakraProps<"a"> {}
+export interface CSkipNavLinkProps extends HTMLChakraProps<"a"> { }
 
 export const CSkipNavLink = defineComponent({
   name: "CSkipNavLink",
@@ -74,7 +74,7 @@ export const CSkipNavLink = defineComponent({
   },
 })
 
-export interface CSkipNavContentProps extends HTMLChakraProps<"div"> {}
+export interface CSkipNavContentProps extends HTMLChakraProps<"div"> { }
 
 export const CSkipNavContent = defineComponent({
   name: "CSkipNavContent",

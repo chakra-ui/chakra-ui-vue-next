@@ -1,17 +1,17 @@
 import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
-  ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import type * as CSS from "csstype"
 
 export interface DividerProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"Container"> {
+  ThemingProps<"Container"> {
   orientation?: "horizontal" | "vertical"
 }
 

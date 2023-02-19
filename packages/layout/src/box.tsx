@@ -2,12 +2,12 @@ import { computed, defineComponent, h, PropType } from "vue"
 import {
   chakra,
   DOMElements,
-  SystemStyleObject,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import type * as CSS from "csstype"
 
-export interface BoxProps extends HTMLChakraProps<"div"> {}
+export interface BoxProps extends HTMLChakraProps<"div"> { }
 
 /**
  * Box is the most abstract component on top of which other chakra

@@ -1,4 +1,5 @@
-import { ResponsiveValue, DOMElements } from "@chakra-ui/vue-system"
+import { DOMElements } from "@chakra-ui/vue-system"
+import { ResponsiveValue } from "@chakra-ui/styled-system"
 import { h, defineComponent, PropType, computed } from "vue"
 import { SNAO } from "@chakra-ui/vue-utils"
 import { CGrid } from "./grid"
@@ -29,7 +30,7 @@ interface SimpleGridOptions {
   spacingY?: SystemProps["gridGap"]
 }
 
-export interface SimpleSystemProps extends SystemProps, SimpleGridOptions {}
+export interface SimpleSystemProps extends SystemProps, SimpleGridOptions { }
 
 /**
  * SimpleGrid

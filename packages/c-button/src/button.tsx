@@ -10,12 +10,14 @@ import {
 import {
   chakra,
   useStyleConfig,
-  ThemingProps,
-  SystemStyleObject,
   HTMLChakraProps,
   ComponentWithProps,
   DeepPartial,
 } from "@chakra-ui/vue-system"
+import {
+  ThemingProps,
+  SystemStyleObject
+} from "@chakra-ui/styled-system"
 import { dataAttr, filterUndefined, mergeWith } from "@chakra-ui/utils"
 import { useButtonGroup } from "./button-group"
 import { CIcon, IconProps } from "@chakra-ui/c-icon"
@@ -108,7 +110,7 @@ const CButtonIcon = defineComponent({
   },
 })
 
-export interface CButtonProps extends HTMLChakraProps<"button"> {}
+export interface CButtonProps extends HTMLChakraProps<"button"> { }
 
 /**
  * CButton
