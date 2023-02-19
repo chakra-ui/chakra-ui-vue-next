@@ -30,11 +30,10 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
+    "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*",
-    "lodash": "4.17.21",
-    "@chakra-ui/styled-system": "2.5.1"
+    "@chakra-ui/vue-utils": "workspace:*"
   },
   "devDependencies": {
     "csstype": "^3.1.1",

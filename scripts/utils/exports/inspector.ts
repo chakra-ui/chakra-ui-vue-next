@@ -6,7 +6,13 @@ function findExports(fileNames: string[], options: ts.CompilerOptions): void {
 
   const checker = program.getTypeChecker()
 
-  const namedExports = new Map<string, ts.Symbol["escapedName"][]>()
+  interface ComponentExport {
+    name: string
+    path: string
+    type: "type" | "variable"
+  }
+
+  const namedExports = new Map<string, ComponentExport[]>()
 
   fileNames.forEach((file) => {
     const sourceFile = program.getSourceFile(file)
@@ -17,9 +23,11 @@ function findExports(fileNames: string[], options: ts.CompilerOptions): void {
       .getExportsOfModule(sourceFileSymbol)
       .filter((symbol) => symbol.escapedName !== "default")
       .map((symbol) => {
-        console.log("symbol", symbol)
-
-        return symbol.escapedName
+        return {
+          name: symbol.escapedName.toString(),
+          path: file,
+          type: symbol.members ? "type" : "variable",
+        } as ComponentExport
       })
 
     namedExports.set(file, exports)
@@ -27,15 +35,18 @@ function findExports(fileNames: string[], options: ts.CompilerOptions): void {
 
   namedExports.forEach((exports, file) => {
     console.log(`Named exports from ${file}:`)
-    exports.forEach((exportName) => {
-      console.log(`- ${exportName}`)
-    })
+    exports.forEach(console.log)
   })
 }
 
-findExports([resolve(__dirname, "./lib-example/index.ts")], {
+findExports([resolve(__dirname, "../../../packages/c-icon/src/index.tsx")], {
   noEmitOnError: true,
   noImplicitAny: true,
   target: ts.ScriptTarget.ES5,
   module: ts.ModuleKind.CommonJS,
+  jsx: ts.JsxEmit.Preserve,
 })
+
+function findExportsInDirectory(directoryRoot: string) {
+  // const directory =
+}
