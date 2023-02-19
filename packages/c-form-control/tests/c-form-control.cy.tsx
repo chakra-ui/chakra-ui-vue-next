@@ -10,7 +10,7 @@ import {
   useFormControl,
 } from "../src"
 import * as Examples from "../examples"
-import { CInput } from "../examples/components"
+import { CInput } from "@chakra-ui/c-input"
 
 describe("FormControl Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
