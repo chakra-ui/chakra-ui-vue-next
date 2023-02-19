@@ -5,7 +5,7 @@ yarn-error.log
 test-vite-project
 
 .DS_Store
-
+.vscode
 # Logs
 logs
 *.log
