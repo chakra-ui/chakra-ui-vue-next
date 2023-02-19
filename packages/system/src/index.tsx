@@ -18,8 +18,6 @@ export {
   resolveStyles,
   styled,
   toCSSObject,
-  _chakra,
-  ____chakra___,
 } from "./chakra"
 export { createStylesContext, StylesProvider, useStyles } from "./providers"
 export {
