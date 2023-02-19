@@ -3,10 +3,7 @@ import consola from "consola"
 import { existsSync, readFileSync } from "fs-extra"
 import { IPackageJson } from "../types/package.json"
 import { getAllPackageJsons } from "../utils"
-import { gzipSync } from "node:zlib"
-import { compress } from "brotli"
-import chalk from "chalk"
-import path from "node:path"
+import groupBy from "lodash/groupBy"
 
 const logger = consola.withTag("size-packages")
 
@@ -66,22 +63,58 @@ function findAndGenerateComponentExportsInFile(
 function generateExportsCode(_exports: ComponentExportsMap) {
   _exports.forEach(async (exports, file) => {
     let code = ``
-    exports
+    const exportMeta = exports
       .sort((a, b) => {
         const expA = a.name.toUpperCase()
         const expB = b.name.toUpperCase()
         return expA < expB ? -1 : expA > expB ? 1 : 0
       })
-      .forEach((exp) => {
-        const relativePath = exp.path
-          .replace(/\.[^/.]+$/, "") // Remove extensions
-          .replace(exp.directory, ".") // Remove absolute directory path
-        if (exp.type === "type") {
-          code += `export type { ${exp.name} } from '${relativePath}';\n`
-        } else {
-          code += `export { ${exp.name} } from '${relativePath}';\n`
+      .reduce(
+        (acc, curr) => {
+          if (curr.type === "type") {
+            acc.types.push(curr)
+          } else {
+            acc.variables.push(curr)
+          }
+          return acc
+        },
+        { types: [], variables: [] } as {
+          types: ComponentExport[]
+          variables: ComponentExport[]
         }
-      })
+      )
+
+    let typesCode = ``
+    let variablesCode = ``
+
+    const groupedTypesByExportPath = groupBy(exportMeta.types, "path")
+    const groupedVariablesByExportPath = groupBy(exportMeta.variables, "path")
+
+    Object.keys(groupedTypesByExportPath).forEach((path) => {
+      const relativePath = path
+        .replace(/\.[^/.]+$/, "") // Remove extensions
+        .replace(exportMeta.types[0].directory, ".") // Remove absolute directory path
+
+      const types = groupedTypesByExportPath[path]
+        .map((type) => type.name)
+        .join(", ")
+
+      typesCode += `export type { ${types} } from '${relativePath}';\n`
+    })
+
+    Object.keys(groupedVariablesByExportPath).forEach((path) => {
+      const relativePath = path
+        .replace(/\.[^/.]+$/, "") // Remove extensions
+        .replace(exportMeta.variables[0].directory, ".") // Remove absolute directory path
+
+      const variables = groupedVariablesByExportPath[path]
+        .map((variable) => variable.name)
+        .join(", ")
+
+      variablesCode += `export { ${variables} } from '${relativePath}';\n`
+    })
+
+    code = `${variablesCode}\n${typesCode}`
     writeFileSync(file, code, "utf8")
     const results = await eslint.lintFiles([file])
     await ESLint.outputFixes(results)
@@ -126,7 +159,7 @@ async function main() {
     module: ts.ModuleKind.CommonJS,
     jsx: ts.JsxEmit.Preserve,
   })
-  // generateExportsCode(exportMap)
+  generateExportsCode(exportMap)
 }
 
 main()

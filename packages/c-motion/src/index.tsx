@@ -1,4 +1,14 @@
-export * from "./c-motion"
-export * from "./animate-presence"
-export * from "./c-collapse"
-export * from "./motion-utils"
+export { CAnimatePresence } from "./animate-presence"
+export { CCollapse } from "./c-collapse"
+export { CMotion, variants } from "./c-motion"
+export {
+  CMotionVariant,
+  placementToVariant,
+  SlideDirection,
+  slideTransition,
+  TransitionDefaults,
+  TransitionEasings,
+  TransitionVariants,
+} from "./motion-utils"
+
+export type { CollapseOptions } from "./c-collapse"

@@ -1,1 +1,7 @@
-export * from "./alert"
+export {
+  AlertVariant,
+  CAlert,
+  CAlertDescription,
+  CAlertIcon,
+  CAlertTitle,
+} from "./alert"
