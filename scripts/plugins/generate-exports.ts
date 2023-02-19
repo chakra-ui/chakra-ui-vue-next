@@ -127,6 +127,7 @@ const allowedWorkspaces = ["/packages/", "/tooling/"]
 // const allowedWorkspaces = ["packages/c-accordion"]
 const excludedPackages = [
   "packages/vue/src",
+  "packages/styled/src",
   "node_modules",
   "packages/test-utils",
   "modules",
