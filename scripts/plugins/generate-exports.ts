@@ -14,6 +14,7 @@ import * as ts from "typescript"
 import { resolve, dirname } from "path"
 import { ESLint } from "eslint"
 import { writeFileSync } from "fs"
+import { cwd } from "process"
 
 const eslint = new ESLint({ fix: true })
 
@@ -41,10 +42,14 @@ function findAndGenerateComponentExportsInFile(
     const exports: ComponentExport[] = checker
       .getExportsOfModule(sourceFileSymbol)
       .filter((symbol) => symbol.escapedName !== "default")
+      .filter(
+        (symbol) =>
+          // @ts-ignore
+          !symbol.parent.valueDeclaration.originalFileName.includes("dist")
+      )
       .map((symbol) => {
         return {
           name: symbol.escapedName.toString(),
-          // @ts-ignore
           // @ts-ignore
           path: symbol.parent.valueDeclaration.originalFileName,
           type: symbol.members ? "type" : "variable",
@@ -59,8 +64,8 @@ function findAndGenerateComponentExportsInFile(
 }
 
 function generateExportsCode(_exports: ComponentExportsMap) {
-  let code = ``
   _exports.forEach(async (exports, file) => {
+    let code = ``
     exports
       .sort((a, b) => {
         const expA = a.name.toUpperCase()
@@ -80,28 +85,39 @@ function generateExportsCode(_exports: ComponentExportsMap) {
     writeFileSync(file, code, "utf8")
     const results = await eslint.lintFiles([file])
     await ESLint.outputFixes(results)
+    console.log(code)
+    return code
   })
-  console.log(code)
-  return code
 }
 
-const allowedWorkspaces = ["packages", "tooling"]
+const allowedWorkspaces = ["/packages/", "/tooling/"]
+// const allowedWorkspaces = ["packages/c-accordion"]
+const excludedPackages = [
+  "packages/vue/src",
+  "node_modules",
+  "packages/test-utils",
+  "modules",
+]
 
-try {
+async function main() {
   const packageJsonFilePaths = await getAllPackageJsons()
   const allComponentExports = packageJsonFilePaths
     .filter((path) => {
       return allowedWorkspaces.filter((workspace) => path.includes(workspace))
-        .length
+    })
+    .filter((path) => {
+      return excludedPackages.every(
+        (excludedPackage) => !path.includes(excludedPackage)
+      )
     })
     .map((path) => {
-      const pkg = JSON.parse(readFileSync(path, "utf8")) as IPackageJson
       const [directory] = path.split("/package.json")
       const exportPath = existsSync(`${directory}/src/index.tsx`)
         ? `${directory}/src/index.tsx`
         : `${directory}/src/index.ts`
-      return exportPath
+      return resolve(cwd(), exportPath)
     })
+  console.log("allComponentExports", allComponentExports)
 
   const exportMap = findAndGenerateComponentExportsInFile(allComponentExports, {
     noEmitOnError: true,
@@ -110,8 +126,9 @@ try {
     module: ts.ModuleKind.CommonJS,
     jsx: ts.JsxEmit.Preserve,
   })
-  generateExportsCode(exportMap)
-  logger.log("Done")
-} catch (error) {
-  logger.error(error)
+  // generateExportsCode(exportMap)
 }
+
+main()
+  .then(() => logger.log("Done"))
+  .catch(logger.error)
