@@ -165,63 +165,464 @@ export { ChakraComponents }
  */
 
 // A
-export * from "@chakra-ui/c-accordion"
-export * from "@chakra-ui/c-alert"
-export * from "@chakra-ui/c-avatar"
+export {
+  type ExpandedValues,
+  type CAccordionProps,
+  type CAccordionContext,
+  type CAccordionItemProps,
+  type CAccordionItemContext,
+  type CAccordionButtonProps,
+  type CAccordionPanelProps,
+  type CAccordionIconProps,
+  CAccordion,
+  CAccordionItem,
+  CAccordionButton,
+  CAccordionPanel,
+  CAccordionIcon,
+} from "@chakra-ui/c-accordion"
+export {
+  CAlert,
+  CAlertTitle,
+  CAlertDescription,
+  CAlertIcon,
+} from "@chakra-ui/c-alert"
+export {
+  type AvatarOptions,
+  type CAvatarContext,
+  type CAvatarProps,
+  type AvatarBadgeProps,
+  AvatarStylesProvider,
+  useAvatarStyles,
+  AvatarContextProvider,
+  useAvatarContext,
+  CAvatar,
+  CAvatarBadge,
+  CAvatarGroup,
+  avatarGroupProps,
+} from "@chakra-ui/c-avatar"
 
 // B
-export * from "@chakra-ui/c-breadcrumb"
-export * from "@chakra-ui/c-button"
+export {
+  type BreadcrumbOptions,
+  type BreadcrumbProps,
+  type BreadcrumbSeparatorProps,
+  type BreadcrumbItemProps,
+  type BreadcrumbLinkProps,
+  CBreadcrumb,
+  CBreadcrumbSeparator,
+  CBreadcrumbItem,
+  CBreadcrumbLink,
+} from "@chakra-ui/c-breadcrumb"
+export {
+  type CButtonSpinnerProps,
+  type CButtonProps,
+  type ButtonGroupProps,
+  type CIconButtonProps,
+  CButton,
+  CButtonGroup,
+  useButtonGroup,
+  CIconButton,
+} from "@chakra-ui/c-button"
 
 // C
-export * from "@chakra-ui/c-checkbox"
-export * from "@chakra-ui/c-color-mode"
-export * from "@chakra-ui/c-close-button"
-export * from "@chakra-ui/c-code"
+export {
+  type CCheckboxControlProps,
+  type CCheckboxProps,
+  type CCheckboxGroupProps,
+  type CheckboxGroupContext,
+  CCheckbox,
+  CCheckboxGroup,
+  useCheckboxGroupContext,
+} from "@chakra-ui/c-checkbox"
+export {
+  type ColorModeOptions,
+  type ColorModeContext,
+  type InternalColorModeContext,
+  type IColorModeContext,
+  type ColorModeScriptProps,
+  AppColorModeContextSymbol,
+  setupColorModeContext,
+  useColorMode,
+  useColorModeValue,
+  CDarkMode,
+  CLightMode,
+  ColorModeConstants,
+  getScriptSrc,
+  mountColorModeScript,
+  STORAGE_KEY,
+  type StorageManager,
+  createLocalStorageManager,
+  localStorageManager,
+  createCookieStorageManager,
+  cookieStorageManager,
+  cookieStorageManagerSSR,
+} from "@chakra-ui/c-color-mode"
+export { type CloseButtonProps, CCloseButton } from "@chakra-ui/c-close-button"
+export { CCode } from "@chakra-ui/c-code"
 
 // F
-export * from "@chakra-ui/c-focus-lock"
-export * from "@chakra-ui/c-form-control"
+export {
+  CFocusLock,
+  type FocusLockProps,
+  useFocusTrap,
+  useReturnFocusSelector,
+} from "@chakra-ui/c-focus-lock"
+export {
+  CFormControl,
+  type CFormControlProps,
+  type CFormControlProviderContext,
+  CFormErrorIcon,
+  CFormErrorMessage,
+  type CFormErrorMessageProps,
+  CFormHelperText,
+  CFormLabel,
+  type CHelpTextProps,
+  CRequiredIndicator,
+  type CRequiredIndicatorProps,
+  type FormControlContext,
+  type FormControlOptions,
+  FormControlProvider,
+  type FormLabelProps,
+  type UseFormControlProps,
+  formControlProps,
+  useFormControl,
+  useFormControlContext,
+  useFormControlProps,
+  useFormControlProvider,
+} from "@chakra-ui/c-form-control"
 
 // I
-export * from "@chakra-ui/c-icon"
-export * from "@chakra-ui/c-image"
-export * from "@chakra-ui/c-input"
+export {
+  CIcon,
+  type CreateIconOptions,
+  type IconProps,
+  _iconProps,
+  createIcon,
+  createIconComponent,
+} from "@chakra-ui/c-icon"
+export {
+  CImage,
+  type CImageProps,
+  CImg,
+  type CImgProps,
+  type FallbackStrategy,
+  type UseImageProps,
+  shouldShowFallbackImage,
+  useImage,
+} from "@chakra-ui/c-image"
+export {
+  CInput,
+  CInputAddon,
+  type CInputAddonProps,
+  type CInputElementProps,
+  CInputGroup,
+  type CInputGroupProps,
+  CInputLeftAddon,
+  CInputLeftElement,
+  type CInputProps,
+  CInputRightAddon,
+  CInputRightElement,
+} from "@chakra-ui/c-input"
 
 // L
-export * from "@chakra-ui/vue-layout"
+export {
+  type AspectRatioProps,
+  type BadgeProps,
+  type BoxProps,
+  CAspectRatio,
+  CBadge,
+  CBox,
+  CCenter,
+  type CCenterProps,
+  CCircle,
+  CContainer,
+  CDivider,
+  CFlex,
+  CGrid,
+  CGridItem,
+  type CGridItemProps,
+  type CGridProps,
+  CHStack,
+  CHeading,
+  CKbd,
+  CLink,
+  CLinkBox,
+  CLinkOverlay,
+  CList,
+  CListIcon,
+  CListItem,
+  type CListProps,
+  COrderedList,
+  CSimpleGrid,
+  CSpacer,
+  CSquare,
+  CStack,
+  CStackDivider,
+  CStackItem,
+  CText,
+  CUnorderedList,
+  CVStack,
+  CWrap,
+  CWrapItem,
+  type ContainerProps,
+  type DividerProps,
+  type FlexProps,
+  type GridOptions,
+  type HeadingProps,
+  type KbdProps,
+  type LinkBoxProps,
+  type LinkOverlayProps,
+  type LinkProps,
+  type SimpleSystemProps,
+  type SpacerProps,
+  type SquareProps,
+  type StackDividerProps,
+  type StackProps,
+  type TextProps,
+  type WrapItemProps,
+  type WrapProps,
+  wrapProps,
+} from "@chakra-ui/vue-layout"
 
 // M
-export * from "@chakra-ui/c-media-query"
-export * from "@chakra-ui/c-menu"
-export * from "@chakra-ui/c-modal"
-export * from "@chakra-ui/c-motion"
+export {
+  CHide,
+  CShow,
+  CVisibility,
+  useQuery,
+  type CHideProps,
+  type CShowProps,
+  type CVisbilityProps,
+  type UseQueryProps,
+} from "@chakra-ui/c-media-query"
+export {
+  CMenu,
+  CMenuDivider,
+  CMenuGroup,
+  CMenuItem,
+  CMenuList,
+  CMenuTrigger,
+  CSubMenu,
+  CSubMenuItem,
+  CSubMenuList,
+  CSubMenuTrigger,
+  MenuProvider,
+  useMenu,
+} from "@chakra-ui/c-menu"
+export {
+  CAlertDialog,
+  CAlertDialogBody,
+  CAlertDialogCloseButton,
+  CAlertDialogContent,
+  CAlertDialogFooter,
+  CAlertDialogHeader,
+  CAlertDialogOverlay,
+  CDrawer,
+  CDrawerBody,
+  CDrawerCloseButton,
+  CDrawerContent,
+  CDrawerFooter,
+  CDrawerHeader,
+  CDrawerOverlay,
+  CModal,
+  CModalBody,
+  CModalCloseButton,
+  CModalContent,
+  CModalFooter,
+  CModalHeader,
+  CModalOverlay,
+  ModalContextProvider,
+  modalProps,
+  useModalContext,
+  type CAlertDialogProps,
+  type CModalContentProps,
+  type CModalProps,
+  type DrawerContentProps,
+  type DrawerProps,
+  type ModalOptions,
+} from "@chakra-ui/c-modal"
+export {
+  CAnimatePresence,
+  CCollapse,
+  CMotion,
+  TransitionDefaults,
+  TransitionEasings,
+  TransitionVariants,
+  placementToVariant,
+  slideTransition,
+  variants,
+  type CMotionVariant,
+  type CollapseOptions,
+  type SlideDirection,
+} from "@chakra-ui/c-motion"
 
 // P
-export * from "@chakra-ui/c-pin-input"
-export * from "@chakra-ui/c-popper"
-export * from "@chakra-ui/c-portal"
+export {
+  CPinInput,
+  CPinInputClearButton,
+  CPinInputField,
+  CPinInputProps,
+  PinInputProvider,
+  usePinInput,
+} from "@chakra-ui/c-pin-input"
+export {
+  popperCSSVars,
+  usePopper,
+  type Placement,
+  type UsePopperOptions,
+  type UsePopperReturn,
+} from "@chakra-ui/c-popper"
+export { CPortal, type CPortalProps } from "@chakra-ui/c-portal"
 
 // R
-export * from "@chakra-ui/c-reset"
+export { CReset, cssResetStyles } from "@chakra-ui/c-reset"
 
 // S
-export * from "@chakra-ui/c-skip-nav"
-export * from "@chakra-ui/c-spinner"
-export * from "@chakra-ui/c-scroll-lock"
+export {
+  CSkipNavContent,
+  CSkipNavLink,
+  type CSkipNavContentProps,
+  type CSkipNavLinkProps,
+} from "@chakra-ui/c-skip-nav"
+export { CSpinner, type CSpinnerProps } from "@chakra-ui/c-spinner"
+export {
+  BodyScrollLockDirective,
+  CScrollLock,
+  useBodyScrollLock,
+} from "@chakra-ui/c-scroll-lock"
 
 // T
-export * from "@chakra-ui/c-theme-provider"
-export * from "@chakra-ui/c-tag"
-export * from "@chakra-ui/c-toast"
+export {
+  CThemeProvider,
+  type CThemeProviderProps,
+} from "@chakra-ui/c-theme-provider"
+export {
+  CTag,
+  CTagCloseButton,
+  CTagCloseIcon,
+  CTagLabel,
+  CTagLeftIcon,
+  CTagRightIcon,
+  type CTagCloseButtonProps,
+  type CTagLabelProps,
+  type CTagProps,
+} from "@chakra-ui/c-tag"
+export {
+  CPresenceGroup,
+  CToast,
+  CToastContainer,
+  ToastContainerId,
+  ToastContextSymbol,
+  __toast__,
+  createStandAloneToast,
+  getToastsByPlacement,
+  globalToastMachine,
+  placements,
+  toastContext,
+  toastStore,
+  useMachine,
+  useService,
+  useToast,
+  type CToastProps,
+  type IToastContext,
+  type ToastPlacement,
+} from "@chakra-ui/c-toast"
 
 // V
-export * from "@chakra-ui/c-visually-hidden"
+export {
+  CVisuallyHidden,
+  CVisuallyHiddenInput,
+  visuallyHiddenStyle,
+} from "@chakra-ui/c-visually-hidden"
 
 // OTHERS
-export * from "@chakra-ui/vue-accessibilty"
-export * from "@chakra-ui/vue-composables"
-export * from "@chakra-ui/vue-utils"
+export {
+  hideOthers,
+  useInertOthers,
+  type Undo,
+} from "@chakra-ui/vue-accessibilty"
+export {
+  StackMessage,
+  useClipboard,
+  useCounter,
+  useDisclosure,
+  useElementStack,
+  useEventListener,
+  useId,
+  useIds,
+  useMediaQuery,
+  useStackContext,
+  useStackProvider,
+  useSupported,
+  useWindowEvent,
+  type DocumentEventName,
+  type GeneralEventListener,
+  type UseCounterProps,
+  type UseDisclosureProps,
+  type WindowEventName,
+} from "@chakra-ui/vue-composables"
+export {
+  SAO,
+  SNA,
+  SNAO,
+  getSelector,
+  tryOnScopeDispose,
+  extractStyleAttrs,
+  camelCase,
+  canUseDOM,
+  contains,
+  createContext,
+  getValidChildren,
+  isObjectComponent,
+  debounce,
+  defaultDocument,
+  defaultLocation,
+  defaultNavigator,
+  defaultWindow,
+  useDebouncedRef,
+  focusElement,
+  focusIn,
+  genId,
+  match,
+  mergeWith,
+  tryOnMounted,
+  tryOnBeforeMount,
+  tryOnBeforeUnmount,
+  tryOnUnmounted,
+  useThemingProps,
+  vueThemingProps,
+  orient,
+  resolveRef,
+  unrefElement,
+  useRef,
+  type AnyFn,
+  type Arrayable,
+  type BaseThemedComponentProps,
+  type ConfigurableDocument,
+  type ConfigurableDocumentOrShadowRoot,
+  type ConfigurableLocation,
+  type ConfigurableNavigator,
+  type ConfigurableWindow,
+  type CouldBeObjectComponent,
+  type CreateContextOptions,
+  type DebouncedRef,
+  type DeepMaybeRef,
+  type Fn,
+  type Focus,
+  type FocusResult,
+  type Keys,
+  type MaybeBaseRef,
+  type MaybeComputedRef,
+  type MaybeElementRef,
+  type MaybeReadonlyRef,
+  type MaybeRef,
+  type MergedVNodeProps,
+  type RemovableRef,
+  type StyleAndHTMLAttibutes,
+  type TemplateRef,
+  type VueComponentInstance,
+  type RemoveableRef,
+} from "@chakra-ui/vue-utils"
 
 /**
  *
