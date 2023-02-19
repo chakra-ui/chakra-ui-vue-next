@@ -4,23 +4,18 @@ import { normalizeProps, useMachine } from "@zag-js/vue"
 import { Machine, StateMachine } from "@zag-js/core"
 import {
   StylesProvider,
-  ThemingProps,
   useMultiStyleConfig,
   chakra,
   useStyles,
   useStyleConfig,
 } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import {
   createContext,
   getValidChildren,
   vueThemingProps,
 } from "@chakra-ui/vue-utils"
 import { ComputedRef, computed, defineComponent, h } from "vue"
-import type {
-  MachineContext,
-  MachineState,
-  UserDefinedContext,
-} from "@zag-js/menu/dist/menu.types"
 
 export const [MenuProvider, useMenu] = createContext<{
   root: ComputedRef<ReturnType<typeof menu.connect>>

@@ -1,6 +1,7 @@
 import { BoxProps } from "./box"
 import { h, defineComponent, PropType, computed } from "vue"
-import { chakra, SystemProps, ResponsiveValue } from "@chakra-ui/vue-system"
+import { chakra } from "@chakra-ui/vue-system"
+import { SystemProps, ResponsiveValue } from "@chakra-ui/styled-system"
 import { filterUndefined, mapResponsive } from "@chakra-ui/utils"
 import { SNAO } from "@chakra-ui/vue-utils"
 import type * as CSS from "csstype"
@@ -68,7 +69,7 @@ export interface GridOptions {
   row?: SystemProps["gridRow"]
 }
 
-export interface CGridProps extends GridOptions {}
+export interface CGridProps extends GridOptions { }
 
 export interface CGridItemProps extends BoxProps {
   /**

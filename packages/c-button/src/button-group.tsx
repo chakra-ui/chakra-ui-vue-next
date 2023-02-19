@@ -1,6 +1,7 @@
 import { computed, ComputedRef, defineComponent, h, PropType } from "vue"
 import { SystemProps, SystemStyleObject } from "@chakra-ui/styled-system"
-import { chakra, ThemingProps, ComponentWithProps } from "@chakra-ui/vue-system"
+import { chakra, ComponentWithProps } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import {
   createContext,
   getValidChildren,

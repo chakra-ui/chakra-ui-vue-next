@@ -2,11 +2,10 @@ import { filterUndefined } from "@chakra-ui/utils"
 import {
   chakra,
   HTMLChakraProps,
-  ThemingProps,
-  SystemProps,
   useStyleConfig,
   DOMElements,
 } from "@chakra-ui/vue-system"
+import { ThemingProps, SystemProps } from "@chakra-ui/styled-system"
 import { SNAO, vueThemingProps } from "@chakra-ui/vue-utils"
 import { computed, defineComponent, h, PropType } from "vue"
 import type * as CSS from "csstype"

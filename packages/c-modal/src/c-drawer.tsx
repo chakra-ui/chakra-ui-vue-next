@@ -20,11 +20,10 @@ import { createContext } from "@chakra-ui/vue-utils"
 import {
   chakra,
   HTMLChakraProps,
-  SystemStyleObject,
   useStyles,
   useTheme,
 } from "@chakra-ui/vue-system"
-
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import {
   CModal,
   CModalBody,

@@ -2,10 +2,10 @@ import {
   chakra,
   HTMLChakraProps,
   StylesProvider,
-  ThemingProps,
   useMultiStyleConfig,
   useStyles,
 } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import { defineComponent, h } from "vue"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import { useFormControlContext } from "./use-form-control"

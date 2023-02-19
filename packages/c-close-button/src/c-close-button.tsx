@@ -2,10 +2,12 @@ import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   DOMElements,
-  SystemStyleObject,
-  ThemingProps,
   useStyleConfig,
 } from "@chakra-ui/vue-system"
+import {
+  SystemStyleObject,
+  ThemingProps
+} from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 

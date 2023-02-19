@@ -2,17 +2,17 @@ import { h, defineComponent, PropType, computed } from "vue"
 import {
   chakra,
   DOMElements,
-  ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
 } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import type * as CSS from "csstype"
 
 export interface ContainerProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"Container"> {
+  ThemingProps<"Container"> {
   /**
    * If `true`, container will center its children
    * regardless of their width.

@@ -1,5 +1,6 @@
 import { mapResponsive } from "@chakra-ui/utils"
-import { chakra, HTMLChakraProps, ResponsiveValue } from "@chakra-ui/vue-system"
+import { chakra, HTMLChakraProps } from "@chakra-ui/vue-system"
+import { ResponsiveValue } from "@chakra-ui/styled-system"
 import { defineComponent, h, PropType } from "vue"
 import type * as CSS from "csstype"
 
@@ -14,7 +15,7 @@ interface AspectRatioOptions {
 
 export interface AspectRatioProps
   extends HTMLChakraProps<"div">,
-    AspectRatioOptions {}
+  AspectRatioOptions { }
 
 /**
  * Vue component used to cropping media (videos, images and maps)
