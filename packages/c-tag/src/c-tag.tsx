@@ -19,12 +19,13 @@ import {
 import {
   chakra,
   ChakraProps,
-  ComponentWithProps,
   createStylesContext,
-  SystemStyleObject,
-  ThemingProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
+import {
+  SystemStyleObject,
+  ThemingProps
+} from "@chakra-ui/styled-system"
 import { CIcon, createIconComponent } from "@chakra-ui/c-icon"
 import { filterUndefined } from "@chakra-ui/utils"
 import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
@@ -34,12 +35,12 @@ interface TagOptions {
 
 export interface CTagProps
   extends ChakraProps,
-    TagOptions,
-    ThemingProps<"CTag"> {}
+  TagOptions,
+  ThemingProps<"CTag"> { }
 
 export interface CTagLabelProps
   extends ChakraProps,
-    ThemingProps<"CTagLabel"> {}
+  ThemingProps<"CTagLabel"> { }
 
 const [StylesProvider, useTagStyles] = createStylesContext("CTag")
 
@@ -69,7 +70,7 @@ export const CTagLabel = defineComponent({
 
 export interface CTagCloseButtonProps
   extends ChakraProps,
-    ThemingProps<"CTagCloseButton"> {
+  ThemingProps<"CTagCloseButton"> {
   isDisabled?: boolean
 }
 

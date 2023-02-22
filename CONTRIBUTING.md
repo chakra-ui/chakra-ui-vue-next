@@ -20,8 +20,17 @@ cd chakra-ui
 
 3. Install dependencies and bootstrap the project
 ```sh
-yarn
-# After the dependencies are installed, the `postinstall` script with trigger `preconstruct dev` which will build all the component packages.
+pnpm install
+```
+
+4. Start development server for packages
+```sh
+pnpm dev
+```
+
+5. Open component playground
+```sh
+pnpm playground:dev
 ```
 
 > If you run into any issues during these steps, kindly reach out to the Chakra UI
@@ -31,7 +40,7 @@ yarn
 There may be some trouble specific to the local setup in Windows. The following are suggestions in ensuring the local environment boots up successfully:
 
 - The package dependencies and scripts should work with Node `v16.16.0 and higher`
-- If you receive the error `EPERM: operation not permitted, symlink` and mentions `preconstruct`, you will need to enable OS developer mode. See Github issue [#381 for Preconstruct](https://github.com/preconstruct/preconstruct/issues/381)
+
 
 ## Development
 

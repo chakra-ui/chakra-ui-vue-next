@@ -1,1 +1,3 @@
-export { default as CSpinner } from "./spinner"
+export { CSpinner } from "./spinner"
+
+export type { CSpinnerProps } from "./spinner"

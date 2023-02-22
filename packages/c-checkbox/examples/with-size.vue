@@ -13,5 +13,5 @@
 </template>
 
 <script lang="ts" setup>
-import { CCheckbox } from "@chakra-ui/vue-next"
+import { CCheckbox } from "../src"
 </script>

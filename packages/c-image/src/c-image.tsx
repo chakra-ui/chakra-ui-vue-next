@@ -23,10 +23,10 @@ import {
   chakra,
   ComponentWithProps,
   DOMElements,
-  SystemProps,
   HTMLChakraProps,
   ChakraFactoryComponent,
 } from "@chakra-ui/vue-system"
+import { SystemProps } from "@chakra-ui/styled-system"
 import {
   FallbackStrategy,
   shouldShowFallbackImage,
@@ -73,7 +73,7 @@ interface ImageOptions extends NativeImageOptions {
   referrerPolicy?: ReferrerPolicy
 }
 
-export interface CImageProps extends UseImageProps, ImageOptions {}
+export interface CImageProps extends UseImageProps, ImageOptions { }
 
 export const CImage = defineComponent({
   name: "CImage",

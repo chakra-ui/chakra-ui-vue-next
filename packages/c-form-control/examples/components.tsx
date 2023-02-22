@@ -1,10 +1,7 @@
 import { h, defineComponent, computed, toRefs } from "vue"
-import {
-  chakra,
-  useMultiStyleConfig,
-  omitThemingProps,
-} from "@chakra-ui/vue-system"
-import { useFormControl } from "../"
+import { chakra, useMultiStyleConfig } from "@chakra-ui/vue-system"
+import { omitThemingProps } from "@chakra-ui/styled-system"
+import { useFormControl } from "@chakra-ui/c-form-control"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 export const CInput = defineComponent({

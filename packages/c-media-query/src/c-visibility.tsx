@@ -1,6 +1,5 @@
 import { computed, defineComponent, PropType } from "vue"
-import { useMediaQuery } from "@vueuse/core"
-import { ComponentWithProps } from "@chakra-ui/vue-system"
+import { useMediaQuery } from "@chakra-ui/vue-composables"
 
 export interface CVisbilityProps {
   /**

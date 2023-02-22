@@ -6,10 +6,10 @@ import {
   DOMElements,
   StylesProvider,
   HTMLChakraProps,
-  ThemingProps,
   useMultiStyleConfig,
   useStyles,
 } from "@chakra-ui/vue-system"
+
 import { useId } from "@chakra-ui/vue-composables"
 import {
   createContext,
@@ -19,7 +19,7 @@ import {
   vueThemingProps,
 } from "@chakra-ui/vue-utils"
 import { filterUndefined, mergeWith } from "@chakra-ui/utils"
-import { SystemStyleObject } from "@chakra-ui/styled-system"
+import { SystemStyleObject, ThemingProps } from "@chakra-ui/styled-system"
 import { CCollapse } from "@chakra-ui/c-motion"
 import { CIcon } from "@chakra-ui/c-icon"
 

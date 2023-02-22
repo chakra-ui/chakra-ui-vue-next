@@ -1,9 +1,9 @@
 {
   "name": "@chakra-ui/c-icon",
   "description": "Chakra UI Vue | A component to display icons in the browser component",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-c-icon.cjs.js",
-  "module": "dist/chakra-ui-c-icon.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,11 +12,11 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-c-icon.cjs.js",
-      "default": "./dist/chakra-ui-c-icon.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-icon",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-icon",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -29,15 +29,15 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

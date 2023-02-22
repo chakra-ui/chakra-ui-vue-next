@@ -1,0 +1,61 @@
+# This workflow will do a clean install of node dependencies,
+# build the source code and run tests across different versions of node
+# For more information see:
+#
+# https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: dev release
+
+on:
+  push:
+    paths:
+      - ".github/**"
+      - ".changeset/**"
+      - "packages/**"
+      - "tooling/**"
+      - "modules/**"
+    branches:
+      - develop
+
+jobs:
+  release:
+    name: Development Release
+    runs-on: ubuntu-latest
+    env:
+      # NODE_OPTIONS: "--max-old-space-size=16384"
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Lint types and code
+        run: pnpm lint
+
+      - name: Run Component Tests
+        run: pnpm test:ci
+        env:
+          CI: true
+
+      - name: Build packages
+        run: pnpm build:ci
+
+      - name: Setup CI Git User
+        run: |
+          git config --global user.name "codebender828"
+          git config --global user.email "jbakebwa@163.com"
+
+      - name: Create @dev release
+        if: steps.changesets.outputs.published != 'true'
+        run: |
+          git checkout develop
+          pnpm changeset pre exit
+          pnpm changeset version --snapshot dev
+          pnpm changeset publish --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

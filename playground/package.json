@@ -13,9 +13,9 @@
   "dependencies": {
     "consola": "^2.15.3",
     "esbuild": "^0.13.12",
-    "vite": "^2.6.13",
+    "vite": "^2.9.15",
     "vite-plugin-pages": "^0.18.2",
-    "vue": "^3.2.21"
+    "vue": "3.2.47"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.10.2",

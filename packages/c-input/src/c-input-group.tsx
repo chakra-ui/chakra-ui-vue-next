@@ -2,11 +2,10 @@ import { filterUndefined } from "@chakra-ui/utils"
 import {
   chakra,
   HTMLChakraProps,
-  omitThemingProps,
   StylesProvider,
-  ThemingProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
+import { omitThemingProps, ThemingProps } from "@chakra-ui/styled-system"
 import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
 import {
   computed,
@@ -20,7 +19,7 @@ import {
 
 export interface CInputGroupProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"Input"> {}
+  ThemingProps<"Input"> { }
 
 export const CInputGroup = defineComponent({
   name: "CInputGroup",
@@ -70,13 +69,13 @@ export const CInputGroup = defineComponent({
         return vnode.type?.name !== "CInput"
           ? cloneVNode(vnode, theming)
           : cloneVNode(
-              vnode,
-              Object.assign(
-                theming,
-                groupStyles
-                // vnode.props
-              )
+            vnode,
+            Object.assign(
+              theming,
+              groupStyles
+              // vnode.props
             )
+          )
       })
 
       return (

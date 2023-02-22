@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts" setup>
+import { CCheckbox, CCheckboxGroup } from "../src"
 import { ref, watchEffect } from "vue"
-import { CCheckbox, CCheckboxGroup } from "@chakra-ui/vue-next"
 const items = ref(["naruto", "sasuke"])
 
 watchEffect(() => {

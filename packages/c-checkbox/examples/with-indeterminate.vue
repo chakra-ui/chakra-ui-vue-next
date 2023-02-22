@@ -38,7 +38,8 @@
 
 <script lang="ts" setup>
 import { computed, ref } from "vue"
-import { CCheckbox } from "@chakra-ui/vue-next"
+
+import { CCheckbox } from "../src"
 
 const checkedItems = ref([false, false])
 function setCheckedItems(value: boolean[]) {

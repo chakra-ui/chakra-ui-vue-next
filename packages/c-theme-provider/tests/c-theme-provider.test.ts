@@ -1,7 +1,7 @@
 import { ThemeProviderProps } from "@chakra-ui/vue-next"
 import { render, screen } from "../../test-utils"
 import { h, defineComponent, inject } from "vue"
-import CThemeProvider from "../src/c-theme-provider"
+import { CThemeProvider } from "../src/c-theme-provider"
 
 let blueString: string
 

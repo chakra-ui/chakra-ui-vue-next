@@ -22,10 +22,9 @@ import {
   chakra,
   DOMElements,
   HTMLChakraProps,
-  ThemingProps,
   useMultiStyleConfig,
-  omitThemingProps,
 } from "@chakra-ui/vue-system"
+import { ThemingProps, omitThemingProps } from "@chakra-ui/styled-system"
 import {
   FormControlOptions,
   formControlProps,

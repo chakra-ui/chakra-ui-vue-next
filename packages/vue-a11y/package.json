@@ -1,9 +1,9 @@
 {
   "name": "@chakra-ui/vue-accessibilty",
   "description": "Chakra UI Vue | Accessibility composables for chakra ui vue component",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-vue-accessibilty.cjs.js",
-  "module": "dist/chakra-ui-vue-accessibilty.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,14 +12,14 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-accessibilty.cjs.js",
-      "default": "./dist/chakra-ui-vue-accessibilty.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/vue-a11y",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/vue-a11y",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -38,9 +38,9 @@
     "@chakra-ui/vue-utils": "workspace:*"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.2.29"
+    "vue": "3.2.47"
   }
 }

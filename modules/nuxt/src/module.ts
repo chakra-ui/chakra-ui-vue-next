@@ -3,16 +3,17 @@ import {
   addPlugin,
   createResolver,
   addServerPlugin,
-  installModule,
   addComponent,
 } from "@nuxt/kit"
 import type * as NuxtSchema from "@nuxt/schema"
 import type * as Theme from "@chakra-ui/theme"
-import {
-  ChakraPluginOptions,
-  extendTheme as _extendTheme,
-} from "@chakra-ui/vue-next"
-import { mergeWith } from "@chakra-ui/utils"
+import type * as ChakraUI from "@chakra-ui/vue-next"
+import * as Chakra from "@chakra-ui/vue-next"
+import mergeWith from "lodash.mergewith"
+import { defu } from "defu"
+
+const { extendTheme: _extendTheme } = Chakra
+const ChakraPlugin = Chakra.default
 
 /** Chakra UI Vue SSR Context State */
 export interface ChakraUISSRContext {
@@ -27,7 +28,10 @@ declare global {
   }
 }
 
-export type ChakraModuleOptions = Omit<ChakraPluginOptions, "colorModeManager">
+export type ChakraModuleOptions = Omit<
+  ChakraUI.ChakraPluginOptions,
+  "colorModeManager"
+>
 
 const defaultModuleOptions: ChakraModuleOptions = {
   cssReset: true,
@@ -47,7 +51,9 @@ export default defineNuxtModule<ChakraModuleOptions>({
     compatibilty: ">=3.0.0",
   },
   setup(__options, nuxt) {
-    console.log("chakra-ui-nuxt:module")
+    // Install emotion module
+    // installModule("@nuxtjs/emotion")
+
     const _options = mergeWith(
       defaultModuleOptions,
       __options
@@ -59,7 +65,42 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const emotionCacheOptions = _options.emotionCacheOptions
     const cssReset = _options.cssReset
 
-    nuxt.options.build.transpile.push("@chakra-ui")
+    nuxt.hook("nitro:config", (config) => {
+      // Prevent inlining emotion (+ the crucial css cache!) in dev mode
+      if (nuxt.options.dev) {
+        if (config.externals) {
+          config.externals.external ||= []
+          config.externals.external.push("@emotion/server")
+        }
+      }
+    })
+
+    // Transpile
+    nuxt.options.build.transpile.push("@chakra-ui/vue-next")
+
+    // Auto-import components
+    for (const component in Chakra) {
+      /**
+       * Group of strict checks to make sure that
+       * we only generate types for components.
+       */
+      if (
+        component.startsWith("C") &&
+        // @ts-ignore
+        Chakra[component]?.name &&
+        // @ts-ignore
+        Chakra[component]?.setup &&
+        // @ts-ignore
+        typeof Chakra[component]?.setup === "function"
+      ) {
+        addComponent({
+          name: component,
+          // @ts-ignore
+          export: Chakra[component]?.name,
+          filePath: "@chakra-ui/vue-next",
+        })
+      }
+    }
 
     nuxt.options.appConfig.$chakraConfig = {
       extendTheme,
@@ -69,11 +110,26 @@ export default defineNuxtModule<ChakraModuleOptions>({
       emotionCacheOptions,
     }
 
-    // Install emotion module
-    installModule("@nuxtjs/emotion")
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve("./runtime")
     nuxt.options.build.transpile.push(runtimeDir)
+
+    // Include all internal lodash modules
+    // to the optimized dependencies since they do not
+    // natively export ESM modules.
+    // We should still preserve user-provided option
+    const viteConfig = nuxt.options.vite || {}
+    const extendedViteConfigOptions = {
+      optimizeDeps: {
+        include: ["lodash.mergewith", "lodash.camelcase", "lodash.memoize"],
+      },
+    }
+    const finalViteConfig = defu(viteConfig, extendedViteConfigOptions)
+    nuxt.options.vite = finalViteConfig
+
+    // Add emotion plugins
+    addServerPlugin(resolve(runtimeDir, "emotion.server"))
+    addPlugin(resolve(runtimeDir, "emotion.client"))
 
     // Resolve template and inject plugin
     addPlugin(resolve(runtimeDir, "chakra"))

@@ -10,7 +10,8 @@ import { CImageProps, useImage } from "@chakra-ui/c-image"
 import { SNAO } from "@chakra-ui/vue-utils"
 import { CAvatarName } from "./c-avatar-name"
 import { CDefaultAvatarIcon } from "./c-default-avatar-icon"
-import { chakra, SystemStyleObject } from "@chakra-ui/vue-system"
+import { chakra } from "@chakra-ui/vue-system"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { useAvatarContext } from "./c-avatar"
 
 export interface CAvatarImageProps extends Omit<CImageProps, "borderRadius"> {

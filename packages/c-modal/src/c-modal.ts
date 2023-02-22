@@ -32,10 +32,10 @@ import {
   DeepPartial,
   HTMLChakraProps,
   StylesProvider,
-  SystemStyleObject,
   useMultiStyleConfig,
   useStyles,
 } from "@chakra-ui/vue-system"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { createContext, TemplateRef, useRef } from "@chakra-ui/vue-utils"
 import { CPortal } from "@chakra-ui/c-portal"
 import { FocusLockProps } from "@chakra-ui/c-focus-lock"

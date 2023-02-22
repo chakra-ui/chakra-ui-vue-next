@@ -33,7 +33,7 @@ export interface CPortalProps extends Omit<TeleportProps, "to"> {
  * If no target is given to the `CPortal` component via the `to` prop,
  * it will generate a target and append to the document body
  */
-const CPortal = defineComponent({
+export const CPortal = defineComponent({
   name: "CPortal",
   props: {
     to: String as PropType<CPortalProps["to"]>,
@@ -69,5 +69,3 @@ const CPortal = defineComponent({
     }
   },
 })
-
-export default CPortal

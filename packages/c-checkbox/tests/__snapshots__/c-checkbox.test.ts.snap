@@ -8,15 +8,16 @@ exports[`should render properly 1`] = `
     <label
       class="chakra-checkbox css-1tw369l"
       data-part="root"
+      data-scope="checkbox"
+      for="input-chakra-checkbox-EMPTY_STRING"
       id="root-chakra-checkbox-EMPTY_STRING"
     >
       <input
-        aria-checked="false"
-        aria-disabled="false"
         aria-invalid="false"
         aria-labelledby="checkbox:EMPTY_STRING:label"
         class="chakra-checkbox__input"
         data-part="input"
+        data-scope="checkbox"
         defaultchecked="false"
         id="input-chakra-checkbox-EMPTY_STRING"
         style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; word-wrap: normal;"
@@ -26,6 +27,7 @@ exports[`should render properly 1`] = `
         aria-hidden="true"
         class="chakra-checkbox__control css-drpdfl"
         data-part="control"
+        data-scope="checkbox"
         id="control-chakra-checkbox-EMPTY_STRING"
       >
         <svg

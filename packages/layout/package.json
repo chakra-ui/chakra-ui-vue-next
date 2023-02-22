@@ -1,9 +1,9 @@
 {
   "name": "@chakra-ui/vue-layout",
   "description": "Chakra UI Vue | Chakra ui layout components that give you massive speed component",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-vue-layout.cjs.js",
-  "module": "dist/chakra-ui-vue-layout.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,14 +12,14 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-layout.cjs.js",
-      "default": "./dist/chakra-ui-vue-layout.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/layout",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/layout",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -35,16 +35,15 @@
   "dependencies": {
     "@chakra-ui/c-icon": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
     "csstype": "^3.1.1"
   },
   "devDependencies": {
-    "vue": "^3.2.37",
-    "csstype": "^3.1.1"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   }
 }

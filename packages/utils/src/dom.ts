@@ -9,6 +9,7 @@ import {
 } from "vue"
 import { debounce } from "./timers"
 import { MaybeRef } from "./types"
+import { canUseDOM } from "@chakra-ui/utils"
 
 /**
  * Interface for node provided by template ref
@@ -128,3 +129,49 @@ export function contains(containers: Set<HTMLElement>, element: HTMLElement) {
 
   return false
 }
+
+export interface ConfigurableWindow {
+  /*
+   * Specify a custom `window` instance, e.g. working with iframes or in testing environments.
+   */
+  window?: Window
+}
+
+export interface ConfigurableDocument {
+  /*
+   * Specify a custom `document` instance, e.g. working with iframes or in testing environments.
+   */
+  document?: Document
+}
+
+export interface ConfigurableDocumentOrShadowRoot {
+  /*
+   * Specify a custom `document` instance or a shadow root, e.g. working with iframes or in testing environments.
+   */
+  document?: DocumentOrShadowRoot
+}
+
+export interface ConfigurableNavigator {
+  /*
+   * Specify a custom `navigator` instance, e.g. working with iframes or in testing environments.
+   */
+  navigator?: Navigator
+}
+
+export interface ConfigurableLocation {
+  /*
+   * Specify a custom `location` instance, e.g. working with iframes or in testing environments.
+   */
+  location?: Location
+}
+
+export const defaultWindow = /* #__PURE__ */ canUseDOM() ? window : undefined
+export const defaultDocument = /* #__PURE__ */ canUseDOM()
+  ? window.document
+  : undefined
+export const defaultNavigator = /* #__PURE__ */ canUseDOM()
+  ? window.navigator
+  : undefined
+export const defaultLocation = /* #__PURE__ */ canUseDOM()
+  ? window.location
+  : undefined

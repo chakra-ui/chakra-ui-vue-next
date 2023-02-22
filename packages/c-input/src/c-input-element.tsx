@@ -3,9 +3,9 @@ import {
   chakra,
   ComponentWithProps,
   HTMLChakraProps,
-  SystemStyleObject,
   useStyles,
 } from "@chakra-ui/vue-system"
+import { SystemStyleObject } from "@chakra-ui/styled-system"
 
 export interface CInputElementProps extends HTMLChakraProps<"div"> {
   placement?: "left" | "right"

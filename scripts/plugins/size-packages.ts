@@ -1,5 +1,5 @@
 import consola from "consola"
-import { ensureFile, readFileSync, ensureDirSync } from "fs-extra"
+import { ensureFile, readFileSync } from "fs-extra"
 import { IPackageJson } from "../types/package.json"
 import { getAllPackageJsons } from "../utils"
 import { gzipSync } from "node:zlib"
@@ -9,7 +9,11 @@ import path from "node:path"
 
 const logger = consola.withTag("size-packages")
 
-const ignored = ["@chakra-ui/vue-test-utils", "@chakra-ui/nuxt-next-playground"]
+const ignored = [
+  "@chakra-ui/vue-test-utils",
+  "@chakra-ui/nuxt-next-playground",
+  "@chakra-ui/vue-next-test-fixture",
+]
 
 function checkFileSize(pkg: IPackageJson, filePath: string) {
   if (!ensureFile(filePath)) {
@@ -25,9 +29,9 @@ function checkFileSize(pkg: IPackageJson, filePath: string) {
   const brotli = (compressed?.length! / 1024).toFixed(2) + "kb"
   const brotliNum = Number((compressed?.length! / 1024).toFixed(2))
   console.log(
-    `${chalk.yellow(
-      chalk.bold(path.basename(filePath))
-    )} min:${minified} / gzip:${gzip} / brotli:${brotli}`
+    `CommonJS (Unoptimized) :: ${chalk.yellow(
+      chalk.bold(pkg.name)
+    )} ==> min:${minified} / gzip:${gzip} / brotli:${brotli}`
   )
 
   return {
@@ -43,8 +47,8 @@ function checkFileSize(pkg: IPackageJson, filePath: string) {
 
 async function sizePackages() {
   const packageJsonFilePaths = await getAllPackageJsons()
-  const allPackagesPromises = await packageJsonFilePaths.map(async (path) => {
-    const pkg = JSON.parse(await readFileSync(path, "utf8")) as IPackageJson
+  const allPackagesPromises = packageJsonFilePaths.map((path) => {
+    const pkg = JSON.parse(readFileSync(path, "utf8")) as IPackageJson
     const [directory] = path.split("/package.json")
     return {
       name: pkg.name,
@@ -53,7 +57,7 @@ async function sizePackages() {
       directory,
     }
   })
-  const packages = await Promise.all(allPackagesPromises)
+  const packages = allPackagesPromises
   const resultsTable: {
     package: string
     entry: string
@@ -68,7 +72,7 @@ async function sizePackages() {
     (pkg) => !ignored.includes(pkg.name)
   )) {
     const _package = instance.meta
-    const entry = `${instance.directory}/${_package.module || _package.main}`
+    const entry = `${instance.directory}/${_package.main || _package.module}`
     const result = checkFileSize(_package, entry)
 
     if (result) {

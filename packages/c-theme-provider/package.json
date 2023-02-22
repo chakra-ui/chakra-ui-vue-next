@@ -1,19 +1,19 @@
 {
   "name": "@chakra-ui/c-theme-provider",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-c-theme-provider.cjs.js",
-  "module": "dist/chakra-ui-c-theme-provider.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-c-theme-provider.cjs.js",
-      "default": "./dist/chakra-ui-c-theme-provider.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "description": "Chakra UI Vue | CThemeProvider component",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-theme-provider",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-theme-provider",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -26,15 +26,13 @@
   },
   "dependencies": {
     "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/theme-tools": "2.0.17"
+    "@chakra-ui/theme-tools": "^2.0.17"
   },
   "devDependencies": {
-    "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/theme-tools": "2.0.17",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

@@ -156,7 +156,7 @@ export const CStack = defineComponent({
     )
 
     return () => {
-      const validChildren: VNode[] = slots as any as VNode[]
+      const validChildren: VNode[] = slots.default?.() as any as VNode[]
       const clones = shouldUseChildren.value
         ? validChildren
         : validChildren.map((child, index) => {

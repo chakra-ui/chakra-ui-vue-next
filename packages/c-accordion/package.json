@@ -1,19 +1,19 @@
 {
   "name": "@chakra-ui/c-accordion",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-c-accordion.cjs.js",
-  "module": "dist/chakra-ui-c-accordion.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-c-accordion.cjs.js",
-      "default": "./dist/chakra-ui-c-accordion.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "description": "Chakra UI Vue | CAccordion component",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-accordion",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-accordion",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -27,20 +27,21 @@
   "dependencies": {
     "@chakra-ui/c-icon": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/accordion": "^0.1.13",
-    "@zag-js/vue": "^0.1.14"
+    "@zag-js/accordion": "0.2.11",
+    "@chakra-ui/styled-system": "2.5.1",
+    "@zag-js/vue": "^0.2.9"
   },
   "peerDependencies": {
-    "vue": ">=3.0.5"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   }
 }

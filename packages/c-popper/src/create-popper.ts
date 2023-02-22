@@ -38,7 +38,6 @@ export interface CreatePopperOptions {
   flip?: boolean
   matchWidth?: boolean
   boundary?: "clippingParents" | "scrollParent" | HTMLElement
-  // eslint-disable-next-line @typescript-eslint/member-delimiter-style
   eventListeners?: boolean | { scroll?: boolean; resize?: boolean }
   arrowPadding?: number
 }

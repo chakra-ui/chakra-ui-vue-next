@@ -1,0 +1,51 @@
+{
+  "name": "@chakra-ui/c-toast",
+  "description": "Chakra UI Vue | The toast component is used to give feedback to users after an action has taken place component",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-toast",
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "build:types": "tsup src --dts-only",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@chakra-ui/c-alert": "workspace:*",
+    "@chakra-ui/c-close-button": "workspace:*",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
+    "@zag-js/core": "^0.2.9",
+    "@zag-js/toast": "0.2.12",
+    "@zag-js/vue": "^0.2.9",
+    "motion": "^10.15.5"
+  },
+  "devDependencies": {
+    "vue": "3.2.47"
+  },
+  "peerDependencies": {
+    "vue": "3.2.47"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,3 +1,11 @@
-export * from "./c-image"
-export * from "./c-img"
-export * from "./use-image"
+export { CImage } from "./c-image"
+export { CImg } from "./c-img"
+export {
+  FallbackStrategy,
+  shouldShowFallbackImage,
+  useImage,
+} from "./use-image"
+
+export type { CImageProps } from "./c-image"
+export type { CImgProps } from "./c-img"
+export type { UseImageProps } from "./use-image"

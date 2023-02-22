@@ -120,7 +120,9 @@ export const CCollapse = defineComponent({
     }))
 
     warn({
-      condition: Boolean(props.startingHeight > 0 && props.unmountOnExit),
+      condition: Boolean(
+        Number(props.startingHeight) > 0 && props.unmountOnExit
+      ),
       message: `"startingHeight" and "unmountOnExit" props are mutually exclusive. You can't use them together`,
     })
 

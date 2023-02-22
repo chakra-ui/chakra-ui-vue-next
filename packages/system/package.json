@@ -1,10 +1,10 @@
 {
   "name": "@chakra-ui/vue-system",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-vue-system.cjs.js",
-  "module": "dist/chakra-ui-vue-system.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "description": "Chakra UI Vue | System module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/system",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/system",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "files": [
@@ -12,8 +12,8 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-system.cjs.js",
-      "default": "./dist/chakra-ui-vue-system.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "scripts": {
@@ -27,9 +27,9 @@
   "dependencies": {
     "@chakra-ui/c-color-mode": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@emotion/css": "^11.9.0",
+    "@emotion/css": "^11.10.5",
     "@emotion/serialize": "1.1.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1",
@@ -38,10 +38,10 @@
   "devDependencies": {
     "@chakra-ui/theme": "^2.2.5",
     "@types/lodash.memoize": "^4.1.6",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

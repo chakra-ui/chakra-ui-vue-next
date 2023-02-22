@@ -1,19 +1,19 @@
 {
   "name": "@chakra-ui/vue-styled",
-  "version": "1.0.0-beta.2",
-  "main": "dist/chakra-ui-vue-styled.cjs.js",
-  "module": "dist/chakra-ui-vue-styled.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-styled.cjs.js",
-      "default": "./dist/chakra-ui-vue-styled.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "description": "Chakra UI Vue | Styled module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/styled",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/styled",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@chakra-ui/vue-utils": "workspace:*",
-    "@emotion/cache": "^11.7.1",
-    "@emotion/css": "^11.9.0",
+    "@emotion/cache": "^11.10.5",
+    "@emotion/css": "^11.10.5",
     "@emotion/serialize": "1.1.1",
     "@emotion/utils": "^1.1.0",
     "@emotion/weak-memoize": "^0.2.5",
@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "@types/lodash.memoize": "^4.1.6",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.2.31"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

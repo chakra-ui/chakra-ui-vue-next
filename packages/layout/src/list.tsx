@@ -1,12 +1,14 @@
 import { CIcon } from "@chakra-ui/c-icon"
 import {
   HTMLChakraProps,
-  SystemProps,
-  ThemingProps,
   useMultiStyleConfig,
   useStyles,
   StylesProvider,
 } from "@chakra-ui/vue-system"
+import {
+  SystemProps,
+  ThemingProps
+} from "@chakra-ui/styled-system"
 import { h, defineComponent, PropType, computed } from "vue"
 import { chakra, DOMElements } from "@chakra-ui/vue-system"
 import { getValidChildren, SNAO, SAO } from "@chakra-ui/vue-utils"
@@ -30,10 +32,10 @@ interface ListOptions {
   spacing?: SystemProps["margin"]
 }
 
-export interface ListProps
+export interface CListProps
   extends HTMLChakraProps<"ul">,
-    ThemingProps<"List">,
-    ListOptions {}
+  ThemingProps<"List">,
+  ListOptions { }
 
 /**
  * List is used to display list items, it renders a `<ul>` by default.
@@ -48,11 +50,11 @@ export const CList = defineComponent({
       default: "ul",
     },
     styleType: {
-      type: SAO as PropType<ListProps["listStyleType"]>,
+      type: SAO as PropType<CListProps["listStyleType"]>,
       default: "none",
     },
-    stylePosition: SAO as PropType<ListProps["listStylePosition"]>,
-    spacing: SNAO as PropType<ListProps["margin"]>,
+    stylePosition: SAO as PropType<CListProps["listStylePosition"]>,
+    spacing: SNAO as PropType<CListProps["margin"]>,
   },
   setup(props, { slots, attrs }) {
     const styles = useMultiStyleConfig("List", props)

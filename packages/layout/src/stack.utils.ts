@@ -1,4 +1,4 @@
-import { ResponsiveValue, SystemProps } from "@chakra-ui/vue-system"
+import { ResponsiveValue, SystemProps } from "@chakra-ui/styled-system"
 import { mapResponsive } from "@chakra-ui/utils"
 
 export type StackDirection = ResponsiveValue<

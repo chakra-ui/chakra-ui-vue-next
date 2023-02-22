@@ -1,1 +1,1 @@
-export { default as CCode } from "./code"
+export { CCode } from "./code"

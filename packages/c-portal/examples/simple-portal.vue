@@ -26,19 +26,19 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref } from "vue"
 
 const value = ref(5000)
 const isMounted = ref(true)
 
 onBeforeMount(() => {
-  const target = document.createElement('div')
-  target.style.display = 'inline-block'
-  target.style.position = 'absolute'
-  target.style.bottom = '50px'
-  target.style.right = '50px'
+  const target = document.createElement("div")
+  target.style.display = "inline-block"
+  target.style.position = "absolute"
+  target.style.bottom = "50px"
+  target.style.right = "50px"
 
-  target.id = 'new-target'
+  target.id = "new-target"
   document.body.appendChild(target)
 })
 

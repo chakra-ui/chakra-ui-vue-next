@@ -10,5 +10,5 @@
 </template>
 
 <script lang="ts" setup>
-import { chakra } from "@chakra-ui/vue-next"
+import { chakra } from "../../vue"
 </script>

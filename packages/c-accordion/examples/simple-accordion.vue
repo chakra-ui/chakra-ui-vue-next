@@ -39,7 +39,7 @@ import {
   CAccordionButton,
   CAccordionPanel,
 } from "../src"
-import { chakra } from "@chakra-ui/vue-next"
+import { chakra } from "../../vue"
 import { useId, useIds } from "@chakra-ui/vue-composables"
 import { watchEffect } from "vue"
 

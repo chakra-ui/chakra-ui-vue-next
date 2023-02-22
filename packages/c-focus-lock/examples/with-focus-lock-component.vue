@@ -87,7 +87,7 @@
 </template>
 
 <script lang="ts" setup>
-import { chakra } from "@chakra-ui/vue-next"
+import { chakra } from "../../vue"
 import { useRef } from "@chakra-ui/vue-utils"
 import { ref } from "vue"
 import { CFocusLock } from "../src/c-focus-lock"

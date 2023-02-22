@@ -1,9 +1,9 @@
 import { inject } from "vue"
 import { useColorMode } from "@chakra-ui/c-color-mode"
-import { Dict } from "@chakra-ui/utils"
+import { ChakraTheme } from "@chakra-ui/theme"
 
 /** Provides theme object in component context */
-export const useTheme = <T extends object = Dict>(): T => {
+export const useTheme = <T extends ChakraTheme = ChakraTheme>(): T => {
   const theme = inject("$chakraTheme") as T
   return theme
 }

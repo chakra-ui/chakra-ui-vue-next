@@ -8,12 +8,11 @@ import {
 } from "vue"
 import {
   chakra,
-  ThemingProps,
   useMultiStyleConfig,
   createStylesContext,
   DOMElements,
-  SystemStyleObject,
 } from "@chakra-ui/vue-system"
+import { ThemingProps, SystemStyleObject } from "@chakra-ui/styled-system"
 import { createContext, getValidChildren } from "@chakra-ui/vue-utils"
 import { CCheckIcon, CErrorIcon, CInfoIcon, CWarningIcon } from "./icons"
 
@@ -99,6 +98,7 @@ export const CAlert = defineComponent({
       alignItems: "center",
       position: "relative",
       overflow: "hidden",
+      fontFamily: "body",
       ...styles.value.container,
     }))
 

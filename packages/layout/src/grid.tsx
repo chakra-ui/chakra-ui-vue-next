@@ -1,6 +1,7 @@
 import { BoxProps } from "./box"
 import { h, defineComponent, PropType, computed } from "vue"
-import { chakra, SystemProps, ResponsiveValue } from "@chakra-ui/vue-system"
+import { chakra } from "@chakra-ui/vue-system"
+import { SystemProps, ResponsiveValue } from "@chakra-ui/styled-system"
 import { filterUndefined, mapResponsive } from "@chakra-ui/utils"
 import { SNAO } from "@chakra-ui/vue-utils"
 import type * as CSS from "csstype"
@@ -68,9 +69,9 @@ export interface GridOptions {
   row?: SystemProps["gridRow"]
 }
 
-export interface GridProps extends GridOptions {}
+export interface CGridProps extends GridOptions { }
 
-export interface GridItemProps extends BoxProps {
+export interface CGridItemProps extends BoxProps {
   /**
    * The number of columns the grid item should `span`.
    * @type ResponsiveValue<number | "auto">
@@ -173,12 +174,12 @@ export const CGridItem = defineComponent({
       type: [String, Object] as PropType<any>,
       default: "div",
     },
-    colSpan: SNAO as PropType<GridItemProps["colSpan"]>,
-    colStart: SNAO as PropType<GridItemProps["colStart"]>,
-    colEnd: SNAO as PropType<GridItemProps["colEnd"]>,
-    rowStart: SNAO as PropType<GridItemProps["rowStart"]>,
-    rowEnd: SNAO as PropType<GridItemProps["rowEnd"]>,
-    rowSpan: SNAO as PropType<GridItemProps["rowSpan"]>,
+    colSpan: SNAO as PropType<CGridItemProps["colSpan"]>,
+    colStart: SNAO as PropType<CGridItemProps["colStart"]>,
+    colEnd: SNAO as PropType<CGridItemProps["colEnd"]>,
+    rowStart: SNAO as PropType<CGridItemProps["rowStart"]>,
+    rowEnd: SNAO as PropType<CGridItemProps["rowEnd"]>,
+    rowSpan: SNAO as PropType<CGridItemProps["rowSpan"]>,
   },
   setup(props, { slots, attrs }) {
     const styles = computed(() =>

@@ -1,19 +1,19 @@
 {
   "name": "@chakra-ui/vue-test-utils",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-vue-test-utils.cjs.js",
-  "module": "dist/chakra-ui-vue-test-utils.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-vue-test-utils.cjs.js",
-      "default": "./dist/chakra-ui-vue-test-utils.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "description": "Chakra UI Vue | TestUtils module",
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/test-utils",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/test-utils",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
   "scripts": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "@chakra-ui/c-color-mode": "workspace:*",
     "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-styled": "workspace:*",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^13.5.0",
@@ -35,7 +35,7 @@
     "@vue/compiler-dom": "3.2.45",
     "@vue/compiler-sfc": "^3.2.45",
     "jest-axe": "^5.0.1",
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "publishConfig": {
     "access": "public"

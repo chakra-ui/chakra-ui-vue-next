@@ -37,7 +37,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "dev": "tsup --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "0.1.0-next.10"
+    "@chakra-ui/vue-system": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.37"

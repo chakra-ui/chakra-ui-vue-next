@@ -1,5 +1,5 @@
 <template>
-  <!-- 
+  <!--
     I noticed that when using the focus lock in a template with a component at the root,
     the application breaks, which i
    -->
@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { chakra } from "@chakra-ui/vue-next"
+import { chakra } from "../../vue"
 import { ref, watch, watchEffect } from "vue"
 import { useFocusTrap } from "../src/use-focus-trap"
 import { unrefElement } from "@chakra-ui/vue-utils"

@@ -1,9 +1,9 @@
 {
   "name": "@chakra-ui/c-modal",
   "description": "Chakra UI Vue | An accessible dialog modal component for chakra ui vue component",
-  "version": "3.0.0-beta.2",
-  "main": "dist/chakra-ui-c-modal.cjs.js",
-  "module": "dist/chakra-ui-c-modal.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,14 +12,14 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-c-modal.cjs.js",
-      "default": "./dist/chakra-ui-c-modal.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-modal",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-modal",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -39,7 +39,7 @@
     "@chakra-ui/c-portal": "workspace:*",
     "@chakra-ui/c-scroll-lock": "workspace:*",
     "@chakra-ui/styled-system": "2.5.1",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-accessibilty": "workspace:*",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
@@ -48,9 +48,9 @@
     "aria-hidden": "^1.1.2"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   }
 }

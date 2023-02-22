@@ -1,6 +1,7 @@
 import { computed, ComputedRef, defineComponent, h, PropType } from "vue"
 import { SystemProps, SystemStyleObject } from "@chakra-ui/styled-system"
-import { chakra, ThemingProps, ComponentWithProps } from "@chakra-ui/vue-system"
+import { chakra, ComponentWithProps } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import {
   createContext,
   getValidChildren,
@@ -48,7 +49,7 @@ const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>(
   }
 )
 
-const CButtonGroup = defineComponent({
+export const CButtonGroup = defineComponent({
   name: "CButtonGroup",
   props,
   setup(props, { attrs, slots }) {
@@ -99,5 +100,4 @@ const CButtonGroup = defineComponent({
   },
 })
 
-export default CButtonGroup
 export { useButtonGroup }

@@ -3,16 +3,16 @@ import {
   chakra,
   DOMElements,
   HTMLChakraProps,
-  ThemingProps,
   useStyleConfig,
 } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import type * as CSS from "csstype"
 
 export interface BadgeProps
   extends HTMLChakraProps<"span">,
-    Partial<ThemingProps<"Badge">> {}
+  Partial<ThemingProps<"Badge">> { }
 
 /**
  * Vue component used to display notifications, messages, or

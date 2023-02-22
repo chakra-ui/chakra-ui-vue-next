@@ -1,9 +1,9 @@
 {
   "name": "@chakra-ui/c-spinner",
   "description": "Chakra UI Vue | Visual cue that an action is either processing awaiting a course of change or a result component",
-  "version": "2.0.0-beta.2",
-  "main": "dist/chakra-ui-c-spinner.cjs.js",
-  "module": "dist/chakra-ui-c-spinner.esm.js",
+  "version": "2.1.0-beta.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -12,14 +12,14 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/chakra-ui-c-spinner.cjs.js",
-      "default": "./dist/chakra-ui-c-spinner.esm.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/main/packages/c-spinner",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-spinner",
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -35,14 +35,15 @@
   "dependencies": {
     "@chakra-ui/c-visually-hidden": "workspace:*",
     "@chakra-ui/theme": "^2.2.5",
-    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*"
+    "@chakra-ui/vue-utils": "workspace:*",
+    "@chakra-ui/styled-system": "2.5.1"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "3.2.47"
   },
   "peerDependencies": {
-    "vue": "^3.1.4"
+    "vue": "3.2.47"
   }
 }

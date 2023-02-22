@@ -1,5 +1,27 @@
 # @chakra-ui/c-popper
 
+## 0.0.0-beta.1
+
+### Major Changes
+
+- Use TSUP splitting
+
+## 0.0.0-beta.0
+
+### Major Changes
+
+- hange build pipeline to use tsup
+
+### Patch Changes
+
+- a3e70d0b: Create package
+
+## 0.0.0-dev-20230215144750
+
+### Patch Changes
+
+- Update build
+
 ## 2.0.0-beta.2
 
 ### Minor Changes

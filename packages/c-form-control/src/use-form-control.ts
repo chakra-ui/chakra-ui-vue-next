@@ -1,3 +1,4 @@
+import type * as Utils from "@chakra-ui/utils"
 import {
   computed,
   ToRefs,
@@ -8,7 +9,9 @@ import {
 } from "vue"
 import { useId, useIds } from "@chakra-ui/vue-composables"
 import { ariaAttr, dataAttr, callAllHandlers } from "@chakra-ui/utils"
-import { HTMLChakraProps, ThemingProps } from "@chakra-ui/vue-system"
+import { HTMLChakraProps } from "@chakra-ui/vue-system"
+import { ThemingProps } from "@chakra-ui/styled-system"
+
 import { createContext } from "@chakra-ui/vue-utils"
 
 export interface FormControlOptions {
