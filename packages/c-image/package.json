@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-image",
   "description": "Chakra UI Vue | Image component",
-  "version": "2.1.0-beta.0",
+  "version": "2.1.0-beta.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
