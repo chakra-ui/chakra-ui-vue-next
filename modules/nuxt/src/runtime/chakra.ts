@@ -1,13 +1,11 @@
 import type * as NuxtAppTypes from "nuxt/app"
 import { defineNuxtPlugin, useAppConfig } from "#imports"
-import Chakra, {
-  chakra,
+import {
   cookieStorageManagerSSR,
-  extendChakra,
   ColorModeConstants,
   extendTheme,
   ColorModeScriptProps,
-  domElements,
+  createChakra,
 } from "@chakra-ui/vue-next"
 import { parseCookies } from "h3"
 import type { ChakraModuleOptions } from "../module"
@@ -45,36 +43,30 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   }
 
-  // Install plugin
-  app.use(
-    // TODO: Fix type for Chakra plugin
-    Chakra as any,
-    extendChakra({
-      ...(chakraConfig.emotionCacheOptions && {
-        emotionCacheOptions: chakraConfig.emotionCacheOptions,
-      }),
-      ...(chakraConfig.cssReset && {
-        cssReset: chakraConfig.cssReset,
-      }),
-      extendTheme: extendTheme({
-        ...(chakraConfig.extendTheme && chakraConfig.extendTheme),
-        config: {
-          ...(chakraConfig.extendTheme?.config && {
-            extendTheme: chakraConfig.extendTheme.config,
-          }),
-          initialColorMode: isBrowser
-            ? window.$chakraSSRContext?.theme?.ssrColorMode
-            : ssrColorMode,
-        },
-      }),
-      colorModeManager: cookieStorageManagerSSR(
-        ColorModeConstants.CookieStorageKey
-      ),
-      icons: chakraConfig.icons,
-    })
-  )
-
-  domElements.forEach((tag) => {
-    app.component(`chakra.${tag}`, chakra(tag))
+  const chakra = createChakra({
+    ...(chakraConfig.emotionCacheOptions && {
+      emotionCacheOptions: chakraConfig.emotionCacheOptions,
+    }),
+    ...(chakraConfig.cssReset && {
+      cssReset: chakraConfig.cssReset,
+    }),
+    extendTheme: extendTheme({
+      ...(chakraConfig.extendTheme && chakraConfig.extendTheme),
+      config: {
+        ...(chakraConfig.extendTheme?.config && {
+          extendTheme: chakraConfig.extendTheme.config,
+        }),
+        initialColorMode: isBrowser
+          ? window.$chakraSSRContext?.theme?.ssrColorMode
+          : ssrColorMode,
+      },
+    }),
+    colorModeManager: cookieStorageManagerSSR(
+      ColorModeConstants.CookieStorageKey
+    ),
+    icons: chakraConfig.icons,
   })
+
+  // Install plugin
+  app.use(chakra)
 })

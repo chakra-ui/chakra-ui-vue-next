@@ -1,4 +1,4 @@
-import { injectGlobal } from "@chakra-ui/vue-system"
+import { injectGlobal, createCache } from "@chakra-ui/vue-system"
 import { css } from "@chakra-ui/styled-system"
 import { cssResetStyles } from "@chakra-ui/c-reset"
 import { ThemeOverride } from "@chakra-ui/theme-utils"
@@ -9,7 +9,6 @@ import type { EmotionCache } from "@emotion/cache"
 import { serializeStyles } from "@emotion/serialize"
 import { StyleSheet } from "@emotion/sheet"
 import { insertStyles, SerializedStyles } from "@emotion/utils"
-import { createCache } from "@chakra-ui/vue-styled"
 
 /** Injects CSS reset styles */
 export function injectResetStyles() {

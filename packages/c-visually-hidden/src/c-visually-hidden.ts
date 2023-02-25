@@ -1,5 +1,5 @@
 import { chakra } from "@chakra-ui/vue-system"
-import { CSSObject } from "@emotion/css"
+import type { CSSObject } from "@emotion/css"
 
 /**
  * Styles to visually hide an element

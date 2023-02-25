@@ -3,7 +3,7 @@
 exports[`<CAspectRatio /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-aspect-ratio css-w9t1xc"
+    class="chakra-aspect-ratio chakra-w9t1xc"
   >
     <img
       alt="img"
@@ -16,7 +16,7 @@ exports[`<CAspectRatio /> should render properly 1`] = `
 exports[`<CBadge /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-badge css-16bfjvf"
+    class="chakra-badge chakra-16bfjvf"
   >
     this is a badge
   </div>
@@ -26,12 +26,12 @@ exports[`<CBadge /> should render properly 1`] = `
 exports[`<CBox /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-box css-2sy3sl"
+    class="chakra-box chakra-2sy3sl"
   >
      This is a div 
   </div>
   <section
-    class="chakra-box css-2sy3sl"
+    class="chakra-box chakra-2sy3sl"
   >
      This is a box with as="section" 
   </section>
@@ -41,7 +41,7 @@ exports[`<CBox /> should render properly 1`] = `
 exports[`<CCenter /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-center css-40w18w"
+    class="chakra-center chakra-40w18w"
   >
      C 
   </div>
@@ -51,7 +51,7 @@ exports[`<CCenter /> should render properly 1`] = `
 exports[`<CContainer /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-container css-1poer1"
+    class="chakra-container chakra-1poer1"
   >
      container 
   </div>
@@ -62,14 +62,14 @@ exports[`<CDivider /> should render properly 1`] = `
 <DocumentFragment>
   <hr
     aria-orientation="horizontal"
-    class="chakra-divider css-1y71u2e"
+    class="chakra-divider chakra-1y71u2e"
   />
   <div
-    class="chakra-center css-1yj0ggl"
+    class="chakra-center chakra-1yj0ggl"
   >
     <hr
       aria-orientation="vertical"
-      class="chakra-divider css-1psxsf8"
+      class="chakra-divider chakra-1psxsf8"
     />
   </div>
 </DocumentFragment>
@@ -78,48 +78,48 @@ exports[`<CDivider /> should render properly 1`] = `
 exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-grid css-ssvt16"
+    class="chakra-grid chakra-ssvt16"
   >
     <div
-      class="chakra-box css-62u0by"
+      class="chakra-box chakra-62u0by"
     >
       <!---->
     </div>
     <div
-      class="chakra-box css-62u0by"
+      class="chakra-box chakra-62u0by"
     >
       <!---->
     </div>
     <div
-      class="chakra-box css-62u0by"
+      class="chakra-box chakra-62u0by"
     >
       <!---->
     </div>
     <div
-      class="chakra-box css-62u0by"
+      class="chakra-box chakra-62u0by"
     >
       <!---->
     </div>
     <div
-      class="chakra-box css-62u0by"
+      class="chakra-box chakra-62u0by"
     >
       <!---->
     </div>
   </div>
   <div
-    class="chakra-grid css-85u0uj"
+    class="chakra-grid chakra-85u0uj"
   >
     <div
-      class="chakra-grid__item css-1q1m6d7"
+      class="chakra-grid__item chakra-1q1m6d7"
     />
     <div
-      class="chakra-grid__item css-1qvc0pb"
+      class="chakra-grid__item chakra-1qvc0pb"
     />
     <div
-      class="chakra-grid__item css-1qvc0pb"
+      class="chakra-grid__item chakra-1qvc0pb"
     />
     <div
-      class="chakra-grid__item css-1anmq07"
+      class="chakra-grid__item chakra-1anmq07"
     />
   </div>
 </DocumentFragment>
@@ -128,45 +128,45 @@ exports[`<CGrid /> & <CGridItem /> should render properly 1`] = `
 exports[`<CHeading /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-stack css-17kdbol"
+    class="chakra-stack chakra-17kdbol"
   >
     <h1
-      class="chakra-heading css-cule"
+      class="chakra-heading chakra-cule"
     >
       (4xl) In love with Vue & Vite & Nuxt
     </h1>
     <h2
-      class="chakra-heading css-15xpjkx"
+      class="chakra-heading chakra-15xpjkx"
     >
        (3xl) In love with Vue & Vite & Nuxt
     </h2>
     <h2
-      class="chakra-heading css-1dpg06m"
+      class="chakra-heading chakra-1dpg06m"
     >
       (2xl) In love with Vue & Vite & Nuxt
     </h2>
     <h2
-      class="chakra-heading css-ueokap"
+      class="chakra-heading chakra-ueokap"
     >
        (xl) In love with Vue & Vite & Nuxt 
     </h2>
     <h3
-      class="chakra-heading css-1q5o9wg"
+      class="chakra-heading chakra-1q5o9wg"
     >
        (lg) In love with Vue & Vite & Nuxt 
     </h3>
     <h4
-      class="chakra-heading css-528rta"
+      class="chakra-heading chakra-528rta"
     >
        (md) In love with Vue & Vite & Nuxt 
     </h4>
     <h5
-      class="chakra-heading css-s5h6tf"
+      class="chakra-heading chakra-s5h6tf"
     >
        (sm) In love with Vue & Vite & Nuxt 
     </h5>
     <h6
-      class="chakra-heading css-ngsgu1"
+      class="chakra-heading chakra-ngsgu1"
     >
        (xs) In love with Vue & Vite & Nuxt 
     </h6>
@@ -178,13 +178,13 @@ exports[`<CKbd /> should render properly 1`] = `
 <DocumentFragment>
   <span>
     <kbd
-      class="chakra-kbd css-o84h17"
+      class="chakra-kbd chakra-o84h17"
     >
       shift
     </kbd>
      + 
     <kbd
-      class="chakra-kbd css-o84h17"
+      class="chakra-kbd chakra-o84h17"
     >
       H
     </kbd>
@@ -195,12 +195,12 @@ exports[`<CKbd /> should render properly 1`] = `
 exports[`<CLink /> should render properly 1`] = `
 <DocumentFragment>
   <a
-    class="chakra-link css-8jj5m5"
+    class="chakra-link chakra-8jj5m5"
   >
     CLink
   </a>
   <a
-    class="chakra-link css-8jj5m5"
+    class="chakra-link chakra-8jj5m5"
     rel="noopener noreferrer"
     target="_blank"
   >
@@ -212,13 +212,13 @@ exports[`<CLink /> should render properly 1`] = `
 exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
 <DocumentFragment>
   <article
-    class="chakra-linkbox css-10n1vic"
+    class="chakra-linkbox chakra-10n1vic"
   >
     <h2
-      class="chakra-heading css-1bhhtxl"
+      class="chakra-heading chakra-1bhhtxl"
     >
       <a
-        class="chakra-linkbox__overlay css-1hnz6hu"
+        class="chakra-linkbox__overlay chakra-1hnz6hu"
         href="https://vue.chakra-ui.com"
         rel="noopener noreferrer"
         target="_blank"
@@ -230,7 +230,7 @@ exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
        As a side note, using quotation marks around an attribute value is required only if this value is not a valid identifier. 
     </p>
     <a
-      class="chakra-link css-8jj5m5"
+      class="chakra-link chakra-8jj5m5"
       href="https://google.com"
       rel="noopener noreferrer"
       target="_blank"
@@ -244,44 +244,44 @@ exports[`<CLinkBox /> <CLinkOverlay /> should render properly 1`] = `
 exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon />  should render properly 1`] = `
 <DocumentFragment>
   <ul
-    class="chakra-list css-1dg6mvm"
+    class="chakra-list chakra-1dg6mvm"
     role="list"
   >
     <li
-      class="chakra-list__item css-0"
+      class="chakra-list__item chakra-0"
     >
       Lorem ipsum dolor sit amet
     </li>
     <li
-      class="chakra-list__item css-0"
+      class="chakra-list__item chakra-0"
     >
       Facilisis in pretium nisl aliquet
     </li>
   </ul>
   <ul
-    class="chakra-list css-tu0njr"
+    class="chakra-list chakra-tu0njr"
     role="list"
   >
     <li
-      class="chakra-list__item css-0"
+      class="chakra-list__item chakra-0"
     >
       Lorem ipsum dolor sit amet
     </li>
     <li
-      class="chakra-list__item css-0"
+      class="chakra-list__item chakra-0"
     >
       Consectetur adipiscing elit
     </li>
   </ul>
   <ul
-    class="chakra-list css-155za0w"
+    class="chakra-list chakra-155za0w"
     role="list"
   >
     <li
-      class="chakra-list__item css-0"
+      class="chakra-list__item chakra-0"
     >
       <svg
-        class="chakra-icon css-vg5qi3"
+        class="chakra-icon chakra-vg5qi3"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"
@@ -324,10 +324,10 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
        Lorem ipsum dolor sit amet. 
     </li>
     <li
-      class="chakra-list__item css-0"
+      class="chakra-list__item chakra-0"
     >
       <svg
-        class="chakra-icon css-vg5qi3"
+        class="chakra-icon chakra-vg5qi3"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"
@@ -376,30 +376,30 @@ exports[`<CList /> <CListItem /> <CUnorderedList /> <COrderedList /> <CListIcon 
 exports[`<CSimpleGrid /> should render properly 1`] = `
 <DocumentFragment>
   <ul
-    class="chakra-simple-grid css-12tmpmw"
+    class="chakra-simple-grid chakra-12tmpmw"
   >
     <div
-      class="chakra-box css-9rloc5"
+      class="chakra-box chakra-9rloc5"
     >
       simple 1
     </div>
     <div
-      class="chakra-box css-9rloc5"
+      class="chakra-box chakra-9rloc5"
     >
       simple 2
     </div>
     <div
-      class="chakra-box css-9rloc5"
+      class="chakra-box chakra-9rloc5"
     >
       simple 3
     </div>
     <div
-      class="chakra-box css-9rloc5"
+      class="chakra-box chakra-9rloc5"
     >
       simple 4
     </div>
     <div
-      class="chakra-box css-9rloc5"
+      class="chakra-box chakra-9rloc5"
     >
       simple 5
     </div>
@@ -410,18 +410,18 @@ exports[`<CSimpleGrid /> should render properly 1`] = `
 exports[`<CSpacer /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-flex css-1xhj18k"
+    class="chakra-flex chakra-1xhj18k"
   >
     <div
-      class="chakra-box css-zzdd9b"
+      class="chakra-box chakra-zzdd9b"
     >
        Box 1 
     </div>
     <div
-      class="chakra-spacer css-17xejub"
+      class="chakra-spacer chakra-17xejub"
     />
     <div
-      class="chakra-box css-pp1cg2"
+      class="chakra-box chakra-pp1cg2"
     >
        Box 2 
     </div>
@@ -432,12 +432,12 @@ exports[`<CSpacer /> should render properly 1`] = `
 exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-square css-yh3vrj"
+    class="chakra-square chakra-yh3vrj"
   >
      S 
   </div>
   <div
-    class="chakra-circle css-1afsfyy"
+    class="chakra-circle chakra-1afsfyy"
   >
      C 
   </div>
@@ -447,7 +447,7 @@ exports[`<CSquare /> & <CCircle /> should render properly 1`] = `
 exports[`<CStack /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-stack css-n21gh5"
+    class="chakra-stack chakra-n21gh5"
   >
     <div>
       1
@@ -457,7 +457,7 @@ exports[`<CStack /> should render properly 1`] = `
     </div>
   </div>
   <div
-    class="chakra-stack-horizontal css-x9juev"
+    class="chakra-stack-horizontal chakra-x9juev"
   >
     <div>
       1
@@ -467,7 +467,7 @@ exports[`<CStack /> should render properly 1`] = `
     </div>
   </div>
   <div
-    class="chakra-stack-vertical css-n21gh5"
+    class="chakra-stack-vertical chakra-n21gh5"
   >
     <div>
       1
@@ -482,32 +482,32 @@ exports[`<CStack /> should render properly 1`] = `
 exports[`<CText /> should render properly 1`] = `
 <DocumentFragment>
   <p
-    class="chakra-text css-0"
+    class="chakra-text chakra-0"
   >
     normal:
   </p>
   <p
-    class="chakra-text css-n2bes8"
+    class="chakra-text chakra-n2bes8"
   >
     (6xl) In love with Vue & Vite & Nuxt
   </p>
   <p
-    class="chakra-text css-0"
+    class="chakra-text chakra-0"
   >
     truncated:
   </p>
   <p
-    class="chakra-text css-3urtkt"
+    class="chakra-text chakra-3urtkt"
   >
      Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. 
   </p>
   <p
-    class="chakra-text css-0"
+    class="chakra-text chakra-0"
   >
     line clamp:
   </p>
   <p
-    class="chakra-text css-3jijpv"
+    class="chakra-text chakra-3jijpv"
   >
      "The quick brown fox jumps over the lazy dog" is an English-language pangram—a sentence that contains all of the letters of the English alphabet. Owing to its existence, Chakra was created. 
   </p>
@@ -517,43 +517,43 @@ exports[`<CText /> should render properly 1`] = `
 exports[`<CWrap /> & <CWrapItem /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-wrap css-0"
+    class="chakra-wrap chakra-0"
   >
     <ul
-      class="chakra-wrap__list css-gbdy1k"
+      class="chakra-wrap__list chakra-gbdy1k"
     >
       <li
-        class="chakra-wrap__listItem css-1yp4ln"
+        class="chakra-wrap__listItem chakra-1yp4ln"
       >
         <div
-          class="chakra-center css-58a5xs"
+          class="chakra-center chakra-58a5xs"
         >
            Box 1 
         </div>
       </li>
       <li
-        class="chakra-wrap__listItem css-1yp4ln"
+        class="chakra-wrap__listItem chakra-1yp4ln"
       >
         <div
-          class="chakra-center css-1cf3c28"
+          class="chakra-center chakra-1cf3c28"
         >
            Box 2 
         </div>
       </li>
       <li
-        class="chakra-wrap__listItem css-1yp4ln"
+        class="chakra-wrap__listItem chakra-1yp4ln"
       >
         <div
-          class="chakra-center css-1un2hvj"
+          class="chakra-center chakra-1un2hvj"
         >
            Box 3 
         </div>
       </li>
       <li
-        class="chakra-wrap__listItem css-1yp4ln"
+        class="chakra-wrap__listItem chakra-1yp4ln"
       >
         <div
-          class="chakra-center css-dd3w5r"
+          class="chakra-center chakra-dd3w5r"
         >
            Box 4 
         </div>

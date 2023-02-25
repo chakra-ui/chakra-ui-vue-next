@@ -13,6 +13,10 @@ interface IconsOptions {
   library?: {}
   extend?: Record<string, ExtendIconsPath>
 }
+
+export interface ExperimentalOptions {
+  disableFactoryComponents?: boolean
+}
 export interface ChakraPluginOptions {
   cssReset?: boolean
   extendTheme?: ThemeOverride
@@ -20,4 +24,5 @@ export interface ChakraPluginOptions {
   colorModeManager?: StorageManager
   emotionCacheOptions?: Options
   isBaseTheme?: boolean
+  experimental?: ExperimentalOptions
 }

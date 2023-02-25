@@ -1,4 +1,4 @@
-import { hydrate } from "@emotion/css"
+import { hydrate } from "@chakra-ui/vue-system"
 import { defineNuxtPlugin } from "#imports"
 
 export default defineNuxtPlugin((_) => {

@@ -15,7 +15,7 @@ import {
   positionArrow,
   transformOrigin,
 } from "./modifiers"
-import { getEventListenerOptions } from "./utils"
+import { getEventListenerOptions } from "./dom.utils"
 
 /* -------------------------------------------------------------------------------------------------
   We're initializing our own `createPopper` function with our opinionated defaults to

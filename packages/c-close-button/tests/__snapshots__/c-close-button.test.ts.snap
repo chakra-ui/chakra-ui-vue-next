@@ -4,13 +4,13 @@ exports[`should render properly 1`] = `
 <DocumentFragment>
   <button
     aria-label="Close"
-    class="chakra-icon-button css-1mrg54v"
+    class="chakra-icon-button chakra-1mrg54v"
     data-testid="closebutton"
     type="button"
   >
     <svg
       aria-hidden="true"
-      class="chakra-icon css-13otjrl"
+      class="chakra-icon chakra-13otjrl"
       focusable="false"
       viewBox="0 0 24 24"
     >
