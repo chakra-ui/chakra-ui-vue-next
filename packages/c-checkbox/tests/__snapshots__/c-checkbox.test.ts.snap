@@ -3,10 +3,10 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="css-msv88v"
+    class="chakra-msv88v"
   >
     <label
-      class="chakra-checkbox css-1tw369l"
+      class="chakra-checkbox chakra-1tw369l"
       data-part="root"
       data-scope="checkbox"
       for="input-chakra-checkbox-EMPTY_STRING"
@@ -25,13 +25,13 @@ exports[`should render properly 1`] = `
       />
       <span
         aria-hidden="true"
-        class="chakra-checkbox__control css-drpdfl"
+        class="chakra-checkbox__control chakra-drpdfl"
         data-part="control"
         data-scope="checkbox"
         id="control-chakra-checkbox-EMPTY_STRING"
       >
         <svg
-          class="css-1mg6af5"
+          class="chakra-1mg6af5"
           style="fill: none; stroke-width: 2; stroke: currentColor; stroke-dasharray: 16;"
           viewBox="0 0 12 10"
         >

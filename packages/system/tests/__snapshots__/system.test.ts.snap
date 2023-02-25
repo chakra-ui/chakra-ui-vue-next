@@ -3,7 +3,7 @@
 exports[`as prop render Vue Component like :as="RouterLink" 1`] = `
 <DocumentFragment>
   <a
-    class="css-0"
+    class="chakra-0"
     href="https://vue.chakra-ui.com/"
   >
     as RouterLink
@@ -14,7 +14,7 @@ exports[`as prop render Vue Component like :as="RouterLink" 1`] = `
 exports[`as prop render dom elements like as="h1" 1`] = `
 <DocumentFragment>
   <h1
-    class="css-0"
+    class="chakra-0"
   >
     as h1
   </h1>
@@ -24,7 +24,7 @@ exports[`as prop render dom elements like as="h1" 1`] = `
 exports[`as prop resolve global vue components like as="router-link" 1`] = `
 <DocumentFragment>
   <a
-    class="css-0"
+    class="chakra-0"
     href="https://google.com"
   >
     as router-link
@@ -35,7 +35,7 @@ exports[`as prop resolve global vue components like as="router-link" 1`] = `
 exports[`chakra() works should be render properly 1`] = `
 <DocumentFragment>
   <span
-    class="css-0"
+    class="chakra-0"
   >
     child-element
   </span>

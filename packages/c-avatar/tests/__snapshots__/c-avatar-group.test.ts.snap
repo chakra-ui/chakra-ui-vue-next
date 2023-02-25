@@ -3,16 +3,16 @@
 exports[`CAvatarGroup does not render number if max is higher than avatars 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar__group css-1rs5v3u"
+    class="chakra-avatar__group chakra-1rs5v3u"
     role="group"
   >
     <!---->
     <span
-      class="chakra-avatar css-1exxn2a"
+      class="chakra-avatar chakra-1exxn2a"
     >
       <div
         aria-label="Jonathan Bakebwa"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         JB
@@ -20,11 +20,11 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
       <!---->
     </span>
     <span
-      class="chakra-avatar css-1c4bfld"
+      class="chakra-avatar chakra-1c4bfld"
     >
       <div
         aria-label="Sarah Drasner"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         SD
@@ -32,11 +32,11 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
       <!---->
     </span>
     <span
-      class="chakra-avatar css-ors11u"
+      class="chakra-avatar chakra-ors11u"
     >
       <div
         aria-label="Anthony Fu"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         AF
@@ -44,11 +44,11 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
       <!---->
     </span>
     <span
-      class="chakra-avatar css-x22y92"
+      class="chakra-avatar chakra-x22y92"
     >
       <div
         aria-label="Evan You"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         EY
@@ -62,16 +62,16 @@ exports[`CAvatarGroup does not render number if max is higher than avatars 1`] =
 exports[`CAvatarGroup does not render number if max is reached 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar__group css-1rs5v3u"
+    class="chakra-avatar__group chakra-1rs5v3u"
     role="group"
   >
     <!---->
     <span
-      class="chakra-avatar css-1exxn2a"
+      class="chakra-avatar chakra-1exxn2a"
     >
       <div
         aria-label="Jonathan Bakebwa"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         JB
@@ -79,11 +79,11 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
       <!---->
     </span>
     <span
-      class="chakra-avatar css-1c4bfld"
+      class="chakra-avatar chakra-1c4bfld"
     >
       <div
         aria-label="Sarah Drasner"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         SD
@@ -91,11 +91,11 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
       <!---->
     </span>
     <span
-      class="chakra-avatar css-ors11u"
+      class="chakra-avatar chakra-ors11u"
     >
       <div
         aria-label="Anthony Fu"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         AF
@@ -103,11 +103,11 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
       <!---->
     </span>
     <span
-      class="chakra-avatar css-x22y92"
+      class="chakra-avatar chakra-x22y92"
     >
       <div
         aria-label="Evan You"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         EY
@@ -121,20 +121,20 @@ exports[`CAvatarGroup does not render number if max is reached 1`] = `
 exports[`CAvatarGroup renders group with 2 by default 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar__group css-1rs5v3u"
+    class="chakra-avatar__group chakra-1rs5v3u"
     role="group"
   >
     <span
-      class="chakra-avatar__excess css-1d6omom"
+      class="chakra-avatar__excess chakra-1d6omom"
     >
       +2
     </span>
     <span
-      class="chakra-avatar css-1xmzc4h"
+      class="chakra-avatar chakra-1xmzc4h"
     >
       <div
         aria-label="Anthony Fu"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         AF
@@ -142,11 +142,11 @@ exports[`CAvatarGroup renders group with 2 by default 1`] = `
       <!---->
     </span>
     <span
-      class="chakra-avatar css-x22y92"
+      class="chakra-avatar chakra-x22y92"
     >
       <div
         aria-label="Evan You"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         EY
@@ -160,20 +160,20 @@ exports[`CAvatarGroup renders group with 2 by default 1`] = `
 exports[`CAvatarGroup renders group with max prop passed 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-avatar__group css-1rs5v3u"
+    class="chakra-avatar__group chakra-1rs5v3u"
     role="group"
   >
     <span
-      class="chakra-avatar__excess css-1d6omom"
+      class="chakra-avatar__excess chakra-1d6omom"
     >
       +1
     </span>
     <span
-      class="chakra-avatar css-1cd629q"
+      class="chakra-avatar chakra-1cd629q"
     >
       <div
         aria-label="Sarah Drasner"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         SD
@@ -181,11 +181,11 @@ exports[`CAvatarGroup renders group with max prop passed 1`] = `
       <!---->
     </span>
     <span
-      class="chakra-avatar css-ors11u"
+      class="chakra-avatar chakra-ors11u"
     >
       <div
         aria-label="Anthony Fu"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         AF
@@ -193,11 +193,11 @@ exports[`CAvatarGroup renders group with max prop passed 1`] = `
       <!---->
     </span>
     <span
-      class="chakra-avatar css-x22y92"
+      class="chakra-avatar chakra-x22y92"
     >
       <div
         aria-label="Evan You"
-        class="css-uo84k3"
+        class="chakra-uo84k3"
         role="img"
       >
         EY
