@@ -37,9 +37,6 @@ const app = createApp(App)
           },
         },
       },
-      emotionCacheOptions: {
-        key: "chakra",
-      },
       extendTheme: extendTheme({
         config: {
           // initialColorMode: "system",

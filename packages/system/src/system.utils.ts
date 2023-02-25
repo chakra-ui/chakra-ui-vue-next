@@ -1,5 +1,4 @@
 import { UnionStringArray } from "@chakra-ui/utils"
-import { keyframes, injectGlobal } from "@emotion/css"
 import { PropType } from "vue"
 
 /**
@@ -80,5 +79,3 @@ export type DeepPartial<T> = {
 export type ToPropType<T> = {
   [P in keyof T]?: PropType<T[P]>
 }
-
-export { keyframes, injectGlobal }

@@ -1,6 +1,11 @@
-import { extractCritical } from "@emotion/server"
+// import { extractCritical } from "@emotion/server"
 import { NitroApp } from "nitropack"
 
+import createEmotionServer from "@emotion/server/create-instance"
+import { cache } from "@chakra-ui/vue-system"
+
+const key = "chakra"
+const { extractCritical } = createEmotionServer(cache)
 /**
  * Why are we declaring types for  `defineNitroPlugin`?
  *
@@ -25,6 +30,7 @@ export function defineNitroPlugin(def: NitroAppPlugin): NitroAppPlugin {
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook("render:html", (html) => {
     const { ids, css } = extractCritical(html.body)
+    console.log("ids, css", ids, css)
     html.head.push(`<style data-emotion="${ids.join(" ")}">${css}</style>`)
     html.head.push(
       `<script data-emotion="${ids.join(

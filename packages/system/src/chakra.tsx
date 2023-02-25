@@ -29,7 +29,8 @@ import {
   memoizedGet as get,
   Dict,
 } from "@chakra-ui/utils"
-import { cx, css as _css, CSSObject } from "@emotion/css"
+import { cx, css as _css } from "./emotion"
+import type { CSSObject } from "@emotion/css"
 import { domElements, DOMElements } from "./system.utils"
 import { useChakra, useTheme } from "./composables/use-chakra"
 import { extractStyleAttrs } from "@chakra-ui/vue-utils"

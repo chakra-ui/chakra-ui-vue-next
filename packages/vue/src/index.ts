@@ -2,11 +2,15 @@ import { computed, createVNode, Plugin, ref, render, UnwrapRef } from "vue"
 import { theme as defaultTheme, baseTheme, Theme } from "@chakra-ui/theme"
 import { ColorModeRef, setupColorModeContext } from "@chakra-ui/c-color-mode"
 import { toCSSVar, WithCSSVar } from "@chakra-ui/styled-system"
-import { chakra, injectGlobal } from "@chakra-ui/vue-system"
+import {
+  chakra,
+  createCache,
+  chakraEmotionCache,
+  injectGlobal,
+} from "@chakra-ui/vue-system"
 import {
   EmotionThemeContextSymbol,
   EmotionCacheInjectionSymbol,
-  createCache,
 } from "@chakra-ui/vue-styled"
 import type { EmotionCache } from "@emotion/cache"
 import internalIcons from "./icon.internals"
@@ -99,10 +103,7 @@ const ChakraUIVuePlugin: Plugin = {
       app.provide(EmotionCacheInjectionSymbol, emotionCache)
     }
 
-    emotionCache ||= createCache({
-      key: "chakra",
-      nonce: `chakra-global-cache-${Date.now()}`,
-    })
+    emotionCache ||= chakraEmotionCache
 
     // Inject `styles.global` in document
     injectThemeGlobalStyles(computedTheme.value, emotionCache, colorModeRef)

@@ -77,6 +77,9 @@ export default defineNuxtModule<ChakraModuleOptions>({
 
     // Transpile
     nuxt.options.build.transpile.push("@chakra-ui/vue-next")
+    nuxt.options.build.transpile.push("@emotion/server")
+    nuxt.options.build.transpile.push("@emotion/css")
+    nuxt.options.build.transpile.push("@emotion/css/create-instance")
 
     // Auto-import components
     for (const component in Chakra) {
@@ -121,7 +124,13 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const viteConfig = nuxt.options.vite || {}
     const extendedViteConfigOptions = {
       optimizeDeps: {
-        include: ["lodash.mergewith", "lodash.camelcase", "lodash.memoize"],
+        include: [
+          "lodash.mergewith",
+          "lodash.camelcase",
+          "lodash.memoize",
+          "@emotion/server",
+          "@emotion/css",
+        ],
       },
     }
     const finalViteConfig = defu(viteConfig, extendedViteConfigOptions)
