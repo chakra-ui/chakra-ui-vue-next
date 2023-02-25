@@ -582,12 +582,10 @@ importers:
 
   packages/c-icon:
     specifiers:
-      '@chakra-ui/utils': 2.0.15
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
       vue: 3.2.47
     dependencies:
-      '@chakra-ui/utils': 2.0.15
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
     devDependencies:
