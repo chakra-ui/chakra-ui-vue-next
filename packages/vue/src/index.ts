@@ -500,6 +500,40 @@ export {
   type RemoveableRef,
 } from "@chakra-ui/vue-utils"
 
+export {
+  defineStyleConfig,
+  defineStyle,
+  createMultiStyleConfigHelpers,
+  toCSSVar,
+  getCSSVar,
+  resolveStyleConfig,
+  omitThemingProps,
+  isStyleProp,
+} from "@chakra-ui/styled-system"
+
+export type {
+  SystemCSSProperties,
+  WithCSSVar,
+  ThemingProps,
+  ThemeTypings,
+  ResponsiveValue,
+  CSSWithMultiValues,
+  StyleObjectOrFn,
+  StyleConfig,
+  ResponsiveArray,
+  ResponsiveObject,
+  RecursivePseudo,
+  RecursiveCSSObject,
+  StyleFunctionProps,
+  MultiStyleConfig,
+  PartsStyleObject,
+  PartsStyleFunction,
+  PartsStyleInterpolation,
+  ThemeThunk,
+  SystemStyleObject,
+  SystemStyleFunction,
+} from "@chakra-ui/styled-system"
+
 /**
  *
  * Directives exports
