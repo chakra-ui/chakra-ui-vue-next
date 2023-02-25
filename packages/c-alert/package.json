@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-alert",
-  "version": "2.1.0-beta.0",
+  "version": "2.1.0-beta.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "files": [
