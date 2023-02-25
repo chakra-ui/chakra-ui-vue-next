@@ -82,7 +82,6 @@
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-auto-import": "workspace:*",
     "@chakra-ui/vue-next": "workspace:*",
-    "@chakra-ui/vue-styled": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-test-utils": "workspace:*",
     "@changesets/changelog-github": "^0.3.0",

@@ -4,7 +4,7 @@ import {
   getBoxShadow,
   toTransformOrigin,
   popperCSSVars as cssVars,
-} from "./utils"
+} from "./dom.utils"
 
 /* -------------------------------------------------------------------------------------------------
  The match width modifier sets the popper width to match the reference.
@@ -30,7 +30,7 @@ export const matchWidth: Modifier<"matchWidth", any> = {
 /* -------------------------------------------------------------------------------------------------
   The transform origin modifier sets the css `transformOrigin` value of the popper
   based on the dynamic placement state of the popper.
-  
+
   Useful when we need to animate/transition the popper.
 * -----------------------------------------------------------------------------------------------*/
 

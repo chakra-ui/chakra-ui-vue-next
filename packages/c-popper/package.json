@@ -30,7 +30,7 @@
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
     "dev": "tsup --watch",
-    "build:types": "tsup src --dts-only"
+    "build:types": "tsup --dts-only"
   },
   "dependencies": {
     "@chakra-ui/utils": "2.0.15",
