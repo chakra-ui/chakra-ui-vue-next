@@ -23,7 +23,6 @@ importers:
       '@chakra-ui/utils': 2.0.15
       '@chakra-ui/vue-auto-import': workspace:*
       '@chakra-ui/vue-next': workspace:*
-      '@chakra-ui/vue-styled': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-test-utils': workspace:*
       '@changesets/changelog-github': ^0.3.0
@@ -180,7 +179,6 @@ importers:
       '@chakra-ui/utils': 2.0.15
       '@chakra-ui/vue-auto-import': link:tooling/auto-import
       '@chakra-ui/vue-next': link:packages/vue
-      '@chakra-ui/vue-styled': link:packages/styled
       '@chakra-ui/vue-system': link:packages/system
       '@chakra-ui/vue-test-utils': link:packages/test-utils
       '@changesets/changelog-github': 0.3.0
@@ -939,7 +937,6 @@ importers:
       '@chakra-ui/theme': ^2.2.5
       '@chakra-ui/utils': 2.0.15
       '@chakra-ui/vue-utils': workspace:*
-      '@emotion/css': ^11.10.5
       '@emotion/serialize': 1.1.1
       '@types/lodash.memoize': ^4.1.6
       lodash.camelcase: ^4.3.0
@@ -951,7 +948,6 @@ importers:
       '@chakra-ui/styled-system': 2.5.1
       '@chakra-ui/utils': 2.0.15
       '@chakra-ui/vue-utils': link:../utils
-      '@emotion/css': 11.10.5
       '@emotion/serialize': 1.1.1
       lodash.camelcase: 4.3.0
       lodash.kebabcase: 4.1.1

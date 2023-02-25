@@ -4,7 +4,6 @@ export {
   CAccordionIcon,
   CAccordionItem,
   CAccordionPanel,
-  ExpandedValues,
 } from "./accordion"
 
 export type {
@@ -15,4 +14,5 @@ export type {
   CAccordionItemProps,
   CAccordionPanelProps,
   CAccordionProps,
+  ExpandedValues,
 } from "./accordion"

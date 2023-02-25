@@ -25,8 +25,6 @@ export {
   DeepPartial,
   domElements,
   DOMElements,
-  injectGlobal,
-  keyframes,
   ToPropType,
 } from "./system.utils"
 export { useChakra, useTheme } from "./composables/use-chakra"
@@ -34,6 +32,21 @@ export {
   useMultiStyleConfig,
   useStyleConfig,
 } from "./composables/use-style-config"
+
+export {
+  createCache,
+  chakraEmotionCache,
+  flush,
+  hydrate,
+  cx,
+  merge,
+  getRegisteredStyles,
+  injectGlobal,
+  keyframes,
+  css,
+  sheet,
+  cache,
+} from "./emotion"
 
 export type { BaseStyleResolverProps, StyleResolverProps } from "./chakra"
 export type { ChakraProps } from "./system.types"

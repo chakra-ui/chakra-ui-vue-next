@@ -8,12 +8,14 @@ import {
 import type * as NuxtSchema from "@nuxt/schema"
 import type * as Theme from "@chakra-ui/theme"
 import type * as ChakraUI from "@chakra-ui/vue-next"
-import * as Chakra from "@chakra-ui/vue-next"
+import {
+  ChakraComponents,
+  extendTheme as _extendTheme,
+} from "@chakra-ui/vue-next"
 import mergeWith from "lodash.mergewith"
 import { defu } from "defu"
 
-const { extendTheme: _extendTheme } = Chakra
-const ChakraPlugin = Chakra.default
+// const { extendTheme: _extendTheme } = Chakra
 
 /** Chakra UI Vue SSR Context State */
 export interface ChakraUISSRContext {
@@ -77,9 +79,12 @@ export default defineNuxtModule<ChakraModuleOptions>({
 
     // Transpile
     nuxt.options.build.transpile.push("@chakra-ui/vue-next")
+    nuxt.options.build.transpile.push("@emotion/server")
+    nuxt.options.build.transpile.push("@emotion/css")
+    nuxt.options.build.transpile.push("@emotion/css/create-instance")
 
     // Auto-import components
-    for (const component in Chakra) {
+    for (const component in ChakraComponents) {
       /**
        * Group of strict checks to make sure that
        * we only generate types for components.
@@ -87,16 +92,16 @@ export default defineNuxtModule<ChakraModuleOptions>({
       if (
         component.startsWith("C") &&
         // @ts-ignore
-        Chakra[component]?.name &&
+        ChakraComponents[component]?.name &&
         // @ts-ignore
-        Chakra[component]?.setup &&
+        ChakraComponents[component]?.setup &&
         // @ts-ignore
-        typeof Chakra[component]?.setup === "function"
+        typeof ChakraComponents[component]?.setup === "function"
       ) {
         addComponent({
           name: component,
           // @ts-ignore
-          export: Chakra[component]?.name,
+          export: ChakraComponents[component]?.name,
           filePath: "@chakra-ui/vue-next",
         })
       }
@@ -121,7 +126,13 @@ export default defineNuxtModule<ChakraModuleOptions>({
     const viteConfig = nuxt.options.vite || {}
     const extendedViteConfigOptions = {
       optimizeDeps: {
-        include: ["lodash.mergewith", "lodash.camelcase", "lodash.memoize"],
+        include: [
+          "lodash.mergewith",
+          "lodash.camelcase",
+          "lodash.memoize",
+          "@emotion/server",
+          "@emotion/css",
+        ],
       },
     }
     const finalViteConfig = defu(viteConfig, extendedViteConfigOptions)

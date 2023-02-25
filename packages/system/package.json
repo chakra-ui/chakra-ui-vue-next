@@ -29,7 +29,6 @@
     "@chakra-ui/styled-system": "2.5.1",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@emotion/css": "^11.10.5",
     "@emotion/serialize": "1.1.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.kebabcase": "^4.1.1",
@@ -41,6 +40,7 @@
     "vue": "3.2.47"
   },
   "peerDependencies": {
+    "@emotion/css": "^11.10.0",
     "vue": "3.2.47"
   },
   "publishConfig": {

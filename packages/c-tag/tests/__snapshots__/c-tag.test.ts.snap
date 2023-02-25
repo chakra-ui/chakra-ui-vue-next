@@ -4,7 +4,7 @@ exports[`CTag renders base tag properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     Sample tag
   </span>
@@ -15,10 +15,10 @@ exports[`CTag renders base tag with c-label properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     <span
-      class="css-1vp3zs1"
+      class="chakra-1vp3zs1"
     >
       Sample tag
     </span>
@@ -30,10 +30,10 @@ exports[`CTag renders tag with left icon properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     <svg
-      class="chakra-icon css-1iuf2uu"
+      class="chakra-icon chakra-1iuf2uu"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -73,7 +73,7 @@ exports[`CTag renders tag with left icon properly 1`] = `
   
     </svg>
     <span
-      class="css-1vp3zs1"
+      class="chakra-1vp3zs1"
     >
       Sample tag
     </span>
@@ -85,21 +85,21 @@ exports[`CTag renders with close button properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     <span
-      class="css-1vp3zs1"
+      class="chakra-1vp3zs1"
     >
       Sample tag
     </span>
     <button
       aria-label="close"
-      class="css-piepz9"
+      class="chakra-piepz9"
       type="button"
     >
       <svg
         attrs="[object Object]"
-        class="chakra-icon css-1md6f3y"
+        class="chakra-icon chakra-1md6f3y"
         emit="(event, ...args) => instance.emit(event, ...args)"
         expose="exposed => {
         {
@@ -141,22 +141,22 @@ exports[`CTag renders with disabled button properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     <span
-      class="css-1vp3zs1"
+      class="chakra-1vp3zs1"
     >
       Sample tag
     </span>
     <button
       aria-label="close"
-      class="css-piepz9"
+      class="chakra-piepz9"
       disabled=""
       type="button"
     >
       <svg
         attrs="[object Object]"
-        class="chakra-icon css-1md6f3y"
+        class="chakra-icon chakra-1md6f3y"
         emit="(event, ...args) => instance.emit(event, ...args)"
         expose="exposed => {
         {
@@ -198,10 +198,10 @@ exports[`CTag renders with left icon and close button 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     <svg
-      class="chakra-icon css-1iuf2uu"
+      class="chakra-icon chakra-1iuf2uu"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -241,18 +241,18 @@ exports[`CTag renders with left icon and close button 1`] = `
   
     </svg>
     <span
-      class="css-1vp3zs1"
+      class="chakra-1vp3zs1"
     >
       Sample tag
     </span>
     <button
       aria-label="close"
-      class="css-piepz9"
+      class="chakra-piepz9"
       type="button"
     >
       <svg
         attrs="[object Object]"
-        class="chakra-icon css-1md6f3y"
+        class="chakra-icon chakra-1md6f3y"
         emit="(event, ...args) => instance.emit(event, ...args)"
         expose="exposed => {
         {
@@ -294,15 +294,15 @@ exports[`CTag renders with right icon properly 1`] = `
 <DocumentFragment>
   <span
     aria-label="tag"
-    class="chakra-tag css-uv65rg"
+    class="chakra-tag chakra-uv65rg"
   >
     <span
-      class="css-1vp3zs1"
+      class="chakra-1vp3zs1"
     >
       Sample tag
     </span>
     <svg
-      class="chakra-icon css-1odll4e"
+      class="chakra-icon chakra-1odll4e"
       focusable="false"
       viewBox="0 0 24 24"
     >

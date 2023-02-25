@@ -49,6 +49,6 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        pnpm install --frozen-lockfile
+        pnpm install --no-frozen-lockfile
         npx cypress verify
         npx cypress info

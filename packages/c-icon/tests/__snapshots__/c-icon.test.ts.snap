@@ -3,7 +3,7 @@
 exports[`should render custom icon properly 1`] = `
 <DocumentFragment>
   <svg
-    class="chakra-icon css-stgirh"
+    class="chakra-icon chakra-stgirh"
     focusable="false"
     viewBox="0 0 496 512"
   >
@@ -19,7 +19,7 @@ exports[`should render custom icon properly 1`] = `
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <svg
-    class="chakra-icon css-13otjrl"
+    class="chakra-icon chakra-13otjrl"
     focusable="false"
     viewBox="0 0 24 24"
   >

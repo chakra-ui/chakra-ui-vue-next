@@ -1,5 +1,9 @@
-import { extractCritical } from "@emotion/server"
 import { NitroApp } from "nitropack"
+
+import createEmotionServer from "@emotion/server/create-instance"
+import { cache } from "@chakra-ui/vue-system"
+
+const { extractCritical } = createEmotionServer(cache)
 
 /**
  * Why are we declaring types for  `defineNitroPlugin`?
