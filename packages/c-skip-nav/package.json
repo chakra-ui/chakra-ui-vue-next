@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-skip-nav",
   "description": "Chakra UI Vue | My component description component",
-  "version": "2.1.0-beta.2",
+  "version": "2.1.0-beta.3",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

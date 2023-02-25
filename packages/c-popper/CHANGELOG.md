@@ -1,5 +1,11 @@
 # @chakra-ui/c-popper
 
+## 2.1.0-beta.3
+
+### Minor Changes
+
+- Fix CWrap component types
+
 ## 2.1.0-beta.2
 
 ### Patch Changes

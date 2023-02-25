@@ -1,5 +1,17 @@
 # @chakra-ui/vue-auto-import
 
+## 3.0.0-beta.3
+
+### Minor Changes
+
+- Fix CWrap component types
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-next@2.1.0-beta.3
+  - @chakra-ui/c-theme-provider@2.1.0-beta.2
+
 ## 3.0.0-beta.2
 
 ### Patch Changes

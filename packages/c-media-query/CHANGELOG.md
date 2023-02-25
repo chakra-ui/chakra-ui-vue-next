@@ -1,5 +1,18 @@
 # @chakra-ui/c-media-query
 
+## 2.1.0-beta.3
+
+### Minor Changes
+
+- Fix CWrap component types
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-composables@2.1.0-beta.3
+  - @chakra-ui/vue-system@2.1.0-beta.3
+  - @chakra-ui/vue-utils@2.1.0-beta.2
+
 ## 2.1.0-beta.2
 
 ### Patch Changes

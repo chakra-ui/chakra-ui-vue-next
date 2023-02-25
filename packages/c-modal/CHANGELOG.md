@@ -1,5 +1,24 @@
 # @chakra-ui/c-modal
 
+## 2.1.0-beta.3
+
+### Minor Changes
+
+- Fix CWrap component types
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-composables@2.1.0-beta.3
+  - @chakra-ui/c-close-button@2.1.0-beta.3
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.3
+  - @chakra-ui/c-focus-lock@2.1.0-beta.3
+  - @chakra-ui/c-motion@2.1.0-beta.3
+  - @chakra-ui/c-portal@2.1.0-beta.3
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.3
+  - @chakra-ui/vue-system@2.1.0-beta.3
+  - @chakra-ui/vue-utils@2.1.0-beta.2
+
 ## 2.1.0-beta.2
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @chakra-ui/nuxt-next
 
+## 2.1.0-beta.4
+
+### Minor Changes
+
+- Fix CWrap component types
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-next@2.1.0-beta.3
+  - @chakra-ui/c-color-mode@2.1.0-beta.2
+
 ## 2.1.0-beta.3
 
 ### Patch Changes

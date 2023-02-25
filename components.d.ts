@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.1.0-beta.1 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.2 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-02-25T16:56:58.469Z
+ * This file was generated on 2023-02-25T17:54:59.918Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -162,6 +162,8 @@ declare module "@vue/runtime-core" {
     CVStack: typeof import("@chakra-ui/vue-next")["CVStack"]
     CVisuallyHidden: typeof import("@chakra-ui/vue-next")["CVisuallyHidden"]
     CVisuallyHiddenInput: typeof import("@chakra-ui/vue-next")["CVisuallyHiddenInput"]
+    CWrap: typeof import("@chakra-ui/vue-next")["CWrap"]
+    CWrapItem: typeof import("@chakra-ui/vue-next")["CWrapItem"]
     "chakra.a": (typeof chakra)["a"]
     "chakra.b": (typeof chakra)["b"]
     "chakra.article": (typeof chakra)["article"]

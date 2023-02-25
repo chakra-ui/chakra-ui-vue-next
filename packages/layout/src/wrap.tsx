@@ -1,9 +1,5 @@
 import { Dict, mapResponsive } from "@chakra-ui/utils"
-import {
-  chakra,
-  HTMLChakraProps,
-  DOMElements,
-} from "@chakra-ui/vue-system"
+import { chakra, HTMLChakraProps, DOMElements } from "@chakra-ui/vue-system"
 import { getValidChildren, SNAO } from "@chakra-ui/vue-utils"
 import { SystemProps, tokenToCSSVar } from "@chakra-ui/styled-system"
 import { computed, defineComponent, h, PropType } from "vue"
@@ -79,8 +75,8 @@ export const CWrap = defineComponent({
 
     const childrenToRender = props.shouldWrapChildren
       ? getValidChildren(slots).map((child, index) => (
-        <CWrapItem key={index}>{child}</CWrapItem>
-      ))
+          <CWrapItem key={index}>{child}</CWrapItem>
+        ))
       : slots
 
     return () => {
@@ -96,8 +92,9 @@ export const CWrap = defineComponent({
     }
   },
 })
+CWrap.name = "CWrap"
 
-export interface WrapItemProps extends HTMLChakraProps<"li"> { }
+export interface WrapItemProps extends HTMLChakraProps<"li"> {}
 
 export const CWrapItem = defineComponent({
   setup(_, { attrs, slots }) {
@@ -114,3 +111,5 @@ export const CWrapItem = defineComponent({
     }
   },
 })
+
+CWrapItem.name = "CWrapItem"

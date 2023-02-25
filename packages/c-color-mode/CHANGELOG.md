@@ -1,5 +1,16 @@
 # @chakra-ui/c-color-mode
 
+## 2.1.0-beta.2
+
+### Minor Changes
+
+- Fix CWrap component types
+
+### Patch Changes
+
+- Updated dependencies
+  - @chakra-ui/vue-utils@2.1.0-beta.2
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

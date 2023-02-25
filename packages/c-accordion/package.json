@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-accordion",
-  "version": "2.1.0-beta.2",
+  "version": "2.1.0-beta.3",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "files": [

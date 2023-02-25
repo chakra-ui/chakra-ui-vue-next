@@ -1,5 +1,11 @@
 # @chakra-ui/c-theme-provider
 
+## 2.1.0-beta.2
+
+### Minor Changes
+
+- Fix CWrap component types
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-spinner",
   "description": "Chakra UI Vue | Visual cue that an action is either processing awaiting a course of change or a result component",
-  "version": "2.1.0-beta.2",
+  "version": "2.1.0-beta.3",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
