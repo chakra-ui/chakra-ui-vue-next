@@ -2,8 +2,8 @@ import { SystemStyleObject } from "@chakra-ui/vue-next"
 
 export const home: Record<string, SystemStyleObject> = {
   heading: {
-    fontSize: "8xl",
-    letterSpacing: "-3px",
+    fontSize: ["3xl", "6xl", "8xl"],
+    letterSpacing: ["normal", "normal", "-3px"],
   },
   subheading: {
     fontSize: "3xl",
