@@ -1,5 +1,13 @@
 # @chakra-ui/vue-system
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- cdcb68fc: Normalize emotion cache options
+- cb1506d0: Resolve @emotion/css package dependency
+- 6946499d: Export Theming Utils form Vue Package
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

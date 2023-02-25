@@ -1,5 +1,17 @@
 # @chakra-ui/c-menu
 
+## 0.0.0-beta.4
+
+### Patch Changes
+
+- Updated dependencies [cdcb68fc]
+- Updated dependencies [cb1506d0]
+- Updated dependencies [6946499d]
+  - @chakra-ui/vue-layout@2.1.0-beta.2
+  - @chakra-ui/vue-system@2.1.0-beta.2
+  - @chakra-ui/c-button@2.1.0-beta.2
+  - @chakra-ui/c-portal@2.1.0-beta.2
+
 ## 0.0.0-beta.3
 
 ### Minor Changes

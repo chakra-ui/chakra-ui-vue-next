@@ -1,5 +1,48 @@
 # @chakra-ui/vue-next
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- cdcb68fc: Normalize emotion cache options
+- cb1506d0: Resolve @emotion/css package dependency
+- 6946499d: Export Theming Utils form Vue Package
+- Updated dependencies [cdcb68fc]
+- Updated dependencies [cb1506d0]
+- Updated dependencies [6946499d]
+  - @chakra-ui/c-visually-hidden@2.1.0-beta.2
+  - @chakra-ui/c-close-button@2.1.0-beta.2
+  - @chakra-ui/c-accordion@2.1.0-beta.2
+  - @chakra-ui/c-pin-input@2.1.0-beta.2
+  - @chakra-ui/c-checkbox@2.1.0-beta.2
+  - @chakra-ui/c-skip-nav@2.1.0-beta.2
+  - @chakra-ui/c-avatar@2.1.0-beta.2
+  - @chakra-ui/c-popper@2.1.0-beta.2
+  - @chakra-ui/c-input@2.1.0-beta.2
+  - @chakra-ui/c-code@2.1.0-beta.2
+  - @chakra-ui/c-icon@2.1.0-beta.2
+  - @chakra-ui/vue-layout@2.1.0-beta.2
+  - @chakra-ui/vue-styled@2.1.0-beta.2
+  - @chakra-ui/vue-system@2.1.0-beta.2
+  - @chakra-ui/c-tag@2.1.0-beta.2
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.2
+  - @chakra-ui/c-spinner@2.1.0-beta.2
+  - @chakra-ui/c-modal@2.1.0-beta.2
+  - @chakra-ui/c-toast@2.1.0-beta.2
+  - @chakra-ui/c-alert@2.1.0-beta.2
+  - @chakra-ui/c-button@2.1.0-beta.2
+  - @chakra-ui/c-form-control@2.1.0-beta.2
+  - @chakra-ui/c-menu@0.0.0-beta.4
+  - @chakra-ui/c-breadcrumb@2.1.0-beta.2
+  - @chakra-ui/c-focus-lock@2.1.0-beta.2
+  - @chakra-ui/c-image@2.1.0-beta.2
+  - @chakra-ui/c-media-query@2.1.0-beta.2
+  - @chakra-ui/c-motion@2.1.0-beta.2
+  - @chakra-ui/c-reset@2.1.0-beta.2
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.2
+  - @chakra-ui/vue-composables@2.1.0-beta.2
+  - @chakra-ui/c-portal@2.1.0-beta.2
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

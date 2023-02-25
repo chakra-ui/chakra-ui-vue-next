@@ -43,7 +43,9 @@
     "@chakra-ui/vue-auto-import": "0.0.0-dev-20230215144750"
   },
   "changesets": [
+    "beige-ants-beg",
     "beige-bugs-try",
+    "blue-penguins-swim",
     "chilly-forks-stare",
     "gorgeous-swans-kneel",
     "honest-worms-hunt",
@@ -52,6 +54,7 @@
     "light-deers-attend",
     "loud-dolphins-own",
     "many-steaks-wonder",
+    "mighty-files-report",
     "nasty-plums-greet",
     "ninety-poems-cheat",
     "quick-spiders-tickle",

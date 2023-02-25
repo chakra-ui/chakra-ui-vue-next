@@ -1,5 +1,17 @@
 # @chakra-ui/c-visually-hidden
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- cdcb68fc: Normalize emotion cache options
+- cb1506d0: Resolve @emotion/css package dependency
+- 6946499d: Export Theming Utils form Vue Package
+- Updated dependencies [cdcb68fc]
+- Updated dependencies [cb1506d0]
+- Updated dependencies [6946499d]
+  - @chakra-ui/vue-system@2.1.0-beta.2
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

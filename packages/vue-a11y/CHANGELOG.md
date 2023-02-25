@@ -1,5 +1,15 @@
 # @chakra-ui/vue-accessibilty
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- cb1506d0: Resolve @emotion/css package dependency
+- Updated dependencies [cdcb68fc]
+- Updated dependencies [cb1506d0]
+- Updated dependencies [6946499d]
+  - @chakra-ui/vue-system@2.1.0-beta.2
+
 ## 2.1.0-beta.1
 
 ### Minor Changes
