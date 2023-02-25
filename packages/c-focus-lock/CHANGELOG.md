@@ -1,5 +1,15 @@
 # @chakra-ui/c-focus-lock
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- Updated dependencies [cdcb68fc]
+- Updated dependencies [cb1506d0]
+- Updated dependencies [6946499d]
+  - @chakra-ui/vue-system@2.1.0-beta.2
+  - @chakra-ui/vue-composables@2.1.0-beta.2
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @chakra-ui/c-popper
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- cdcb68fc: Normalize emotion cache options
+- 6946499d: Export Theming Utils form Vue Package
+
 ## 2.1.0-beta.1
 
 ### Minor Changes

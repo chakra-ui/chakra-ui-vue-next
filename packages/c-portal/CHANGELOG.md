@@ -1,5 +1,11 @@
 # @chakra-ui/c-portal
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- @chakra-ui/vue-composables@2.1.0-beta.2
+
 ## 2.1.0-beta.1
 
 ### Minor Changes
