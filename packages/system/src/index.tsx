@@ -50,3 +50,37 @@ export {
 
 export type { BaseStyleResolverProps, StyleResolverProps } from "./chakra"
 export type { ChakraProps } from "./system.types"
+
+export {
+  defineStyleConfig,
+  defineStyle,
+  createMultiStyleConfigHelpers,
+  toCSSVar,
+  getCSSVar,
+  resolveStyleConfig,
+  omitThemingProps,
+  isStyleProp,
+} from "@chakra-ui/styled-system"
+
+export type {
+  SystemCSSProperties,
+  WithCSSVar,
+  ThemingProps,
+  ThemeTypings,
+  ResponsiveValue,
+  CSSWithMultiValues,
+  StyleObjectOrFn,
+  StyleConfig,
+  ResponsiveArray,
+  ResponsiveObject,
+  RecursivePseudo,
+  RecursiveCSSObject,
+  StyleFunctionProps,
+  MultiStyleConfig,
+  PartsStyleObject,
+  PartsStyleFunction,
+  PartsStyleInterpolation,
+  ThemeThunk,
+  SystemStyleObject,
+  SystemStyleFunction,
+} from "@chakra-ui/styled-system"

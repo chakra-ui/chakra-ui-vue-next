@@ -10,7 +10,6 @@ import {
 import { chakra, ChakraProps } from "@chakra-ui/vue-system"
 import type {} from "@vue/runtime-core"
 import { SNAO, camelCase, mergeWith } from "@chakra-ui/vue-utils"
-import { omit } from "@chakra-ui/utils"
 
 const fallbackIcon = {
   path: `
@@ -114,12 +113,12 @@ export interface CreateIconOptions {
   viewBox?: string
 }
 
-const createIconProps = omit(_iconProps, ["name"])
+const { name, ...__icon_props__ } = _iconProps
 export function createIcon(options: CreateIconOptions) {
   const componentName = camelCase(options.name)
   const iconComponent = defineComponent({
     name: componentName,
-    props: createIconProps,
+    props: __icon_props__,
     setup(props, { slots, attrs }) {
       const hasDefaultSlot = computed(() => slots?.default?.()?.length)
       const vnodeProps = computed(() => ({
