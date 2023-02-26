@@ -4,10 +4,10 @@
     "module": "esnext",
     "typeRoots": ["./node_modules/@types", "./@types"],
     "types": [
+      "jest",
       "cypress",
       "node",
       "vue",
-      "jest",
     ],
     // "baseUrl": ".",
     "lib": ["dom", "esnext"],

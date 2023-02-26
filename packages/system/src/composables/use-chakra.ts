@@ -1,9 +1,12 @@
 import { inject } from "vue"
 import { useColorMode } from "@chakra-ui/c-color-mode"
-import { ChakraTheme } from "@chakra-ui/theme"
+import type { ThemeOverride } from "@chakra-ui/theme-utils"
+import type { WithCSSVar } from "@chakra-ui/styled-system"
 
 /** Provides theme object in component context */
-export const useTheme = <T extends ChakraTheme = ChakraTheme>(): T => {
+export const useTheme = <
+  T extends WithCSSVar<ThemeOverride> = WithCSSVar<ThemeOverride>
+>(): T => {
   const theme = inject("$chakraTheme") as T
   return theme
 }
