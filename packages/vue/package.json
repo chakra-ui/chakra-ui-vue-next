@@ -40,6 +40,7 @@
     "@chakra-ui/c-icon": "workspace:*",
     "@chakra-ui/c-image": "workspace:*",
     "@chakra-ui/c-input": "workspace:*",
+    "@chakra-ui/c-live-region": "workspace:*",
     "@chakra-ui/c-media-query": "workspace:*",
     "@chakra-ui/c-menu": "0.0.0-beta.5",
     "@chakra-ui/c-modal": "workspace:*",

@@ -260,6 +260,8 @@ export {
   wrapProps,
 } from "@chakra-ui/vue-layout"
 
+export { LiveRegion, type LiveRegionOptions } from "@chakra-ui/c-live-region"
+
 // M
 export {
   CHide,
