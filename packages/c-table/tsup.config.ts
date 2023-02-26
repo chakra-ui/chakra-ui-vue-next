@@ -1,7 +1,3 @@
----
-to: packages/<%=h.changeCase.paramCase(name)%>/tsup.config.ts
----
-
 import { defineConfig } from "tsup"
 import EsbuildPluginJSX from "unplugin-vue-jsx/esbuild"
 
