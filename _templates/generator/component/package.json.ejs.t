@@ -5,7 +5,7 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.sentence(description) + ' component'%>",
-  "version": "0.0.0-next.0",
+  "version": "0.0.0-beta.0",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",

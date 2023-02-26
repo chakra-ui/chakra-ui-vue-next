@@ -1,6 +1,6 @@
 {
-  "name": "@chakra-ui/c-table",
-  "description": "Chakra UI Vue | Table component is used to organize and display data efficiently it renders a table element by default component",
+  "name": "@chakra-ui/c-live-region",
+  "description": "Chakra UI Vue | Creates a hidden live region with dynamic content based on triggered events to be read out by the screen reader on change of the content component",
   "version": "2.0.0-beta.0",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
@@ -34,8 +34,7 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*"
+    "@chakra-ui/vue-system": "workspace:*"
   },
   "devDependencies": {
     "vue": "^3.2.37"

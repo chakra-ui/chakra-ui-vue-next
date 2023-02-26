@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-02-26T18:55:26.214Z
+ * This file was generated on 2023-02-26T20:07:20.175Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -155,9 +155,19 @@ declare module "@vue/runtime-core" {
     CStack: typeof import("@chakra-ui/vue-next")["CStack"]
     CStackDivider: typeof import("@chakra-ui/vue-next")["CStackDivider"]
     CStackItem: typeof import("@chakra-ui/vue-next")["CStackItem"]
+    CTable: typeof import("@chakra-ui/vue-next")["CTable"]
+    CTableCaption: typeof import("@chakra-ui/vue-next")["CTableCaption"]
+    CTableContainer: typeof import("@chakra-ui/vue-next")["CTableContainer"]
+    CTbody: typeof import("@chakra-ui/vue-next")["CTbody"]
+    CTd: typeof import("@chakra-ui/vue-next")["CTd"]
     CText: typeof import("@chakra-ui/vue-next")["CText"]
+    CTextarea: typeof import("@chakra-ui/vue-next")["CTextarea"]
+    CTfoot: typeof import("@chakra-ui/vue-next")["CTfoot"]
+    CTh: typeof import("@chakra-ui/vue-next")["CTh"]
+    CThead: typeof import("@chakra-ui/vue-next")["CThead"]
     CThemeProvider: typeof import("@chakra-ui/vue-next")["CThemeProvider"]
     CToastContainer: typeof import("@chakra-ui/vue-next")["CToastContainer"]
+    CTr: typeof import("@chakra-ui/vue-next")["CTr"]
     CUnorderedList: typeof import("@chakra-ui/vue-next")["CUnorderedList"]
     CVStack: typeof import("@chakra-ui/vue-next")["CVStack"]
     CVisuallyHidden: typeof import("@chakra-ui/vue-next")["CVisuallyHidden"]
