@@ -266,10 +266,14 @@ export {
   CShow,
   CVisibility,
   useQuery,
+  useBreakpointValue,
+  useBreakpoint,
+  getClosestValue,
   type CHideProps,
   type CShowProps,
   type CVisbilityProps,
   type UseQueryProps,
+  type UseBreakpointOptions,
 } from "@chakra-ui/c-media-query"
 export {
   CMenu,

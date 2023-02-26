@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts" setup>
+import { chakra } from "../../vue"
 import { useToggle } from "@vueuse/core"
 import { CCollapse } from "../src"
 
