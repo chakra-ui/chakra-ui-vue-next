@@ -376,6 +376,7 @@ export {
   CThemeProvider,
   type CThemeProviderProps,
 } from "@chakra-ui/c-theme-provider"
+
 export {
   CTag,
   CTagCloseButton,
@@ -387,6 +388,27 @@ export {
   type CTagLabelProps,
   type CTagProps,
 } from "@chakra-ui/c-tag"
+
+export { CTable, TableStylesProvider, useTableStyles } from "@chakra-ui/c-table"
+export { CTableContainer } from "@chakra-ui/c-table"
+export { CTableCaption } from "@chakra-ui/c-table"
+export { CTbody } from "@chakra-ui/c-table"
+export { CTd } from "@chakra-ui/c-table"
+export { CTfoot } from "@chakra-ui/c-table"
+export { CTh } from "@chakra-ui/c-table"
+export { CThead } from "@chakra-ui/c-table"
+export { CTr } from "@chakra-ui/c-table"
+
+export type { CTableProps } from "@chakra-ui/c-table"
+export type { CTableContainerProps } from "@chakra-ui/c-table"
+export type { CTableCaptionProps } from "@chakra-ui/c-table"
+export type { CTableBodyProps } from "@chakra-ui/c-table"
+export type { CTableCellProps } from "@chakra-ui/c-table"
+export type { CTableFooterProps } from "@chakra-ui/c-table"
+export type { CTableColumnHeaderProps } from "@chakra-ui/c-table"
+export type { CTHeadProps } from "@chakra-ui/c-table"
+export type { CTableRowProps } from "@chakra-ui/c-table"
+
 export {
   CPresenceGroup,
   CToast,
