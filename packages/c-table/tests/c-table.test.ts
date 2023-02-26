@@ -8,6 +8,7 @@ import {
   CTd,
   CTfoot,
 } from "../src"
+import { render, testA11y } from "../../test-utils"
 
 describe("Table", () => {
   it("should pass a11y test", async () => {
