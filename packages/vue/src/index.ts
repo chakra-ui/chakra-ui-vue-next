@@ -411,6 +411,12 @@ export type { CTableColumnHeaderProps } from "@chakra-ui/c-table"
 export type { CTHeadProps } from "@chakra-ui/c-table"
 export type { CTableRowProps } from "@chakra-ui/c-table"
 
+export { CTextarea } from "@chakra-ui/c-textarea"
+export type {
+  CTextareaNativeProps,
+  CTextareaProps,
+} from "@chakra-ui/c-textarea"
+
 export {
   CPresenceGroup,
   CToast,

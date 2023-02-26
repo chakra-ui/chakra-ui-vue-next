@@ -861,6 +861,19 @@ importers:
     devDependencies:
       vue: 3.2.47
 
+  packages/c-textarea:
+    specifiers:
+      '@chakra-ui/c-form-control': workspace:*
+      '@chakra-ui/vue-system': workspace:*
+      '@chakra-ui/vue-utils': workspace:*
+      vue: ^3.2.37
+    dependencies:
+      '@chakra-ui/c-form-control': link:../c-form-control
+      '@chakra-ui/vue-system': link:../system
+      '@chakra-ui/vue-utils': link:../utils
+    devDependencies:
+      vue: 3.2.47
+
   packages/c-theme-provider:
     specifiers:
       '@chakra-ui/theme': ^2.2.5
@@ -1062,6 +1075,7 @@ importers:
       '@chakra-ui/c-spinner': workspace:*
       '@chakra-ui/c-table': workspace:*
       '@chakra-ui/c-tag': workspace:*
+      '@chakra-ui/c-textarea': workspace:*
       '@chakra-ui/c-theme-provider': workspace:*
       '@chakra-ui/c-toast': workspace:*
       '@chakra-ui/c-visually-hidden': workspace:*
@@ -1112,6 +1126,7 @@ importers:
       '@chakra-ui/c-spinner': link:../c-spinner
       '@chakra-ui/c-table': link:../c-table
       '@chakra-ui/c-tag': link:../c-tag
+      '@chakra-ui/c-textarea': link:../c-textarea
       '@chakra-ui/c-theme-provider': link:../c-theme-provider
       '@chakra-ui/c-toast': link:../c-toast
       '@chakra-ui/c-visually-hidden': link:../c-visually-hidden

@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-02-26T19:46:48.080Z
+ * This file was generated on 2023-02-26T20:03:44.297Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -161,6 +161,7 @@ declare module "@vue/runtime-core" {
     CTbody: typeof import("@chakra-ui/vue-next")["CTbody"]
     CTd: typeof import("@chakra-ui/vue-next")["CTd"]
     CText: typeof import("@chakra-ui/vue-next")["CText"]
+    CTextarea: typeof import("@chakra-ui/vue-next")["CTextarea"]
     CTfoot: typeof import("@chakra-ui/vue-next")["CTfoot"]
     CTh: typeof import("@chakra-ui/vue-next")["CTh"]
     CThead: typeof import("@chakra-ui/vue-next")["CThead"]

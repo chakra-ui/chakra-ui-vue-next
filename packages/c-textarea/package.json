@@ -1,7 +1,7 @@
 {
-  "name": "@chakra-ui/c-table",
-  "description": "Chakra UI Vue | Table component is used to organize and display data efficiently it renders a table element by default component",
-  "version": "2.0.0-beta.0",
+  "name": "@chakra-ui/c-textarea",
+  "description": "Chakra UI Vue | The textarea component allows you to easily create multi line text inputs component",
+  "version": "0.0.0-beta.0",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
+    "@chakra-ui/c-form-control": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*"
   },
