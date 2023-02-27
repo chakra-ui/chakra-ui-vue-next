@@ -1,5 +1,13 @@
 # @chakra-ui/nuxt-next
 
+## 2.1.0-beta.5
+
+### Patch Changes
+
+- Updated dependencies [61e8b8d1]
+  - @chakra-ui/vue-next@2.1.0-beta.4
+  - @chakra-ui/c-color-mode@2.1.0-beta.3
+
 ## 2.1.0-beta.4
 
 ### Minor Changes

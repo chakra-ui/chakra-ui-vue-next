@@ -1,5 +1,52 @@
 # @chakra-ui/vue-next
 
+## 2.1.0-beta.4
+
+### Minor Changes
+
+- 61e8b8d1: Create Live Region, Textarea and useBreakpoint and
+  useBreakpointValue hooks and components
+
+### Patch Changes
+
+- Updated dependencies [61e8b8d1]
+  - @chakra-ui/vue-composables@2.1.0-beta.4
+  - @chakra-ui/c-close-button@2.1.0-beta.4
+  - @chakra-ui/c-form-control@2.1.0-beta.4
+  - @chakra-ui/c-live-region@2.0.0-beta.1
+  - @chakra-ui/c-media-query@2.1.0-beta.4
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.4
+  - @chakra-ui/c-breadcrumb@2.1.0-beta.4
+  - @chakra-ui/c-accordion@2.1.0-beta.4
+  - @chakra-ui/c-pin-input@2.1.0-beta.4
+  - @chakra-ui/c-checkbox@2.1.0-beta.4
+  - @chakra-ui/c-skip-nav@2.1.0-beta.4
+  - @chakra-ui/c-textarea@0.0.0-beta.1
+  - @chakra-ui/c-spinner@2.1.0-beta.4
+  - @chakra-ui/c-avatar@2.1.0-beta.4
+  - @chakra-ui/c-button@2.1.0-beta.4
+  - @chakra-ui/c-motion@2.1.0-beta.4
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.4
+  - @chakra-ui/c-alert@2.1.0-beta.4
+  - @chakra-ui/c-image@2.1.0-beta.4
+  - @chakra-ui/c-input@2.1.0-beta.4
+  - @chakra-ui/c-modal@2.1.0-beta.4
+  - @chakra-ui/c-table@2.0.0-beta.1
+  - @chakra-ui/c-code@2.1.0-beta.4
+  - @chakra-ui/c-menu@0.0.0-beta.6
+  - @chakra-ui/vue-layout@2.1.0-beta.4
+  - @chakra-ui/vue-system@2.1.0-beta.4
+  - @chakra-ui/c-tag@2.1.0-beta.4
+  - @chakra-ui/vue-utils@2.1.0-beta.3
+  - @chakra-ui/c-focus-lock@2.1.0-beta.4
+  - @chakra-ui/c-portal@2.1.0-beta.4
+  - @chakra-ui/c-toast@2.1.0-beta.4
+  - @chakra-ui/c-icon@2.1.0-beta.4
+  - @chakra-ui/c-reset@2.1.0-beta.4
+  - @chakra-ui/c-visually-hidden@2.1.0-beta.4
+  - @chakra-ui/c-color-mode@2.1.0-beta.3
+  - @chakra-ui/vue-styled@2.1.0-beta.4
+
 ## 2.1.0-beta.3
 
 ### Minor Changes

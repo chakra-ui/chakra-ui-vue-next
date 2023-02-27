@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-utils",
-  "version": "2.1.0-beta.2",
+  "version": "2.1.0-beta.3",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "description": "Chakra UI Vue | Utils module",
