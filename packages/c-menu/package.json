@@ -36,7 +36,7 @@
     "@chakra-ui/vue-layout": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@chakra-ui/styled-system": "2.5.1",
+    "@chakra-ui/styled-system": "2.6.1",
     "@zag-js/menu": "0.3.8",
     "@zag-js/vue": "^0.2.9"
   },

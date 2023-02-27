@@ -5,19 +5,20 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
 {
   "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
   "description": "<%= 'Chakra UI Vue | ' + h.changeCase.sentence(description) + ' component'%>",
-  "version": "0.0.0-next.0",
-  "main": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
-  "module": "<%= 'dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>",
+  "version": "0.0.0-beta.0",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "<%= './dist/chakra-ui-' + h.changeCase.paramCase(name) + '.cjs.js' %>",
-      "default": "<%= './dist/chakra-ui-' + h.changeCase.paramCase(name) + '.esm.js' %>"
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
     }
   },
   "repository": {

@@ -22,7 +22,7 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "2.5.1",
+    "@chakra-ui/styled-system": "2.6.1",
     "@chakra-ui/utils": "2.0.15",
     "@types/lodash.camelcase": "^4.3.6",
     "@types/lodash.memoize": "^4.1.6",

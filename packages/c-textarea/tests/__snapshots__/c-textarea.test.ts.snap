@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <textarea
+    class="chakra-textarea chakra-no2ijq"
+  />
+</DocumentFragment>
+`;

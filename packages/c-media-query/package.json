@@ -32,7 +32,8 @@
   "dependencies": {
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
-    "@chakra-ui/vue-utils": "workspace:*"
+    "@chakra-ui/vue-utils": "workspace:*",
+    "@chakra-ui/utils": "2.0.14"
   },
   "devDependencies": {
     "vue": "3.2.47"
