@@ -53,7 +53,7 @@ export function extendChakra(options = defaultPluginOptions) {
   return options
 }
 
-export function createChakra(_options: ChakraPluginOptions) {
+export function createChakra(_options: ChakraPluginOptions = {}) {
   const ChakraUIVuePlugin: Plugin = {
     install(app) {
       const options = mergeWith(
