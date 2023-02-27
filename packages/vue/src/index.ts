@@ -505,6 +505,7 @@ export {
   resolveRef,
   unrefElement,
   useRef,
+  withSingleton,
   type AnyFn,
   type Arrayable,
   type BaseThemedComponentProps,

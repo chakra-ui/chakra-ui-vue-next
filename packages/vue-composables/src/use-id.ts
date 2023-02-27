@@ -33,9 +33,10 @@
  *
  */
 
+import { canUseDOM } from "@chakra-ui/utils"
 import { computed, onBeforeMount, onMounted, ref } from "vue"
 
-let serverHandoffComplete = false
+let serverHandoffComplete = canUseDOM()
 let _id = 0
 const genId = () => ++_id
 

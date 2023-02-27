@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.1.0-beta.3 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.4 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-02-26T20:07:20.175Z
+ * This file was generated on 2023-02-27T18:36:28.117Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"

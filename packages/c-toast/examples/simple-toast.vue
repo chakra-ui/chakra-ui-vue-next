@@ -15,7 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { createStandAloneToast, useToast } from "../src"
+import { inject, getCurrentInstance, watchEffect } from "vue"
+import {
+  createStandAloneToast,
+  useToast,
+  ToastContextSymbol,
+} from "@chakra-ui/vue-next"
 import sentence from "random-sentence"
 
 const toast = useToast()
@@ -27,7 +32,6 @@ const bread = createStandAloneToast()
  */
 
 function notify() {
-  console.log("{toast}", toast)
   const t = toast.value.create({
     title: sentence({ min: 2, max: 3 }),
     description: sentence({ words: 8 }),
@@ -37,7 +41,7 @@ function notify() {
     // removeDelay: 100,
   })
 
-  console.log("const t = ", t)
+  console.log("toast instance::", t)
 }
 
 // function notifyStandAlone() {

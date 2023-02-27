@@ -1,12 +1,13 @@
 {
-  "name": "@chakra-ui/c-menu",
-  "description": "Chakra UI Vue | Description component",
-  "version": "0.0.0-beta.6",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "author": "Shyrro <zsahmane@gmail.com>",
+  "name": "@chakra-ui/c-popover",
+  "description": "Chakra UI Vue | Popover is a non modal dialog that floats around a trigger component",
+  "version": "0.0.0-beta.0",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -16,7 +17,10 @@
       "default": "./dist/index.mjs"
     }
   },
-  "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-menu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
+  },
   "bugs": {
     "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
   },
@@ -25,26 +29,23 @@
     "clean": "rimraf dist .turbo",
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
+    "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch",
-    "build:types": "tsup src --dts-only"
+    "dev": "tsup --watch"
   },
   "dependencies": {
-    "@chakra-ui/c-button": "workspace:*",
-    "@chakra-ui/c-portal": "workspace:*",
-    "@chakra-ui/styled-system": "2.6.1",
-    "@chakra-ui/utils": "2.0.15",
-    "@chakra-ui/vue-layout": "workspace:*",
+    "@chakra-ui/c-motion": "workspace:*",
+    "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/menu": "0.3.12",
-    "@zag-js/vue": "0.2.10"
+    "@zag-js/popover": "^0.2.13",
+    "@zag-js/vue": "^0.2.10"
   },
   "devDependencies": {
-    "vue": "3.2.47"
+    "vue": "^3.2.37"
   },
   "peerDependencies": {
-    "vue": "3.2.47"
+    "vue": "^3.1.4"
   },
   "publishConfig": {
     "access": "public"
