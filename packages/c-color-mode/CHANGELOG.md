@@ -1,5 +1,12 @@
 # @chakra-ui/c-color-mode
 
+## 2.1.0-beta.3
+
+### Patch Changes
+
+- Updated dependencies [61e8b8d1]
+  - @chakra-ui/vue-utils@2.1.0-beta.3
+
 ## 2.1.0-beta.2
 
 ### Minor Changes

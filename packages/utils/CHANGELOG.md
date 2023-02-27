@@ -1,5 +1,12 @@
 # @chakra-ui/vue-utils
 
+## 2.1.0-beta.3
+
+### Minor Changes
+
+- 61e8b8d1: Create Live Region, Textarea and useBreakpoint and
+  useBreakpointValue hooks and components
+
 ## 2.1.0-beta.2
 
 ### Minor Changes

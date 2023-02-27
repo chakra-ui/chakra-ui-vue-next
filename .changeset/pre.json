@@ -40,7 +40,10 @@
     "@chakra-ui/vue-utils": "0.0.0-dev-20230215144750",
     "@chakra-ui/vue-accessibilty": "0.0.0-dev-20230215144750",
     "@chakra-ui/vue-composables": "0.0.0-dev-20230215144750",
-    "@chakra-ui/vue-auto-import": "0.0.0-dev-20230215144750"
+    "@chakra-ui/vue-auto-import": "0.0.0-dev-20230215144750",
+    "@chakra-ui/c-live-region": "2.0.0-beta.0",
+    "@chakra-ui/c-table": "2.0.0-beta.0",
+    "@chakra-ui/c-textarea": "0.0.0-beta.0"
   },
   "changesets": [
     "beige-ants-beg",
@@ -61,6 +64,7 @@
     "quick-spiders-tickle",
     "short-emus-approve",
     "soft-cycles-sit",
+    "spicy-doors-heal",
     "stale-kiwis-shave",
     "unlucky-beds-walk",
     "unlucky-boats-perform"
