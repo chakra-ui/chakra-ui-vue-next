@@ -10,14 +10,20 @@
 
 import { computed, defineComponent, PropType } from "vue"
 import { PopoverProvider } from "./popover.context"
-import { usePopover, UsePopoverProps } from "./use-popover"
-import type * as Z from "@zag-js/types"
-import type * as PO from "@zag-js/popover"
-import type * as PP from "@zag-js/popper"
+import {
+  useDeferredDisclosure,
+  usePopover,
+  UsePopoverProps,
+} from "./use-popover"
+import type * as ZP from "@zag-js/popper"
+import { useId } from "@chakra-ui/vue-composables"
+import { useMotions } from "@vueuse/motion"
 
 type PopoverPropsContext = UsePopoverProps["context"]
 
-export type CPopoverProps = PopoverPropsContext
+export interface CPopoverProps extends PopoverPropsContext {
+  trigger: "click" | "hover"
+}
 
 const VuePopoverProps = {
   autoFocus: {
@@ -56,6 +62,14 @@ const VuePopoverProps = {
   positioning: {
     type: Object as PropType<CPopoverProps["positioning"]>,
   },
+  trigger: {
+    type: String as PropType<CPopoverProps["trigger"]>,
+    default: "click",
+  },
+}
+
+function wait(delay: number) {
+  return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
 export const CPopover = defineComponent({
@@ -74,10 +88,42 @@ export const CPopover = defineComponent({
       emit,
     }))
 
+    const transitionId = useId(
+      popoverProps.value.context.id,
+      "transition:popover:"
+    )
+
+    /** Handles exit transition */
+    const leaveTransition = (done: VoidFunction) => {
+      const motions = useMotions()
+      const instance = motions[transitionId.value]
+      instance?.leave(() => {
+        done()
+      })
+    }
+
+    const enterTransition = async (done: VoidFunction) => {
+      const motions = useMotions()
+      const instance = motions[transitionId.value]
+      await instance.apply("enter")
+      done()
+    }
+
     const api = usePopover(popoverProps.value)
+    const nativeIsOpen = computed(() => api.value.isOpen)
 
-    PopoverProvider(api)
+    const { isOpenDeferred } = useDeferredDisclosure(nativeIsOpen)
+    const popoverApi = computed(() => ({
+      ...api.value,
+      deferredIsOpen: isOpenDeferred.value,
+      leaveTransition,
+      enterTransition,
+      wait,
+      transitionId: transitionId.value,
+      trigger: props.trigger,
+    }))
 
+    PopoverProvider(popoverApi)
     return () => slots.default?.()
   },
 })

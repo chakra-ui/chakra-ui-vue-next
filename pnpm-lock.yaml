@@ -82,7 +82,7 @@ importers:
       '@vueuse/core': 4.9.1
       '@vueuse/head': ^0.7.4
       '@vueuse/integrations': ^4.8.1
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       '@vueuse/shared': ^9.11.1
       aria-hidden: ^1.1.2
       axe-core: ^4.1.2
@@ -481,7 +481,7 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       '@zag-js/checkbox': 0.2.12
       '@zag-js/vue': 0.2.10
       vue: 3.2.47
@@ -687,7 +687,7 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       aria-hidden: ^1.1.2
       vue: 3.2.47
     dependencies:
@@ -714,7 +714,7 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       '@vueuse/shared': ^9.11.1
       vue: 3.2.47
     dependencies:
