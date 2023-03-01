@@ -16,6 +16,7 @@ import {
   UsePopoverProps,
 } from "./use-popover"
 import type * as ZP from "@zag-js/popper"
+import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
 import { useMotions } from "@vueuse/motion"
 
