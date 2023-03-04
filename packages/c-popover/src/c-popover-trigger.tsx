@@ -35,7 +35,7 @@ export const CPopoverTrigger = defineComponent({
               })
             },
             async onPointerleave(e: MouseEvent) {
-              requestAnimationFrame(() => {
+              requestAnimationFrame(async () => {
                 api.value.leaveTransition(() => api.value.close())
               })
             },

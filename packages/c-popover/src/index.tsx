@@ -16,6 +16,10 @@ export { CPopoverHeader, type CPopoverHeaderProps } from "./c-popover-header"
 export { CPopoverFooter, type CPopoverFooterProps } from "./c-popover-footer"
 export { CPopoverBody, type CPopoverBodyProps } from "./c-popover-body"
 export { CPopoverAnchor, type CPopoverAnchorProps } from "./c-popover-anchor"
+export {
+  CPopoverCloseButton,
+  type CPopoverCloseButtonProps,
+} from "./c-popover-close-button"
 export { usePopover } from "./use-popover"
 
 export type { CPopoverProps } from "./c-popover"

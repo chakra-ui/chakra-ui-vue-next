@@ -23,30 +23,6 @@ function wait(delay: number) {
   return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
-export function useDeferredDisclosure(
-  isOpen: Ref<boolean>,
-  delay: number = 200
-) {
-  const isOpenDeferred = ref(isOpen.value)
-
-  watch(
-    () => isOpen.value,
-    async (value) => {
-      if (value) {
-        isOpenDeferred.value = true
-      } else {
-        // await wait(delay)
-        isOpenDeferred.value = false
-      }
-    }
-  )
-
-  return {
-    isOpen,
-    isOpenDeferred,
-  }
-}
-
 export function usePopover(props: UsePopoverProps) {
   const { context, emit } = props
   const popoverContext = reactive(context)
@@ -75,7 +51,13 @@ export function usePopover(props: UsePopoverProps) {
     })
   )
 
-  const api = computed(() => connect(state.value, send, normalizeProps))
+  const api = computed(() => {
+    const _api = connect(state.value, send, normalizeProps)
+    return {
+      ..._api,
+      close: () => _api.close(),
+    }
+  })
 
   watch(
     () => popoverContext.isOpen,
@@ -86,13 +68,13 @@ export function usePopover(props: UsePopoverProps) {
         api.value.open()
         return
       } else if (!isOpen && !state.value.matches("closed")) {
-        await wait(500)
+        await wait(300)
         api.value.close()
         return
       }
     },
     {
-      flush: "pre",
+      flush: "post",
     }
   )
 

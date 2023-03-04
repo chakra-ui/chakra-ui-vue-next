@@ -10,11 +10,8 @@
 
 import { computed, defineComponent, mergeProps, PropType } from "vue"
 import { PopoverProvider, PopoverStylesProvider } from "./popover.context"
-import {
-  useDeferredDisclosure,
-  usePopover,
-  UsePopoverProps,
-} from "./use-popover"
+import { usePopover, UsePopoverProps } from "./use-popover"
+import { wait } from "./popover.utils"
 import type * as ZP from "@zag-js/popper"
 import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
@@ -70,10 +67,6 @@ const VuePopoverProps = {
   },
 }
 
-function wait(delay: number) {
-  return new Promise((resolve) => setTimeout(resolve, delay))
-}
-
 export const CPopover = defineComponent({
   name: "CPopover",
   props: VuePopoverProps,
@@ -110,26 +103,24 @@ export const CPopover = defineComponent({
 
     const enterTransition = (done: VoidFunction) => {
       const motions = useMotions()
-      console.log("motions", motions)
       const instance = motions[transitionId.value]
       requestAnimationFrame(async () => {
+        instance.set("initial")
         await instance.apply("enter")
         done()
       })
     }
 
     const api = usePopover(popoverProps.value)
-    const nativeIsOpen = computed(() => api.value.isOpen)
 
-    const { isOpenDeferred } = useDeferredDisclosure(nativeIsOpen)
     const popoverApi = computed(() => ({
       ...api.value,
-      deferredIsOpen: isOpenDeferred.value,
       leaveTransition,
       enterTransition,
       wait,
       transitionId: transitionId.value,
       trigger: props.trigger,
+      close: () => leaveTransition(() => api.value.close()),
     }))
 
     PopoverProvider(popoverApi)

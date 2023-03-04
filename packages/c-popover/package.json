@@ -34,7 +34,9 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
+    "@chakra-ui/c-close-button": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
+    "@chakra-ui/styled-system": "2.6.1",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",

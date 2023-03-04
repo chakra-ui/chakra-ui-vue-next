@@ -6,30 +6,15 @@ import {
   chakra,
 } from "@chakra-ui/vue-system"
 import { CPopoverPositioner } from "./c-popover-positioner"
-import { TransitionDefaults } from "@chakra-ui/c-motion"
 import { MotionDirective, useMotions } from "@vueuse/motion"
 import { withDirectives } from "vue"
 import { match } from "@chakra-ui/vue-utils"
+import { PopoverVariants } from "./popover.transitions"
 
-const variants = {
-  backdrop: {
-    initial: {
-      opacity: 0,
-      scale: 1.1,
-    },
-    animate: { opacity: 0.5, scale: 1 },
-    exit: { opacity: 0, scale: 1.1 },
-  },
-  content: {
-    initial: {
-      opacity: 0,
-      scale: 1.005,
-      y: 10,
-    },
-    animate: { opacity: 1, scale: 1, y: 0 },
-    exit: { opacity: 0, scale: 1.005, y: 10 },
-  },
-}
+const toVar = (value: string, fallback?: string) => ({
+  var: value,
+  varRef: fallback ? `var(${value}, ${fallback})` : `var(${value})`,
+})
 
 export interface CPopoverContentProps extends HTMLChakraProps<"div"> {}
 export const CPopoverContent = defineComponent({
@@ -44,6 +29,10 @@ export const CPopoverContent = defineComponent({
       display: "flex",
       flexDirection: "column",
       ...styles.value.content,
+      transformOrigin: toVar(
+        "--transform-origin",
+        api.value.positionerProps.style.transformOrigin
+      ).varRef,
     }))
 
     const popoverContentProps = computed(() => {
@@ -82,24 +71,7 @@ export const CPopoverContent = defineComponent({
           >
             {slots.default?.()}
           </chakra.div>,
-          [
-            [
-              MotionDirective({
-                initial: { scale: 0.95, opacity: 0 },
-                enter: {
-                  scale: 1,
-                  transition: TransitionDefaults.enter,
-                  opacity: 1,
-                },
-                leave: {
-                  scale: 0.95,
-                  transition: TransitionDefaults.leave,
-                  opacity: 0,
-                },
-              }),
-              api.value.transitionId,
-            ],
-          ]
+          [[MotionDirective(PopoverVariants), api.value.transitionId]]
         )}
       </CPopoverPositioner>
     )

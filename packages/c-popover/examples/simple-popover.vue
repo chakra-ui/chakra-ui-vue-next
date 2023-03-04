@@ -13,9 +13,13 @@ import { CButton } from "../../c-button/src"
 </script>
 
 <template>
-  <c-popover>
+  <c-popover
+    :positioning="{
+      placement: 'bottom-start',
+    }"
+  >
     <c-popover-trigger>
-      <c-button> Click me </c-button>
+      <c-button> Trigger </c-button>
     </c-popover-trigger>
     <c-popover-content>
       <c-popover-arrow />
