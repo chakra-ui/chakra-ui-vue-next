@@ -1,13 +1,6 @@
 import { h, defineComponent, PropType, computed } from "vue"
-import {
-  chakra,
-  DOMElements,
-  useStyleConfig,
-} from "@chakra-ui/vue-system"
-import {
-  SystemStyleObject,
-  ThemingProps
-} from "@chakra-ui/styled-system"
+import { chakra, DOMElements, useStyleConfig } from "@chakra-ui/vue-system"
+import { SystemStyleObject, ThemingProps } from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 
@@ -45,6 +38,10 @@ export const CCloseButton = defineComponent({
     },
     size: [String] as CloseButtonProps["size"],
     styleConfig: [String] as CloseButtonProps["styleConfig"],
+    __css: {
+      type: [Object] as PropType<SystemStyleObject>,
+      default: () => ({}),
+    },
   },
   setup(props, { slots, attrs }) {
     return () => {
@@ -72,7 +69,7 @@ export const CCloseButton = defineComponent({
           disabled={props.isDisabled}
           aria-label="Close"
           __label="icon-button"
-          __css={{ ...baseStyles, ...styles.value }}
+          __css={{ ...baseStyles, ...styles.value, ...props.__css }}
           {...attrs}
         >
           {() => (slots.default ? getValidChildren(slots) : <CCloseIcon />)}

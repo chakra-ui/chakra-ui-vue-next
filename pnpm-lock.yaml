@@ -753,7 +753,9 @@ importers:
 
   packages/c-popover:
     specifiers:
+      '@chakra-ui/c-close-button': workspace:*
       '@chakra-ui/c-motion': workspace:*
+      '@chakra-ui/styled-system': 2.6.1
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
@@ -761,7 +763,9 @@ importers:
       '@zag-js/vue': ^0.2.10
       vue: ^3.2.37
     dependencies:
+      '@chakra-ui/c-close-button': link:../c-close-button
       '@chakra-ui/c-motion': link:../c-motion
+      '@chakra-ui/styled-system': 2.6.1
       '@chakra-ui/vue-composables': link:../vue-composables
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
