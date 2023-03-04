@@ -22,7 +22,7 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch",
+    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
@@ -46,6 +46,7 @@
     "@chakra-ui/c-modal": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
     "@chakra-ui/c-pin-input": "workspace:*",
+    "@chakra-ui/c-popover": "workspace:*",
     "@chakra-ui/c-popper": "workspace:*",
     "@chakra-ui/c-portal": "workspace:*",
     "@chakra-ui/c-reset": "workspace:*",
@@ -74,7 +75,7 @@
     "@emotion/sheet": "^1.1.0",
     "@emotion/utils": "^1.1.0",
     "@zag-js/toast": "^0.2.8",
-    "@zag-js/vue": "^0.2.9"
+    "@zag-js/vue": "0.2.10"
   },
   "devDependencies": {
     "vue": "3.2.47"

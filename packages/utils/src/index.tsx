@@ -31,6 +31,7 @@ export {
   getValidChildren,
   isObjectComponent,
   resolveRef,
+  withSingleton,
 } from "./vue-utils"
 export { debounce } from "./timers"
 export { extractStyleAttrs, StyleAndHTMLAttibutes } from "./attrs"
@@ -59,4 +60,4 @@ export type {
   ConfigurableWindow,
 } from "./dom"
 export type { CouldBeObjectComponent, CreateContextOptions } from "./vue-utils"
-export type { MergedVNodeProps } from "./types"
+export type { MergedVNodeProps, Optional, Assign } from "./types"

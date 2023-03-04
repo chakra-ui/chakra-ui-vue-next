@@ -29,7 +29,7 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch",
+    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
@@ -44,7 +44,7 @@
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@vueuse/motion": "^1.5.4",
+    "@vueuse/motion": "^1.6.0",
     "aria-hidden": "^1.1.2"
   },
   "devDependencies": {

@@ -36,8 +36,8 @@ export const chakra = createChakra({
       global: (props: any) => {
         return {
           body: {
-            bg: mode("white", "gray.800")(props),
-            color: mode("blackAlpha.800", "whiteAlpha.800")(props),
+            bg: mode("white", "gray.900")(props),
+            color: mode("blackAlpha.800", "whiteAlpha.900")(props),
             "a.router-link-active": {
               color: mode("teal.500", "teal.200")(props),
               fontSize: mode("0.9rem", "0.9rem")(props),
