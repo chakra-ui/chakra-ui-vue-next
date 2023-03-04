@@ -7,8 +7,6 @@ export interface CPopoverHeaderProps extends HTMLChakraProps<"div"> {}
 export const CPopoverHeader = defineComponent({
   name: "CPopoverHeader",
   setup(_, { slots, attrs }) {
-    const api = usePopoverContext()
-
     return () => <CPopoverTitle {...attrs}>{slots.default?.()}</CPopoverTitle>
   },
 })

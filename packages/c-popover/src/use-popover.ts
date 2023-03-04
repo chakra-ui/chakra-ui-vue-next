@@ -35,7 +35,7 @@ export function useDeferredDisclosure(
       if (value) {
         isOpenDeferred.value = true
       } else {
-        await wait(delay)
+        // await wait(delay)
         isOpenDeferred.value = false
       }
     }
@@ -76,10 +76,6 @@ export function usePopover(props: UsePopoverProps) {
   )
 
   const api = computed(() => connect(state.value, send, normalizeProps))
-  const { isOpenDeferred } = useDeferredDisclosure(
-    computed(() => api.value.isOpen),
-    0
-  )
 
   watch(
     () => popoverContext.isOpen,
@@ -96,7 +92,7 @@ export function usePopover(props: UsePopoverProps) {
       }
     },
     {
-      flush: "post",
+      flush: "pre",
     }
   )
 

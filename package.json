@@ -13,7 +13,8 @@
     ]
   },
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "concurrently \"pnpm turbo:dev\" \"pnpm playground:dev\"",
+    "turbo:dev": "turbo run dev",
     "clean": "pnpm -r --parallel run clean",
     "prebuild": "pnpm clean",
     "build": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils}",

@@ -13,6 +13,7 @@ export {
   type CPopoverDescriptionProps,
 } from "./c-popover-description"
 export { CPopoverHeader, type CPopoverHeaderProps } from "./c-popover-header"
+export { CPopoverFooter, type CPopoverFooterProps } from "./c-popover-footer"
 export { CPopoverBody, type CPopoverBodyProps } from "./c-popover-body"
 export { CPopoverAnchor, type CPopoverAnchorProps } from "./c-popover-anchor"
 export { usePopover } from "./use-popover"

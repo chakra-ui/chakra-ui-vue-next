@@ -8,8 +8,8 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, PropType } from "vue"
-import { PopoverProvider } from "./popover.context"
+import { computed, defineComponent, mergeProps, PropType } from "vue"
+import { PopoverProvider, PopoverStylesProvider } from "./popover.context"
 import {
   useDeferredDisclosure,
   usePopover,
@@ -19,6 +19,7 @@ import type * as ZP from "@zag-js/popper"
 import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
 import { useMotions } from "@vueuse/motion"
+import { useMultiStyleConfig } from "@chakra-ui/vue-system"
 
 type PopoverPropsContext = UsePopoverProps["context"]
 
@@ -83,11 +84,15 @@ export const CPopover = defineComponent({
     "focus-outside",
     "interact-outside",
   ],
-  setup(props, { slots, emit }) {
+  setup(props, { slots, attrs, emit }) {
     const popoverProps = computed<UsePopoverProps>(() => ({
       context: props,
       emit,
     }))
+
+    const mergedProps = computed(() => mergeProps(props, attrs))
+
+    const styles = useMultiStyleConfig("Popover", mergedProps.value)
 
     const transitionId = useId(
       popoverProps.value.context.id,
@@ -103,11 +108,14 @@ export const CPopover = defineComponent({
       })
     }
 
-    const enterTransition = async (done: VoidFunction) => {
+    const enterTransition = (done: VoidFunction) => {
       const motions = useMotions()
+      console.log("motions", motions)
       const instance = motions[transitionId.value]
-      await instance.apply("enter")
-      done()
+      requestAnimationFrame(async () => {
+        await instance.apply("enter")
+        done()
+      })
     }
 
     const api = usePopover(popoverProps.value)
@@ -125,6 +133,7 @@ export const CPopover = defineComponent({
     }))
 
     PopoverProvider(popoverApi)
+    PopoverStylesProvider(styles)
     return () => slots.default?.()
   },
 })

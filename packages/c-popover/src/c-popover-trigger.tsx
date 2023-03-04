@@ -20,6 +20,9 @@ export const CPopoverTrigger = defineComponent({
                 })
                 await api.value.wait(300)
               } else {
+                requestAnimationFrame(() => {
+                  api.value.enterTransition(() => null)
+                })
                 onClick(e)
               }
             },
