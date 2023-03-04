@@ -5,6 +5,7 @@ import { HTMLChakraProps, chakra } from "@chakra-ui/vue-system"
 export interface CPopoverArrow extends HTMLChakraProps<"div"> {}
 export const CPopoverArrow = defineComponent({
   name: "CPopoverArrow",
+  inheritAttrs: false,
   setup(_, { slots, attrs }) {
     const api = usePopoverContext()
 
@@ -42,6 +43,7 @@ export const CPopoverArrow = defineComponent({
           }}
           __label="popover__arrow"
           {...api.value.arrowTipProps}
+          {...attrs}
         />
         {slots.default?.()}
       </chakra.div>

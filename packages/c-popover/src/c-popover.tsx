@@ -125,6 +125,6 @@ export const CPopover = defineComponent({
 
     PopoverProvider(popoverApi)
     PopoverStylesProvider(styles)
-    return () => slots.default?.()
+    return () => slots.default?.(api.value)
   },
 })
