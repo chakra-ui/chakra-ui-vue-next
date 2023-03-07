@@ -12,6 +12,7 @@ import {
   ref,
   cloneVNode,
   h,
+  reactive,
 } from "vue"
 import { MaybeComputedRef, MaybeRef } from "./types"
 
@@ -108,6 +109,19 @@ export function withSingleton(
   const finalSlot = cloneVNode(validChildren[0])
 
   return h(finalSlot, props)
+}
+
+/**
+ * For the component composables -- takes in the props object
+ * and returns the props with a reactive context object
+ */
+export function transformComposableProps<T extends { context: object }>(
+  props: T
+): T {
+  return {
+    ...props,
+    context: reactive(props.context),
+  }
 }
 
 export interface CouldBeObjectComponent {

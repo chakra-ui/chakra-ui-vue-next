@@ -32,6 +32,7 @@ export {
   isObjectComponent,
   resolveRef,
   withSingleton,
+  transformComposableProps,
 } from "./vue-utils"
 export { debounce } from "./timers"
 export { extractStyleAttrs, StyleAndHTMLAttibutes } from "./attrs"

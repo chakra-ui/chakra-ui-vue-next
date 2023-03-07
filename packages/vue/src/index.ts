@@ -472,6 +472,8 @@ export {
   type ToastPlacement,
 } from "@chakra-ui/c-toast"
 
+export { CTooltip, type CTooltipProps } from "@chakra-ui/c-tooltip"
+
 // V
 export {
   CVisuallyHidden,

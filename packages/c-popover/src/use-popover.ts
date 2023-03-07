@@ -1,6 +1,6 @@
 import { connect, Context as PopoverContext, machine } from "@zag-js/popover"
 import { normalizeProps, useMachine } from "@zag-js/vue"
-import { computed, reactive, Ref, ref, watch } from "vue"
+import { computed, reactive, watch } from "vue"
 import type { Optional } from "@chakra-ui/vue-utils"
 import { useId } from "@chakra-ui/vue-composables"
 
@@ -17,10 +17,6 @@ export interface UsePopoverPropsContext extends Optional<PopoverContext, "id"> {
 export interface UsePopoverProps {
   context: UsePopoverPropsContext
   emit: CallableFunction
-}
-
-function wait(delay: number) {
-  return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
 export function usePopover(props: UsePopoverProps) {
