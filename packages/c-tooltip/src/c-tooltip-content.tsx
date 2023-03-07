@@ -1,4 +1,4 @@
-import { computed, defineComponent, mergeProps } from "vue"
+import { Teleport, computed, defineComponent, mergeProps } from "vue"
 import { useTooltipContext } from "./tooltip.context"
 import {
   HTMLChakraProps,
@@ -26,15 +26,20 @@ export const CTooltipContent = defineComponent({
         styleConfig: mergedProps.value.styleConfig,
       })
     )
-    console.log("styles", themingProps.value)
     const styles = useStyleConfig("Tooltip", themingProps.value)
 
     return () => (
-      <CTooltipPositioner>
-        <chakra.div __css={styles.value} {...api.value.contentProps} {...attrs}>
-          {slots.default?.()}
-        </chakra.div>
-      </CTooltipPositioner>
+      <Teleport to="body">
+        <CTooltipPositioner>
+          <chakra.div
+            __css={styles.value}
+            {...api.value.contentProps}
+            {...attrs}
+          >
+            {slots.default?.()}
+          </chakra.div>
+        </CTooltipPositioner>
+      </Teleport>
     )
   },
 })
