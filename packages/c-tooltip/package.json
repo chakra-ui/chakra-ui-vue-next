@@ -34,6 +34,7 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
+    "@chakra-ui/c-tooltip": "workspace:*",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",

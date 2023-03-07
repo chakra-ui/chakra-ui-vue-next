@@ -9,7 +9,6 @@
  */
 
 import { computed, defineComponent, h, Fragment, PropType } from "vue"
-import { chakra, DOMElements } from "@chakra-ui/vue-system"
 import { TooltipProvider } from "./tooltip.context"
 import { useTooltip, UseTooltipProps } from "./use-tooltip"
 import type * as PP from "@zag-js/popper"

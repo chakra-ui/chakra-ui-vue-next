@@ -1,4 +1,4 @@
-import { computed, defineComponent, watchEffect } from "vue"
+import { computed, defineComponent } from "vue"
 import { useTooltipContext } from "./tooltip.context"
 import { HTMLChakraProps, chakra } from "@chakra-ui/vue-system"
 
