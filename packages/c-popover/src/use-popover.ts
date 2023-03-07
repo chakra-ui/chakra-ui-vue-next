@@ -68,7 +68,6 @@ export function usePopover(props: UsePopoverProps) {
         api.value.open()
         return
       } else if (!isOpen && !state.value.matches("closed")) {
-        await wait(300)
         api.value.close()
         return
       }

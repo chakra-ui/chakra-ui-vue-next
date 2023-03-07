@@ -13,20 +13,19 @@ import { CButton, CButtonGroup } from "../../c-button/src"
 import { useDisclosure } from "../../vue-composables/src/use-disclosure"
 import { CHStack } from "../../layout/src/stack"
 
-const { isOpen, open } = useDisclosure({
+const { isOpen, open, toggle } = useDisclosure({
   defaultIsOpen: false,
 })
 </script>
 
 <template>
   <c-h-stack>
-    <c-button @click="open"> Trigger </c-button>
+    <c-button @click="toggle"> Trigger </c-button>
     <c-popover
       :positioning="{
         placement: 'right-start',
       }"
       :is-open="isOpen"
-      @close="isOpen = false"
     >
       <c-popover-trigger>
         <c-button color-scheme="pink"> Popover Target </c-button>
