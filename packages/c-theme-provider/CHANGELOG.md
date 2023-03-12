@@ -1,5 +1,15 @@
 # @chakra-ui/c-theme-provider
 
+## 2.1.0-beta.3
+
+### Minor Changes
+
+- bc95c4d6: Add popover component
+
+### Patch Changes
+
+- e4364213: Fix: Passthrough user-defined type attr for all button/iconbuttons
+
 ## 2.1.0-beta.2
 
 ### Minor Changes
