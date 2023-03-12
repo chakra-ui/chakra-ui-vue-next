@@ -14,10 +14,7 @@ import {
   ComponentWithProps,
   DeepPartial,
 } from "@chakra-ui/vue-system"
-import {
-  ThemingProps,
-  SystemStyleObject
-} from "@chakra-ui/styled-system"
+import { ThemingProps, SystemStyleObject } from "@chakra-ui/styled-system"
 import { dataAttr, filterUndefined, mergeWith } from "@chakra-ui/utils"
 import { useButtonGroup } from "./button-group"
 import { CIcon, IconProps } from "@chakra-ui/c-icon"
@@ -110,7 +107,7 @@ const CButtonIcon = defineComponent({
   },
 })
 
-export interface CButtonProps extends HTMLChakraProps<"button"> { }
+export interface CButtonProps extends HTMLChakraProps<"button"> {}
 
 /**
  * CButton
@@ -205,7 +202,8 @@ export const CButton = defineComponent({
           {...((props.value.isDisabled || props.value.isLoading) && {
             disabled: props.value.isDisabled || props.value.isLoading,
           })}
-          type={props.value.as === "button" ? undefined : props.value.type}
+          type={props.value.type}
+          data-type={dataAttr(props.value.type)}
           data-active={dataAttr(props.value.isActive)}
           data-loading={dataAttr(props.value.isLoading)}
           __css={buttonStyles.value}
