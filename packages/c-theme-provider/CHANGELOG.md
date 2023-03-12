@@ -1,5 +1,11 @@
 # @chakra-ui/c-theme-provider
 
+## 2.1.0-beta.4
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+
 ## 2.1.0-beta.3
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @chakra-ui/c-pin-input
 
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+- Updated dependencies [8e71c025]
+  - @chakra-ui/c-input@2.1.0-beta.6
+  - @chakra-ui/vue-system@2.1.0-beta.6
+  - @chakra-ui/vue-utils@2.1.0-beta.5
+
 ## 2.1.0-beta.5
 
 ### Minor Changes

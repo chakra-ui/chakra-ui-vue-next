@@ -1,5 +1,17 @@
 # @chakra-ui/c-menu
 
+## 0.0.0-beta.8
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+- Updated dependencies [8e71c025]
+  - @chakra-ui/c-button@2.1.0-beta.6
+  - @chakra-ui/c-portal@2.1.0-beta.6
+  - @chakra-ui/vue-layout@2.1.0-beta.6
+  - @chakra-ui/vue-system@2.1.0-beta.6
+  - @chakra-ui/vue-utils@2.1.0-beta.5
+
 ## 0.0.0-beta.7
 
 ### Minor Changes

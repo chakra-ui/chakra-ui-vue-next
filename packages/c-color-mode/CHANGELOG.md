@@ -1,5 +1,13 @@
 # @chakra-ui/c-color-mode
 
+## 2.1.0-beta.5
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+- Updated dependencies [8e71c025]
+  - @chakra-ui/vue-utils@2.1.0-beta.5
+
 ## 2.1.0-beta.4
 
 ### Minor Changes

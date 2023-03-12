@@ -1,5 +1,21 @@
 # @chakra-ui/c-modal
 
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+- Updated dependencies [8e71c025]
+  - @chakra-ui/c-close-button@2.1.0-beta.6
+  - @chakra-ui/c-focus-lock@2.1.0-beta.6
+  - @chakra-ui/c-motion@2.1.0-beta.6
+  - @chakra-ui/c-portal@2.1.0-beta.6
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.6
+  - @chakra-ui/vue-system@2.1.0-beta.6
+  - @chakra-ui/vue-utils@2.1.0-beta.5
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.6
+  - @chakra-ui/vue-composables@2.1.0-beta.6
+
 ## 2.1.0-beta.5
 
 ### Minor Changes

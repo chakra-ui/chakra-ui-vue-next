@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-popover",
   "description": "Chakra UI Vue | Popover is a non modal dialog that floats around a trigger component",
-  "version": "0.0.0-beta.1",
+  "version": "0.0.0-beta.2",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
