@@ -14,17 +14,17 @@ exports[`<CAccordion /> component should render properly 1`] = `
         class="chakra-17mg6aq"
         data-part="item"
         data-scope="accordion"
-        id="accordion:EMPTY_STRING:item:accordion-item-undefined"
+        id="accordion:EMPTY_STRING:item:accordion-item-1"
       >
         <button
-          aria-controls="accordion:EMPTY_STRING:content:accordion-item-undefined"
+          aria-controls="accordion:EMPTY_STRING:content:accordion-item-1"
           aria-disabled="false"
           aria-expanded="false"
           class="chakra-1oqzxfr"
           data-ownedby="accordion:EMPTY_STRING"
           data-part="trigger"
           data-scope="accordion"
-          id="accordion:EMPTY_STRING:trigger:accordion-item-undefined"
+          id="accordion:EMPTY_STRING:trigger:accordion-item-1"
           type="button"
         >
           <c-v-stack
@@ -46,66 +46,6 @@ exports[`<CAccordion /> component should render properly 1`] = `
             aria-hidden="true"
             class="chakra-icon chakra-iyv31w"
             element="c-accordion-item"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-              fill="currentColor"
-            />
-          </svg>
-        </button>
-        <div
-          class="chakra-0"
-          style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
-        >
-          <div
-            aria-labelledby="accordion:EMPTY_STRING:trigger:accordion-item-undefined"
-            class="chakra-13d8nyx"
-            data-part="content"
-            data-scope="accordion"
-            id="accordion:EMPTY_STRING:content:accordion-item-undefined"
-            role="region"
-          >
-             Sample accordion content 
-          </div>
-        </div>
-      </div>
-      <div
-        class="chakra-17mg6aq"
-        data-part="item"
-        data-scope="accordion"
-        id="accordion:EMPTY_STRING:item:accordion-item-1"
-      >
-        <button
-          aria-controls="accordion:EMPTY_STRING:content:accordion-item-1"
-          aria-disabled="false"
-          aria-expanded="false"
-          class="chakra-1oqzxfr"
-          data-ownedby="accordion:EMPTY_STRING"
-          data-part="trigger"
-          data-scope="accordion"
-          id="accordion:EMPTY_STRING:trigger:accordion-item-1"
-          type="button"
-        >
-          <c-v-stack
-            align="flex-start"
-            w="full"
-          >
-            <chakra.p
-              font-weight="bold"
-            >
-               Mirror World 
-            </chakra.p>
-            <chakra.p
-              font-size="0.8em"
-            >
-              Yatches, Boats and Dinghies
-            </chakra.p>
-          </c-v-stack>
-          <svg
-            aria-hidden="true"
-            class="chakra-icon chakra-iyv31w"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -155,7 +95,7 @@ exports[`<CAccordion /> component should render properly 1`] = `
             <chakra.p
               font-weight="bold"
             >
-               Xtellar 
+               Mirror World 
             </chakra.p>
             <chakra.p
               font-size="0.8em"
@@ -185,6 +125,66 @@ exports[`<CAccordion /> component should render properly 1`] = `
             data-part="content"
             data-scope="accordion"
             id="accordion:EMPTY_STRING:content:accordion-item-2"
+            role="region"
+          >
+             Sample accordion content 
+          </div>
+        </div>
+      </div>
+      <div
+        class="chakra-17mg6aq"
+        data-part="item"
+        data-scope="accordion"
+        id="accordion:EMPTY_STRING:item:accordion-item-3"
+      >
+        <button
+          aria-controls="accordion:EMPTY_STRING:content:accordion-item-3"
+          aria-disabled="false"
+          aria-expanded="false"
+          class="chakra-1oqzxfr"
+          data-ownedby="accordion:EMPTY_STRING"
+          data-part="trigger"
+          data-scope="accordion"
+          id="accordion:EMPTY_STRING:trigger:accordion-item-3"
+          type="button"
+        >
+          <c-v-stack
+            align="flex-start"
+            w="full"
+          >
+            <chakra.p
+              font-weight="bold"
+            >
+               Xtellar 
+            </chakra.p>
+            <chakra.p
+              font-size="0.8em"
+            >
+              Yatches, Boats and Dinghies
+            </chakra.p>
+          </c-v-stack>
+          <svg
+            aria-hidden="true"
+            class="chakra-icon chakra-iyv31w"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <div
+          class="chakra-0"
+          style="transform: translateZ(0px); overflow: hidden; height: 0px; opacity: 0;"
+        >
+          <div
+            aria-labelledby="accordion:EMPTY_STRING:trigger:accordion-item-3"
+            class="chakra-13d8nyx"
+            data-part="content"
+            data-scope="accordion"
+            id="accordion:EMPTY_STRING:content:accordion-item-3"
             role="region"
           >
              Sample accordion content 

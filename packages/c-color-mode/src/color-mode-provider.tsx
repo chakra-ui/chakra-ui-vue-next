@@ -156,7 +156,7 @@ export function setupColorModeContext(
   app.provide(AppColorModeContextSymbol, {
     colorMode: computed(() => colorMode.value),
     toggleColorMode,
-    forced: computed(() => false),
+    forced: false,
   })
 }
 

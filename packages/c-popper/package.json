@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-popper",
   "description": "Chakra UI Vue | Position engine for vue bult on popperjs core component",
-  "version": "2.1.0-beta.3",
+  "version": "2.1.0-beta.4",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -29,7 +29,7 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch",
+    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
     "build:types": "tsup --dts-only"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-accordion",
-  "version": "2.1.0-beta.4",
+  "version": "2.1.0-beta.5",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "files": [
@@ -31,9 +31,9 @@
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/accordion": "0.2.11",
+    "@zag-js/accordion": "0.2.13",
     "@chakra-ui/styled-system": "2.6.1",
-    "@zag-js/vue": "^0.2.9"
+    "@zag-js/vue": "0.2.10"
   },
   "peerDependencies": {
     "vue": "3.2.47"

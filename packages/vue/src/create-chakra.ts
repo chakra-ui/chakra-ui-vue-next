@@ -53,7 +53,7 @@ export function extendChakra(options = defaultPluginOptions) {
   return options
 }
 
-export function createChakra(_options: ChakraPluginOptions) {
+export function createChakra(_options: ChakraPluginOptions = {}) {
   const ChakraUIVuePlugin: Plugin = {
     install(app) {
       const options = mergeWith(
@@ -139,6 +139,7 @@ export function createChakra(_options: ChakraPluginOptions) {
       // Set color mode property
       app.config.globalProperties.$mode = mode
 
+      console.log(ToastContextSymbol, toastContext)
       app.provide(ToastContextSymbol, toastContext)
 
       // Setup toast container component
