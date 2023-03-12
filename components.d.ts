@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.1.0-beta.4 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.5 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-03-04T20:41:26.135Z
+ * This file was generated on 2023-03-12T05:11:09.948Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -142,6 +142,19 @@ declare module "@vue/runtime-core" {
     CPinInput: typeof import("@chakra-ui/vue-next")["CPinInput"]
     CPinInputClearButton: typeof import("@chakra-ui/vue-next")["CPinInputClearButton"]
     CPinInputField: typeof import("@chakra-ui/vue-next")["CPinInputField"]
+    CPopover: typeof import("@chakra-ui/vue-next")["CPopover"]
+    CPopoverAnchor: typeof import("@chakra-ui/vue-next")["CPopoverAnchor"]
+    CPopoverArrow: typeof import("@chakra-ui/vue-next")["CPopoverArrow"]
+    CPopoverBody: typeof import("@chakra-ui/vue-next")["CPopoverBody"]
+    CPopoverCloseButton: typeof import("@chakra-ui/vue-next")["CPopoverCloseButton"]
+    CPopoverCloseTrigger: typeof import("@chakra-ui/vue-next")["CPopoverCloseTrigger"]
+    CPopoverContent: typeof import("@chakra-ui/vue-next")["CPopoverContent"]
+    CPopoverDescription: typeof import("@chakra-ui/vue-next")["CPopoverDescription"]
+    CPopoverFooter: typeof import("@chakra-ui/vue-next")["CPopoverFooter"]
+    CPopoverHeader: typeof import("@chakra-ui/vue-next")["CPopoverHeader"]
+    CPopoverPositioner: typeof import("@chakra-ui/vue-next")["CPopoverPositioner"]
+    CPopoverTitle: typeof import("@chakra-ui/vue-next")["CPopoverTitle"]
+    CPopoverTrigger: typeof import("@chakra-ui/vue-next")["CPopoverTrigger"]
     CPortal: typeof import("@chakra-ui/vue-next")["CPortal"]
     CPresenceGroup: typeof import("@chakra-ui/vue-next")["CPresenceGroup"]
     CRequiredIndicator: typeof import("@chakra-ui/vue-next")["CRequiredIndicator"]
