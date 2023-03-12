@@ -347,6 +347,40 @@ export {
   PinInputProvider,
   usePinInput,
 } from "@chakra-ui/c-pin-input"
+
+export { CPopover } from "@chakra-ui/c-popover"
+export {
+  CPopoverContent,
+  type CPopoverContentProps,
+} from "@chakra-ui/c-popover"
+export {
+  CPopoverPositioner,
+  type CPopoverPositionerProps,
+} from "@chakra-ui/c-popover"
+export { CPopoverTrigger } from "@chakra-ui/c-popover"
+export { CPopoverCloseTrigger } from "@chakra-ui/c-popover"
+export { CPopoverTitle, type CPopoverTitleProps } from "@chakra-ui/c-popover"
+export { CPopoverArrow } from "@chakra-ui/c-popover"
+export {
+  CPopoverDescription,
+  type CPopoverDescriptionProps,
+} from "@chakra-ui/c-popover"
+export { CPopoverHeader, type CPopoverHeaderProps } from "@chakra-ui/c-popover"
+export { CPopoverFooter, type CPopoverFooterProps } from "@chakra-ui/c-popover"
+export { CPopoverBody, type CPopoverBodyProps } from "@chakra-ui/c-popover"
+export { CPopoverAnchor, type CPopoverAnchorProps } from "@chakra-ui/c-popover"
+export {
+  CPopoverCloseButton,
+  type CPopoverCloseButtonProps,
+} from "@chakra-ui/c-popover"
+export { usePopover } from "@chakra-ui/c-popover"
+
+export type { CPopoverProps } from "@chakra-ui/c-popover"
+export type {
+  UsePopoverProps,
+  UsePopoverPropsContext,
+} from "@chakra-ui/c-popover"
+
 export {
   popperCSSVars,
   usePopper,
@@ -505,6 +539,7 @@ export {
   resolveRef,
   unrefElement,
   useRef,
+  withSingleton,
   type AnyFn,
   type Arrayable,
   type BaseThemedComponentProps,

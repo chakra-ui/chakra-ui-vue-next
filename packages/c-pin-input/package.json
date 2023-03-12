@@ -25,7 +25,7 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch",
+    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
@@ -35,7 +35,7 @@
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
     "@zag-js/pin-input": "0.2.12",
-    "@zag-js/vue": "^0.2.9",
+    "@zag-js/vue": "0.2.10",
     "csstype": "^3.1.1"
   },
   "devDependencies": {

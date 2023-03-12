@@ -26,19 +26,19 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch",
+    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/c-button": "workspace:*",
     "@chakra-ui/c-portal": "workspace:*",
+    "@chakra-ui/styled-system": "2.6.1",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-layout": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@chakra-ui/styled-system": "2.6.1",
-    "@zag-js/menu": "0.3.8",
-    "@zag-js/vue": "^0.2.9"
+    "@zag-js/menu": "0.3.12",
+    "@zag-js/vue": "0.2.10"
   },
   "devDependencies": {
     "vue": "3.2.47"

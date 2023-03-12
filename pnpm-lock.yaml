@@ -82,7 +82,7 @@ importers:
       '@vueuse/core': 4.9.1
       '@vueuse/head': ^0.7.4
       '@vueuse/integrations': ^4.8.1
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       '@vueuse/shared': ^9.11.1
       aria-hidden: ^1.1.2
       axe-core: ^4.1.2
@@ -382,8 +382,8 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@zag-js/accordion': 0.2.11
-      '@zag-js/vue': ^0.2.9
+      '@zag-js/accordion': 0.2.13
+      '@zag-js/vue': 0.2.10
       vue: 3.2.47
     dependencies:
       '@chakra-ui/c-icon': link:../c-icon
@@ -393,8 +393,8 @@ importers:
       '@chakra-ui/vue-composables': link:../vue-composables
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
-      '@zag-js/accordion': 0.2.11
-      '@zag-js/vue': 0.2.9_vue@3.2.47
+      '@zag-js/accordion': 0.2.13
+      '@zag-js/vue': 0.2.10_vue@3.2.47
     devDependencies:
       vue: 3.2.47
 
@@ -481,9 +481,9 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       '@zag-js/checkbox': 0.2.12
-      '@zag-js/vue': ^0.2.9
+      '@zag-js/vue': 0.2.10
       vue: 3.2.47
     dependencies:
       '@chakra-ui/c-form-control': link:../c-form-control
@@ -495,7 +495,7 @@ importers:
       '@chakra-ui/vue-utils': link:../utils
       '@vueuse/motion': 1.6.0_vue@3.2.47
       '@zag-js/checkbox': 0.2.12
-      '@zag-js/vue': 0.2.9_vue@3.2.47
+      '@zag-js/vue': 0.2.10_vue@3.2.47
     devDependencies:
       vue: 3.2.47
 
@@ -658,8 +658,8 @@ importers:
       '@chakra-ui/vue-layout': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@zag-js/menu': 0.3.8
-      '@zag-js/vue': ^0.2.9
+      '@zag-js/menu': 0.3.12
+      '@zag-js/vue': 0.2.10
       vue: 3.2.47
     dependencies:
       '@chakra-ui/c-button': link:../c-button
@@ -669,8 +669,8 @@ importers:
       '@chakra-ui/vue-layout': link:../layout
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
-      '@zag-js/menu': 0.3.8
-      '@zag-js/vue': 0.2.9_vue@3.2.47
+      '@zag-js/menu': 0.3.12
+      '@zag-js/vue': 0.2.10_vue@3.2.47
     devDependencies:
       vue: 3.2.47
 
@@ -687,7 +687,7 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       aria-hidden: ^1.1.2
       vue: 3.2.47
     dependencies:
@@ -714,7 +714,7 @@ importers:
       '@chakra-ui/vue-composables': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@vueuse/motion': ^1.5.4
+      '@vueuse/motion': ^1.6.0
       '@vueuse/shared': ^9.11.1
       vue: 3.2.47
     dependencies:
@@ -736,7 +736,7 @@ importers:
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
       '@zag-js/pin-input': 0.2.12
-      '@zag-js/vue': ^0.2.9
+      '@zag-js/vue': 0.2.10
       csstype: 3.1.1
       vue: 3.2.47
     dependencies:
@@ -746,8 +746,31 @@ importers:
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
       '@zag-js/pin-input': 0.2.12
-      '@zag-js/vue': 0.2.9_vue@3.2.47
+      '@zag-js/vue': 0.2.10_vue@3.2.47
       csstype: 3.1.1
+    devDependencies:
+      vue: 3.2.47
+
+  packages/c-popover:
+    specifiers:
+      '@chakra-ui/c-close-button': workspace:*
+      '@chakra-ui/c-motion': workspace:*
+      '@chakra-ui/styled-system': 2.6.1
+      '@chakra-ui/vue-composables': workspace:*
+      '@chakra-ui/vue-system': workspace:*
+      '@chakra-ui/vue-utils': workspace:*
+      '@zag-js/popover': ^0.2.13
+      '@zag-js/vue': ^0.2.10
+      vue: ^3.2.37
+    dependencies:
+      '@chakra-ui/c-close-button': link:../c-close-button
+      '@chakra-ui/c-motion': link:../c-motion
+      '@chakra-ui/styled-system': 2.6.1
+      '@chakra-ui/vue-composables': link:../vue-composables
+      '@chakra-ui/vue-system': link:../system
+      '@chakra-ui/vue-utils': link:../utils
+      '@zag-js/popover': 0.2.13
+      '@zag-js/vue': 0.2.10_vue@3.2.47
     devDependencies:
       vue: 3.2.47
 
@@ -891,9 +914,9 @@ importers:
       '@chakra-ui/c-close-button': workspace:*
       '@chakra-ui/vue-system': workspace:*
       '@chakra-ui/vue-utils': workspace:*
-      '@zag-js/core': ^0.2.9
+      '@zag-js/core': 0.2.10
       '@zag-js/toast': 0.2.12
-      '@zag-js/vue': ^0.2.9
+      '@zag-js/vue': 0.2.10
       motion: ^10.15.5
       vue: 3.2.47
     dependencies:
@@ -901,9 +924,9 @@ importers:
       '@chakra-ui/c-close-button': link:../c-close-button
       '@chakra-ui/vue-system': link:../system
       '@chakra-ui/vue-utils': link:../utils
-      '@zag-js/core': 0.2.9
+      '@zag-js/core': 0.2.10
       '@zag-js/toast': 0.2.12
-      '@zag-js/vue': 0.2.9_vue@3.2.47
+      '@zag-js/vue': 0.2.10_vue@3.2.47
       motion: 10.15.5
     devDependencies:
       vue: 3.2.47
@@ -1063,10 +1086,11 @@ importers:
       '@chakra-ui/c-input': workspace:*
       '@chakra-ui/c-live-region': workspace:*
       '@chakra-ui/c-media-query': workspace:*
-      '@chakra-ui/c-menu': 0.0.0-beta.5
+      '@chakra-ui/c-menu': 0.0.0-beta.6
       '@chakra-ui/c-modal': workspace:*
       '@chakra-ui/c-motion': workspace:*
       '@chakra-ui/c-pin-input': workspace:*
+      '@chakra-ui/c-popover': workspace:*
       '@chakra-ui/c-popper': workspace:*
       '@chakra-ui/c-portal': workspace:*
       '@chakra-ui/c-reset': workspace:*
@@ -1095,7 +1119,7 @@ importers:
       '@emotion/sheet': ^1.1.0
       '@emotion/utils': ^1.1.0
       '@zag-js/toast': ^0.2.8
-      '@zag-js/vue': ^0.2.9
+      '@zag-js/vue': 0.2.10
       vue: 3.2.47
     dependencies:
       '@chakra-ui/c-accordion': link:../c-accordion
@@ -1118,6 +1142,7 @@ importers:
       '@chakra-ui/c-modal': link:../c-modal
       '@chakra-ui/c-motion': link:../c-motion
       '@chakra-ui/c-pin-input': link:../c-pin-input
+      '@chakra-ui/c-popover': link:../c-popover
       '@chakra-ui/c-popper': link:../c-popper
       '@chakra-ui/c-portal': link:../c-portal
       '@chakra-ui/c-reset': link:../c-reset
@@ -1146,7 +1171,7 @@ importers:
       '@emotion/sheet': 1.2.1
       '@emotion/utils': 1.2.0
       '@zag-js/toast': 0.2.12
-      '@zag-js/vue': 0.2.9_vue@3.2.47
+      '@zag-js/vue': 0.2.10_vue@3.2.47
     devDependencies:
       vue: 3.2.47
 
@@ -3691,14 +3716,14 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: false
 
-  /@floating-ui/core/1.1.0:
-    resolution: {integrity: sha512-zbsLwtnHo84w1Kc8rScAo5GMk1GdecSlrflIbfnEBJwvTSj1SL6kkOYV+nHraMCPEy+RNZZUaZyL8JosDGCtGQ==}
+  /@floating-ui/core/1.2.1:
+    resolution: {integrity: sha512-LSqwPZkK3rYfD7GKoIeExXOyYx6Q1O4iqZWwIehDNuv3Dv425FIAE8PRwtAx1imEolFTHgBEcoFHm9MDnYgPCg==}
     dev: false
 
-  /@floating-ui/dom/1.1.0:
-    resolution: {integrity: sha512-TSogMPVxbRe77QCj1dt8NmRiJasPvuc+eT5jnJ6YpLqgOD2zXc5UA3S1qwybN+GVCDNdKfpKy1oj8RpzLJvh6A==}
+  /@floating-ui/dom/1.2.1:
+    resolution: {integrity: sha512-Rt45SmRiV8eU+xXSB9t0uMYiQ/ZWGE/jumse2o3i5RGlyvcbqOF4q+1qBnzLE2kZ5JGhq0iMkcGXUKbFe7MpTA==}
     dependencies:
-      '@floating-ui/core': 1.1.0
+      '@floating-ui/core': 1.2.1
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -7173,16 +7198,23 @@ packages:
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
     dev: false
 
-  /@zag-js/accordion/0.2.11:
-    resolution: {integrity: sha512-TUjJ7ZxoTlHjuvbNFIIhgKHrPRX34mxaDlkyV4z90l49cuuM/p1tGGIBrSoXmHnQFp0W9GilxObTg0fSG8rhJg==}
+  /@zag-js/accordion/0.2.13:
+    resolution: {integrity: sha512-43/iamAXLqSO0rSuI5/ffbm+rJvmOIW3QSQzRO68IBn+zgVjnfW4KKES9NNxDGSXKo/7vWb0OyfVQK0l1UdDsg==}
     dependencies:
       '@zag-js/anatomy': 0.1.4
-      '@zag-js/core': 0.2.9
+      '@zag-js/core': 0.2.10
+      '@zag-js/dom-event': 0.0.1
+      '@zag-js/dom-query': 0.1.4
       '@zag-js/types': 0.3.4
+      '@zag-js/utils': 0.3.3
     dev: false
 
   /@zag-js/anatomy/0.1.4:
     resolution: {integrity: sha512-Xc5QmQwY0W3VdkukYVaoujuCmgf0Y2ZbXhIBi0CJ0d8wWRwjkphhJu8l9kDyX4ElpyzvExYbrpTuQoI4BspaVQ==}
+    dev: false
+
+  /@zag-js/aria-hidden/0.2.2:
+    resolution: {integrity: sha512-48e5YT2hb4pyPoTTs97CVcHjq+VGF6yfcpmJ8KY4cSKoB0WWSrb8NLNwv8uMceyqhy4QVE7dEWayR47FRPY02g==}
     dev: false
 
   /@zag-js/checkbox/0.2.12:
@@ -7193,6 +7225,13 @@ packages:
       '@zag-js/types': 0.3.4
     dev: false
 
+  /@zag-js/core/0.2.10:
+    resolution: {integrity: sha512-Hc8a8KF+5VpSlLkeKFqFTRvlBtBOL+yjUEy0/pD5jTOPOwKyEHz+Yt/nCaGW5L3rzNkALpiAfrKHkXdhYKNOVg==}
+    dependencies:
+      '@zag-js/store': 0.2.8
+      klona: 2.0.6
+    dev: false
+
   /@zag-js/core/0.2.9:
     resolution: {integrity: sha512-589ZsU6JYX7HSz0+JHm2k6uPu0XawSzi8KW+N/zGap4OrwjDK6tZb3tEKAdTITQA9Fyu1UdSfI67cFbOG3zYsw==}
     dependencies:
@@ -7200,24 +7239,51 @@ packages:
       klona: 2.0.6
     dev: false
 
-  /@zag-js/dismissable/0.2.2:
-    resolution: {integrity: sha512-WYnvdVtsM3VO82vlZKA/OKWzmx5l1IbxWKTaXgGHOBkMq0NKztPFJScIUXRuFbAe43W2ERxmjVFNXIdmZOTkmQ==}
+  /@zag-js/dismissable/0.2.4:
+    resolution: {integrity: sha512-RTPzgYC1V5MJvo5kE6OiRfF5xuU9RMvjsKLKyC+xu0Wgkc9rs1oUNSd1RKY5Im86647Q5ZrytE+BI3Iuu1r+tA==}
     dependencies:
-      '@zag-js/interact-outside': 0.2.2
+      '@zag-js/dom-event': 0.0.1
+      '@zag-js/dom-query': 0.1.4
+      '@zag-js/interact-outside': 0.2.4
+      '@zag-js/utils': 0.3.3
     dev: false
 
-  /@zag-js/interact-outside/0.2.2:
-    resolution: {integrity: sha512-NFYB73Cd7/HaZ2+3JybwFhGMOzDei2wIoriWNuj/HriPPrwzcb4ktf9axK9TGUlaNSe1v73VUEQ8FcZzPOrkcw==}
+  /@zag-js/dom-event/0.0.1:
+    resolution: {integrity: sha512-oRDWn/31JUwTc9nIUG/Ingug6FNBkhXUnd2dh3vEcqfk+NVHPZ9Lgx5tauiEDyiRKeWr9PS5GJpBQVNc2YDo3Q==}
+    dependencies:
+      '@zag-js/text-selection': 0.0.1
+      '@zag-js/types': 0.3.4
     dev: false
 
-  /@zag-js/menu/0.3.8:
-    resolution: {integrity: sha512-1kVdDLL2jhbCQ/ddutkmEi+1kX4/D6sOdJArBXnKeBx+OWGMTtgeJUU6K140I9GhW/MbjpJBOUH5f7YHsdfcAQ==}
+  /@zag-js/dom-query/0.1.4:
+    resolution: {integrity: sha512-s2q18k3z3ABAkySc6xK1NLPVIdgZGTLSZxok7yzpCYoywEeCnFvP6K63Q4ONElk74XgO7Eq8KMzIj702LDS+Mg==}
+    dev: false
+
+  /@zag-js/element-rect/0.2.2:
+    resolution: {integrity: sha512-6sh+3wRfq5MlMTxQ30CS3B6cvrHY5cEhOHHsXAJC1y9WVLTtA5Z1GhdCQxqd5lVt6yEc8uaoOQppM/VpWn6m3Q==}
+    dev: false
+
+  /@zag-js/interact-outside/0.2.4:
+    resolution: {integrity: sha512-45VME7V5kQgBjMCKmDj1v4hOwfCJjFlhPyPNWfEsEOoBQ0snKk1O4/uAuXwpgZCe0eh1wsK0qg9afVJeOwyMmg==}
+    dependencies:
+      '@zag-js/dom-event': 0.0.1
+      '@zag-js/dom-query': 0.1.4
+      '@zag-js/tabbable': 0.0.1
+      '@zag-js/utils': 0.3.3
+    dev: false
+
+  /@zag-js/menu/0.3.12:
+    resolution: {integrity: sha512-UMEkY4LaK/F+h+O2EjomZaxbkk+jfEHW1qWIXRzLo4LrDt9tJOC0Vg47mdTGJqdibqvTHs3EqJ4pYg+1UIGTYA==}
     dependencies:
       '@zag-js/anatomy': 0.1.4
-      '@zag-js/core': 0.2.9
-      '@zag-js/dismissable': 0.2.2
-      '@zag-js/popper': 0.2.3
+      '@zag-js/core': 0.2.10
+      '@zag-js/dismissable': 0.2.4
+      '@zag-js/dom-event': 0.0.1
+      '@zag-js/dom-query': 0.1.4
+      '@zag-js/popper': 0.2.5
+      '@zag-js/rect-utils': 0.2.3
       '@zag-js/types': 0.3.4
+      '@zag-js/utils': 0.3.3
     dev: false
 
   /@zag-js/pin-input/0.2.12:
@@ -7228,16 +7294,60 @@ packages:
       '@zag-js/types': 0.3.4
     dev: false
 
-  /@zag-js/popper/0.2.3:
-    resolution: {integrity: sha512-cYOfyLV8uKY8r+Ruhv9VwDB4K9y5CoxPqlygazBYYAt1MPRn+UmK78FjAPWwB4XQS8nPc0okbXaM8telbg/kAA==}
+  /@zag-js/popover/0.2.13:
+    resolution: {integrity: sha512-RnQzvfmfP4JGi217E8BCvO5ef0d5MYLINaXZ59NaSgVkrEGtV1LuqDkqmSG7Ok6O1Hb8Yfi8n979V+N5ox6iGw==}
     dependencies:
-      '@floating-ui/dom': 1.1.0
+      '@zag-js/anatomy': 0.1.4
+      '@zag-js/aria-hidden': 0.2.2
+      '@zag-js/core': 0.2.10
+      '@zag-js/dismissable': 0.2.4
+      '@zag-js/dom-event': 0.0.1
+      '@zag-js/dom-query': 0.1.4
+      '@zag-js/popper': 0.2.5
+      '@zag-js/remove-scroll': 0.2.4
+      '@zag-js/tabbable': 0.0.1
+      '@zag-js/types': 0.3.4
+      '@zag-js/utils': 0.3.3
+      focus-trap: 7.3.1
+    dev: false
+
+  /@zag-js/popper/0.2.5:
+    resolution: {integrity: sha512-FhMjiu7mdwbFAEovGBhL5w/LLhZXREnjAODszNTkcAahZnwsd4xAPTQnSEYkG80oe58pdBsD0IPu4fn3sbcr1A==}
+    dependencies:
+      '@floating-ui/dom': 1.2.1
+      '@zag-js/dom-query': 0.1.4
+      '@zag-js/element-rect': 0.2.2
+      '@zag-js/utils': 0.3.3
+    dev: false
+
+  /@zag-js/rect-utils/0.2.3:
+    resolution: {integrity: sha512-kqzHvJjvY9GjVwj+LsiVMu5c+oxL5uHs85X2Nwy1nXQ+XjED8qvrxFnoldhTQm+s/1fCbyzbsTdHbVMZQ3kBnw==}
+    dev: false
+
+  /@zag-js/remove-scroll/0.2.4:
+    resolution: {integrity: sha512-e5q8tvwZL7M5hn2+9dyV+A7TlW655c81/X7aJgH64xbIFyJY26mctNsGH60Vj5FMoPHgQtH+PHQ6Wa3qOjCRAg==}
+    dependencies:
+      '@zag-js/dom-query': 0.1.4
     dev: false
 
   /@zag-js/store/0.2.7:
     resolution: {integrity: sha512-uGuqfOR06wZiNGHxTIUmw4Ywdz6rsPfP/H8DRh+y6LVgtfBQSLdptHEK6UOgCCr0OdyKh0tSrY09SVB30WKaDA==}
     dependencies:
       proxy-compare: 2.4.0
+    dev: false
+
+  /@zag-js/store/0.2.8:
+    resolution: {integrity: sha512-QgBnbYjb5jvcTt0+JCoPJ9YKM9vP1/RR78mkT6fWCIM0N8hnZu4MzQPVKxiopxZ8XIrDbUjFWlJLzL83uiYv2g==}
+    dependencies:
+      proxy-compare: 2.5.0
+    dev: false
+
+  /@zag-js/tabbable/0.0.1:
+    resolution: {integrity: sha512-WzMAMY8kqaoshenQFoUWgjnAjyrE+cSXRUBxN2hHY4PjSSmXadB+iN7wMbSU3xgbioRYrKbreyxKBGzddJVqDQ==}
+    dev: false
+
+  /@zag-js/text-selection/0.0.1:
+    resolution: {integrity: sha512-l8Im0FkMw63BPXocHRbtFgMIz3SkVpc4HI/S/wV0FqKgWMzOZzd/avHljCNfoXyhjhKauwR5xPivAwsOcye8CA==}
     dev: false
 
   /@zag-js/toast/0.2.12:
@@ -7254,13 +7364,17 @@ packages:
       csstype: 3.1.1
     dev: false
 
-  /@zag-js/vue/0.2.9_vue@3.2.47:
-    resolution: {integrity: sha512-vBLFzHOkJUdnArl8NwNxtwvmdXk2qaP6FpR7OGH/d2Nq/NHu4ut/jFvG0N95n0zdo9+Gw4SKUX0CDy4UjUEJ6w==}
+  /@zag-js/utils/0.3.3:
+    resolution: {integrity: sha512-INNuBcu1+Y5Nxo/PGW51qqkVwBzUCjzO0WjUJDBoqNo8hRs5KsWLcGKdrCayRPaDjNvQetXsUH54LGImUjUHTQ==}
+    dev: false
+
+  /@zag-js/vue/0.2.10_vue@3.2.47:
+    resolution: {integrity: sha512-+epCusiD2qyEX7/bTU6NURtAuOtJro/E3WpzONSmLNpTA16DxlQ/Rmf74MkdEkTw9OhL6jKWCN4B1XBdnb9JSw==}
     peerDependencies:
       vue: '>=3.0.0'
     dependencies:
-      '@zag-js/core': 0.2.9
-      '@zag-js/store': 0.2.7
+      '@zag-js/core': 0.2.10
+      '@zag-js/store': 0.2.8
       '@zag-js/types': 0.3.4
       vue: 3.2.47
     dev: false
@@ -11985,6 +12099,12 @@ packages:
     resolution: {integrity: sha512-v2NTsZe2FF59Y+sDykKY+XjqZ0cPfhq/hikWVL88BqLivnNiEffAsac6rP6H45ff9wG9LL5ToiDqrLEP9GX9mw==}
     dependencies:
       tabbable: 5.3.3
+    dev: false
+
+  /focus-trap/7.3.1:
+    resolution: {integrity: sha512-bX/u4FJ+F0Pp6b/8Q9W8Br/JaLJ7rrhOJAzai9JU8bh4BPdOjEATy4pxHcbBBxFjPN4d1oHy7/KqknEdOetm9w==}
+    dependencies:
+      tabbable: 6.1.1
     dev: false
 
   /follow-redirects/1.15.2:
@@ -18470,6 +18590,10 @@ packages:
     resolution: {integrity: sha512-FD8KmQUQD6Mfpd0hywCOzcon/dbkFP8XBd9F1ycbKtvVsfv6TsFUKJ2eC0Iz2y+KzlkdT1Z8SY6ZSgm07zOyqg==}
     dev: false
 
+  /proxy-compare/2.5.0:
+    resolution: {integrity: sha512-f1us0OsVAJ3tdIMXGQx2lmseYS4YXe4W+sKF5g5ww/jV+5ogMadPt+sIZ+88Ga9kvMJsrRNWzCrKPpr6pMWYbA==}
+    dev: false
+
   /proxy-from-env/1.0.0:
     resolution: {integrity: sha512-F2JHgJQ1iqwnHDcQjVBsq3n/uoaFL+iPW/eAeL7kVxy/2RrWaN4WroKjjvbsoRtv0ftelNyC01bjRhn/bhcf4A==}
     dev: false
@@ -20467,6 +20591,10 @@ packages:
 
   /tabbable/5.3.3:
     resolution: {integrity: sha512-QD9qKY3StfbZqWOPLp0++pOrAVb/HbUi5xCc8cUo4XjP19808oaMiDzn0leBY5mCespIBM0CIZePzZjgzR83kA==}
+    dev: false
+
+  /tabbable/6.1.1:
+    resolution: {integrity: sha512-4kl5w+nCB44EVRdO0g/UGoOp3vlwgycUVtkk/7DPyeLZUCuNFFKCFG6/t/DgHLrUPHjrZg6s5tNm+56Q2B0xyg==}
     dev: false
 
   /tapable/1.1.3:

@@ -1,4 +1,4 @@
-import { isObject } from "@chakra-ui/utils"
+import { Dict, isObject } from "@chakra-ui/utils"
 import {
   inject,
   InjectionKey,
@@ -10,6 +10,8 @@ import {
   Ref,
   computed,
   ref,
+  cloneVNode,
+  h,
 } from "vue"
 import { MaybeComputedRef, MaybeRef } from "./types"
 
@@ -82,6 +84,30 @@ export function getValidChildren(slots: Slots | null): VNode[] {
   return slotArray.filter((child) => {
     return isVNode(child)
   })
+}
+
+/**
+ * Returns a copy of only the valid default slot
+ *
+ * @param slots - the slots object from the component setup
+ * @param componentName component display name for thrown errors
+ * @returns A VNode clone of the default slot
+ */
+export function withSingleton(
+  slots: Slots,
+  componentName: string,
+  props?: Dict
+) {
+  const validChildren = getValidChildren(slots)
+  if (validChildren.length > 1) {
+    const errorMessage = `[${componentName}] : ${componentName} can only have one root element.`
+    console.error(errorMessage)
+    throw new SyntaxError(errorMessage)
+  }
+
+  const finalSlot = cloneVNode(validChildren[0])
+
+  return h(finalSlot, props)
 }
 
 export interface CouldBeObjectComponent {
