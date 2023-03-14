@@ -1,5 +1,11 @@
 # @chakra-ui/c-theme-provider
 
+## 2.1.0-beta.5
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+
 ## 2.1.0-beta.4
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @chakra-ui/vue-auto-import
 
+## 3.0.0-beta.7
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+- Updated dependencies [10d19f63]
+  - @chakra-ui/c-theme-provider@2.1.0-beta.5
+  - @chakra-ui/vue-next@2.1.0-beta.7
+
 ## 3.0.0-beta.6
 
 ### Patch Changes

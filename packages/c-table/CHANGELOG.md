@@ -1,5 +1,14 @@
 # @chakra-ui/c-table
 
+## 2.0.0-beta.4
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+- Updated dependencies [10d19f63]
+  - @chakra-ui/vue-system@2.1.0-beta.7
+  - @chakra-ui/vue-utils@2.1.0-beta.6
+
 ## 2.0.0-beta.3
 
 ### Patch Changes

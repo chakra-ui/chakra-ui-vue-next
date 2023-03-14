@@ -1,5 +1,11 @@
 # @chakra-ui/vue-utils
 
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+
 ## 2.1.0-beta.5
 
 ### Patch Changes

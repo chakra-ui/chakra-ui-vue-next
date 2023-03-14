@@ -1,5 +1,14 @@
 # @chakra-ui/nuxt-next
 
+## 2.1.0-beta.8
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+- Updated dependencies [10d19f63]
+  - @chakra-ui/c-color-mode@2.1.0-beta.6
+  - @chakra-ui/vue-next@2.1.0-beta.7
+
 ## 2.1.0-beta.7
 
 ### Patch Changes

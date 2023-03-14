@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-icon",
   "description": "Chakra UI Vue | A component to display icons in the browser component",
-  "version": "2.1.0-beta.6",
+  "version": "2.1.0-beta.7",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

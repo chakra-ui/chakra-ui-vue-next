@@ -1,5 +1,14 @@
 # @chakra-ui/c-icon
 
+## 2.1.0-beta.7
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+- Updated dependencies [10d19f63]
+  - @chakra-ui/vue-system@2.1.0-beta.7
+  - @chakra-ui/vue-utils@2.1.0-beta.6
+
 ## 2.1.0-beta.6
 
 ### Patch Changes

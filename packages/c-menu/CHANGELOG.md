@@ -1,5 +1,17 @@
 # @chakra-ui/c-menu
 
+## 0.0.0-beta.9
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+- Updated dependencies [10d19f63]
+  - @chakra-ui/c-button@2.1.0-beta.7
+  - @chakra-ui/c-portal@2.1.0-beta.7
+  - @chakra-ui/vue-layout@2.1.0-beta.7
+  - @chakra-ui/vue-system@2.1.0-beta.7
+  - @chakra-ui/vue-utils@2.1.0-beta.6
+
 ## 0.0.0-beta.8
 
 ### Patch Changes

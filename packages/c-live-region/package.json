@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-live-region",
   "description": "Chakra UI Vue | Creates a hidden live region with dynamic content based on triggered events to be read out by the screen reader on change of the content component",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0-beta.4",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
