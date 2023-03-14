@@ -69,7 +69,7 @@ export interface CInputProps
 export const CInput = defineComponent({
   name: "CInput",
   props: {
-    modelValue: String as PropType<string>,
+    modelValue: [String, Number] as PropType<string | number>,
     ...formControlProps,
     focusBorderColor: SAO as PropType<CInputProps["focusBorderColor"]>,
     isFullWidth: [Boolean, Array] as PropType<CInputProps["isFullWidth"]>,
