@@ -5,10 +5,9 @@ export const TooltipVariants: MotionVariants = {
   initial: { scale: 0.95, opacity: 0 },
   enter: {
     scale: 1,
-    // transition: TransitionDefaults.enter,
     transition: {
       opacity: { easings: "easeOut", duration: 200 },
-      scale: { duration: 200, ease: [0.175, 0.885, 0.4, 1.1] },
+      scale: { duration: 200, easings: [0.175, 0.885, 0.4, 1.1] },
     },
     opacity: 1,
   },
