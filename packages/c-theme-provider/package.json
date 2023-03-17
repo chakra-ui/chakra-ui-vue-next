@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-theme-provider",
-  "version": "2.1.0-beta.2",
+  "version": "2.1.0-beta.5",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "files": [

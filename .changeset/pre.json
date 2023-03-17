@@ -43,14 +43,17 @@
     "@chakra-ui/vue-auto-import": "0.0.0-dev-20230215144750",
     "@chakra-ui/c-live-region": "2.0.0-beta.0",
     "@chakra-ui/c-table": "2.0.0-beta.0",
-    "@chakra-ui/c-textarea": "0.0.0-beta.0"
+    "@chakra-ui/c-textarea": "0.0.0-beta.0",
+    "@chakra-ui/c-popover": "0.0.0-beta.0"
   },
   "changesets": [
     "beige-ants-beg",
     "beige-bugs-try",
     "blue-penguins-swim",
     "chilly-forks-stare",
+    "giant-deers-compete",
     "gorgeous-swans-kneel",
+    "happy-impalas-lick",
     "honest-worms-hunt",
     "hungry-gifts-visit",
     "kind-parrots-worry",
@@ -59,6 +62,7 @@
     "many-steaks-wonder",
     "mighty-files-report",
     "nasty-plums-greet",
+    "new-rings-deliver",
     "ninety-poems-cheat",
     "orange-scissors-raise",
     "quick-spiders-tickle",
@@ -66,6 +70,7 @@
     "soft-cycles-sit",
     "spicy-doors-heal",
     "stale-kiwis-shave",
+    "tasty-grapes-rhyme",
     "unlucky-beds-walk",
     "unlucky-boats-perform"
   ]

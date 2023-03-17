@@ -1,5 +1,27 @@
 # @chakra-ui/c-popper
 
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+
+## 2.1.0-beta.5
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+
+## 2.1.0-beta.4
+
+### Minor Changes
+
+- bc95c4d6: Add popover component
+
+### Patch Changes
+
+- e4364213: Fix: Passthrough user-defined type attr for all button/iconbuttons
+
 ## 2.1.0-beta.3
 
 ### Minor Changes

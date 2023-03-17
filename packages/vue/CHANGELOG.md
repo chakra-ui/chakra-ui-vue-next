@@ -1,5 +1,148 @@
 # @chakra-ui/vue-next
 
+## 2.1.0-beta.7
+
+### Patch Changes
+
+- 10d19f63: Fix: CInput component v-model type"
+- Updated dependencies [10d19f63]
+  - @chakra-ui/c-input@2.1.0-beta.7
+  - @chakra-ui/c-accordion@2.1.0-beta.7
+  - @chakra-ui/c-alert@2.1.0-beta.7
+  - @chakra-ui/c-avatar@2.1.0-beta.7
+  - @chakra-ui/c-breadcrumb@2.1.0-beta.7
+  - @chakra-ui/c-button@2.1.0-beta.7
+  - @chakra-ui/c-checkbox@2.1.0-beta.7
+  - @chakra-ui/c-close-button@2.1.0-beta.7
+  - @chakra-ui/c-code@2.1.0-beta.7
+  - @chakra-ui/c-color-mode@2.1.0-beta.6
+  - @chakra-ui/c-focus-lock@2.1.0-beta.7
+  - @chakra-ui/c-form-control@2.1.0-beta.7
+  - @chakra-ui/c-icon@2.1.0-beta.7
+  - @chakra-ui/c-image@2.1.0-beta.7
+  - @chakra-ui/c-live-region@2.0.0-beta.4
+  - @chakra-ui/c-media-query@2.1.0-beta.7
+  - @chakra-ui/c-menu@0.0.0-beta.9
+  - @chakra-ui/c-modal@2.1.0-beta.7
+  - @chakra-ui/c-motion@2.1.0-beta.7
+  - @chakra-ui/c-pin-input@2.1.0-beta.7
+  - @chakra-ui/c-popover@0.0.0-beta.3
+  - @chakra-ui/c-popper@2.1.0-beta.6
+  - @chakra-ui/c-portal@2.1.0-beta.7
+  - @chakra-ui/c-reset@2.1.0-beta.7
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.7
+  - @chakra-ui/c-skip-nav@2.1.0-beta.7
+  - @chakra-ui/c-spinner@2.1.0-beta.7
+  - @chakra-ui/c-table@2.0.0-beta.4
+  - @chakra-ui/c-tag@2.1.0-beta.7
+  - @chakra-ui/c-textarea@0.0.0-beta.4
+  - @chakra-ui/c-theme-provider@2.1.0-beta.5
+  - @chakra-ui/c-toast@2.1.0-beta.7
+  - @chakra-ui/c-visually-hidden@2.1.0-beta.7
+  - @chakra-ui/vue-layout@2.1.0-beta.7
+  - @chakra-ui/vue-styled@2.1.0-beta.7
+  - @chakra-ui/vue-system@2.1.0-beta.7
+  - @chakra-ui/vue-utils@2.1.0-beta.6
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.7
+  - @chakra-ui/vue-composables@2.1.0-beta.7
+
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- 8e71c025: Remove toast context log
+- Updated dependencies [8e71c025]
+  - @chakra-ui/c-accordion@2.1.0-beta.6
+  - @chakra-ui/c-alert@2.1.0-beta.6
+  - @chakra-ui/c-avatar@2.1.0-beta.6
+  - @chakra-ui/c-breadcrumb@2.1.0-beta.6
+  - @chakra-ui/c-button@2.1.0-beta.6
+  - @chakra-ui/c-checkbox@2.1.0-beta.6
+  - @chakra-ui/c-close-button@2.1.0-beta.6
+  - @chakra-ui/c-code@2.1.0-beta.6
+  - @chakra-ui/c-color-mode@2.1.0-beta.5
+  - @chakra-ui/c-focus-lock@2.1.0-beta.6
+  - @chakra-ui/c-form-control@2.1.0-beta.6
+  - @chakra-ui/c-icon@2.1.0-beta.6
+  - @chakra-ui/c-image@2.1.0-beta.6
+  - @chakra-ui/c-input@2.1.0-beta.6
+  - @chakra-ui/c-live-region@2.0.0-beta.3
+  - @chakra-ui/c-media-query@2.1.0-beta.6
+  - @chakra-ui/c-menu@0.0.0-beta.8
+  - @chakra-ui/c-modal@2.1.0-beta.6
+  - @chakra-ui/c-motion@2.1.0-beta.6
+  - @chakra-ui/c-pin-input@2.1.0-beta.6
+  - @chakra-ui/c-popover@0.0.0-beta.2
+  - @chakra-ui/c-popper@2.1.0-beta.5
+  - @chakra-ui/c-portal@2.1.0-beta.6
+  - @chakra-ui/c-reset@2.1.0-beta.6
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.6
+  - @chakra-ui/c-skip-nav@2.1.0-beta.6
+  - @chakra-ui/c-spinner@2.1.0-beta.6
+  - @chakra-ui/c-table@2.0.0-beta.3
+  - @chakra-ui/c-tag@2.1.0-beta.6
+  - @chakra-ui/c-textarea@0.0.0-beta.3
+  - @chakra-ui/c-theme-provider@2.1.0-beta.4
+  - @chakra-ui/c-toast@2.1.0-beta.6
+  - @chakra-ui/c-visually-hidden@2.1.0-beta.6
+  - @chakra-ui/vue-layout@2.1.0-beta.6
+  - @chakra-ui/vue-styled@2.1.0-beta.6
+  - @chakra-ui/vue-system@2.1.0-beta.6
+  - @chakra-ui/vue-utils@2.1.0-beta.5
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.6
+  - @chakra-ui/vue-composables@2.1.0-beta.6
+
+## 2.1.0-beta.5
+
+### Minor Changes
+
+- bc95c4d6: Add popover component
+
+### Patch Changes
+
+- e4364213: Fix: Passthrough user-defined type attr for all button/iconbuttons
+- Updated dependencies [bc95c4d6]
+- Updated dependencies [e4364213]
+  - @chakra-ui/c-visually-hidden@2.1.0-beta.5
+  - @chakra-ui/c-theme-provider@2.1.0-beta.3
+  - @chakra-ui/vue-composables@2.1.0-beta.5
+  - @chakra-ui/c-close-button@2.1.0-beta.5
+  - @chakra-ui/c-form-control@2.1.0-beta.5
+  - @chakra-ui/c-media-query@2.1.0-beta.5
+  - @chakra-ui/c-scroll-lock@2.1.0-beta.5
+  - @chakra-ui/c-breadcrumb@2.1.0-beta.5
+  - @chakra-ui/c-color-mode@2.1.0-beta.4
+  - @chakra-ui/c-focus-lock@2.1.0-beta.5
+  - @chakra-ui/c-accordion@2.1.0-beta.5
+  - @chakra-ui/c-pin-input@2.1.0-beta.5
+  - @chakra-ui/c-checkbox@2.1.0-beta.5
+  - @chakra-ui/c-skip-nav@2.1.0-beta.5
+  - @chakra-ui/c-popover@0.0.0-beta.1
+  - @chakra-ui/c-spinner@2.1.0-beta.5
+  - @chakra-ui/c-avatar@2.1.0-beta.5
+  - @chakra-ui/c-button@2.1.0-beta.5
+  - @chakra-ui/c-motion@2.1.0-beta.5
+  - @chakra-ui/c-popper@2.1.0-beta.4
+  - @chakra-ui/c-portal@2.1.0-beta.5
+  - @chakra-ui/vue-accessibilty@2.1.0-beta.5
+  - @chakra-ui/c-alert@2.1.0-beta.5
+  - @chakra-ui/c-image@2.1.0-beta.5
+  - @chakra-ui/c-input@2.1.0-beta.5
+  - @chakra-ui/c-modal@2.1.0-beta.5
+  - @chakra-ui/c-reset@2.1.0-beta.5
+  - @chakra-ui/c-toast@2.1.0-beta.5
+  - @chakra-ui/c-code@2.1.0-beta.5
+  - @chakra-ui/c-icon@2.1.0-beta.5
+  - @chakra-ui/c-menu@0.0.0-beta.7
+  - @chakra-ui/vue-layout@2.1.0-beta.5
+  - @chakra-ui/vue-styled@2.1.0-beta.5
+  - @chakra-ui/vue-system@2.1.0-beta.5
+  - @chakra-ui/c-tag@2.1.0-beta.5
+  - @chakra-ui/vue-utils@2.1.0-beta.4
+  - @chakra-ui/c-textarea@0.0.0-beta.2
+  - @chakra-ui/c-live-region@2.0.0-beta.2
+  - @chakra-ui/c-table@2.0.0-beta.2
+
 ## 2.1.0-beta.4
 
 ### Minor Changes
