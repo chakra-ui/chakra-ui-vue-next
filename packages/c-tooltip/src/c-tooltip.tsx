@@ -8,11 +8,13 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, h, Fragment, PropType } from "vue"
+import { computed, defineComponent, h, Fragment, PropType, watch } from "vue"
 import { TooltipProvider } from "./tooltip.context"
 import { useTooltip, UseTooltipProps } from "./use-tooltip"
 import type * as PP from "@zag-js/popper"
 import { filterUndefined } from "@chakra-ui/utils"
+import { useId } from "@chakra-ui/vue-composables"
+import { useMotions } from "@vueuse/motion"
 
 type UseTooltipPropsContext = UseTooltipProps["context"]
 
@@ -24,9 +26,11 @@ const VueTooltipProps = {
   },
   openDelay: {
     type: Number as PropType<CTooltipProps["openDelay"]>,
+    default: 0,
   },
   closeDelay: {
     type: Number as PropType<CTooltipProps["closeDelay"]>,
+    default: 0,
   },
   closeOnPointerDown: {
     type: Boolean as PropType<CTooltipProps["closeOnPointerDown"]>,
@@ -62,8 +66,16 @@ export const CTooltip = defineComponent({
       emit,
     }))
 
+    const transitionId = useId(undefined, "transition:toolip")
+
     const api = useTooltip(tooltipProps.value)
-    TooltipProvider(api)
+
+    const tooltipApi = computed(() => ({
+      ...api.value,
+      transitionId: transitionId.value,
+    }))
+
+    TooltipProvider(tooltipApi)
     return () => slots?.default?.()
   },
 })
