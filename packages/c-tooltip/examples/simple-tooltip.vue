@@ -32,7 +32,7 @@ const placements = [
       }"
     >
       <c-tooltip-trigger>
-        <c-button> {{ placement }} </c-button>
+        <c-button size="xs" variant="outline"> {{ placement }} </c-button>
       </c-tooltip-trigger>
       <c-tooltip-content>Tooltip content {{ placement }}</c-tooltip-content>
     </c-tooltip>

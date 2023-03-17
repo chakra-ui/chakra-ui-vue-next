@@ -12,6 +12,7 @@ import { computed, defineComponent, h, Fragment, PropType } from "vue"
 import { TooltipProvider } from "./tooltip.context"
 import { useTooltip, UseTooltipProps } from "./use-tooltip"
 import type * as PP from "@zag-js/popper"
+import { filterUndefined } from "@chakra-ui/utils"
 
 type UseTooltipPropsContext = UseTooltipProps["context"]
 
@@ -57,14 +58,12 @@ export const CTooltip = defineComponent({
   emits: ["open", "close"],
   setup(props, { slots, emit }) {
     const tooltipProps = computed<UseTooltipProps>(() => ({
-      context: props,
+      context: filterUndefined(props),
       emit,
     }))
 
     const api = useTooltip(tooltipProps.value)
-
     TooltipProvider(api)
-
     return () => slots?.default?.()
   },
 })

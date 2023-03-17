@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.1.0-beta.6 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.7 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-03-14T07:13:33.703Z
+ * This file was generated on 2023-03-17T15:48:58.710Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -180,6 +180,11 @@ declare module "@vue/runtime-core" {
     CThead: typeof import("@chakra-ui/vue-next")["CThead"]
     CThemeProvider: typeof import("@chakra-ui/vue-next")["CThemeProvider"]
     CToastContainer: typeof import("@chakra-ui/vue-next")["CToastContainer"]
+    CTooltip: typeof import("@chakra-ui/vue-next")["CTooltip"]
+    CTooltipArrow: typeof import("@chakra-ui/vue-next")["CTooltipArrow"]
+    CTooltipContent: typeof import("@chakra-ui/vue-next")["CTooltipContent"]
+    CTooltipPositioner: typeof import("@chakra-ui/vue-next")["CTooltipPositioner"]
+    CTooltipTrigger: typeof import("@chakra-ui/vue-next")["CTooltipTrigger"]
     CTr: typeof import("@chakra-ui/vue-next")["CTr"]
     CUnorderedList: typeof import("@chakra-ui/vue-next")["CUnorderedList"]
     CVStack: typeof import("@chakra-ui/vue-next")["CVStack"]
