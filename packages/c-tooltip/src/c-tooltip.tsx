@@ -8,13 +8,20 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, h, Fragment, PropType, watch } from "vue"
+import {
+  computed,
+  defineComponent,
+  h,
+  Fragment,
+  PropType,
+  watch,
+  mergeProps,
+} from "vue"
 import { TooltipProvider } from "./tooltip.context"
 import { useTooltip, UseTooltipProps } from "./use-tooltip"
 import type * as PP from "@zag-js/popper"
 import { filterUndefined } from "@chakra-ui/utils"
 import { useId } from "@chakra-ui/vue-composables"
-import { useMotions } from "@vueuse/motion"
 
 type UseTooltipPropsContext = UseTooltipProps["context"]
 
@@ -60,7 +67,8 @@ export const CTooltip = defineComponent({
   name: "Tooltip",
   props: VueTooltipProps,
   emits: ["open", "close"],
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
+    console.log(filterUndefined(props))
     const tooltipProps = computed<UseTooltipProps>(() => ({
       context: filterUndefined(props),
       emit,

@@ -6,7 +6,7 @@ import {
   mergeProps,
   withDirectives,
 } from "vue"
-import { useTooltipContext } from "./tooltip.context"
+import { TooltipStylesProvider, useTooltipContext } from "./tooltip.context"
 import {
   HTMLChakraProps,
   ThemingProps,
@@ -49,6 +49,8 @@ export const CTooltipContent = defineComponent({
       ).varRef,
     }))
 
+    TooltipStylesProvider(styles)
+
     /** Handles exit transition */
     const leaveTransition = (el: Element, done: VoidFunction) => {
       const motions = useMotions()
@@ -71,10 +73,10 @@ export const CTooltipContent = defineComponent({
 
     return () => (
       <Teleport to="body">
-        <CTooltipPositioner>
-          <Transition onEnter={enterTransition} onLeave={leaveTransition}>
-            {api.value.isOpen &&
-              withDirectives(
+        <Transition onEnter={enterTransition} onLeave={leaveTransition}>
+          {api.value.isOpen && (
+            <CTooltipPositioner>
+              {withDirectives(
                 <chakra.div
                   __css={contentStyles.value}
                   {...api.value.contentProps}
@@ -84,8 +86,9 @@ export const CTooltipContent = defineComponent({
                 </chakra.div>,
                 [[MotionDirective(TooltipVariants), api.value.transitionId]]
               )}
-          </Transition>
-        </CTooltipPositioner>
+            </CTooltipPositioner>
+          )}
+        </Transition>
       </Teleport>
     )
   },

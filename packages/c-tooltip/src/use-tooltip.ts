@@ -24,7 +24,6 @@ export const useTooltip = (props: UseTooltipProps) => {
       onClose() {
         emit("close")
       },
-      closeDelay: 300,
     })
   )
   return computed(() => connect(state.value, send, normalizeProps))
