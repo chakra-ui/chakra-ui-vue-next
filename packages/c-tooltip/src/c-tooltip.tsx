@@ -16,59 +16,22 @@ import {
   PropType,
   watch,
   mergeProps,
+  watchEffect,
 } from "vue"
 import { TooltipProvider } from "./tooltip.context"
-import { useTooltip, UseTooltipProps } from "./use-tooltip"
+import { UseTooltipProps, useTooltip } from "./use-tooltip"
 import type * as PP from "@zag-js/popper"
 import { filterUndefined } from "@chakra-ui/utils"
 import { useId } from "@chakra-ui/vue-composables"
+import { VueTooltipProps, CTooltipProps } from "./tooltip.props"
 
-type UseTooltipPropsContext = UseTooltipProps["context"]
-
-export type CTooltipProps = UseTooltipPropsContext
-
-const VueTooltipProps = {
-  ids: {
-    type: Object as PropType<CTooltipProps["ids"]>,
-  },
-  openDelay: {
-    type: Number as PropType<CTooltipProps["openDelay"]>,
-    default: 0,
-  },
-  closeDelay: {
-    type: Number as PropType<CTooltipProps["closeDelay"]>,
-    default: 0,
-  },
-  closeOnPointerDown: {
-    type: Boolean as PropType<CTooltipProps["closeOnPointerDown"]>,
-  },
-  closeOnEsc: {
-    type: Boolean as PropType<CTooltipProps["closeOnEsc"]>,
-    default: true,
-  },
-  interactive: {
-    type: Boolean as PropType<CTooltipProps["interactive"]>,
-  },
-  "aria-label": {
-    type: String as PropType<CTooltipProps["aria-label"]>,
-  },
-  positioning: {
-    type: Object as PropType<CTooltipProps["positioning"]>,
-  },
-  disabled: {
-    type: Boolean as PropType<CTooltipProps["disabled"]>,
-  },
-  getRootNode: {
-    type: Function as PropType<CTooltipProps["getRootNode"]>,
-  },
-}
+export type { CTooltipProps }
 
 export const CTooltip = defineComponent({
   name: "Tooltip",
   props: VueTooltipProps,
   emits: ["open", "close"],
   setup(props, { slots, emit, attrs }) {
-    console.log(filterUndefined(props))
     const tooltipProps = computed<UseTooltipProps>(() => ({
       context: filterUndefined(props),
       emit,

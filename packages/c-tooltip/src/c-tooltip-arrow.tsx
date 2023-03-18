@@ -10,9 +10,7 @@ export const CTooltipArrow = defineComponent({
 
     const styles = useStyles()
 
-    const arrowBg = computed(
-      () => attrs.bg ?? attrs.bgColor ?? attrs.backgroundColor
-    )
+    const arrowBg = computed(() => styles.value.bg)
     const arrowShadow = computed(() => attrs.shadow ?? attrs.boxShadow)
 
     return () => (

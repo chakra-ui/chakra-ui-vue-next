@@ -12,3 +12,4 @@ export {
 } from "./use-tooltip"
 export { CTooltipContent, type CTooltipContentProps } from "./c-tooltip-content"
 export { CTooltipTrigger } from "./c-tooltip-trigger"
+export { CSimpleTooltip } from "./c-tooltip-simple"

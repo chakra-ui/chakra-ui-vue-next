@@ -49,7 +49,17 @@ export const CTooltipContent = defineComponent({
       ).varRef,
     }))
 
-    TooltipStylesProvider(styles)
+    const userDefinedBg = computed(
+      () =>
+        attrs.background ?? attrs.backgroundColor ?? attrs.bg ?? attrs.bgColor
+    )
+
+    const tooltipStyles = computed(() => ({
+      ...styles.value,
+      bg: userDefinedBg.value as string | undefined,
+    }))
+
+    TooltipStylesProvider(tooltipStyles)
 
     /** Handles exit transition */
     const leaveTransition = (el: Element, done: VoidFunction) => {
