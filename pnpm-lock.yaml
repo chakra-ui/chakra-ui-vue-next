@@ -931,6 +931,29 @@ importers:
     devDependencies:
       vue: 3.2.47
 
+  packages/c-tooltip:
+    specifiers:
+      '@chakra-ui/c-motion': workspace:*
+      '@chakra-ui/vue-composables': workspace:*
+      '@chakra-ui/vue-system': workspace:*
+      '@chakra-ui/vue-utils': workspace:*
+      '@vueuse/motion': ^1.6.0
+      '@zag-js/popper': ^0.2.5
+      '@zag-js/tooltip': ^0.2.13
+      '@zag-js/vue': ^0.2.10
+      vue: ^3.2.37
+    dependencies:
+      '@chakra-ui/c-motion': link:../c-motion
+      '@chakra-ui/vue-composables': link:../vue-composables
+      '@chakra-ui/vue-system': link:../system
+      '@chakra-ui/vue-utils': link:../utils
+      '@vueuse/motion': 1.6.0_vue@3.2.47
+      '@zag-js/popper': 0.2.5
+      '@zag-js/tooltip': 0.2.13
+      '@zag-js/vue': 0.2.10_vue@3.2.47
+    devDependencies:
+      vue: 3.2.47
+
   packages/c-visually-hidden:
     specifiers:
       '@chakra-ui/vue-system': workspace:*
@@ -1086,7 +1109,7 @@ importers:
       '@chakra-ui/c-input': workspace:*
       '@chakra-ui/c-live-region': workspace:*
       '@chakra-ui/c-media-query': workspace:*
-      '@chakra-ui/c-menu': 0.0.0-beta.6
+      '@chakra-ui/c-menu': 0.0.0-beta.9
       '@chakra-ui/c-modal': workspace:*
       '@chakra-ui/c-motion': workspace:*
       '@chakra-ui/c-pin-input': workspace:*
@@ -1102,6 +1125,7 @@ importers:
       '@chakra-ui/c-textarea': workspace:*
       '@chakra-ui/c-theme-provider': workspace:*
       '@chakra-ui/c-toast': workspace:*
+      '@chakra-ui/c-tooltip': workspace:*
       '@chakra-ui/c-visually-hidden': workspace:*
       '@chakra-ui/styled-system': 2.6.1
       '@chakra-ui/theme': ^2.2.5
@@ -1154,6 +1178,7 @@ importers:
       '@chakra-ui/c-textarea': link:../c-textarea
       '@chakra-ui/c-theme-provider': link:../c-theme-provider
       '@chakra-ui/c-toast': link:../c-toast
+      '@chakra-ui/c-tooltip': link:../c-tooltip
       '@chakra-ui/c-visually-hidden': link:../c-visually-hidden
       '@chakra-ui/styled-system': 2.6.1
       '@chakra-ui/theme': 2.2.5_es2flcfvdj7o2v4vs237ptvmhy
@@ -7358,6 +7383,19 @@ packages:
       '@zag-js/types': 0.3.4
     dev: false
 
+  /@zag-js/tooltip/0.2.13:
+    resolution: {integrity: sha512-S6TxqbWYiNeAbz8w5/Sv/iLZmtUt5hI2VFLE0bksAQH+zDnzuOd43UJmEleba2YPbgy3lM5TCbPVHSeBPzOMcw==}
+    dependencies:
+      '@zag-js/anatomy': 0.1.4
+      '@zag-js/core': 0.2.10
+      '@zag-js/dom-event': 0.0.1
+      '@zag-js/dom-query': 0.1.4
+      '@zag-js/popper': 0.2.5
+      '@zag-js/types': 0.3.4
+      '@zag-js/utils': 0.3.3
+      '@zag-js/visually-hidden': 0.0.1
+    dev: false
+
   /@zag-js/types/0.3.4:
     resolution: {integrity: sha512-KkZOMNqFZA0TaVF70O6WIRJPWTcDyRQjhXLDkLVfo99gwJdsC1bMZWfjrCiR8g1CfzvCyGNSWzdArIgzTJVEMA==}
     dependencies:
@@ -7366,6 +7404,10 @@ packages:
 
   /@zag-js/utils/0.3.3:
     resolution: {integrity: sha512-INNuBcu1+Y5Nxo/PGW51qqkVwBzUCjzO0WjUJDBoqNo8hRs5KsWLcGKdrCayRPaDjNvQetXsUH54LGImUjUHTQ==}
+    dev: false
+
+  /@zag-js/visually-hidden/0.0.1:
+    resolution: {integrity: sha512-wEhubtraCJOPFh3aPcidQWXF7a9O1TG1I48blpGt3XEI9brwpp7Gjjvus5uGkH00s+WziEudy1dv2B0HOTexNA==}
     dev: false
 
   /@zag-js/vue/0.2.10_vue@3.2.47:
