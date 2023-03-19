@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {
-  CTooltip,
+  CTooltipRoot,
   CTooltipTrigger,
   CTooltipContent,
   CTooltipArrow,
@@ -18,7 +18,7 @@ const ChakraIcon = createIcon({
 
 <template>
   <c-h-stack spacing="8">
-    <c-tooltip :positioning="{ placement: 'bottom-start' }">
+    <c-tooltip-root :positioning="{ placement: 'bottom-start' }">
       <c-tooltip-trigger>
         <chakra-icon box-size="8" />
       </c-tooltip-trigger>
@@ -26,6 +26,6 @@ const ChakraIcon = createIcon({
         <c-tooltip-arrow />
         <chakra.span> Chakra UI Vue </chakra.span>
       </c-tooltip-content>
-    </c-tooltip>
+    </c-tooltip-root>
   </c-h-stack>
 </template>

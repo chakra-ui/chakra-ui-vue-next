@@ -1,52 +1,71 @@
-/**
- * Hey! Welcome to @chakra-ui/vue-next CTooltip
- *
- * A tooltip is a brief informative message that appears when a user interacts with an element
- *
- * @see Docs     https://next.vue.chakra-ui.com/c-tooltip
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-tooltip/src/c-tooltip/c-tooltip.ts
- * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
- */
-
 import {
-  computed,
+  PropType,
   defineComponent,
   h,
   Fragment,
-  PropType,
-  watch,
   mergeProps,
-  watchEffect,
+  computed,
 } from "vue"
-import { TooltipProvider } from "./tooltip.context"
-import { UseTooltipProps, useTooltip } from "./use-tooltip"
-import type * as PP from "@zag-js/popper"
-import { filterUndefined } from "@chakra-ui/utils"
-import { useId } from "@chakra-ui/vue-composables"
-import { VueTooltipProps, CTooltipProps } from "./tooltip.props"
 
-export type { CTooltipProps }
+import { getValidChildren, withSingleton } from "@chakra-ui/vue-utils"
+import { CTooltipTrigger } from "./c-tooltip-trigger"
+import { VueTooltipProps, CTooltipPropsBase } from "./tooltip.props"
+import type * as PP from "@zag-js/popper"
+import { CTooltipRoot } from "./c-tooltip-root"
+import { chakra } from "@chakra-ui/vue-system"
+import { CTooltipContent } from "./c-tooltip-content"
+import { CTooltipArrow } from "./c-tooltip-arrow"
+
+export type CTooltipPlacement = PP.Placement
 
 export const CTooltip = defineComponent({
-  name: "Tooltip",
-  props: VueTooltipProps,
+  name: "CTooltip",
+  props: {
+    ...VueTooltipProps,
+    placement: {
+      type: String as PropType<PP.Placement>,
+      default: "bottom",
+    },
+    label: String as PropType<string>,
+    hasArrow: Boolean as PropType<boolean>,
+  },
+  inheritAttrs: false,
   emits: ["open", "close"],
   setup(props, { slots, emit, attrs }) {
-    const tooltipProps = computed<UseTooltipProps>(() => ({
-      context: filterUndefined(props),
-      emit,
-    }))
+    const mergedProps = mergeProps(props, {
+      positioning: {
+        ...props.positioning,
+        placement: props.placement,
+      },
+    })
+    const shouldWrapChildren = computed(
+      () => typeof getValidChildren(slots)?.[0]?.children === "string"
+    )
+    return () => {
+      if (!props.label) return slots.default?.()
+      const { label, hasArrow, ...rest } = mergedProps
 
-    const transitionId = useId(undefined, "transition:toolip")
-
-    const api = useTooltip(tooltipProps.value)
-
-    const tooltipApi = computed(() => ({
-      ...api.value,
-      transitionId: transitionId.value,
-    }))
-
-    TooltipProvider(tooltipApi)
-    return () => slots?.default?.()
+      return (
+        <CTooltipRoot
+          {...rest}
+          onOpen={(...e) => emit("open", ...e)}
+          onClose={(...e) => emit("close", ...e)}
+        >
+          <CTooltipTrigger>
+            {shouldWrapChildren.value ? (
+              <chakra.span display={"inline-block"} tabindex={0}>
+                {slots?.default?.()}
+              </chakra.span>
+            ) : (
+              withSingleton(slots, "CTooltip")
+            )}
+          </CTooltipTrigger>
+          <CTooltipContent {...attrs}>
+            {props.hasArrow && <CTooltipArrow />}
+            {props.label}
+          </CTooltipContent>
+        </CTooltipRoot>
+      )
+    }
   },
 })

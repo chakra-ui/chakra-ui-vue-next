@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CTooltip, CTooltipTrigger, CTooltipContent } from "../src"
+import { CTooltip } from "../src"
 import { CHStack, createIcon } from "../../vue/src"
 
 const VueIcon = createIcon({
@@ -29,23 +29,14 @@ const ChakraIcon = createIcon({
 
 <template>
   <c-h-stack spacing="8">
-    <c-tooltip>
-      <c-tooltip-trigger>
-        <chakra-icon box-size="8" />
-      </c-tooltip-trigger>
-      <c-tooltip-content> Chakra UI </c-tooltip-content>
+    <c-tooltip label="Chakra UI">
+      <chakra-icon box-size="8" />
     </c-tooltip>
-    <c-tooltip>
-      <c-tooltip-trigger>
-        <vue-icon box-size="8" />
-      </c-tooltip-trigger>
-      <c-tooltip-content> Vue </c-tooltip-content>
+    <c-tooltip label="Vue">
+      <vue-icon box-size="8" />
     </c-tooltip>
-    <c-tooltip>
-      <c-tooltip-trigger>
-        <nuxt-icon box-size="8" />
-      </c-tooltip-trigger>
-      <c-tooltip-content> Nuxt </c-tooltip-content>
+    <c-tooltip label="Nuxt">
+      <nuxt-icon box-size="8" />
     </c-tooltip>
   </c-h-stack>
 </template>

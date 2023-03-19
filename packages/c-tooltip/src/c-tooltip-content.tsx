@@ -28,6 +28,7 @@ export type CTooltipContentProps = HTMLChakraProps<"div">
 export const CTooltipContent = defineComponent({
   name: "CTooltipContent",
   props: vueThemingProps,
+  inheritAttrs: false,
   setup(props, { slots, attrs }) {
     const api = useTooltipContext()
 
@@ -83,7 +84,11 @@ export const CTooltipContent = defineComponent({
 
     return () => (
       <Teleport to="body">
-        <Transition onEnter={enterTransition} onLeave={leaveTransition}>
+        <Transition
+          onEnter={enterTransition}
+          onLeave={leaveTransition}
+          css={false}
+        >
           {api.value.isOpen && (
             <CTooltipPositioner>
               {withDirectives(

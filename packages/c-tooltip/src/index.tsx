@@ -1,4 +1,4 @@
-export { CTooltip, type CTooltipProps } from "./c-tooltip"
+export { CTooltipRoot, type CTooltipProps } from "./c-tooltip-root"
 export { CTooltipArrow, type CTooltipArrowProps } from "./c-tooltip-arrow"
 export {
   CTooltipPositioner,
@@ -12,4 +12,4 @@ export {
 } from "./use-tooltip"
 export { CTooltipContent, type CTooltipContentProps } from "./c-tooltip-content"
 export { CTooltipTrigger } from "./c-tooltip-trigger"
-export { CSimpleTooltip } from "./c-tooltip-simple"
+export { CTooltip, type CTooltipPlacement } from "./c-tooltip"

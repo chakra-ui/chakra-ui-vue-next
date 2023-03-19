@@ -18,13 +18,23 @@
       border-color="gray.200"
       padding="4"
     >
-      <c-square box-size="800px">
+      <c-box
+        min-w="800px"
+        min-h="600px"
+        rounded="12px"
+        :border-color="
+          useColorModeValue('blackAlpha.300', 'whiteAlpha.300').value
+        "
+        border-width="1px"
+        border-style="solid"
+        p="8"
+      >
         <router-view v-slot="{ Component, route }">
           <!-- <transition name="fade" mode="out-in"> -->
           <component :is="Component" />
           <!-- </transition> -->
         </router-view>
-      </c-square>
+      </c-box>
       <c-h-stack top="10" right="10" pos="absolute">
         <c-link
           is-external
@@ -58,6 +68,7 @@ import {
   CReset,
   CIconButton,
   useColorMode,
+  useColorModeValue,
 } from "../../packages/vue/src"
 import Sidebar from "./components/Sidebar.vue"
 import { routes } from "./router"
@@ -102,6 +113,7 @@ export default defineComponent({
       colorMode,
       toggleColorMode,
       rootStyles,
+      useColorModeValue,
     }
   },
 })
