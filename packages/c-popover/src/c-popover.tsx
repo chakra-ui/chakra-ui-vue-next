@@ -8,7 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, mergeProps, PropType } from "vue"
+import { computed, defineComponent, mergeProps, PropType, watch } from "vue"
 import { PopoverProvider, PopoverStylesProvider } from "./popover.context"
 import { usePopover, UsePopoverProps } from "./use-popover"
 import { wait } from "./popover.utils"
@@ -105,10 +105,24 @@ export const CPopover = defineComponent({
       const motions = useMotions()
       const instance = motions[transitionId.value]
       requestAnimationFrame(async () => {
+        instance.stopTransitions()
         instance.set("initial")
         await instance.apply("enter")
         done()
       })
+    }
+
+    if (typeof props.isOpen !== "undefined") {
+      watch(
+        () => props.isOpen,
+        (isOpen) => {
+          if (isOpen) {
+            enterTransition(() => {})
+          } else {
+            leaveTransition(() => {})
+          }
+        }
+      )
     }
 
     const api = usePopover(popoverProps.value)

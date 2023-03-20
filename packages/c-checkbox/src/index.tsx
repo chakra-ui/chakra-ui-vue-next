@@ -1,8 +1,8 @@
 export { CCheckbox } from "./checkbox"
 export {
   CCheckboxGroup,
-  CheckboxGroupContext,
   useCheckboxGroupContext,
+  type CheckboxGroupContext,
 } from "./checkbox-group"
 
 export type { CCheckboxControlProps, CCheckboxProps } from "./checkbox"

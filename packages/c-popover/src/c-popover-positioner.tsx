@@ -12,13 +12,10 @@ export const CPopoverPositioner = defineComponent({
     const styles = useStyles()
 
     return () => {
-      const { style, ...positionerProps } = api.value.positionerProps
-      const { opacity, ...styleProps } = style
       return (
         <chakra.div
           __css={styles.value.popper}
-          {...positionerProps}
-          style={styleProps}
+          {...api.value.positionerProps}
           __label="popover__popper"
         >
           <chakra.div {...attrs}>{slots.default?.()}</chakra.div>
