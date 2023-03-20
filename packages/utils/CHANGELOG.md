@@ -1,5 +1,11 @@
 # @chakra-ui/vue-utils
 
+## 2.1.0-beta.7
+
+### Minor Changes
+
+- 1fb11f82: Create `<CTooltip />` component
+
 ## 2.1.0-beta.6
 
 ### Patch Changes

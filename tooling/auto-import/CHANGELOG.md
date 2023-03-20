@@ -1,5 +1,17 @@
 # @chakra-ui/vue-auto-import
 
+## 3.0.0-beta.8
+
+### Minor Changes
+
+- 1fb11f82: Create `<CTooltip />` component
+
+### Patch Changes
+
+- Updated dependencies [1fb11f82]
+  - @chakra-ui/vue-next@2.1.0-beta.8
+  - @chakra-ui/c-theme-provider@2.1.0-beta.6
+
 ## 3.0.0-beta.7
 
 ### Patch Changes
