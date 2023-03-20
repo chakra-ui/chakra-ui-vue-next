@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-pin-input",
   "description": "Chakra UI Vue | The pin input component is similar to the input component but is optimized for entering sequences of digits quickly component",
-  "version": "2.1.0-beta.7",
+  "version": "2.1.0-beta.8",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Shyrro <zsahmane@gmail.com>",

@@ -44,7 +44,8 @@
     "@chakra-ui/c-live-region": "2.0.0-beta.0",
     "@chakra-ui/c-table": "2.0.0-beta.0",
     "@chakra-ui/c-textarea": "0.0.0-beta.0",
-    "@chakra-ui/c-popover": "0.0.0-beta.0"
+    "@chakra-ui/c-popover": "0.0.0-beta.0",
+    "@chakra-ui/c-tooltip": "0.0.0-beta.0"
   },
   "changesets": [
     "beige-ants-beg",
@@ -58,6 +59,7 @@
     "hungry-gifts-visit",
     "kind-parrots-worry",
     "light-deers-attend",
+    "little-maps-watch",
     "loud-dolphins-own",
     "many-steaks-wonder",
     "mighty-files-report",

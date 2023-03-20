@@ -1,5 +1,18 @@
 # @chakra-ui/c-tag
 
+## 2.1.0-beta.8
+
+### Minor Changes
+
+- 1fb11f82: Create `<CTooltip />` component
+
+### Patch Changes
+
+- Updated dependencies [1fb11f82]
+  - @chakra-ui/vue-utils@2.1.0-beta.7
+  - @chakra-ui/c-icon@2.1.0-beta.8
+  - @chakra-ui/vue-system@2.1.0-beta.8
+
 ## 2.1.0-beta.7
 
 ### Patch Changes
