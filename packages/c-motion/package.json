@@ -33,7 +33,7 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "2.6.1",
+    "@chakra-ui/styled-system": "2.6.2",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
