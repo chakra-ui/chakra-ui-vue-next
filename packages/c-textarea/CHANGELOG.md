@@ -1,5 +1,14 @@
 # @chakra-ui/c-textarea
 
+## 0.0.0-beta.6
+
+### Patch Changes
+
+- Updated dependencies [14ac48aa]
+  - @chakra-ui/c-form-control@2.1.0-beta.9
+  - @chakra-ui/vue-system@2.1.0-beta.9
+  - @chakra-ui/vue-utils@2.1.0-beta.8
+
 ## 0.0.0-beta.5
 
 ### Minor Changes
