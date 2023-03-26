@@ -13,7 +13,7 @@ exports[`CAvatarBadge renders badge without parameters 1`] = `
       EY
     </div>
     <div
-      class="chakra-avatar__badge chakra-2b36mb"
+      class="chakra-avatar__badge chakra-173vitc"
     />
   </span>
 </DocumentFragment>
