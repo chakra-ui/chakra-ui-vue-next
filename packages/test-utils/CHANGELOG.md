@@ -1,5 +1,12 @@
 # @chakra-ui/vue-test-utils
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- @chakra-ui/c-color-mode@2.1.0-beta.8
+- @chakra-ui/vue-styled@2.1.0-beta.9
+
 ## 2.1.0-beta.8
 
 ### Minor Changes

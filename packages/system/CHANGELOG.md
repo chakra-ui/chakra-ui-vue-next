@@ -1,5 +1,14 @@
 # @chakra-ui/vue-system
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- 14ac48aa: Feature: Provide default `<c-avatar-badge />` box-size"
+- Updated dependencies [14ac48aa]
+  - @chakra-ui/vue-utils@2.1.0-beta.8
+  - @chakra-ui/c-color-mode@2.1.0-beta.8
+
 ## 2.1.0-beta.8
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-tooltip",
   "description": "Chakra UI Vue | A tooltip is a brief informative message that appears when a user interacts with an element component",
-  "version": "0.0.0-beta.1",
+  "version": "0.0.0-beta.2",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",

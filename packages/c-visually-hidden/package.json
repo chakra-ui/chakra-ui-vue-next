@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-visually-hidden",
   "description": "Chakra UI Vue | A component used in web accessibility to hide content from the visual client but keep it readable for screen readers component",
-  "version": "2.1.0-beta.8",
+  "version": "2.1.0-beta.9",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

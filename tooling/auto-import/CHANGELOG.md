@@ -1,5 +1,12 @@
 # @chakra-ui/vue-auto-import
 
+## 3.0.0-beta.9
+
+### Patch Changes
+
+- Updated dependencies [14ac48aa]
+  - @chakra-ui/vue-next@2.1.0-beta.9
+
 ## 3.0.0-beta.8
 
 ### Minor Changes

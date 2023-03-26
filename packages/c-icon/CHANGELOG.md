@@ -1,5 +1,13 @@
 # @chakra-ui/c-icon
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- Updated dependencies [14ac48aa]
+  - @chakra-ui/vue-system@2.1.0-beta.9
+  - @chakra-ui/vue-utils@2.1.0-beta.8
+
 ## 2.1.0-beta.8
 
 ### Minor Changes

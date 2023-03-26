@@ -1,5 +1,12 @@
 # @chakra-ui/c-live-region
 
+## 2.0.0-beta.6
+
+### Patch Changes
+
+- Updated dependencies [14ac48aa]
+  - @chakra-ui/vue-system@2.1.0-beta.9
+
 ## 2.0.0-beta.5
 
 ### Minor Changes
