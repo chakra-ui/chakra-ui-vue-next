@@ -25,6 +25,7 @@ export {
   useDebouncedRef,
   useRef,
   VueComponentInstance,
+  sortByDomNode,
 } from "./dom"
 export {
   createContext,

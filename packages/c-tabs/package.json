@@ -1,0 +1,53 @@
+{
+  "name": "@chakra-ui/c-tabs",
+  "description": "Chakra UI Vue | An accessible tabs component that provides keyboard interactions and aria attributes described in the wai aria tabs design pattern tabs consist of a tab list with one or more visually separated tabs each tab has associated content and only the selected tab s content is shown component",
+  "version": "2.1.0-beta.0",
+  "author": "Jonathan Bakebwa <codebender828@gmail.com>",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue-next/issues"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist .turbo",
+    "build": "tsup && pnpm build:types",
+    "build:fast": "tsup",
+    "build:types": "tsup src --dts-only",
+    "types:check": "tsc --noEmit",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@chakra-ui/vue-composables": "workspace:*",
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/vue-utils": "workspace:*",
+    "@zag-js/tabs": "^0.2.13",
+    "@zag-js/types": "^0.3.4",
+    "@zag-js/vue": "^0.2.10"
+  },
+  "devDependencies": {
+    "vue": "^3.2.47"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

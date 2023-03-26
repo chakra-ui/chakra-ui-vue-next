@@ -54,6 +54,7 @@
     "@chakra-ui/c-skip-nav": "workspace:*",
     "@chakra-ui/c-spinner": "workspace:*",
     "@chakra-ui/c-table": "workspace:*",
+    "@chakra-ui/c-tabs": "workspace:*",
     "@chakra-ui/c-tag": "workspace:*",
     "@chakra-ui/c-textarea": "workspace:*",
     "@chakra-ui/c-theme-provider": "workspace:*",
