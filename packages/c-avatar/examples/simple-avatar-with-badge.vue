@@ -5,7 +5,7 @@
     loading="lazy"
     icon="add"
   >
-    <c-avatar-badge bg="tomato" border-color="papayawhip" box-size="1.25em" />
+    <c-avatar-badge bg="tomato" border-color="papayawhip" />
   </c-avatar>
 </template>
 
