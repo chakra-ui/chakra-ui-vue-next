@@ -43,6 +43,7 @@ export * from "@chakra-ui/c-motion"
 
 // P
 export * from "@chakra-ui/c-pin-input"
+export * from "@chakra-ui/c-popover"
 export * from "@chakra-ui/c-popper"
 export * from "@chakra-ui/c-portal"
 
@@ -58,6 +59,8 @@ export * from "@chakra-ui/c-scroll-lock"
 export * from "@chakra-ui/c-theme-provider"
 export * from "@chakra-ui/c-tag"
 export * from "@chakra-ui/c-toast"
+export * from "@chakra-ui/c-tooltip"
+export * from "@chakra-ui/c-tabs"
 
 // V
 export * from "@chakra-ui/c-visually-hidden"

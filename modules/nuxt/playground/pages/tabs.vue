@@ -19,13 +19,13 @@
 
 <script lang="ts" setup>
 import { chakra } from "@chakra-ui/vue-next"
-import {
-  CTabs,
-  CTabList,
-  CTab,
-  CTabPanel,
-  CTabPanels,
-  CTabIndicator,
-} from "@chakra-ui/vue-next"
+// import {
+//   CTabs,
+//   CTabList,
+//   CTab,
+//   CTabPanel,
+//   CTabPanels,
+//   CTabIndicator,
+// } from "@chakra-ui/vue-next"
 const value = ref("two")
 </script>
