@@ -32,7 +32,7 @@
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
     "@zag-js/accordion": "0.2.13",
-    "@chakra-ui/styled-system": "2.6.2",
+    "@chakra-ui/styled-system": "2.7.0",
     "@zag-js/vue": "0.2.10"
   },
   "peerDependencies": {
