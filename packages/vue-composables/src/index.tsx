@@ -17,6 +17,11 @@ export { useId, useIds } from "./use-id"
 export { useMediaQuery } from "./use-media-query"
 export { useSupported } from "./use-supported"
 export { useWindowEvent } from "./use-window-event"
+export {
+  createDescendantRegister,
+  Descendant,
+  DescendantAuthority,
+} from "./use-descendant"
 
 export type { UseCounterProps } from "./use-counter"
 export type { UseDisclosureProps } from "./use-disclosure"

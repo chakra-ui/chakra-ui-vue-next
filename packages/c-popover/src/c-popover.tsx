@@ -17,6 +17,7 @@ import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
 import { useMotions } from "@vueuse/motion"
 import { useMultiStyleConfig } from "@chakra-ui/vue-system"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 type PopoverPropsContext = UsePopoverProps["context"]
 
@@ -65,6 +66,7 @@ const VuePopoverProps = {
     type: String as PropType<CPopoverProps["trigger"]>,
     default: "click",
   },
+  ...vueThemingProps,
 }
 
 export const CPopover = defineComponent({

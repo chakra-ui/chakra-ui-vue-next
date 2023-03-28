@@ -1,0 +1,7 @@
+export { CTab, type CTabProps } from "./c-tab"
+export { CTabs, type CTabsProps } from "./c-tabs"
+export { CTabIndicator, type CTabIndicatorProps } from "./c-tab-indicator"
+export { CTabList, type CTabListProps } from "./c-tab-list"
+export { CTabTrigger, type CTabTriggerProps } from "./c-tab-trigger"
+export { CTabPanel, type CTabPanelProps } from "./c-tab-panel"
+export { CTabPanels, type CTabPanelsProps } from "./c-tab-panels"

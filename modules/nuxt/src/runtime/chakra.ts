@@ -2,6 +2,7 @@ import type * as NuxtAppTypes from "nuxt/app"
 import { defineNuxtPlugin, useAppConfig } from "#imports"
 import {
   cookieStorageManagerSSR,
+  localStorageManager,
   ColorModeConstants,
   extendTheme,
   ColorModeScriptProps,
@@ -61,9 +62,9 @@ export default defineNuxtPlugin((nuxtApp) => {
           : ssrColorMode,
       },
     }),
-    colorModeManager: cookieStorageManagerSSR(
-      ColorModeConstants.CookieStorageKey
-    ),
+    colorModeManager: !!ssrColorMode
+      ? cookieStorageManagerSSR(ColorModeConstants.CookieStorageKey)
+      : localStorageManager,
     icons: chakraConfig.icons,
   })
 

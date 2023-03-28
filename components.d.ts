@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.1.0-beta.9 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.10 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-03-28T13:35:59.574Z
+ * This file was generated on 2023-03-28T18:38:28.043Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -169,9 +169,16 @@ declare module "@vue/runtime-core" {
     CStack: typeof import("@chakra-ui/vue-next")["CStack"]
     CStackDivider: typeof import("@chakra-ui/vue-next")["CStackDivider"]
     CStackItem: typeof import("@chakra-ui/vue-next")["CStackItem"]
+    CTab: typeof import("@chakra-ui/vue-next")["CTab"]
+    CTabIndicator: typeof import("@chakra-ui/vue-next")["CTabIndicator"]
+    CTabList: typeof import("@chakra-ui/vue-next")["CTabList"]
+    CTabPanel: typeof import("@chakra-ui/vue-next")["CTabPanel"]
+    CTabPanels: typeof import("@chakra-ui/vue-next")["CTabPanels"]
+    CTabTrigger: typeof import("@chakra-ui/vue-next")["CTabTrigger"]
     CTable: typeof import("@chakra-ui/vue-next")["CTable"]
     CTableCaption: typeof import("@chakra-ui/vue-next")["CTableCaption"]
     CTableContainer: typeof import("@chakra-ui/vue-next")["CTableContainer"]
+    CTabs: typeof import("@chakra-ui/vue-next")["CTabs"]
     CTbody: typeof import("@chakra-ui/vue-next")["CTbody"]
     CTd: typeof import("@chakra-ui/vue-next")["CTd"]
     CText: typeof import("@chakra-ui/vue-next")["CText"]
