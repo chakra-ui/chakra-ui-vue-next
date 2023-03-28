@@ -73,7 +73,7 @@ interface ImageOptions extends NativeImageOptions {
   referrerPolicy?: ReferrerPolicy
 }
 
-export interface CImageProps extends UseImageProps, ImageOptions { }
+export interface CImageProps extends UseImageProps, ImageOptions {}
 
 export const CImage = defineComponent({
   name: "CImage",

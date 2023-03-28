@@ -1,3 +1,4 @@
+import { canUseDOM } from "@chakra-ui/utils"
 import {
   computed,
   unref,
@@ -84,6 +85,7 @@ export function useImage(props: UseImageProps) {
   }
 
   watchPostEffect(() => {
+    if (!canUseDOM()) return
     /**
      * If user opts out of the fallback/placeholder
      * logic, let's bail out.

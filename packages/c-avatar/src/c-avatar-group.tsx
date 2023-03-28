@@ -1,8 +1,5 @@
 /* eslint vue/no-side-effects-in-computed-properties: 0  */
-import {
-  useMultiStyleConfig,
-  chakra,
-} from "@chakra-ui/vue-system"
+import { useMultiStyleConfig, chakra } from "@chakra-ui/vue-system"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
 import {
   getValidChildren,
@@ -45,6 +42,7 @@ export const avatarGroupProps = {
  * CAvatarGroup displays a number of avatars grouped together in a stack.
  */
 export const CAvatarGroup = defineComponent({
+  name: "CAvatarGroup",
   props: avatarGroupProps,
   setup(props, { slots, attrs }) {
     const mergedProps = computed(() => mergeWith({}, props, attrs))
