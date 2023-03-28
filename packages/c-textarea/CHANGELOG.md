@@ -1,5 +1,15 @@
 # @chakra-ui/c-textarea
 
+## 0.0.0-beta.7
+
+### Patch Changes
+
+- 78f0fb00: Fix Avatar Badge SSR bug
+- Updated dependencies [78f0fb00]
+  - @chakra-ui/c-form-control@2.1.0-beta.10
+  - @chakra-ui/vue-system@2.1.0-beta.10
+  - @chakra-ui/vue-utils@2.1.0-beta.9
+
 ## 0.0.0-beta.6
 
 ### Patch Changes
