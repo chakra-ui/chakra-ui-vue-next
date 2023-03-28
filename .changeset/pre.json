@@ -45,7 +45,8 @@
     "@chakra-ui/c-table": "2.0.0-beta.0",
     "@chakra-ui/c-textarea": "0.0.0-beta.0",
     "@chakra-ui/c-popover": "0.0.0-beta.0",
-    "@chakra-ui/c-tooltip": "0.0.0-beta.0"
+    "@chakra-ui/c-tooltip": "0.0.0-beta.0",
+    "@chakra-ui/c-tabs": "2.1.0-beta.0"
   },
   "changesets": [
     "beige-ants-beg",
@@ -74,6 +75,7 @@
     "soft-cycles-sit",
     "spicy-doors-heal",
     "stale-kiwis-shave",
+    "sweet-wolves-lick",
     "tasty-grapes-rhyme",
     "unlucky-beds-walk",
     "unlucky-boats-perform"

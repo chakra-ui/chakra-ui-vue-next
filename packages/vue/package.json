@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-next",
-  "version": "2.1.0-beta.10",
+  "version": "2.1.0-beta.11",
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -42,7 +42,7 @@
     "@chakra-ui/c-input": "workspace:*",
     "@chakra-ui/c-live-region": "workspace:*",
     "@chakra-ui/c-media-query": "workspace:*",
-    "@chakra-ui/c-menu": "0.0.0-beta.12",
+    "@chakra-ui/c-menu": "0.0.0-beta.13",
     "@chakra-ui/c-modal": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
     "@chakra-ui/c-pin-input": "workspace:*",

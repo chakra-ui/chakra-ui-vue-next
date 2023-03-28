@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-tabs",
   "description": "Chakra UI Vue | An accessible tabs component that provides keyboard interactions and aria attributes described in the wai aria tabs design pattern tabs consist of a tab list with one or more visually separated tabs each tab has associated content and only the selected tab s content is shown component",
-  "version": "2.1.0-beta.0",
+  "version": "2.1.0-beta.1",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
