@@ -1,5 +1,11 @@
 # @chakra-ui/c-theme-provider
 
+## 2.1.0-beta.8
+
+### Minor Changes
+
+- 143703ef: Adds CTabs component, Descendant Authority Hook
+
 ## 2.1.0-beta.7
 
 ### Patch Changes

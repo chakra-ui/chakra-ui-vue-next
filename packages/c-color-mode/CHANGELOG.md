@@ -1,5 +1,16 @@
 # @chakra-ui/c-color-mode
 
+## 2.1.0-beta.10
+
+### Minor Changes
+
+- 143703ef: Adds CTabs component, Descendant Authority Hook
+
+### Patch Changes
+
+- Updated dependencies [143703ef]
+  - @chakra-ui/vue-utils@2.1.0-beta.10
+
 ## 2.1.0-beta.9
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 # @chakra-ui/c-avatar
 
+## 2.1.0-beta.11
+
+### Minor Changes
+
+- 143703ef: Adds CTabs component, Descendant Authority Hook
+
+### Patch Changes
+
+- Updated dependencies [143703ef]
+  - @chakra-ui/vue-utils@2.1.0-beta.10
+  - @chakra-ui/c-icon@2.1.0-beta.11
+  - @chakra-ui/c-image@2.1.0-beta.11
+  - @chakra-ui/vue-layout@2.1.0-beta.11
+  - @chakra-ui/vue-system@2.1.0-beta.11
+
 ## 2.1.0-beta.10
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @chakra-ui/vue-auto-import
 
+## 3.0.0-beta.11
+
+### Minor Changes
+
+- 143703ef: Adds CTabs component, Descendant Authority Hook
+
+### Patch Changes
+
+- Updated dependencies [143703ef]
+  - @chakra-ui/vue-next@2.1.0-beta.11
+  - @chakra-ui/c-theme-provider@2.1.0-beta.8
+
 ## 3.0.0-beta.10
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @chakra-ui/c-popper
 
+## 2.1.0-beta.9
+
+### Minor Changes
+
+- 143703ef: Adds CTabs component, Descendant Authority Hook
+
 ## 2.1.0-beta.8
 
 ### Patch Changes
