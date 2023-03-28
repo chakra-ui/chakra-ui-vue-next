@@ -77,6 +77,10 @@ export default defineNuxtModule<ChakraModuleOptions>({
       }
     })
 
+    const { resolve } = createResolver(import.meta.url)
+    const runtimeDir = resolve("./runtime")
+    nuxt.options.build.transpile.push(runtimeDir)
+
     // Transpile
     nuxt.options.build.transpile.push("@chakra-ui/vue-next")
     nuxt.options.build.transpile.push("@emotion/server")
@@ -114,10 +118,6 @@ export default defineNuxtModule<ChakraModuleOptions>({
       cssReset,
       emotionCacheOptions,
     }
-
-    const { resolve } = createResolver(import.meta.url)
-    const runtimeDir = resolve("./runtime")
-    nuxt.options.build.transpile.push(runtimeDir)
 
     // Include all internal lodash modules
     // to the optimized dependencies since they do not

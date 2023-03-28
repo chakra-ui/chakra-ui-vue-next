@@ -84,6 +84,7 @@ export const CAlert = defineComponent({
     )
 
     const themingProps = computed<ThemingProps>(() => ({
+      styleConfig: props.styleConfig,
       colorScheme: colorScheme.value,
       variant: props.variant,
     }))

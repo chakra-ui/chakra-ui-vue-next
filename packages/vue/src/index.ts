@@ -444,8 +444,25 @@ export type { CTableFooterProps } from "@chakra-ui/c-table"
 export type { CTableColumnHeaderProps } from "@chakra-ui/c-table"
 export type { CTHeadProps } from "@chakra-ui/c-table"
 export type { CTableRowProps } from "@chakra-ui/c-table"
-
 export { CTextarea } from "@chakra-ui/c-textarea"
+
+export {
+  CTab,
+  CTabs,
+  CTabIndicator,
+  CTabList,
+  CTabTrigger,
+  CTabPanel,
+  CTabPanels,
+  type CTabProps,
+  type CTabsProps,
+  type CTabIndicatorProps,
+  type CTabListProps,
+  type CTabTriggerProps,
+  type CTabPanelProps,
+  type CTabPanelsProps,
+} from "@chakra-ui/c-tabs"
+
 export type {
   CTextareaNativeProps,
   CTextareaProps,

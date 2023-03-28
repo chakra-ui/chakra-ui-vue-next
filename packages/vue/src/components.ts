@@ -34,6 +34,7 @@ export * from "@chakra-ui/c-input"
 
 // L
 export * from "@chakra-ui/vue-layout"
+export * from "@chakra-ui/c-live-region"
 
 // M
 export * from "@chakra-ui/c-media-query"
@@ -43,10 +44,12 @@ export * from "@chakra-ui/c-motion"
 
 // P
 export * from "@chakra-ui/c-pin-input"
+export * from "@chakra-ui/c-popover"
 export * from "@chakra-ui/c-popper"
 export * from "@chakra-ui/c-portal"
 
 // R
+
 export * from "@chakra-ui/c-reset"
 
 // S
@@ -57,7 +60,11 @@ export * from "@chakra-ui/c-scroll-lock"
 // T
 export * from "@chakra-ui/c-theme-provider"
 export * from "@chakra-ui/c-tag"
+export * from "@chakra-ui/c-textarea"
 export * from "@chakra-ui/c-toast"
+export * from "@chakra-ui/c-tooltip"
+export * from "@chakra-ui/c-table"
+export * from "@chakra-ui/c-tabs"
 
 // V
 export * from "@chakra-ui/c-visually-hidden"
