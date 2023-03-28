@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-tabs chakra-13o7eu2"
+    data-orientation="horizontal"
+    data-part="root"
+    data-scope="tabs"
+    dir="ltr"
+    id="tabs:1"
+  />
+</DocumentFragment>
+`;

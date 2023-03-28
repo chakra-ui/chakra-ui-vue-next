@@ -23,7 +23,7 @@ const value = ref("two")
 <template>
   <chakra.div data-testid="simple-tabs-example">
     <c-stack spacing="5">
-      <c-heading size="md">Tabs - Basic</c-heading>
+      <c-heading size="md">Tabs - with variants</c-heading>
       <c-simple-grid
         template-rows="auto auto"
         template-columns="auto auto"
