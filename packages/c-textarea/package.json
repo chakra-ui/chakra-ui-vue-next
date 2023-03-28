@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-textarea",
   "description": "Chakra UI Vue | The textarea component allows you to easily create multi line text inputs component",
-  "version": "0.0.0-beta.5",
+  "version": "0.0.0-beta.7",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",

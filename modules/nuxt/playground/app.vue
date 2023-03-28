@@ -120,6 +120,67 @@
           <DiscordIcon />
         </c-icon-button>
       </c-button-group>
+      <c-stack>
+        <c-heading as="h3" size="md"> Avatars </c-heading>
+        <c-avatar-group :max="3" size="md">
+          <c-avatar
+            name="Sarah Drasner"
+            src="https://avatars.githubusercontent.com/u/2281088?v=4"
+            alt="Sarah Drasner"
+            :border-color="
+              useColorModeValue(
+                `${selectedColor.color}.50`,
+                `${selectedColor.color}.900`
+              ).value
+            "
+          >
+            <c-avatar-badge
+              bg="green.400"
+              border-width="2px"
+              box-size="0.8em"
+            />
+          </c-avatar>
+          <c-avatar
+            name="Evan You"
+            alt="Evan You"
+            src="https://www.github.com/yyx990803.png"
+            :border-color="
+              useColorModeValue(
+                `${selectedColor.color}.50`,
+                `${selectedColor.color}.900`
+              ).value
+            "
+          >
+            <c-avatar-badge
+              bg="green.400"
+              border-width="2px"
+              box-size="0.8em"
+            />
+          </c-avatar>
+          <c-avatar
+            name="Anthony Fu"
+            src="https://avatars.githubusercontent.com/u/11247099?v=4"
+            alt="Anthony Fu"
+            :border-color="
+              useColorModeValue(
+                `${selectedColor.color}.50`,
+                `${selectedColor.color}.900`
+              ).value
+            "
+          >
+            <c-avatar-badge
+              bg="green.400"
+              border-width="2px"
+              box-size="0.8em"
+            />
+          </c-avatar>
+          <c-avatar
+            name="Maya Shavin"
+            src="https://avatars.githubusercontent.com/u/6650139?v=4"
+            alt="Maya Shavin"
+          ></c-avatar>
+        </c-avatar-group>
+      </c-stack>
     </c-stack>
   </chakra.div>
 </template>

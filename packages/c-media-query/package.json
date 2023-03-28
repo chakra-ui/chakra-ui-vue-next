@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-media-query",
   "description": "Chakra UI Vue | Media query components and composables",
-  "version": "2.1.0-beta.8",
+  "version": "2.1.0-beta.10",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",

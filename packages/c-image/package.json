@@ -1,7 +1,7 @@
 {
   "name": "@chakra-ui/c-image",
   "description": "Chakra UI Vue | Image component",
-  "version": "2.1.0-beta.8",
+  "version": "2.1.0-beta.10",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
@@ -30,7 +30,7 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "2.6.1",
+    "@chakra-ui/styled-system": "2.7.0",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*"

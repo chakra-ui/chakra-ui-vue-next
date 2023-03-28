@@ -1,5 +1,20 @@
 # @chakra-ui/c-color-mode
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- 78f0fb00: Fix Avatar Badge SSR bug
+- Updated dependencies [78f0fb00]
+  - @chakra-ui/vue-utils@2.1.0-beta.9
+
+## 2.1.0-beta.8
+
+### Patch Changes
+
+- Updated dependencies [14ac48aa]
+  - @chakra-ui/vue-utils@2.1.0-beta.8
+
 ## 2.1.0-beta.7
 
 ### Minor Changes

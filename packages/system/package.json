@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue-system",
-  "version": "2.1.0-beta.8",
+  "version": "2.1.0-beta.10",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "description": "Chakra UI Vue | System module",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@chakra-ui/c-color-mode": "workspace:*",
-    "@chakra-ui/styled-system": "2.6.1",
+    "@chakra-ui/styled-system": "2.7.0",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-utils": "workspace:*",
     "@emotion/serialize": "1.1.1",

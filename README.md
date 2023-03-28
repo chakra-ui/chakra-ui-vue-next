@@ -8,8 +8,13 @@ The official working repository for V1 of Chakra UI Vue with Vue 3 support.
 ```bash
 pnpm install
 
+pnpm build
+
+# Start packages dev server
 pnpm dev
 
+
+# In separate terminal
 pnpm playground:dev
 ```
 

@@ -70,6 +70,7 @@ export const CAvatarBadge = defineComponent({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      boxSize: "1em",
       ...(placementMap[props.placement] || {}),
       ...styles.value.badge,
     }))

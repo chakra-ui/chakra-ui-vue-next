@@ -1,5 +1,17 @@
 # @chakra-ui/vue-utils
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- 78f0fb00: Fix Avatar Badge SSR bug
+
+## 2.1.0-beta.8
+
+### Patch Changes
+
+- 14ac48aa: Feature: Provide default `<c-avatar-badge />` box-size"
+
 ## 2.1.0-beta.7
 
 ### Minor Changes
