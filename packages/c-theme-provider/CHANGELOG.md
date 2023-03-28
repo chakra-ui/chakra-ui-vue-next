@@ -1,5 +1,11 @@
 # @chakra-ui/c-theme-provider
 
+## 2.1.0-beta.7
+
+### Patch Changes
+
+- 78f0fb00: Fix Avatar Badge SSR bug
+
 ## 2.1.0-beta.6
 
 ### Minor Changes

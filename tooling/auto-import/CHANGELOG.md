@@ -1,5 +1,14 @@
 # @chakra-ui/vue-auto-import
 
+## 3.0.0-beta.10
+
+### Patch Changes
+
+- 78f0fb00: Fix Avatar Badge SSR bug
+- Updated dependencies [78f0fb00]
+  - @chakra-ui/c-theme-provider@2.1.0-beta.7
+  - @chakra-ui/vue-next@2.1.0-beta.10
+
 ## 3.0.0-beta.9
 
 ### Patch Changes
