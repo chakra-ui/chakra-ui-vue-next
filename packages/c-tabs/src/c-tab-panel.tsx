@@ -9,7 +9,7 @@ import {
   type PropType,
   defineComponent,
 } from "vue"
-import { useTabsContext } from "./tabs.context"
+import { useTabsContext, useTabsStyles } from "./tabs.context"
 import type { connect } from "@zag-js/tabs"
 
 type GetContentProps = Parameters<
@@ -34,11 +34,14 @@ export const CTabPanel = defineComponent({
   },
   setup(props, { attrs, slots }) {
     const api = useTabsContext()
+    const styles = useTabsStyles()
 
     return () => (
       <chakra.div
         as={props.as}
         {...api.value.getContentProps({ value: props.value })}
+        __label="tabs__tabpanel"
+        __css={styles.value.tabpanel}
         {...attrs}
       >
         {slots.default?.()}

@@ -1,16 +1,18 @@
 import {
-  HTMLChakraProps,
+  type HTMLChakraProps,
   chakra,
   type DOMElements,
+  type SystemStyleObject,
 } from "@chakra-ui/vue-system"
 import {
   defineComponent,
   type Component,
   type DefineComponent,
   type PropType,
+  computed,
 } from "vue"
-import { CTabTrigger, CTabTriggerProps } from "./c-tab-trigger"
-import { useTabsContext } from "./tabs.context"
+import { CTabTrigger, type CTabTriggerProps } from "./c-tab-trigger"
+import { useTabsContext, useTabsStyles } from "./tabs.context"
 
 export type CTabProps = HTMLChakraProps<"div">
 export const CTab = defineComponent({
@@ -31,10 +33,22 @@ export const CTab = defineComponent({
     },
   },
   setup(props, { attrs, slots }) {
-    const api = useTabsContext()
+    const styles = useTabsStyles()
+    const tabStyles = computed<SystemStyleObject>(() => ({
+      outline: "0",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      ...styles.value.tab,
+    }))
 
     return () => (
-      <CTabTrigger {...props} {...attrs}>
+      <CTabTrigger
+        {...props}
+        {...attrs}
+        __label="tabs__tab"
+        __css={tabStyles.value}
+      >
         <chakra.button>{slots.default?.()}</chakra.button>
       </CTabTrigger>
     )

@@ -1,6 +1,10 @@
-import { HTMLChakraProps, chakra } from "@chakra-ui/vue-system"
-import { defineComponent, watchEffect } from "vue"
-import { useTabsContext } from "./tabs.context"
+import {
+  HTMLChakraProps,
+  SystemStyleObject,
+  chakra,
+} from "@chakra-ui/vue-system"
+import { computed, defineComponent, watchEffect } from "vue"
+import { useTabsContext, useTabsStyles } from "./tabs.context"
 
 export type CTabListProps = HTMLChakraProps<"div">
 
@@ -12,8 +16,20 @@ export const CTabList = defineComponent({
   setup(_, { attrs, slots }) {
     const api = useTabsContext()
 
+    const styles = useTabsStyles()
+
+    const tablistStyles = computed<SystemStyleObject>(() => ({
+      display: "flex",
+      ...styles.value.tablist,
+    }))
+
     return () => (
-      <chakra.div {...api.value.tablistProps} {...attrs}>
+      <chakra.div
+        __label="tabs__tablist"
+        __css={tablistStyles.value}
+        {...api.value.tablistProps}
+        {...attrs}
+      >
         {slots.default?.()}
       </chakra.div>
     )

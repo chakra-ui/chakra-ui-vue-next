@@ -74,11 +74,19 @@ import {
   type DefineComponent,
   ref,
   Ref,
+  mergeProps,
 } from "vue"
-import { chakra, DOMElements, HTMLChakraProps } from "@chakra-ui/vue-system"
+import {
+  chakra,
+  DOMElements,
+  HTMLChakraProps,
+  useMultiStyleConfig,
+} from "@chakra-ui/vue-system"
 import { tabsProps } from "./tabs.props"
 import { TabsContext, UseTabsProps, useTabs } from "./use-tabs"
-import { CTabsProvider } from "./tabs.context"
+import { CTabsProvider, CTabsStylesProvider } from "./tabs.context"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { filterUndefined } from "@chakra-ui/utils"
 
 export interface CTabsProps
   extends HTMLChakraProps<"div">,
@@ -94,23 +102,39 @@ export const CTabs = defineComponent({
       default: "div",
     },
     ...tabsProps,
+    ...vueThemingProps,
   },
-  emits: ["change", "focus", "delete"],
+  emits: ["change", "focus", "delete", "update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const tabs = ref<Ref<HTMLElement | null>[]>([])
-    const panels = ref<Ref<HTMLElement | null>[]>([])
-
     const tabsProps = computed<UseTabsProps>(() => ({
       context: props,
       defaultValue: props.modelValue,
       emit,
     }))
-
     const api = useTabs(tabsProps.value)
-
     CTabsProvider(api)
+
+    const themingProps = computed(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+
+    // Styles
+    const styles = useMultiStyleConfig("Tabs", themingProps)
+    CTabsStylesProvider(styles)
+
     return () => (
-      <chakra.div as={props.as} {...api.value.rootProps} {...attrs}>
+      <chakra.div
+        __label="tabs"
+        as={props.as}
+        {...api.value.rootProps}
+        __css={styles.value.root}
+        {...attrs}
+      >
         {slots.default?.()}
       </chakra.div>
     )
