@@ -1,21 +1,6 @@
-<script setup lang="ts">
-import { ref } from "vue"
-import { chakra } from "../../vue/src"
-import {
-  CTabs,
-  CTabList,
-  CTab,
-  CTabPanel,
-  CTabPanels,
-  CTabIndicator,
-} from "../src"
-
-const value = ref("two")
-</script>
-
 <template>
   <chakra.div data-testid="simple-tabs-example">
-    <c-tabs v-model="value">
+    <c-tabs default-value="two">
       <c-tab-list>
         <c-tab value="one"> Item One </c-tab>
         <c-tab value="two"> Item Two </c-tab>
@@ -31,3 +16,15 @@ const value = ref("two")
     </c-tabs>
   </chakra.div>
 </template>
+
+<script lang="ts" setup>
+import { chakra } from "@chakra-ui/vue-next"
+import {
+  CTabs,
+  CTabList,
+  CTab,
+  CTabPanel,
+  CTabPanels,
+  CTabIndicator,
+} from "../../../../packages/c-tabs/src"
+</script>

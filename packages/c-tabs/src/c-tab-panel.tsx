@@ -34,6 +34,7 @@ export const CTabPanel = defineComponent({
   },
   setup(props, { attrs, slots }) {
     const api = useTabsContext()
+
     return () => (
       <chakra.div
         as={props.as}

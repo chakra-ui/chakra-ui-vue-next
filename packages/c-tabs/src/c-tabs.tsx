@@ -7,6 +7,62 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-tabs/src/c-tabs/c-tabs.ts
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
+// =============================================================================
+/**
+ *
+ * MAINTAINERS' NOTE:
+ *
+ * Hi there! Friendly contributors!
+ *
+ * With V2 of Chakra UI Vue, we decided to go with more explicit
+ * approach to render the tabs component. In v0, we dynamically
+ * computed the tabs and panels indices and would use that to
+ * create a tab index that can be used to track the currently
+ * active tab.
+ *
+ * What advantages did this bring?
+ * 1) Less code is written by the end user. They don't have to
+ *    worry about the index of the tab.
+ * 2) Just mount the tabs, and we show the first tab.
+ *
+ * What about the cons of implicit tabs?
+ * 1) It's not SSR friendly. We can't render the tabs on the server
+ *    since the tabs have not been mounted in the DOM. Even if we
+ *    were to render on the server, we would have to re-render the
+ *    tabs and re-compute the tab indices on the client-side. This
+ *    results in double work. Because the rendering is implicit, we also
+ *    do not know whether a given tab will possess a given index both
+ *    the server-side and the client.
+ *
+ *    Consequently, we decided to go with an explicit approach to
+ *    rendering the tabs to preserve SSR friendliness,
+ *    and ease of maintenance.
+ *
+ * 2) Limited degrees of control of the visible tab in the parent scope.
+ *    The highest degree of control the consumer has without computing
+ *    tab indices is to use the `index` prop to control the visible tab.
+ *    But this STILL will require the user to manually do some computation.
+ *
+ * About Explicit Tabs
+ * -------------------
+ * Explicit tabs declarations in v2 are different from implicit declarations
+ * in that the user has to declare the tabs and panel values explicitly.
+ * The result is a more verbose syntax, but in the end, it presents a more robust
+ * and flexible API.
+ *
+ * These are the current advantages:
+ * 1) SSR friendly. With this approach, we can render a tab using SSR.
+ * 2) We can use the `modelValue` prop to implement two-way binding.
+ * 3) The consumer can dynamically update the value of the tab without
+ *    having to worry about the index, and is this, a more explicit pattern.
+ * 4) Exposes control of the visible tab to the parent component. (e.g. use router
+ *    params to control the visible tab with out computing tab indices.)
+ *
+ * Disadvantages:
+ * 1) Verbose API.
+ *
+ * Well, there you have it.
+ */
 
 import {
   defineComponent,
@@ -16,23 +72,13 @@ import {
   computed,
   type Component,
   type DefineComponent,
-  watchEffect,
-  onMounted,
   ref,
   Ref,
 } from "vue"
 import { chakra, DOMElements, HTMLChakraProps } from "@chakra-ui/vue-system"
 import { tabsProps } from "./tabs.props"
 import { TabsContext, UseTabsProps, useTabs } from "./use-tabs"
-import {
-  CTabsProvider,
-  // registerTabsAuthority,
-  // registerTabsDescendant,
-  // useTabsAuthority,
-  // tabsAuthority,
-} from "./tabs.context"
-import { createDescendantRegister } from "@chakra-ui/vue-composables"
-import { sortByDomNode, unrefElement } from "@chakra-ui/vue-utils"
+import { CTabsProvider } from "./tabs.context"
 
 export interface CTabsProps
   extends HTMLChakraProps<"div">,
@@ -56,60 +102,15 @@ export const CTabs = defineComponent({
 
     const tabsProps = computed<UseTabsProps>(() => ({
       context: props,
-      defaultValue: props.defaultValue,
+      defaultValue: props.modelValue,
       emit,
     }))
 
-    const selectedIndex = ref<number>(0)
-    const tabsApi = useTabs(tabsProps.value)
-
-    watchEffect(() => {
-      console.log("c-tabs", {
-        tabs: tabs.value,
-        panels: panels.value,
-      })
-    })
-
-    onMounted(() => {
-      if (!api.value.value) {
-      }
-    })
-
-    const api = computed(() => ({
-      ...tabsApi.value,
-      tabs: computed(() => tabs),
-      panels: computed(() => panels),
-      registerTab(tab: (typeof tabs)["value"][number]) {
-        if (tabs.value.includes(tab)) return
-        let activeTab = tabs.value[selectedIndex.value!]
-
-        tabs.value.push(tab)
-        tabs.value = sortByDomNode(tabs.value, unrefElement)
-
-        let localSelectedIndex =
-          tabs.value.indexOf(activeTab) ?? selectedIndex.value
-        if (localSelectedIndex !== -1) {
-          selectedIndex.value = localSelectedIndex
-        }
-      },
-      unregisterTab(tab: (typeof tabs)["value"][number]) {
-        let idx = tabs.value.indexOf(tab)
-        if (idx !== -1) tabs.value.splice(idx, 1)
-      },
-      registerPanel(panel: (typeof panels)["value"][number]) {
-        if (panels.value.includes(panel)) return
-        panels.value.push(panel)
-        panels.value = sortByDomNode(panels.value, unrefElement)
-      },
-      unregisterPanel(panel: (typeof panels)["value"][number]) {
-        let idx = panels.value.indexOf(panel)
-        if (idx !== -1) panels.value.splice(idx, 1)
-      },
-    }))
+    const api = useTabs(tabsProps.value)
 
     CTabsProvider(api)
     return () => (
-      <chakra.div as={props.as} {...tabsApi.value.rootProps} {...attrs}>
+      <chakra.div as={props.as} {...api.value.rootProps} {...attrs}>
         {slots.default?.()}
       </chakra.div>
     )

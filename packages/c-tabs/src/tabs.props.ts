@@ -8,12 +8,12 @@ type UseTabsPropsContext = UseTabsProps["context"]
 
 export interface CTabsProps
   extends Assign<HTMLChakraProps<"div">, UseTabsPropsContext> {
-  defaultValue?: UseTabsProps["defaultValue"]
+  modelValue?: UseTabsProps["defaultValue"]
 }
 
 export const tabsProps = {
-  defaultValue: {
-    type: String as PropType<CTabsProps["defaultValue"]>,
+  modelValue: {
+    type: String as PropType<CTabsProps["modelValue"]>,
   },
   orientation: {
     type: String as PropType<CTabsProps["orientation"]>,

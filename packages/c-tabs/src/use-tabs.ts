@@ -20,6 +20,7 @@ export const useTabs = (props: UseTabsProps) => {
       value: defaultValue,
       onChange(details) {
         emit("change", details)
+        emit("update:modelValue", details.value)
       },
       onFocus(details) {
         emit("focus", details)

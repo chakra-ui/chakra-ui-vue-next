@@ -24,7 +24,7 @@ export interface CTabsAuthorityContext {
 }
 export type CTabsContext = UseTabsReturn
 export const [CTabsProvider, useTabsContext] = createContext<
-  ComputedRef<ReturnType<typeof connect> & CTabRegistryContext>
+  ComputedRef<ReturnType<typeof connect>>
 >({
   name: "CTabsContext",
   strict: true,

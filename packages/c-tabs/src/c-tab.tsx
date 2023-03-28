@@ -8,14 +8,9 @@ import {
   type Component,
   type DefineComponent,
   type PropType,
-  watchEffect,
-  onMounted,
-  onUnmounted,
 } from "vue"
 import { CTabTrigger, CTabTriggerProps } from "./c-tab-trigger"
 import { useTabsContext } from "./tabs.context"
-import { useId } from "@chakra-ui/vue-composables"
-import { useRef } from "@chakra-ui/vue-utils"
 
 export type CTabProps = HTMLChakraProps<"div">
 export const CTab = defineComponent({
@@ -36,15 +31,11 @@ export const CTab = defineComponent({
     },
   },
   setup(props, { attrs, slots }) {
-    const [ref, refEl] = useRef()
-
     const api = useTabsContext()
-    onMounted(() => api.value.registerTab(refEl))
-    onUnmounted(() => api.value.unregisterTab(refEl))
 
     return () => (
       <CTabTrigger {...props} {...attrs}>
-        <chakra.button ref={ref}>{slots.default?.()}</chakra.button>
+        <chakra.button>{slots.default?.()}</chakra.button>
       </CTabTrigger>
     )
   },
