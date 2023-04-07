@@ -66,7 +66,9 @@ export default defineConfig({
           if (name in ChakraComponents) {
             return {
               importName: name,
-              path: path.resolve(__dirname, "./packages/vue/src"),
+              path: path
+                .resolve(__dirname, "./packages/vue/src")
+                .replace(/\\/g, "/"),
             }
           }
         },
