@@ -824,6 +824,23 @@ importers:
       '@types/body-scroll-lock': 2.6.2
       vue: 3.2.47
 
+  packages/c-select:
+    specifiers:
+      '@chakra-ui/c-form-control': workspace:*
+      '@chakra-ui/utils': 2.0.14
+      '@chakra-ui/vue-next': workspace:*
+      '@chakra-ui/vue-system': workspace:*
+      '@chakra-ui/vue-utils': workspace:*
+      vue: ^3.2.37
+    dependencies:
+      '@chakra-ui/c-form-control': link:../c-form-control
+      '@chakra-ui/utils': 2.0.14
+      '@chakra-ui/vue-next': link:../vue
+      '@chakra-ui/vue-system': link:../system
+      '@chakra-ui/vue-utils': link:../utils
+    devDependencies:
+      vue: 3.2.47
+
   packages/c-skip-nav:
     specifiers:
       '@chakra-ui/styled-system': 2.7.0
