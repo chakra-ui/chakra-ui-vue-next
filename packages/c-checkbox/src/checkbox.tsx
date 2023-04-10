@@ -25,7 +25,7 @@ import {
   ThemingProps,
   SystemProps,
 } from "@chakra-ui/styled-system"
-import { SNAO, vueThemingProps, getValidChildren } from "@chakra-ui/vue-utils"
+import { SNAO, vueThemingProps, getValidChildren, genId } from "@chakra-ui/vue-utils"
 import { HTMLChakraProps } from "@chakra-ui/vue-system"
 import * as checkbox from "@zag-js/checkbox"
 import { normalizeProps, useMachine, mergeProps } from "@zag-js/vue"
@@ -179,9 +179,9 @@ export const CCheckbox = defineComponent({
       mergedProps as CFormControlProviderContext
     )
 
-    const id = useId(props.id)
+    const id = genId()
     const [rootId, inputId, controlId, labelId] = useIds(
-      `chakra-checkbox-${id.value}`,
+      `chakra-checkbox-${id}`,
       "root",
       "input",
       "control",
@@ -221,7 +221,7 @@ export const CCheckbox = defineComponent({
     })
 
     const context = computed<checkbox.Context>(() => ({
-      id: id.value,
+      id,
       ids: {
         root: rootId.value,
         input: inputId.value,
