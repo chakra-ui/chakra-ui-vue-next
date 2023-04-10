@@ -13,39 +13,29 @@ import {
   defineComponent,
   PropType,
   computed,
-  toRefs,
-  reactive,
-  ref,
   onMounted,
   Fragment,
   cloneVNode,
   watch,
 } from "vue"
-import {
-  chakra,
-  useMultiStyleConfig,
-} from "@chakra-ui/vue-system"
+import { chakra, useMultiStyleConfig } from "@chakra-ui/vue-system"
 import {
   omitThemingProps,
   SystemStyleObject,
   ThemingProps,
-  SystemProps
+  SystemProps,
 } from "@chakra-ui/styled-system"
-import { SNAO, vueThemingProps, getValidChildren, } from "@chakra-ui/vue-utils"
-import {
-  ComponentWithProps,
-  HTMLChakraProps,
-} from "@chakra-ui/vue-system"
+import { SNAO, vueThemingProps, getValidChildren } from "@chakra-ui/vue-utils"
+import { HTMLChakraProps } from "@chakra-ui/vue-system"
 import * as checkbox from "@zag-js/checkbox"
 import { normalizeProps, useMachine, mergeProps } from "@zag-js/vue"
-import { useIds } from "@chakra-ui/vue-composables"
+import { useId, useIds } from "@chakra-ui/vue-composables"
 import { filterUndefined, mergeWith, pick } from "@chakra-ui/utils"
 import {
   CFormControlProviderContext,
   useFormControlContext,
 } from "@chakra-ui/c-form-control"
 import { CheckboxIcon } from "./checkbox-icon"
-import { genId } from "@chakra-ui/vue-utils"
 import { CheckboxGroupContext, useCheckboxGroupContext } from "./checkbox-group"
 
 /**
@@ -119,8 +109,8 @@ export interface CCheckboxControlProps {
 
 export interface CCheckboxProps
   extends HTMLChakraProps<"input">,
-  ThemingProps<"Checkbox">,
-  CCheckboxControlProps {
+    ThemingProps<"Checkbox">,
+    CCheckboxControlProps {
   /**
    * The spacing between the checkbox and its label text
    * @default 0.5rem
@@ -189,7 +179,7 @@ export const CCheckbox = defineComponent({
       mergedProps as CFormControlProviderContext
     )
 
-    const id = genId()
+    const id = props.id || useId().value
     const [rootId, inputId, controlId, labelId] = useIds(
       `chakra-checkbox-${id}`,
       "root",
@@ -231,7 +221,7 @@ export const CCheckbox = defineComponent({
     })
 
     const context = computed<checkbox.Context>(() => ({
-      id: id,
+      id,
       ids: {
         root: rootId.value,
         input: inputId.value,
@@ -243,12 +233,7 @@ export const CCheckbox = defineComponent({
 
     const [state, send] = useMachine(
       // @ts-ignore
-      checkbox.machine({
-        id: "chakra-ui-checkbox-machine",
-      }),
-      {
-        context,
-      }
+      checkbox.machine({ id, ...context.value })
     )
 
     const api = computed(() =>
@@ -298,6 +283,16 @@ export const CCheckbox = defineComponent({
         }
       }
     )
+
+    watch(
+      () => props.isIndeterminate,
+      (value) => {
+        if (api.value && !api.value.isReadOnly) {
+          api.value.setIndeterminate(value!)
+        }
+      }
+    )
+
     watch(
       () => props.modelValue,
       (value) => {
