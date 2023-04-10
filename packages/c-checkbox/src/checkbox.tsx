@@ -179,9 +179,9 @@ export const CCheckbox = defineComponent({
       mergedProps as CFormControlProviderContext
     )
 
-    const id = props.id || useId().value
+    const id = useId(props.id)
     const [rootId, inputId, controlId, labelId] = useIds(
-      `chakra-checkbox-${id}`,
+      `chakra-checkbox-${id.value}`,
       "root",
       "input",
       "control",
@@ -221,7 +221,7 @@ export const CCheckbox = defineComponent({
     })
 
     const context = computed<checkbox.Context>(() => ({
-      id,
+      id: id.value,
       ids: {
         root: rootId.value,
         input: inputId.value,
@@ -233,7 +233,7 @@ export const CCheckbox = defineComponent({
 
     const [state, send] = useMachine(
       // @ts-ignore
-      checkbox.machine({ id, ...context.value })
+      checkbox.machine({ ...context.value })
     )
 
     const api = computed(() =>
