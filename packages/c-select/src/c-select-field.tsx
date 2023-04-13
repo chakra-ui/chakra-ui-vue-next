@@ -12,6 +12,7 @@ export interface SelectFieldProps
 }
 
 export const CSelectField = defineComponent({
+  name: "CSelectField",
   props: {
     placeholder: String as PropType<SelectFieldProps["placeholder"]>,
   },

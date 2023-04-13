@@ -83,6 +83,7 @@ export interface CSelectProps
 }
 
 export const CSelect = defineComponent({
+  name: "CSelect",
   props: {
     color: String,
     placeholder: String,
@@ -137,6 +138,7 @@ export const CSelect = defineComponent({
 })
 
 const CSelectIcon = defineComponent({
+  name: "CSelectIcon",
   setup(_, { attrs }) {
     return () => (
       <chakra.div
