@@ -14,6 +14,7 @@ import {
   h,
   mergeProps,
   PropType,
+  reactive,
   SVGAttributes,
   ToRefs,
   toRefs,
@@ -28,7 +29,12 @@ import {
   ThemingProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
-import { Assign, vueThemingProps, withSingleton } from "@chakra-ui/vue-utils"
+import {
+  Assign,
+  SAO,
+  vueThemingProps,
+  withSingleton,
+} from "@chakra-ui/vue-utils"
 import { FormControlOptions, useFormControl } from "@chakra-ui/c-form-control"
 
 import { CSelectField, SelectFieldProps } from "./c-select-field"
@@ -75,11 +81,6 @@ export interface CSelectProps
    * Props to forward to the root `div` element
    */
   rootProps?: RootProps
-  /**
-   * The icon element to use in the select
-   * @type React.ReactElement
-   */
-  icon?: VNode
 }
 
 export const CSelect = defineComponent({
@@ -87,17 +88,19 @@ export const CSelect = defineComponent({
   props: {
     color: String,
     placeholder: String,
-    iconColor: String,
+    iconColor: String as PropType<CSelectProps["iconColor"]>,
+    isDisabled: Boolean as PropType<CSelectProps["isDisabled"]>,
+    isInvalid: Boolean as PropType<CSelectProps["isInvalid"]>,
+    focusBorderColor: SAO as PropType<CSelectProps["focusBorderColor"]>,
+    errorBorderColor: SAO as PropType<CSelectProps["errorBorderColor"]>,
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
     const styles = useMultiStyleConfig("Select", props)
 
-    const formControlProps = computed(() => toRefs(omitThemingProps(props)))
+    const ownProps = computed(() => toRefs(reactive(omitThemingProps(props))))
 
-    const fieldProps = useFormControl(
-      formControlProps.value as ToRefs<SelectFieldProps>
-    )
+    const fieldProps = useFormControl(ownProps.value)
 
     const rootStyles: SystemStyleObject = {
       width: "100%",
@@ -111,7 +114,7 @@ export const CSelect = defineComponent({
       ...styles.value.field,
       _focus: {
         zIndex: "unset",
-        ...(styles as any).field?.["_focus"],
+        ...(styles as any).value.field?.["_focus"],
       },
     }
 
@@ -122,6 +125,7 @@ export const CSelect = defineComponent({
         <CSelectField
           placeholder={props.placeholder}
           __css={fieldStyles}
+          {...fieldProps.value}
           {...attrs}
         >
           {slots.default?.()}
