@@ -3,11 +3,11 @@
   "version": "2.1.0-beta.11",
   "description": "Vue 3 compatible version of Chakra UI Vue",
   "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/vue",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
     "prepublish": "clean-package",
-"postpublish": "clean-package restore",
+    "postpublish": "clean-package restore",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {

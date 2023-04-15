@@ -6,6 +6,7 @@
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
   "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"

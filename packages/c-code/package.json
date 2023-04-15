@@ -3,6 +3,7 @@
   "description": "Chakra UI Vue | Code is a component used to display inline code. It is composed from the Box component with a font family of mono for displaying code",
   "version": "2.1.0-beta.11",
   "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",

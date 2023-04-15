@@ -3,6 +3,7 @@
   "description": "Chakra UI Vue | Breadcrumbs help users visualize their current location in relation to the rest of the website or application by showing the hierarchy of pages component",
   "version": "2.1.0-beta.11",
   "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",

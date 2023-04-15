@@ -13,8 +13,6 @@
     ]
   },
   "scripts": {
-    "dev": "concurrently \"pnpm turbo:dev\" \"pnpm playground:dev\"",
-    "turbo:dev": "turbo run dev",
     "clean": "pnpm -r --parallel run clean",
     "prebuild": "pnpm clean",
     "build": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils}",
@@ -26,8 +24,7 @@
     "build:fast": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
     "postbuild:fast": "pnpm pkgs:size",
     "scaffold": "hygen generator",
-    "preplaygound:dev": "node ./scripts/dev.js",
-    "playground:dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
+    "dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
     "preplaygound:build": "node ./scripts/dev.js",
     "playground:build": "pnpm install && cross-env NODE_ENV=production vite build playground --config ./vite.config.ts",
     "cy:open": "cypress open",
@@ -61,7 +58,9 @@
     "process:packages": "pnpm jiti ./scripts/process-packages.ts process-packages",
     "pkgs:size": "pnpm jiti ./scripts/plugins/size-packages.ts",
     "version": "changeset version",
-    "release": "changeset publish",
+    "prepublish": "pnpm -r --filter=!chakra-ui-vue-next prepublish",
+    "postpublish": "pnpm -r --filter=!chakra-ui-vue-next postpublish",
+    "release": "pnpm prepublish && changeset publish",
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset pre exit && changeset version --snapshot dev && changeset publish --tag dev"
   },

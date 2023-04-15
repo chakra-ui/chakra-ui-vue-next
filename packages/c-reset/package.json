@@ -3,7 +3,7 @@
   "description": "Chakra UI Vue | Chakra ui vue s lobal styles reset component component",
   "version": "2.1.0-beta.11",
   "main": "./index.ts",
-
+  "clean-package": "../../clean-package.config.json",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
     "prepublish": "clean-package",
-"postpublish": "clean-package restore",
+    "postpublish": "clean-package restore",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {

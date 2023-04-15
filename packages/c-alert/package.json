@@ -1,8 +1,9 @@
 {
   "name": "@chakra-ui/c-alert",
   "version": "2.1.0-beta.11",
-  "main": "index.ts",
-  "types": "index.ts",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "files": [
     "dist"
   ],

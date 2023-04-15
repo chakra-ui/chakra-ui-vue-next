@@ -6,11 +6,11 @@
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
   "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
@@ -26,8 +26,8 @@
     "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
     "prepublish": "clean-package",
-"postpublish": "clean-package restore"
-},
+    "postpublish": "clean-package restore"
+  },
   "dependencies": {
     "@chakra-ui/c-motion": "workspace:*",
     "@chakra-ui/vue-composables": "workspace:*",
