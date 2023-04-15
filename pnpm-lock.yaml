@@ -92,6 +92,7 @@ importers:
       chalk: ^5.2.0
       change-case: ^4.1.1
       chokidar: ^3.5.1
+      clean-package: ^2.2.0
       concurrently: ^5.3.0
       consola: ^2.15.3
       cross-env: ^7.0.2
@@ -319,6 +320,8 @@ importers:
       vue-router: 4.1.6_vue@3.2.47
       vue3-perfect-scrollbar: 1.6.1
       yargs: 17.6.2
+    devDependencies:
+      clean-package: 2.2.0
 
   modules/nuxt:
     specifiers:
@@ -8963,6 +8966,13 @@ packages:
       source-map: 0.6.1
     dev: false
 
+  /clean-package/2.2.0:
+    resolution: {integrity: sha512-vLv8kRqvh4smPDpqAYFPLEijTppAd/cfCz4yBcUGoVl/JKu6ZWKhlo+G/cAmwlSa29RudfBeuyiNEzas8bTwEQ==}
+    hasBin: true
+    dependencies:
+      dot-prop: 6.0.1
+    dev: true
+
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
@@ -10407,6 +10417,13 @@ packages:
     dependencies:
       is-obj: 2.0.0
     dev: false
+
+  /dot-prop/6.0.1:
+    resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
+    engines: {node: '>=10'}
+    dependencies:
+      is-obj: 2.0.0
+    dev: true
 
   /dot-prop/7.2.0:
     resolution: {integrity: sha512-Ol/IPXUARn9CSbkrdV4VJo7uCy1I3VuSiWCaFSg+8BdUOzF9n3jefIpcgAydvUZbTdEBZs2vEiTiS9m61ssiDA==}
@@ -13970,7 +13987,6 @@ packages:
   /is-obj/2.0.0:
     resolution: {integrity: sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==}
     engines: {node: '>=8'}
-    dev: false
 
   /is-object/1.0.2:
     resolution: {integrity: sha512-2rRIahhZr2UWb45fIOuvZGpFtz0TyOZLf32KxBbSoUCeZR495zCKlWUKKUByk3geS2eAs7ZAABt0Y/Rx0GiQGA==}

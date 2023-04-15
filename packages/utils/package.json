@@ -1,18 +1,12 @@
 {
   "name": "@chakra-ui/vue-utils",
   "version": "2.1.0-beta.10",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "./index.ts",
   "description": "Chakra UI Vue | Utils module",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/utils",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
   "license": "MIT",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
+
   "scripts": {
     "clean": "rimraf dist .turbo",
     "build": "tsup && pnpm build:types",

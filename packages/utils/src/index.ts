@@ -1,4 +1,4 @@
-export {
+export type {
   AnyFn,
   Arrayable,
   DeepMaybeRef,
@@ -14,17 +14,17 @@ export { camelCase } from "./string"
 export { canUseDOM } from "./configurable"
 export {
   contains,
-  DebouncedRef,
+  type DebouncedRef,
   defaultDocument,
   defaultLocation,
   defaultNavigator,
   defaultWindow,
-  MaybeElementRef,
-  TemplateRef,
+  type MaybeElementRef,
+  type TemplateRef,
   unrefElement,
   useDebouncedRef,
   useRef,
-  VueComponentInstance,
+  type VueComponentInstance,
   sortByDomNode,
 } from "./dom"
 export {
@@ -36,7 +36,7 @@ export {
   transformComposableProps,
 } from "./vue-utils"
 export { debounce } from "./timers"
-export { extractStyleAttrs, StyleAndHTMLAttibutes } from "./attrs"
+export { extractStyleAttrs, type StyleAndHTMLAttibutes } from "./attrs"
 export { Focus, focusElement, focusIn, FocusResult } from "./focus"
 export { genId } from "./generate-id"
 export { getSelector } from "./dom-query"

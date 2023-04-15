@@ -239,5 +239,8 @@
         "vue"
       ]
     }
+  },
+  "devDependencies": {
+    "clean-package": "^2.2.0"
   }
 }

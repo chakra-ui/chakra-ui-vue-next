@@ -1,5 +1,5 @@
 export {
-  AlertVariant,
+  type AlertVariant,
   CAlert,
   CAlertDescription,
   CAlertIcon,

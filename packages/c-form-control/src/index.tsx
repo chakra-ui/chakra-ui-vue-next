@@ -4,7 +4,7 @@ export {
   formControlProps,
 } from "./c-form-control"
 export {
-  CFormControlProviderContext,
+  type CFormControlProviderContext,
   FormControlProvider,
   useFormControl,
   useFormControlContext,

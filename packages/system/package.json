@@ -1,8 +1,7 @@
 {
   "name": "@chakra-ui/vue-system",
   "version": "2.1.0-beta.11",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "index.ts",
   "description": "Chakra UI Vue | System module",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/system",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
@@ -10,12 +9,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
   "scripts": {
     "clean": "rimraf dist .turbo",
     "build": "tsup && pnpm build:types",
