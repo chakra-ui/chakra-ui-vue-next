@@ -5,7 +5,6 @@
   "files": [
     "dist"
   ],
-
   "description": "Chakra UI Vue | CAccordion component",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-accordion",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
@@ -16,7 +15,8 @@
     "build:fast": "tsup",
     "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch"
+    "prepublish": "clean-package",
+    "postpublish": "clean-package restore"
   },
   "dependencies": {
     "@chakra-ui/c-icon": "workspace:*",

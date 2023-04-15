@@ -10,7 +10,6 @@
   "files": [
     "dist"
   ],
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
@@ -25,7 +24,8 @@
     "build:fast": "tsup",
     "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch"
+    "prepublish": "clean-package",
+    "postpublish": "clean-package restore"
   },
   "dependencies": {
     "@chakra-ui/c-close-button": "workspace:*",

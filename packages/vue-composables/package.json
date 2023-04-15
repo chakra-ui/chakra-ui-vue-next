@@ -9,7 +9,6 @@
   "files": [
     "dist"
   ],
-
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +22,8 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
+    "prepublish": "clean-package",
+    "postpublish": "clean-package restore",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
