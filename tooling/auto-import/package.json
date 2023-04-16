@@ -16,8 +16,8 @@
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
     "build:types": "tsc --baseUrl . --outDir dist --rootDir . --emitDeclarationOnly --declarationMap",
-    "prepublish": "clean-package",
-    "postpublish": "clean-package restore"
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore"
   },
   "publishConfig": {
     "access": "public"

@@ -25,8 +25,8 @@
     "build:fast": "tsup",
     "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
-    "prepublish": "clean-package",
-    "postpublish": "clean-package restore"
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore"
   },
   "dependencies": {
     "@chakra-ui/c-close-button": "workspace:*",

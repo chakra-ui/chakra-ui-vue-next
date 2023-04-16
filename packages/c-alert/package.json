@@ -16,8 +16,8 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "prepublish": "clean-package",
-    "postpublish": "clean-package restore",
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
