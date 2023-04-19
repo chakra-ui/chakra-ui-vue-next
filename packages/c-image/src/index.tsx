@@ -1,7 +1,7 @@
 export { CImage } from "./c-image"
 export { CImg } from "./c-img"
 export {
-  FallbackStrategy,
+  type FallbackStrategy,
   shouldShowFallbackImage,
   useImage,
 } from "./use-image"

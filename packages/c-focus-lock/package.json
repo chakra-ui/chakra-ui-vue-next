@@ -2,20 +2,14 @@
   "name": "@chakra-ui/c-focus-lock",
   "description": "Chakra UI Vue | A component to trap focus within a dom element it is useful for modals dialogs and popovers component",
   "version": "2.1.0-beta.11",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -29,7 +23,8 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {

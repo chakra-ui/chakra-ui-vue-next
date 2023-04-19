@@ -2,15 +2,15 @@ export {
   AppColorModeContextSymbol,
   CDarkMode,
   CLightMode,
-  ColorModeContext,
-  ColorModeRef,
+  type ColorModeContext,
+  type ColorModeRef,
   setupColorModeContext,
   useColorMode,
   useColorModeValue,
 } from "./color-mode-provider"
 export {
   ColorModeConstants,
-  ColorModeScriptProps,
+  type ColorModeScriptProps,
   getScriptSrc,
   mountColorModeScript,
 } from "./color-mode-script"

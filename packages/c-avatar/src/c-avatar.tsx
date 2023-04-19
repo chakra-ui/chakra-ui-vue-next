@@ -202,7 +202,7 @@ export const CAvatar = defineComponent({
       } else if (props.icon) {
         return match(typeof props.icon as any, {
           string: h(createIconComponent(props.icon as string) as any),
-          object: h(props.icon),
+          object: h(props.icon as any),
         })
       }
 

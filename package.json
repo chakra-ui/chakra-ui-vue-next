@@ -13,21 +13,18 @@
     ]
   },
   "scripts": {
-    "dev": "concurrently \"pnpm turbo:dev\" \"pnpm playground:dev\"",
-    "turbo:dev": "turbo run dev",
     "clean": "pnpm -r --parallel run clean",
-    "prebuild": "pnpm clean",
+    "prebuild": "pnpm clean && pnpm replace-config",
     "build": "turbo run build --filter=!./examples/* --filter=!{./packages/test-utils}",
     "build:dev": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
     "build:ci": "pnpm build --concurrency=5",
     "postbuild:ci": "pnpm pkgs:size",
     "build:types": "jiti scripts/generate-global-types.ts",
-    "postbuild": "pnpm build:types && pnpm pkgs:size",
+    "postbuild": "pnpm build:types && pnpm pkgs:size && pnpm backup-config",
     "build:fast": "turbo run build:fast --filter=!./examples/* --filter=!{./packages/test-utils}",
     "postbuild:fast": "pnpm pkgs:size",
     "scaffold": "hygen generator",
-    "preplaygound:dev": "node ./scripts/dev.js",
-    "playground:dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
+    "dev": "cross-env NODE_ENV=development vite serve playground --config ./vite.config.ts --open",
     "preplaygound:build": "node ./scripts/dev.js",
     "playground:build": "pnpm install && cross-env NODE_ENV=production vite build playground --config ./vite.config.ts",
     "cy:open": "cypress open",
@@ -61,9 +58,11 @@
     "process:packages": "pnpm jiti ./scripts/process-packages.ts process-packages",
     "pkgs:size": "pnpm jiti ./scripts/plugins/size-packages.ts",
     "version": "changeset version",
-    "release": "changeset publish",
+    "replace-config": "pnpm -r --filter=!chakra-ui-vue-next replace-config",
+    "backup-config": "pnpm -r --filter=!chakra-ui-vue-next backup-config",
+    "release": "pnpm replace-config && changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset pre exit && changeset version --snapshot dev && changeset publish --tag dev"
+    "release:dev": "changeset pre exit && changeset version --snapshot dev && pnpm replace-config && changeset publish --tag dev"
   },
   "license": "MIT",
   "private": true,
@@ -208,7 +207,7 @@
     "ts-node": "^9.0.0",
     "tsup": "^6.5.0",
     "turbo": "^1.7.0",
-    "typescript": "5.0.0-beta",
+    "typescript": "^5.0.0",
     "unplugin-vue-components": "^0.14.0",
     "unplugin-vue-jsx": "0.1.2",
     "vite": "4",
@@ -239,5 +238,8 @@
         "vue"
       ]
     }
+  },
+  "devDependencies": {
+    "clean-package": "^2.2.0"
   }
 }
