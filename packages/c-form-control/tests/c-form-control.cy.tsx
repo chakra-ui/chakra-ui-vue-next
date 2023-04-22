@@ -10,7 +10,7 @@ import {
   useFormControl,
 } from "../src"
 import * as Examples from "../examples"
-import { CInput } from "@chakra-ui/c-input"
+import { CInput } from "../../c-input"
 
 describe("FormControl Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
@@ -25,7 +25,7 @@ const render = (props: any = {}) => {
     return h(() => (
       <CFormControl id="name" {...props}>
         <CFormLabel>Name</CFormLabel>
-        <CInput placeholder="Name" />
+        <CInput id="name" placeholder="Name" />
         <CFormHelperText>Enter your name please!</CFormHelperText>
         <CFormErrorMessage>Your name is invalid</CFormErrorMessage>
       </CFormControl>
@@ -51,7 +51,7 @@ describe("<CFormControl />", () => {
       return h(() => (
         <CFormControl id="name">
           <CFormLabel>Name</CFormLabel>
-          <CInput placeholder="Name" />
+          <CInput id="name" placeholder="Name" />
           <CFormHelperText>Enter your name please!</CFormHelperText>
           <CFormErrorMessage data-testid="message">
             <CFormErrorIcon data-testid="icon" />
@@ -69,7 +69,7 @@ describe("<CFormControl />", () => {
       return h(() => (
         <CFormControl id="other-name">
           <CFormLabel>Name</CFormLabel>
-          <CInput placeholder="Name" />
+          <CInput id="other-name" placeholder="Name" />
           <CFormHelperText>Enter your name please!</CFormHelperText>
           <CFormErrorMessage>Your name is invalid</CFormErrorMessage>
         </CFormControl>
@@ -92,6 +92,7 @@ describe("<CFormControl />", () => {
         <CFormControl id="other-name">
           <CFormLabel>Name</CFormLabel>
           <CInput
+            id="other-name"
             placeholder="Name"
             data-testid="input"
             onFocus={onFocus}
@@ -115,12 +116,12 @@ describe("<CFormControl />", () => {
 
   // Here attrsibtutes a re renderedn correctly in DOM but not in
   // test environment. Not sure why
-  it.skip("has the proper aria-attibutes", () => {
+  it("has the proper aria-attibutes", () => {
     cy.mount(() => {
       return h(() => (
         <CFormControl id="name">
           <CFormLabel> First name </CFormLabel>
-          <CInput data-testid="input" placeholder="First Name" />
+          <CInput id="name" data-testid="input" placeholder="First Name" />
           <CFormHelperText> Keep it very short and sweet! </CFormHelperText>
         </CFormControl>
       ))
@@ -129,8 +130,8 @@ describe("<CFormControl />", () => {
     cy.get('[data-testid="input"]')
       .should("have.attr", "aria-describedby", "helptext-name")
       .should("not.have.attr", "aria-invalid")
-      .should("not.have.attr", "aria-required")
-      .should("not.have.attr", "aria-readonly")
+    cy.get('[data-testid="input"]').should("not.have.attr", "aria-required")
+    cy.get('[data-testid="input"]').should("not.have.attr", "aria-readonly")
   })
 })
 
