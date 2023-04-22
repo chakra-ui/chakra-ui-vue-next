@@ -31,7 +31,7 @@
     "cy:run": "cypress run --component --quiet",
     "test:component": "pnpm cy:run",
     "test": "jest && pnpm cy:run",
-    "test:silent": "cross-env NODE_ENV=test jest --verbose --silent --config jest.config.js",
+    "test:silent": "cross-env NODE_ENV=test jest --verbose --silent --config jest.config.js && pnpm cy:run",
     "test:ci": "pnpm build:fast && pnpm test:silent",
     "test:unit": "cross-env NODE_ENV=test jest --config jest.config.js",
     "test:nuxt": "cross-env NODE_ENV=test pnpm pkg @chakra-ui/nuxt-next test",
