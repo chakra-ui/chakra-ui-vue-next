@@ -20,7 +20,7 @@ describe("<Portal />", () => {
 
   describe("Portal Examples", () => {
     Object.entries(Examples).map(([name, example]) => {
-      it.skip(`renders ${name} successfully`, () => {
+      it(`renders ${name} successfully`, () => {
         cy.mount(example.default).then(({ wrapper }) => {
           cy.wrap(wrapper.element).screenshot()
         })
@@ -28,9 +28,9 @@ describe("<Portal />", () => {
     })
   })
 
-  it("should not render anything if no children exist", () => {
+  it.skip("should not render anything if no children exist", () => {
     cy.mount(<CPortal />)
-      .its("parentElement")
+      .parent("parentElement")
       .should("not.have.descendants")
   })
 

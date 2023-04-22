@@ -3,7 +3,7 @@
     <c-v-stack>
       <chakra.div>value: {{ input }}</chakra.div>
       <pre>{{ input }}</pre>
-      <c-input v-model="input" data-testid="input" />
+      <c-input v-model="input" placeholder="greeting" data-testid="input" />
     </c-v-stack>
   </chakra.div>
 </template>
