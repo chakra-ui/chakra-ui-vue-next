@@ -1,4 +1,4 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../@types/cypress" />
 
 import * as Examples from "../examples"
 import { h, Fragment } from "vue"
@@ -35,11 +35,11 @@ describe("<Portal />", () => {
   })
 
   it("should create default target for default children", () => {
-    cy.mount(
+    cy.mount(() => (
       <CPortal>
         <div data-testid="provided-content">Child Content</div>
       </CPortal>
-    )
+    ))
       .get("[data-testid=provided-content]")
       .should("exist")
       .and("contain.text", "Child Content")

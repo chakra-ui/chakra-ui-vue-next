@@ -1,4 +1,4 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../@types/cypress" />
 
 import { h, Fragment, ref } from "vue"
 import {

@@ -4,6 +4,7 @@ export type {
   ComponentWithProps2,
   HTMLChakraProps,
   PropsOf,
+  ChakraProps,
   Tag,
 } from "./system.types"
 export {
@@ -49,7 +50,6 @@ export {
 } from "./emotion"
 
 export type { BaseStyleResolverProps, StyleResolverProps } from "./chakra"
-export type { ChakraProps } from "./system.types"
 
 export {
   defineStyleConfig,

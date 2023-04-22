@@ -1,4 +1,4 @@
 import "./components"
-import "./cypress-shims"
+import "./cypress"
 import "./env"
 import "./vue-shims"

@@ -1,4 +1,4 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../@types/cypress" />
 
 import { h } from "vue"
 import { CButtonGroup, CButton } from "../src"

@@ -31,7 +31,6 @@
     "declarationMap": true,
   },
   "include": [
-    "cypress/support/index.ts",
     "packages/**/*.vue",
     "packages/**/*.json",
     "packages/**/*.ts",
@@ -45,17 +44,15 @@
     "playground/**/*.d.ts",
     "playground/**/*.vue",
     "playground/**/*.json",
-    "tests/index.d.ts",
     "**/*.d.ts",
-    "vite.config.ts", "packages/nuxt/src/runtime/chakra.client.template.jst",
+    "cypress.d.ts",
+    "vite.config.ts",
+    "packages/nuxt/src/runtime/chakra.client.template.jst",
   ],
   "exclude": [
     "node_modules",
     "./@types",
     "dist",
-    // "packages/**/*.test.ts",
-    // "**/*.cy.tsx",
-    "cypress/**/*.(ts|tsx)",
   ],
   "ts-node": {
     "compilerOptions": {

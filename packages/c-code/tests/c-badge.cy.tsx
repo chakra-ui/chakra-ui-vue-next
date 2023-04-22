@@ -1,4 +1,4 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../@types/cypress" />
 import * as Examples from "../examples"
 
 describe("Badge Examples", () => {

@@ -1,4 +1,4 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../@types/cypress" />
 import { h, ref } from "vue"
 
 import { CAvatar } from "../src"

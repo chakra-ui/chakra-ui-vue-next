@@ -22,22 +22,13 @@ import "./commands"
 // require('./commands')
 
 import { mount } from "cypress/vue"
-import Chakra, {
-  chakra,
-  extendTheme,
-  extendChakra,
-  CReset,
-} from "../../packages/vue"
-import { mode } from "@chakra-ui/theme-tools"
+import { createChakra, chakra, extendTheme } from "../../packages/vue"
 import { feActivity, feUser } from "feather-icons-paths"
-import { h, Fragment, defineComponent } from "vue"
-
-import { domElements } from "../../packages/system"
 
 import { MotionPlugin } from "@vueuse/motion"
 import "./env"
 
-const chakraOptions = extendChakra({
+const chakra = createChakra({
   cssReset: true,
   icons: {
     library: {
@@ -56,13 +47,8 @@ Cypress.Commands.add("mount", (component, options = {}) => {
   options.global.plugins.push({
     install(app) {
       app.use(MotionPlugin)
-      app.use(Chakra, chakraOptions)
+      app.use(chakra)
     },
-  })
-
-  domElements.forEach((tag) => {
-    // @ts-ignore
-    options.global.components[`chakra?.${tag}`] = chakra(tag)
   })
 
   // <component> is a built-in component that comes with Vue
