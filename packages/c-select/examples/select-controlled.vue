@@ -2,7 +2,7 @@
 import { ref } from "vue"
 import { CSelect } from "../src"
 
-const value = ref("")
+const value = ref("Option 2")
 </script>
 
 <template>

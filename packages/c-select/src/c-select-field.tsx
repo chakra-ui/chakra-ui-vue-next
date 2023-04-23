@@ -16,10 +16,22 @@ export const CSelectField = defineComponent({
   props: {
     placeholder: String as PropType<CSelectFieldProps["placeholder"]>,
     isDisabled: Boolean as PropType<CSelectFieldProps["isDisabled"]>,
+    modelValue: [String, Number] as PropType<string | number>,
   },
-  setup(props, { slots, attrs }) {
+  emits: ["update:modelValue"],
+  setup(props, { slots, attrs, emit }) {
+    function handleChangeValue(e: Event) {
+      emit("update:modelValue", (e.target as HTMLSelectElement)?.value)
+    }
+
     return () => (
-      <chakra.select __label="select" disabled={props.isDisabled} {...attrs}>
+      <chakra.select
+        __label="select"
+        value={props.modelValue}
+        onChange={handleChangeValue}
+        disabled={props.isDisabled}
+        {...attrs}
+      >
         {props.placeholder && <option value="">{props.placeholder}</option>}
         {slots.default?.()}
       </chakra.select>

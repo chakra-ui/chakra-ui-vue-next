@@ -1,6 +1,6 @@
 import { Component } from "vue"
 import { CFormControl } from "../../c-form-control/index"
-import { render, testA11y } from "../../test-utils/src"
+import { render, testA11y } from "@chakra-ui/vue-test-utils"
 import { CSelect } from "../src"
 
 const renderComponent = (options?: Component) =>
@@ -19,7 +19,7 @@ const renderComponent = (options?: Component) =>
 
 describe("CSelect", () => {
   it("should render properly", () => {
-    const { asFragment } = render(CSelect)
+    const { asFragment } = render(<CSelect />)
     expect(asFragment()).toMatchSnapshot()
   })
 

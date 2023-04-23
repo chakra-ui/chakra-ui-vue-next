@@ -1,7 +1,7 @@
 import { defineConfig } from "cypress"
 
 export default defineConfig({
-  projectId: 'rb8e7m',
+  projectId: "rb8e7m",
   video: false,
   fixturesFolder: false,
   reporter: "spec",

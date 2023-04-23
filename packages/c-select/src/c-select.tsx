@@ -8,7 +8,15 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, h, PropType, reactive, toRefs } from "vue"
+import {
+  computed,
+  defineComponent,
+  Fragment,
+  h,
+  PropType,
+  reactive,
+  toRefs,
+} from "vue"
 import {
   chakra,
   HTMLChakraProps,
@@ -76,43 +84,54 @@ export const CSelect = defineComponent({
     isInvalid: Boolean as PropType<CSelectProps["isInvalid"]>,
     focusBorderColor: SAO as PropType<CSelectProps["focusBorderColor"]>,
     errorBorderColor: SAO as PropType<CSelectProps["errorBorderColor"]>,
+    modelValue: [String, Number] as PropType<string | number>,
     ...vueThemingProps,
   },
-  setup(props, { slots, attrs }) {
+  emits: ["update:modelValue"],
+  setup(props, { slots, attrs, emit }) {
     const styles = useMultiStyleConfig("Select", props)
 
     const ownProps = computed(() => toRefs(reactive(omitThemingProps(props))))
 
     const fieldProps = useFormControl(ownProps.value)
 
-    const rootStyles: SystemStyleObject = {
+    function handleChangeValue(e: Event) {
+      emit("update:modelValue", (e.target as HTMLSelectElement)?.value)
+    }
+
+    const rootStyles = computed(() => ({
       width: "100%",
       height: "fit-content",
       position: "relative",
       color: props.color,
-    }
+    }))
 
-    const fieldStyles: SystemStyleObject = {
+    const fieldStyles = computed(() => ({
       paddingEnd: "2rem",
       ...styles.value.field,
       _focus: {
         zIndex: "unset",
         ...(styles as any).value.field?.["_focus"],
       },
-    }
+    }))
 
     const iconColor = computed(() => props.iconColor ?? props.color)
 
     return () => (
-      <chakra.div __css={rootStyles}>
-        <CSelectField
-          placeholder={props.placeholder}
-          __css={fieldStyles}
+      <chakra.div __css={rootStyles.value}>
+        <chakra.select
+          __label="select"
+          __css={fieldStyles.value}
           {...fieldProps.value}
           {...attrs}
+          value={props.modelValue}
+          onChange={handleChangeValue}
         >
-          {slots.default?.()}
-        </CSelectField>
+          <Fragment>
+            {props.placeholder && <option value="">{props.placeholder}</option>}
+            {slots.default?.()}
+          </Fragment>
+        </chakra.select>
         <CSelectIcon
           data-disabled={fieldProps.value.disabled}
           {...fieldProps.value}
