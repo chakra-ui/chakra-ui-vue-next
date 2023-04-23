@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-04-22T14:04:49.473Z
+ * This file was generated on 2023-04-23T09:31:15.297Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -103,6 +103,7 @@ declare module "@vue/runtime-core" {
     CDrawerOverlay: typeof import("@chakra-ui/vue-next")["CDrawerOverlay"]
     CFlex: typeof import("@chakra-ui/vue-next")["CFlex"]
     CFocusLock: typeof import("@chakra-ui/vue-next")["CFocusLock"]
+    CFormControl: typeof import("@chakra-ui/vue-next")["CFormControl"]
     CFormErrorIcon: typeof import("@chakra-ui/vue-next")["CFormErrorIcon"]
     CFormErrorMessage: typeof import("@chakra-ui/vue-next")["CFormErrorMessage"]
     CFormHelperText: typeof import("@chakra-ui/vue-next")["CFormHelperText"]
