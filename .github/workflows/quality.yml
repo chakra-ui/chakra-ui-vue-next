@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Component Tests
         run:
-          pnpm test:ci && pnpm cy:run --component --record --key
+          pnpm test:ci && pnpm cy:run --component --key
           $CYPRESS_COMPONENT_TESTING_KEY
         env:
           CYPRESS_COMPONENT_TESTING_KEY:

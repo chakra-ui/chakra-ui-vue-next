@@ -1140,6 +1140,25 @@ importers:
         specifier: 3.2.47
         version: 3.2.47
 
+  packages/c-select:
+    dependencies:
+      '@chakra-ui/c-form-control':
+        specifier: workspace:*
+        version: link:../c-form-control
+      '@chakra-ui/vue-next':
+        specifier: workspace:*
+        version: link:../vue
+      '@chakra-ui/vue-system':
+        specifier: workspace:*
+        version: link:../system
+      '@chakra-ui/vue-utils':
+        specifier: workspace:*
+        version: link:../utils
+    devDependencies:
+      vue:
+        specifier: ^3.2.37
+        version: 3.2.47
+
   packages/c-skip-nav:
     dependencies:
       '@chakra-ui/styled-system':
@@ -18501,6 +18520,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
+      browserslist: 4.21.4
       postcss: 8.4.21
       postcss-value-parser: 4.2.0
 

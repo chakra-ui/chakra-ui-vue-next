@@ -20,8 +20,7 @@ import {
 } from "vue"
 import {
   chakra,
-  DOMElements,
-  HTMLChakraProps,
+  type HTMLChakraProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
 import { ThemingProps, omitThemingProps } from "@chakra-ui/styled-system"
@@ -31,6 +30,7 @@ import {
   useFormControl,
 } from "@chakra-ui/c-form-control"
 import { SAO, vueThemingProps } from "@chakra-ui/vue-utils"
+import { filterUndefined } from "@chakra-ui/utils"
 
 interface InputOptions {
   /**
@@ -57,12 +57,12 @@ interface InputOptions {
 
 type Omitted = "disabled" | "required" | "readOnly" | "size"
 
-interface CInputNativeProps extends InputOptions, FormControlOptions {}
+interface CInputNativeProps extends InputOptions, FormControlOptions { }
 
 export interface CInputProps
   extends Omit<HTMLChakraProps<"span">, Omitted>,
-    CInputNativeProps,
-    ThemingProps<"Input"> {
+  CInputNativeProps,
+  ThemingProps<"Input"> {
   modelValue: string
 }
 
@@ -80,7 +80,7 @@ export const CInput = defineComponent({
   setup(props, { emit, attrs }) {
     const styles = useMultiStyleConfig("Input", props)
     const ownProps = computed(() =>
-      toRefs(reactive(omitThemingProps(props as ThemingProps<"Input">)))
+      toRefs(reactive(omitThemingProps(filterUndefined(props as ThemingProps<"Input">))))
     )
     const input = useFormControl(ownProps.value as ToRefs<CInputNativeProps>)
 
