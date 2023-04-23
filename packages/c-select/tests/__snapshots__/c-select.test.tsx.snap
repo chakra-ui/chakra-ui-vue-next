@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CSelect renders in disabled state if wrapped by CFormControl with isDisabled true 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-form chakra-1kxonj9"
+    role="group"
+  >
+    <div
+      class="chakra-42b2qy"
+    >
+      <select
+        class="chakra-select chakra-1wd2nhn"
+        disabled=""
+        id="form"
+        readonly="false"
+      >
+        <option
+          value=""
+        >
+          Select an option
+        </option>
+        <!---->
+      </select>
+      <div
+        class="chakra-select__icon-wrapper chakra-1hbwrp4"
+        data-disabled="true"
+        disabled="true"
+        id="form"
+        readonly="false"
+        required="false"
+      >
+        <svg
+          aria-hidden="true"
+          class="chakra-select__icon"
+          role="presentation"
+          style="width: 1em; height: 1em; color: currentColor;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`CSelect should render properly 1`] = `
 <DocumentFragment>
   <div

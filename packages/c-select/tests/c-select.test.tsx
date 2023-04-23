@@ -64,25 +64,23 @@ describe("CSelect", () => {
     expect(iconWrapper).not.toHaveAttribute("data-disabled", "true")
   })
 
-  it.todo(
-    "renders in disabled state if wrapped by CFormControl with isDisabled true"
-    // () => {
-    //   const { container } = render({
-    //     components: { CSelect, CFormControl },
-    //     template: `
-    //     <c-form-control is-disabled>
-    //       <c-select placeholder="Select an option" />
-    //     </c-form-control>
-    //   `,
-    //   })
+  it("renders in disabled state if wrapped by CFormControl with isDisabled true", () => {
+    const { container, asFragment } = render({
+      components: { CSelect, CFormControl },
+      template: `
+        <c-form-control is-disabled>
+          <c-select placeholder="Select an option" />
+        </c-form-control>
+      `,
+    })
 
-    //   const select = container.querySelector("select") as HTMLElement
-    //   const iconWrapper = container.querySelector(
-    //     ".chakra-select__icon-wrapper"
-    //   ) as HTMLElement
+    const select = container.querySelector("select") as HTMLElement
+    const iconWrapper = container.querySelector(
+      ".chakra-select__icon-wrapper"
+    ) as HTMLElement
 
-    //   expect(select).toBeDisabled()
-    //   expect(iconWrapper).toHaveAttribute("data-disabled", "true")
-    // }
-  )
+    expect(select).toBeDisabled()
+    expect(iconWrapper).toHaveAttribute("data-disabled", "true")
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
