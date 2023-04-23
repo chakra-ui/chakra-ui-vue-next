@@ -2,14 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "esnext",
-    "typeRoots": ["./node_modules/@types", "./@types"],
     "types": [
       "jest",
-      "cypress",
       "node",
       "vue",
     ],
-    // "baseUrl": ".",
     "lib": ["dom", "esnext"],
     "composite": true,
     "declaration": true,
@@ -27,11 +24,9 @@
     "downlevelIteration": true,
     "preserveValueImports": false,
     "ignoreDeprecations": "5.0",
-    // "incremental": true,
-    "declarationMap": true,
+    "declarationMap": true
   },
   "include": [
-    "cypress/support/index.ts",
     "packages/**/*.vue",
     "packages/**/*.json",
     "packages/**/*.ts",
@@ -45,17 +40,12 @@
     "playground/**/*.d.ts",
     "playground/**/*.vue",
     "playground/**/*.json",
-    "tests/index.d.ts",
-    "**/*.d.ts",
-    "vite.config.ts", "packages/nuxt/src/runtime/chakra.client.template.jst",
+    "vite.config.ts",
+    "packages/nuxt/src/runtime/chakra.client.template.jst",
   ],
   "exclude": [
     "node_modules",
-    "./@types",
     "dist",
-    // "packages/**/*.test.ts",
-    // "**/*.cy.tsx",
-    "cypress/**/*.(ts|tsx)",
   ],
   "ts-node": {
     "compilerOptions": {

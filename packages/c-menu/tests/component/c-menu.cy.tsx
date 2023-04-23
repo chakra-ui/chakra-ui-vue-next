@@ -1,5 +1,6 @@
-/// <reference types="../../../@types" />
-import * as Examples from "../examples"
+/// <reference types="../../../../@types/cypress" />
+
+import * as Examples from "../../examples"
 import { h, Fragment, ref, defineComponent } from "vue"
 import {
   CMenu,
@@ -12,7 +13,7 @@ import {
   CSubMenuList,
   CSubMenuItem,
   CSubMenu,
-} from "../src"
+} from "../../src"
 
 describe("Menu Test suite", () => {
   it("has no accessibility violation", () => {
@@ -27,7 +28,7 @@ describe("Menu Test suite", () => {
     // Render
     cy.mount(() =>
       h(() => (
-        <CMenu>
+        <CMenu ariaLabel="Test menu">
           <CMenuTrigger>Trigger</CMenuTrigger>
           <CMenuList>
             <CMenuItem>Add</CMenuItem>
@@ -59,7 +60,10 @@ describe("Menu Test suite", () => {
         return () => (
           <>
             <div>Selected: {selected.value}</div>
-            <CMenu onSelect={(val) => (selected.value = val)}>
+            <CMenu
+              ariaLabel="Test menu"
+              onSelect={(val) => (selected.value = val)}
+            >
               <CMenuTrigger>Trigger</CMenuTrigger>
               <CMenuList>
                 <CMenuItem>Add</CMenuItem>
@@ -92,7 +96,10 @@ describe("Menu Test suite", () => {
         return () => (
           <>
             <div>Selected: {selected.value}</div>
-            <CMenu onSelect={(val) => (selected.value = val)}>
+            <CMenu
+              ariaLabel="Test menu"
+              onSelect={(val) => (selected.value = val)}
+            >
               <CMenuTrigger>Trigger</CMenuTrigger>
               <CMenuList>
                 <CMenuGroup groupTitle="Actions">
@@ -147,7 +154,10 @@ describe("Menu Test suite", () => {
         return () => (
           <>
             <div>Selected: {selected.value}</div>
-            <CMenu onSelect={(val) => (selected.value = val)}>
+            <CMenu
+              ariaLabel="Test menu"
+              onSelect={(val) => (selected.value = val)}
+            >
               <CMenuTrigger>Trigger</CMenuTrigger>
               <CMenuList>
                 <CMenuItem>Add</CMenuItem>

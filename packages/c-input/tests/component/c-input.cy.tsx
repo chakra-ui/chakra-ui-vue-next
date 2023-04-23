@@ -1,14 +1,13 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h, Fragment, defineComponent, ref } from "vue"
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 
 // TODO: Add more input group related tests
-describe.skip("Input Examples", () => {
+describe("Input Examples", () => {
   Object.entries(Examples).map(([name, example]) => {
     it(`renders ${name} successfully`, () => {
-      // @ts-ignore
-      cy.mount(h(example.default)).checkA11y({
+      cy.mount(example.default).checkA11y({
         axeOptions: {
           rules: {
             label: { enabled: false },

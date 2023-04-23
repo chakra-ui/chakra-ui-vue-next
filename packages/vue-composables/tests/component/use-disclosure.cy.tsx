@@ -1,8 +1,8 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
-import UseDisclosureDrawer from "../examples/use-disclosure-drawer.vue"
-import UseDisclosureProps from "../examples/use-disclosure-props.vue"
-import UseDisclosureToggle from "../examples/use-disclosure-toggle.vue"
+import UseDisclosureDrawer from "../../examples/use-disclosure-drawer.vue"
+import UseDisclosureProps from "../../examples/use-disclosure-props.vue"
+import UseDisclosureToggle from "../../examples/use-disclosure-toggle.vue"
 
 describe("useDisclosure with button/disclosure props", () => {
   it("is accessbile", () => {

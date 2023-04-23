@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "include": [
     "packages/**/*.test.ts",
+    "packages/**/*.test.tsx",
   ],
   "compilerOptions": {
     "jsx": "preserve",

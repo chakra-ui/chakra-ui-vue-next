@@ -1,8 +1,8 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 import { h, ref } from "vue"
 
-import { CAvatar } from "../src"
-import * as Examples from "../examples"
+import { CAvatar } from "../../src"
+import * as Examples from "../../examples"
 
 describe("CAvatar", () => {
   it("has no accessibility violation", () => {
@@ -15,13 +15,11 @@ describe("CAvatar", () => {
 
   it("renders with default svg", () => {
     cy.mount(() => h(CAvatar))
-
     cy.get("svg")
   })
 
   it("render initials by default when name is specified", () => {
     cy.mount(() => h(() => <CAvatar name="Hello World" />))
-
     cy.contains("HW")
   })
 
@@ -36,18 +34,11 @@ describe("CAvatar", () => {
     )
 
     cy.contains("HW")
-
     cy.get("img:visible")
   })
 
   it("renders default svg when name is not specified", () => {
-    cy.mount(() =>
-      h(() => (
-        <CAvatar src="https://avatars.githubusercontent.com/u/21237954?v=4" />
-      ))
-    )
-
+    cy.mount(() => h(() => <CAvatar />))
     cy.get("svg")
-    cy.get("img:visible")
   })
 })

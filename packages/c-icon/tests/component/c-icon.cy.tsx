@@ -1,7 +1,6 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
-import { h } from "vue"
+import * as Examples from "../../examples"
 
 describe("Icon Examples", () => {
   it("works", () => {

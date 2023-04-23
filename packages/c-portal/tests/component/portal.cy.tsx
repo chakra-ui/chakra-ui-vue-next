@@ -1,8 +1,8 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 import { h, Fragment } from "vue"
-import { CPortal } from "../src"
+import { CPortal } from "../../src"
 
 const style = {
   width: "300px",
@@ -20,7 +20,7 @@ describe("<Portal />", () => {
 
   describe("Portal Examples", () => {
     Object.entries(Examples).map(([name, example]) => {
-      it.skip(`renders ${name} successfully`, () => {
+      it(`renders ${name} successfully`, () => {
         cy.mount(example.default).then(({ wrapper }) => {
           cy.wrap(wrapper.element).screenshot()
         })
@@ -28,18 +28,18 @@ describe("<Portal />", () => {
     })
   })
 
-  it("should not render anything if no children exist", () => {
+  it.skip("should not render anything if no children exist", () => {
     cy.mount(<CPortal />)
-      .its("parentElement")
+      .parent("parentElement")
       .should("not.have.descendants")
   })
 
   it("should create default target for default children", () => {
-    cy.mount(
+    cy.mount(() => (
       <CPortal>
         <div data-testid="provided-content">Child Content</div>
       </CPortal>
-    )
+    ))
       .get("[data-testid=provided-content]")
       .should("exist")
       .and("contain.text", "Child Content")

@@ -19,28 +19,33 @@ cd chakra-ui
 ```
 
 3. Install dependencies and bootstrap the project
+
 ```sh
 pnpm install
 ```
 
 4. Start development server for packages
+
 ```sh
 pnpm dev
 ```
 
 5. Open component playground
+
 ```sh
 pnpm playground:dev
 ```
 
-> If you run into any issues during these steps, kindly reach out to the Chakra UI
-> Vue team here:[https://discord.gg/cMpMfvxa](https://discord.gg/cMpMfvxa)
+> If you run into any issues during these steps, kindly reach out to the Chakra
+> UI Vue team here:[https://discord.gg/cMpMfvxa](https://discord.gg/cMpMfvxa)
 
 ## For Windows OS Users
-There may be some trouble specific to the local setup in Windows. The following are suggestions in ensuring the local environment boots up successfully:
 
-- The package dependencies and scripts should work with Node `v16.16.0 and higher`
+There may be some trouble specific to the local setup in Windows. The following
+are suggestions in ensuring the local environment boots up successfully:
 
+- The package dependencies and scripts should work with Node
+  `v16.16.0 and higher`
 
 ## Development
 
@@ -48,7 +53,9 @@ To improve our development process, we've set up tooling and systems. Chakra UI
 uses a monorepo structure and we treat each component as an independent package
 that can be consumed in isolation.
 
-If you are looking to build a new component, and it has been approved by the team, head over to the [components-guide.md](./docs/guides/component-guide.md) to help you get started!
+If you are looking to build a new component, and it has been approved by the
+team, head over to the [components-guide.md](./docs/guides/component-guide.md)
+to help you get started!
 
 ### Tooling
 
@@ -66,7 +73,8 @@ If you are looking to build a new component, and it has been approved by the tea
 **`pnpm install`**: bootstraps the entire project, symlinks all dependencies for
 cross-component development and builds all components.
 
-**`pnpm playground:dev`**: starts components playground server and loads stories in SFCs in the `packages/**/examples/*.vue` file.
+**`pnpm playground:dev`**: starts components playground server and loads stories
+in SFCs in the `packages/**/examples/*.vue` file.
 
 **`pnpm docs:dev`**: run the documentation site locally.
 
@@ -87,8 +95,9 @@ to run commands within component packages directly from the root.
 Each component is named this way: `@chakra-ui/[component]`. Let's say we want to
 build the button component. Here's how to do it:
 
-> *Take note that in order to prevent template tags name clashing with HTML elements or other Vue library components,*
-> *we prefix all component names with a `c-` in kebab-case or a capital `C` in PascalCase.*
+> _Take note that in order to prevent template tags name clashing with HTML
+> elements or other Vue library components,_ > _we prefix all component names
+> with a `c-` in kebab-case or a capital `C` in PascalCase._
 
 ```bash
 pnpm workspace @chakra-ui/c-button build
@@ -99,6 +108,7 @@ lerna run build --scope @chakra-ui/c-button
 ```
 
 **Shortcut:**
+
 ```bash
 # to build
 pnpm pkg @chakra-ui/c-tabs build
@@ -114,14 +124,15 @@ and want to avoid running the command for all components.
 
 ### Documentation
 
-The documentation site is built with Vite.js on SSR. If you'd like to contribute to the
-docs, simply run `pnpm build`, and `pnpm docs:dev`
+The documentation site is built with Vite.js on SSR. If you'd like to contribute
+to the docs, simply run `pnpm build`, and `pnpm docs:dev`
 
 ### Components Development Playground
 
 Build components in isolation with Vite using `pnpm playground:dev`
 
-Run `pnpm start` in a separate terminal first so the packages are built and a watcher set up for changes.
+Run `pnpm start` in a separate terminal first so the packages are built and a
+watcher set up for changes.
 
 ## Think you found a bug?
 
@@ -131,8 +142,8 @@ link.
 
 You may wish to use our starters to help you get going:
 
-TODO: Add Typescript starter for `@chakra-ui/vue` v1
-TODO: Add Javascript starter for `@chakra-ui/vue` v1
+TODO: Add Typescript starter for `@chakra-ui/vue` v1 TODO: Add Javascript
+starter for `@chakra-ui/vue` v1
 
 ## Proposing new or changed API?
 
@@ -200,9 +211,76 @@ https://www.conventionalcommits.org/ or check out the
 > `pnpm changeset add --empty` to generate an empty changeset file to document
 > your changes.
 
-### Tests
+## Writing Tests
 
-All commits that fix bugs or add features need a test.
+We recommend all new code that is added to the codebase or any refactors that
+may modify the behaviour of a given component or module are accompanied with
+some simple tests. This ensures that the behaviour of the component is protected
+against any accidental regressions in the future, or ensures that the new
+refactor does not change the behaviour of a given component.
+
+At the time of writing this this document, unit tests authored in the Chakra UI
+Vue codebase are categorized into two types:
+
+1. Component Tests (Behavioural Focused)
+2. Black Box Tests (Input-Output Focused)
+
+### Component Tests
+
+Authoring component tests typically is aimed at ensuring the behaviour of a
+given component based on its public API. Depending on the nature of the
+component you are testing, you may want to use either
+[Cypress component testing]() which excels this kind of behavioural testing of
+with [Jest](), which is mostly used for black-box testing.
+
+#### Testing with Cypress
+
+1. Create your `<COMPONENT>.cy.tsx` file in the
+   `packages/<COMPONENT>/tests/component/` directory; where `<COMPONENT>` is the
+   name of the component you are testing. **Please take note that the Cypress
+   tests are to be put under the `tests/component/**` directory. This is to
+   prevent type conflicts between Jest and Cypress globals.
+2. Add the Cypress type references at the top of the file as shown in the
+   example below. This will allow typescript to correctly reference the Cypress
+   globals.
+
+```tsx
+/// <reference types="../../../../@types/cypress" />
+
+import { MyComponent } from "../../src/my-component"
+
+it("<MyComponent /> is accessible", () => {
+  cy.mount(() => <MyComponent>Hello World</MyComponent>)
+  cy.checkA11y()
+})
+```
+
+#### Testing with Jest
+
+Create your `<COMPONENT>.test.tsx` file in the `packages/<COMPONENT>/tests/`
+directory; where `<COMPONENT>` is the name of the component you are testing.
+
+```tsx
+import { MyComponent } from "../src"
+import {
+  render,
+  userEvent,
+  testA11y,
+  TestRenderProps,
+} from "@chakra-ui/vue-test-utils"
+
+const renderComponent = (options: Component = {}) =>
+  render({
+    components: { MyComponent },
+    template: `<MyComponent>Hello World</MyComponent>`,
+    ...options,
+  })
+
+it("should render properly", () => {
+  const { asFragment } = renderComponent()
+  expect(asFragment()).toMatchSnapshot()
+})
+```
 
 > **Dear Chakra UI Vue team:** Please do not merge code without tests
 

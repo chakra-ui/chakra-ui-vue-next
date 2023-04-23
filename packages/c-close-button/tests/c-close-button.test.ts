@@ -4,7 +4,7 @@ import {
   userEvent,
   testA11y,
   TestRenderProps,
-} from "../../test-utils/src"
+} from "@chakra-ui/vue-test-utils"
 import { nextTick } from "@vue/runtime-core"
 
 const renderComponent = ({

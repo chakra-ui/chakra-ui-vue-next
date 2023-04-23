@@ -1,12 +1,12 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 import { h } from "vue"
 
 describe("Visually Hidden Examples", () => {
   it("hides text properly", () => {
     cy.mount(Examples.BaseVisuallyHidden.default)
-      .get(document.body)
+      .get("body")
       .contains("Visually Hidden")
       .get("[data-testid=hidden]")
       .should("have.css", {

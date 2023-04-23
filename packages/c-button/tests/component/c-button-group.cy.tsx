@@ -1,8 +1,8 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h } from "vue"
-import { CButtonGroup, CButton } from "../src"
-import { ButtonGroup } from "../examples"
+import { CButtonGroup, CButton } from "../../src"
+import { ButtonGroup } from "../../examples"
 
 afterEach(() => {
   cy.checkA11y()

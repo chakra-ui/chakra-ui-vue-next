@@ -1,5 +1,5 @@
 import { CPinInput, CPinInputField } from "./../src"
-import { render } from "../../test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 
 const renderCPinInput = (props?) => {
   const template = `

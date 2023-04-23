@@ -1,6 +1,6 @@
-/// <reference types="../../../@types" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 import { h } from "vue"
 
 describe("Spinner Examples", () => {

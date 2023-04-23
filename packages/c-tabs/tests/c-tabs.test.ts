@@ -1,4 +1,4 @@
-import { render } from "../../test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 import { CTabs } from "../src"
 
 it("should render properly", () => {

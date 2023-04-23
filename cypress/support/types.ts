@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 /// <reference types="./vue-shims" />
 
-import { ChakraProps } from "@chakra-ui/vue-system"
-import { mount } from "@cypress/vue"
-import type { MountingOptions } from "cypress/vue/dist/@vue/test-utils"
+import { StyleAndHTMLAttibutes } from "@chakra-ui/vue-next"
+import { mount } from "cypress/vue"
+import type { MountingOptions, VueWrapper } from "@vue/test-utils"
 
 // cypress/support/index.ts
 declare global {
@@ -26,7 +26,7 @@ declare global {
     }
   }
   namespace JSX {
-    interface IntrinsicAttributes extends ChakraProps {}
+    interface IntrinsicAttributes extends StyleAndHTMLAttibutes {}
   }
 }
 
