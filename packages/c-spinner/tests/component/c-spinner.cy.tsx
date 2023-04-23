@@ -1,9 +1,9 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 import { h } from "vue"
 
-describe("Icon Examples", () => {
+describe("Spinner Examples", () => {
   it("works", () => {
     expect(true).to.be.true
   })

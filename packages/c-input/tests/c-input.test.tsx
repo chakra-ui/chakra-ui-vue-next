@@ -5,7 +5,7 @@ import {
   CInputRightElement,
 } from "../src"
 import { Component, h } from "vue"
-import { render, screen, testA11y } from "../../test-utils/src"
+import { render, screen, testA11y } from "@chakra-ui/vue-test-utils"
 
 const renderComponent = (options: Component = {}) =>
   render({

@@ -1,8 +1,8 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 import { h } from "vue"
-import { CAlert, CAlertDescription, CAlertIcon, CAlertTitle } from "../src"
+import { CAlert, CAlertDescription, CAlertIcon, CAlertTitle } from "../../src"
 
 describe("Alert Examples", () => {
   Object.entries(Examples).map(([name, example]) => {

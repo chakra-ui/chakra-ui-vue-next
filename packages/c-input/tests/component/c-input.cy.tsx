@@ -1,7 +1,7 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h, Fragment, defineComponent, ref } from "vue"
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 
 // TODO: Add more input group related tests
 describe("Input Examples", () => {

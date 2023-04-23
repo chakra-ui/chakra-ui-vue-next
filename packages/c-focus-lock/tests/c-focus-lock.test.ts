@@ -1,6 +1,6 @@
 import { unrefElement } from "@chakra-ui/vue-utils"
 import { reactive, ref, watchEffect } from "vue"
-import { render, screen, userEvent, waitMs } from "../../test-utils/src"
+import { render, screen, userEvent, waitMs } from "@chakra-ui/vue-test-utils"
 import { CFocusLock, useFocusTrap } from "../src"
 
 const renderComponent = (props?: any) => {

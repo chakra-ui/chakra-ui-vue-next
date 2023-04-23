@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from "vue"
-import { render, userEvent, waitMs } from "../../test-utils/src"
+import { render, userEvent, waitMs } from "@chakra-ui/vue-test-utils"
 import { useColorMode } from "../src"
 
 const renderComponent = (props?: any) => {

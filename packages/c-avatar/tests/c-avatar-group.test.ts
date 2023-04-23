@@ -1,4 +1,4 @@
-import { render } from "../../test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 import { CAvatar, CAvatarGroup, avatarGroupProps } from "../src"
 
 interface AvatarOptions {

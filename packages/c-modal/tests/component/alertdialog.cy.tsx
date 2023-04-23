@@ -1,4 +1,4 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h, Fragment, ref } from "vue"
 import {
@@ -9,8 +9,8 @@ import {
   CAlertDialogHeader,
   CAlertDialogOverlay,
   CAlertDialogContent,
-} from "../src"
-import { CButton } from "../../c-button"
+} from "../../src"
+import { CButton } from "@chakra-ui/c-button"
 
 const render = (props: any = {}) => {
   return cy.mount(() =>

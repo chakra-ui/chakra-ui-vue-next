@@ -235,16 +235,19 @@ with [Jest](), which is mostly used for black-box testing.
 
 #### Testing with Cypress
 
-1. Create your `<COMPONENT>.cy.tsx` file in the `packages/<COMPONENT>/tests/`
-   directory; where `<COMPONENT>` is the name of the component you are testing.
+1. Create your `<COMPONENT>.cy.tsx` file in the
+   `packages/<COMPONENT>/tests/component/` directory; where `<COMPONENT>` is the
+   name of the component you are testing. **Please take note that the Cypress
+   tests are to be put under the `tests/component/**` directory. This is to
+   prevent type conflicts between Jest and Cypress globals.
 2. Add the Cypress type references at the top of the file as shown in the
    example below. This will allow typescript to correctly reference the Cypress
    globals.
 
 ```tsx
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
-import { MyComponent } from "../src/my-component"
+import { MyComponent } from "../../src/my-component"
 
 it("<MyComponent /> is accessible", () => {
   cy.mount(() => <MyComponent>Hello World</MyComponent>)

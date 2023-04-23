@@ -1,8 +1,8 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h } from "vue"
-import * as Examples from "../examples"
-import { CPinInput, CPinInputClearButton, CPinInputField } from "../src"
+import * as Examples from "../../examples"
+import { CPinInput, CPinInputClearButton, CPinInputField } from "../../src"
 
 const render = (props?: any) => {
   cy.mount(() => {

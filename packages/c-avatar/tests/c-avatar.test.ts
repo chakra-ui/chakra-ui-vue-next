@@ -1,4 +1,4 @@
-import { render, waitMs } from "../../test-utils/src"
+import { render, waitMs } from "@chakra-ui/vue-test-utils"
 import { CAvatar, avatarProps } from "../src"
 
 const renderAvatar = (props?: any) => {

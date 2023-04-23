@@ -982,6 +982,9 @@ importers:
         specifier: ^1.1.2
         version: 1.2.2(react@18.2.0)
     devDependencies:
+      '@chakra-ui/c-button':
+        specifier: workspace:*
+        version: link:../c-button
       vue:
         specifier: 3.2.47
         version: 3.2.47

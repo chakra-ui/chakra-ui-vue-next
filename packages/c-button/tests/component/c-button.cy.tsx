@@ -1,8 +1,8 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
-import { Button } from "../examples"
+import { Button } from "../../examples"
 import { h } from "vue"
-import { CButton } from "../src"
+import { CButton } from "../../src"
 
 Object.entries(Button).map(([name, example]) => {
   it(`renders ${name} successfully`, () => {

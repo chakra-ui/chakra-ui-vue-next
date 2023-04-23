@@ -1,8 +1,8 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 import { h, Fragment } from "vue"
-import { CPortal } from "../src"
+import { CPortal } from "../../src"
 
 const style = {
   width: "300px",

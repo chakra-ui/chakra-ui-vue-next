@@ -1,6 +1,6 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
-import { CAccordion } from "../src"
+import { CAccordion } from "../../src"
 import { h } from "vue"
 
 it("should render properly", () => {

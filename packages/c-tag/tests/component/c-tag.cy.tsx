@@ -1,8 +1,8 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h, ref } from "vue"
-import * as Examples from "../examples"
-import { CTag, CTagLabel, CTagCloseButton } from "../src"
+import * as Examples from "../../examples"
+import { CTag, CTagLabel, CTagCloseButton } from "../../src"
 
 describe("Tag", () => {
   it("has no accessibility violation", () => {

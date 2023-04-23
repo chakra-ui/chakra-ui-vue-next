@@ -1,4 +1,4 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h, Fragment, defineComponent } from "vue"
 import {
@@ -8,9 +8,9 @@ import {
   CFormHelperText,
   CFormLabel,
   useFormControl,
-} from "../src"
-import * as Examples from "../examples"
-import { CInput } from "../../c-input"
+} from "../../src"
+import * as Examples from "../../examples"
+import { CInput } from "../../../c-input"
 
 describe("FormControl Examples", () => {
   Object.entries(Examples).map(([name, example]) => {

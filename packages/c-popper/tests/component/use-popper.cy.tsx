@@ -1,7 +1,7 @@
-/// <reference types="../../../@types/cypress" />
+/// <reference types="../../../../@types/cypress" />
 
 import { h } from "vue"
-import * as Examples from "../examples"
+import * as Examples from "../../examples"
 
 it("should work", () => {
   cy.mount(<Examples.PopperV2Example.default />)
