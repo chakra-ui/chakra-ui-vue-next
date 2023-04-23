@@ -4,6 +4,7 @@
  * This file should be replaced with cypress-axe
  * once that package becomes esm-compatible
  */
+// @ts-ignore
 import axeCore from "axe-core"
 
 axeCore.configure({

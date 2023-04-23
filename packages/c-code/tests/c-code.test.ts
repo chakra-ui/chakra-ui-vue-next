@@ -1,5 +1,5 @@
 import { CCode } from "../src"
-import { render, testA11y } from "../../test-utils/src"
+import { render, testA11y } from "@chakra-ui/vue-test-utils"
 
 const renderComponent = (props?: any) => {
   const base = {

@@ -1,5 +1,5 @@
 import { nextTick, ref } from "vue"
-import { render, screen, waitMs } from "../../test-utils/src"
+import { render, screen, waitMs } from "@chakra-ui/vue-test-utils"
 import { CPortal } from "../src"
 
 const renderComponent = (props?: any) => {

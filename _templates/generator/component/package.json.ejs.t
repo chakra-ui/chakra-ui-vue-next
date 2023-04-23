@@ -9,18 +9,11 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "main": "src/index.ts",
+  "clean-package": "../../clean-package.config.json",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"

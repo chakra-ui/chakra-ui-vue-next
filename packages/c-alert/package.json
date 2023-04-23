@@ -1,17 +1,12 @@
 {
   "name": "@chakra-ui/c-alert",
   "version": "2.1.0-beta.11",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
   "description": "Chakra UI Vue | CAlert component",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue-next/tree/master/packages/c-alert",
   "author": "Jonathan Bakebwa codebender828@gmail.com",
@@ -21,7 +16,8 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "types:check": "tsc --noEmit",
-    "dev": "concurrently 'tsup --watch' 'tsup src --dts-only --watch'",
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore",
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {

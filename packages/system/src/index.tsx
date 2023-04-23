@@ -1,20 +1,21 @@
-export {
+export type {
   As,
   AsPolymorphicProp,
   ComponentWithProps2,
   HTMLChakraProps,
   PropsOf,
+  ChakraProps,
   Tag,
 } from "./system.types"
 export {
   chakra,
-  ChakraBaseComponentProps,
-  ChakraComponent,
-  ChakraFactoryComponent,
-  ChakraFactoryProps,
-  ChakraTagOrComponent,
-  ComponentWithProps,
-  HTMLChakraComponents,
+  type ChakraBaseComponentProps,
+  type ChakraComponent,
+  type ChakraFactoryComponent,
+  type ChakraFactoryProps,
+  type ChakraTagOrComponent,
+  type ComponentWithProps,
+  type HTMLChakraComponents,
   resolveStyles,
   styled,
   toCSSObject,
@@ -22,10 +23,10 @@ export {
 } from "./chakra"
 export { createStylesContext, StylesProvider, useStyles } from "./providers"
 export {
-  DeepPartial,
+  type DeepPartial,
   domElements,
-  DOMElements,
-  ToPropType,
+  type DOMElements,
+  type ToPropType,
 } from "./system.utils"
 export { useChakra, useTheme } from "./composables/use-chakra"
 export {
@@ -49,7 +50,6 @@ export {
 } from "./emotion"
 
 export type { BaseStyleResolverProps, StyleResolverProps } from "./chakra"
-export type { ChakraProps } from "./system.types"
 
 export {
   defineStyleConfig,

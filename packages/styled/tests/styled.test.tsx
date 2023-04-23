@@ -1,6 +1,6 @@
 import styled from "../src"
 import { h, Fragment, defineComponent } from "vue"
-import { render } from "../../test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 import { createSerializer } from "@emotion/jest"
 import { css } from "../src/styled"
 import { EmotionThemeProvider } from "../src/theming"

@@ -5,18 +5,12 @@
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
@@ -31,7 +25,8 @@
     "build:fast": "tsup",
     "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch"
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore"
   },
   "dependencies": {
     "@chakra-ui/c-form-control": "workspace:*",

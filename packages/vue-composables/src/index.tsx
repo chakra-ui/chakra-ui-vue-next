@@ -1,8 +1,8 @@
 export {
-  DocumentEventName,
-  GeneralEventListener,
+  type DocumentEventName,
+  type GeneralEventListener,
   useEventListener,
-  WindowEventName,
+  type WindowEventName,
 } from "./use-event-listener"
 export {
   StackMessage,
@@ -19,8 +19,8 @@ export { useSupported } from "./use-supported"
 export { useWindowEvent } from "./use-window-event"
 export {
   createDescendantRegister,
-  Descendant,
-  DescendantAuthority,
+  type Descendant,
+  type DescendantAuthority,
 } from "./use-descendant"
 
 export type { UseCounterProps } from "./use-counter"
