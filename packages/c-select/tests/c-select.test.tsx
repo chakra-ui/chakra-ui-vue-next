@@ -1,4 +1,4 @@
-import { Component } from "vue"
+import { h, Fragment, Component } from "vue"
 import { CFormControl } from "../../c-form-control/index"
 import { render, testA11y } from "@chakra-ui/vue-test-utils"
 import { CSelect } from "../src"
