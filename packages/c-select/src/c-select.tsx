@@ -84,10 +84,6 @@ export const CSelect = defineComponent({
     const ownProps = computed(() => toRefs(reactive(omitThemingProps(props))))
 
     const fieldProps = useFormControl(ownProps.value)
-    console.log(
-      "🚀 ~ file: c-select.tsx:104 ~ setup ~ fieldProps:",
-      fieldProps.value
-    )
 
     const rootStyles: SystemStyleObject = {
       width: "100%",
