@@ -16,16 +16,18 @@ import {
   PropType,
   reactive,
   toRefs,
+  type ConcreteComponent,
+  watchEffect,
+  DefineComponent,
 } from "vue"
 import {
   chakra,
   HTMLChakraProps,
   omitThemingProps,
-  SystemStyleObject,
   ThemingProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
-import { SAO, vueThemingProps } from "@chakra-ui/vue-utils"
+import { SAO, vueThemingProps, isObjectComponent } from "@chakra-ui/vue-utils"
 import { FormControlOptions, useFormControl } from "@chakra-ui/c-form-control"
 
 import { CSelectField, CSelectFieldProps } from "./c-select-field"
@@ -74,6 +76,28 @@ export interface CSelectProps
   rootProps?: RootProps
 }
 
+const CDefaultSelectIcon = defineComponent(() => {
+  return () => (
+    <svg
+      role="presentation"
+      class="chakra-select__icon"
+      viewBox="0 0 24 24"
+      aria-hidden
+      style={{
+        width: "1em",
+        height: "1em",
+        color: "currentColor",
+      }}
+    >
+      <path
+        fill="currentColor"
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  )
+})
+CDefaultSelectIcon.name = "CDefaultSelectIcon"
+
 export const CSelect = defineComponent({
   name: "CSelect",
   props: {
@@ -98,6 +122,10 @@ export const CSelect = defineComponent({
     function handleChangeValue(e: Event) {
       emit("update:modelValue", (e.target as HTMLSelectElement)?.value)
     }
+
+    const SelectIcon = computed(() => {
+      return slots?.icon?.() || [h(CDefaultSelectIcon)]
+    })
 
     const rootStyles = computed(() => ({
       width: "100%",
@@ -137,7 +165,9 @@ export const CSelect = defineComponent({
           {...fieldProps.value}
           color={iconColor.value}
           __css={styles.value.icon}
-        />
+        >
+          {SelectIcon.value}
+        </CSelectIcon>
       </chakra.div>
     )
   },
@@ -145,7 +175,7 @@ export const CSelect = defineComponent({
 
 const CSelectIcon = defineComponent({
   name: "CSelectIcon",
-  setup(_, { attrs }) {
+  setup(_, { attrs, slots }) {
     return () => (
       <chakra.div
         __label="select__icon-wrapper"
@@ -158,22 +188,7 @@ const CSelectIcon = defineComponent({
         transform="translateY(-50%)"
         {...attrs}
       >
-        <svg
-          role="presentation"
-          class="chakra-select__icon"
-          viewBox="0 0 24 24"
-          aria-hidden
-          style={{
-            width: "1em",
-            height: "1em",
-            color: "currentColor",
-          }}
-        >
-          <path
-            fill="currentColor"
-            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-          />
-        </svg>
+        {slots.default?.()}
       </chakra.div>
     )
   },
