@@ -8,19 +8,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import {
-  computed,
-  defineComponent,
-  h,
-  mergeProps,
-  PropType,
-  reactive,
-  SVGAttributes,
-  ToRefs,
-  toRefs,
-  VNode,
-} from "vue"
-import { filterUndefined } from "@chakra-ui/utils"
+import { computed, defineComponent, h, PropType, reactive, toRefs } from "vue"
 import {
   chakra,
   HTMLChakraProps,
@@ -29,12 +17,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
-import {
-  Assign,
-  SAO,
-  vueThemingProps,
-  withSingleton,
-} from "@chakra-ui/vue-utils"
+import { SAO, vueThemingProps } from "@chakra-ui/vue-utils"
 import { FormControlOptions, useFormControl } from "@chakra-ui/c-form-control"
 
 import { CSelectField, CSelectFieldProps } from "./c-select-field"
