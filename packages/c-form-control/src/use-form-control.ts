@@ -160,8 +160,8 @@ export { FormControlProvider, useFormControlContext }
 
 export interface CFormControlProps
   extends HTMLChakraProps<"div">,
-    ThemingProps<"FormControl">,
-    FormControlContext {}
+  ThemingProps<"FormControl">,
+  FormControlContext { }
 
 export interface UseFormControlProps<T extends VNodeProps>
   extends FormControlOptions {
@@ -251,10 +251,10 @@ export function useFormControlProps<T extends VNodeProps>(
     ...rest,
     "aria-describedby": computed(() => labelIds.value.join(" ") || undefined),
     id: id ?? field?.value.id,
-    isDisabled: disabled ?? isDisabled ?? field?.value?.isDisabled,
-    isReadOnly: readOnly ?? isReadOnly ?? field?.value?.isReadOnly,
-    isRequired: required ?? isRequired ?? field?.value?.isRequired,
-    isInvalid: isInvalid ?? field?.value?.isInvalid,
+    isDisabled: disabled ?? isDisabled?.value ? isDisabled : field?.value?.isDisabled ?? field?.value?.isDisabled,
+    isReadOnly: readOnly ?? isReadOnly?.value ? isReadOnly : field?.value?.isReadOnly ?? field?.value?.isReadOnly,
+    isRequired: required ?? isRequired?.value ? isRequired : field?.value?.isRequired ?? field?.value?.isRequired,
+    isInvalid: isInvalid?.value ? isInvalid : field?.value?.isInvalid ?? field?.value?.isInvalid,
     onFocus: callAllHandlers(field?.value?.onFocus, onFocus?.value),
     onBlur: callAllHandlers(field?.value?.onBlur, onBlur?.value),
   }
