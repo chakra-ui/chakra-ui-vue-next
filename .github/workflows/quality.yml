@@ -27,8 +27,12 @@ jobs:
         run: pnpm lint
 
       - name: Run Component Tests
-        run: pnpm test:ci
+        run:
+          pnpm test:ci && pnpm cy:run --component --record --key ${{
+          secrets.$CYPRESS_COMPONENT_TESTING_KEY }}
         env:
+          CYPRESS_COMPONENT_TESTING_KEY:
+            ${{ secrets.CYPRESS_COMPONENT_TESTING_KEY }}
           CI: true
 
       - name: Build packages
