@@ -13,8 +13,6 @@ exports[`CSelect should render properly 1`] = `
     </select>
     <div
       class="chakra-select__icon-wrapper chakra-1hbwrp4"
-      data-disabled="false"
-      disabled="false"
     >
       <svg
         aria-hidden="true"

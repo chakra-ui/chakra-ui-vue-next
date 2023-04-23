@@ -9,11 +9,11 @@ const renderComponent = (options?: Component) =>
       CSelect,
     },
     template: `
-  <CSelect aria-label="Select Food" placeholder="Select an option">
-    <option value="a">A</option>
-    <option value="b">B</option>
-    <option value="c">C</option>
-  </CSelect>`,
+      <CSelect aria-label="Select Food" placeholder="Select an option">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </CSelect>`,
     ...options,
   })
 
