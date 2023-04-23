@@ -3,7 +3,7 @@ import { HTMLChakraProps, chakra } from "@chakra-ui/vue-system"
 
 type Omitted = "disabled" | "required" | "readOnly" | "size"
 
-export interface SelectFieldProps
+export interface CSelectFieldProps
   extends Omit<HTMLChakraProps<SelectHTMLAttributes>, Omitted> {
   /**
    * @default false
@@ -14,8 +14,8 @@ export interface SelectFieldProps
 export const CSelectField = defineComponent({
   name: "CSelectField",
   props: {
-    placeholder: String as PropType<SelectFieldProps["placeholder"]>,
-    isDisabled: Boolean as PropType<SelectFieldProps["isDisabled"]>,
+    placeholder: String as PropType<CSelectFieldProps["placeholder"]>,
+    isDisabled: Boolean as PropType<CSelectFieldProps["isDisabled"]>,
   },
   setup(props, { slots, attrs }) {
     return () => (

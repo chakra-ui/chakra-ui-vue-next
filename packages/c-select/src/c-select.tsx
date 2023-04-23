@@ -37,7 +37,7 @@ import {
 } from "@chakra-ui/vue-utils"
 import { FormControlOptions, useFormControl } from "@chakra-ui/c-form-control"
 
-import { CSelectField, SelectFieldProps } from "./c-select-field"
+import { CSelectField, CSelectFieldProps } from "./c-select-field"
 
 interface RootProps extends Omit<HTMLChakraProps<"div">, "color"> {}
 
@@ -74,7 +74,7 @@ interface SelectOptions extends FormControlOptions {
 }
 
 export interface CSelectProps
-  extends SelectFieldProps,
+  extends CSelectFieldProps,
     ThemingProps<"Select">,
     SelectOptions {
   /**
