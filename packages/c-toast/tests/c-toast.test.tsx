@@ -1,5 +1,5 @@
 import { h, Fragment, defineComponent } from "vue"
-import { render } from "../../test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 import { CToast } from "../src"
 it("should render properly", () => {
   const { asFragment } = render(

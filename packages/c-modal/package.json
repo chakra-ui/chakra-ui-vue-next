@@ -43,6 +43,7 @@
     "aria-hidden": "^1.1.2"
   },
   "devDependencies": {
+    "@chakra-ui/c-button": "workspace:*",
     "vue": "3.2.47"
   },
   "peerDependencies": {

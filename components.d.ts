@@ -1,12 +1,12 @@
 /**
- * Typescript support for @chakra-ui/vue-next2.1.0-beta.10 auto-imported
+ * Typescript support for @chakra-ui/vue-next2.1.0-beta.11 auto-imported
  * components using `unplugin-vue-components,`
  *
  * @see: https://github.com/antfu/unplugin-vue-components/#typescript
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-03-28T18:38:28.043Z
+ * This file was generated on 2023-04-23T09:31:15.297Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -103,6 +103,7 @@ declare module "@vue/runtime-core" {
     CDrawerOverlay: typeof import("@chakra-ui/vue-next")["CDrawerOverlay"]
     CFlex: typeof import("@chakra-ui/vue-next")["CFlex"]
     CFocusLock: typeof import("@chakra-ui/vue-next")["CFocusLock"]
+    CFormControl: typeof import("@chakra-ui/vue-next")["CFormControl"]
     CFormErrorIcon: typeof import("@chakra-ui/vue-next")["CFormErrorIcon"]
     CFormErrorMessage: typeof import("@chakra-ui/vue-next")["CFormErrorMessage"]
     CFormHelperText: typeof import("@chakra-ui/vue-next")["CFormHelperText"]

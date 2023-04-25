@@ -1,3 +1,5 @@
+[![chakra-ui-vue-next](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/rb8e7m/develop&style=flat&logo=cypress)](https://cloud.cypress.io/projects/rb8e7m/runs)
+
 # `@chakra-ui/vue` for Vue 3 (WIP)
 
 The official working repository for V1 of Chakra UI Vue with Vue 3 support.

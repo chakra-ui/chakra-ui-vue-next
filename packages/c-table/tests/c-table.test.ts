@@ -8,7 +8,7 @@ import {
   CTd,
   CTfoot,
 } from "../src"
-import { render, testA11y } from "../../test-utils"
+import { render, testA11y } from "@chakra-ui/vue-test-utils"
 
 describe("Table", () => {
   it("should pass a11y test", async () => {

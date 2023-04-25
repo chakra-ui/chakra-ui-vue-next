@@ -43,6 +43,7 @@ export const formControlProps = {
 }
 
 export const CFormControl = defineComponent({
+  name: "CFormControl",
   props: {
     as: {
       type: [Object, String] as PropType<DOMElements>,
@@ -75,7 +76,7 @@ export const CFormControl = defineComponent({
   },
 })
 
-export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
+export interface CHelpTextProps extends HTMLChakraProps<"div"> { }
 /**
  * CFormHelperText
  *

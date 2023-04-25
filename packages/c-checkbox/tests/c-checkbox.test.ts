@@ -1,5 +1,5 @@
 // @ts-ignore
-import { render } from "../../test-utils/src"
+import { render } from "@chakra-ui/vue-test-utils"
 // @ts-ignore
 import { CCheckbox } from "../src"
 

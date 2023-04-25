@@ -29,7 +29,7 @@ import {
   CWrapItem,
   CFlex,
 } from "../src"
-import { render, testA11y } from "../../test-utils/src"
+import { render, testA11y } from "@chakra-ui/vue-test-utils"
 
 describe("<CLink />", () => {
   const renderComponent = () =>

@@ -26,7 +26,11 @@ import {
   ChakraProps,
   ComponentWithProps,
 } from "@chakra-ui/vue-system"
-import { SystemProps, ThemingProps, SystemStyleObject } from "@chakra-ui/styled-system"
+import {
+  SystemProps,
+  ThemingProps,
+  SystemStyleObject,
+} from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import {
   getValidChildren,
@@ -56,8 +60,8 @@ export interface BreadcrumbOptions {
 
 export interface BreadcrumbProps
   extends ChakraProps,
-  BreadcrumbOptions,
-  ThemingProps<"Breadcrumb"> { }
+    BreadcrumbOptions,
+    ThemingProps<"Breadcrumb"> {}
 
 /**
  * CBreadcrumb is used to render a breadcrumb navigation landmark.
@@ -86,14 +90,14 @@ export const CBreadcrumb = defineComponent(
         return typeof props.separator === "string"
           ? props.separator
           : isObjectComponent(props.separator!)
-            ? // TODO:
+          ? // TODO:
             // Add support for
             // object components. ATM,
             // This computed property will only
             // work for functional components provided as
             // separators
             h(() => props.separator!)
-            : h(props.separator!)
+          : h(props.separator!)
       }
     })
 
@@ -197,7 +201,7 @@ interface BreadcrumbItemOptions extends BreadcrumbOptions {
 
 export interface BreadcrumbItemProps
   extends BreadcrumbItemOptions,
-  ChakraProps { }
+    ChakraProps {}
 
 export const CBreadcrumbItem = defineComponent(
   (props: BreadcrumbItemOptions, { attrs, slots }) => {
