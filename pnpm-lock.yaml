@@ -516,7 +516,7 @@ importers:
     devDependencies:
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.2.5(@chakra-ui/styled-system@2.7.0)
+        version: 2.2.5(@chakra-ui/styled-system@2.8.0)
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -687,10 +687,25 @@ importers:
 
   packages/c-card:
     dependencies:
+      '@chakra-ui/anatomy':
+        specifier: 2.1.1
+        version: 2.1.1
+      '@chakra-ui/styled-system':
+        specifier: 2.8.0
+        version: 2.8.0
+      '@chakra-ui/utils':
+        specifier: 2.0.14
+        version: 2.0.14
       '@chakra-ui/vue-system':
         specifier: workspace:*
         version: link:../system
+      '@chakra-ui/vue-utils':
+        specifier: workspace:*
+        version: link:../utils
     devDependencies:
+      '@chakra-ui/vue-layout':
+        specifier: workspace:*
+        version: link:../layout
       vue:
         specifier: ^3.2.37
         version: 3.2.47
@@ -1274,10 +1289,10 @@ importers:
     dependencies:
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.2.5(@chakra-ui/styled-system@2.7.0)
+        version: 2.2.5(@chakra-ui/styled-system@2.8.0)
       '@chakra-ui/theme-tools':
         specifier: 2.0.17
-        version: 2.0.17(@chakra-ui/styled-system@2.7.0)
+        version: 2.0.17(@chakra-ui/styled-system@2.8.0)
     devDependencies:
       vue:
         specifier: 3.2.47
@@ -1464,7 +1479,7 @@ importers:
         version: link:../c-color-mode
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.2.5(@chakra-ui/styled-system@2.7.0)
+        version: 2.2.5(@chakra-ui/styled-system@2.8.0)
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1550,6 +1565,9 @@ importers:
       '@chakra-ui/c-button':
         specifier: workspace:*
         version: link:../c-button
+      '@chakra-ui/c-card':
+        specifier: workspace:*
+        version: link:../c-card
       '@chakra-ui/c-checkbox':
         specifier: workspace:*
         version: link:../c-checkbox
@@ -1742,7 +1760,7 @@ importers:
     devDependencies:
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.2.5(@chakra-ui/styled-system@2.7.0)
+        version: 2.2.5(@chakra-ui/styled-system@2.8.0)
       '@chakra-ui/vue-next':
         specifier: workspace:*
         version: link:../../packages/vue
@@ -3051,6 +3069,13 @@ packages:
       csstype: 3.1.1
       lodash.mergewith: 4.6.2
 
+  /@chakra-ui/styled-system@2.8.0:
+    resolution: {integrity: sha512-bmRv/8ACJGGKGx84U1npiUddwdNifJ+/ETklGwooS5APM0ymwUtBYZpFxjYNJrqvVYpg3mVY6HhMyBVptLS7iA==}
+    dependencies:
+      '@chakra-ui/shared-utils': 2.0.5
+      csstype: 3.1.1
+      lodash.mergewith: 4.6.2
+
   /@chakra-ui/theme-tools@2.0.17(@chakra-ui/styled-system@2.5.1):
     resolution: {integrity: sha512-Auu38hnihlJZQcPok6itRDBbwof3TpXGYtDPnOvrq4Xp7jnab36HLt7KEXSDPXbtOk3ZqU99pvI1en5LbDrdjg==}
     peerDependencies:
@@ -3070,6 +3095,16 @@ packages:
       '@chakra-ui/anatomy': 2.1.2
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/styled-system': 2.7.0
+      color2k: 2.0.1
+
+  /@chakra-ui/theme-tools@2.0.17(@chakra-ui/styled-system@2.8.0):
+    resolution: {integrity: sha512-Auu38hnihlJZQcPok6itRDBbwof3TpXGYtDPnOvrq4Xp7jnab36HLt7KEXSDPXbtOk3ZqU99pvI1en5LbDrdjg==}
+    peerDependencies:
+      '@chakra-ui/styled-system': '>=2.0.0'
+    dependencies:
+      '@chakra-ui/anatomy': 2.1.2
+      '@chakra-ui/shared-utils': 2.0.5
+      '@chakra-ui/styled-system': 2.8.0
       color2k: 2.0.1
 
   /@chakra-ui/theme-utils@2.0.8:
@@ -3101,6 +3136,16 @@ packages:
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/styled-system': 2.7.0
       '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.7.0)
+
+  /@chakra-ui/theme@2.2.5(@chakra-ui/styled-system@2.8.0):
+    resolution: {integrity: sha512-hYASZMwu0NqEv6PPydu+F3I+kMNd44yR4TwjR/lXBz/LEh64L6UPY6kQjebCfgdVtsGdl3HKg+eLlfa7SvfRgw==}
+    peerDependencies:
+      '@chakra-ui/styled-system': '>=2.0.0'
+    dependencies:
+      '@chakra-ui/anatomy': 2.1.2
+      '@chakra-ui/shared-utils': 2.0.5
+      '@chakra-ui/styled-system': 2.8.0
+      '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.8.0)
 
   /@chakra-ui/utils@2.0.14:
     resolution: {integrity: sha512-vYxtAUPY09Ex2Ae2ZvQKA1d2+lMKq/wUaRiqpwmeLfutEQuPQZc3qzQcAIMRQx3wLgXr9BUFDtHgBoOz0XKtZw==}
@@ -12815,7 +12860,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0

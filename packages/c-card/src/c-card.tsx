@@ -8,26 +8,92 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { defineComponent, h, Fragment, PropType } from "vue"
+import { computed, defineComponent, h, PropType } from "vue"
 import {
   chakra,
   DOMElements,
+  HTMLChakraProps,
+  ThemingProps,
+  useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
+import { vueThemingProps } from "@chakra-ui/vue-utils"
+import { CCardStylesProvider } from "./card.context"
+import { filterUndefined } from "@chakra-ui/utils"
+import { SystemProps } from "@chakra-ui/styled-system"
 
-export interface CCardProps {}
+export type CardOptions = {
+  /**
+   * The flex direction of the card
+   */
+  direction?: SystemProps["flexDirection"]
+  /**
+   * The flex alignment of the card
+   */
+  align?: SystemProps["alignItems"]
+  /**
+   * The flex distribution of the card
+   */
+  justify?: SystemProps["justifyContent"]
+}
+
+export interface CCardProps
+  extends HTMLChakraProps<"div">,
+    CardOptions,
+    ThemingProps<"Card"> {}
 
 export const CCard = defineComponent({
-    props: {
-      as: {
-        type: [Object, String] as PropType<DOMElements>,
-        default: "div",
-      },
+  name: "CCard",
+  props: {
+    as: {
+      type: [Object, String] as PropType<DOMElements>,
+      default: "div",
     },
-    setup(props, { slots, attrs }) {
-      return () => (
-        <chakra.div as={props.as} {...attrs}>
-          {slots}
-        </chakra.div>
-      )
+    direction: {
+      type: String as PropType<CCardProps["direction"]>,
+      default: "column",
     },
-  })
+    align: {
+      type: String as PropType<CCardProps["alignItems"]>,
+    },
+    justify: {
+      type: String as PropType<CCardProps["justifyContent"]>,
+    },
+    ...vueThemingProps,
+  },
+  setup(props, { slots, attrs }) {
+    const themingProps = computed(() =>
+      filterUndefined({
+        colorScheme: props.colorScheme,
+        variant: props.variant,
+        size: props.size,
+        styleConfig: props.styleConfig,
+      })
+    )
+
+    const styles = useMultiStyleConfig("Card", themingProps)
+
+    CCardStylesProvider(styles)
+
+    const ownProps = computed(() => ({
+      display: "flex",
+      flexDirection: props.direction,
+      justifyContent: props.justify,
+      alignItems: props.align,
+      position: "relative",
+      minWidth: 0,
+      wordWrap: "break-word",
+      ...styles.value.container,
+    }))
+
+    return () => (
+      <chakra.div
+        __label="card"
+        as={props.as}
+        __css={ownProps.value}
+        {...attrs}
+      >
+        {slots.default?.()}
+      </chakra.div>
+    )
+  },
+})
