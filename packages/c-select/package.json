@@ -5,18 +5,11 @@
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
+  "main": "./index.ts",
+  "clean-package": "../../clean-package.config.json",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/chakra-ui-vue-next.git"
@@ -30,6 +23,8 @@
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
     "build:types": "tsup src --dts-only",
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore",
     "types:check": "tsc --noEmit",
     "dev": "tsup --watch"
   },
