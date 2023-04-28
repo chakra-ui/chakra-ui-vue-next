@@ -12,10 +12,7 @@ import { computed, defineComponent, mergeProps, PropType, watch } from "vue"
 import { PopoverProvider, PopoverStylesProvider } from "./popover.context"
 import { usePopover, UsePopoverProps } from "./use-popover"
 import { wait } from "./popover.utils"
-import type * as ZP from "@zag-js/popper"
-import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
-import { useMotions } from "@vueuse/motion"
 import { useMultiStyleConfig } from "@chakra-ui/vue-system"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 
@@ -94,49 +91,14 @@ export const CPopover = defineComponent({
       "transition:popover:"
     )
 
-    /** Handles exit transition */
-    const leaveTransition = (done: VoidFunction) => {
-      const motions = useMotions()
-      const instance = motions[transitionId.value]
-      instance?.leave(() => {
-        done()
-      })
-    }
-
-    const enterTransition = (done: VoidFunction) => {
-      const motions = useMotions()
-      const instance = motions[transitionId.value]
-      requestAnimationFrame(async () => {
-        instance.stopTransitions()
-        instance.set("initial")
-        await instance.apply("enter")
-        done()
-      })
-    }
-
-    if (typeof props.isOpen !== "undefined") {
-      watch(
-        () => props.isOpen,
-        (isOpen) => {
-          if (isOpen) {
-            enterTransition(() => {})
-          } else {
-            leaveTransition(() => {})
-          }
-        }
-      )
-    }
-
     const api = usePopover(popoverProps.value)
 
     const popoverApi = computed(() => ({
       ...api.value,
-      leaveTransition,
-      enterTransition,
       wait,
       transitionId: transitionId.value,
       trigger: props.trigger,
-      close: () => leaveTransition(() => api.value.close()),
+      close: () => api.value.close(),
     }))
 
     PopoverProvider(popoverApi)

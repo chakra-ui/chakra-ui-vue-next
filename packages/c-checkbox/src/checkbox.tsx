@@ -25,7 +25,12 @@ import {
   ThemingProps,
   SystemProps,
 } from "@chakra-ui/styled-system"
-import { SNAO, vueThemingProps, getValidChildren, genId } from "@chakra-ui/vue-utils"
+import {
+  SNAO,
+  vueThemingProps,
+  getValidChildren,
+  genId,
+} from "@chakra-ui/vue-utils"
 import { HTMLChakraProps } from "@chakra-ui/vue-system"
 import * as checkbox from "@zag-js/checkbox"
 import { normalizeProps, useMachine, mergeProps } from "@zag-js/vue"
@@ -260,18 +265,16 @@ export const CCheckbox = defineComponent({
       })
     )
 
-    onMounted(() => {
-      if (props.defaultChecked && api.value) {
-        api.value.setChecked(true)
-      }
+    if (props.defaultChecked && api.value) {
+      api.value.setChecked(true)
+    }
 
-      if (api.value) {
-        if (group.value.value && ownProps.value.value) {
-          const isChecked = group.value.value.includes(ownProps.value.value)
-          api.value.setChecked(isChecked)
-        }
+    if (api.value) {
+      if (group.value.value && ownProps.value.value) {
+        const isChecked = group.value.value.includes(ownProps.value.value)
+        api.value.setChecked(isChecked)
       }
-    })
+    }
 
     watch(
       () => api.value.isChecked,
