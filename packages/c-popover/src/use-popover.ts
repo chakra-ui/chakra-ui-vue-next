@@ -43,8 +43,8 @@ export function usePopover(props: UsePopoverProps) {
       onInteractOutside(event) {
         emit("interact-outside", event)
       },
-      onOpenChange() {
-        emit("open-change", event)
+      onOpen() {
+        emit("open")
       },
       onPointerDownOutside(event) {
         emit("pointer-down-outside", event)

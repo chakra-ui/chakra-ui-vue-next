@@ -70,7 +70,7 @@ export const CPopover = defineComponent({
   name: "CPopover",
   props,
   emits: [
-    "open-change",
+    "open",
     "escape-key-down",
     "pointer-down-outside",
     "focus-outside",
