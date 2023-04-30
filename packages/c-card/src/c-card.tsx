@@ -20,6 +20,7 @@ import { vueThemingProps } from "@chakra-ui/vue-utils"
 import { CCardStylesProvider } from "./card.context"
 import { filterUndefined } from "@chakra-ui/utils"
 import { SystemProps } from "@chakra-ui/styled-system"
+import type * as CSS from "csstype"
 
 export type CardOptions = {
   /**
@@ -53,10 +54,10 @@ export const CCard = defineComponent({
       default: "column",
     },
     align: {
-      type: String as PropType<CCardProps["alignItems"]>,
+      type: String as PropType<CCardProps["align"]>,
     },
     justify: {
-      type: String as PropType<CCardProps["justifyContent"]>,
+      type: String as PropType<CCardProps["justify"]>,
     },
     ...vueThemingProps,
   },
