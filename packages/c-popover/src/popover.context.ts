@@ -9,7 +9,6 @@ export const [PopoverProvider, usePopoverContext] = createContext<
   ComputedRef<
     ReturnType<typeof connect> & {
       wait: AnyFn
-      transitionId: string
       trigger: "click" | "hover"
     }
   >

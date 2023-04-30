@@ -71,8 +71,8 @@
     "@emotion/serialize": "1.1.1",
     "@emotion/sheet": "^1.1.0",
     "@emotion/utils": "^1.1.0",
-    "@zag-js/toast": "^0.2.8",
-    "@zag-js/vue": "0.2.10"
+    "@zag-js/toast": "^0.6.0",
+    "@zag-js/vue": "0.6.0"
   },
   "devDependencies": {
     "vue": "3.2.47"

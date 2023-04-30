@@ -8,9 +8,12 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, mergeProps, PropType, watch } from "vue"
+import type * as PP from "@zag-js/popover"
+import type * as P from "@zag-js/popper"
+
+import { computed, defineComponent, mergeProps, PropType } from "vue"
 import { PopoverProvider, PopoverStylesProvider } from "./popover.context"
-import { usePopover, UsePopoverProps } from "./use-popover"
+import { usePopover, type UsePopoverProps } from "./use-popover"
 import { wait } from "./popover.utils"
 import { useId } from "@chakra-ui/vue-composables"
 import { useMultiStyleConfig } from "@chakra-ui/vue-system"
@@ -22,7 +25,7 @@ export interface CPopoverProps extends PopoverPropsContext {
   trigger: "click" | "hover"
 }
 
-const VuePopoverProps = {
+const props = {
   autoFocus: {
     type: Boolean as PropType<CPopoverProps["autoFocus"]>,
   },
@@ -31,9 +34,6 @@ const VuePopoverProps = {
   },
   closeOnInteractOutside: {
     type: Boolean as PropType<CPopoverProps["closeOnInteractOutside"]>,
-  },
-  defaultOpen: {
-    type: Boolean as PropType<CPopoverProps["defaultOpen"]>,
   },
   getRootNode: {
     type: Function as PropType<CPopoverProps["getRootNode"]>,
@@ -68,7 +68,7 @@ const VuePopoverProps = {
 
 export const CPopover = defineComponent({
   name: "CPopover",
-  props: VuePopoverProps,
+  props,
   emits: [
     "open-change",
     "escape-key-down",
@@ -96,7 +96,6 @@ export const CPopover = defineComponent({
     const popoverApi = computed(() => ({
       ...api.value,
       wait,
-      transitionId: transitionId.value,
       trigger: props.trigger,
       close: () => api.value.close(),
     }))

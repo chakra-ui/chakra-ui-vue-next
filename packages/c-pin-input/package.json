@@ -29,8 +29,8 @@
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/pin-input": "0.2.12",
-    "@zag-js/vue": "0.2.10",
+    "@zag-js/pin-input": "0.6.0",
+    "@zag-js/vue": "0.6.0",
     "csstype": "^3.1.1"
   },
   "devDependencies": {
