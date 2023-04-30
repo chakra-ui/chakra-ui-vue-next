@@ -10,6 +10,7 @@
 
 import { h, defineComponent, computed, mergeProps, PropType } from "vue"
 import {
+  AnatomyParts,
   chakra,
   createStylesContext,
   HTMLChakraProps,
@@ -22,7 +23,7 @@ import { vueThemingProps } from "@chakra-ui/vue-utils"
 import type * as SS from "@chakra-ui/styled-system"
 
 export const [TableStylesProvider, useTableStyles] =
-  createStylesContext("Table")
+  createStylesContext<AnatomyParts.Table>("Table")
 
 export interface TableOptions {
   layout?: SystemStyleObject["tableLayout"]
@@ -48,7 +49,7 @@ export const CTable = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    const styles = useMultiStyleConfig("Table", props)
+    const styles = useMultiStyleConfig<AnatomyParts.Table>("Table", props)
     const mergedProps = computed(() => mergeProps({}, props, attrs))
     const ownProps = computed(() => omitThemingProps(mergedProps.value))
 

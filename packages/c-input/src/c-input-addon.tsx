@@ -1,6 +1,7 @@
 import { defineComponent, h, PropType, computed } from "vue"
-import { chakra, HTMLChakraProps, useStyles } from "@chakra-ui/vue-system"
+import { chakra, HTMLChakraProps } from "@chakra-ui/vue-system"
 import { warn } from "@chakra-ui/utils"
+import { useStyles } from "./c-input-group"
 
 type Placement = "left" | "right"
 

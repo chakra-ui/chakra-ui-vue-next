@@ -1,8 +1,8 @@
 import { computed, defineComponent, Fragment, h } from "vue"
-import { useStyles, chakra } from "@chakra-ui/vue-system"
+import { chakra } from "@chakra-ui/vue-system"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 import { CPortal } from "@chakra-ui/c-portal"
-import { useMenu } from "./c-menu"
+import { useMenu, useStyles } from "./c-menu"
 import {
   SubMenuProvider,
   useMenuItem,

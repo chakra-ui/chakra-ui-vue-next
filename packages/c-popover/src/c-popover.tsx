@@ -16,7 +16,7 @@ import type * as ZP from "@zag-js/popper"
 import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
 import { useMotions } from "@vueuse/motion"
-import { useMultiStyleConfig } from "@chakra-ui/vue-system"
+import { AnatomyParts, useMultiStyleConfig } from "@chakra-ui/vue-system"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 
 type PopoverPropsContext = UsePopoverProps["context"]
@@ -87,7 +87,10 @@ export const CPopover = defineComponent({
 
     const mergedProps = computed(() => mergeProps(props, attrs))
 
-    const styles = useMultiStyleConfig("Popover", mergedProps.value)
+    const styles = useMultiStyleConfig<AnatomyParts.Popover>(
+      "Popover",
+      mergedProps.value
+    )
 
     const transitionId = useId(
       popoverProps.value.context.id,

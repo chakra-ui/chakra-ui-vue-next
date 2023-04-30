@@ -17,15 +17,13 @@ import {
   watchEffect,
 } from "vue"
 import {
+  AnatomyParts,
   chakra,
   ChakraProps,
   createStylesContext,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
-import {
-  SystemStyleObject,
-  ThemingProps
-} from "@chakra-ui/styled-system"
+import { SystemStyleObject, ThemingProps } from "@chakra-ui/styled-system"
 import { CIcon, createIconComponent } from "@chakra-ui/c-icon"
 import { filterUndefined } from "@chakra-ui/utils"
 import { getValidChildren, vueThemingProps } from "@chakra-ui/vue-utils"
@@ -35,14 +33,15 @@ interface TagOptions {
 
 export interface CTagProps
   extends ChakraProps,
-  TagOptions,
-  ThemingProps<"CTag"> { }
+    TagOptions,
+    ThemingProps<"CTag"> {}
 
 export interface CTagLabelProps
   extends ChakraProps,
-  ThemingProps<"CTagLabel"> { }
+    ThemingProps<"CTagLabel"> {}
 
-const [StylesProvider, useTagStyles] = createStylesContext("CTag")
+const [StylesProvider, useTagStyles] =
+  createStylesContext<AnatomyParts.Tag>("CTag")
 
 export const CTagLabel = defineComponent({
   props: {
@@ -70,7 +69,7 @@ export const CTagLabel = defineComponent({
 
 export interface CTagCloseButtonProps
   extends ChakraProps,
-  ThemingProps<"CTagCloseButton"> {
+    ThemingProps<"CTagCloseButton"> {
   isDisabled?: boolean
 }
 
@@ -146,7 +145,10 @@ export const CTag = defineComponent({
       })
     )
 
-    const styles = useMultiStyleConfig("Tag", themingProps.value)
+    const styles = useMultiStyleConfig<AnatomyParts.Tag>(
+      "Tag",
+      themingProps.value
+    )
 
     StylesProvider(styles)
 
