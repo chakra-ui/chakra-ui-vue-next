@@ -108,6 +108,8 @@ export {
   CCardHeader,
   type CCardHeaderProps,
   type CCardProps,
+  CCardFooter,
+  type CCardFooterProps,
 } from "@chakra-ui/c-card"
 
 export {
