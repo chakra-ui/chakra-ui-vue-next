@@ -1,10 +1,10 @@
 /**
  * Hey! Welcome to @chakra-ui/vue-next CCard
  *
- * My component description
+ * Card is a flexible component used to group and display content in a clear and concise format.
  *
  * @see Docs     https://next.vue.chakra-ui.com/c-card
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-card/src/c-card/c-card.ts
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue-next/blob/main/packages/c-card/src/c-card.tsx
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 

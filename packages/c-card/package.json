@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/c-card",
-  "description": "Chakra UI Vue | My component description component",
+  "description": "Chakra UI Vue | Card is a flexible component used to group and display content in a clear and concise format.",
   "version": "0.0.0-beta.0",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
