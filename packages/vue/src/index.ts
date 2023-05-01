@@ -406,6 +406,20 @@ export {
   CScrollLock,
   useBodyScrollLock,
 } from "@chakra-ui/c-scroll-lock"
+export {
+  CStat,
+  CStatArrow,
+  type CStatArrowProps,
+  CStatGroup,
+  type CStatGroupProps,
+  CStatHelpText,
+  type CStatHelpTextProps,
+  CStatLabel,
+  type CStatLabelProps,
+  CStatNumber,
+  type CStatNumberProps,
+  CStatProps,
+} from "@chakra-ui/c-stat"
 
 // T
 export {

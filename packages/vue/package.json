@@ -48,6 +48,7 @@
     "@chakra-ui/c-scroll-lock": "workspace:*",
     "@chakra-ui/c-skip-nav": "workspace:*",
     "@chakra-ui/c-spinner": "workspace:*",
+    "@chakra-ui/c-stat": "workspace:*",
     "@chakra-ui/c-table": "workspace:*",
     "@chakra-ui/c-tabs": "workspace:*",
     "@chakra-ui/c-tag": "workspace:*",
