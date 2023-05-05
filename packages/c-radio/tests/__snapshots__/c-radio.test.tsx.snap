@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <div
+    aria-labelledby="radio-group:1:label"
+    class="chakra-radio-group chakra-0"
+    data-part="root"
+    data-scope="radio-group"
+    id="radio-group:1"
+    role="radiogroup"
+  >
+    <label
+      class="chakra-1cqh9jq"
+      data-part="radio"
+      data-scope="radio-group"
+      for="radio-group:1:radio:input:1"
+      id="radio-group:1:radio:1"
+    >
+      <input
+        class="chakra-radio__input chakra-0"
+        data-ownedby="radio-group:1"
+        data-part="radio-input"
+        data-scope="radio-group"
+        id="radio-group:1:radio:input:1"
+        name="1"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; word-wrap: normal;"
+        type="radio"
+        value="1"
+      />
+      <span
+        aria-hidden="true"
+        class="chakra-radio__control chakra-vwtg5w"
+        data-part="radio-control"
+        data-scope="radio-group"
+        id="radio-group:1:radio:control:1"
+      />
+      <span
+        class="chakra-radio__label chakra-4mwzs1"
+        data-part="radio-label"
+        data-scope="radio-group"
+        id="radio-group:1:radio:label:1"
+      >
+        One
+      </span>
+    </label>
+    <label
+      class="chakra-1cqh9jq"
+      data-part="radio"
+      data-scope="radio-group"
+      for="radio-group:1:radio:input:2"
+      id="radio-group:1:radio:2"
+    >
+      <input
+        class="chakra-radio__input chakra-0"
+        data-ownedby="radio-group:1"
+        data-part="radio-input"
+        data-scope="radio-group"
+        id="radio-group:1:radio:input:2"
+        name="1"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; word-wrap: normal;"
+        type="radio"
+        value="2"
+      />
+      <span
+        aria-hidden="true"
+        class="chakra-radio__control chakra-vwtg5w"
+        data-part="radio-control"
+        data-scope="radio-group"
+        id="radio-group:1:radio:control:2"
+      />
+      <span
+        class="chakra-radio__label chakra-4mwzs1"
+        data-part="radio-label"
+        data-scope="radio-group"
+        id="radio-group:1:radio:label:2"
+      >
+        Two
+      </span>
+    </label>
+    <label
+      class="chakra-1cqh9jq"
+      data-part="radio"
+      data-scope="radio-group"
+      for="radio-group:1:radio:input:3"
+      id="radio-group:1:radio:3"
+    >
+      <input
+        class="chakra-radio__input chakra-0"
+        data-ownedby="radio-group:1"
+        data-part="radio-input"
+        data-scope="radio-group"
+        id="radio-group:1:radio:input:3"
+        name="1"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; word-wrap: normal;"
+        type="radio"
+        value="3"
+      />
+      <span
+        aria-hidden="true"
+        class="chakra-radio__control chakra-vwtg5w"
+        data-part="radio-control"
+        data-scope="radio-group"
+        id="radio-group:1:radio:control:3"
+      />
+      <span
+        class="chakra-radio__label chakra-4mwzs1"
+        data-part="radio-label"
+        data-scope="radio-group"
+        id="radio-group:1:radio:label:3"
+      >
+        Three
+      </span>
+    </label>
+  </div>
+</DocumentFragment>
+`;
