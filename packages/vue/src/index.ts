@@ -392,6 +392,13 @@ export { CPortal, type CPortalProps } from "@chakra-ui/c-portal"
 
 // R
 export { CReset, cssResetStyles } from "@chakra-ui/c-reset"
+export {
+  CRadio,
+  CRadioGroup,
+  type CRadioProps,
+  type CRadioGroupProps,
+  type RadioGroupContext,
+} from "@chakra-ui/c-radio"
 
 // S
 export {
