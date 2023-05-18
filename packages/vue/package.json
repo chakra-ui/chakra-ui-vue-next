@@ -44,6 +44,7 @@
     "@chakra-ui/c-popover": "workspace:*",
     "@chakra-ui/c-popper": "workspace:*",
     "@chakra-ui/c-portal": "workspace:*",
+    "@chakra-ui/c-radio": "workspace:*",
     "@chakra-ui/c-reset": "workspace:*",
     "@chakra-ui/c-scroll-lock": "workspace:*",
     "@chakra-ui/c-skip-nav": "workspace:*",

@@ -50,6 +50,7 @@ export * from "@chakra-ui/c-portal"
 
 // R
 
+export * from "@chakra-ui/c-radio"
 export * from "@chakra-ui/c-reset"
 
 // S

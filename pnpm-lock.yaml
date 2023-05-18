@@ -1635,6 +1635,9 @@ importers:
       '@chakra-ui/c-portal':
         specifier: workspace:*
         version: link:../c-portal
+      '@chakra-ui/c-radio':
+        specifier: workspace:*
+        version: link:../c-radio
       '@chakra-ui/c-reset':
         specifier: workspace:*
         version: link:../c-reset
