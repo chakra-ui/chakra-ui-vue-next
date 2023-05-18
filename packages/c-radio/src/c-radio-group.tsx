@@ -1,13 +1,13 @@
 import { h, PropType, defineComponent } from "vue"
-import { UseRadioGroupProps, useRadioGroup } from "./use-radio-group"
 import {
   HTMLChakraProps,
   ThemingProps,
   chakra,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
-import { RadioGroupProvider, RadioGroupStylesProvider } from "./radio-context"
 import { useThemingProps, vueThemingProps } from "@chakra-ui/vue-utils"
+import { UseRadioGroupProps, useRadioGroup } from "./use-radio-group"
+import { RadioGroupProvider, RadioGroupStylesProvider } from "./radio-context"
 
 export interface CRadioGroupProps
   extends UseRadioGroupProps,

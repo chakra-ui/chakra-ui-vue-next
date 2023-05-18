@@ -1,4 +1,4 @@
-import { computed, getCurrentInstance, reactive, watch } from "vue"
+import { computed, getCurrentInstance, reactive } from "vue"
 import { normalizeProps, useMachine } from "@zag-js/vue"
 import * as radio from "@zag-js/radio-group"
 import { useId } from "@chakra-ui/vue-composables"

@@ -1,4 +1,3 @@
-import * as CSS from "csstype"
 import * as radio from "@zag-js/radio-group"
 import { createContext } from "@chakra-ui/vue-utils"
 import type { UseRadioGroupReturn } from "./use-radio-group"

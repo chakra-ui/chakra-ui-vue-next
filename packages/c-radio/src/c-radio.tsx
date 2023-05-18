@@ -13,7 +13,6 @@ import {
   defineComponent,
   h,
   InputHTMLAttributes,
-  isVNode,
   mergeProps,
   PropType,
   reactive,
