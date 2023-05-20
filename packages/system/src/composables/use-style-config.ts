@@ -72,7 +72,12 @@ export function useStyleConfig<Component extends keyof Theme["components"]>(
 }
 
 export function useMultiStyleConfig<
-  Component extends keyof Theme["components"]
+  AnatomyParts extends readonly string[],
+  Component extends keyof Theme["components"] = any
 >(themeKey: Component, themingProps: any) {
-  return useStyleConfig(themeKey, themingProps, { isMultiPart: true })
+  return useStyleConfig(themeKey, themingProps, {
+    isMultiPart: true,
+  }) as ComputedRef<{
+    [K in AnatomyParts[number]]: SystemStyleObject
+  }>
 }

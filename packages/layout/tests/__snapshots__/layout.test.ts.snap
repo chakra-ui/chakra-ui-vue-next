@@ -16,7 +16,7 @@ exports[`<CAspectRatio /> should render properly 1`] = `
 exports[`<CBadge /> should render properly 1`] = `
 <DocumentFragment>
   <div
-    class="chakra-badge chakra-16bfjvf"
+    class="chakra-badge chakra-1jo2llc"
   >
     this is a badge
   </div>

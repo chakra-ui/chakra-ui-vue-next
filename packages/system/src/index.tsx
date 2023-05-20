@@ -1,4 +1,5 @@
 export type {
+  AnatomyParts,
   As,
   AsPolymorphicProp,
   ComponentWithProps2,

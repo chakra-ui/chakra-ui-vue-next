@@ -1,1 +1,2 @@
-export { anatomy as popoverAnatomy } from "@zag-js/popover"
+import type { anatomy } from "@zag-js/popover"
+export type CPopoverAnatomy = typeof anatomy

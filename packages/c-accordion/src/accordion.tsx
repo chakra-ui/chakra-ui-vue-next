@@ -4,10 +4,10 @@ import { normalizeProps, useMachine } from "@zag-js/vue"
 import {
   chakra,
   DOMElements,
-  StylesProvider,
   HTMLChakraProps,
   useMultiStyleConfig,
-  useStyles,
+  createStylesContext,
+  AnatomyParts,
 } from "@chakra-ui/vue-system"
 
 import { useId } from "@chakra-ui/vue-composables"
@@ -62,6 +62,9 @@ const [AccordionProvider, useAccordion] = createContext<CAccordionContext>({
   strict: true,
 })
 
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Accordion>("Accordion")
+
 export const CAccordion = defineComponent({
   name: "CAccordion",
   props: {
@@ -102,7 +105,10 @@ export const CAccordion = defineComponent({
       })
     )
 
-    const styles = useMultiStyleConfig("Accordion", themingProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Accordion>(
+      "Accordion",
+      themingProps
+    )
 
     const reduceMotion = computed(() => props.value.reduceMotion)
 

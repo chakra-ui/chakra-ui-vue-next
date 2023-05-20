@@ -18,7 +18,6 @@ exports[`should render properly 1`] = `
         class="chakra-checkbox__input"
         data-part="input"
         data-scope="checkbox"
-        defaultchecked="false"
         id="input-chakra-checkbox-EMPTY_STRING"
         style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; word-wrap: normal;"
         type="checkbox"

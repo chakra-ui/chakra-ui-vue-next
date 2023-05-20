@@ -32,9 +32,9 @@
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/tabs": "^0.2.13",
-    "@zag-js/types": "^0.3.4",
-    "@zag-js/vue": "^0.2.10"
+    "@zag-js/tabs": "^0.6.0",
+    "@zag-js/types": "^0.5.0",
+    "@zag-js/vue": "^0.6.0"
   },
   "devDependencies": {
     "vue": "^3.2.47"

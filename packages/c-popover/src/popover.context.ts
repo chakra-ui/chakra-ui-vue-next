@@ -1,17 +1,14 @@
 import type { connect } from "@zag-js/popover"
 import type { ComputedRef } from "vue"
 import { AnyFn, createContext } from "@chakra-ui/vue-utils"
-import { createStylesContext } from "@chakra-ui/vue-system"
+import { AnatomyParts, createStylesContext } from "@chakra-ui/vue-system"
 import type * as S from "@chakra-ui/styled-system"
 import type { UsePopoverReturn } from "./use-popover"
 
 export const [PopoverProvider, usePopoverContext] = createContext<
   ComputedRef<
     ReturnType<typeof connect> & {
-      leaveTransition: AnyFn
-      enterTransition: AnyFn
       wait: AnyFn
-      transitionId: string
       trigger: "click" | "hover"
     }
   >
@@ -24,4 +21,5 @@ export const [PopoverProvider, usePopoverContext] = createContext<
 
 export type CPopoverContext = UsePopoverReturn
 
-export const [PopoverStylesProvider, useStyles] = createStylesContext("Popover")
+export const [PopoverStylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Popover>("Popover")

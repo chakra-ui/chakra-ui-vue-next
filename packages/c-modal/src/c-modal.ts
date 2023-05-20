@@ -27,13 +27,13 @@ import {
   Ref,
 } from "vue"
 import {
+  AnatomyParts,
   chakra,
   ComponentWithProps,
+  createStylesContext,
   DeepPartial,
   HTMLChakraProps,
-  StylesProvider,
   useMultiStyleConfig,
-  useStyles,
 } from "@chakra-ui/vue-system"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
 import { createContext, TemplateRef, useRef } from "@chakra-ui/vue-utils"
@@ -171,7 +171,10 @@ const [ModalContextProvider, useModalContext] =
       "useModalContext: `context` is undefined. Seems you forgot to wrap modal components in `<CModal />`",
   })
 
-export { ModalContextProvider, useModalContext }
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Modal>("CModal")
+
+export { ModalContextProvider, useModalContext, useStyles }
 
 export const modalProps = {
   modelValue: {
@@ -251,7 +254,7 @@ export const CModal = defineComponent({
 
     const mergedProps = computed(() => mergeProps(props, attrs))
 
-    const styles = useMultiStyleConfig("Modal", mergedProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Modal>("Modal", mergedProps)
     const modalOptions = reactive({
       ...toRefs(reactive(props)),
       closeModal,

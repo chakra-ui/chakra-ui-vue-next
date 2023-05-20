@@ -22,7 +22,12 @@ import {
 import { match, SNAO, useThemingProps } from "@chakra-ui/vue-utils"
 import { createContext, vueThemingProps } from "@chakra-ui/vue-utils"
 import { mergeWith, filterUndefined, dataAttr } from "@chakra-ui/utils"
-import { chakra, ComponentWithProps, DeepPartial } from "@chakra-ui/vue-system"
+import {
+  AnatomyParts,
+  chakra,
+  ComponentWithProps,
+  DeepPartial,
+} from "@chakra-ui/vue-system"
 import { extractImgAttrs, getInitials } from "./utils"
 import {
   omitThemingProps,
@@ -96,7 +101,8 @@ export interface AvatarOptions {
   referrerPolicy?: HTMLImageElement["referrerPolicy"]
 }
 
-const [AvatarStylesProvider, useAvatarStyles] = createStylesContext("Avatar")
+const [AvatarStylesProvider, useAvatarStyles] =
+  createStylesContext<AnatomyParts.Avatar>("Avatar")
 export { AvatarStylesProvider, useAvatarStyles }
 
 export interface CAvatarContext {
@@ -176,7 +182,7 @@ export const CAvatar = defineComponent({
 
     const isLoaded = ref(false)
 
-    const styles = useMultiStyleConfig(
+    const styles = useMultiStyleConfig<AnatomyParts.Avatar>(
       "Avatar",
       computed(() => ({
         ...themingProps.value,

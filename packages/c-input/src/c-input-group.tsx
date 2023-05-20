@@ -1,8 +1,9 @@
 import { filterUndefined } from "@chakra-ui/utils"
 import {
+  AnatomyParts,
   chakra,
+  createStylesContext,
   HTMLChakraProps,
-  StylesProvider,
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
 import { omitThemingProps, ThemingProps } from "@chakra-ui/styled-system"
@@ -17,9 +18,14 @@ import {
   cloneVNode,
 } from "vue"
 
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Input>("CInputGroup")
+
+export { useStyles }
+
 export interface CInputGroupProps
   extends HTMLChakraProps<"div">,
-  ThemingProps<"Input"> { }
+    ThemingProps<"Input"> {}
 
 export const CInputGroup = defineComponent({
   name: "CInputGroup",
@@ -28,7 +34,7 @@ export const CInputGroup = defineComponent({
   },
   setup(props, { slots, attrs }) {
     const styleAttrs = computed(() => mergeProps(attrs, props))
-    const styles = useMultiStyleConfig("Input", styleAttrs)
+    const styles = useMultiStyleConfig<AnatomyParts.Input>("Input", styleAttrs)
     const input = computed(() => styles.value?.field)
     const unthemedProps = computed(() => omitThemingProps(styleAttrs.value))
 
@@ -69,13 +75,13 @@ export const CInputGroup = defineComponent({
         return vnode.type?.name !== "CInput"
           ? cloneVNode(vnode, theming)
           : cloneVNode(
-            vnode,
-            Object.assign(
-              theming,
-              groupStyles
-              // vnode.props
+              vnode,
+              Object.assign(
+                theming,
+                groupStyles
+                // vnode.props
+              )
             )
-          )
       })
 
       return (
