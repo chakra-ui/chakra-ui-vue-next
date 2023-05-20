@@ -18,7 +18,11 @@ import {
   cloneVNode,
   watch,
 } from "vue"
-import { chakra, useMultiStyleConfig } from "@chakra-ui/vue-system"
+import {
+  AnatomyParts,
+  chakra,
+  useMultiStyleConfig,
+} from "@chakra-ui/vue-system"
 import {
   omitThemingProps,
   SystemStyleObject,
@@ -178,7 +182,10 @@ export const CCheckbox = defineComponent({
     )
     const ownProps = computed(() => omitThemingProps(props))
     const mergedProps = computed(() => mergeWith({}, group.value, props, attrs))
-    const styles = useMultiStyleConfig("Checkbox", mergedProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Checkbox>(
+      "Checkbox",
+      mergedProps
+    )
 
     const inheritedFormControlProps = useFormControlContext(
       mergedProps as CFormControlProviderContext

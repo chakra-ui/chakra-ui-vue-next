@@ -11,6 +11,7 @@ import {
   useMultiStyleConfig,
   createStylesContext,
   DOMElements,
+  AnatomyParts,
 } from "@chakra-ui/vue-system"
 import { ThemingProps, SystemStyleObject } from "@chakra-ui/styled-system"
 import { createContext, getValidChildren } from "@chakra-ui/vue-utils"
@@ -36,7 +37,8 @@ const STATUSES = {
   loading: { icon: CInfoIcon, colorScheme: "blue" },
 }
 
-const [StylesProvider, useStyles] = createStylesContext("Alert")
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Alert>("Alert")
 type AlertStatus = keyof typeof STATUSES
 export type AlertVariant = "solid" | "subtle" | "left-accent" | "top-accent"
 
@@ -90,7 +92,10 @@ export const CAlert = defineComponent({
     }))
 
     AlertProvider({ status: computed(() => props.status) })
-    const styles = useMultiStyleConfig("Alert", themingProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Alert>(
+      "Alert",
+      themingProps
+    )
     StylesProvider(styles)
 
     const alertStyles = computed<SystemStyleObject>(() => ({

@@ -17,12 +17,7 @@ import {
   placementToVariant,
 } from "@chakra-ui/c-motion"
 import { createContext } from "@chakra-ui/vue-utils"
-import {
-  chakra,
-  HTMLChakraProps,
-  useStyles,
-  useTheme,
-} from "@chakra-ui/vue-system"
+import { chakra, HTMLChakraProps, useTheme } from "@chakra-ui/vue-system"
 import { SystemStyleObject } from "@chakra-ui/styled-system"
 import {
   CModal,
@@ -34,6 +29,7 @@ import {
   CModalProps,
   modalProps,
   useModalContext,
+  useStyles,
 } from "./c-modal"
 import { MotionDirective, useMotions } from "@vueuse/motion"
 import { useId } from "@chakra-ui/vue-composables"
