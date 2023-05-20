@@ -8,14 +8,15 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2
  */
 
-import { computed, defineComponent, mergeProps, PropType, watch } from "vue"
+import type * as PP from "@zag-js/popover"
+import type * as P from "@zag-js/popper"
+
+import { computed, defineComponent, mergeProps, PropType } from "vue"
 import { PopoverProvider, PopoverStylesProvider } from "./popover.context"
-import { usePopover, UsePopoverProps } from "./use-popover"
+import { usePopover, type UsePopoverProps } from "./use-popover"
 import { wait } from "./popover.utils"
-import type * as ZP from "@zag-js/popper"
-import type * as ZT from "@zag-js/types"
 import { useId } from "@chakra-ui/vue-composables"
-import { useMotions } from "@vueuse/motion"
+
 import { AnatomyParts, useMultiStyleConfig } from "@chakra-ui/vue-system"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 
@@ -25,7 +26,7 @@ export interface CPopoverProps extends PopoverPropsContext {
   trigger: "click" | "hover"
 }
 
-const VuePopoverProps = {
+const props = {
   autoFocus: {
     type: Boolean as PropType<CPopoverProps["autoFocus"]>,
   },
@@ -34,9 +35,6 @@ const VuePopoverProps = {
   },
   closeOnInteractOutside: {
     type: Boolean as PropType<CPopoverProps["closeOnInteractOutside"]>,
-  },
-  defaultOpen: {
-    type: Boolean as PropType<CPopoverProps["defaultOpen"]>,
   },
   getRootNode: {
     type: Function as PropType<CPopoverProps["getRootNode"]>,
@@ -71,9 +69,9 @@ const VuePopoverProps = {
 
 export const CPopover = defineComponent({
   name: "CPopover",
-  props: VuePopoverProps,
+  props,
   emits: [
-    "open-change",
+    "open",
     "escape-key-down",
     "pointer-down-outside",
     "focus-outside",
@@ -97,49 +95,13 @@ export const CPopover = defineComponent({
       "transition:popover:"
     )
 
-    /** Handles exit transition */
-    const leaveTransition = (done: VoidFunction) => {
-      const motions = useMotions()
-      const instance = motions[transitionId.value]
-      instance?.leave(() => {
-        done()
-      })
-    }
-
-    const enterTransition = (done: VoidFunction) => {
-      const motions = useMotions()
-      const instance = motions[transitionId.value]
-      requestAnimationFrame(async () => {
-        instance.stopTransitions()
-        instance.set("initial")
-        await instance.apply("enter")
-        done()
-      })
-    }
-
-    if (typeof props.isOpen !== "undefined") {
-      watch(
-        () => props.isOpen,
-        (isOpen) => {
-          if (isOpen) {
-            enterTransition(() => {})
-          } else {
-            leaveTransition(() => {})
-          }
-        }
-      )
-    }
-
     const api = usePopover(popoverProps.value)
 
     const popoverApi = computed(() => ({
       ...api.value,
-      leaveTransition,
-      enterTransition,
       wait,
-      transitionId: transitionId.value,
       trigger: props.trigger,
-      close: () => leaveTransition(() => api.value.close()),
+      close: () => api.value.close(),
     }))
 
     PopoverProvider(popoverApi)

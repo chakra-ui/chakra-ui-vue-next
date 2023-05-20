@@ -8,7 +8,6 @@
       "vue",
     ],
     "lib": ["dom", "esnext"],
-    "composite": true,
     "declaration": true,
     "sourceMap": true,
     "moduleResolution": "node",

@@ -272,18 +272,16 @@ export const CCheckbox = defineComponent({
       })
     )
 
-    onMounted(() => {
-      if (props.defaultChecked && api.value) {
-        api.value.setChecked(true)
-      }
+    if (props.defaultChecked && api.value) {
+      api.value.setChecked(true)
+    }
 
-      if (api.value) {
-        if (group.value.value && ownProps.value.value) {
-          const isChecked = group.value.value.includes(ownProps.value.value)
-          api.value.setChecked(isChecked)
-        }
+    if (api.value) {
+      if (group.value.value && ownProps.value.value) {
+        const isChecked = group.value.value.includes(ownProps.value.value)
+        api.value.setChecked(isChecked)
       }
-    })
+    }
 
     watch(
       () => api.value.isChecked,

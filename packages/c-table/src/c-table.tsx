@@ -20,7 +20,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/vue-system"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
-import type * as SS from "@chakra-ui/styled-system"
+import type * as VS from "@chakra-ui/vue-system"
 
 export const [TableStylesProvider, useTableStyles] =
   createStylesContext<AnatomyParts.Table>("Table")
