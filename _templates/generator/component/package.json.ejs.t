@@ -26,9 +26,10 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "clean": "rimraf dist .turbo",
     "build": "tsup && pnpm build:types",
     "build:fast": "tsup",
-    "build:types": "tsup src --dts-only",
     "types:check": "tsc --noEmit",
-    "dev": "tsup --watch"
+    "replace-config": "clean-package",
+    "backup-config": "clean-package restore",
+    "build:types": "tsup src --dts-only"
   },
   "dependencies": {
     "@chakra-ui/vue-system": "workspace:*"
