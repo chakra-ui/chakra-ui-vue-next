@@ -135,7 +135,10 @@ export const CTabs = defineComponent({
         __css={styles.value.root}
         {...attrs}
       >
-        {slots.default?.()}
+        {slots.default?.({
+          selectedValue: api.value.value,
+          focusedValue: api.value.focusedValue,
+        })}
       </chakra.div>
     )
   },
