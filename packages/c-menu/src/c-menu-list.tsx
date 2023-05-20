@@ -1,8 +1,8 @@
-import { useStyles, chakra } from "@chakra-ui/vue-system"
+import { chakra } from "@chakra-ui/vue-system"
 import { computed, defineComponent, h } from "vue"
 import { CPortal } from "@chakra-ui/c-portal"
 
-import { useMenu } from "./c-menu"
+import { useMenu, useStyles } from "./c-menu"
 import { getValidChildren } from "@chakra-ui/vue-utils"
 
 export const CMenuList = defineComponent({

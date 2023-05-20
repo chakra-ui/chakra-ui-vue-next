@@ -13,9 +13,9 @@ import {
   chakra,
   DOMElements,
   useMultiStyleConfig,
-  StylesProvider,
   HTMLChakraProps,
-  useStyles,
+  AnatomyParts,
+  createStylesContext,
 } from "@chakra-ui/vue-system"
 import {
   CFormControlProps,
@@ -32,6 +32,11 @@ import {
  * This is commonly used in form elements such as `input`,
  * `select`, `textarea`, etc.
  */
+
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Form>("CFormControl")
+
+export { useStyles }
 
 export const formControlProps = {
   isRequired: Boolean as PropType<CFormControlProps["isRequired"]>,
@@ -54,7 +59,7 @@ export const CFormControl = defineComponent({
   setup(_props, { slots, attrs }) {
     const { as, ...props } = toRefs(_props)
     const ownProps = computed(() => props)
-    const styles = useMultiStyleConfig("Form", props)
+    const styles = useMultiStyleConfig<AnatomyParts.Form>("Form", props)
     const { rootProps, ..._context } = useFormControlProvider(ownProps.value)
 
     const context: CFormControlProviderContext = computed(() => _context)
@@ -76,7 +81,7 @@ export const CFormControl = defineComponent({
   },
 })
 
-export interface CHelpTextProps extends HTMLChakraProps<"div"> { }
+export interface CHelpTextProps extends HTMLChakraProps<"div"> {}
 /**
  * CFormHelperText
  *
