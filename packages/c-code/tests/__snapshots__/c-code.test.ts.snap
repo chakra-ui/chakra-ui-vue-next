@@ -3,27 +3,27 @@
 exports[`should render properly 1`] = `
 <DocumentFragment>
   <code
-    class="chakra-jzsne5"
+    class="chakra-lnsj14"
   >
     hello world
   </code>
   <code
-    class="chakra-3kxaoo"
+    class="chakra-1ij4qum"
   >
      hello world, red 
   </code>
   <code
-    class="chakra-19o3a2"
+    class="chakra-l5fpz0"
   >
      hello world, green 
   </code>
   <code
-    class="chakra-1xm0kle"
+    class="chakra-1ehvkaa"
   >
      hello world, yellow 
   </code>
   <code
-    class="chakra-1ezro68"
+    class="chakra-kugt48"
   >
      hello world, teal 
   </code>

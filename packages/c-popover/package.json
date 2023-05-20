@@ -35,10 +35,12 @@
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/popover": "^0.2.13",
-    "@zag-js/vue": "^0.2.10"
+    "@zag-js/popover": "^0.6.0",
+    "@zag-js/vue": "^0.6.0"
   },
   "devDependencies": {
+    "@zag-js/popper": "^0.2.7",
+    "@zag-js/types": "^0.5.0",
     "vue": "^3.2.37"
   },
   "peerDependencies": {

@@ -8,10 +8,7 @@ import type { UsePopoverReturn } from "./use-popover"
 export const [PopoverProvider, usePopoverContext] = createContext<
   ComputedRef<
     ReturnType<typeof connect> & {
-      leaveTransition: AnyFn
-      enterTransition: AnyFn
       wait: AnyFn
-      transitionId: string
       trigger: "click" | "hover"
     }
   >

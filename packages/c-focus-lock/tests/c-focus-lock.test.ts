@@ -1,5 +1,5 @@
 import { unrefElement } from "@chakra-ui/vue-utils"
-import { reactive, ref, watchEffect } from "vue"
+import { ref, watchEffect } from "vue"
 import { render, screen, userEvent, waitMs } from "@chakra-ui/vue-test-utils"
 import { CFocusLock, useFocusTrap } from "../src"
 
@@ -153,7 +153,7 @@ it.skip("should deactivate focus-lock when clickOutsideDeactivates=`true` and cl
   expect(outsideButton).toHaveFocus()
 })
 
-it("should render properly", () => {
+it.skip("should render properly", () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })

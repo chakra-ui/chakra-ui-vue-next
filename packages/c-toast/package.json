@@ -29,9 +29,9 @@
     "@chakra-ui/c-close-button": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
-    "@zag-js/core": "0.2.10",
-    "@zag-js/toast": "0.2.12",
-    "@zag-js/vue": "0.2.10",
+    "@zag-js/core": "0.5.0",
+    "@zag-js/toast": "0.6.0",
+    "@zag-js/vue": "0.6.0",
     "motion": "^10.15.5"
   },
   "devDependencies": {

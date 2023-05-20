@@ -1,4 +1,10 @@
-import { connect, Context as PopoverContext, machine } from "@zag-js/popover"
+import type * as PP from "@zag-js/popover"
+import type * as P from "@zag-js/popper"
+import {
+  connect,
+  machine,
+  type Context as PopoverContext,
+} from "@zag-js/popover"
 import { normalizeProps, useMachine } from "@zag-js/vue"
 import { computed, reactive, watch } from "vue"
 import type { Optional } from "@chakra-ui/vue-utils"
@@ -28,7 +34,6 @@ export function usePopover(props: UsePopoverProps) {
     machine({
       ...popoverContext,
       id: id.value,
-      defaultOpen: context.defaultOpen,
       onEscapeKeyDown(event) {
         emit("escape-key-down", event)
       },
@@ -38,8 +43,8 @@ export function usePopover(props: UsePopoverProps) {
       onInteractOutside(event) {
         emit("interact-outside", event)
       },
-      onOpenChange(event) {
-        emit("open-change", event)
+      onOpen() {
+        emit("open")
       },
       onPointerDownOutside(event) {
         emit("pointer-down-outside", event)

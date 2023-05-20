@@ -1,4 +1,4 @@
-import { Transition, computed, defineComponent, watch, watchEffect } from "vue"
+import { computed, defineComponent } from "vue"
 import { usePopoverContext, useStyles } from "./popover.context"
 import {
   type HTMLChakraProps,
@@ -6,10 +6,7 @@ import {
   chakra,
 } from "@chakra-ui/vue-system"
 import { CPopoverPositioner } from "./c-popover-positioner"
-import { MotionDirective, useMotions } from "@vueuse/motion"
-import { withDirectives } from "vue"
 import { match } from "@chakra-ui/vue-utils"
-import { PopoverVariants } from "./popover.transitions"
 
 const toVar = (value: string, fallback?: string) => ({
   var: value,
@@ -41,19 +38,11 @@ export const CPopoverContent = defineComponent({
         ...rest,
         ...match(api.value.trigger, {
           hover: {
-            async onPointerenter(e: MouseEvent) {
-              const motions = useMotions()
-              const instance = motions[api.value.transitionId]
-              instance.stopTransitions()
+            onPointerenter(e: MouseEvent) {
               api.value.open()
-              requestAnimationFrame(() => {
-                api.value.enterTransition(() => null)
-              })
             },
-            async onPointerleave(e: MouseEvent) {
-              requestAnimationFrame(() => {
-                api.value.leaveTransition(() => api.value.close())
-              })
+            onPointerleave(e: MouseEvent) {
+              api.value.close()
             },
           },
           click: {},
@@ -63,16 +52,13 @@ export const CPopoverContent = defineComponent({
 
     return () => (
       <CPopoverPositioner>
-        {withDirectives(
-          <chakra.div
-            {...popoverContentProps.value}
-            __css={contentStyles.value}
-            __label="popover__content"
-          >
-            {slots.default?.()}
-          </chakra.div>,
-          [[MotionDirective(PopoverVariants), api.value.transitionId]]
-        )}
+        <chakra.div
+          {...popoverContentProps.value}
+          __css={contentStyles.value}
+          __label="popover__content"
+        >
+          {slots.default?.()}
+        </chakra.div>
       </CPopoverPositioner>
     )
   },
