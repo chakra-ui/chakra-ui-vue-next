@@ -33,14 +33,14 @@ importers:
         specifier: workspace:*
         version: link:modules/nuxt
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/theme':
         specifier: ^2.3.0
-        version: 2.3.0(@chakra-ui/styled-system@2.7.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/theme-tools':
         specifier: 2.0.17
-        version: 2.0.17(@chakra-ui/styled-system@2.7.0)
+        version: 2.0.17(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/theme-utils':
         specifier: ^2.0.16
         version: 2.0.16
@@ -513,7 +513,7 @@ importers:
     devDependencies:
       '@chakra-ui/theme':
         specifier: ^3.1.0
-        version: 3.1.0(@chakra-ui/styled-system@2.8.0)
+        version: 3.1.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/utils':
         specifier: 2.0.14
         version: 2.0.14
@@ -560,8 +560,8 @@ importers:
         specifier: workspace:*
         version: link:../c-motion
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -591,8 +591,8 @@ importers:
         specifier: workspace:*
         version: link:../c-icon
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/vue-system':
         specifier: workspace:*
         version: link:../system
@@ -613,11 +613,11 @@ importers:
         specifier: workspace:*
         version: link:../c-image
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/theme-tools':
         specifier: 2.0.17
-        version: 2.0.17(@chakra-ui/styled-system@2.7.0)
+        version: 2.0.17(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -641,8 +641,8 @@ importers:
   packages/c-breadcrumb:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -666,8 +666,8 @@ importers:
         specifier: workspace:*
         version: link:../c-spinner
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -716,8 +716,8 @@ importers:
         specifier: workspace:*
         version: link:../c-motion
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -750,8 +750,8 @@ importers:
         specifier: workspace:*
         version: link:../c-icon
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -769,8 +769,8 @@ importers:
   packages/c-code:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -826,8 +826,8 @@ importers:
         specifier: workspace:*
         version: link:../c-icon
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -864,8 +864,8 @@ importers:
   packages/c-image:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -889,8 +889,8 @@ importers:
         specifier: workspace:*
         version: link:../c-form-control
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -943,8 +943,8 @@ importers:
         specifier: workspace:*
         version: link:../c-portal
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -986,8 +986,8 @@ importers:
         specifier: workspace:*
         version: link:../c-scroll-lock
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1020,8 +1020,8 @@ importers:
   packages/c-motion:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1051,8 +1051,8 @@ importers:
         specifier: workspace:*
         version: link:../c-input
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1085,8 +1085,8 @@ importers:
         specifier: workspace:*
         version: link:../c-motion
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/vue-composables':
         specifier: workspace:*
         version: link:../vue-composables
@@ -1155,8 +1155,8 @@ importers:
   packages/c-scroll-lock:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/vue-system':
         specifier: workspace:*
         version: link:../system
@@ -1196,8 +1196,8 @@ importers:
   packages/c-skip-nav:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/vue-system':
         specifier: workspace:*
         version: link:../system
@@ -1215,11 +1215,11 @@ importers:
         specifier: workspace:*
         version: link:../c-visually-hidden
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.3.0(@chakra-ui/styled-system@2.7.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1232,6 +1232,22 @@ importers:
     devDependencies:
       vue:
         specifier: 3.2.47
+        version: 3.2.47
+
+  packages/c-stat:
+    dependencies:
+      '@chakra-ui/c-icon':
+        specifier: workspace:*
+        version: link:../c-icon
+      '@chakra-ui/vue-system':
+        specifier: workspace:*
+        version: link:../system
+      '@chakra-ui/vue-utils':
+        specifier: workspace:*
+        version: link:../utils
+    devDependencies:
+      vue:
+        specifier: ^3.2.37
         version: 3.2.47
 
   packages/c-table:
@@ -1278,8 +1294,8 @@ importers:
         specifier: workspace:*
         version: link:../c-icon
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1314,10 +1330,10 @@ importers:
     dependencies:
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.3.0(@chakra-ui/styled-system@2.8.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/theme-tools':
         specifier: 2.0.17
-        version: 2.0.17(@chakra-ui/styled-system@2.8.0)
+        version: 2.0.17(@chakra-ui/styled-system@2.9.0)
     devDependencies:
       vue:
         specifier: 3.2.47
@@ -1401,8 +1417,8 @@ importers:
         specifier: workspace:*
         version: link:../c-icon
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1463,8 +1479,8 @@ importers:
         specifier: workspace:*
         version: link:../c-color-mode
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1489,7 +1505,7 @@ importers:
     devDependencies:
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.3.0(@chakra-ui/styled-system@2.7.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@types/lodash.memoize':
         specifier: ^4.1.6
         version: 4.1.7
@@ -1504,7 +1520,7 @@ importers:
         version: link:../c-color-mode
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.3.0(@chakra-ui/styled-system@2.8.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1536,8 +1552,8 @@ importers:
   packages/utils:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1659,6 +1675,9 @@ importers:
       '@chakra-ui/c-spinner':
         specifier: workspace:*
         version: link:../c-spinner
+      '@chakra-ui/c-stat':
+        specifier: workspace:*
+        version: link:../c-stat
       '@chakra-ui/c-table':
         specifier: workspace:*
         version: link:../c-table
@@ -1684,14 +1703,14 @@ importers:
         specifier: workspace:*
         version: link:../c-visually-hidden
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.3.0(@chakra-ui/styled-system@2.7.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/theme-tools':
         specifier: 2.0.17
-        version: 2.0.17(@chakra-ui/styled-system@2.7.0)
+        version: 2.0.17(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/theme-utils':
         specifier: ^2.0.6
         version: 2.0.16
@@ -1742,8 +1761,8 @@ importers:
   packages/vue-a11y:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/vue-system':
         specifier: workspace:*
         version: link:../system
@@ -1758,8 +1777,8 @@ importers:
   packages/vue-composables:
     dependencies:
       '@chakra-ui/styled-system':
-        specifier: 2.7.0
-        version: 2.7.0
+        specifier: 2.9.0
+        version: 2.9.0
       '@chakra-ui/utils':
         specifier: 2.0.15
         version: 2.0.15
@@ -1785,7 +1804,7 @@ importers:
     devDependencies:
       '@chakra-ui/theme':
         specifier: ^2.2.5
-        version: 2.3.0(@chakra-ui/styled-system@2.8.0)
+        version: 2.3.0(@chakra-ui/styled-system@2.9.0)
       '@chakra-ui/vue-next':
         specifier: workspace:*
         version: link:../../packages/vue
@@ -3236,19 +3255,13 @@ packages:
   /@chakra-ui/shared-utils@2.0.5:
     resolution: {integrity: sha512-4/Wur0FqDov7Y0nCXl7HbHzCg4aq86h+SXdoUeuCMD3dSj7dpsVnStLYhng1vxvlbUnLpdF4oz5Myt3i/a7N3Q==}
 
-  /@chakra-ui/styled-system@2.7.0:
-    resolution: {integrity: sha512-iv38qCpRAW53lg2+F5OOUh7jXW8uoYvOZaHgNVrlTHK78+VUzEfsAjl+LAkU5eDzyJE48GSegwOu05gAKa4cEg==}
-    dependencies:
-      '@chakra-ui/shared-utils': 2.0.5
-      csstype: 3.1.1
-      lodash.mergewith: 4.6.2
-
   /@chakra-ui/styled-system@2.8.0:
     resolution: {integrity: sha512-bmRv/8ACJGGKGx84U1npiUddwdNifJ+/ETklGwooS5APM0ymwUtBYZpFxjYNJrqvVYpg3mVY6HhMyBVptLS7iA==}
     dependencies:
       '@chakra-ui/shared-utils': 2.0.5
       csstype: 3.1.1
       lodash.mergewith: 4.6.2
+    dev: false
 
   /@chakra-ui/styled-system@2.9.0:
     resolution: {integrity: sha512-rToN30eOezrTZ5qBHmWqEwsYPenHtc3WU6ODAfMUwNnmCJQiu2erRGv8JwIjmRJnKSOEnNKccI2UXe2EwI6+JA==}
@@ -3256,27 +3269,6 @@ packages:
       '@chakra-ui/shared-utils': 2.0.5
       csstype: 3.1.1
       lodash.mergewith: 4.6.2
-    dev: false
-
-  /@chakra-ui/theme-tools@2.0.17(@chakra-ui/styled-system@2.7.0):
-    resolution: {integrity: sha512-Auu38hnihlJZQcPok6itRDBbwof3TpXGYtDPnOvrq4Xp7jnab36HLt7KEXSDPXbtOk3ZqU99pvI1en5LbDrdjg==}
-    peerDependencies:
-      '@chakra-ui/styled-system': '>=2.0.0'
-    dependencies:
-      '@chakra-ui/anatomy': 2.1.2
-      '@chakra-ui/shared-utils': 2.0.5
-      '@chakra-ui/styled-system': 2.7.0
-      color2k: 2.0.2
-
-  /@chakra-ui/theme-tools@2.0.17(@chakra-ui/styled-system@2.8.0):
-    resolution: {integrity: sha512-Auu38hnihlJZQcPok6itRDBbwof3TpXGYtDPnOvrq4Xp7jnab36HLt7KEXSDPXbtOk3ZqU99pvI1en5LbDrdjg==}
-    peerDependencies:
-      '@chakra-ui/styled-system': '>=2.0.0'
-    dependencies:
-      '@chakra-ui/anatomy': 2.1.2
-      '@chakra-ui/shared-utils': 2.0.5
-      '@chakra-ui/styled-system': 2.8.0
-      color2k: 2.0.2
 
   /@chakra-ui/theme-tools@2.0.17(@chakra-ui/styled-system@2.9.0):
     resolution: {integrity: sha512-Auu38hnihlJZQcPok6itRDBbwof3TpXGYtDPnOvrq4Xp7jnab36HLt7KEXSDPXbtOk3ZqU99pvI1en5LbDrdjg==}
@@ -3287,7 +3279,6 @@ packages:
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/styled-system': 2.9.0
       color2k: 2.0.2
-    dev: false
 
   /@chakra-ui/theme-utils@2.0.16:
     resolution: {integrity: sha512-xVrQ8YEhIX51PB27kbEGHoQ3G78erSykqOeIPkoxaEfWBV4Ba83o7RwEZG8/Qa7c7S4qYPmCSGynegBWrsQpHA==}
@@ -3298,36 +3289,15 @@ packages:
       lodash.mergewith: 4.6.2
     dev: false
 
-  /@chakra-ui/theme@2.3.0(@chakra-ui/styled-system@2.7.0):
+  /@chakra-ui/theme@2.3.0(@chakra-ui/styled-system@2.9.0):
     resolution: {integrity: sha512-CoO7OM2frF6Yu+FRYgzkg3AdsCAjAqrSRxsGrP1x66r8j/b9Cc0z1SzH6IPXfn5w9yqM9j7/36loT1WjWw5z5A==}
     peerDependencies:
       '@chakra-ui/styled-system': '>=2.0.0'
     dependencies:
       '@chakra-ui/anatomy': 2.1.2
       '@chakra-ui/shared-utils': 2.0.5
-      '@chakra-ui/styled-system': 2.7.0
-      '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.7.0)
-
-  /@chakra-ui/theme@2.3.0(@chakra-ui/styled-system@2.8.0):
-    resolution: {integrity: sha512-CoO7OM2frF6Yu+FRYgzkg3AdsCAjAqrSRxsGrP1x66r8j/b9Cc0z1SzH6IPXfn5w9yqM9j7/36loT1WjWw5z5A==}
-    peerDependencies:
-      '@chakra-ui/styled-system': '>=2.0.0'
-    dependencies:
-      '@chakra-ui/anatomy': 2.1.2
-      '@chakra-ui/shared-utils': 2.0.5
-      '@chakra-ui/styled-system': 2.8.0
-      '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.8.0)
-
-  /@chakra-ui/theme@3.1.0(@chakra-ui/styled-system@2.8.0):
-    resolution: {integrity: sha512-lO2p37lyEGVmGUrr+lakHpnvrJHkkfPnSM+w9MGmR0V0rqIGTIBrirBO07vDccNRS17jcXjA8d9QZEBYzIVyNw==}
-    peerDependencies:
-      '@chakra-ui/styled-system': '>=2.8.0'
-    dependencies:
-      '@chakra-ui/anatomy': 2.1.2
-      '@chakra-ui/shared-utils': 2.0.5
-      '@chakra-ui/styled-system': 2.8.0
-      '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.8.0)
-    dev: true
+      '@chakra-ui/styled-system': 2.9.0
+      '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.9.0)
 
   /@chakra-ui/theme@3.1.0(@chakra-ui/styled-system@2.9.0):
     resolution: {integrity: sha512-lO2p37lyEGVmGUrr+lakHpnvrJHkkfPnSM+w9MGmR0V0rqIGTIBrirBO07vDccNRS17jcXjA8d9QZEBYzIVyNw==}
@@ -3338,7 +3308,6 @@ packages:
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/styled-system': 2.9.0
       '@chakra-ui/theme-tools': 2.0.17(@chakra-ui/styled-system@2.9.0)
-    dev: false
 
   /@chakra-ui/utils@2.0.14:
     resolution: {integrity: sha512-vYxtAUPY09Ex2Ae2ZvQKA1d2+lMKq/wUaRiqpwmeLfutEQuPQZc3qzQcAIMRQx3wLgXr9BUFDtHgBoOz0XKtZw==}
@@ -7963,7 +7932,7 @@ packages:
   /@vue/reactivity-transform@3.2.47:
     resolution: {integrity: sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA==}
     dependencies:
-      '@babel/parser': 7.21.4
+      '@babel/parser': 7.21.8
       '@vue/compiler-core': 3.2.47
       '@vue/shared': 3.2.47
       estree-walker: 2.0.2
@@ -8061,7 +8030,7 @@ packages:
   /@vuedx/compiler-sfc@0.4.1:
     resolution: {integrity: sha512-WmiNcf6RsTTRqb0oaUhQQ/b0Eg+o+XZRdIqlgvqU5OYxTSYiajDz+Rc+2jIjByFL4WRwyfkKnKPk7C58JW6WGA==}
     dependencies:
-      '@vue/compiler-core': 3.2.47
+      '@vue/compiler-core': 3.3.4
       lru-cache: 6.0.0
       source-map: 0.6.1
     dev: false
@@ -8082,7 +8051,7 @@ packages:
   /@vuedx/template-ast-types@0.4.1:
     resolution: {integrity: sha512-PK465sch8Jzh33wJjYbWoXf41yp7xGNxyqW+AmEJ02HiB4HRHaK2RdHxc6FutyluEaTurgDFNdr2iAkiHVZeoA==}
     dependencies:
-      '@vue/compiler-core': 3.2.47
+      '@vue/compiler-core': 3.3.4
     dev: false
 
   /@vuedx/typecheck@0.4.1:

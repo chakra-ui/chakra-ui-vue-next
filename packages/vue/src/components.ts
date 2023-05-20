@@ -57,6 +57,7 @@ export * from "@chakra-ui/c-reset"
 export * from "@chakra-ui/c-skip-nav"
 export * from "@chakra-ui/c-spinner"
 export * from "@chakra-ui/c-scroll-lock"
+export * from "@chakra-ui/c-stat"
 
 // T
 export * from "@chakra-ui/c-theme-provider"
