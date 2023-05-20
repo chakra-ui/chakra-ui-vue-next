@@ -102,6 +102,17 @@ export {
 
 // C
 export {
+  CCard,
+  CCardBody,
+  type CCardBodyProps,
+  CCardHeader,
+  type CCardHeaderProps,
+  type CCardProps,
+  CCardFooter,
+  type CCardFooterProps,
+} from "@chakra-ui/c-card"
+
+export {
   type CCheckboxControlProps,
   type CCheckboxProps,
   type CCheckboxGroupProps,

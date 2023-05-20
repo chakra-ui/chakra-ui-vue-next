@@ -2,7 +2,7 @@
   "name": "@chakra-ui/vue-next",
   "version": "2.1.0-beta.11",
   "description": "Vue 3 compatible version of Chakra UI Vue",
-  "main": "./index.ts",
+  "main": "dist/index.js",
   "clean-package": "../../clean-package.config.json",
   "typings": "dist/index.d.ts",
   "files": [
@@ -26,6 +26,7 @@
     "@chakra-ui/c-avatar": "workspace:*",
     "@chakra-ui/c-breadcrumb": "workspace:*",
     "@chakra-ui/c-button": "workspace:*",
+    "@chakra-ui/c-card": "workspace:*",
     "@chakra-ui/c-checkbox": "workspace:*",
     "@chakra-ui/c-close-button": "workspace:*",
     "@chakra-ui/c-code": "workspace:*",
@@ -83,5 +84,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    }
   }
 }

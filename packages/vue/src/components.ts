@@ -18,6 +18,7 @@ export * from "@chakra-ui/c-breadcrumb"
 export * from "@chakra-ui/c-button"
 
 // C
+export * from "@chakra-ui/c-card"
 export * from "@chakra-ui/c-checkbox"
 export * from "@chakra-ui/c-color-mode"
 export * from "@chakra-ui/c-close-button"
