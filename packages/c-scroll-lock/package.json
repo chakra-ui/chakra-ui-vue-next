@@ -28,7 +28,7 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "2.7.0",
+    "@chakra-ui/styled-system": "2.9.0",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
     "body-scroll-lock": "^3.1.5"

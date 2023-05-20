@@ -57,7 +57,7 @@
     "@chakra-ui/c-toast": "workspace:*",
     "@chakra-ui/c-tooltip": "workspace:*",
     "@chakra-ui/c-visually-hidden": "workspace:*",
-    "@chakra-ui/styled-system": "2.7.0",
+    "@chakra-ui/styled-system": "2.9.0",
     "@chakra-ui/theme": "^2.2.5",
     "@chakra-ui/theme-tools": "^2.0.17",
     "@chakra-ui/theme-utils": "^2.0.6",
