@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-05-20T10:07:35.069Z
+ * This file was generated on 2023-05-20T11:15:29.529Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -170,6 +170,12 @@ declare module "@vue/runtime-core" {
     CStack: typeof import("@chakra-ui/vue-next")["CStack"]
     CStackDivider: typeof import("@chakra-ui/vue-next")["CStackDivider"]
     CStackItem: typeof import("@chakra-ui/vue-next")["CStackItem"]
+    CStat: typeof import("@chakra-ui/vue-next")["CStat"]
+    CStatArrow: typeof import("@chakra-ui/vue-next")["CStatArrow"]
+    CStatGroup: typeof import("@chakra-ui/vue-next")["CStatGroup"]
+    CStatHelpText: typeof import("@chakra-ui/vue-next")["CStatHelpText"]
+    CStatLabel: typeof import("@chakra-ui/vue-next")["CStatLabel"]
+    CStatNumber: typeof import("@chakra-ui/vue-next")["CStatNumber"]
     CTab: typeof import("@chakra-ui/vue-next")["CTab"]
     CTabIndicator: typeof import("@chakra-ui/vue-next")["CTabIndicator"]
     CTabList: typeof import("@chakra-ui/vue-next")["CTabList"]
