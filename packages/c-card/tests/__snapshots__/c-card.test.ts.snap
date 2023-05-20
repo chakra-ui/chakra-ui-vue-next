@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-card chakra-1n4p55y"
+  >
+    <div
+      class="chakra-card__header chakra-1sl53ol"
+    >
+       Customer dashboard 
+    </div>
+    <div
+      class="chakra-card__body chakra-1idwstw"
+    >
+       View a summary of all your customers over the last month. 
+    </div>
+  </div>
+</DocumentFragment>
+`;

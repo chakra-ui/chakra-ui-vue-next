@@ -6,7 +6,7 @@
  *
  * This is a generated file. Do not edit it's contents.
  *
- * This file was generated on 2023-05-20T10:07:35.069Z
+ * This file was generated on 2023-05-20T11:02:45.395Z
  */
 
 import { ChakraProps, chakra } from "@chakra-ui/vue-system"
@@ -86,6 +86,10 @@ declare module "@vue/runtime-core" {
     CBreadcrumbSeparator: typeof import("@chakra-ui/vue-next")["CBreadcrumbSeparator"]
     CButton: typeof import("@chakra-ui/vue-next")["CButton"]
     CButtonGroup: typeof import("@chakra-ui/vue-next")["CButtonGroup"]
+    CCard: typeof import("@chakra-ui/vue-next")["CCard"]
+    CCardBody: typeof import("@chakra-ui/vue-next")["CCardBody"]
+    CCardFooter: typeof import("@chakra-ui/vue-next")["CCardFooter"]
+    CCardHeader: typeof import("@chakra-ui/vue-next")["CCardHeader"]
     CCenter: typeof import("@chakra-ui/vue-next")["CCenter"]
     CCheckbox: typeof import("@chakra-ui/vue-next")["CCheckbox"]
     CCheckboxGroup: typeof import("@chakra-ui/vue-next")["CCheckboxGroup"]

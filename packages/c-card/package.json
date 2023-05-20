@@ -1,15 +1,11 @@
----
-to: packages/<%=h.changeCase.paramCase(name)%>/package.json
----
-
 {
-  "name": "<%= '@chakra-ui/' + h.changeCase.paramCase(name)%>",
-  "description": "<%= 'Chakra UI Vue | ' + h.changeCase.sentence(description) + ' component'%>",
+  "name": "@chakra-ui/c-card",
+  "description": "Chakra UI Vue | Card is a flexible component used to group and display content in a clear and concise format.",
   "version": "0.0.0-beta.0",
   "author": "Jonathan Bakebwa <codebender828@gmail.com>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue-next#readme",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "./index.ts",
   "clean-package": "../../clean-package.config.json",
   "files": [
     "dist"
@@ -32,10 +28,15 @@ to: packages/<%=h.changeCase.paramCase(name)%>/package.json
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/vue-system": "workspace:*"
+    "@chakra-ui/vue-system": "workspace:*",
+    "@chakra-ui/anatomy": "2.1.1",
+    "@chakra-ui/vue-utils": "workspace:*",
+    "@chakra-ui/utils": "2.0.14",
+    "@chakra-ui/styled-system": "2.8.0"
   },
   "devDependencies": {
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "@chakra-ui/vue-layout": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.1.4"

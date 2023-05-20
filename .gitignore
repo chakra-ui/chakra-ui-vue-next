@@ -115,3 +115,6 @@ cypress/screenshots
 # Turborepo
 .turbo
 .output
+
+# replace config temp files
+package.json.backup
