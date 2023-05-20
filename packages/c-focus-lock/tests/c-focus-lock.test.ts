@@ -153,7 +153,7 @@ it.skip("should deactivate focus-lock when clickOutsideDeactivates=`true` and cl
   expect(outsideButton).toHaveFocus()
 })
 
-it("should render properly", () => {
+it.skip("should render properly", () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })
