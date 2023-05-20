@@ -429,7 +429,7 @@ export {
   type CStatLabelProps,
   CStatNumber,
   type CStatNumberProps,
-  CStatProps,
+  type CStatProps,
 } from "@chakra-ui/c-stat"
 
 // T
