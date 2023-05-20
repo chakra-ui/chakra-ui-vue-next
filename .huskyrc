@@ -1,7 +1,7 @@
 {
   "hooks": {
-    "pre-commit": "lint-staged",
-    "pre-push": "pnpm test:silent",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "pre-commit": "pnpm run lint-staged",
+    "pre-push": "pnpm run test:silent",
+    "commit-msg": "pnpm run commitlint -E HUSKY_GIT_PARAMS"
   }
 }

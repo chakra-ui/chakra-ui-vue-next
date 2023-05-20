@@ -3,11 +3,11 @@ import * as menu from "@zag-js/menu"
 import { normalizeProps, useMachine } from "@zag-js/vue"
 import { Machine, StateMachine } from "@zag-js/core"
 import {
-  StylesProvider,
   useMultiStyleConfig,
   chakra,
-  useStyles,
   useStyleConfig,
+  AnatomyParts,
+  createStylesContext,
 } from "@chakra-ui/vue-system"
 import { ThemingProps } from "@chakra-ui/styled-system"
 import {
@@ -25,6 +25,11 @@ export const [MenuProvider, useMenu] = createContext<{
   name: "MenuContext",
   strict: true,
 })
+
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Menu>("CMenu")
+
+export { useStyles }
 
 export const CMenu = defineComponent({
   name: "CMenu",
@@ -52,7 +57,7 @@ export const CMenu = defineComponent({
       })
     )
 
-    const styles = useMultiStyleConfig("Menu", themingProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Menu>("Menu", themingProps)
     const [state, send, machine] = useMachine(
       menu.machine({
         id: props.menuId || "1",

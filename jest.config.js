@@ -10,6 +10,7 @@ module.exports = {
       },
     ],
   },
+  // testEnvironment: "@happy-dom/jest-environment",
   setupFiles: ["./jest.setup.ts"],
   transformIgnorePatterns: [
     "/node_modules/(?!@popperjs/.*|lodash.|!.pnpm/@popperjs)",

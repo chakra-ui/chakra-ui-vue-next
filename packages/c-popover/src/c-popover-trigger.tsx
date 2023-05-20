@@ -10,37 +10,20 @@ export const CPopoverTrigger = defineComponent({
     const popoverTriggerProps = computed(() => {
       const { onClick, ...rest } = api.value.triggerProps
       return {
-        ...rest,
         ...match(api.value.trigger, {
           click: {
-            async onClick(e: MouseEvent) {
-              if (api.value.isOpen) {
-                requestAnimationFrame(() => {
-                  api.value.leaveTransition(() => onClick(e))
-                })
-                await api.value.wait(300)
-              } else {
-                requestAnimationFrame(() => {
-                  api.value.enterTransition(() => null)
-                })
-                onClick(e)
-              }
-            },
+            onClick,
           },
           hover: {
             async onPointerenter(e: MouseEvent) {
               api.value.open()
-              requestAnimationFrame(() => {
-                api.value.enterTransition(() => null)
-              })
             },
             async onPointerleave(e: MouseEvent) {
-              requestAnimationFrame(async () => {
-                api.value.leaveTransition(() => api.value.close())
-              })
+              api.value.close()
             },
           },
         }),
+        ...rest,
       }
     })
 

@@ -13,8 +13,12 @@ const [StylesProvider, useStyles] = createContext<
 
 export { StylesProvider, useStyles }
 
-export const createStylesContext = (componentName: string) =>
-  createContext<ComputedRef<Record<string, SystemStyleObject>>>({
+export const createStylesContext = <AnatomyParts extends readonly string[]>(
+  componentName: string
+) =>
+  createContext<
+    ComputedRef<{ [K in AnatomyParts[number]]: SystemStyleObject }>
+  >({
     name: `${componentName}StylesContext`,
     errorMessage: `useStyles: "styles" is undefined. Seems you forgot to wrap the components in "<${componentName} />" `,
   })

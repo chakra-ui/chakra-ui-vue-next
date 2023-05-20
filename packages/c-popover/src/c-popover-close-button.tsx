@@ -10,24 +10,12 @@ export const CPopoverCloseButton = defineComponent({
     const api = usePopoverContext()
     const styles = useStyles()
 
-    const popoverTriggerProps = computed(() => {
-      const { onClick, ...rest } = api.value.triggerProps
-      return {
-        ...rest,
-        async onClick(e: MouseEvent) {
-          requestAnimationFrame(() => {
-            api.value.leaveTransition(() => onClick(e))
-          })
-        },
-      }
-    })
-
     return () => (
       <CCloseButton
         size="sm"
         __label="popover__close-button"
         __css={styles.value.closeButton}
-        {...popoverTriggerProps.value}
+        {...api.value.triggerProps}
         {...attrs}
       />
     )

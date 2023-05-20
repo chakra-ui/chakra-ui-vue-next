@@ -77,6 +77,7 @@ import {
   mergeProps,
 } from "vue"
 import {
+  AnatomyParts,
   chakra,
   DOMElements,
   HTMLChakraProps,
@@ -124,7 +125,7 @@ export const CTabs = defineComponent({
     )
 
     // Styles
-    const styles = useMultiStyleConfig("Tabs", themingProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Tabs>("Tabs", themingProps)
     CTabsStylesProvider(styles)
 
     return () => (
@@ -135,7 +136,10 @@ export const CTabs = defineComponent({
         __css={styles.value.root}
         {...attrs}
       >
-        {slots.default?.()}
+        {slots.default?.({
+          selectedValue: api.value.value,
+          focusedValue: api.value.focusedValue,
+        })}
       </chakra.div>
     )
   },

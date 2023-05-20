@@ -22,6 +22,7 @@ import {
   chakra,
   type HTMLChakraProps,
   useMultiStyleConfig,
+  AnatomyParts,
 } from "@chakra-ui/vue-system"
 import { ThemingProps, omitThemingProps } from "@chakra-ui/styled-system"
 import {
@@ -57,12 +58,12 @@ interface InputOptions {
 
 type Omitted = "disabled" | "required" | "readOnly" | "size"
 
-interface CInputNativeProps extends InputOptions, FormControlOptions { }
+interface CInputNativeProps extends InputOptions, FormControlOptions {}
 
 export interface CInputProps
   extends Omit<HTMLChakraProps<"span">, Omitted>,
-  CInputNativeProps,
-  ThemingProps<"Input"> {
+    CInputNativeProps,
+    ThemingProps<"Input"> {
   modelValue: string
 }
 
@@ -78,9 +79,13 @@ export const CInput = defineComponent({
   },
   emits: ["update:modelValue", "input", "change"],
   setup(props, { emit, attrs }) {
-    const styles = useMultiStyleConfig("Input", props)
+    const styles = useMultiStyleConfig<AnatomyParts.Input>("Input", props)
     const ownProps = computed(() =>
-      toRefs(reactive(omitThemingProps(filterUndefined(props as ThemingProps<"Input">))))
+      toRefs(
+        reactive(
+          omitThemingProps(filterUndefined(props as ThemingProps<"Input">))
+        )
+      )
     )
     const input = useFormControl(ownProps.value as ToRefs<CInputNativeProps>)
 

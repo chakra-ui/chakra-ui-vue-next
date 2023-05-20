@@ -25,16 +25,16 @@
     "build:types": "tsup src --dts-only"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "2.7.0",
     "@chakra-ui/c-form-control": "workspace:*",
     "@chakra-ui/c-motion": "workspace:*",
+    "@chakra-ui/styled-system": "2.9.0",
     "@chakra-ui/utils": "2.0.15",
     "@chakra-ui/vue-composables": "workspace:*",
     "@chakra-ui/vue-system": "workspace:*",
     "@chakra-ui/vue-utils": "workspace:*",
     "@vueuse/motion": "^1.6.0",
-    "@zag-js/checkbox": "0.2.12",
-    "@zag-js/vue": "0.2.10"
+    "@zag-js/checkbox": "0.6.0",
+    "@zag-js/vue": "0.6.0"
   },
   "devDependencies": {
     "vue": "3.2.47"

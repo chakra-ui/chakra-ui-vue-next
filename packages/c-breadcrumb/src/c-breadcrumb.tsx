@@ -20,11 +20,11 @@ import {
 import {
   chakra,
   HTMLChakraProps,
-  StylesProvider,
   useMultiStyleConfig,
-  useStyles,
   ChakraProps,
   ComponentWithProps,
+  createStylesContext,
+  AnatomyParts,
 } from "@chakra-ui/vue-system"
 import {
   SystemProps,
@@ -44,6 +44,9 @@ import { DOMElements } from "@chakra-ui/vue-system"
 /**
  * CBreadcrumb (root)
  */
+
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.Breadcrumb>("CBreadcrumb")
 
 export interface BreadcrumbOptions {
   /**
@@ -80,7 +83,10 @@ export const CBreadcrumb = defineComponent(
       })
     )
 
-    const styles = useMultiStyleConfig("Breadcrumb", themingProps)
+    const styles = useMultiStyleConfig<AnatomyParts.Breadcrumb>(
+      "Breadcrumb",
+      themingProps
+    )
     StylesProvider(styles)
 
     const separator = computed(() => {

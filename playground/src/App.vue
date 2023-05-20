@@ -114,6 +114,7 @@ export default defineComponent({
       toggleColorMode,
       rootStyles,
       useColorModeValue,
+      chakra,
     }
   },
 })

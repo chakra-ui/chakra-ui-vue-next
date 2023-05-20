@@ -21,6 +21,7 @@ import {
   DefineComponent,
 } from "vue"
 import {
+  AnatomyParts,
   chakra,
   HTMLChakraProps,
   omitThemingProps,
@@ -113,7 +114,7 @@ export const CSelect = defineComponent({
   },
   emits: ["update:modelValue"],
   setup(props, { slots, attrs, emit }) {
-    const styles = useMultiStyleConfig("Select", props)
+    const styles = useMultiStyleConfig<AnatomyParts.Select>("Select", props)
 
     const ownProps = computed(() => toRefs(reactive(omitThemingProps(props))))
 

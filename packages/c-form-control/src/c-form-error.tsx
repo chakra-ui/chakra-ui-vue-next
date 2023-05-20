@@ -1,15 +1,18 @@
 import {
+  AnatomyParts,
   chakra,
+  createStylesContext,
   HTMLChakraProps,
-  StylesProvider,
   useMultiStyleConfig,
-  useStyles,
 } from "@chakra-ui/vue-system"
 import { ThemingProps } from "@chakra-ui/styled-system"
 import { defineComponent, h } from "vue"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import { useFormControlContext } from "./use-form-control"
 import { CIcon, _iconProps, IconProps } from "@chakra-ui/c-icon"
+
+const [StylesProvider, useStyles] =
+  createStylesContext<AnatomyParts.FormError>("CFormError")
 
 export interface CFormErrorMessageProps
   extends HTMLChakraProps<"div">,
@@ -21,7 +24,10 @@ export const CFormErrorMessage = defineComponent({
     ...vueThemingProps,
   },
   setup(props, { slots, attrs }) {
-    const styles = useMultiStyleConfig("FormError", props)
+    const styles = useMultiStyleConfig<AnatomyParts.FormError>(
+      "FormError",
+      props
+    )
     const field = useFormControlContext()
 
     StylesProvider(styles)

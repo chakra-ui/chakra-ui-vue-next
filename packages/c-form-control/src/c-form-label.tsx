@@ -1,13 +1,9 @@
 import { defineComponent, computed, h } from "vue"
-import {
-  chakra,
-  HTMLChakraProps,
-  useStyleConfig,
-  useStyles,
-} from "@chakra-ui/vue-system"
+import { chakra, HTMLChakraProps, useStyleConfig } from "@chakra-ui/vue-system"
 import { ThemingProps } from "@chakra-ui/styled-system"
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import { useFormControlContext } from "./use-form-control"
+import { useStyles } from "./c-form-control"
 
 export interface FormLabelProps
   extends HTMLChakraProps<"label">,

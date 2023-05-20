@@ -6,6 +6,7 @@ export default defineConfig({
   fixturesFolder: false,
   reporter: "spec",
   component: {
+    experimentalSingleTabRunMode: true,
     setupNodeEvents(on, config) {},
     specPattern: "packages/**/*.cy.*",
     excludeSpecPattern: "**/*.snap",
