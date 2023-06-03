@@ -32,7 +32,7 @@
     "@chakra-ui/anatomy": "2.1.1",
     "@chakra-ui/vue-utils": "workspace:*",
     "@chakra-ui/utils": "2.0.14",
-    "@chakra-ui/styled-system": "2.8.0"
+    "@chakra-ui/styled-system": "2.9.1"
   },
   "devDependencies": {
     "vue": "^3.2.37",
