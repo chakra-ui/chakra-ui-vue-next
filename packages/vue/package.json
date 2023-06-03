@@ -2,9 +2,8 @@
   "name": "@chakra-ui/vue-next",
   "version": "2.1.0-beta.11",
   "description": "Vue 3 compatible version of Chakra UI Vue",
-  "main": "dist/index.js",
+  "main": "./index.ts",
   "clean-package": "../../clean-package.config.json",
-  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -84,14 +83,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
   }
 }
