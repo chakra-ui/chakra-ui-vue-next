@@ -39,7 +39,6 @@
   </chakra.div>
 </template>
 
-<script lang="ts" setup>
-import { CHStack, CVStack } from "../src"
+<script setup lang="ts">
 import { chakra } from "../../system/src"
 </script>
