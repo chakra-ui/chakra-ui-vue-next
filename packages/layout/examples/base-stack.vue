@@ -2,33 +2,43 @@
   <chakra.div py="4">
     <chakra.div py="4">
       <chakra.div>Stack Default</chakra.div>
-      <c-stack spacing="4" divider>
+      <CStack spacing="4" divider>
         <chakra.div w="40px" h="40px" bg="yellow.200"> 1 </chakra.div>
         <chakra.div w="40px" h="40px" bg="tomato"> 2 </chakra.div>
         <chakra.div w="40px" h="40px" bg="pink.100"> 3 </chakra.div>
-      </c-stack>
+      </CStack>
     </chakra.div>
 
     <chakra.div py="4">
       <chakra.div>Horizontal</chakra.div>
-      <c-h-stack spacing="10">
+      <CHStack spacing="10">
         <chakra.div w="40px" h="40px" bg="yellow.200"> 1 </chakra.div>
         <chakra.div w="40px" h="40px" bg="tomato"> 2 </chakra.div>
         <chakra.div w="40px" h="40px" bg="pink.100"> 3 </chakra.div>
-      </c-h-stack>
+      </CHStack>
     </chakra.div>
 
     <chakra.div py="4">
       <chakra.div>Vertical</chakra.div>
-      <c-v-stack as="ul" spacing="2" align="stretch">
+      <CVStack spacing="2" align="stretch">
         <chakra.div h="40px" bg="yellow.200"> 1 </chakra.div>
         <chakra.div h="40px" bg="tomato"> 2 </chakra.div>
         <chakra.div h="40px" bg="pink.100"> 3 </chakra.div>
         <chakra.span></chakra.span>
-      </c-v-stack>
+      </CVStack>
+    </chakra.div>
+
+    <chakra.div py="4">
+      <chakra.div>As prop UL</chakra.div>
+      <CStack as="ul" spacing="2" align="stretch">
+        <chakra.li w="40px" h="40px" bg="yellow.200"> 1 </chakra.li>
+        <chakra.li w="40px" h="40px" bg="tomato"> 2 </chakra.li>
+        <chakra.li w="40px" h="40px" bg="pink.100"> 3 </chakra.li>
+      </CStack>
     </chakra.div>
   </chakra.div>
 </template>
+
 <script lang="ts" setup>
 import { CHStack, CVStack } from "../src"
 import { chakra } from "../../system/src"
