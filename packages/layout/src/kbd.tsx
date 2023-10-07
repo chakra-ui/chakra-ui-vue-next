@@ -47,6 +47,7 @@ export const CKbd = defineComponent({
     return () => (
       <chakra.kbd
         __label="kbd"
+        as={props.as}
         __css={{ fontFamily: "mono", ...styles.value }}
         {...attrs}
       >

@@ -180,6 +180,7 @@ export const CStack = defineComponent({
       return (
         <chakra.div
           __label={"stack"}
+          as={props.as}
           display={"flex"}
           alignItems={props.align}
           justifyContent={props.justify}

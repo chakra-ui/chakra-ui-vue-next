@@ -12,7 +12,7 @@ import type * as CSS from "csstype"
 
 export interface ContainerProps
   extends HTMLChakraProps<"div">,
-  ThemingProps<"Container"> {
+    ThemingProps<"Container"> {
   /**
    * If `true`, container will center its children
    * regardless of their width.
@@ -54,6 +54,7 @@ export const CContainer = defineComponent({
     return () => (
       <chakra.div
         __label="container"
+        as={props.as}
         __css={{
           ...styles.value,
           ...(props.centerContent && {

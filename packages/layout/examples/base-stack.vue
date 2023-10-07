@@ -20,7 +20,7 @@
 
     <chakra.div py="4">
       <chakra.div>Vertical</chakra.div>
-      <c-v-stack spacing="2" align="stretch">
+      <c-v-stack as="ul" spacing="2" align="stretch">
         <chakra.div h="40px" bg="yellow.200"> 1 </chakra.div>
         <chakra.div h="40px" bg="tomato"> 2 </chakra.div>
         <chakra.div h="40px" bg="pink.100"> 3 </chakra.div>
