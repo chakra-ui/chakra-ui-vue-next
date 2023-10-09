@@ -29,7 +29,7 @@ export const CKbd = defineComponent({
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
-      default: "h2",
+      default: "kbd",
     },
     ...vueThemingProps,
   },
