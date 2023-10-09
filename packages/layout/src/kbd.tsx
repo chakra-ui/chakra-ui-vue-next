@@ -29,7 +29,7 @@ export const CKbd = defineComponent({
   props: {
     as: {
       type: [String, Object] as PropType<DOMElements>,
-      default: "h2",
+      default: "kbd",
     },
     ...vueThemingProps,
   },
@@ -47,6 +47,7 @@ export const CKbd = defineComponent({
     return () => (
       <chakra.kbd
         __label="kbd"
+        as={props.as}
         __css={{ fontFamily: "mono", ...styles.value }}
         {...attrs}
       >

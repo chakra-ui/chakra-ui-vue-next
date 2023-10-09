@@ -68,6 +68,7 @@ export const CText = defineComponent({
     return () => {
       return (
         <chakra.p
+          as={props.as}
           __label="text"
           {...aliasedProps.value}
           __css={styles.value}

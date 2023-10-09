@@ -1,11 +1,7 @@
 import { vueThemingProps } from "@chakra-ui/vue-utils"
 import { HTMLChakraProps } from "@chakra-ui/vue-system"
 import { h, defineComponent, PropType, computed } from "vue"
-import {
-  chakra,
-  DOMElements,
-  useStyleConfig,
-} from "@chakra-ui/vue-system"
+import { chakra, DOMElements, useStyleConfig } from "@chakra-ui/vue-system"
 import { ThemingProps } from "@chakra-ui/styled-system"
 import { filterUndefined } from "@chakra-ui/utils"
 import type * as CSS from "csstype"
